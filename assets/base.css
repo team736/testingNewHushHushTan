@@ -684,8 +684,11 @@ small, .small { font-size: .82rem; color: var(--muted); }
   border-radius: 0;
   max-height: min(680px, calc(100svh - var(--header-stack-h) - 140px));
   width: auto;
-  max-width: min(620px, 54vw);
-  filter: drop-shadow(0 24px 56px rgba(143, 131, 214, 0.24));
+  max-width: min(720px, 58vw);
+  filter: drop-shadow(0 20px 48px rgba(55, 50, 88, 0.22));
+}
+.hero-slider .hero__visual--cutout .hero__visual-glow {
+  opacity: 0.35;
 }
 .hero-slider + .section,
 .hero-slider + section,

@@ -1,5 +1,5 @@
 {%- liquid
-  assign fallback = block.settings.image_fallback | default: 'hero-products.jpg'
+  assign fallback = block.settings.image_fallback | default: 'hero-products.png'
   assign slide_id = 'hero-slide-' | append: index
   assign is_cutout = block.settings.transparent_image
   if is_cutout == false and block.settings.image == blank and fallback contains '.png'
