@@ -1,9 +1,0 @@
-{
-  "type": "header",
-  "name": "Header group",
-  "sections": {
-    "announcement": { "type": "announcement-bar", "settings": { "text": "Complimentary Glow Guide with Every First Visit · Now Booking" } },
-    "header": { "type": "header", "settings": {} }
-  },
-  "order": ["announcement", "header"]
-}
