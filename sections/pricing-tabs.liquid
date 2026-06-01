@@ -1,10 +1,25 @@
-<section class="section">
+<section class="section{% if section.settings.homepage_preview %} section--soft pricing-tabs--preview{% endif %}">
   <div class="container">
-    <div class="text-center" style="margin-bottom: 24px;">
-      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h2 class="mb-0">{{ section.settings.heading }}</h2>
-      {%- if section.settings.subheading != blank -%}<p class="muted" style="margin-top: 8px; max-width: 56ch; margin-left:auto; margin-right:auto;">{{ section.settings.subheading }}</p>{%- endif -%}
-    </div>
+    {%- if section.settings.show_intro_split -%}
+      <div class="pricing-intro-split">
+        <div>
+          {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+          <h2 class="pricing-intro-split__title">{{ section.settings.heading }}</h2>
+        </div>
+        <div>
+          {%- if section.settings.subheading != blank -%}<p class="lead">{{ section.settings.subheading }}</p>{%- endif -%}
+          {%- if section.settings.cta_text != blank -%}
+            <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="btn btn--pill">{{ section.settings.cta_text }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- else -%}
+      <div class="text-center" style="margin-bottom: 24px;">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+        <h2 class="mb-0">{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}<p class="muted" style="margin-top: 8px; max-width: 56ch; margin-left:auto; margin-right:auto;">{{ section.settings.subheading }}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
 
     <div class="pricing-tabs__wrap" data-pricing-tabs>
       <div class="pricing-tabs__tablist" role="tablist">
@@ -90,6 +105,7 @@
             </div>
           </div>
 
+          {%- unless section.settings.homepage_preview -%}
           {%- comment -%} Full Body Services {%- endcomment -%}
           <div class="pricing-block">
             <h3 class="pricing-block__heading">Full body services</h3>
@@ -136,13 +152,21 @@
               <div class="price-row"><span class="price-row__name">{{ tab.settings.extra_service_name }}</span><span class="price-row__price">${{ tab.settings.extra_service_price }}</span></div>
             </div>
           {%- endif -%}
+          {%- endunless -%}
 
+          {%- unless section.settings.homepage_preview -%}
           <div class="text-center" style="margin-top: 32px;">
-            <a href="{{ tab.settings.book_url }}" class="btn">Book {{ tab.settings.label }}</a>
+            <a href="{{ tab.settings.book_url }}" class="btn btn--pill">Book {{ tab.settings.label }}</a>
           </div>
+          {%- endunless -%}
         </div>
       {%- endfor -%}
     </div>
+    {%- if section.settings.homepage_preview and section.settings.cta_text != blank -%}
+      <div class="text-center" style="margin-top: 40px;">
+        <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="btn btn--pill">{{ section.settings.cta_text }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -152,7 +176,11 @@
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Services & Pricing" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your location" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Austin and Houston share pricing. Dallas pricing is different." }
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Austin and Houston share pricing. Dallas pricing is different." },
+    { "type": "checkbox", "id": "homepage_preview", "label": "Homepage preview (memberships + packages only)", "default": false },
+    { "type": "checkbox", "id": "show_intro_split", "label": "Split intro layout", "default": false },
+    { "type": "text", "id": "cta_text", "label": "Bottom CTA text" },
+    { "type": "url", "id": "cta_url", "label": "Bottom CTA URL" }
   ],
   "blocks": [
     {

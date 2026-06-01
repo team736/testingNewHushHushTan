@@ -38,11 +38,12 @@
         { "value": "'Playfair Display', Georgia, serif", "label": "Playfair Display" },
         { "value": "'Cormorant Garamond', Georgia, serif", "label": "Cormorant Garamond" },
         { "value": "'Inter', system-ui, sans-serif", "label": "Inter" }
-      ], "default": "'Playfair Display', Georgia, serif" },
+      ], "default": "'Cormorant Garamond', Georgia, serif" },
       { "type": "select", "id": "body_font", "label": "Body font", "options": [
+        { "value": "'Jost', system-ui, sans-serif", "label": "Jost" },
         { "value": "'Inter', system-ui, sans-serif", "label": "Inter" },
         { "value": "system-ui, -apple-system, sans-serif", "label": "System UI" }
-      ], "default": "'Inter', system-ui, sans-serif" }
+      ], "default": "'Jost', system-ui, sans-serif" }
     ]
   },
   {

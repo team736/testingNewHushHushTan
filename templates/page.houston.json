@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "eyebrow": "Houston Studio",
+        "title_line1": "Custom Glow in Houston",
+        "title_line2": "",
+        "subtitle": "Houston studio details coming soon — book your hand-mixed Custom Glow through Booker.",
+        "cta_primary_text": "Book Now",
+        "cta_primary_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+        "cta_secondary_text": "View Pricing",
+        "cta_secondary_url": "/pages/houston-services",
+        "show_trust_row": false,
+        "show_shade_card": false
+      }
+    },
+    "studio": {
+      "type": "location-cards",
+      "settings": {
+        "eyebrow": "Studio",
+        "heading": "Houston studio details",
+        "subheading": ""
+      },
+      "blocks": {
+        "l1": {
+          "type": "location",
+          "settings": {
+            "city": "Houston",
+            "tagline": "Houston studio",
+            "address": "Houston studio details to be confirmed",
+            "phone": "",
+            "hours": "",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+            "info_url": "/pages/houston-services"
+          }
+        }
+      },
+      "block_order": ["l1"]
+    },
+    "services": {
+      "type": "service-cards",
+      "settings": {
+        "eyebrow": "Services",
+        "heading": "Popular in Houston"
+      },
+      "blocks": {
+        "s1": { "type": "service", "settings": { "title": "Custom Glow", "price": "From $40", "description": "Signature airbrush tanning with hand-mixed color.", "cta_text": "Learn more", "cta_url": "/pages/spray-tanning" } },
+        "s2": { "type": "service", "settings": { "title": "Memberships", "price": "From $66/mo", "description": "Monthly Glow, Deluxe, and Absolute plans with member savings.", "cta_text": "View memberships", "cta_url": "/pages/memberships" } },
+        "s3": { "type": "service", "settings": { "title": "Packages", "price": "From $175", "description": "Glow-Getter, Ultimate Glow, and Elite Glow series packages.", "cta_text": "View packages", "cta_url": "/pages/memberships" } }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "faq": {
+      "type": "faq-accordion",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Questions before you book?",
+        "show_view_all": true,
+        "view_all_url": "/pages/faqs"
+      },
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>Most clients enjoy 7–10 days of even color with proper prep and aftercare.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Does Houston share Austin pricing?", "answer": "<p>Yes — Houston uses the same service and membership rates as Austin unless noted otherwise.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "When will the Houston address be posted?", "answer": "<p>We will update this page as soon as the studio address is confirmed. You can still book online today.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3"]
+    },
+    "final": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to glow in Houston?",
+        "cta1_text": "Book Houston",
+        "cta1_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+        "cta2_text": "All Locations",
+        "cta2_url": "/pages/locations"
+      }
+    }
+  },
+  "order": ["hero", "studio", "services", "faq", "final"]
+}

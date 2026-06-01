@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "intro": {
+      "type": "rich-text",
+      "settings": {
+        "eyebrow": "Sitemap",
+        "heading": "Explore Hush Hush Tan",
+        "text": "<p><strong>Locations</strong><br><a href=\"/pages/austin\">Austin</a> · <a href=\"/pages/dallas\">Dallas</a> · <a href=\"/pages/houston\">Houston</a> · <a href=\"/pages/locations\">All locations</a></p><p><strong>Services</strong><br><a href=\"/pages/spray-tanning\">Spray tanning</a> · <a href=\"/pages/austin-services\">Austin services</a> · <a href=\"/pages/dallas-services\">Dallas services</a> · <a href=\"/pages/houston-services\">Houston services</a> · <a href=\"/pages/memberships\">Memberships &amp; packages</a> · <a href=\"/pages/hush-hush-tan-group-tanning-mimosas-package\">Group tanning</a> · <a href=\"/pages/mobile-spray-tan\">Mobile tanning</a></p><p><strong>Shop</strong><br><a href=\"/collections/tanning-products\">Tanning products</a> · <a href=\"/pages/tanning-gift-certificates\">Gift certificates</a></p><p><strong>About</strong><br><a href=\"/pages/about-us\">Our story</a> · <a href=\"/pages/contact\">Contact</a> · <a href=\"/pages/faqs\">FAQ</a> · <a href=\"/pages/press\">Press</a> · <a href=\"/pages/careers\">Careers</a> · <a href=\"/blogs/tanning-tips\">Tanning tips</a></p><p><strong>Policies</strong><br><a href=\"/pages/shipping\">Shipping</a> · <a href=\"/policies/privacy-policy\">Privacy</a> · <a href=\"/policies/terms-of-service\">Terms</a></p>",
+        "text_align": "left"
+      }
+    }
+  },
+  "order": ["intro"]
+}

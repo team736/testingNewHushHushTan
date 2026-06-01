@@ -12,8 +12,9 @@
             {%- if block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.city }}" width="800" height="500" loading="lazy">
             {%- else -%}
-              {%- assign fallback_asset = 'hht-studio-glow.png' -%}
-              {%- if block.settings.city == 'Houston' -%}{%- assign fallback_asset = 'hht-houston.jpg' -%}{%- endif -%}
+              {%- assign fallback_asset = 'location-austin.jpg' -%}
+              {%- if block.settings.city == 'Dallas' -%}{%- assign fallback_asset = 'location-dallas.jpg' -%}
+              {%- elsif block.settings.city == 'Houston' -%}{%- assign fallback_asset = 'location-houston.jpg' -%}{%- endif -%}
               <img src="{{ fallback_asset | asset_url }}" alt="{{ block.settings.city | escape }}" width="800" height="500" loading="lazy">
             {%- endif -%}
           </div>
@@ -25,10 +26,10 @@
             {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
             <div class="location-card__ctas">
               {%- if block.settings.book_url != blank -%}
-                <a href="{{ block.settings.book_url }}" class="btn btn--lavender btn--small">Book {{ block.settings.city }}</a>
+                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small">Book Now</a>
               {%- endif -%}
               {%- if block.settings.info_url != blank -%}
-                <a href="{{ block.settings.info_url }}" class="btn--ghost">View pricing →</a>
+                <a href="{{ block.settings.info_url }}" class="btn btn--pill btn--outline btn--small">View Pricing</a>
               {%- endif -%}
             </div>
           </div>

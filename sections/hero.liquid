@@ -1,31 +1,67 @@
-<section class="hero{% if section.settings.image == blank %} hero--fallback-image{% endif %}">
-  {%- if section.settings.image != blank -%}
-    <div class="hero__media">
-      <img src="{{ section.settings.image | image_url: width: 2200 }}"
-           srcset="{{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
-           sizes="100vw"
-           alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
-           width="2200" height="1300"
-           fetchpriority="high">
-    </div>
-  {%- else -%}
-    <div class="hero__media">
-      <img src="{{ 'hht-hero.jpg' | asset_url }}" alt="{{ section.settings.title | escape }}" width="2200" height="1600" fetchpriority="high">
-    </div>
-  {%- endif -%}
-  <div class="hero__inner">
+<section class="hero hero--split" id="top">
+  <div class="container hero--split__grid">
     <div class="hero__copy">
-      {%- if section.settings.eyebrow != blank -%}<span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h1 class="hero__title">{{ section.settings.title }}</h1>
-      <p class="hero__sub">{{ section.settings.subtitle }}</p>
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h1 class="hero__title">
+        {{ section.settings.title_line1 | default: 'Glow More,' }}
+        {%- if section.settings.title_line2 != blank -%}
+          <br><span class="hero__title-accent">{{ section.settings.title_line2 }}</span>
+        {%- endif -%}
+      </h1>
+      {%- if section.settings.subtitle != blank -%}
+        <p class="hero__sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
       <div class="hero__ctas">
         {%- if section.settings.cta_primary_text != blank -%}
-          <a href="{{ section.settings.cta_primary_url | default: '#' }}" class="btn">{{ section.settings.cta_primary_text }}</a>
+          <a href="{{ section.settings.cta_primary_url | default: '/pages/memberships' }}" class="btn btn--pill">{{ section.settings.cta_primary_text }}</a>
         {%- endif -%}
         {%- if section.settings.cta_secondary_text != blank -%}
-          <a href="{{ section.settings.cta_secondary_url | default: '#' }}" class="btn btn--outline">{{ section.settings.cta_secondary_text }}</a>
+          <a href="{{ section.settings.cta_secondary_url | default: '/pages/locations' }}" class="btn btn--pill btn--outline">{{ section.settings.cta_secondary_text }}</a>
         {%- endif -%}
       </div>
+      {%- if section.settings.show_trust_row -%}
+        <div class="hero__trust">
+          <span>Award Winning</span>
+          <span class="hero__trust-divider" aria-hidden="true"></span>
+          <span>Since 2007</span>
+          <span class="hero__trust-divider" aria-hidden="true"></span>
+          <span>3 Texas Studios</span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__visual-bg" aria-hidden="true"></div>
+      {%- if section.settings.image != blank -%}
+        <img
+          src="{{ section.settings.image | image_url: width: 1280 }}"
+          srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1280 }} 1280w"
+          sizes="(min-width: 990px) 50vw, 100vw"
+          alt="{{ section.settings.image.alt | default: section.settings.title_line1 | escape }}"
+          width="1280" height="1280"
+          class="hero__visual-img"
+          fetchpriority="high">
+      {%- else -%}
+        <img
+          src="{{ 'hero-products.jpg' | asset_url }}"
+          alt="Hush Hush Tan aftercare product collection"
+          width="1280" height="1280"
+          class="hero__visual-img"
+          fetchpriority="high">
+      {%- endif -%}
+      {%- if section.settings.show_shade_card -%}
+        <div class="hero__shade-card">
+          <div class="hero__shade-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div>
+            <div class="hero__shade-title">12 custom shades</div>
+            <div class="hero__shade-sub">Color-matched to you</div>
+          </div>
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -34,14 +70,17 @@
 {
   "name": "Hero",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Hero image (full-width background)" },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Essential glow" },
-    { "type": "text", "id": "title", "label": "Title", "default": "Healthier Glow. Flawless Confidence." },
-    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Locations in Austin, Dallas, and Houston." },
-    { "type": "text", "id": "cta_primary_text", "label": "Primary CTA", "default": "Book Now" },
+    { "type": "image_picker", "id": "image", "label": "Product / hero image (right column)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Memberships & Packages" },
+    { "type": "text", "id": "title_line1", "label": "Headline line 1", "default": "Glow More," },
+    { "type": "text", "id": "title_line2", "label": "Headline line 2 (accent)", "default": "Save More" },
+    { "type": "textarea", "id": "subtitle", "label": "Paragraph", "default": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long." },
+    { "type": "text", "id": "cta_primary_text", "label": "Primary CTA", "default": "View Memberships" },
     { "type": "url", "id": "cta_primary_url", "label": "Primary CTA URL" },
     { "type": "text", "id": "cta_secondary_text", "label": "Secondary CTA", "default": "Choose Your Location" },
-    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" }
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" },
+    { "type": "checkbox", "id": "show_trust_row", "label": "Show trust row", "default": true },
+    { "type": "checkbox", "id": "show_shade_card", "label": "Show shade card overlay", "default": true }
   ],
   "presets": [{ "name": "Hero" }]
 }
