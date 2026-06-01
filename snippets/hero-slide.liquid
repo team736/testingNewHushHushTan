@@ -3,20 +3,41 @@
   assign slide_id = 'hero-slide-' | append: index
   assign layout = block.settings.image_layout | default: 'split'
   assign is_cutout = block.settings.transparent_image
-  if is_cutout == false and block.settings.image == blank and fallback contains '.png'
-    assign is_cutout = true
-  endif
 -%}
 
 <article
   id="{{ slide_id }}"
-  class="hero-slider__slide hero hero--{{ layout }}{% if first %} is-active{% endif %}"
+  class="hero-slider__slide hero hero--{{ layout }}{% if layout == 'overlay' and is_cutout == false %} hero--overlay-photo{% endif %}{% if first %} is-active{% endif %}"
   role="tabpanel"
   aria-hidden="{% if first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}
   data-hero-slide="{{ index | minus: 1 }}">
   {%- if layout == 'overlay' -%}
+    {%- unless is_cutout -%}
+    <div class="hero__photo hero__anim-item" aria-hidden="true">
+      {%- if block.settings.image != blank -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 2048 }}"
+          srcset="{{ block.settings.image | image_url: width: 1200 }} 1200w, {{ block.settings.image | image_url: width: 1800 }} 1800w, {{ block.settings.image | image_url: width: 2048 }} 2048w"
+          sizes="100vw"
+          alt=""
+          width="2048"
+          height="1152"
+          class="hero__photo-img"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- else -%}
+        <img
+          src="{{ fallback | asset_url }}"
+          alt=""
+          width="2048"
+          height="1152"
+          class="hero__photo-img"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- endif -%}
+    </div>
+    {%- endunless -%}
   <div class="container hero--overlay__stage">
+    {%- if is_cutout -%}
     <div class="hero__visual hero__visual--wide hero__anim-item" aria-hidden="true">
       {%- if block.settings.image != blank -%}
         <img
@@ -38,6 +59,7 @@
           {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
       {%- endif -%}
     </div>
+    {%- endif -%}
     <div class="hero__copy">
   {%- else -%}
   <div class="container hero--split__grid">
