@@ -396,13 +396,29 @@ small, .small { font-size: .82rem; color: var(--muted); }
   width: 100%;
   overflow: hidden;
   margin-bottom: 0;
-  background: #A3A3E2;
+  background: linear-gradient(
+    118deg,
+    #8e8ed4 0%,
+    #9696d6 16%,
+    #A3A3E2 38%,
+    #a9a9e5 58%,
+    #b3b1eb 78%,
+    #c2c0f1 100%
+  );
   --hero-ink: #151515;
   --hero-ink-muted: #3a3842;
   --hero-ink-accent: #4a3d8f;
 }
 .hero-slider::before {
-  content: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(55, 50, 88, 0.16) 0%, rgba(55, 50, 88, 0.05) 34%, transparent 56%),
+    radial-gradient(ellipse 72% 80% at 82% 42%, rgba(255, 255, 255, 0.2), transparent 64%),
+    radial-gradient(ellipse 48% 42% at 6% 92%, rgba(255, 255, 255, 0.08), transparent 58%);
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-slider .hero__eyebrow {
   color: var(--hero-ink-accent);
