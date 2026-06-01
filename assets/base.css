@@ -396,17 +396,10 @@ small, .small { font-size: .82rem; color: var(--muted); }
   width: 100%;
   overflow: hidden;
   margin-bottom: 0;
-  background: linear-gradient(128deg, var(--soft) 0%, var(--pale) 42%, #ebe9fc 78%, var(--cream) 100%);
+  background: #A3A3E2;
 }
 .hero-slider::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 75% 60% at 80% 38%, rgba(168, 160, 232, 0.36), transparent 62%),
-    radial-gradient(ellipse 50% 45% at 10% 85%, rgba(244, 242, 255, 0.92), transparent 55%);
-  pointer-events: none;
-  z-index: 0;
+  content: none;
 }
 .hero-slider__viewport {
   position: relative;
