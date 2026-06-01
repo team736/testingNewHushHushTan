@@ -1,0 +1,181 @@
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb" style="text-align: left;">
+    <a href="{{ routes.root_url }}">Home</a><span class="breadcrumb__sep">/</span>
+    {%- if collection -%}<a href="{{ collection.url }}">{{ collection.title }}</a><span class="breadcrumb__sep">/</span>{%- endif -%}
+    <span aria-current="page">{{ product.title }}</span>
+  </nav>
+
+  <div class="product" data-product-gallery>
+    <div class="product__gallery">
+      <div class="product__main-image" data-gallery-main>
+        {%- if product.featured_image -%}
+          <img src="{{ product.featured_image | image_url: width: 1200 }}"
+               srcset="{{ product.featured_image | image_url: width: 800 }} 800w, {{ product.featured_image | image_url: width: 1200 }} 1200w, {{ product.featured_image | image_url: width: 1600 }} 1600w"
+               sizes="(max-width: 900px) 100vw, 50vw"
+               alt="{{ product.featured_image.alt | default: product.title | escape }}"
+               width="1200" height="1500">
+        {%- endif -%}
+        <button type="button" class="zoom-btn" aria-label="Zoom">{% render 'icon', name: 'zoom' %}</button>
+      </div>
+      {%- if product.images.size > 1 -%}
+        <div class="product__thumbs">
+          {%- for image in product.images limit: 10 -%}
+            <button class="product__thumb" data-gallery-thumb
+                    data-src="{{ image | image_url: width: 1200 }}"
+                    {% if forloop.first %}aria-current="true"{% endif %}
+                    aria-label="View image {{ forloop.index }}">
+              <img src="{{ image | image_url: width: 200 }}" alt="" loading="lazy" width="100" height="100">
+            </button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info">
+      <div class="product__price-row">
+        {%- if product.compare_at_price > product.price -%}
+          <span class="product__price"><span class="on-sale">{{ product.price | money }}</span> <s>{{ product.compare_at_price | money }}</s></span>
+          <span class="badge badge--sale">Sale</span>
+        {%- else -%}
+          <span class="product__price">{{ product.price | money }}</span>
+          {%- if product.metafields.custom.new_arrival -%}<span class="badge badge--new">New</span>{%- endif -%}
+        {%- endif -%}
+      </div>
+      <h1 class="product__title">{{ product.title }}</h1>
+
+      <script type="application/json" data-product-json>{{ product.variants | json }}</script>
+      {%- form 'product', product, class: 'product__form', id: 'ProductForm', novalidate: 'novalidate' -%}
+        {%- unless product.has_only_default_variant -%}
+          <div class="product__options">
+            {%- for option in product.options_with_values -%}
+              <div class="product__option">
+                <div class="product__option-label">{{ option.name }}: <small>{{ option.selected_value }}</small></div>
+                <div class="product__option-pills">
+                  {%- for value in option.values -%}
+                    {%- assign uid = section.id | append: '-opt-' | append: option.position | append: '-' | append: forloop.index -%}
+                    <input type="radio" name="options[{{ option.name }}]" id="{{ uid }}" value="{{ value | escape }}" {% if option.selected_value == value %}checked{% endif %}>
+                    <label for="{{ uid }}">{{ value }}</label>
+                  {%- endfor -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endunless -%}
+
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="product__qty-row">
+          <div class="product__option-label" style="margin: 0;">Quantity</div>
+          <div class="product__quantity" data-qty>
+            <button type="button" data-step="-1" aria-label="Decrease">−</button>
+            <input type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+            <button type="button" data-step="1" aria-label="Increase">+</button>
+          </div>
+          <button type="submit" class="btn btn--lavender product__add" {% unless product.available %}disabled{% endunless %} style="flex:1;">
+            Add to cart
+          </button>
+        </div>
+
+        {%- unless section.settings.show_dynamic_checkout -%}
+        <button type="submit" class="btn btn--buy" {% unless product.available %}disabled{% endunless %}>
+          {%- if product.available -%}Buy it now{%- else -%}Sold out{%- endif -%}
+        </button>
+        {%- endunless -%}
+
+        {%- if section.settings.show_dynamic_checkout -%}
+          {{ form | payment_button }}
+        {%- endif -%}
+      {%- endform -%}
+
+      <div class="product__utility">
+        <a href="{{ product.url }}">{% render 'icon', name: 'share' %} Share</a>
+        <a href="/pages/contact">{% render 'icon', name: 'chat' %} Product help</a>
+      </div>
+
+      <dl class="product__meta-row">
+        {%- if section.settings.delivery_text != blank -%}<dt>Estimated Delivery:</dt><dd>{{ section.settings.delivery_text }}</dd>{%- endif -%}
+        {%- if section.settings.shipping_note != blank -%}<dt>Free Shipping:</dt><dd>{{ section.settings.shipping_note }}</dd>{%- endif -%}
+        {%- if product.vendor != blank -%}<dt>Vendor:</dt><dd>{{ product.vendor }}</dd>{%- endif -%}
+        {%- if product.collections.size > 0 -%}<dt>Collections:</dt><dd>{%- for c in product.collections -%}<a href="{{ c.url }}">{{ c.title }}</a>{%- unless forloop.last -%}, {% endunless -%}{%- endfor -%}</dd>{%- endif -%}
+        {%- if product.selected_or_first_available_variant.sku != blank -%}<dt>SKU:</dt><dd>{{ product.selected_or_first_available_variant.sku }}</dd>{%- endif -%}
+      </dl>
+    </div>
+  </div>
+
+  <div class="product__details" data-tabs>
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" role="tab" aria-selected="true" data-panel="desc">Description</button>
+      {%- if section.settings.shipping_text != blank -%}<button class="tab" role="tab" aria-selected="false" data-panel="ship">Shipping &amp; Return</button>{%- endif -%}
+    </div>
+    <div class="panel is-active" id="desc">
+      <div class="rte">{{ product.description }}</div>
+    </div>
+    {%- if section.settings.shipping_text != blank -%}
+      <div class="panel" id="ship">
+        <div class="rte">{{ section.settings.shipping_text }}</div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_related -%}
+    <section class="section">
+      <div class="section-head"><h2>You May Also Like</h2></div>
+      <div class="product-strip__track">
+        {%- assign related_count = 0 -%}
+        {%- if product.collections.first -%}
+          {%- for p in product.collections.first.products -%}
+            {%- if p.id != product.id and related_count < 4 -%}
+              {% render 'product-card', product: p %}
+              {%- assign related_count = related_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+        {%- if related_count < 4 -%}
+          {%- for p in collections.all.products -%}
+            {%- if p.id != product.id and related_count < 4 -%}
+              {% render 'product-card', product: p %}
+              {%- assign related_count = related_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </section>
+  {%- endif -%}
+</div>
+
+<div class="product-sticky">
+  <div style="flex:1;">
+    <div style="font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.2;">{{ product.title }}</div>
+    <div class="muted">{{ product.price | money }}</div>
+  </div>
+  <a href="#" onclick="document.querySelector('.product__form button[type=submit]').click(); return false;" class="btn btn--small btn--lavender">Add to cart</a>
+</div>
+
+<script>
+  // Inline tab handler (lightweight, no module needed)
+  document.querySelectorAll('[data-tabs]').forEach(function(root){
+    var tabs = root.querySelectorAll('.tab');
+    tabs.forEach(function(t){
+      t.addEventListener('click', function(){
+        tabs.forEach(function(x){ x.classList.remove('is-active'); x.setAttribute('aria-selected','false'); });
+        root.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('is-active'); });
+        t.classList.add('is-active'); t.setAttribute('aria-selected','true');
+        var p = root.querySelector('#' + t.getAttribute('data-panel'));
+        if (p) p.classList.add('is-active');
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    { "type": "checkbox", "id": "show_dynamic_checkout", "label": "Show dynamic checkout button", "default": true },
+    { "type": "checkbox", "id": "show_related", "label": "Show related products", "default": true },
+    { "type": "text", "id": "delivery_text", "label": "Estimated delivery text", "default": "3–5 business days" },
+    { "type": "text", "id": "shipping_note", "label": "Free shipping note", "default": "On all orders over $50" },
+    { "type": "richtext", "id": "shipping_text", "label": "Shipping & returns text", "default": "<p>Free shipping on orders over $50. Ships from Austin, TX in 1–2 business days. Returns accepted on unopened products within 30 days.</p>" }
+  ]
+}
+{% endschema %}

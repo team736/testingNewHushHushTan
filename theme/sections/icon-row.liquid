@@ -1,0 +1,47 @@
+<section class="section section--tight">
+  <div class="container">
+    <div class="icon-row">
+      {%- for block in section.blocks -%}
+        <div class="icon-row__item" {{ block.shopify_attributes }}>
+          <div class="icon-row__icon">{% render 'icon', name: block.settings.icon %}</div>
+          <div>
+            <div class="icon-row__title">{{ block.settings.title }}</div>
+            <p class="icon-row__text">{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Icon benefit row",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "options": [
+          {"value":"sparkle","label":"Sparkle"},{"value":"leaf","label":"Leaf"},
+          {"value":"heart","label":"Heart"},{"value":"shield","label":"Shield"},
+          {"value":"truck","label":"Truck"},{"value":"refresh","label":"Refresh"},
+          {"value":"chat","label":"Chat"},{"value":"card","label":"Card"}
+        ], "default": "sparkle" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Custom Color" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Mixed for your undertones." }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Icon benefit row",
+    "blocks": [
+      { "type": "item", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Mixed for your unique undertones." } },
+      { "type": "item", "settings": { "icon": "leaf", "title": "Clean Formula", "text": "Eco-certified, paraben-free." } },
+      { "type": "item", "settings": { "icon": "heart", "title": "Award-Winning", "text": "Featured in Vogue & InStyle." } },
+      { "type": "item", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Over a decade of glow." } }
+    ]
+  }]
+}
+{% endschema %}

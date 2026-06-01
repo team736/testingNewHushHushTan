@@ -1,0 +1,23 @@
+{%- assign og_title = page_title -%}
+{%- assign og_url = canonical_url -%}
+{%- assign og_type = 'website' -%}
+{%- if template contains 'product' -%}{%- assign og_type = 'product' -%}{%- endif -%}
+{%- if template contains 'article' -%}{%- assign og_type = 'article' -%}{%- endif -%}
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ og_url }}">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+{%- if page_description -%}
+<meta property="og:description" content="{{ page_description | escape }}">
+<meta name="twitter:description" content="{{ page_description | escape }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+{%- if product and product.featured_image -%}
+<meta property="og:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">
+<meta name="twitter:image" content="https:{{ product.featured_image | image_url: width: 1200 }}">
+{%- elsif article and article.image -%}
+<meta property="og:image" content="https:{{ article.image | image_url: width: 1200 }}">
+{%- elsif settings.logo -%}
+<meta property="og:image" content="https:{{ settings.logo | image_url: width: 1200 }}">
+{%- endif -%}

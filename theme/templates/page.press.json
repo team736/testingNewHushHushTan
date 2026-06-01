@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "intro": { "type": "rich-text", "settings": { "eyebrow": "Press", "heading": "Hush Hush Tan in the news", "text": "<p>Recognized by Vogue, InStyle, Allure, Texas Monthly and more.</p>", "text_align": "center" } },
+    "press": { "type": "press-grid", "settings": { "heading": "Featured in" }, "blocks": {
+      "vogue": { "type": "logo", "settings": { "name": "Vogue" } },
+      "instyle": { "type": "logo", "settings": { "name": "InStyle" } },
+      "austin": { "type": "logo", "settings": { "name": "Austin Monthly" } },
+      "beauty": { "type": "logo", "settings": { "name": "Austin Beauty Guide" } }
+    }, "block_order": ["vogue","instyle","austin","beauty"] },
+    "final": { "type": "final-cta", "settings": { "heading": "Press inquiries", "cta1_text": "Contact us", "cta1_url": "/pages/contact" } }
+  },
+  "order": ["intro","press","final"]
+}

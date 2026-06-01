@@ -1,0 +1,54 @@
+<section class="press-strip section--soft">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">{{ section.settings.eyebrow | default: 'As seen in' }}</span>
+      <h2>{{ section.settings.heading | default: 'Hush Hush Tan in the press' }}</h2>
+    </div>
+    <div class="press-strip__items">
+      {%- for block in section.blocks -%}
+        <div class="press-strip__item" {{ block.shopify_attributes }}>
+          <div class="press-strip__logo">
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.name }}" width="160" height="40" style="height:auto;max-width:160px;" loading="lazy">
+            {%- else -%}
+              {{ block.settings.name }}
+            {%- endif -%}
+          </div>
+          {%- if block.settings.quote != blank -%}
+            <p class="press-strip__quote">“{{ block.settings.quote }}”</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Press strip",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hush Hush Tan is featured in" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trusted by editors and clients" }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Press",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Publication name", "default": "Vogue" },
+        { "type": "image_picker", "id": "image", "label": "Logo (optional)" },
+        { "type": "textarea", "id": "quote", "label": "Quote (optional)", "default": "Among the nation's best spray tans." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [{
+    "name": "Press strip",
+    "blocks": [
+      { "type": "logo", "settings": { "name": "Vogue",         "quote": "Among the nation's best spray tans." } },
+      { "type": "logo", "settings": { "name": "InStyle",       "quote": "The most flawless airbrush technique in Texas." } },
+      { "type": "logo", "settings": { "name": "Allure",        "quote": "The Custom Glow looks like your real skin, only better." } }
+    ]
+  }]
+}
+{% endschema %}
