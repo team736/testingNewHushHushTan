@@ -1,0 +1,81 @@
+{%- liquid
+  assign fallback = block.settings.image_fallback | default: 'hero-products.jpg'
+  assign slide_id = 'hero-slide-' | append: index
+  assign is_cutout = block.settings.transparent_image
+  if is_cutout == false and block.settings.image == blank and fallback contains '.png'
+    assign is_cutout = true
+  endif
+-%}
+
+<article
+  id="{{ slide_id }}"
+  class="hero-slider__slide hero hero--split{% if first %} is-active{% endif %}"
+  role="tabpanel"
+  aria-hidden="{% if first %}false{% else %}true{% endif %}"
+  {{ block.shopify_attributes }}
+  data-hero-slide="{{ index | minus: 1 }}">
+  <div class="container hero--split__grid">
+    <div class="hero__copy">
+      {%- if block.settings.eyebrow != blank -%}
+        <span class="hero__eyebrow hero__anim-item">{{ block.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if first -%}
+        <h1 class="hero__title hero__anim-item">
+          {{ block.settings.title_line1 }}
+          {%- if block.settings.title_line2 != blank -%}
+            <br><span class="hero__title-accent">{{ block.settings.title_line2 }}</span>
+          {%- endif -%}
+        </h1>
+      {%- else -%}
+        <h2 class="hero__title hero__anim-item">
+          {{ block.settings.title_line1 }}
+          {%- if block.settings.title_line2 != blank -%}
+            <br><span class="hero__title-accent">{{ block.settings.title_line2 }}</span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+      {%- if block.settings.subtitle != blank -%}
+        <p class="hero__sub hero__anim-item">{{ block.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if block.settings.cta_text != blank -%}
+        <div class="hero__ctas hero__anim-item">
+          <a href="{{ block.settings.cta_url | default: '#' }}" class="btn btn--pill btn--hero">{{ block.settings.cta_text }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="hero__visual hero__anim-item{% if is_cutout %} hero__visual--cutout{% endif %}">
+      <div class="hero__visual-glow" aria-hidden="true"></div>
+      {%- if block.settings.image != blank -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 1280 }}"
+          srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1280 }} 1280w"
+          sizes="(min-width: 990px) 46vw, 88vw"
+          alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
+          width="1280"
+          height="1280"
+          class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- else -%}
+        <img
+          src="{{ fallback | asset_url }}"
+          alt="{{ block.settings.title_line1 | escape }}"
+          width="1280"
+          height="1280"
+          class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- endif -%}
+      {%- if block.settings.show_shade_card -%}
+        <div class="hero__shade-card hero__anim-item">
+          <div class="hero__shade-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div>
+            <div class="hero__shade-title">12 custom shades</div>
+            <div class="hero__shade-sub">Color-matched to you</div>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</article>

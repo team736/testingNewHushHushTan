@@ -111,5 +111,62 @@
     });
   });
 
+  // Hero slider (autoplay + dots)
+  document.querySelectorAll('[data-hero-slider]').forEach(function (root) {
+    var slides = root.querySelectorAll('[data-hero-slide]');
+    var dots = root.querySelectorAll('[data-hero-dot]');
+    if (!slides.length) return;
+
+    var index = 0;
+    var timer;
+    var delay = parseInt(root.getAttribute('data-autoplay'), 10) || 6000;
+    var autoplay = !root.hasAttribute('data-autoplay-off') && slides.length > 1;
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function (slide, n) {
+        var active = n === index;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+        if (active) {
+          slide.classList.remove('is-entering');
+          void slide.offsetWidth;
+          slide.classList.add('is-entering');
+        }
+      });
+      dots.forEach(function (dot, n) {
+        var active = n === index;
+        dot.classList.toggle('is-active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    function next() { goTo(index + 1); }
+
+    function start() {
+      stop();
+      if (autoplay) timer = window.setInterval(next, delay);
+    }
+
+    function stop() {
+      if (timer) window.clearInterval(timer);
+    }
+
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function () {
+        goTo(parseInt(dot.getAttribute('data-hero-dot'), 10) || 0);
+        start();
+      });
+    });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+
+    goTo(0);
+    start();
+  });
+
   // Newsletter inline confirmation message handled by Shopify natively.
 })();

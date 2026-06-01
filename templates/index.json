@@ -3,15 +3,66 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "eyebrow": "Memberships & Packages",
-        "title_line1": "Glow More,",
-        "title_line2": "Save More",
-        "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
-        "cta_primary_text": "View Memberships",
-        "cta_primary_url": "/pages/memberships",
-        "cta_secondary_text": "Choose Your Location",
-        "cta_secondary_url": "/pages/locations"
-      }
+        "autoplay": true,
+        "autoplay_speed": 6
+      },
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Memberships & Packages",
+            "title_line1": "Glow More,",
+            "title_line2": "Save More",
+            "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
+            "cta_text": "View Memberships",
+            "cta_url": "/pages/memberships",
+            "image_fallback": "hero-products.jpg",
+            "show_shade_card": true
+          }
+        },
+        "slide-2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "The Custom Glow Experience",
+            "title_line1": "Everyone Will Notice.",
+            "title_line2": "No One Will Know.",
+            "subtitle": "Hand-mixed airbrush color with clean, vegan formulas — a natural glow customized to your undertone.",
+            "cta_text": "Book Your Glow",
+            "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "image_fallback": "hht-spray-tanning.png",
+            "transparent_image": true,
+            "show_shade_card": false
+          }
+        },
+        "slide-3": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Aftercare Products",
+            "title_line1": "Extend Your",
+            "title_line2": "Custom Glow",
+            "subtitle": "Professional mousse, extenders, exfoliants, and mitts — everything you need to keep your tan flawless between visits.",
+            "cta_text": "Shop Products",
+            "cta_url": "/collections/tanning-products",
+            "image_fallback": "hht-products.png",
+            "transparent_image": true,
+            "show_shade_card": false
+          }
+        },
+        "slide-4": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "Three Texas Studios",
+            "title_line1": "Austin · Dallas ·",
+            "title_line2": "Houston",
+            "subtitle": "Visit our beautifully appointed studios for the award-winning Custom Glow — voted best spray tan in Texas.",
+            "cta_text": "Choose Your Location",
+            "cta_url": "/pages/locations",
+            "image_fallback": "location-austin.jpg",
+            "show_shade_card": false
+          }
+        }
+      },
+      "block_order": ["slide-1", "slide-2", "slide-3", "slide-4"]
     },
     "benefits": {
       "type": "icon-row",
