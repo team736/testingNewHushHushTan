@@ -1,5 +1,8 @@
-<article class="hero-slider__slide hero hero--split is-active" role="tabpanel" aria-hidden="false" data-hero-slide="0">
-  <div class="container hero--split__grid">
+<article class="hero-slider__slide hero hero--overlay is-active" role="tabpanel" aria-hidden="false" data-hero-slide="0">
+  <div class="container hero--overlay__stage">
+    <div class="hero__visual hero__visual--wide hero__anim-item" aria-hidden="true">
+      <img src="{{ 'hero-products.png' | asset_url }}" alt="" width="1800" height="1000" class="hero__visual-img hero__visual-img--wide" fetchpriority="high">
+    </div>
     <div class="hero__copy">
       <span class="hero__eyebrow hero__anim-item">Memberships & Packages</span>
       <h1 class="hero__title hero__anim-item">Glow More,<br><span class="hero__title-accent">Save More</span></h1>
@@ -8,10 +11,6 @@
         <a href="/pages/memberships" class="btn btn--pill btn--hero">View Memberships</a>
         <a href="/pages/locations" class="btn btn--pill btn--hero btn--hero-outline">Choose Your Location</a>
       </div>
-    </div>
-    <div class="hero__visual hero__anim-item hero__visual--cutout">
-      <div class="hero__visual-glow" aria-hidden="true"></div>
-      <img src="{{ 'hero-products.png' | asset_url }}" alt="Hush Hush Tan products" width="1280" height="720" class="hero__visual-img hero__visual-img--cutout" fetchpriority="high">
     </div>
   </div>
 </article>

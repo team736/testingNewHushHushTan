@@ -19,7 +19,8 @@
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "/pages/locations",
             "image_fallback": "hero-products.png",
-            "transparent_image": true
+            "transparent_image": true,
+            "image_layout": "overlay"
           }
         },
         "slide-2": {

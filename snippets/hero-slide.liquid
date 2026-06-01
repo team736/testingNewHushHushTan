@@ -1,6 +1,7 @@
 {%- liquid
   assign fallback = block.settings.image_fallback | default: 'hero-products.png'
   assign slide_id = 'hero-slide-' | append: index
+  assign layout = block.settings.image_layout | default: 'split'
   assign is_cutout = block.settings.transparent_image
   if is_cutout == false and block.settings.image == blank and fallback contains '.png'
     assign is_cutout = true
@@ -9,13 +10,39 @@
 
 <article
   id="{{ slide_id }}"
-  class="hero-slider__slide hero hero--split{% if first %} is-active{% endif %}"
+  class="hero-slider__slide hero hero--{{ layout }}{% if first %} is-active{% endif %}"
   role="tabpanel"
   aria-hidden="{% if first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}
   data-hero-slide="{{ index | minus: 1 }}">
+  {%- if layout == 'overlay' -%}
+  <div class="container hero--overlay__stage">
+    <div class="hero__visual hero__visual--wide hero__anim-item" aria-hidden="true">
+      {%- if block.settings.image != blank -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 1800 }}"
+          srcset="{{ block.settings.image | image_url: width: 1200 }} 1200w, {{ block.settings.image | image_url: width: 1800 }} 1800w"
+          sizes="100vw"
+          alt=""
+          width="1800"
+          height="1000"
+          class="hero__visual-img hero__visual-img--wide"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- else -%}
+        <img
+          src="{{ fallback | asset_url }}"
+          alt=""
+          width="1800"
+          height="1000"
+          class="hero__visual-img hero__visual-img--wide"
+          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- endif -%}
+    </div>
+    <div class="hero__copy">
+  {%- else -%}
   <div class="container hero--split__grid">
     <div class="hero__copy">
+  {%- endif -%}
       {%- if block.settings.eyebrow != blank -%}
         <span class="hero__eyebrow hero__anim-item">{{ block.settings.eyebrow }}</span>
       {%- endif -%}
@@ -49,6 +76,7 @@
       {%- endif -%}
     </div>
 
+    {%- unless layout == 'overlay' -%}
     <div class="hero__visual hero__anim-item{% if is_cutout %} hero__visual--cutout{% endif %}">
       <div class="hero__visual-glow" aria-hidden="true"></div>
       {%- if block.settings.image != blank -%}
@@ -71,5 +99,6 @@
           {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
       {%- endif -%}
     </div>
+    {%- endunless -%}
   </div>
 </article>

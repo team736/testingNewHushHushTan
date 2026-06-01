@@ -53,6 +53,16 @@
       "name": "Slide",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Image (right)" },
+        {
+          "type": "select",
+          "id": "image_layout",
+          "label": "Layout",
+          "default": "split",
+          "options": [
+            { "value": "split", "label": "Split — text left, image right" },
+            { "value": "overlay", "label": "Overlay — text on left over wide image" }
+          ]
+        },
         { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Memberships & Packages" },
         { "type": "text", "id": "title_line1", "label": "Headline line 1", "default": "Glow More," },
         { "type": "text", "id": "title_line2", "label": "Headline line 2 (accent)", "default": "Save More" },
@@ -82,7 +92,8 @@
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "/pages/locations",
             "image_fallback": "hero-products.png",
-            "transparent_image": true
+            "transparent_image": true,
+            "image_layout": "overlay"
           }
         },
         {
