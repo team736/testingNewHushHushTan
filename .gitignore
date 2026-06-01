@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+.env
+.env.*
+
+# Monorepo folders (not part of this branch)
+loveable-src/
+theme/
+*.zip

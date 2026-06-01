@@ -1,0 +1,44 @@
+<div class="container section">
+  <h1>Your cart</h1>
+  {%- if cart.item_count > 0 -%}
+    <form action="{{ routes.cart_url }}" method="post">
+      <table class="cart-table">
+        <thead><tr><th>Item</th><th>Qty</th><th>Price</th></tr></thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr>
+              <td>
+                <div class="flex">
+                  {%- if item.image -%}<img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" width="80" height="80" loading="lazy">{%- endif -%}
+                  <div>
+                    <a href="{{ item.url }}" style="font-family: var(--font-heading); font-size: 1.1rem;">{{ item.product.title }}</a>
+                    {%- unless item.product.has_only_default_variant -%}<div class="muted small">{{ item.variant.title }}</div>{%- endunless -%}
+                    <button type="submit" name="updates[]" value="0" formaction="{{ routes.cart_change_url }}?line={{ forloop.index }}&quantity=0" class="btn btn--ghost btn--small" style="padding-left:0;">Remove</button>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity" style="width: 64px; padding: 8px; border: 1px solid var(--line); border-radius: var(--radius-sm);">
+              </td>
+              <td>{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div class="cart-summary">
+        <div class="cart-summary__row"><strong>Subtotal</strong><strong>{{ cart.total_price | money }}</strong></div>
+        <p class="muted small">Taxes and shipping calculated at checkout.</p>
+        <button type="submit" name="update" class="btn btn--outline btn--small">Update cart</button>
+        <button type="submit" name="checkout" class="btn">Check out</button>
+      </div>
+    </form>
+  {%- else -%}
+    <p class="muted">Your cart is empty.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="btn">Continue shopping</a>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

@@ -1,0 +1,48 @@
+<section class="hero{% if section.settings.image == blank %} hero--fallback-image{% endif %}">
+  {%- if section.settings.image != blank -%}
+    <div class="hero__media">
+      <img src="{{ section.settings.image | image_url: width: 2200 }}"
+           srcset="{{ section.settings.image | image_url: width: 1200 }} 1200w, {{ section.settings.image | image_url: width: 1800 }} 1800w, {{ section.settings.image | image_url: width: 2400 }} 2400w"
+           sizes="100vw"
+           alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+           width="2200" height="1300"
+           fetchpriority="high">
+    </div>
+  {%- else -%}
+    <div class="hero__media">
+      <img src="{{ 'hht-hero.jpg' | asset_url }}" alt="{{ section.settings.title | escape }}" width="2200" height="1600" fetchpriority="high">
+    </div>
+  {%- endif -%}
+  <div class="hero__inner">
+    <div class="hero__copy">
+      {%- if section.settings.eyebrow != blank -%}<span class="hero__eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="hero__title">{{ section.settings.title }}</h1>
+      <p class="hero__sub">{{ section.settings.subtitle }}</p>
+      <div class="hero__ctas">
+        {%- if section.settings.cta_primary_text != blank -%}
+          <a href="{{ section.settings.cta_primary_url | default: '#' }}" class="btn">{{ section.settings.cta_primary_text }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta_secondary_text != blank -%}
+          <a href="{{ section.settings.cta_secondary_url | default: '#' }}" class="btn btn--outline">{{ section.settings.cta_secondary_text }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Hero image (full-width background)" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Essential glow" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Healthier Glow. Flawless Confidence." },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle", "default": "Locations in Austin, Dallas, and Houston." },
+    { "type": "text", "id": "cta_primary_text", "label": "Primary CTA", "default": "Book Now" },
+    { "type": "url", "id": "cta_primary_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta_secondary_text", "label": "Secondary CTA", "default": "Choose Your Location" },
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" }
+  ],
+  "presets": [{ "name": "Hero" }]
+}
+{% endschema %}

@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {
+      "eyebrow": "Customizable Spray Tan Salons",
+      "title": "Healthier Glow. Flawless Confidence.",
+      "subtitle": "Locations in Austin, Dallas, and Houston.",
+      "cta_primary_text": "Book Now",
+      "cta_primary_url": "/pages/locations",
+      "cta_secondary_text": "Choose Your Location",
+      "cta_secondary_url": "/pages/locations"
+    } },
+    "benefits": { "type": "icon-row", "blocks": {
+      "b1": { "type": "item", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Mixed to your unique undertones." } },
+      "b2": { "type": "item", "settings": { "icon": "leaf",    "title": "Luxury Formula", "text": "Eco-certified · paraben-free · cruelty-free." } },
+      "b3": { "type": "item", "settings": { "icon": "heart",   "title": "Award Winning", "text": "As featured in InStyle and Vogue." } },
+      "b4": { "type": "item", "settings": { "icon": "shield",  "title": "Trusted Since 2007", "text": "Over a decade of glow." } }
+    }, "block_order": ["b1","b2","b3","b4"], "settings": { "eyebrow": "Why Hush Hush", "heading": "The Custom Glow experience" } },
+    "promo": { "type": "promo-cards", "blocks": {
+      "p1": { "type": "card", "settings": { "eyebrow": "Signature service", "heading": "Custom Glow Spray Tanning", "cta_text": "View services", "url": "/pages/spray-tanning" } },
+      "p2": { "type": "card", "settings": { "eyebrow": "Extend your glow", "heading": "Shop glow essentials", "cta_text": "Shop products", "url": "/collections/tanning-products" } }
+    }, "block_order": ["p1","p2"] },
+    "image-with-text": { "type": "image-with-text", "settings": {
+      "eyebrow": "Our promise",
+      "heading": "Everyone will notice. No one will know.",
+      "text": "<p>Our masterful airbrush technique uses natural, eco-certified DHA formulas that are cruelty-free, paraben-free, and alcohol-free. The result is a flawless, customizable glow that looks like it's truly yours.</p>",
+      "cta_text": "Our Story",
+      "cta_url": "/pages/about-us",
+      "image_side": "left"
+    } },
+    "locations": { "type": "location-cards", "blocks": {
+      "l1": { "type": "location", "settings": { "city": "Austin",  "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin" } },
+      "l2": { "type": "location", "settings": { "city": "Dallas",  "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",         "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas" } },
+      "l3": { "type": "location", "settings": { "city": "Houston", "address": "Houston studio details to be confirmed",          "phone": "", "hours": "", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston" } }
+    }, "block_order": ["l1","l2","l3"], "settings": { "eyebrow": "Visit us", "heading": "Three Texas locations", "subheading": "Austin · Dallas · Houston" } },
+    "services": { "type": "service-cards", "blocks": {
+      "s1": { "type": "service", "settings": { "title": "Custom Glow",       "price": "From $40", "description": "Our signature airbrush tan, mixed for your skin's undertones.", "cta_text": "Learn more", "cta_url": "/pages/spray-tanning" } },
+      "s2": { "type": "service", "settings": { "title": "Group & Mimosas",   "price": "From $50/person", "description": "5-person minimum. The best way to celebrate together.", "cta_text": "Plan a party", "cta_url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
+      "s3": { "type": "service", "settings": { "title": "Austin Mobile Tan", "price": "From $75/person", "description": "We come to you. 5-person minimum. Travel fees may apply.", "cta_text": "Book mobile",  "cta_url": "/pages/mobile-spray-tan" } }
+    }, "block_order": ["s1","s2","s3"], "settings": { "eyebrow": "Services", "heading": "How would you like to glow?" } },
+    "products": { "type": "featured-products", "settings": {
+      "eyebrow": "Extend Your Glow", "heading": "Shop the Custom Glow collection",
+      "products_to_show": 4
+    } },
+    "press": { "type": "press-grid", "blocks": {
+      "p1": { "type": "logo", "settings": { "name": "Vogue" } },
+      "p2": { "type": "logo", "settings": { "name": "InStyle" } },
+      "p3": { "type": "logo", "settings": { "name": "Austin Monthly" } },
+      "p4": { "type": "logo", "settings": { "name": "Austin Beauty Guide" } }
+    }, "block_order": ["p1","p2","p3","p4"], "settings": { "heading": "Hush Hush Tan is featured in" } },
+    "editorial": { "type": "editorial-feature", "settings": {
+      "eyebrow": "Shop Hush Hush",
+      "heading": "Customer favorite glow essentials",
+      "subheading": "Sunless tan care, body polish, and glow extenders made to keep your color even.",
+      "image_heading": "Everyone will notice",
+      "image_cta_text": "Shop Products",
+      "image_url": "/collections/tanning-products",
+      "products_to_show": 6
+    } },
+    "discover": { "type": "discover-cards", "blocks": {
+      "d1": { "type": "card", "settings": { "heading": "Group Tanning & Mimosas", "cta_text": "Plan a party", "url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
+      "d2": { "type": "card", "settings": { "heading": "Get Glowing Guide", "cta_text": "Read more", "url": "/blogs/news" } }
+    }, "block_order": ["d1","d2"], "settings": { "heading": "More to discover", "subheading": "Parties, mobile tanning, products, and tips for your healthiest glow." } },
+    "faq": { "type": "faq-accordion", "blocks": {
+      "g1": { "type": "group", "settings": { "title": "Before Your Tan" } },
+      "q1": { "type": "qa", "settings": { "question": "How do I prepare for my spray tan?", "answer": "<p>Exfoliate 24 hours before, shave or wax at least 12 hours prior, and arrive with clean, product-free skin.</p>" } },
+      "q2": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>" } },
+      "g2": { "type": "group", "settings": { "title": "Aftercare" } },
+      "q3": { "type": "qa", "settings": { "question": "How long does a spray tan last?", "answer": "<p>With proper aftercare, your Custom Glow lasts 7–10 days.</p>" } },
+      "q4": { "type": "qa", "settings": { "question": "When can I shower?", "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow the technician's specific timing.</p>" } }
+    }, "block_order": ["g1","q1","q2","g2","q3","q4"], "settings": { "eyebrow": "Good to know", "heading": "Frequently asked questions" } },
+    "newsletter": { "type": "newsletter", "settings": {
+      "eyebrow": "Stay in the know",
+      "heading": "Glow tips, offers and event invites",
+      "text": "Be the first to hear about new products, packages and seasonal events."
+    } },
+    "final-cta": { "type": "final-cta", "settings": {
+      "eyebrow": "Ready to glow",
+      "heading": "Book your Custom Glow today",
+      "text": "Three Texas locations. Mixed for your undertones. No streaks, no orange, no surprises.",
+      "cta1_text": "Choose Your Location", "cta1_url": "/pages/locations",
+      "cta2_text": "Shop Products", "cta2_url": "/collections/tanning-products"
+    } }
+  },
+  "order": ["hero","products","promo","benefits","press","image-with-text","locations","services","editorial","discover","faq","newsletter","final-cta"]
+}

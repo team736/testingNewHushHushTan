@@ -1,0 +1,133 @@
+<header class="site-header" role="banner">
+  <div class="site-header__inner">
+    <nav class="site-header__nav" aria-label="Primary">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
+          {%- if link.links.size > 0 -%}
+            <div class="has-submenu">
+              <a href="{{ link.url }}">{{ link.title }}</a>
+              <div class="submenu">
+                {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}
+              </div>
+            </div>
+          {%- else -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        <div class="has-submenu">
+          <a href="/pages/locations">Locations</a>
+          <div class="submenu">
+            <a href="/pages/austin">Austin</a><a href="/pages/dallas">Dallas</a><a href="/pages/houston">Houston</a>
+          </div>
+        </div>
+        <div class="has-submenu">
+          <a href="/pages/spray-tanning">Services & Pricing</a>
+          <div class="submenu">
+            <a href="/pages/austin-services">Austin Services</a><a href="/pages/dallas-services">Dallas Services</a><a href="/pages/houston-services">Houston Services</a>
+          </div>
+        </div>
+        <a href="/collections/tanning-products">Products</a>
+        <div class="has-submenu">
+          <a href="/pages/hush-hush-tan-group-tanning-mimosas-package">Parties &amp; Events</a>
+          <div class="submenu">
+            <a href="/pages/hush-hush-tan-group-tanning-mimosas-package">Group Tanning &amp; Mimosas</a><a href="/pages/mobile-spray-tan">Austin Mobile Tanning</a>
+          </div>
+        </div>
+        <div class="has-submenu">
+          <a href="/pages/tanning-gift-certificates">Gift Certificates</a>
+          <div class="submenu">
+            <a href="{{ settings.gift_austin_url }}">Austin</a><a href="{{ settings.gift_dallas_url }}">Dallas</a><a href="{{ settings.gift_houston_url }}">Houston</a>
+          </div>
+        </div>
+        <div class="has-submenu">
+          <a href="/pages/about-us">About</a>
+          <div class="submenu">
+            <a href="/pages/about-us">Our Story</a><a href="/pages/contact">Contact</a><a href="/pages/press">Press</a><a href="/pages/faqs">FAQ</a><a href="/pages/careers">Careers</a><a href="/pages/tanning-tips">Tanning Tips</a>
+          </div>
+        </div>
+      {%- endif -%}
+    </nav>
+
+    <button class="icon-btn menu-toggle" data-drawer-open="#MobileDrawer" aria-label="Open menu">
+      {% render 'icon', name: 'menu' %}
+    </button>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo" aria-label="{{ shop.name }} — Home">
+      {%- if settings.logo != blank -%}
+        <img src="{{ settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" width="{{ settings.logo_width }}" height="48" style="max-width: {{ settings.logo_width }}px; height: auto;" loading="eager">
+      {%- else -%}
+        <span>Hush Hush Tan</span>
+      {%- endif -%}
+    </a>
+
+    <div class="site-header__actions">
+      <a href="{{ routes.search_url }}" class="icon-btn" aria-label="Search">{% render 'icon', name: 'search' %}</a>
+      <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account">{% render 'icon', name: 'account' %}</a>
+      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Cart">
+        {% render 'icon', name: 'cart' %}
+        {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
+      </a>
+      {%- if section.settings.show_book_cta -%}
+        <a href="{{ section.settings.book_url | default: settings.book_now_url }}" class="btn btn--small" style="margin-left: 8px;">Book Now</a>
+      {%- endif -%}
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="MobileDrawer" aria-hidden="true">
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="icon-btn drawer__close" data-drawer-close aria-label="Close menu">{% render 'icon', name: 'close' %}</button>
+    <a href="{{ routes.root_url }}" class="site-header__logo">{{ shop.name }}</a>
+    <nav class="drawer__nav" aria-label="Mobile">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
+          {%- if link.links.size > 0 -%}
+            <details>
+              <summary>{{ link.title }}</summary>
+              <div class="drawer__sub">
+                {%- for child in link.links -%}<a href="{{ child.url }}">{{ child.title }}</a>{%- endfor -%}
+              </div>
+            </details>
+          {%- else -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- else -%}
+        <details>
+          <summary>Locations</summary>
+          <div class="drawer__sub"><a href="/pages/austin">Austin</a><a href="/pages/dallas">Dallas</a><a href="/pages/houston">Houston</a></div>
+        </details>
+        <details>
+          <summary>Services & Pricing</summary>
+          <div class="drawer__sub"><a href="/pages/austin-services">Austin</a><a href="/pages/dallas-services">Dallas</a><a href="/pages/houston-services">Houston</a></div>
+        </details>
+        <a href="/collections/tanning-products">Products</a>
+        <details>
+          <summary>Parties & Events</summary>
+          <div class="drawer__sub"><a href="/pages/hush-hush-tan-group-tanning-mimosas-package">Group Tanning &amp; Mimosas</a><a href="/pages/mobile-spray-tan">Austin Mobile Tanning</a></div>
+        </details>
+        <details>
+          <summary>Gift Certificates</summary>
+          <div class="drawer__sub"><a href="{{ settings.gift_austin_url }}">Austin</a><a href="{{ settings.gift_dallas_url }}">Dallas</a><a href="{{ settings.gift_houston_url }}">Houston</a></div>
+        </details>
+        <details>
+          <summary>About</summary>
+          <div class="drawer__sub"><a href="/pages/about-us">Our Story</a><a href="/pages/contact">Contact</a><a href="/pages/press">Press</a><a href="/pages/faqs">FAQ</a><a href="/pages/careers">Careers</a><a href="/pages/tanning-tips">Tanning Tips</a></div>
+        </details>
+      {%- endif -%}
+      <a href="{{ section.settings.book_url | default: settings.book_now_url }}" class="btn btn--block" style="margin-top: 28px;">Book Now</a>
+    </nav>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
+    { "type": "checkbox", "id": "show_book_cta", "label": "Show Book Now CTA", "default": true },
+    { "type": "url", "id": "book_url", "label": "Book Now URL (overrides global)" }
+  ]
+}
+{% endschema %}
