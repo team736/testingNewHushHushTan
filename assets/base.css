@@ -407,7 +407,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   );
   --hero-ink: #151515;
   --hero-ink-muted: #3a3842;
-  --hero-ink-accent: #4a3d8f;
+  --hero-ink-accent: #ffffff;
 }
 .hero-slider::before {
   content: "";
@@ -420,14 +420,13 @@ small, .small { font-size: .82rem; color: var(--muted); }
   pointer-events: none;
   z-index: 0;
 }
-.hero-slider .hero__eyebrow {
+.hero-slider .hero__eyebrow,
+.hero-slider .hero__title-accent {
   color: var(--hero-ink-accent);
+  text-shadow: 0 1px 14px rgba(55, 50, 88, 0.28);
 }
 .hero-slider .hero__title {
   color: var(--hero-ink);
-}
-.hero-slider .hero__title-accent {
-  color: var(--hero-ink-accent);
 }
 .hero-slider .hero__sub {
   color: var(--hero-ink-muted);
