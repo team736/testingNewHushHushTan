@@ -60,15 +60,20 @@
       "block_order": ["slide-1", "slide-2", "slide-3"]
     },
     "benefits": {
-      "type": "icon-row",
+      "type": "science-features",
       "blocks": {
-        "b1": { "type": "item", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
-        "b2": { "type": "item", "settings": { "icon": "leaf", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
-        "b3": { "type": "item", "settings": { "icon": "heart", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
-        "b4": { "type": "item", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
+        "b1": { "type": "card", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
+        "b2": { "type": "card", "settings": { "icon": "leaf", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
+        "b3": { "type": "card", "settings": { "icon": "heart", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
+        "b4": { "type": "card", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
       },
       "block_order": ["b1", "b2", "b3", "b4"],
-      "settings": { "eyebrow": "Why HHT", "heading": "The Custom Glow Experience" }
+      "settings": {
+        "headline_line1": "Clean, Conscious,",
+        "headline_line2_before": "Performance ",
+        "headline_line2_emphasis": "Science.",
+        "subtext": "Unreservedly honest products that truly work, be kind\nto skin and the planet – no exceptions!"
+      }
     },
     "brand-story": {
       "type": "image-with-text",

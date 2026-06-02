@@ -1,0 +1,157 @@
+<section class="hht-science-section" id="science-features-{{ section.id }}">
+  <div class="hht-science-inner">
+    <div class="hht-science-copy">
+      <h2>
+        {{ section.settings.headline_line1 }}<br>
+        {{ section.settings.headline_line2_before }}<em>{{ section.settings.headline_line2_emphasis }}</em>
+      </h2>
+      {%- if section.settings.subtext != blank -%}
+        <p>{{ section.settings.subtext | newline_to_br }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="hht-science-visual" aria-hidden="true">
+      <div class="hht-line hht-line-top"></div>
+      <div class="hht-line hht-line-main"></div>
+      <div class="hht-line hht-line-side"></div>
+
+      <div class="hht-photo-blob">
+        {%- if section.settings.image != blank -%}
+          <img
+            src="{{ section.settings.image | image_url: width: 1440 }}"
+            srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1440 }} 1440w"
+            sizes="(min-width: 1180px) 720px, 85vw"
+            alt="{{ section.settings.image.alt | default: 'Hush Hush Tan glowing skin model' | escape }}"
+            width="1440"
+            height="880"
+            loading="lazy">
+        {%- else -%}
+          <img
+            src="{{ 'hht-science-model.jpg' | asset_url }}"
+            alt="Hush Hush Tan glowing skin model"
+            width="1024"
+            height="682"
+            loading="lazy">
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="hht-feature-cards">
+      {%- for block in section.blocks -%}
+        <article class="hht-feature-card" {{ block.shopify_attributes }}>
+          <div class="hht-icon">
+            {% render 'science-feature-icon', icon: block.settings.icon %}
+          </div>
+          {%- if block.settings.title != blank -%}
+            <h3>{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p>{{ block.settings.text }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Science feature section",
+  "tag": "section",
+  "class": "hht-science-section-wrap",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Model image",
+      "info": "Organic blob mask. Default uses hht-science-model.jpg."
+    },
+    {
+      "type": "text",
+      "id": "headline_line1",
+      "label": "Headline line 1",
+      "default": "Clean, Conscious,"
+    },
+    {
+      "type": "text",
+      "id": "headline_line2_before",
+      "label": "Headline line 2 (before accent)",
+      "default": "Performance "
+    },
+    {
+      "type": "text",
+      "id": "headline_line2_emphasis",
+      "label": "Headline accent (lavender italic)",
+      "default": "Science."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Unreservedly honest products that truly work, be kind\nto skin and the planet – no exceptions!"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Feature card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "shield", "label": "Shield check" }
+          ],
+          "default": "sparkle"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Custom Color" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Every shade hand-mixed to flatter your undertones." }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Science feature section",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Custom Color",
+            "text": "Every shade hand-mixed to flatter your undertones."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "leaf",
+            "title": "Luxury Formula",
+            "text": "Clean, vegan, paraben-free solutions made to nourish."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "heart",
+            "title": "Award Winning",
+            "text": "Voted best spray tan in Texas year after year."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "shield",
+            "title": "Trusted Since 2007",
+            "text": "Nearly two decades perfecting the art of the glow."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

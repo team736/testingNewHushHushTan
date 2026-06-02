@@ -1,0 +1,20 @@
+{%- case icon -%}
+  {%- when 'leaf' -%}
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M39 9C24 10.5 12 19 9 39C28.5 36 37 24 39 9Z" stroke="currentColor" stroke-width="2"/>
+      <path d="M11 37C18 28 25 21 36 12" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  {%- when 'heart' -%}
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 40S8 30.5 8 17.5C8 11.5 12.5 8 17.5 8C20.5 8 22.8 9.5 24 12C25.2 9.5 27.5 8 30.5 8C35.5 8 40 11.5 40 17.5C40 30.5 24 40 24 40Z" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  {%- when 'shield' -%}
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 5L39 11V22C39 32 32.5 39.5 24 43C15.5 39.5 9 32 9 22V11L24 5Z" stroke="currentColor" stroke-width="2"/>
+      <path d="M17 24L22 29L32 18" stroke="currentColor" stroke-width="2"/>
+    </svg>
+  {%- else -%}
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <path d="M24 5L28.5 19.5L43 24L28.5 28.5L24 43L19.5 28.5L5 24L19.5 19.5L24 5Z" stroke="currentColor" stroke-width="2"/>
+    </svg>
+{%- endcase -%}
