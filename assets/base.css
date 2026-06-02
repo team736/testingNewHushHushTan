@@ -31,7 +31,9 @@
   --announcement-height: 38px;
   --header-height: 98px;
   --header-stack-h: calc(var(--announcement-height) + var(--header-height));
-  --hero-min-h: calc(100svh - var(--header-stack-h));
+  --hero-y: clamp(56px, 7vw, 112px);
+  --hero-y-bottom: clamp(72px, 8vw, 128px);
+  --hero-col-gap: clamp(40px, 5vw, 64px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -454,8 +456,11 @@ small, .small { font-size: .82rem; color: var(--muted); }
   position: relative;
   z-index: 1;
   width: 100%;
-  height: var(--hero-min-h);
-  min-height: var(--hero-min-h);
+  height: auto;
+  min-height: clamp(620px, 72vh, 820px);
+  max-height: none;
+  padding: var(--hero-y) 0 var(--hero-y-bottom);
+  box-sizing: border-box;
 }
 .hero-slider__track {
   position: absolute;
@@ -472,7 +477,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.65s var(--ease), visibility 0.65s var(--ease);
-  padding: clamp(40px, 5vw, 88px) 0 clamp(56px, 5vw, 80px);
+  padding: 0;
   background: transparent;
 }
 .hero-slider__slide.is-active {
@@ -483,14 +488,15 @@ small, .small { font-size: .82rem; color: var(--muted); }
 }
 .hero-slider__slide .container {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   display: flex;
   align-items: center;
 }
 .hero-slider__dots {
   position: absolute;
   left: 50%;
-  bottom: clamp(24px, 4vh, 40px);
+  bottom: clamp(28px, 4vw, 48px);
   transform: translateX(-50%);
   display: flex;
   gap: 10px;
@@ -623,11 +629,12 @@ small, .small { font-size: .82rem; color: var(--muted); }
 .hero--split__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
-  gap: clamp(40px, 5vw, 64px);
+  gap: var(--hero-col-gap);
   align-items: center;
   width: 100%;
-  min-height: 100%;
-  padding: clamp(20px, 2vw, 8px) 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 .hero--split .hero__copy {
   max-width: 34rem;
@@ -686,7 +693,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
 .hero__visual-frame::before {
   content: "";
   position: absolute;
-  inset: clamp(-20px, -3vw, -40px);
+  inset: -24px;
   border-radius: 2rem;
   background: var(--soft);
   z-index: 0;
@@ -713,8 +720,8 @@ small, .small { font-size: .82rem; color: var(--muted); }
 .hero__shade-card {
   display: none;
   position: absolute;
-  bottom: clamp(-8px, -1vw, -24px);
-  left: clamp(-8px, -1vw, -24px);
+  bottom: 0;
+  left: 0;
   z-index: 3;
   align-items: center;
   gap: 12px;
@@ -759,54 +766,44 @@ small, .small { font-size: .82rem; color: var(--muted); }
 .hero__shade-card-text span {
   color: var(--muted);
 }
-.hero-slider + .section,
-.hero-slider + section,
-.template-index .hero-slider + * {
-  margin-top: 0;
-}
-@media (min-width: 991px) {
-  .hero-slider__viewport {
-    height: calc(100svh - var(--header-stack-h));
-    min-height: calc(100svh - var(--header-stack-h));
-    max-height: none;
-  }
+.template-index .hero-slider + .section--tight {
+  padding-top: clamp(40px, 6vw, 80px);
 }
 @media (max-width: 990px) {
   .hero-slider__viewport {
-    height: auto;
-    min-height: clamp(560px, 88svh, 720px);
-    max-height: none;
+    min-height: clamp(560px, auto, 720px);
+    padding: clamp(48px, 8vw, 72px) 0 clamp(64px, 9vw, 96px);
   }
   .hero--split__grid {
     grid-template-columns: 1fr;
-    gap: clamp(24px, 5vw, 40px);
-    min-height: auto;
+    gap: clamp(32px, 6vw, 48px);
   }
   .hero--split .hero__copy { max-width: none; }
   .hero-slider .hero__shade-card {
     display: none;
   }
   .hero__visual {
-    min-height: clamp(280px, 42vh, 400px);
-    max-width: min(520px, 92vw);
+    min-height: clamp(280px, 38vh, 380px);
+    max-width: min(520px, 100%);
     margin: 0 auto;
   }
   .hero__visual-img,
   .hero__visual-img--cutout {
-    max-height: min(380px, 48vh);
+    max-height: min(360px, 44vh);
     max-width: 100%;
-  }
-  .hero-slider__slide {
-    padding: clamp(32px, 6vw, 48px) 0 clamp(52px, 6vw, 64px);
   }
 }
 @media (max-width: 768px) {
   .hero-slider__viewport {
-    min-height: auto;
+    min-height: 0;
+    padding: clamp(40px, 8vw, 56px) 0 clamp(56px, 10vw, 80px);
   }
   .hero__sub { font-size: 1rem; }
   .hero__ctas .btn--pill { width: 100%; justify-content: center; }
   .hero__visual { min-height: 260px; }
+  .hero-slider__dots {
+    bottom: clamp(20px, 5vw, 32px);
+  }
 }
 
 /* ============ Featured products carousel ============ */
