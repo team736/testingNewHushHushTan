@@ -1712,7 +1712,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
 }
 .hht-group-card { min-height: 310px; }
 .hht-pricing-shell > .hht-pricing-cta {
-  margin: 0 32px 58px;
+  margin: 0 auto 58px;
 }
 .hht-pricing-cta {
   max-width: 860px;
