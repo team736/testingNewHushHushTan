@@ -1,19 +1,15 @@
-<section class="section section--soft">
+<section class="section section--soft newsletter-premium">
   <div class="container">
     <div class="newsletter-band">
-      <div>
-        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-        <h2>{{ section.settings.heading }}</h2>
-        {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
-      </div>
-      <div>
-        {%- form 'customer', class: 'newsletter-form' -%}
-          <input type="hidden" name="contact[tags]" value="newsletter">
-          <input type="email" name="contact[email]" placeholder="Enter your email address" aria-label="Email address" required>
-          <button type="submit">Subscribe →</button>
-        {%- endform -%}
-        <p class="small" style="margin-top: 12px;">{{ section.settings.disclaimer }}</p>
-      </div>
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2>{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}<p class="newsletter-premium__text">{{ section.settings.text }}</p>{%- endif -%}
+      {%- form 'customer', class: 'newsletter-form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" placeholder="Enter your email address" aria-label="Email address" required>
+        <button type="submit">Subscribe →</button>
+      {%- endform -%}
+      <p class="small newsletter-premium__disclaimer">{{ section.settings.disclaimer | default: 'We respect your privacy. Unsubscribe anytime.' }}</p>
     </div>
   </div>
 </section>
