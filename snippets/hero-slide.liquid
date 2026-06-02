@@ -14,7 +14,8 @@
   aria-hidden="{% if first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}
   data-hero-slide="{{ index | minus: 1 }}">
-  <div class="container hero--split__grid">
+  <div class="container">
+    <div class="hero--split__grid">
     <div class="hero__copy">
       {%- if block.settings.eyebrow != blank -%}
         <span class="hero__eyebrow hero__anim-item">{{ block.settings.eyebrow }}</span>
@@ -99,6 +100,7 @@
           </div>
         </div>
       {%- endif -%}
+    </div>
     </div>
   </div>
 </article>
