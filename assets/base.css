@@ -457,20 +457,20 @@ small, .small { font-size: .82rem; color: var(--muted); }
   z-index: 1;
   width: 100%;
   height: auto;
-  min-height: clamp(620px, 72vh, 820px);
+  min-height: 0;
   max-height: none;
   padding: var(--hero-y) 0 var(--hero-y-bottom);
   box-sizing: border-box;
 }
 .hero-slider__track {
-  position: absolute;
-  inset: 0;
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 .hero-slider__slide {
   position: absolute;
   inset: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   opacity: 0;
@@ -481,6 +481,8 @@ small, .small { font-size: .82rem; color: var(--muted); }
   background: transparent;
 }
 .hero-slider__slide.is-active {
+  position: relative;
+  inset: auto;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -717,17 +719,22 @@ small, .small { font-size: .82rem; color: var(--muted); }
   width: 100%;
   filter: none;
 }
-/* Slider: clean square card — no mat behind the image */
+/* Slider: clean square card — sized to match copy column (reference) */
 .hero-slider .hero__visual-frame--card {
   padding: 0;
   background: transparent;
   border-radius: 0;
   overflow: visible;
+  width: 100%;
+  max-width: clamp(300px, 36vw, 500px);
+  margin-left: auto;
+  margin-right: 0;
 }
 .hero-slider .hero__visual-img--card {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 1;
+  height: auto;
   object-fit: cover;
   object-position: center center;
   border-radius: 1.5rem;
@@ -736,8 +743,8 @@ small, .small { font-size: .82rem; color: var(--muted); }
 }
 .hero-slider .hero__visual {
   min-height: 0;
-  align-items: stretch;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 .template-index .hero-slider + .hht-science-section-wrap {
   margin-top: 0;
@@ -793,7 +800,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
 }
 @media (max-width: 990px) {
   .hero-slider__viewport {
-    min-height: clamp(560px, auto, 720px);
+    min-height: 0;
     padding: clamp(48px, 8vw, 72px) 0 clamp(64px, 9vw, 96px);
   }
   .hero--split__grid {
@@ -806,9 +813,13 @@ small, .small { font-size: .82rem; color: var(--muted); }
   }
   .hero-slider .hero__visual {
     min-height: 0;
-    max-width: min(520px, 100%);
     margin: 0 auto;
     justify-content: center;
+  }
+  .hero-slider .hero__visual-frame--card {
+    max-width: min(420px, 100%);
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-slider .hero__visual-img--cutout {
     max-height: min(360px, 44vh);
@@ -819,6 +830,9 @@ small, .small { font-size: .82rem; color: var(--muted); }
   .hero-slider__viewport {
     min-height: 0;
     padding: clamp(40px, 8vw, 56px) 0 clamp(56px, 10vw, 80px);
+  }
+  .hero-slider .hero__visual-frame--card {
+    max-width: min(360px, 100%);
   }
   .hero__sub { font-size: 1rem; }
   .hero__ctas .btn--pill { width: 100%; justify-content: center; }
