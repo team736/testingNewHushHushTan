@@ -179,5 +179,5 @@
       }
     }
   },
-  "order": ["hero", "benefits", "brand-story", "locations", "memberships", "products", "press", "faq", "newsletter"]
+  "order": ["hero", "benefits", "locations", "memberships", "products", "press", "faq", "newsletter"]
 }
