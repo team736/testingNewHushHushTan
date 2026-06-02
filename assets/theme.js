@@ -144,5 +144,98 @@
     });
   });
 
+  function initHeroSliders() {
+    document.querySelectorAll('[data-hero-slider]').forEach(function (root) {
+      if (root.getAttribute('data-hero-initialized') === 'true') return;
+      root.setAttribute('data-hero-initialized', 'true');
+
+      var slides = root.querySelectorAll('.hero-slider__slide[data-hero-slide]');
+      var dots = root.querySelectorAll('[data-hero-dot]');
+      if (slides.length < 2) return;
+
+      var index = 0;
+      var timer = null;
+      var delay = parseInt(root.getAttribute('data-autoplay'), 10) || 4500;
+      var autoplay = !root.hasAttribute('data-autoplay-off');
+
+      function goTo(i) {
+        index = (i + slides.length) % slides.length;
+        slides.forEach(function (slide, n) {
+          var active = n === index;
+          slide.classList.toggle('is-active', active);
+          slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+        });
+        dots.forEach(function (dot, n) {
+          var active = n === index;
+          dot.classList.toggle('is-active', active);
+          dot.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+      }
+
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      function start() {
+        stop();
+        if (autoplay) timer = window.setInterval(next, delay);
+      }
+      function stop() {
+        if (timer !== null) {
+          window.clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          goTo(parseInt(dot.getAttribute('data-hero-dot'), 10) || 0);
+          start();
+        });
+      });
+
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      root.addEventListener('focusin', stop);
+      root.addEventListener('focusout', function (e) {
+        if (!root.contains(e.relatedTarget)) start();
+      });
+
+      var touchStartX = null;
+      var touchStartY = null;
+      var track = root.querySelector('[data-hero-track]');
+      if (track) {
+        track.addEventListener('touchstart', function (e) {
+          if (!e.touches || !e.touches.length) return;
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          stop();
+        }, { passive: true });
+        track.addEventListener('touchend', function (e) {
+          if (touchStartX === null) return;
+          var endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : touchStartX;
+          var endY = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientY : touchStartY;
+          var dx = endX - touchStartX;
+          var dy = endY - touchStartY;
+          if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+            if (dx < 0) next(); else prev();
+          }
+          touchStartX = null;
+          touchStartY = null;
+          start();
+        }, { passive: true });
+      }
+
+      goTo(0);
+      start();
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroSliders);
+  } else {
+    initHeroSliders();
+  }
+  document.addEventListener('shopify:section:load', initHeroSliders);
+
   // Newsletter inline confirmation message handled by Shopify natively.
 })();

@@ -1,119 +1,172 @@
-{%- liquid
-  assign hero_image = section.settings.image
-  assign image_fallback = section.settings.image_fallback | default: 'hero-slide-2.png'
-  assign eyebrow = section.settings.eyebrow | default: 'Custom Spray Tanning'
-  assign title_line1 = section.settings.title_line1 | default: 'Healthier Glow.'
-  assign title_line2 = section.settings.title_line2 | default: 'Flawless'
-  assign title_line3 = section.settings.title_line3 | default: 'Confidence.'
-  assign subtitle = section.settings.subtitle | default: 'Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.'
-  assign cta_primary_text = section.settings.cta_primary_text | default: 'Book Now'
-  assign cta_primary_url = section.settings.cta_primary_url | default: '#locations'
-  assign cta_secondary_text = section.settings.cta_secondary_text | default: 'Choose Your Location'
-  assign cta_secondary_url = section.settings.cta_secondary_url | default: '#locations'
-  assign card_title_line1 = section.settings.card_title_line1 | default: 'Everyone'
-  assign card_title_line2 = section.settings.card_title_line2 | default: 'Will Notice'
-  assign card_text = section.settings.card_text | default: 'Natural-looking glow, customized to your skin tone.'
--%}
+{%- assign autoplay_ms = section.settings.autoplay_ms | default: 4500 -%}
+{%- assign slide_count = section.blocks.size -%}
 
-<section class="hero-static" id="top" aria-label="Hero">
+<section
+  class="hero-slider hero-static"
+  id="top"
+  data-hero-slider
+  data-autoplay="{{ autoplay_ms }}"
+  {% if section.settings.autoplay == false %}data-autoplay-off{% endif %}
+  aria-label="Hero"
+  aria-roledescription="carousel">
   <div class="container hero-static__container">
     <div class="hero-static__card">
-      <div class="hero-static__grid">
-        <div class="hero-static__copy">
-          <span class="hero-static__eyebrow">{{ eyebrow }}</span>
-          <h1 class="hero-static__title">
-            {{ title_line1 }}<br>
-            <span class="hero-static__title-accent">{{ title_line2 }}</span><br>
-            {{ title_line3 }}
-          </h1>
-          <p class="hero-static__sub">{{ subtitle }}</p>
-          <div class="hero-static__ctas">
-            <a href="{{ cta_primary_url }}" class="btn-pill btn-pill--dark">{{ cta_primary_text }}</a>
-            <a href="{{ cta_secondary_url }}" class="btn-pill btn-pill--outline">{{ cta_secondary_text }}</a>
-          </div>
-          <div class="hero-static__proof">
-            <div class="hero-static__proof-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span>Award Winning</span>
-            </div>
-            <span class="hero-static__proof-divider" aria-hidden="true"></span>
-            <div class="hero-static__proof-item">
-              {%- render 'icon', name: 'shield' -%}
-              <span>Since 2007</span>
-            </div>
-            <span class="hero-static__proof-divider" aria-hidden="true"></span>
-            <div class="hero-static__proof-item">
-              {%- render 'icon', name: 'map-pin' -%}
-              <span>3 Texas Studios</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-static__visual">
-          <div class="hero-static__image-frame">
-            {%- if hero_image != blank -%}
-              <img
-                src="{{ hero_image | image_url: width: 1280 }}"
-                srcset="{{ hero_image | image_url: width: 800 }} 800w, {{ hero_image | image_url: width: 1280 }} 1280w"
-                sizes="(min-width: 990px) 46vw, 92vw"
-                alt="{{ hero_image.alt | default: title_line1 | escape }}"
-                width="1280"
-                height="1280"
-                class="hero-static__image"
-                fetchpriority="high">
-            {%- else -%}
-              <img
-                src="{{ image_fallback | asset_url }}"
-                alt="{{ title_line1 | escape }}"
-                width="1280"
-                height="1280"
-                class="hero-static__image"
-                fetchpriority="high">
-            {%- endif -%}
-
-            <div class="hero-static__pills" aria-hidden="true">
-              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
-              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>
-              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Houston</span></span>
-              <span class="hero-static__pill">{%- render 'icon', name: 'sparkle' -%}<span>Spray Tanning</span></span>
-            </div>
-
-            <div class="hero-static__floating-card" aria-hidden="true">
-              <div class="hero-static__floating-copy">
-                <strong>{{ card_title_line1 }}<br>{{ card_title_line2 }}</strong>
-                <span>{{ card_text }}</span>
+      <div class="hero-slider__track" data-hero-track>
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign image_fallback = block.settings.image_fallback | default: 'hero-slide-2.png'
+            assign show_pills = block.settings.show_pills
+            assign card_text = block.settings.card_text
+            assign has_card = false
+            if block.settings.card_title_line1 != blank or block.settings.card_title_line2 != blank or card_text != blank
+              assign has_card = true
+            endif
+          -%}
+          <article
+            class="hero-slider__slide{% if forloop.first %} is-active{% endif %}"
+            data-hero-slide="{{ forloop.index0 }}"
+            aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+            {{ block.shopify_attributes }}>
+            <div class="hero-static__grid">
+              <div class="hero-static__copy">
+                {%- if block.settings.eyebrow != blank -%}
+                  <span class="hero-static__eyebrow">{{ block.settings.eyebrow }}</span>
+                {%- endif -%}
+                <h2 class="hero-static__title">
+                  {{ block.settings.title_line1 }}
+                  {%- if block.settings.title_line2 != blank -%}
+                    <br><span class="hero-static__title-accent">{{ block.settings.title_line2 }}</span>
+                  {%- endif -%}
+                  {%- if block.settings.title_line3 != blank -%}
+                    <br>{{ block.settings.title_line3 }}
+                  {%- endif -%}
+                </h2>
+                {%- if block.settings.subtitle != blank -%}
+                  <p class="hero-static__sub">{{ block.settings.subtitle }}</p>
+                {%- endif -%}
+                <div class="hero-static__ctas">
+                  {%- if block.settings.cta_primary_text != blank -%}
+                    <a href="{{ block.settings.cta_primary_url | default: '#' }}" class="btn-pill btn-pill--dark">{{ block.settings.cta_primary_text }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.cta_secondary_text != blank -%}
+                    <a href="{{ block.settings.cta_secondary_url | default: '#' }}" class="btn-pill btn-pill--outline">{{ block.settings.cta_secondary_text }}</a>
+                  {%- endif -%}
+                </div>
+                <div class="hero-static__proof">
+                  <div class="hero-static__proof-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>Award Winning</span>
+                  </div>
+                  <span class="hero-static__proof-divider" aria-hidden="true"></span>
+                  <div class="hero-static__proof-item">
+                    {%- render 'icon', name: 'shield' -%}
+                    <span>Since 2007</span>
+                  </div>
+                  <span class="hero-static__proof-divider" aria-hidden="true"></span>
+                  <div class="hero-static__proof-item">
+                    {%- render 'icon', name: 'map-pin' -%}
+                    <span>3 Texas Studios</span>
+                  </div>
+                </div>
               </div>
-              <span class="hero-static__floating-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+
+              <div class="hero-static__visual">
+                <div class="hero-static__image-frame">
+                  {%- if block.settings.image != blank -%}
+                    <img
+                      src="{{ block.settings.image | image_url: width: 1280 }}"
+                      srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1280 }} 1280w"
+                      sizes="(min-width: 990px) 46vw, 92vw"
+                      alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
+                      width="1280"
+                      height="1280"
+                      class="hero-static__image"
+                      {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+                  {%- else -%}
+                    <img
+                      src="{{ image_fallback | asset_url }}"
+                      alt="{{ block.settings.title_line1 | escape }}"
+                      width="1280"
+                      height="1280"
+                      class="hero-static__image"
+                      {% if forloop.first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+                  {%- endif -%}
+
+                  {%- if show_pills -%}
+                    <div class="hero-static__pills" aria-hidden="true">
+                      <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
+                      <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>
+                      <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Houston</span></span>
+                      <span class="hero-static__pill">{%- render 'icon', name: 'sparkle' -%}<span>Spray Tanning</span></span>
+                    </div>
+                  {%- endif -%}
+
+                  {%- if has_card -%}
+                    <div class="hero-static__floating-card" aria-hidden="true">
+                      <div class="hero-static__floating-copy">
+                        <strong>{{ block.settings.card_title_line1 }}{% if block.settings.card_title_line2 != blank %}<br>{{ block.settings.card_title_line2 }}{% endif %}</strong>
+                        {%- if card_text != blank -%}<span>{{ card_text }}</span>{%- endif -%}
+                      </div>
+                      <span class="hero-static__floating-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </article>
+        {%- endfor -%}
       </div>
+
+      {%- if slide_count > 1 -%}
+        <div class="hero-slider__dots" role="tablist" aria-label="Choose slide">
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="hero-slider__dot{% if forloop.first %} is-active{% endif %}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-label="Slide {{ forloop.index }} of {{ slide_count }}"
+              data-hero-dot="{{ forloop.index0 }}"></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Hero",
+  "name": "Hero slider",
   "settings": [
-    { "type": "image_picker", "id": "image", "label": "Hero image (right)" },
-    { "type": "text", "id": "image_fallback", "label": "Default image filename", "default": "hero-slide-2.png", "info": "Used when no image is uploaded." },
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Custom Spray Tanning" },
-    { "type": "text", "id": "title_line1", "label": "Heading line 1", "default": "Healthier Glow." },
-    { "type": "text", "id": "title_line2", "label": "Heading line 2 (lavender accent)", "default": "Flawless" },
-    { "type": "text", "id": "title_line3", "label": "Heading line 3", "default": "Confidence." },
-    { "type": "textarea", "id": "subtitle", "label": "Paragraph", "default": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless." },
-    { "type": "text", "id": "cta_primary_text", "label": "Primary button text", "default": "Book Now" },
-    { "type": "url", "id": "cta_primary_url", "label": "Primary button URL" },
-    { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text", "default": "Choose Your Location" },
-    { "type": "url", "id": "cta_secondary_url", "label": "Secondary button URL" },
-    { "type": "header", "content": "Floating info card" },
-    { "type": "text", "id": "card_title_line1", "label": "Card title line 1", "default": "Everyone" },
-    { "type": "text", "id": "card_title_line2", "label": "Card title line 2", "default": "Will Notice" },
-    { "type": "textarea", "id": "card_text", "label": "Card body", "default": "Natural-looking glow, customized to your skin tone." }
+    { "type": "checkbox", "id": "autoplay", "label": "Auto-advance slides", "default": true },
+    { "type": "range", "id": "autoplay_ms", "label": "Slide duration", "min": 3000, "max": 8000, "step": 500, "default": 4500, "unit": "ms" }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Hero image" },
+        { "type": "text", "id": "image_fallback", "label": "Default image filename", "default": "hero-slide-2.png" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Custom Spray Tanning" },
+        { "type": "text", "id": "title_line1", "label": "Heading line 1", "default": "Healthier Glow." },
+        { "type": "text", "id": "title_line2", "label": "Heading line 2 (lavender accent)", "default": "Flawless" },
+        { "type": "text", "id": "title_line3", "label": "Heading line 3", "default": "Confidence." },
+        { "type": "textarea", "id": "subtitle", "label": "Paragraph" },
+        { "type": "text", "id": "cta_primary_text", "label": "Primary button text", "default": "Book Now" },
+        { "type": "url", "id": "cta_primary_url", "label": "Primary button URL" },
+        { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text", "default": "Choose Your Location" },
+        { "type": "url", "id": "cta_secondary_url", "label": "Secondary button URL" },
+        { "type": "checkbox", "id": "show_pills", "label": "Show location/service pills on image", "default": false },
+        { "type": "header", "content": "Floating info card (optional)" },
+        { "type": "text", "id": "card_title_line1", "label": "Card title line 1" },
+        { "type": "text", "id": "card_title_line2", "label": "Card title line 2" },
+        { "type": "textarea", "id": "card_text", "label": "Card body" }
+      ]
+    }
   ],
   "presets": [
-    { "name": "Hero" }
+    { "name": "Hero slider" }
   ]
 }
 {% endschema %}
