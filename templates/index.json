@@ -39,10 +39,10 @@
             "cta_secondary_text": "View Services",
             "cta_secondary_url": "#services",
             "image_fallback": "hero-slide-3.png",
-            "show_pills": false,
-            "card_title_line1": "",
-            "card_title_line2": "",
-            "card_text": ""
+            "show_pills": true,
+            "card_title_line1": "Everyone",
+            "card_title_line2": "Will Notice",
+            "card_text": "Natural-looking glow, customized to your skin tone."
           }
         },
         "slide-3": {
@@ -58,10 +58,10 @@
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "#locations",
             "image_fallback": "hero-slide-1.png",
-            "show_pills": false,
-            "card_title_line1": "",
-            "card_title_line2": "",
-            "card_text": ""
+            "show_pills": true,
+            "card_title_line1": "Everyone",
+            "card_title_line2": "Will Notice",
+            "card_text": "Natural-looking glow, customized to your skin tone."
           }
         }
       },
