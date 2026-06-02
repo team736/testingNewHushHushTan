@@ -30,17 +30,47 @@
     }
   });
 
-  // Pricing tabs
-  document.querySelectorAll('[data-pricing-tabs]').forEach(function (root) {
-    var tabs = root.querySelectorAll('[role="tab"]');
-    var panels = root.querySelectorAll('[role="tabpanel"]');
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        tabs.forEach(function (t) { t.setAttribute('aria-selected', 'false'); });
-        panels.forEach(function (p) { p.classList.remove('is-active'); });
-        tab.setAttribute('aria-selected', 'true');
-        var target = root.querySelector('#' + tab.getAttribute('aria-controls'));
-        if (target) target.classList.add('is-active');
+  // Pricing ecosystem (location + content tabs)
+  document.querySelectorAll('[data-pricing-ecosystem]').forEach(function (root) {
+    var locationTabs = root.querySelectorAll('[data-location-tab]');
+    var locationPanels = root.querySelectorAll('[data-location-panel]');
+
+    locationTabs.forEach(function (btn, index) {
+      btn.addEventListener('click', function () {
+        locationTabs.forEach(function (t) {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        locationPanels.forEach(function (p) {
+          p.classList.remove('is-active');
+          p.hidden = true;
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        var panel = locationPanels[index];
+        if (panel) {
+          panel.classList.add('is-active');
+          panel.hidden = false;
+        }
+      });
+    });
+
+    locationPanels.forEach(function (panel) {
+      var contentTabs = panel.querySelectorAll('[data-content-tab]');
+      var contentPanels = panel.querySelectorAll('[data-content-panel]');
+      contentTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var key = tab.getAttribute('data-content-tab');
+          contentTabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          contentPanels.forEach(function (p) { p.classList.remove('active'); });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          var target = panel.querySelector('[data-content-panel="' + key + '"]');
+          if (target) target.classList.add('active');
+        });
       });
     });
   });

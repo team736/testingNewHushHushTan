@@ -1,0 +1,149 @@
+{%- comment -%}
+  Renders membership, package, services, and group panels for one location tab.
+  Accepts: tab (block), preview (boolean)
+{%- endcomment -%}
+
+<div class="hht-content-tabs" role="tablist" aria-label="Pricing categories">
+  <button type="button" class="hht-content-tab active" role="tab" aria-selected="true" data-content-tab="memberships">Memberships</button>
+  <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="packages">Packages</button>
+  {%- unless preview -%}
+    <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="services">Services</button>
+    <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="group">Group &amp; Mobile</button>
+  {%- endunless -%}
+</div>
+
+<div class="hht-pricing-content">
+  <div class="hht-tab-panel active" data-content-panel="memberships" role="tabpanel">
+    <div class="hht-tab-intro">
+      <h3>Memberships</h3>
+      <p>Monthly value, every month. Cancel anytime.</p>
+    </div>
+    <div class="hht-card-grid hht-membership-grid">
+      <article class="hht-price-card">
+        <h3>Absolute</h3>
+        <div class="hht-card-price">${{ tab.settings.mem_absolute }}<small>/mo</small></div>
+        <p class="hht-card-sub">Our most complete monthly glow plan.</p>
+        <ul class="hht-feature-list">
+          <li>4 tans per month</li>
+          <li>10% off products</li>
+          <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+        </ul>
+        <a href="{{ tab.settings.book_membership_url }}" class="hht-card-button">Join Absolute</a>
+      </article>
+      <article class="hht-price-card is-featured">
+        <span class="hht-card-badge">Most Popular</span>
+        <h3>Deluxe</h3>
+        <div class="hht-card-price">${{ tab.settings.mem_deluxe }}<small>/mo</small></div>
+        <p class="hht-card-sub">The sweet spot for regular glow lovers.</p>
+        <ul class="hht-feature-list">
+          <li>3 tans per month</li>
+          <li>10% off products</li>
+          <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+        </ul>
+        <a href="{{ tab.settings.book_membership_url }}" class="hht-card-button">Join Deluxe</a>
+      </article>
+      <article class="hht-price-card">
+        <h3>Glow</h3>
+        <div class="hht-card-price">${{ tab.settings.mem_glow }}<small>/mo</small></div>
+        <p class="hht-card-sub">Perfect for maintaining your color.</p>
+        <ul class="hht-feature-list">
+          <li>2 tans per month</li>
+          <li>10% off products</li>
+          <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+        </ul>
+        <a href="{{ tab.settings.book_membership_url }}" class="hht-card-button">Join Glow</a>
+      </article>
+    </div>
+  </div>
+
+  <div class="hht-tab-panel" data-content-panel="packages" role="tabpanel">
+    <div class="hht-tab-intro">
+      <h3>Prepaid packages</h3>
+      <p>Per-session pricing first — total package shown second.</p>
+    </div>
+    <div class="hht-card-grid hht-package-grid">
+      <article class="hht-price-card hht-package-card">
+        <h3>Glow-Getter</h3>
+        <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+        <p class="hht-package-meta">5 Custom Glows · ${{ tab.settings.pkg_glow_getter }} one-time</p>
+        <a href="{{ tab.settings.book_packages_url }}" class="hht-card-button">Buy Glow-Getter</a>
+      </article>
+      <article class="hht-price-card hht-package-card is-featured">
+        <span class="hht-card-badge">Best Value</span>
+        <h3>Ultimate Glow</h3>
+        <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+        <p class="hht-package-meta">10 Custom Glows · ${{ tab.settings.pkg_ultimate }} one-time</p>
+        <a href="{{ tab.settings.book_packages_url }}" class="hht-card-button">Buy Ultimate</a>
+      </article>
+      <article class="hht-price-card hht-package-card">
+        <h3>Elite Glow</h3>
+        <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+        <p class="hht-package-meta">15 Custom Glows · ${{ tab.settings.pkg_elite }} one-time</p>
+        <a href="{{ tab.settings.book_packages_url }}" class="hht-card-button">Buy Elite</a>
+      </article>
+    </div>
+  </div>
+
+  {%- unless preview -%}
+    <div class="hht-tab-panel" data-content-panel="services" role="tabpanel">
+      <div class="hht-tab-intro">
+        <h3>Full body services</h3>
+        <p>Custom airbrush tanning and add-ons for {{ tab.settings.label }}.</p>
+      </div>
+      <div class="hht-plan-table-wrap">
+        <table class="hht-plan-table">
+          <thead>
+            <tr>
+              <th scope="col">Service</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Clear Glow</td><td>${{ tab.settings.svc_clear }}</td></tr>
+            <tr><td>Custom Glow</td><td>${{ tab.settings.svc_custom }}</td></tr>
+            <tr><td>Gold Glow</td><td>${{ tab.settings.svc_gold }}</td></tr>
+            <tr><td>Brazilian Glow</td><td>${{ tab.settings.svc_brazilian }}</td></tr>
+            <tr><td>Rapid Glow</td><td>${{ tab.settings.svc_rapid }}</td></tr>
+            <tr><td>Bye Bye Tan Line</td><td>${{ tab.settings.svc_bbtl }}</td></tr>
+            <tr><td>Happy Birthday Glow</td><td>${{ tab.settings.svc_birthday }}</td></tr>
+            <tr><td>Face</td><td>${{ tab.settings.svc_face }}</td></tr>
+            <tr><td>Partial Upper or Lower</td><td>${{ tab.settings.svc_partial }}</td></tr>
+            <tr><td>Upper or Lower</td><td>${{ tab.settings.svc_upper_lower }}</td></tr>
+            {%- if tab.settings.extra_service_name != blank -%}
+              <tr><td>{{ tab.settings.extra_service_name }}</td><td>${{ tab.settings.extra_service_price }}</td></tr>
+            {%- endif -%}
+          </tbody>
+        </table>
+      </div>
+      <p class="hht-table-note">Accessories: Disposable Boxers $3 · Floral Pasties $2 · C-String Undies $6. Complimentary disposable undies, nose plugs, and hair clips.</p>
+    </div>
+
+    <div class="hht-tab-panel" data-content-panel="group" role="tabpanel">
+      <div class="hht-tab-intro">
+        <h3>Group &amp; mobile</h3>
+        <p>Private parties and on-location tanning for {{ tab.settings.label }}.</p>
+      </div>
+      <div class="hht-card-grid hht-group-grid">
+        {%- if tab.settings.group_price != blank -%}
+          <article class="hht-price-card hht-group-card">
+            <h3>Group Tanning &amp; Mimosas</h3>
+            <div class="hht-card-price">${{ tab.settings.group_price }}<small>/person</small></div>
+            <p class="hht-card-sub">In-store private parties. 5 person minimum.</p>
+            <a href="{{ tab.settings.book_url }}" class="hht-card-button">Plan a party</a>
+          </article>
+        {%- endif -%}
+        {%- if tab.settings.mobile_price != blank -%}
+          <article class="hht-price-card hht-group-card">
+            <h3>Mobile Tanning</h3>
+            <div class="hht-card-price">${{ tab.settings.mobile_price }}<small>/person</small></div>
+            <p class="hht-card-sub">We come to you. 5 person minimum; travel fees may apply.</p>
+            <a href="{{ tab.settings.book_url }}" class="hht-card-button">Book mobile</a>
+          </article>
+        {%- endif -%}
+      </div>
+      <div class="hht-cta-actions" style="margin-top: 32px; justify-content: center;">
+        <a href="{{ tab.settings.book_url }}" class="hht-primary-cta">Book {{ tab.settings.label }}</a>
+      </div>
+    </div>
+  {%- endunless -%}
+</div>

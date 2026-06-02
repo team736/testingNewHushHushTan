@@ -109,11 +109,15 @@
     "memberships": {
       "type": "pricing-tabs",
       "settings": {
-        "eyebrow": "Memberships & Packages",
-        "heading": "Glow More, Save More",
+        "location_label": "Select location",
+        "heading_before": "Glow More,",
+        "heading_emphasis": "Save More",
         "subheading": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long.",
         "homepage_preview": true,
-        "show_intro_split": true,
+        "cta_eyebrow": "Memberships & Packages",
+        "cta_heading_before": "View the full",
+        "cta_heading_emphasis": "menu",
+        "cta_subtext": "See every membership, package, and service for your studio.",
         "cta_text": "View Full Memberships Page",
         "cta_url": "/pages/memberships"
       },

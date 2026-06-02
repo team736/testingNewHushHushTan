@@ -1,170 +1,70 @@
-<section class="section{% if section.settings.homepage_preview %} section--soft pricing-tabs--preview{% endif %}">
-  <div class="container">
-    {%- if section.settings.show_intro_split -%}
-      <div class="pricing-intro-split">
-        <div>
-          {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-          <h2 class="pricing-intro-split__title">{{ section.settings.heading }}</h2>
+{%- assign tab_blocks = section.blocks | where: 'type', 'tab' -%}
+{%- assign preview = section.settings.homepage_preview -%}
+
+<section class="hht-pricing-ecosystem" data-pricing-ecosystem id="pricing-{{ section.id }}">
+  <div class="hht-pricing-shell">
+    {%- if tab_blocks.size > 0 -%}
+      <div class="hht-pricing-location-wrap">
+        {%- if section.settings.location_label != blank -%}
+          <p class="hht-location-label">{{ section.settings.location_label }}</p>
+        {%- endif -%}
+        <div class="hht-location-tabs" role="tablist" aria-label="Studio location">
+          {%- for tab in tab_blocks -%}
+            <button
+              type="button"
+              class="hht-location-tab{% if forloop.first %} active{% endif %}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              data-location-tab="{{ forloop.index0 }}"
+              id="loc-tab-{{ section.id }}-{{ tab.id }}">
+              {{ tab.settings.label }}
+            </button>
+          {%- endfor -%}
         </div>
-        <div>
-          {%- if section.settings.subheading != blank -%}<p class="lead">{{ section.settings.subheading }}</p>{%- endif -%}
-          {%- if section.settings.cta_text != blank -%}
-            <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="btn btn--pill">{{ section.settings.cta_text }}</a>
-          {%- endif -%}
-        </div>
-      </div>
-    {%- else -%}
-      <div class="text-center" style="margin-bottom: 24px;">
-        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-        <h2 class="mb-0">{{ section.settings.heading }}</h2>
-        {%- if section.settings.subheading != blank -%}<p class="muted" style="margin-top: 8px; max-width: 56ch; margin-left:auto; margin-right:auto;">{{ section.settings.subheading }}</p>{%- endif -%}
       </div>
     {%- endif -%}
 
-    <div class="pricing-tabs__wrap" data-pricing-tabs>
-      <div class="pricing-tabs__tablist" role="tablist">
-        {%- assign tab_blocks = section.blocks | where: 'type', 'tab' -%}
-        {%- for tab in tab_blocks -%}
-          <button class="pricing-tabs__tab"
-                  role="tab"
-                  id="tab-{{ tab.id }}"
-                  aria-controls="panel-{{ tab.id }}"
-                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
-            {{ tab.settings.label }}
-          </button>
-        {%- endfor -%}
-      </div>
-
-      {%- for tab in tab_blocks -%}
-        <div class="pricing-tabs__panel{% if forloop.first %} is-active{% endif %}"
-             role="tabpanel"
-             id="panel-{{ tab.id }}"
-             aria-labelledby="tab-{{ tab.id }}">
-
-          {%- comment -%} Memberships {%- endcomment -%}
-          <div class="pricing-block">
-            <h3 class="pricing-block__heading">Memberships</h3>
-            <p class="pricing-block__intro">Monthly value, every month. Cancel anytime.</p>
-            <div class="price-grid">
-              <div class="price-card">
-                <div class="price-card__name">Absolute</div>
-                <div class="price-card__value">${{ tab.settings.mem_absolute }}<span class="price-card__suffix">/mo</span></div>
-                <ul>
-                  <li>4 tans per month</li>
-                  <li>10% off products</li>
-                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
-                </ul>
-                <a href="{{ tab.settings.book_membership_url }}" class="btn btn--outline btn--small" style="margin-top: 16px;">Join Absolute</a>
-              </div>
-              <div class="price-card price-card--feature">
-                <div class="price-card__name">Deluxe</div>
-                <div class="price-card__value">${{ tab.settings.mem_deluxe }}<span class="price-card__suffix">/mo</span></div>
-                <ul>
-                  <li>3 tans per month</li>
-                  <li>10% off products</li>
-                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
-                </ul>
-                <a href="{{ tab.settings.book_membership_url }}" class="btn btn--small" style="margin-top: 16px;">Join Deluxe</a>
-              </div>
-              <div class="price-card">
-                <div class="price-card__name">Glow</div>
-                <div class="price-card__value">${{ tab.settings.mem_glow }}<span class="price-card__suffix">/mo</span></div>
-                <ul>
-                  <li>2 tans per month</li>
-                  <li>10% off products</li>
-                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
-                </ul>
-                <a href="{{ tab.settings.book_membership_url }}" class="btn btn--outline btn--small" style="margin-top: 16px;">Join Glow</a>
-              </div>
-            </div>
-          </div>
-
-          {%- comment -%} Prepaid packages {%- endcomment -%}
-          <div class="pricing-block">
-            <h3 class="pricing-block__heading">Prepaid packages</h3>
-            <p class="pricing-block__intro">Per-session pricing first — total package shown second.</p>
-            <div class="price-grid">
-              <div class="price-card">
-                <div class="price-card__name">Glow-Getter</div>
-                <div class="price-card__value">${{ tab.settings.pkg_per_session }}<span class="price-card__suffix">/session</span></div>
-                <div class="price-card__notes">5 Custom Glows · ${{ tab.settings.pkg_glow_getter }} one-time</div>
-                <a href="{{ tab.settings.book_packages_url }}" class="btn btn--outline btn--small" style="margin-top: 16px;">Buy Glow-Getter</a>
-              </div>
-              <div class="price-card price-card--feature">
-                <div class="price-card__name">Ultimate Glow</div>
-                <div class="price-card__value">${{ tab.settings.pkg_per_session }}<span class="price-card__suffix">/session</span></div>
-                <div class="price-card__notes">10 Custom Glows · ${{ tab.settings.pkg_ultimate }} one-time</div>
-                <a href="{{ tab.settings.book_packages_url }}" class="btn btn--small" style="margin-top: 16px;">Buy Ultimate</a>
-              </div>
-              <div class="price-card">
-                <div class="price-card__name">Elite Glow</div>
-                <div class="price-card__value">${{ tab.settings.pkg_per_session }}<span class="price-card__suffix">/session</span></div>
-                <div class="price-card__notes">15 Custom Glows · ${{ tab.settings.pkg_elite }} one-time</div>
-                <a href="{{ tab.settings.book_packages_url }}" class="btn btn--outline btn--small" style="margin-top: 16px;">Buy Elite</a>
-              </div>
-            </div>
-          </div>
-
-          {%- unless section.settings.homepage_preview -%}
-          {%- comment -%} Full Body Services {%- endcomment -%}
-          <div class="pricing-block">
-            <h3 class="pricing-block__heading">Full body services</h3>
-            <div class="price-row"><span class="price-row__name">Clear Glow</span><span class="price-row__price">${{ tab.settings.svc_clear }}</span></div>
-            <div class="price-row"><span class="price-row__name">Custom Glow</span><span class="price-row__price">${{ tab.settings.svc_custom }}</span></div>
-            <div class="price-row"><span class="price-row__name">Gold Glow</span><span class="price-row__price">${{ tab.settings.svc_gold }}</span></div>
-            <div class="price-row"><span class="price-row__name">Brazilian Glow</span><span class="price-row__price">${{ tab.settings.svc_brazilian }}</span></div>
-            <div class="price-row"><span class="price-row__name">Rapid Glow</span><span class="price-row__price">${{ tab.settings.svc_rapid }}</span></div>
-            <div class="price-row"><span class="price-row__name">Bye Bye Tan Line</span><span class="price-row__price">${{ tab.settings.svc_bbtl }}</span></div>
-            <div class="price-row"><span class="price-row__name">Happy Birthday Glow</span><span class="price-row__price">${{ tab.settings.svc_birthday }}</span></div>
-          </div>
-
-          {%- comment -%} Partial body {%- endcomment -%}
-          <div class="pricing-block">
-            <h3 class="pricing-block__heading">Partial body</h3>
-            <div class="price-row"><span class="price-row__name">Face</span><span class="price-row__price">${{ tab.settings.svc_face }}</span></div>
-            <div class="price-row"><span class="price-row__name">Partial Upper or Lower</span><span class="price-row__price">${{ tab.settings.svc_partial }}</span></div>
-            <div class="price-row"><span class="price-row__name">Upper or Lower</span><span class="price-row__price">${{ tab.settings.svc_upper_lower }}</span></div>
-          </div>
-
-          {%- comment -%} Group/Mobile {%- endcomment -%}
-          {%- if tab.settings.group_price != blank -%}
-            <div class="pricing-block">
-              <h3 class="pricing-block__heading">Group tanning &amp; mimosas</h3>
-              <div class="price-row"><span class="price-row__name">In-Store Group Tanning &amp; Mimosas <small class="muted">(5 person minimum)</small></span><span class="price-row__price">${{ tab.settings.group_price }}/person</span></div>
-              {%- if tab.settings.mobile_price != blank -%}
-                <div class="price-row"><span class="price-row__name">Mobile Tanning <small class="muted">(5 person minimum · travel fees may apply)</small></span><span class="price-row__price">${{ tab.settings.mobile_price }}/person</span></div>
-              {%- endif -%}
-            </div>
-          {%- endif -%}
-
-          {%- comment -%} Accessories {%- endcomment -%}
-          <div class="pricing-block">
-            <h3 class="pricing-block__heading">Accessories</h3>
-            <div class="price-row"><span class="price-row__name">Disposable Boxers</span><span class="price-row__price">$3/pair</span></div>
-            <div class="price-row"><span class="price-row__name">Floral Pasties</span><span class="price-row__price">$2/pair</span></div>
-            <div class="price-row"><span class="price-row__name">C-String Undies</span><span class="price-row__price">$6/pair</span></div>
-            <p class="muted small" style="margin-top: 12px;">Complimentary: disposable undies, nose plugs, hair clips.</p>
-          </div>
-
-          {%- if tab.settings.extra_service_name != blank -%}
-            <div class="pricing-block">
-              <h3 class="pricing-block__heading">Additional services</h3>
-              <div class="price-row"><span class="price-row__name">{{ tab.settings.extra_service_name }}</span><span class="price-row__price">${{ tab.settings.extra_service_price }}</span></div>
-            </div>
-          {%- endif -%}
-          {%- endunless -%}
-
-          {%- unless section.settings.homepage_preview -%}
-          <div class="text-center" style="margin-top: 32px;">
-            <a href="{{ tab.settings.book_url }}" class="btn btn--pill">Book {{ tab.settings.label }}</a>
-          </div>
-          {%- endunless -%}
-        </div>
-      {%- endfor -%}
+    <div class="hht-pricing-heading">
+      <h2>
+        {{ section.settings.heading_before | default: 'Glow More,' }}
+        <em>{{ section.settings.heading_emphasis | default: 'Save More' }}</em>
+      </h2>
+      {%- if section.settings.subheading != blank -%}
+        <p>{{ section.settings.subheading }}</p>
+      {%- endif -%}
     </div>
-    {%- if section.settings.homepage_preview and section.settings.cta_text != blank -%}
-      <div class="text-center" style="margin-top: 40px;">
-        <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="btn btn--pill">{{ section.settings.cta_text }}</a>
+
+    {%- for tab in tab_blocks -%}
+      <div
+        class="hht-location-panel{% if forloop.first %} is-active{% endif %}"
+        data-location-panel="{{ forloop.index0 }}"
+        role="tabpanel"
+        id="loc-panel-{{ section.id }}-{{ tab.id }}"
+        aria-labelledby="loc-tab-{{ section.id }}-{{ tab.id }}"
+        {% unless forloop.first %}hidden{% endunless %}
+        {{ tab.shopify_attributes }}>
+        {% render 'pricing-location-panel', tab: tab, preview: preview %}
+      </div>
+    {%- endfor -%}
+
+    {%- if preview and section.settings.cta_text != blank -%}
+      <div class="hht-pricing-cta">
+        {%- if section.settings.cta_eyebrow != blank -%}
+          <span>{{ section.settings.cta_eyebrow }}</span>
+        {%- endif -%}
+        <h3>
+          {{ section.settings.cta_heading_before }}
+          <em>{{ section.settings.cta_heading_emphasis }}</em>
+        </h3>
+        {%- if section.settings.cta_subtext != blank -%}
+          <p>{{ section.settings.cta_subtext }}</p>
+        {%- endif -%}
+        <div class="hht-cta-actions">
+          <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="hht-primary-cta">{{ section.settings.cta_text }}</a>
+          {%- if section.settings.cta_secondary_text != blank -%}
+            <a href="{{ section.settings.cta_secondary_url | default: '/pages/locations' }}" class="hht-secondary-cta">{{ section.settings.cta_secondary_text }}</a>
+          {%- endif -%}
+        </div>
       </div>
     {%- endif -%}
   </div>
@@ -173,14 +73,23 @@
 {% schema %}
 {
   "name": "Pricing tabs",
+  "tag": "section",
+  "class": "hht-pricing-section-wrap",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Services & Pricing" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Choose your location" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Austin and Houston share pricing. Dallas pricing is different." },
+    { "type": "text", "id": "location_label", "label": "Location label", "default": "Select location" },
+    { "type": "text", "id": "heading_before", "label": "Heading (before accent)", "default": "Glow More," },
+    { "type": "text", "id": "heading_emphasis", "label": "Heading accent (lavender italic)", "default": "Save More" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long." },
     { "type": "checkbox", "id": "homepage_preview", "label": "Homepage preview (memberships + packages only)", "default": false },
-    { "type": "checkbox", "id": "show_intro_split", "label": "Split intro layout", "default": false },
-    { "type": "text", "id": "cta_text", "label": "Bottom CTA text" },
-    { "type": "url", "id": "cta_url", "label": "Bottom CTA URL" }
+    { "type": "header", "content": "Homepage preview CTA" },
+    { "type": "text", "id": "cta_eyebrow", "label": "CTA eyebrow", "default": "Memberships & Packages" },
+    { "type": "text", "id": "cta_heading_before", "label": "CTA heading before accent", "default": "View the full" },
+    { "type": "text", "id": "cta_heading_emphasis", "label": "CTA heading accent", "default": "menu" },
+    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "See every membership, package, and service for your studio." },
+    { "type": "text", "id": "cta_text", "label": "Primary CTA text", "default": "View Full Memberships Page" },
+    { "type": "url", "id": "cta_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta_secondary_text", "label": "Secondary CTA text" },
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" }
   ],
   "blocks": [
     {
@@ -193,35 +102,36 @@
         { "type": "url", "id": "book_packages_url", "label": "Book packages URL" },
         { "type": "header", "content": "Memberships" },
         { "type": "text", "id": "mem_absolute", "label": "Absolute ($/mo)", "default": "120" },
-        { "type": "text", "id": "mem_deluxe",   "label": "Deluxe ($/mo)",   "default": "96" },
-        { "type": "text", "id": "mem_glow",     "label": "Glow ($/mo)",     "default": "66" },
+        { "type": "text", "id": "mem_deluxe", "label": "Deluxe ($/mo)", "default": "96" },
+        { "type": "text", "id": "mem_glow", "label": "Glow ($/mo)", "default": "66" },
         { "type": "text", "id": "mem_discount_rate", "label": "Discounted additional Custom Glow ($)", "default": "35" },
         { "type": "header", "content": "Packages" },
         { "type": "text", "id": "pkg_per_session", "label": "Per session ($)", "default": "35" },
         { "type": "text", "id": "pkg_glow_getter", "label": "Glow-Getter total", "default": "175" },
-        { "type": "text", "id": "pkg_ultimate",    "label": "Ultimate Glow total", "default": "350" },
-        { "type": "text", "id": "pkg_elite",       "label": "Elite Glow total", "default": "525" },
+        { "type": "text", "id": "pkg_ultimate", "label": "Ultimate Glow total", "default": "350" },
+        { "type": "text", "id": "pkg_elite", "label": "Elite Glow total", "default": "525" },
         { "type": "header", "content": "Full body services ($)" },
-        { "type": "text", "id": "svc_clear",     "label": "Clear Glow", "default": "40" },
-        { "type": "text", "id": "svc_custom",    "label": "Custom Glow", "default": "40" },
-        { "type": "text", "id": "svc_gold",      "label": "Gold Glow", "default": "45" },
+        { "type": "text", "id": "svc_clear", "label": "Clear Glow", "default": "40" },
+        { "type": "text", "id": "svc_custom", "label": "Custom Glow", "default": "40" },
+        { "type": "text", "id": "svc_gold", "label": "Gold Glow", "default": "45" },
         { "type": "text", "id": "svc_brazilian", "label": "Brazilian Glow", "default": "50" },
-        { "type": "text", "id": "svc_rapid",     "label": "Rapid Glow", "default": "55" },
-        { "type": "text", "id": "svc_bbtl",      "label": "Bye Bye Tan Line", "default": "55" },
-        { "type": "text", "id": "svc_birthday",  "label": "Happy Birthday Glow", "default": "34" },
+        { "type": "text", "id": "svc_rapid", "label": "Rapid Glow", "default": "55" },
+        { "type": "text", "id": "svc_bbtl", "label": "Bye Bye Tan Line", "default": "55" },
+        { "type": "text", "id": "svc_birthday", "label": "Happy Birthday Glow", "default": "34" },
         { "type": "header", "content": "Partial body ($)" },
-        { "type": "text", "id": "svc_face",        "label": "Face", "default": "5" },
-        { "type": "text", "id": "svc_partial",     "label": "Partial Upper or Lower", "default": "10" },
+        { "type": "text", "id": "svc_face", "label": "Face", "default": "5" },
+        { "type": "text", "id": "svc_partial", "label": "Partial Upper or Lower", "default": "10" },
         { "type": "text", "id": "svc_upper_lower", "label": "Upper or Lower", "default": "20" },
         { "type": "header", "content": "Group / Mobile ($/person)" },
-        { "type": "text", "id": "group_price",  "label": "In-Store Group", "default": "50" },
+        { "type": "text", "id": "group_price", "label": "In-Store Group", "default": "50" },
         { "type": "text", "id": "mobile_price", "label": "Mobile (leave blank to hide)", "default": "75" },
         { "type": "header", "content": "Additional service (optional)" },
-        { "type": "text", "id": "extra_service_name",  "label": "Name (e.g. Teeth Whitening)" },
+        { "type": "text", "id": "extra_service_name", "label": "Name (e.g. Teeth Whitening)" },
         { "type": "text", "id": "extra_service_price", "label": "Price" }
       ]
     }
   ],
+  "max_blocks": 6,
   "presets": [{
     "name": "Pricing tabs",
     "blocks": [
