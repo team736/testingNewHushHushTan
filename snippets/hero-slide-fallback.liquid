@@ -1,0 +1,89 @@
+{%- liquid
+  assign idx = which | minus: 1
+  if which == 1
+    assign is_first = true
+  else
+    assign is_first = false
+  endif
+-%}
+{%- case which -%}
+{%- when 1 -%}
+<article class="hero-slider__slide is-active" data-hero-slide="0" aria-hidden="false">
+  <div class="hero-static__grid">
+    <div class="hero-static__copy">
+      <span class="hero-static__eyebrow">Custom Spray Tanning</span>
+      <h2 class="hero-static__title">
+        Healthier Glow.<br><span class="hero-static__title-accent">Flawless</span><br>Confidence.
+      </h2>
+      <p class="hero-static__sub">Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.</p>
+      <div class="hero-static__ctas">
+        <a href="#locations" class="btn-pill btn-pill--dark">Book Now</a>
+        <a href="#locations" class="btn-pill btn-pill--outline">Choose Your Location</a>
+      </div>
+      {%- render 'hero-proof-row' -%}
+    </div>
+    <div class="hero-static__visual">
+      <div class="hero-static__image-frame">
+        <img src="{{ 'hero-slide-2.png' | asset_url }}" alt="Custom spray tanning at Hush Hush Tan" width="1280" height="1280" class="hero-static__image" fetchpriority="high">
+        <div class="hero-static__pills" aria-hidden="true">
+          <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
+          <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>
+          <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Houston</span></span>
+          <span class="hero-static__pill">{%- render 'icon', name: 'sparkle' -%}<span>Spray Tanning</span></span>
+        </div>
+        <div class="hero-static__floating-card" aria-hidden="true">
+          <div class="hero-static__floating-copy">
+            <strong>Everyone<br>Will Notice</strong>
+            <span>Natural-looking glow, customized to your skin tone.</span>
+          </div>
+          <span class="hero-static__floating-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+{%- when 2 -%}
+<article class="hero-slider__slide" data-hero-slide="1" aria-hidden="true">
+  <div class="hero-static__grid">
+    <div class="hero-static__copy">
+      <span class="hero-static__eyebrow">The Hush Hush Experience</span>
+      <h2 class="hero-static__title">
+        Everyone will<br>notice.<br><span class="hero-static__title-accent">No one will know.</span>
+      </h2>
+      <p class="hero-static__sub">A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.</p>
+      <div class="hero-static__ctas">
+        <a href="#locations" class="btn-pill btn-pill--dark">Book Now</a>
+        <a href="#services" class="btn-pill btn-pill--outline">View Services</a>
+      </div>
+      {%- render 'hero-proof-row' -%}
+    </div>
+    <div class="hero-static__visual">
+      <div class="hero-static__image-frame">
+        <img src="{{ 'hero-slide-3.png' | asset_url }}" alt="The Hush Hush Tan experience" width="1280" height="1280" class="hero-static__image" loading="lazy">
+      </div>
+    </div>
+  </div>
+</article>
+{%- when 3 -%}
+<article class="hero-slider__slide" data-hero-slide="2" aria-hidden="true">
+  <div class="hero-static__grid">
+    <div class="hero-static__copy">
+      <span class="hero-static__eyebrow">Memberships &amp; Packages</span>
+      <h2 class="hero-static__title">
+        Glow More,<br><span class="hero-static__title-accent">Save More</span>
+      </h2>
+      <p class="hero-static__sub">Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.</p>
+      <div class="hero-static__ctas">
+        <a href="#memberships" class="btn-pill btn-pill--dark">View Memberships</a>
+        <a href="#locations" class="btn-pill btn-pill--outline">Choose Your Location</a>
+      </div>
+      {%- render 'hero-proof-row' -%}
+    </div>
+    <div class="hero-static__visual">
+      <div class="hero-static__image-frame">
+        <img src="{{ 'hero-slide-1.png' | asset_url }}" alt="Hush Hush Tan memberships and packages" width="1280" height="1280" class="hero-static__image" loading="lazy">
+      </div>
+    </div>
+  </div>
+</article>
+{%- endcase -%}
