@@ -1,18 +1,35 @@
 {
   "sections": {
-    "intro": { "type": "rich-text", "settings": { "eyebrow": "Our story", "heading": "Healthier glow, made for you", "text": "<p>Hush Hush Tan is the customizable spray tan studio behind Austin, Dallas and Houston's most flawless glows. We're known for our masterful airbrush technique and our natural, eco-certified DHA formulas.</p>", "text_align": "center" } },
-    "iwt-1": { "type": "image-with-text", "settings": { "eyebrow": "Mission", "heading": "Everyone will notice. No one will know.", "text": "<p>We mix every Custom Glow on the spot to match your unique undertones. The result is a tan that looks like your skin — only better.</p>", "image_side": "left", "cta_text": "View services", "cta_url": "/pages/spray-tanning" } },
-    "iwt-2": { "type": "image-with-text", "settings": { "eyebrow": "Our formula", "heading": "Cleaner, kinder, safer.", "text": "<p>Our solutions are paraben-free, alcohol-free, cruelty-free, and made with eco-certified DHA derived from sugar beets. Safer sunless, every time.</p>", "image_side": "right" } },
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Our Story",
+        "title": "Lux Spray Tanning, A",
+        "title_accent": "Healthier Glow.",
+        "subtitle": "Hush Hush Tan was founded by Izabel Wicker — a women-founded, women-owned studio bringing safer, healthier, more radiant tanning to Austin, Dallas, and Houston.",
+        "cta_primary_text": "Choose Your Location",
+        "cta_primary_url": "/pages/locations",
+        "cta_secondary_text": "Read Press",
+        "cta_secondary_url": "/pages/press"
+      }
+    },
+    "iwt-1": { "type": "image-with-text", "settings": { "eyebrow": "Founder", "heading": "Founded by Izabel Wicker", "text": "<p>Izabel brought a new approach to the tanning industry — emphasizing safer, healthier methods, the highest standards of cleanliness, and a proprietary tanning solution developed in-house.</p>", "image_side": "left", "cta_text": "Visit Austin", "cta_url": "/pages/austin" } },
+    "iwt-2": { "type": "image-with-text", "settings": { "eyebrow": "The Custom Glow", "heading": "Everyone will notice. No one will know.", "text": "<p>Every Custom Glow is hand-mixed on the spot to match your unique undertones. The result is a tan that looks like your skin — only better. Our formulas are all-natural, cruelty-free, paraben-free, and alcohol-free.</p>", "image_side": "right" } },
     "values": { "type": "icon-row", "settings": { "eyebrow": "What we stand for", "heading": "Our values" }, "blocks": {
-      "v1": { "type": "item", "settings": { "icon": "sparkle", "title": "Customization", "text": "Every tan is mixed to your skin." } },
-      "v2": { "type": "item", "settings": { "icon": "leaf", "title": "Cleaner formulas", "text": "Eco-certified, paraben-free, cruelty-free." } },
+      "v1": { "type": "item", "settings": { "icon": "sparkle", "title": "Customization", "text": "Every shade hand-mixed for your skin." } },
+      "v2": { "type": "item", "settings": { "icon": "leaf", "title": "Clean formulas", "text": "Cruelty-free, paraben-free, alcohol-free." } },
       "v3": { "type": "item", "settings": { "icon": "heart", "title": "Confidence", "text": "Healthier glow. Flawless confidence." } },
-      "v4": { "type": "item", "settings": { "icon": "shield", "title": "Trust", "text": "Featured in Vogue and InStyle." } }
+      "v4": { "type": "item", "settings": { "icon": "shield", "title": "Trusted", "text": "Featured in Vogue and InStyle." } }
     }, "block_order": ["v1","v2","v3","v4"] },
-    "press": { "type": "press-grid", "settings": { "heading": "As seen in" }, "blocks": {
-      "p1": { "type": "logo", "settings": { "name": "Vogue" } }, "p2": { "type": "logo", "settings": { "name": "InStyle" } }, "p3": { "type": "logo", "settings": { "name": "Allure" } }, "p4": { "type": "logo", "settings": { "name": "Texas Monthly" } }, "p5": { "type": "logo", "settings": { "name": "Refinery29" } }, "p6": { "type": "logo", "settings": { "name": "Cosmopolitan" } }
+    "press": { "type": "press-grid", "settings": { "heading": "Featured in" }, "blocks": {
+      "p1": { "type": "logo", "settings": { "name": "Vogue" } },
+      "p2": { "type": "logo", "settings": { "name": "InStyle" } },
+      "p3": { "type": "logo", "settings": { "name": "D Magazine" } },
+      "p4": { "type": "logo", "settings": { "name": "Paper City" } },
+      "p5": { "type": "logo", "settings": { "name": "Voyage Houston" } },
+      "p6": { "type": "logo", "settings": { "name": "Community Impact" } }
     }, "block_order": ["p1","p2","p3","p4","p5","p6"] },
-    "final-cta": { "type": "final-cta", "settings": { "heading": "Come glow with us" } }
+    "final-cta": { "type": "final-cta", "settings": { "heading": "Come glow with us", "cta1_text": "Choose Your Location", "cta1_url": "/pages/locations", "cta2_text": "Contact Us", "cta2_url": "/pages/contact" } }
   },
-  "order": ["intro","iwt-1","iwt-2","values","press","final-cta"]
+  "order": ["hero","iwt-1","iwt-2","values","press","final-cta"]
 }
