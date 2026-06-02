@@ -709,12 +709,6 @@ small, .small { font-size: .82rem; color: var(--muted); }
   width: 100%;
   max-width: 100%;
   display: block;
-  border-radius: 1.5rem;
-  object-fit: cover;
-  object-position: center center;
-  box-shadow: 0 30px 80px -30px rgba(143, 131, 214, 0.35);
-  max-height: min(520px, 52vh);
-  aspect-ratio: 1;
 }
 .hero__visual-img--cutout {
   object-fit: contain;
@@ -723,21 +717,27 @@ small, .small { font-size: .82rem; color: var(--muted); }
   width: 100%;
   filter: none;
 }
-.hero__visual-frame--photo {
+/* Slider: clean square card — no mat behind the image */
+.hero-slider .hero__visual-frame--card {
   padding: 0;
   background: transparent;
-  border-radius: 1.5rem;
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
 }
-.hero__visual-img--photo {
+.hero-slider .hero__visual-img--card {
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center center;
   border-radius: 1.5rem;
-  max-height: min(560px, 54vh);
-  width: 100%;
+  box-shadow: 0 30px 80px -30px rgba(143, 131, 214, 0.35);
   display: block;
-  vertical-align: middle;
+}
+.hero-slider .hero__visual {
+  min-height: 0;
+  align-items: stretch;
+  justify-content: flex-end;
 }
 .template-index .hero-slider + .section--tight {
   padding-top: 0;
@@ -759,7 +759,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   box-shadow: 0 12px 40px -12px rgba(21, 21, 21, 0.12);
 }
 .hero-slider .hero__shade-card {
-  display: flex;
+  display: none !important;
 }
 .hero__shade-swatches {
   display: flex;
@@ -806,14 +806,13 @@ small, .small { font-size: .82rem; color: var(--muted); }
   .hero-slider .hero__shade-card {
     display: none;
   }
-  .hero__visual {
-    min-height: clamp(280px, 38vh, 380px);
+  .hero-slider .hero__visual {
+    min-height: 0;
     max-width: min(520px, 100%);
     margin: 0 auto;
+    justify-content: center;
   }
-  .hero__visual-img,
-  .hero__visual-img--cutout,
-  .hero__visual-img--photo {
+  .hero-slider .hero__visual-img--cutout {
     max-height: min(360px, 44vh);
     max-width: 100%;
   }
@@ -825,7 +824,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   }
   .hero__sub { font-size: 1rem; }
   .hero__ctas .btn--pill { width: 100%; justify-content: center; }
-  .hero__visual { min-height: 260px; }
+  .hero-slider .hero__visual { min-height: 0; }
   .hero-slider__dots {
     bottom: clamp(20px, 5vw, 32px);
   }

@@ -2,9 +2,6 @@
   assign fallback = block.settings.image_fallback | default: 'hht-products.png'
   assign slide_id = 'hero-slide-' | append: index
   assign is_cutout = block.settings.transparent_image
-  if is_cutout == false and block.settings.image == blank and fallback contains '.png'
-    assign is_cutout = true
-  endif
 -%}
 
 <article
@@ -65,8 +62,8 @@
       {%- endif -%}
     </div>
 
-    <div class="hero__visual hero__anim-item">
-      <div class="hero__visual-frame{% unless is_cutout %} hero__visual-frame--photo{% endunless %}">
+    <div class="hero__visual hero__anim-item{% if is_cutout %} hero__visual--cutout{% endif %}">
+      <div class="hero__visual-frame{% unless is_cutout %} hero__visual-frame--card{% endunless %}">
         {%- if block.settings.image != blank -%}
           <img
             src="{{ block.settings.image | image_url: width: 1280 }}"
@@ -75,7 +72,7 @@
             alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
             width="1280"
             height="1280"
-            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% else %} hero__visual-img--photo{% endif %}"
+            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% else %} hero__visual-img--card{% endif %}"
             {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
         {%- else -%}
           <img
@@ -83,7 +80,7 @@
             alt="{{ block.settings.title_line1 | escape }}"
             width="1280"
             height="1280"
-            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% else %} hero__visual-img--photo{% endif %}"
+            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% else %} hero__visual-img--card{% endif %}"
             {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
         {%- endif -%}
       </div>
