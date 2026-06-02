@@ -89,9 +89,9 @@
     "locations": {
       "type": "location-cards",
       "blocks": {
-        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Our flagship studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin" } },
-        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas" } },
-        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston studio", "address": "Houston studio details to be confirmed", "phone": "", "hours": "", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston" } }
+        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Our flagship studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin-services" } },
+        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas-services" } },
+        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston studio", "address": "Houston studio details to be confirmed", "phone": "", "hours": "", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston-services" } }
       },
       "block_order": ["l1", "l2", "l3"],
       "settings": { "eyebrow": "Visit Us", "heading": "Three Texas Locations", "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed." }
