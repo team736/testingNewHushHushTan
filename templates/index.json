@@ -133,8 +133,8 @@
         "heading": "Shop the Custom Glow Collection",
         "subheading": "Salon-grade essentials to prep, protect, and extend your custom color between visits.",
         "collection": "tanning-products",
-        "products_to_show": 5,
-        "cta_text": "Shop all products",
+        "products_to_show": 6,
+        "cta_text": "",
         "cta_url": "/collections/tanning-products"
       }
     },
