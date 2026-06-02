@@ -1,70 +1,21 @@
 {%- liquid
-  assign fallback = block.settings.image_fallback | default: 'hero-products.png'
+  assign fallback = block.settings.image_fallback | default: 'hht-products.png'
   assign slide_id = 'hero-slide-' | append: index
-  assign layout = block.settings.image_layout | default: 'split'
   assign is_cutout = block.settings.transparent_image
+  if is_cutout == false and block.settings.image == blank and fallback contains '.png'
+    assign is_cutout = true
+  endif
 -%}
 
 <article
   id="{{ slide_id }}"
-  class="hero-slider__slide hero hero--{{ layout }}{% if layout == 'overlay' and is_cutout == false %} hero--overlay-photo{% endif %}{% if first %} is-active{% endif %}"
+  class="hero-slider__slide hero hero--split{% if first %} is-active{% endif %}"
   role="tabpanel"
   aria-hidden="{% if first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}
   data-hero-slide="{{ index | minus: 1 }}">
-  {%- if layout == 'overlay' -%}
-    {%- unless is_cutout -%}
-    <div class="hero__photo hero__anim-item" aria-hidden="true">
-      {%- if block.settings.image != blank -%}
-        <img
-          src="{{ block.settings.image | image_url: width: 2048 }}"
-          srcset="{{ block.settings.image | image_url: width: 1200 }} 1200w, {{ block.settings.image | image_url: width: 1800 }} 1800w, {{ block.settings.image | image_url: width: 2048 }} 2048w"
-          sizes="100vw"
-          alt=""
-          width="2048"
-          height="1152"
-          class="hero__photo-img"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-      {%- else -%}
-        <img
-          src="{{ fallback | asset_url }}"
-          alt=""
-          width="2048"
-          height="1152"
-          class="hero__photo-img"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-      {%- endif -%}
-    </div>
-    {%- endunless -%}
-  <div class="container hero--overlay__stage">
-    {%- if is_cutout -%}
-    <div class="hero__visual hero__visual--wide hero__anim-item" aria-hidden="true">
-      {%- if block.settings.image != blank -%}
-        <img
-          src="{{ block.settings.image | image_url: width: 1800 }}"
-          srcset="{{ block.settings.image | image_url: width: 1200 }} 1200w, {{ block.settings.image | image_url: width: 1800 }} 1800w"
-          sizes="100vw"
-          alt=""
-          width="1800"
-          height="1000"
-          class="hero__visual-img hero__visual-img--wide"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-      {%- else -%}
-        <img
-          src="{{ fallback | asset_url }}"
-          alt=""
-          width="1800"
-          height="1000"
-          class="hero__visual-img hero__visual-img--wide"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-      {%- endif -%}
-    </div>
-    {%- endif -%}
-    <div class="hero__copy">
-  {%- else -%}
   <div class="container hero--split__grid">
     <div class="hero__copy">
-  {%- endif -%}
       {%- if block.settings.eyebrow != blank -%}
         <span class="hero__eyebrow hero__anim-item">{{ block.settings.eyebrow }}</span>
       {%- endif -%}
@@ -74,12 +25,18 @@
           {%- if block.settings.title_line2 != blank -%}
             <br><span class="hero__title-accent">{{ block.settings.title_line2 }}</span>
           {%- endif -%}
+          {%- if block.settings.title_line3 != blank -%}
+            <br>{{ block.settings.title_line3 }}
+          {%- endif -%}
         </h1>
       {%- else -%}
         <h2 class="hero__title hero__anim-item">
           {{ block.settings.title_line1 }}
           {%- if block.settings.title_line2 != blank -%}
             <br><span class="hero__title-accent">{{ block.settings.title_line2 }}</span>
+          {%- endif -%}
+          {%- if block.settings.title_line3 != blank -%}
+            <br>{{ block.settings.title_line3 }}
           {%- endif -%}
         </h2>
       {%- endif -%}
@@ -96,31 +53,52 @@
           {%- endif -%}
         </div>
       {%- endif -%}
-    </div>
-
-    {%- unless layout == 'overlay' -%}
-    <div class="hero__visual hero__anim-item{% if is_cutout %} hero__visual--cutout{% endif %}">
-      <div class="hero__visual-glow" aria-hidden="true"></div>
-      {%- if block.settings.image != blank -%}
-        <img
-          src="{{ block.settings.image | image_url: width: 1280 }}"
-          srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1280 }} 1280w"
-          sizes="(min-width: 990px) 46vw, 88vw"
-          alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
-          width="1280"
-          height="1280"
-          class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-      {%- else -%}
-        <img
-          src="{{ fallback | asset_url }}"
-          alt="{{ block.settings.title_line1 | escape }}"
-          width="1280"
-          height="1280"
-          class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
-          {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- if block.settings.show_trust_row -%}
+        <div class="hero__trust hero__anim-item">
+          <span>{{ block.settings.trust_1 | default: 'Award Winning' }}</span>
+          <span class="hero__trust-divider" aria-hidden="true"></span>
+          <span>{{ block.settings.trust_2 | default: 'Since 2007' }}</span>
+          <span class="hero__trust-divider" aria-hidden="true"></span>
+          <span>{{ block.settings.trust_3 | default: '3 Texas Studios' }}</span>
+        </div>
       {%- endif -%}
     </div>
-    {%- endunless -%}
+
+    <div class="hero__visual hero__anim-item">
+      <div class="hero__visual-frame">
+        {%- if block.settings.image != blank -%}
+          <img
+            src="{{ block.settings.image | image_url: width: 1280 }}"
+            srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1280 }} 1280w"
+            sizes="(min-width: 990px) 46vw, 88vw"
+            alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
+            width="1280"
+            height="1280"
+            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
+            {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+        {%- else -%}
+          <img
+            src="{{ fallback | asset_url }}"
+            alt="{{ block.settings.title_line1 | escape }}"
+            width="1280"
+            height="1280"
+            class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% endif %}"
+            {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+        {%- endif -%}
+      </div>
+      {%- if block.settings.show_shade_badge -%}
+        <div class="hero__shade-card hero__anim-item" aria-hidden="true">
+          <div class="hero__shade-swatches">
+            <span class="hero__shade-swatch hero__shade-swatch--1"></span>
+            <span class="hero__shade-swatch hero__shade-swatch--2"></span>
+            <span class="hero__shade-swatch hero__shade-swatch--3"></span>
+          </div>
+          <div class="hero__shade-card-text">
+            <strong>{{ block.settings.shade_badge_title | default: '12 custom shades' }}</strong>
+            <span>{{ block.settings.shade_badge_sub | default: 'Color-matched to you' }}</span>
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
   </div>
 </article>

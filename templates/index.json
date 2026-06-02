@@ -18,9 +18,10 @@
             "cta_url": "/pages/memberships",
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "/pages/locations",
-            "image_fallback": "hero-memberships.png",
-            "transparent_image": false,
-            "image_layout": "overlay"
+            "image_fallback": "hht-products.png",
+            "transparent_image": true,
+            "show_trust_row": true,
+            "show_shade_badge": true
           }
         },
         "slide-2": {
@@ -28,14 +29,17 @@
           "settings": {
             "eyebrow": "Custom Spray Tanning",
             "title_line1": "Healthier Glow.",
-            "title_line2": "Flawless Confidence.",
-            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston.",
+            "title_line2": "Flawless",
+            "title_line3": "Confidence.",
+            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
             "cta_text": "Book Now",
             "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "/pages/locations",
             "image_fallback": "hht-spray-tanning.png",
-            "transparent_image": true
+            "transparent_image": true,
+            "show_trust_row": true,
+            "show_shade_badge": true
           }
         },
         "slide-3": {
@@ -50,7 +54,9 @@
             "cta_secondary_text": "View Services",
             "cta_secondary_url": "/pages/spray-tanning",
             "image_fallback": "brand-story.jpg",
-            "transparent_image": false
+            "transparent_image": false,
+            "show_trust_row": true,
+            "show_shade_badge": true
           }
         }
       },
