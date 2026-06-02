@@ -584,8 +584,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   animation: none;
   opacity: 0;
 }
-.hero-slider__slide.is-active .hero__trust.hero__anim-item,
-.hero-slider__slide.is-active .hero__shade-card.hero__anim-item {
+.hero-slider__slide.is-active .hero__trust.hero__anim-item {
   animation: heroTextUp 0.7s var(--ease) 0.4s forwards;
 }
 .hero-slider__slide.is-active.is-replay .hero__eyebrow.hero__anim-item {
@@ -618,9 +617,6 @@ small, .small { font-size: .82rem; color: var(--muted); }
     transition: none !important;
     opacity: 1;
     transform: none;
-  }
-  .hero-slider .hero__shade-card {
-    display: none;
   }
 }
 

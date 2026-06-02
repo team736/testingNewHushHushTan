@@ -87,19 +87,6 @@
             {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
         {%- endif -%}
       </div>
-      {%- if block.settings.show_shade_badge -%}
-        <div class="hero__shade-card hero__anim-item" aria-hidden="true">
-          <div class="hero__shade-swatches">
-            <span class="hero__shade-swatch hero__shade-swatch--1"></span>
-            <span class="hero__shade-swatch hero__shade-swatch--2"></span>
-            <span class="hero__shade-swatch hero__shade-swatch--3"></span>
-          </div>
-          <div class="hero__shade-card-text">
-            <strong>{{ block.settings.shade_badge_title | default: '12 custom shades' }}</strong>
-            <span>{{ block.settings.shade_badge_sub | default: 'Color-matched to you' }}</span>
-          </div>
-        </div>
-      {%- endif -%}
     </div>
     </div>
   </div>

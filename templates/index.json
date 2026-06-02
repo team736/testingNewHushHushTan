@@ -20,8 +20,7 @@
             "cta_secondary_url": "/pages/locations",
             "image_fallback": "hht-products.png",
             "transparent_image": true,
-            "show_trust_row": true,
-            "show_shade_badge": true
+            "show_trust_row": true
           }
         },
         "slide-2": {
@@ -38,8 +37,7 @@
             "cta_secondary_url": "/pages/locations",
             "image_fallback": "hht-spray-tanning.png",
             "transparent_image": true,
-            "show_trust_row": true,
-            "show_shade_badge": true
+            "show_trust_row": true
           }
         },
         "slide-3": {
@@ -55,8 +53,7 @@
             "cta_secondary_url": "/pages/spray-tanning",
             "image_fallback": "brand-story.jpg",
             "transparent_image": false,
-            "show_trust_row": true,
-            "show_shade_badge": true
+            "show_trust_row": true
           }
         }
       },
