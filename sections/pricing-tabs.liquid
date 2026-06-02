@@ -1,6 +1,8 @@
 {%- assign tab_blocks = section.blocks | where: 'type', 'tab' -%}
 
 <section class="hht-pricing-ecosystem" data-pricing-ecosystem id="memberships-packages">
+  <span id="memberships" class="visually-hidden" aria-hidden="true"></span>
+  <span id="pricing" class="visually-hidden" aria-hidden="true"></span>
   <span id="services" class="visually-hidden" aria-hidden="true"></span>
   <div class="hht-pricing-shell">
     {%- if tab_blocks.size > 0 -%}
@@ -104,6 +106,12 @@
                 <a href="{{ services_url }}" class="hht-card-button">Join Glow</a>
               </article>
             </div>
+            <ul class="hht-membership-terms">
+              <li>3-month minimum membership</li>
+              <li>30-day written notice required to cancel</li>
+              <li>Tans do not rollover month to month</li>
+              <li>Memberships can be frozen for a $10 monthly fee</li>
+            </ul>
           </div>
 
           <div class="hht-tab-panel" data-content-panel="packages" role="tabpanel">

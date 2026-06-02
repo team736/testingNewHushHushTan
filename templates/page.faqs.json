@@ -16,7 +16,7 @@
         "g4": { "type": "group", "settings": { "title": "Products" } },
         "q6": { "type": "qa", "settings": { "question": "Which products help extend my tan?", "answer": "<p>Our Tan Extender, Body Wash, and Body Exfoliant work together to maintain your glow.</p>" } },
         "g5": { "type": "group", "settings": { "title": "Memberships & Packages" } },
-        "q7": { "type": "qa", "settings": { "question": "Can I cancel anytime?", "answer": "<p>Yes — memberships are cancel-anytime.</p>" } },
+        "q7": { "type": "qa", "settings": { "question": "How do memberships work?", "answer": "<p>Memberships have a 3-month minimum and require 30 days written notice to cancel. Tans do not roll over. Memberships can be frozen for a $10 monthly fee.</p>" } },
         "g6": { "type": "group", "settings": { "title": "Safety" } },
         "q8": { "type": "qa", "settings": { "question": "Is your formula safe?", "answer": "<p>Our DHA formulas are eco-certified, paraben-free, alcohol-free and cruelty-free.</p>" } }
       },

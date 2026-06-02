@@ -52,7 +52,7 @@
             "title_line1": "Glow More,",
             "title_line2": "Save More",
             "title_line3": "",
-            "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
+            "subtitle": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long.",
             "cta_primary_text": "View Memberships",
             "cta_primary_url": "#memberships",
             "cta_secondary_text": "Choose Your Location",
@@ -144,7 +144,7 @@
         "q2": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>" } },
         "q3": { "type": "qa", "settings": { "question": "How long does a spray tan last?", "answer": "<p>With proper aftercare, your Custom Glow typically lasts 7–10 days.</p>" } },
         "q4": { "type": "qa", "settings": { "question": "When can I shower?", "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow your technician's timing.</p>" } },
-        "q5": { "type": "qa", "settings": { "question": "Can I cancel my membership anytime?", "answer": "<p>Yes — memberships are cancel-anytime with monthly value built in.</p>" } }
+        "q5": { "type": "qa", "settings": { "question": "How do memberships work?", "answer": "<p>Memberships have a 3-month minimum and require 30 days written notice to cancel. Tans do not roll over month to month. You can freeze your membership for a $10 monthly fee.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5"],
       "settings": {
