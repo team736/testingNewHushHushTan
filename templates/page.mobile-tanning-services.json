@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "intro": { "type": "page-hero", "settings": { "eyebrow": "Austin Mobile Tanning", "title": "We Bring the Studio to", "title_accent": "You.", "subtitle": "A Hush Hush tanning specialist comes to your location. $75 per person, groups of 5 or more. Add $15 travel fee over 10 miles or $30 hotel travel fee.", "cta_primary_text": "Book Austin Mobile", "cta_primary_url": "https://go.booker.com/location/HushHushTan/detail-summary/4253915", "cta_secondary_text": "Contact Us", "cta_secondary_url": "/pages/contact" } },
+    "iwt-1": { "type": "image-with-text", "settings": { "eyebrow": "How it works", "heading": "Glow at home, hotel, or wherever you're celebrating", "text": "<p>Our airbrush artist arrives with everything — tent, solutions, accessories. Each guest gets a Custom Glow in your space.</p>", "image_side": "left" } },
+    "icons": { "type": "icon-row", "settings": { "heading": "Travel-ready setup" }, "blocks": {
+      "i1": { "type": "item", "settings": { "icon": "sparkle", "title": "5-person minimum", "text": "Bring the party." } },
+      "i2": { "type": "item", "settings": { "icon": "leaf", "title": "Clean formulas", "text": "Eco-certified DHA." } },
+      "i3": { "type": "item", "settings": { "icon": "shield", "title": "Travel fees", "text": "May apply outside city center." } },
+      "i4": { "type": "item", "settings": { "icon": "heart", "title": "All ages welcome", "text": "Parental consent for minors." } }
+    }, "block_order": ["i1","i2","i3","i4"] },
+    "pricing": { "type": "pricing-tabs", "settings": { "heading": "Mobile pricing", "subheading": "Austin mobile tanning starts at $75/person with a 5-person minimum. Travel fees may apply." }, "blocks": {
+      "austin": { "type": "tab", "settings": { "label": "Austin", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "book_membership_url": "https://go.booker.com/location/hushhushtan/buy/membership", "book_packages_url": "https://go.booker.com/location/hushhushtan/buy/series", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "75" } }
+    }, "block_order": ["austin"] },
+    "final": { "type": "final-cta", "settings": { "heading": "Book mobile tanning", "cta1_text": "Contact us", "cta1_url": "/pages/contact" } }
+  },
+  "order": ["intro","iwt-1","icons","pricing","final"]
+}
