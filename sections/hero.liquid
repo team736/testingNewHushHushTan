@@ -7,7 +7,7 @@
   class="hero-slider"
   id="top"
   data-hero-slider
-  data-autoplay="{{ section.settings.autoplay_speed | default: 5 | times: 1000 }}"
+  data-autoplay="{{ section.settings.autoplay_speed | default: 6 | times: 1000 }}"
   {% unless section.settings.autoplay %}data-autoplay-off{% endunless %}
   aria-label="Featured highlights"
   aria-roledescription="carousel">
@@ -45,7 +45,7 @@
   "name": "Hero slider",
   "settings": [
     { "type": "checkbox", "id": "autoplay", "label": "Auto-advance slides", "default": true },
-    { "type": "range", "id": "autoplay_speed", "label": "Seconds per slide", "min": 4, "max": 12, "step": 1, "default": 5, "unit": "s" }
+    { "type": "range", "id": "autoplay_speed", "label": "Seconds per slide", "min": 4, "max": 12, "step": 1, "default": 6, "unit": "s" }
   ],
   "blocks": [
     {
@@ -83,9 +83,9 @@
             "title_line2": "Save More",
             "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
             "cta_text": "View Memberships",
-            "cta_url": "/pages/memberships",
+            "cta_url": "#memberships-packages",
             "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "/pages/locations",
+            "cta_secondary_url": "#locations",
             "image_fallback": "hero-slide-1.png",
             "transparent_image": false,
             "show_trust_row": true
@@ -100,9 +100,9 @@
             "title_line3": "Confidence.",
             "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
             "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_url": "#locations",
             "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "/pages/locations",
+            "cta_secondary_url": "#locations",
             "image_fallback": "hero-slide-2.png",
             "transparent_image": false,
             "show_trust_row": true
@@ -116,9 +116,9 @@
             "title_line2": "No one will know.",
             "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
             "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_url": "#locations",
             "cta_secondary_text": "View Services",
-            "cta_secondary_url": "/pages/spray-tanning",
+            "cta_secondary_url": "#services",
             "image_fallback": "hero-slide-3.png",
             "transparent_image": false,
             "show_trust_row": true

@@ -21,9 +21,9 @@
             "title_line3": "",
             "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
             "cta_text": "View Memberships",
-            "cta_url": "/pages/memberships",
+            "cta_url": "#memberships-packages",
             "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "/pages/locations",
+            "cta_secondary_url": "#locations",
             "image_fallback": "hero-slide-1.png",
             "transparent_image": false,
             "show_trust_row": true,
@@ -41,9 +41,9 @@
             "title_line3": "Confidence.",
             "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
             "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_url": "#locations",
             "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "/pages/locations",
+            "cta_secondary_url": "#locations",
             "image_fallback": "hero-slide-2.png",
             "transparent_image": false,
             "show_trust_row": true,
@@ -61,9 +61,9 @@
             "title_line3": "",
             "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
             "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_url": "#locations",
             "cta_secondary_text": "View Services",
-            "cta_secondary_url": "/pages/spray-tanning",
+            "cta_secondary_url": "#services",
             "image_fallback": "hero-slide-3.png",
             "transparent_image": false,
             "show_trust_row": true,
@@ -135,53 +135,12 @@
     "locations": {
       "type": "location-cards",
       "blocks": {
-        "l1": {
-          "type": "location",
-          "settings": {
-            "city": "Austin",
-            "tagline": "Our flagship studio on West 6th",
-            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
-            "phone": "512-482-8339",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
-            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "info_url": "/pages/austin-services"
-          }
-        },
-        "l2": {
-          "type": "location",
-          "settings": {
-            "city": "Dallas",
-            "tagline": "Oak Lawn studio",
-            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
-            "phone": "469-868-6228",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
-            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
-            "info_url": "/pages/dallas-services"
-          }
-        },
-        "l3": {
-          "type": "location",
-          "settings": {
-            "city": "Houston",
-            "tagline": "Houston studio",
-            "address": "Houston studio details to be confirmed",
-            "phone": "",
-            "hours": "",
-            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-            "info_url": "/pages/houston-services"
-          }
-        }
+        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Our flagship studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin-services" } },
+        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas-services" } },
+        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston studio", "address": "Houston studio details to be confirmed", "phone": "Phone details coming soon", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston-services" } }
       },
-      "block_order": [
-        "l1",
-        "l2",
-        "l3"
-      ],
-      "settings": {
-        "eyebrow": "Visit Us",
-        "heading": "Three Texas Locations",
-        "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed."
-      }
+      "block_order": ["l1", "l2", "l3"],
+      "settings": { "eyebrow": "Visit Us", "heading": "Three Texas Locations", "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed." }
     },
     "memberships": {
       "type": "pricing-tabs",

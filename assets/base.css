@@ -1469,7 +1469,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
 .location-card__body { padding: 32px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .location-card__city { font-family: var(--font-heading); font-size: 1.8rem; line-height: 1; margin-bottom: 4px; }
 .location-card__meta { color: var(--muted); font-size: .9rem; margin: 0; }
-.location-card__ctas { display: flex; gap: 10px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.location-card__ctas { display: flex; gap: 10px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); flex-wrap: wrap; }
 @media (max-width: 1000px) { .location-cards { grid-template-columns: 1fr; } }
 
 /* ============ FAQ accordion ============ */

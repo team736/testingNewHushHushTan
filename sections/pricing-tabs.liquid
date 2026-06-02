@@ -1,6 +1,7 @@
 {%- assign tab_blocks = section.blocks | where: 'type', 'tab' -%}
 
-<section class="hht-pricing-ecosystem" data-pricing-ecosystem id="pricing-{{ section.id }}">
+<section class="hht-pricing-ecosystem" data-pricing-ecosystem id="memberships-packages">
+  <span id="services" class="visually-hidden" aria-hidden="true"></span>
   <div class="hht-pricing-shell">
     {%- if tab_blocks.size > 0 -%}
       <div class="hht-pricing-location-wrap">
