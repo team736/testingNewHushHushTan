@@ -163,8 +163,9 @@
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Frequently asked questions",
+        "subheading": "Everything you need to feel ready for your glow.",
         "show_banner": false,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_url": "/pages/faqs"
       }
     },
