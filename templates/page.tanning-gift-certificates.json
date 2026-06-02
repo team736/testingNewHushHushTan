@@ -1,11 +1,27 @@
 {
   "sections": {
-    "intro": { "type": "rich-text", "settings": { "eyebrow": "Gift", "heading": "Tanning Gift Certificates", "text": "<p>Give the gift of glow. Choose a location to purchase.</p>", "text_align": "center" } },
-    "locations": { "type": "location-cards", "settings": { "heading": "Buy by location" }, "blocks": {
-      "l1": { "type": "location", "settings": { "city": "Austin",  "book_url": "https://www.secure-booker.com/HushHushTan/ShopOnline/GiftCertificate.aspx" } },
-      "l2": { "type": "location", "settings": { "city": "Dallas",  "book_url": "https://www.secure-booker.com/HushHushTanDallas/ShopOnline/GiftCertificate.aspx" } },
-      "l3": { "type": "location", "settings": { "city": "Houston", "book_url": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate" } }
-    }, "block_order": ["l1","l2","l3"] }
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Gift Certificates",
+        "title": "Give the Gift of a",
+        "title_accent": "Glow.",
+        "subtitle": "Purchase a Hush Hush Tan gift certificate at your nearest location — Austin, Dallas, or Houston.",
+        "cta_primary_text": "Choose Your Location",
+        "cta_primary_url": "/pages/locations"
+      }
+    },
+    "locations": {
+      "type": "location-cards",
+      "settings": { "heading": "Buy by Location" },
+      "blocks": {
+        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Austin Flagship in Clarksville", "book_url": "https://go.booker.com/location/HushHushTan/buy/gift-certificate" } },
+        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Dallas at The Shops at Highland Park", "book_url": "https://go.booker.com/location/hushhushtandallas/buy/gift-certificate" } },
+        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston M-K-T Heights", "book_url": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate" } }
+      },
+      "block_order": ["l1","l2","l3"]
+    },
+    "final": { "type": "final-cta", "settings": { "heading": "Questions about gifting?", "cta1_text": "Contact Us", "cta1_url": "/pages/contact" } }
   },
-  "order": ["intro","locations"]
+  "order": ["hero","locations","final"]
 }

@@ -1,12 +1,27 @@
 {
   "sections": {
-    "intro":  { "type": "rich-text", "settings": { "eyebrow": "Find us", "heading": "Three Texas locations", "text": "<p>Austin · Dallas · Houston. Each studio offers our customizable Custom Glow.</p>", "text_align": "center" } },
-    "locations": { "type": "location-cards", "settings": { "heading": "Visit a studio" }, "blocks": {
-      "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Downtown studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin-services" } },
-      "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas-services" } },
-      "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston studio", "address": "Houston details to be confirmed", "phone": "", "hours": "", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston-services" } }
-    }, "block_order": ["l1","l2","l3"] },
-    "final": { "type": "final-cta", "settings": { "heading": "Have questions?", "cta1_text": "Contact us", "cta1_url": "/pages/contact", "cta2_text": "View services", "cta2_url": "/pages/spray-tanning" } }
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Book at Your Location",
+        "title": "Three Texas Studios, One",
+        "title_accent": "Custom Glow.",
+        "subtitle": "Austin Flagship in Clarksville, Dallas at The Shops at Highland Park, and Houston M-K-T Heights — each studio shares the same standard of artistry.",
+        "cta_primary_text": "Contact Us",
+        "cta_primary_url": "/pages/contact"
+      }
+    },
+    "locations": {
+      "type": "location-cards",
+      "settings": { "heading": "Visit a Studio" },
+      "blocks": {
+        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Austin Flagship in Clarksville", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin-services" } },
+        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Dallas at The Shops at Highland Park", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas-services" } },
+        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston M-K-T Heights", "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007", "phone": "713-485-0633", "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston-services" } }
+      },
+      "block_order": ["l1","l2","l3"]
+    },
+    "final": { "type": "final-cta", "settings": { "heading": "Have questions?", "cta1_text": "Contact Us", "cta1_url": "/pages/contact", "cta2_text": "View Services", "cta2_url": "/pages/spray-tanning" } }
   },
-  "order": ["intro","locations","final"]
+  "order": ["hero","locations","final"]
 }

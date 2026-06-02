@@ -1,9 +1,16 @@
-<div class="container section text-center" style="padding: 120px 0;">
-  <span class="eyebrow">404</span>
-  <h1>This page slipped away.</h1>
-  <p class="muted">The page you were looking for doesn't exist.</p>
-  <a href="{{ routes.root_url }}" class="btn" style="margin-top: 16px;">Back to home</a>
-</div>
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__card">
+      <span class="page-hero__eyebrow">404</span>
+      <h1 class="page-hero__title">This page slipped <em style="font-style:normal;color:#A69FE2;">away.</em></h1>
+      <p class="page-hero__sub">The page you were looking for doesn't exist. Head back to choose your location, browse products, or contact us.</p>
+      <div class="page-hero__ctas">
+        <a href="{{ routes.root_url }}" class="btn">Back to Home</a>
+        <a href="/pages/locations" class="btn btn--outline">Choose Your Location</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% schema %}
 { "name": "404", "settings": [] }

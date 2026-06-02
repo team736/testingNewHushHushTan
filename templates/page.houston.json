@@ -25,10 +25,10 @@
           "type": "location",
           "settings": {
             "city": "Houston",
-            "tagline": "Hush Hush Tan Houston",
-            "address": "",
-            "phone": "",
-            "hours": "",
+            "tagline": "Houston M-K-T Heights",
+            "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
+            "phone": "713-485-0633",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
             "info_url": "/pages/houston-services"
           }

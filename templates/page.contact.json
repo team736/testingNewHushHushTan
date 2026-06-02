@@ -17,7 +17,7 @@
       "blocks": {
         "austin": { "type": "info", "settings": { "icon": "map-pin", "heading": "Austin", "line1": "1211 West 6th St, Suite #400", "line2": "Austin, TX 78703", "line3": "(512) 482-8339", "cta_text": "Book Austin", "cta_url": "https://go.booker.com/location/hushhushtan/service-menu" } },
         "dallas": { "type": "info", "settings": { "icon": "map-pin", "heading": "Dallas", "line1": "4254 Oak Lawn Avenue", "line2": "Dallas, TX 75219", "line3": "(469) 868-6228", "cta_text": "Book Dallas", "cta_url": "https://go.booker.com/location/hushhushtandallas/service-menu" } },
-        "houston": { "type": "info", "settings": { "icon": "map-pin", "heading": "Houston", "line1": "Booking & details", "line2": "via online scheduler", "line3": "", "cta_text": "Book Houston", "cta_url": "https://go.booker.com/location/hushhushtanhouston/service-menu" } }
+        "houston": { "type": "info", "settings": { "icon": "map-pin", "heading": "Houston", "line1": "600 N Shepherd Dr, Ste. 128", "line2": "Houston, TX 77007", "line3": "(713) 485-0633", "cta_text": "Book Houston", "cta_url": "https://go.booker.com/location/hushhushtanhouston/service-menu" } }
       },
       "block_order": ["austin", "dallas", "houston"]
     },
