@@ -1,133 +1,35 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
       "type": "hero",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Memberships & Packages",
-            "title_line1": "Glow More,",
-            "title_line2": "Save More",
-            "title_line3": "",
-            "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
-            "cta_text": "View Memberships",
-            "cta_url": "#memberships-packages",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hero-slide-1.png",
-            "transparent_image": false,
-            "show_trust_row": true,
-            "trust_1": "Award Winning",
-            "trust_2": "Since 2007",
-            "trust_3": "3 Texas Studios"
-          }
-        },
-        "slide-2": {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Custom Spray Tanning",
-            "title_line1": "Healthier Glow.",
-            "title_line2": "Flawless",
-            "title_line3": "Confidence.",
-            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
-            "cta_text": "Book Now",
-            "cta_url": "#locations",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hero-slide-2.png",
-            "transparent_image": false,
-            "show_trust_row": true,
-            "trust_1": "Award Winning",
-            "trust_2": "Since 2007",
-            "trust_3": "3 Texas Studios"
-          }
-        },
-        "slide-3": {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "The Hush Hush Experience",
-            "title_line1": "Everyone will notice.",
-            "title_line2": "No one will know.",
-            "title_line3": "",
-            "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
-            "cta_text": "Book Now",
-            "cta_url": "#locations",
-            "cta_secondary_text": "View Services",
-            "cta_secondary_url": "#services",
-            "image_fallback": "hero-slide-3.png",
-            "transparent_image": false,
-            "show_trust_row": true,
-            "trust_1": "Award Winning",
-            "trust_2": "Since 2007",
-            "trust_3": "3 Texas Studios"
-          }
-        }
-      },
-      "block_order": [
-        "slide-1",
-        "slide-2",
-        "slide-3"
-      ],
       "settings": {
-        "autoplay": true,
-        "autoplay_speed": 5
+        "eyebrow": "Custom Spray Tanning",
+        "title_line1": "Healthier Glow.",
+        "title_line2": "Flawless",
+        "title_line3": "Confidence.",
+        "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
+        "cta_primary_text": "Book Now",
+        "cta_primary_url": "#locations",
+        "cta_secondary_text": "Choose Your Location",
+        "cta_secondary_url": "#locations",
+        "image_fallback": "hero-slide-2.png",
+        "card_title_line1": "Everyone",
+        "card_title_line2": "Will Notice",
+        "card_text": "Natural-looking glow, customized to your skin tone."
       }
     },
     "benefits": {
       "type": "science-features",
       "blocks": {
-        "b1": {
-          "type": "card",
-          "settings": {
-            "icon": "sparkle",
-            "title": "Custom Color",
-            "text": "Every shade hand-mixed to flatter your undertones."
-          }
-        },
-        "b2": {
-          "type": "card",
-          "settings": {
-            "icon": "leaf",
-            "title": "Luxury Formula",
-            "text": "Clean, vegan, paraben-free solutions made to nourish."
-          }
-        },
-        "b3": {
-          "type": "card",
-          "settings": {
-            "icon": "heart",
-            "title": "Award Winning",
-            "text": "Voted best spray tan in Texas year after year."
-          }
-        },
-        "b4": {
-          "type": "card",
-          "settings": {
-            "icon": "shield",
-            "title": "Trusted Since 2007",
-            "text": "Nearly two decades perfecting the art of the glow."
-          }
-        }
+        "b1": { "type": "card", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
+        "b2": { "type": "card", "settings": { "icon": "leaf", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
+        "b3": { "type": "card", "settings": { "icon": "heart", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
+        "b4": { "type": "card", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
       },
-      "block_order": [
-        "b1",
-        "b2",
-        "b3",
-        "b4"
-      ],
+      "block_order": ["b1", "b2", "b3", "b4"],
       "settings": {
         "headline_line1": "Clean, Conscious,",
-        "headline_line2_before": "Performance",
+        "headline_line2_before": "Performance ",
         "headline_line2_emphasis": "Science.",
         "subtext": "Unreservedly honest products that truly work, be kind\nto skin and the planet – no exceptions!"
       }
@@ -144,100 +46,6 @@
     },
     "memberships": {
       "type": "pricing-tabs",
-      "blocks": {
-        "austin": {
-          "type": "tab",
-          "settings": {
-            "label": "Austin",
-            "services_page_url": "",
-            "mem_absolute": "120",
-            "mem_deluxe": "96",
-            "mem_glow": "66",
-            "mem_discount_rate": "35",
-            "pkg_per_session": "35",
-            "pkg_glow_getter": "175",
-            "pkg_ultimate": "350",
-            "pkg_elite": "525",
-            "svc_clear": "40",
-            "svc_custom": "40",
-            "svc_gold": "45",
-            "svc_brazilian": "50",
-            "svc_rapid": "55",
-            "svc_bbtl": "55",
-            "svc_birthday": "34",
-            "svc_face": "5",
-            "svc_partial": "10",
-            "svc_upper_lower": "20",
-            "group_price": "50",
-            "mobile_price": "75",
-            "extra_service_name": "",
-            "extra_service_price": ""
-          }
-        },
-        "dallas": {
-          "type": "tab",
-          "settings": {
-            "label": "Dallas",
-            "services_page_url": "",
-            "mem_absolute": "140",
-            "mem_deluxe": "111",
-            "mem_glow": "78",
-            "mem_discount_rate": "40",
-            "pkg_per_session": "40",
-            "pkg_glow_getter": "200",
-            "pkg_ultimate": "400",
-            "pkg_elite": "600",
-            "svc_clear": "45",
-            "svc_custom": "45",
-            "svc_gold": "50",
-            "svc_brazilian": "55",
-            "svc_rapid": "60",
-            "svc_bbtl": "60",
-            "svc_birthday": "38",
-            "svc_face": "7",
-            "svc_partial": "15",
-            "svc_upper_lower": "25",
-            "group_price": "55",
-            "mobile_price": "",
-            "extra_service_name": "Teeth Whitening",
-            "extra_service_price": "79"
-          }
-        },
-        "houston": {
-          "type": "tab",
-          "settings": {
-            "label": "Houston",
-            "services_page_url": "",
-            "mem_absolute": "120",
-            "mem_deluxe": "96",
-            "mem_glow": "66",
-            "mem_discount_rate": "35",
-            "pkg_per_session": "35",
-            "pkg_glow_getter": "175",
-            "pkg_ultimate": "350",
-            "pkg_elite": "525",
-            "svc_clear": "40",
-            "svc_custom": "40",
-            "svc_gold": "45",
-            "svc_brazilian": "50",
-            "svc_rapid": "55",
-            "svc_bbtl": "55",
-            "svc_birthday": "34",
-            "svc_face": "5",
-            "svc_partial": "10",
-            "svc_upper_lower": "20",
-            "group_price": "50",
-            "mobile_price": "",
-            "extra_service_name": "",
-            "extra_service_price": ""
-          }
-        }
-      },
-      "block_order": [
-        "austin",
-        "dallas",
-        "houston"
-      ],
       "settings": {
         "location_label": "Select location",
         "heading_before": "Glow More,",
@@ -248,7 +56,13 @@
         "cta_heading_emphasis": "Family",
         "cta_subtext": "Explore the full Austin service menu, book your Custom Glow, and find the plan that fits your glow goals.",
         "cta_text": "Join the HHT Family"
-      }
+      },
+      "blocks": {
+        "austin": { "type": "tab", "settings": { "label": "Austin", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "75" } },
+        "dallas": { "type": "tab", "settings": { "label": "Dallas", "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40", "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600", "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38", "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25", "group_price": "55", "mobile_price": "", "extra_service_name": "Teeth Whitening", "extra_service_price": "79" } },
+        "houston": { "type": "tab", "settings": { "label": "Houston", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "" } }
+      },
+      "block_order": ["austin", "dallas", "houston"]
     },
     "products": {
       "type": "featured-products",
@@ -256,11 +70,6 @@
         "eyebrow": "Aftercare Products",
         "heading": "Shop the Custom Glow Collection",
         "subheading": "Salon-grade essentials to prep, protect, and extend your custom color between visits.",
-        "feature_image": "shopify://shop_images/884f5d7a-5b1f-464d-9c0a-a107244e2a22.png",
-        "feature_title": "Glow With Confidence",
-        "feature_text": "Prep, protect, and extend your custom glow.",
-        "feature_cta_text": "Explore More",
-        "feature_cta_url": "",
         "collection": "tanning-products",
         "products_to_show": 6,
         "cta_text": "",
@@ -270,100 +79,25 @@
     "press": {
       "type": "press-grid",
       "blocks": {
-        "p1": {
-          "type": "logo",
-          "settings": {
-            "name": "Vogue",
-            "link": ""
-          }
-        },
-        "p2": {
-          "type": "logo",
-          "settings": {
-            "name": "Miss A",
-            "link": ""
-          }
-        },
-        "p3": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Monthly",
-            "link": ""
-          }
-        },
-        "p4": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Beauty Guide",
-            "link": ""
-          }
-        },
-        "p5": {
-          "type": "logo",
-          "settings": {
-            "name": "InStyle",
-            "link": ""
-          }
-        }
+        "p1": { "type": "logo", "settings": { "name": "Vogue" } },
+        "p2": { "type": "logo", "settings": { "name": "Miss A" } },
+        "p3": { "type": "logo", "settings": { "name": "Austin Monthly" } },
+        "p4": { "type": "logo", "settings": { "name": "Austin Beauty Guide" } },
+        "p5": { "type": "logo", "settings": { "name": "InStyle" } }
       },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
-      "settings": {
-        "eyebrow": "Featured In",
-        "heading": "Hush Hush Tan is featured in"
-      }
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
+      "settings": { "eyebrow": "Featured In", "heading": "Hush Hush Tan is featured in" }
     },
     "faq": {
       "type": "faq-accordion",
       "blocks": {
-        "q1": {
-          "type": "qa",
-          "settings": {
-            "question": "How do I prepare for my tan?",
-            "answer": "<p>Exfoliate 24 hours before and arrive with clean, product-free skin.</p>"
-          }
-        },
-        "q2": {
-          "type": "qa",
-          "settings": {
-            "question": "What should I wear to my appointment?",
-            "answer": "<p>Loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>"
-          }
-        },
-        "q3": {
-          "type": "qa",
-          "settings": {
-            "question": "How long does a spray tan last?",
-            "answer": "<p>With proper aftercare, your Custom Glow typically lasts 7–10 days.</p>"
-          }
-        },
-        "q4": {
-          "type": "qa",
-          "settings": {
-            "question": "When can I shower?",
-            "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow your technician's timing.</p>"
-          }
-        },
-        "q5": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I cancel my membership anytime?",
-            "answer": "<p>Yes — memberships are cancel-anytime with monthly value built in.</p>"
-          }
-        }
+        "q1": { "type": "qa", "settings": { "question": "How do I prepare for my tan?", "answer": "<p>Exfoliate 24 hours before and arrive with clean, product-free skin.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "How long does a spray tan last?", "answer": "<p>With proper aftercare, your Custom Glow typically lasts 7–10 days.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "When can I shower?", "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow your technician's timing.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "Can I cancel my membership anytime?", "answer": "<p>Yes — memberships are cancel-anytime with monthly value built in.</p>" } }
       },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
-      ],
+      "block_order": ["q1", "q2", "q3", "q4", "q5"],
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Frequently asked questions",
@@ -383,14 +117,5 @@
       }
     }
   },
-  "order": [
-    "hero",
-    "benefits",
-    "locations",
-    "memberships",
-    "products",
-    "press",
-    "faq",
-    "newsletter"
-  ]
+  "order": ["hero", "benefits", "locations", "memberships", "products", "press", "faq", "newsletter"]
 }

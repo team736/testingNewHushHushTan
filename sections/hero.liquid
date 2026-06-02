@@ -1,131 +1,119 @@
-{%- assign slide_count = section.blocks.size -%}
-{%- if slide_count == 0 -%}
-  {%- assign slide_count = 1 -%}
-{%- endif -%}
+{%- liquid
+  assign hero_image = section.settings.image
+  assign image_fallback = section.settings.image_fallback | default: 'hero-slide-2.png'
+  assign eyebrow = section.settings.eyebrow | default: 'Custom Spray Tanning'
+  assign title_line1 = section.settings.title_line1 | default: 'Healthier Glow.'
+  assign title_line2 = section.settings.title_line2 | default: 'Flawless'
+  assign title_line3 = section.settings.title_line3 | default: 'Confidence.'
+  assign subtitle = section.settings.subtitle | default: 'Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.'
+  assign cta_primary_text = section.settings.cta_primary_text | default: 'Book Now'
+  assign cta_primary_url = section.settings.cta_primary_url | default: '#locations'
+  assign cta_secondary_text = section.settings.cta_secondary_text | default: 'Choose Your Location'
+  assign cta_secondary_url = section.settings.cta_secondary_url | default: '#locations'
+  assign card_title_line1 = section.settings.card_title_line1 | default: 'Everyone'
+  assign card_title_line2 = section.settings.card_title_line2 | default: 'Will Notice'
+  assign card_text = section.settings.card_text | default: 'Natural-looking glow, customized to your skin tone.'
+-%}
 
-<section
-  class="hero-slider"
-  id="top"
-  data-hero-slider
-  data-autoplay="{{ section.settings.autoplay_speed | default: 6 | times: 1000 }}"
-  {% unless section.settings.autoplay %}data-autoplay-off{% endunless %}
-  aria-label="Featured highlights"
-  aria-roledescription="carousel">
-  <div class="hero-slider__viewport">
-    <div class="hero-slider__track">
-      {%- if section.blocks.size > 0 -%}
-        {%- for block in section.blocks -%}
-          {%- render 'hero-slide', block: block, index: forloop.index, first: forloop.first -%}
-        {%- endfor -%}
-      {%- else -%}
-        {%- render 'hero-slide-fallback' -%}
-      {%- endif -%}
+<section class="hero-static" id="top" aria-label="Hero">
+  <div class="container hero-static__container">
+    <div class="hero-static__card">
+      <div class="hero-static__grid">
+        <div class="hero-static__copy">
+          <span class="hero-static__eyebrow">{{ eyebrow }}</span>
+          <h1 class="hero-static__title">
+            {{ title_line1 }}<br>
+            <span class="hero-static__title-accent">{{ title_line2 }}</span><br>
+            {{ title_line3 }}
+          </h1>
+          <p class="hero-static__sub">{{ subtitle }}</p>
+          <div class="hero-static__ctas">
+            <a href="{{ cta_primary_url }}" class="btn-pill btn-pill--dark">{{ cta_primary_text }}</a>
+            <a href="{{ cta_secondary_url }}" class="btn-pill btn-pill--outline">{{ cta_secondary_text }}</a>
+          </div>
+          <div class="hero-static__proof">
+            <div class="hero-static__proof-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span>Award Winning</span>
+            </div>
+            <span class="hero-static__proof-divider" aria-hidden="true"></span>
+            <div class="hero-static__proof-item">
+              {%- render 'icon', name: 'shield' -%}
+              <span>Since 2007</span>
+            </div>
+            <span class="hero-static__proof-divider" aria-hidden="true"></span>
+            <div class="hero-static__proof-item">
+              {%- render 'icon', name: 'map-pin' -%}
+              <span>3 Texas Studios</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-static__visual">
+          <div class="hero-static__image-frame">
+            {%- if hero_image != blank -%}
+              <img
+                src="{{ hero_image | image_url: width: 1280 }}"
+                srcset="{{ hero_image | image_url: width: 800 }} 800w, {{ hero_image | image_url: width: 1280 }} 1280w"
+                sizes="(min-width: 990px) 46vw, 92vw"
+                alt="{{ hero_image.alt | default: title_line1 | escape }}"
+                width="1280"
+                height="1280"
+                class="hero-static__image"
+                fetchpriority="high">
+            {%- else -%}
+              <img
+                src="{{ image_fallback | asset_url }}"
+                alt="{{ title_line1 | escape }}"
+                width="1280"
+                height="1280"
+                class="hero-static__image"
+                fetchpriority="high">
+            {%- endif -%}
+
+            <div class="hero-static__pills" aria-hidden="true">
+              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
+              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>
+              <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Houston</span></span>
+              <span class="hero-static__pill">{%- render 'icon', name: 'sparkle' -%}<span>Spray Tanning</span></span>
+            </div>
+
+            <div class="hero-static__floating-card" aria-hidden="true">
+              <div class="hero-static__floating-copy">
+                <strong>{{ card_title_line1 }}<br>{{ card_title_line2 }}</strong>
+                <span>{{ card_text }}</span>
+              </div>
+              <span class="hero-static__floating-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-
-  {%- if slide_count > 1 -%}
-    <div class="hero-slider__dots" role="tablist" aria-label="Choose slide">
-      {%- for block in section.blocks -%}
-        <button
-          type="button"
-          class="hero-slider__dot{% if forloop.first %} is-active{% endif %}"
-          role="tab"
-          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-          aria-controls="hero-slide-{{ forloop.index }}"
-          data-hero-dot="{{ forloop.index0 }}"
-          aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}">
-        </button>
-      {%- endfor -%}
-    </div>
-  {%- endif -%}
 </section>
 
 {% schema %}
 {
-  "name": "Hero slider",
+  "name": "Hero",
   "settings": [
-    { "type": "checkbox", "id": "autoplay", "label": "Auto-advance slides", "default": true },
-    { "type": "range", "id": "autoplay_speed", "label": "Seconds per slide", "min": 4, "max": 12, "step": 1, "default": 6, "unit": "s" }
-  ],
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image (right)" },
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Memberships & Packages" },
-        { "type": "text", "id": "title_line1", "label": "Headline line 1", "default": "Glow More," },
-        { "type": "text", "id": "title_line2", "label": "Headline line 2 (lavender accent)", "default": "Save More" },
-        { "type": "text", "id": "title_line3", "label": "Headline line 3 (optional)", "info": "e.g. Confidence. on spray tanning slide" },
-        { "type": "textarea", "id": "subtitle", "label": "Paragraph", "default": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long." },
-        { "type": "text", "id": "cta_text", "label": "Primary button text", "default": "View Memberships" },
-        { "type": "url", "id": "cta_url", "label": "Primary button URL" },
-        { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text" },
-        { "type": "url", "id": "cta_secondary_url", "label": "Secondary button URL" },
-        { "type": "text", "id": "image_fallback", "label": "Default image asset filename", "default": "hht-products.png", "info": "Used when no image is uploaded." },
-        { "type": "checkbox", "id": "transparent_image", "label": "Transparent / cutout PNG", "default": false, "info": "Only enable for product cutouts. Slider photos should stay off for the clean card look." },
-        { "type": "checkbox", "id": "show_trust_row", "label": "Show trust row", "default": true },
-        { "type": "text", "id": "trust_1", "label": "Trust label 1", "default": "Award Winning" },
-        { "type": "text", "id": "trust_2", "label": "Trust label 2", "default": "Since 2007" },
-        { "type": "text", "id": "trust_3", "label": "Trust label 3", "default": "3 Texas Studios" }
-      ]
-    }
+    { "type": "image_picker", "id": "image", "label": "Hero image (right)" },
+    { "type": "text", "id": "image_fallback", "label": "Default image filename", "default": "hero-slide-2.png", "info": "Used when no image is uploaded." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Custom Spray Tanning" },
+    { "type": "text", "id": "title_line1", "label": "Heading line 1", "default": "Healthier Glow." },
+    { "type": "text", "id": "title_line2", "label": "Heading line 2 (lavender accent)", "default": "Flawless" },
+    { "type": "text", "id": "title_line3", "label": "Heading line 3", "default": "Confidence." },
+    { "type": "textarea", "id": "subtitle", "label": "Paragraph", "default": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless." },
+    { "type": "text", "id": "cta_primary_text", "label": "Primary button text", "default": "Book Now" },
+    { "type": "url", "id": "cta_primary_url", "label": "Primary button URL" },
+    { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text", "default": "Choose Your Location" },
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary button URL" },
+    { "type": "header", "content": "Floating info card" },
+    { "type": "text", "id": "card_title_line1", "label": "Card title line 1", "default": "Everyone" },
+    { "type": "text", "id": "card_title_line2", "label": "Card title line 2", "default": "Will Notice" },
+    { "type": "textarea", "id": "card_text", "label": "Card body", "default": "Natural-looking glow, customized to your skin tone." }
   ],
   "presets": [
-    {
-      "name": "Hero slider",
-      "blocks": [
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Memberships & Packages",
-            "title_line1": "Glow More,",
-            "title_line2": "Save More",
-            "subtitle": "Join the HHT family and enjoy exclusive savings, priority booking, and the perks of glowing all year long.",
-            "cta_text": "View Memberships",
-            "cta_url": "#memberships-packages",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hero-slide-1.png",
-            "transparent_image": false,
-            "show_trust_row": true
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Custom Spray Tanning",
-            "title_line1": "Healthier Glow.",
-            "title_line2": "Flawless",
-            "title_line3": "Confidence.",
-            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
-            "cta_text": "Book Now",
-            "cta_url": "#locations",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hero-slide-2.png",
-            "transparent_image": false,
-            "show_trust_row": true
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "The Hush Hush Experience",
-            "title_line1": "Everyone will notice.",
-            "title_line2": "No one will know.",
-            "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
-            "cta_text": "Book Now",
-            "cta_url": "#locations",
-            "cta_secondary_text": "View Services",
-            "cta_secondary_url": "#services",
-            "image_fallback": "hero-slide-3.png",
-            "transparent_image": false,
-            "show_trust_row": true
-          }
-        }
-      ]
-    }
+    { "name": "Hero" }
   ]
 }
 {% endschema %}

@@ -49,55 +49,20 @@
         {%- endfor -%}
       {%- else -%}
         <a href="{{ routes.root_url }}"{% if request.path == '/' %} aria-current="page"{% endif %}>Home</a>
-        <div class="has-submenu">
-          <a href="/pages/locations">Locations</a>
-          <div class="submenu">
-            <a href="/pages/austin">Austin</a>
-            <a href="/pages/dallas">Dallas</a>
-            <a href="/pages/houston">Houston</a>
-          </div>
-        </div>
+        <a href="#locations">Locations</a>
+        <a href="#services">Services</a>
         <a href="{{ routes.collections_url }}/tanning-products">Products</a>
-        <a href="/pages/memberships">Memberships</a>
-        <div class="has-submenu">
-          <a href="/pages/tanning-gift-certificates">Tanning Gift Certificate</a>
-          <div class="submenu">
-            <a href="{{ settings.gift_austin_url }}">Austin</a>
-            <a href="{{ settings.gift_dallas_url }}">Dallas</a>
-            <a href="{{ settings.gift_houston_url }}">Houston</a>
-          </div>
-        </div>
-        <div class="has-submenu">
-          <a href="/pages/about-us">About</a>
-          <div class="submenu">
-            <a href="/pages/about-us">Our Story</a>
-            <a href="/pages/press">Press</a>
-            <a href="/pages/faqs">FAQ</a>
-            <a href="/pages/careers">Careers</a>
-          </div>
-        </div>
-        <div class="has-submenu">
-          <a href="/pages/houston-services">Houston Services</a>
-          <div class="submenu">
-            <a href="/pages/austin-services">Austin Services</a>
-            <a href="/pages/dallas-services">Dallas Services</a>
-            <a href="/pages/houston-services">Houston Services</a>
-          </div>
-        </div>
-        <a href="/pages/contact">Contact</a>
+        <a href="/pages/about">About</a>
       {%- endif -%}
     </nav>
 
     <div class="site-header__actions">
       <a href="{{ routes.search_url }}" class="icon-btn" aria-label="Search">{% render 'icon', name: 'search' %}</a>
       <a href="{{ routes.account_url }}" class="icon-btn" aria-label="Account">{% render 'icon', name: 'account' %}</a>
-      <a href="{{ routes.cart_url }}" class="icon-btn" aria-label="Cart">
+      <a href="{{ routes.cart_url }}" class="icon-btn icon-btn--cart" aria-label="Cart">
         {% render 'icon', name: 'cart' %}
         {%- if cart.item_count > 0 -%}<span class="cart-count">{{ cart.item_count }}</span>{%- endif -%}
       </a>
-      {%- if section.settings.show_book_cta -%}
-        <a href="{{ section.settings.book_url | default: settings.book_now_url }}" class="btn btn--small btn--header-book">Book Now</a>
-      {%- endif -%}
     </div>
   </div>
 </header>
@@ -124,33 +89,11 @@
         {%- endfor -%}
       {%- else -%}
         <a href="{{ routes.root_url }}">Home</a>
-        <details>
-          <summary>Locations</summary>
-          <div class="drawer__sub"><a href="/pages/austin">Austin</a><a href="/pages/dallas">Dallas</a><a href="/pages/houston">Houston</a></div>
-        </details>
+        <a href="#locations">Locations</a>
+        <a href="#services">Services</a>
         <a href="{{ routes.collections_url }}/tanning-products">Products</a>
-        <a href="/pages/memberships">Memberships</a>
-        <details>
-          <summary>Tanning Gift Certificate</summary>
-          <div class="drawer__sub">
-            <a href="{{ settings.gift_austin_url }}">Austin</a><a href="{{ settings.gift_dallas_url }}">Dallas</a><a href="{{ settings.gift_houston_url }}">Houston</a>
-          </div>
-        </details>
-        <details>
-          <summary>About</summary>
-          <div class="drawer__sub">
-            <a href="/pages/about-us">Our Story</a><a href="/pages/press">Press</a><a href="/pages/faqs">FAQ</a><a href="/pages/careers">Careers</a>
-          </div>
-        </details>
-        <details>
-          <summary>Houston Services</summary>
-          <div class="drawer__sub">
-            <a href="/pages/austin-services">Austin Services</a><a href="/pages/dallas-services">Dallas Services</a><a href="/pages/houston-services">Houston Services</a>
-          </div>
-        </details>
-        <a href="/pages/contact">Contact</a>
+        <a href="/pages/about">About</a>
       {%- endif -%}
-      <a href="{{ section.settings.book_url | default: settings.book_now_url }}" class="btn btn--block" style="margin-top: 28px;">Book Now</a>
     </nav>
   </div>
 </div>
@@ -160,9 +103,7 @@
   "name": "Header",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Header logo (horizontal)" },
-    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
-    { "type": "checkbox", "id": "show_book_cta", "label": "Show Book Now CTA", "default": true },
-    { "type": "url", "id": "book_url", "label": "Book Now URL (overrides global)" }
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" }
   ]
 }
 {% endschema %}
