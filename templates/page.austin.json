@@ -1,25 +1,23 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "page-hero",
       "settings": {
         "eyebrow": "Austin Studio",
-        "title_line1": "Custom Glow in Austin",
-        "title_line2": "",
-        "subtitle": "Our flagship studio on West 6th — book your hand-mixed Custom Glow at our Austin studio.",
-        "cta_primary_text": "Book Now",
+        "title": "A Healthier Glow on",
+        "title_accent": "West 6th.",
+        "subtitle": "Located in downtown Austin and founded by Izabel Wicker — our flagship studio uses natural, eco-certified DHA tanning formulas that are cruelty-free, paraben-free, and alcohol-free.",
+        "cta_primary_text": "Book Appointment",
         "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
         "cta_secondary_text": "View Pricing",
-        "cta_secondary_url": "/pages/austin-services",
-        "show_trust_row": false,
-        "show_shade_card": false
+        "cta_secondary_url": "/pages/austin-services"
       }
     },
     "studio": {
       "type": "location-cards",
       "settings": {
-        "eyebrow": "Studio",
-        "heading": "Austin studio details",
+        "eyebrow": "Visit",
+        "heading": "Austin Studio Details",
         "subheading": ""
       },
       "blocks": {
@@ -30,7 +28,7 @@
             "tagline": "1211 West 6th St, Suite #400",
             "address": "Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "info_url": "/pages/austin-services"
           }
@@ -38,16 +36,16 @@
       },
       "block_order": ["l1"]
     },
-    "services": {
+    "actions": {
       "type": "service-cards",
       "settings": {
-        "eyebrow": "Services",
-        "heading": "Popular in Austin"
+        "eyebrow": "Ways to Book",
+        "heading": "Choose How You Glow"
       },
       "blocks": {
-        "s1": { "type": "service", "settings": { "title": "Custom Glow", "price": "From $40", "description": "Our signature airbrush tan, hand-mixed to flatter your unique undertone.", "cta_text": "Learn more", "cta_url": "/pages/spray-tanning" } },
-        "s2": { "type": "service", "settings": { "title": "Group & Mimosas", "price": "From $50/person", "description": "Private parties with bubbles, bites, and beautifully bronzed best friends.", "cta_text": "Plan a party", "cta_url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
-        "s3": { "type": "service", "settings": { "title": "Austin Mobile Tanning", "price": "From $75/person", "description": "We come to you — bridal suites, hotels, and homes across greater Austin.", "cta_text": "Book mobile", "cta_url": "/pages/mobile-spray-tan" } }
+        "s1": { "type": "service", "settings": { "title": "Book a Tan", "price": "Single Custom Glow", "description": "Browse the full Austin service menu and reserve your appointment.", "cta_text": "Book Appointment", "cta_url": "https://go.booker.com/location/hushhushtan/service-menu" } },
+        "s2": { "type": "service", "settings": { "title": "Pre-Paid Packages", "price": "5, 10, or 15 Glows", "description": "Save per session with a Glow-Getter, Ultimate, or Elite package.", "cta_text": "Buy Packages", "cta_url": "https://go.booker.com/location/hushhushtan/buy/series" } },
+        "s3": { "type": "service", "settings": { "title": "Monthly Memberships", "price": "Absolute · Deluxe · Glow", "description": "Member pricing on every Custom Glow with 3-month minimum.", "cta_text": "View Memberships", "cta_url": "https://go.booker.com/location/hushhushtan/buy/membership" } }
       },
       "block_order": ["s1", "s2", "s3"]
     },
@@ -55,14 +53,14 @@
       "type": "faq-accordion",
       "settings": {
         "eyebrow": "FAQ",
-        "heading": "Questions before you book?",
+        "heading": "Questions before you book",
         "show_view_all": true,
         "view_all_url": "/pages/faqs"
       },
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>Most clients enjoy 7–10 days of even color with proper prep and aftercare.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Loose, dark clothing and open-toed shoes work best. We provide disposables if needed.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "Can I shower after my tan?", "answer": "<p>Follow your artist's rinse time — typically 6–8 hours for standard formulas or sooner for rapid.</p>" } }
+        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>With proper prep and aftercare, most clients enjoy 7–10 days of even color.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "What should I wear?", "answer": "<p>Loose, dark clothing and open-toed sandals work best. Disposables are provided on request.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Is parking available?", "answer": "<p>Yes — street and lot parking are available around the West 6th studio.</p>" } }
       },
       "block_order": ["q1", "q2", "q3"]
     },
@@ -77,5 +75,5 @@
       }
     }
   },
-  "order": ["hero", "studio", "services", "faq", "final"]
+  "order": ["hero", "studio", "actions", "faq", "final"]
 }

@@ -1,25 +1,23 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "page-hero",
       "settings": {
         "eyebrow": "Houston Studio",
-        "title_line1": "Custom Glow in Houston",
-        "title_line2": "",
-        "subtitle": "Houston studio details coming soon — book your hand-mixed Custom Glow through Booker.",
-        "cta_primary_text": "Book Now",
+        "title": "The Ultimate Sunless Tan in",
+        "title_accent": "Houston.",
+        "subtitle": "Experience a natural, flawless tan perfectly tailored to your skin tone — by our expert artists in a comfortable, welcoming environment.",
+        "cta_primary_text": "Book Your Custom Glow",
         "cta_primary_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
         "cta_secondary_text": "View Pricing",
-        "cta_secondary_url": "/pages/houston-services",
-        "show_trust_row": false,
-        "show_shade_card": false
+        "cta_secondary_url": "/pages/houston-services"
       }
     },
     "studio": {
       "type": "location-cards",
       "settings": {
-        "eyebrow": "Studio",
-        "heading": "Houston studio details",
+        "eyebrow": "Visit",
+        "heading": "Houston Studio Details",
         "subheading": ""
       },
       "blocks": {
@@ -27,8 +25,8 @@
           "type": "location",
           "settings": {
             "city": "Houston",
-            "tagline": "Houston studio",
-            "address": "Houston studio details to be confirmed",
+            "tagline": "Hush Hush Tan Houston",
+            "address": "",
             "phone": "",
             "hours": "",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
@@ -38,16 +36,16 @@
       },
       "block_order": ["l1"]
     },
-    "services": {
+    "actions": {
       "type": "service-cards",
       "settings": {
-        "eyebrow": "Services",
-        "heading": "Popular in Houston"
+        "eyebrow": "Ways to Book",
+        "heading": "Choose How You Glow"
       },
       "blocks": {
-        "s1": { "type": "service", "settings": { "title": "Custom Glow", "price": "From $40", "description": "Signature airbrush tanning with hand-mixed color.", "cta_text": "Learn more", "cta_url": "/pages/spray-tanning" } },
-        "s2": { "type": "service", "settings": { "title": "Memberships", "price": "From $66/mo", "description": "Monthly Glow, Deluxe, and Absolute plans with member savings.", "cta_text": "View memberships", "cta_url": "/pages/memberships" } },
-        "s3": { "type": "service", "settings": { "title": "Packages", "price": "From $175", "description": "Glow-Getter, Ultimate Glow, and Elite Glow series packages.", "cta_text": "View packages", "cta_url": "/pages/memberships" } }
+        "s1": { "type": "service", "settings": { "title": "Book a Tan", "price": "Single Custom Glow", "description": "Browse the full Houston service menu and reserve your appointment.", "cta_text": "Book Appointment", "cta_url": "https://go.booker.com/location/hushhushtanhouston/service-menu" } },
+        "s2": { "type": "service", "settings": { "title": "Pre-Paid Packages", "price": "5, 10, or 15 Glows", "description": "Save per session with a Glow-Getter, Ultimate, or Elite package.", "cta_text": "Buy Packages", "cta_url": "https://go.booker.com/location/hushhushtanhouston/buy/series" } },
+        "s3": { "type": "service", "settings": { "title": "Monthly Memberships", "price": "Absolute · Deluxe · Glow", "description": "Member pricing on every Custom Glow with 3-month minimum.", "cta_text": "View Memberships", "cta_url": "https://go.booker.com/location/hushhushtanhouston/buy/membership" } }
       },
       "block_order": ["s1", "s2", "s3"]
     },
@@ -55,14 +53,14 @@
       "type": "faq-accordion",
       "settings": {
         "eyebrow": "FAQ",
-        "heading": "Questions before you book?",
+        "heading": "Questions before you book",
         "show_view_all": true,
         "view_all_url": "/pages/faqs"
       },
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>Most clients enjoy 7–10 days of even color with proper prep and aftercare.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "Does Houston share Austin pricing?", "answer": "<p>Yes — Houston uses the same service and membership rates as Austin unless noted otherwise.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "When will the Houston address be posted?", "answer": "<p>We will update this page as soon as the studio address is confirmed. You can still book online today.</p>" } }
+        "q1": { "type": "qa", "settings": { "question": "How long does my tan last?", "answer": "<p>With proper aftercare, most clients enjoy 7–10 days of even, natural-looking color.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Is the Custom Glow right for every skin tone?", "answer": "<p>Yes — our Custom Glow formula is mixed to complement your unique undertones.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Where can I find Houston address and hours?", "answer": "<p>Please book through our online scheduler — exact address and hours will be confirmed at booking.</p>" } }
       },
       "block_order": ["q1", "q2", "q3"]
     },
@@ -77,5 +75,5 @@
       }
     }
   },
-  "order": ["hero", "studio", "services", "faq", "final"]
+  "order": ["hero", "studio", "actions", "faq", "final"]
 }

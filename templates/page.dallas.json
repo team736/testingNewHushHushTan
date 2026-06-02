@@ -1,25 +1,23 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "page-hero",
       "settings": {
         "eyebrow": "Dallas Studio",
-        "title_line1": "Custom Glow in Dallas",
-        "title_line2": "",
-        "subtitle": "A refined Oak Lawn studio with the full Custom Glow menu and Dallas pricing.",
-        "cta_primary_text": "Book Now",
+        "title": "Sun-Kissed Elegance in",
+        "title_accent": "Oak Lawn.",
+        "subtitle": "Located at The Shops of Highland Park, our Dallas studio delivers customized tans by expert technicians trained in our signature airbrush method.",
+        "cta_primary_text": "Book Appointment",
         "cta_primary_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
         "cta_secondary_text": "View Pricing",
-        "cta_secondary_url": "/pages/dallas-services",
-        "show_trust_row": false,
-        "show_shade_card": false
+        "cta_secondary_url": "/pages/dallas-services"
       }
     },
     "studio": {
       "type": "location-cards",
       "settings": {
-        "eyebrow": "Studio",
-        "heading": "Dallas studio details",
+        "eyebrow": "Visit",
+        "heading": "Dallas Studio Details",
         "subheading": ""
       },
       "blocks": {
@@ -30,7 +28,7 @@
             "tagline": "4254 Oak Lawn Avenue",
             "address": "Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
             "info_url": "/pages/dallas-services"
           }
@@ -38,16 +36,16 @@
       },
       "block_order": ["l1"]
     },
-    "services": {
+    "actions": {
       "type": "service-cards",
       "settings": {
-        "eyebrow": "Services",
-        "heading": "Popular in Dallas"
+        "eyebrow": "Ways to Book",
+        "heading": "Choose How You Glow"
       },
       "blocks": {
-        "s1": { "type": "service", "settings": { "title": "Custom Glow", "price": "From $45", "description": "Hand-mixed airbrush color tailored to your undertone.", "cta_text": "Learn more", "cta_url": "/pages/spray-tanning" } },
-        "s2": { "type": "service", "settings": { "title": "Group & Mimosas", "price": "From $55/person", "description": "Celebrate with friends — bubbles, bites, and a beautiful bronze.", "cta_text": "Plan a party", "cta_url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
-        "s3": { "type": "service", "settings": { "title": "Memberships", "price": "From $78/mo", "description": "Glow, Deluxe, and Absolute memberships with exclusive savings.", "cta_text": "View memberships", "cta_url": "/pages/memberships" } }
+        "s1": { "type": "service", "settings": { "title": "Book a Tan", "price": "Single Custom Glow", "description": "Browse the full Dallas service menu and reserve your appointment.", "cta_text": "Book Appointment", "cta_url": "https://go.booker.com/location/hushhushtandallas/service-menu" } },
+        "s2": { "type": "service", "settings": { "title": "Pre-Paid Packages", "price": "5, 10, or 15 Glows", "description": "Save per session with a Glow-Getter, Ultimate, or Elite package.", "cta_text": "Buy Packages", "cta_url": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        "s3": { "type": "service", "settings": { "title": "Monthly Memberships", "price": "Absolute · Deluxe · Glow", "description": "Member pricing on every Custom Glow with 3-month minimum.", "cta_text": "View Memberships", "cta_url": "https://go.booker.com/location/hushhushtandallas/buy/membership" } }
       },
       "block_order": ["s1", "s2", "s3"]
     },
@@ -55,14 +53,14 @@
       "type": "faq-accordion",
       "settings": {
         "eyebrow": "FAQ",
-        "heading": "Questions before you book?",
+        "heading": "Questions before you book",
         "show_view_all": true,
         "view_all_url": "/pages/faqs"
       },
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>Most clients enjoy 7–10 days of even color with proper prep and aftercare.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "Is Dallas pricing different from Austin?", "answer": "<p>Yes — Dallas has its own service menu and membership rates. View Dallas Services for current pricing.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "Where do I park?", "answer": "<p>Street and lot parking are available near our Oak Lawn studio. Arrive a few minutes early for your consultation.</p>" } }
+        "q1": { "type": "qa", "settings": { "question": "How long does a Custom Glow last?", "answer": "<p>With proper prep and aftercare, most clients enjoy 7–10 days of even color.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Are after-hours appointments available?", "answer": "<p>Yes — after-hours appointments can be arranged at our Dallas studio. Additional fees apply.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "Is parking available?", "answer": "<p>Yes — ample parking is available at The Shops of Highland Park.</p>" } }
       },
       "block_order": ["q1", "q2", "q3"]
     },
@@ -77,5 +75,5 @@
       }
     }
   },
-  "order": ["hero", "studio", "services", "faq", "final"]
+  "order": ["hero", "studio", "actions", "faq", "final"]
 }

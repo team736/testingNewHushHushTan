@@ -1,0 +1,46 @@
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero__card">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="page-hero__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.title != blank -%}
+        <h1 class="page-hero__title">
+          {{ section.settings.title }}{% if section.settings.title_accent != blank %} <em style="font-style:normal;color:#A69FE2;">{{ section.settings.title_accent }}</em>{% endif %}
+        </h1>
+      {%- endif -%}
+      {%- if section.settings.subtitle != blank -%}
+        <p class="page-hero__sub">{{ section.settings.subtitle }}</p>
+      {%- endif -%}
+      {%- if section.settings.cta_primary_text != blank or section.settings.cta_secondary_text != blank -%}
+        <div class="page-hero__ctas">
+          {%- if section.settings.cta_primary_text != blank -%}
+            <a href="{{ section.settings.cta_primary_url | default: '#' }}" class="btn">{{ section.settings.cta_primary_text }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta_secondary_text != blank -%}
+            <a href="{{ section.settings.cta_secondary_url | default: '#' }}" class="btn btn--outline">{{ section.settings.cta_secondary_text }}</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "title", "label": "Title" },
+    { "type": "text", "id": "title_accent", "label": "Title accent (lavender)" },
+    { "type": "textarea", "id": "subtitle", "label": "Subtitle" },
+    { "type": "text", "id": "cta_primary_text", "label": "Primary CTA text" },
+    { "type": "url", "id": "cta_primary_url", "label": "Primary CTA URL" },
+    { "type": "text", "id": "cta_secondary_text", "label": "Secondary CTA text" },
+    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" }
+  ],
+  "presets": [
+    { "name": "Page hero" }
+  ]
+}
+{% endschema %}
