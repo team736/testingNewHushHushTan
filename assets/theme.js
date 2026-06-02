@@ -52,6 +52,9 @@
           panel.classList.add('is-active');
           panel.hidden = false;
         }
+        root.dispatchEvent(
+          new CustomEvent('hht:location-change', { detail: { index: index }, bubbles: true })
+        );
       });
     });
 

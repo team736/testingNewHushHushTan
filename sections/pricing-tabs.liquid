@@ -1,5 +1,4 @@
 {%- assign tab_blocks = section.blocks | where: 'type', 'tab' -%}
-{%- assign preview = section.settings.homepage_preview -%}
 
 <section class="hht-pricing-ecosystem" data-pricing-ecosystem id="pricing-{{ section.id }}">
   <div class="hht-pricing-shell">
@@ -35,6 +34,17 @@
     </div>
 
     {%- for tab in tab_blocks -%}
+      {%- liquid
+        assign services_url = '/pages/austin-services'
+        if tab.settings.label == 'Dallas'
+          assign services_url = '/pages/dallas-services'
+        elsif tab.settings.label == 'Houston'
+          assign services_url = '/pages/houston-services'
+        endif
+        if tab.settings.services_page_url != blank
+          assign services_url = tab.settings.services_page_url
+        endif
+      -%}
       <div
         class="hht-location-panel{% if forloop.first %} is-active{% endif %}"
         data-location-panel="{{ forloop.index0 }}"
@@ -43,36 +53,210 @@
         aria-labelledby="loc-tab-{{ section.id }}-{{ tab.id }}"
         {% unless forloop.first %}hidden{% endunless %}
         {{ tab.shopify_attributes }}>
-        {% render 'pricing-location-panel', tab: tab, preview: preview %}
+
+        <div class="hht-content-tabs" role="tablist" aria-label="Pricing categories">
+          <button type="button" class="hht-content-tab active" role="tab" aria-selected="true" data-content-tab="memberships">Monthly Memberships</button>
+          <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="packages">Tan Packages</button>
+          <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="plan">Find Your Perfect Plan</button>
+          <button type="button" class="hht-content-tab" role="tab" aria-selected="false" data-content-tab="group">Group Packages</button>
+        </div>
+
+        <div class="hht-pricing-content">
+          <div class="hht-tab-panel active" data-content-panel="memberships" role="tabpanel">
+            <div class="hht-tab-intro">
+              <h3>Monthly Memberships</h3>
+              <p>Built for glow lovers who want consistent color and member savings.</p>
+            </div>
+            <div class="hht-card-grid hht-membership-grid">
+              <article class="hht-price-card">
+                <h3>Absolute</h3>
+                <div class="hht-card-price">${{ tab.settings.mem_absolute }}<small>/mo</small></div>
+                <p class="hht-card-sub">Monthly membership for {{ tab.settings.label }}.</p>
+                <ul class="hht-feature-list">
+                  <li>4 Custom Glows per month</li>
+                  <li>10% off products</li>
+                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+                </ul>
+                <a href="{{ services_url }}" class="hht-card-button">Join Absolute</a>
+              </article>
+              <article class="hht-price-card is-featured">
+                <span class="hht-card-badge">Most Popular</span>
+                <h3>Deluxe</h3>
+                <div class="hht-card-price">${{ tab.settings.mem_deluxe }}<small>/mo</small></div>
+                <p class="hht-card-sub">Monthly membership for {{ tab.settings.label }}.</p>
+                <ul class="hht-feature-list">
+                  <li>3 Custom Glows per month</li>
+                  <li>10% off products</li>
+                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+                </ul>
+                <a href="{{ services_url }}" class="hht-card-button">Join Deluxe</a>
+              </article>
+              <article class="hht-price-card">
+                <h3>Glow</h3>
+                <div class="hht-card-price">${{ tab.settings.mem_glow }}<small>/mo</small></div>
+                <p class="hht-card-sub">Monthly membership for {{ tab.settings.label }}.</p>
+                <ul class="hht-feature-list">
+                  <li>2 Custom Glows per month</li>
+                  <li>10% off products</li>
+                  <li>Additional Custom Glow at ${{ tab.settings.mem_discount_rate }}</li>
+                </ul>
+                <a href="{{ services_url }}" class="hht-card-button">Join Glow</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="hht-tab-panel" data-content-panel="packages" role="tabpanel">
+            <div class="hht-tab-intro">
+              <h3>Tan Packages</h3>
+              <p>Per-session pricing first — total package shown second.</p>
+            </div>
+            <div class="hht-card-grid hht-package-grid">
+              <article class="hht-price-card hht-package-card">
+                <h3>Glow-Getter</h3>
+                <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+                <p class="hht-package-meta">5 Custom Glows · ${{ tab.settings.pkg_glow_getter }} one-time</p>
+                <a href="{{ services_url }}" class="hht-card-button">Buy Glow-Getter</a>
+              </article>
+              <article class="hht-price-card hht-package-card is-featured">
+                <span class="hht-card-badge">Best Value</span>
+                <h3>Ultimate Glow</h3>
+                <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+                <p class="hht-package-meta">10 Custom Glows · ${{ tab.settings.pkg_ultimate }} one-time</p>
+                <a href="{{ services_url }}" class="hht-card-button">Buy Ultimate</a>
+              </article>
+              <article class="hht-price-card hht-package-card">
+                <h3>Elite Glow</h3>
+                <div class="hht-card-price">${{ tab.settings.pkg_per_session }}<small>/session</small></div>
+                <p class="hht-package-meta">15 Custom Glows · ${{ tab.settings.pkg_elite }} one-time</p>
+                <a href="{{ services_url }}" class="hht-card-button">Buy Elite</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="hht-tab-panel" data-content-panel="plan" role="tabpanel">
+            <div class="hht-tab-intro">
+              <h3>Find Your Perfect Plan</h3>
+              <p>Full menu pricing for {{ tab.settings.label }} — every Custom Glow service in one place.</p>
+            </div>
+            <div class="hht-plan-table-wrap">
+              <table class="hht-plan-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Service</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="hht-plan-section-label">
+                    <td colspan="2">Full body</td>
+                  </tr>
+                  <tr><td>Clear Glow</td><td>${{ tab.settings.svc_clear }}</td></tr>
+                  <tr><td>Custom Glow</td><td>${{ tab.settings.svc_custom }}</td></tr>
+                  <tr><td>Gold Glow</td><td>${{ tab.settings.svc_gold }}</td></tr>
+                  <tr><td>Brazilian Glow</td><td>${{ tab.settings.svc_brazilian }}</td></tr>
+                  <tr><td>Rapid Glow</td><td>${{ tab.settings.svc_rapid }}</td></tr>
+                  <tr><td>Bye Bye Tan Line</td><td>${{ tab.settings.svc_bbtl }}</td></tr>
+                  <tr><td>Happy Birthday Glow</td><td>${{ tab.settings.svc_birthday }}</td></tr>
+                  <tr class="hht-plan-section-label">
+                    <td colspan="2">Partial body</td>
+                  </tr>
+                  <tr><td>Face</td><td>${{ tab.settings.svc_face }}</td></tr>
+                  <tr><td>Partial Upper or Lower</td><td>${{ tab.settings.svc_partial }}</td></tr>
+                  <tr><td>Upper or Lower</td><td>${{ tab.settings.svc_upper_lower }}</td></tr>
+                  {%- if tab.settings.extra_service_name != blank -%}
+                    <tr><td>{{ tab.settings.extra_service_name }}</td><td>${{ tab.settings.extra_service_price }}</td></tr>
+                  {%- endif -%}
+                </tbody>
+              </table>
+            </div>
+            <p class="hht-table-note">Accessories: Disposable Boxers $3 · Floral Pasties $2 · C-String Undies $6. Complimentary disposable undies, nose plugs, and hair clips.</p>
+            <div class="hht-cta-actions" style="margin-top: 32px; justify-content: center;">
+              <a href="{{ services_url }}" class="hht-primary-cta">View {{ tab.settings.label }} services</a>
+            </div>
+          </div>
+
+          <div class="hht-tab-panel" data-content-panel="group" role="tabpanel">
+            <div class="hht-tab-intro">
+              <h3>Group Packages</h3>
+              <p>Private parties and on-location tanning for {{ tab.settings.label }}.</p>
+            </div>
+            <div class="hht-card-grid hht-group-grid">
+              {%- if tab.settings.group_price != blank -%}
+                <article class="hht-price-card hht-group-card">
+                  <h3>Group Tanning &amp; Mimosas</h3>
+                  <div class="hht-card-price">${{ tab.settings.group_price }}<small>/person</small></div>
+                  <p class="hht-card-sub">In-store private parties. 5 person minimum.</p>
+                  <a href="{{ services_url }}" class="hht-card-button">Plan a party</a>
+                </article>
+              {%- endif -%}
+              {%- if tab.settings.mobile_price != blank -%}
+                <article class="hht-price-card hht-group-card">
+                  <h3>Mobile Tanning</h3>
+                  <div class="hht-card-price">${{ tab.settings.mobile_price }}<small>/person</small></div>
+                  <p class="hht-card-sub">We come to you. 5 person minimum; travel fees may apply.</p>
+                  <a href="{{ services_url }}" class="hht-card-button">Book mobile</a>
+                </article>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
       </div>
     {%- endfor -%}
 
-    {%- if preview and section.settings.cta_text != blank -%}
-      <div class="hht-pricing-cta">
-        {%- if section.settings.cta_eyebrow != blank -%}
-          <span>{{ section.settings.cta_eyebrow }}</span>
-        {%- endif -%}
-        <h3>
-          {{ section.settings.cta_heading_before }}
-          <em>{{ section.settings.cta_heading_emphasis }}</em>
-        </h3>
-        {%- if section.settings.cta_subtext != blank -%}
-          <p>{{ section.settings.cta_subtext }}</p>
-        {%- endif -%}
-        <div class="hht-cta-actions">
-          <a href="{{ section.settings.cta_url | default: '/pages/memberships' }}" class="hht-primary-cta">{{ section.settings.cta_text }}</a>
-          {%- if section.settings.cta_secondary_text != blank -%}
-            <a href="{{ section.settings.cta_secondary_url | default: '/pages/locations' }}" class="hht-secondary-cta">{{ section.settings.cta_secondary_text }}</a>
-          {%- endif -%}
-        </div>
+    <div class="hht-pricing-cta" data-pricing-family-cta>
+      <span>{{ section.settings.cta_eyebrow | default: 'Memberships & Packages' }}</span>
+      <h3>
+        {{ section.settings.cta_heading_before | default: 'Join the HHT' }}
+        <em>{{ section.settings.cta_heading_emphasis | default: 'Family' }}</em>
+      </h3>
+      {%- if section.settings.cta_subtext != blank -%}
+        <p data-pricing-cta-text>{{ section.settings.cta_subtext }}</p>
+      {%- endif -%}
+      <div class="hht-cta-actions">
+        <a href="/pages/austin-services" class="hht-primary-cta" data-pricing-cta-link>{{ section.settings.cta_text | default: 'Join the HHT Family' }}</a>
       </div>
-    {%- endif -%}
+    </div>
   </div>
 </section>
 
+<script>
+  (function () {
+    var section = document.getElementById('pricing-{{ section.id }}');
+    if (!section) return;
+    var ctaLink = section.querySelector('[data-pricing-cta-link]');
+    var ctaText = section.querySelector('[data-pricing-cta-text]');
+    var urls = {};
+    {%- for tab in tab_blocks -%}
+      {%- liquid
+        assign services_url = '/pages/austin-services'
+        if tab.settings.label == 'Dallas'
+          assign services_url = '/pages/dallas-services'
+        elsif tab.settings.label == 'Houston'
+          assign services_url = '/pages/houston-services'
+        endif
+        if tab.settings.services_page_url != blank
+          assign services_url = tab.settings.services_page_url
+        endif
+      -%}
+      urls[{{ forloop.index0 }}] = {
+        href: {{ services_url | json }},
+        label: {{ tab.settings.label | json }}
+      };
+    {%- endfor -%}
+    section.addEventListener('hht:location-change', function (e) {
+      var data = urls[e.detail.index];
+      if (!data || !ctaLink) return;
+      ctaLink.href = data.href;
+      if (ctaText) {
+        ctaText.textContent = 'Explore the full ' + data.label + ' service menu, book your Custom Glow, and find the plan that fits your glow goals.';
+      }
+    });
+  })();
+</script>
+
 {% schema %}
 {
-  "name": "Pricing tabs",
+  "name": "Pricing ecosystem",
   "tag": "section",
   "class": "hht-pricing-section-wrap",
   "settings": [
@@ -80,37 +264,30 @@
     { "type": "text", "id": "heading_before", "label": "Heading (before accent)", "default": "Glow More," },
     { "type": "text", "id": "heading_emphasis", "label": "Heading accent (lavender italic)", "default": "Save More" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long." },
-    { "type": "checkbox", "id": "homepage_preview", "label": "Homepage preview (memberships + packages only)", "default": false },
-    { "type": "header", "content": "Homepage preview CTA" },
     { "type": "text", "id": "cta_eyebrow", "label": "CTA eyebrow", "default": "Memberships & Packages" },
-    { "type": "text", "id": "cta_heading_before", "label": "CTA heading before accent", "default": "View the full" },
-    { "type": "text", "id": "cta_heading_emphasis", "label": "CTA heading accent", "default": "menu" },
-    { "type": "text", "id": "cta_subtext", "label": "CTA subtext", "default": "See every membership, package, and service for your studio." },
-    { "type": "text", "id": "cta_text", "label": "Primary CTA text", "default": "View Full Memberships Page" },
-    { "type": "url", "id": "cta_url", "label": "Primary CTA URL" },
-    { "type": "text", "id": "cta_secondary_text", "label": "Secondary CTA text" },
-    { "type": "url", "id": "cta_secondary_url", "label": "Secondary CTA URL" }
+    { "type": "text", "id": "cta_heading_before", "label": "CTA heading before accent", "default": "Join the HHT" },
+    { "type": "text", "id": "cta_heading_emphasis", "label": "CTA heading accent", "default": "Family" },
+    { "type": "textarea", "id": "cta_subtext", "label": "CTA subtext", "default": "Explore the full Austin service menu, book your Custom Glow, and find the plan that fits your glow goals." },
+    { "type": "text", "id": "cta_text", "label": "CTA button text", "default": "Join the HHT Family" }
   ],
   "blocks": [
     {
       "type": "tab",
-      "name": "Location tab",
+      "name": "Location",
       "settings": [
-        { "type": "text", "id": "label", "label": "Tab label", "default": "Austin" },
-        { "type": "url", "id": "book_url", "label": "Book URL" },
-        { "type": "url", "id": "book_membership_url", "label": "Book membership URL" },
-        { "type": "url", "id": "book_packages_url", "label": "Book packages URL" },
-        { "type": "header", "content": "Memberships" },
-        { "type": "text", "id": "mem_absolute", "label": "Absolute ($/mo)", "default": "120" },
-        { "type": "text", "id": "mem_deluxe", "label": "Deluxe ($/mo)", "default": "96" },
-        { "type": "text", "id": "mem_glow", "label": "Glow ($/mo)", "default": "66" },
-        { "type": "text", "id": "mem_discount_rate", "label": "Discounted additional Custom Glow ($)", "default": "35" },
+        { "type": "text", "id": "label", "label": "Location name", "default": "Austin" },
+        { "type": "url", "id": "services_page_url", "label": "Services page URL (optional override)" },
+        { "type": "header", "content": "Memberships ($/mo)" },
+        { "type": "text", "id": "mem_absolute", "label": "Absolute", "default": "120" },
+        { "type": "text", "id": "mem_deluxe", "label": "Deluxe", "default": "96" },
+        { "type": "text", "id": "mem_glow", "label": "Glow", "default": "66" },
+        { "type": "text", "id": "mem_discount_rate", "label": "Additional Custom Glow ($)", "default": "35" },
         { "type": "header", "content": "Packages" },
         { "type": "text", "id": "pkg_per_session", "label": "Per session ($)", "default": "35" },
         { "type": "text", "id": "pkg_glow_getter", "label": "Glow-Getter total", "default": "175" },
         { "type": "text", "id": "pkg_ultimate", "label": "Ultimate Glow total", "default": "350" },
         { "type": "text", "id": "pkg_elite", "label": "Elite Glow total", "default": "525" },
-        { "type": "header", "content": "Full body services ($)" },
+        { "type": "header", "content": "Services ($)" },
         { "type": "text", "id": "svc_clear", "label": "Clear Glow", "default": "40" },
         { "type": "text", "id": "svc_custom", "label": "Custom Glow", "default": "40" },
         { "type": "text", "id": "svc_gold", "label": "Gold Glow", "default": "45" },
@@ -118,66 +295,25 @@
         { "type": "text", "id": "svc_rapid", "label": "Rapid Glow", "default": "55" },
         { "type": "text", "id": "svc_bbtl", "label": "Bye Bye Tan Line", "default": "55" },
         { "type": "text", "id": "svc_birthday", "label": "Happy Birthday Glow", "default": "34" },
-        { "type": "header", "content": "Partial body ($)" },
         { "type": "text", "id": "svc_face", "label": "Face", "default": "5" },
         { "type": "text", "id": "svc_partial", "label": "Partial Upper or Lower", "default": "10" },
         { "type": "text", "id": "svc_upper_lower", "label": "Upper or Lower", "default": "20" },
         { "type": "header", "content": "Group / Mobile ($/person)" },
-        { "type": "text", "id": "group_price", "label": "In-Store Group", "default": "50" },
-        { "type": "text", "id": "mobile_price", "label": "Mobile (leave blank to hide)", "default": "75" },
+        { "type": "text", "id": "group_price", "label": "Group Tanning & Mimosas", "default": "50" },
+        { "type": "text", "id": "mobile_price", "label": "Mobile (blank to hide)", "default": "75" },
         { "type": "header", "content": "Additional service (optional)" },
-        { "type": "text", "id": "extra_service_name", "label": "Name (e.g. Teeth Whitening)" },
+        { "type": "text", "id": "extra_service_name", "label": "Name" },
         { "type": "text", "id": "extra_service_price", "label": "Price" }
       ]
     }
   ],
   "max_blocks": 6,
   "presets": [{
-    "name": "Pricing tabs",
+    "name": "Pricing ecosystem",
     "blocks": [
-      {
-        "type": "tab",
-        "settings": {
-          "label": "Austin",
-          "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
-          "book_membership_url": "https://go.booker.com/location/hushhushtan/buy/membership",
-          "book_packages_url": "https://go.booker.com/location/hushhushtan/buy/series",
-          "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35",
-          "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525",
-          "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34",
-          "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20",
-          "group_price": "50", "mobile_price": "75"
-        }
-      },
-      {
-        "type": "tab",
-        "settings": {
-          "label": "Houston",
-          "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-          "book_membership_url": "https://go.booker.com/location/hushhushtanhouston/buy/membership",
-          "book_packages_url": "https://go.booker.com/location/hushhushtanhouston/buy/series",
-          "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35",
-          "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525",
-          "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34",
-          "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20",
-          "group_price": "50", "mobile_price": ""
-        }
-      },
-      {
-        "type": "tab",
-        "settings": {
-          "label": "Dallas",
-          "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
-          "book_membership_url": "https://go.booker.com/location/hushhushtandallas/buy/membership",
-          "book_packages_url": "https://go.booker.com/location/hushhushtandallas/buy/series",
-          "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40",
-          "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600",
-          "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38",
-          "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25",
-          "group_price": "55", "mobile_price": "",
-          "extra_service_name": "Teeth Whitening", "extra_service_price": "79"
-        }
-      }
+      { "type": "tab", "settings": { "label": "Austin", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "75" } },
+      { "type": "tab", "settings": { "label": "Dallas", "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40", "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600", "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38", "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25", "group_price": "55", "mobile_price": "", "extra_service_name": "Teeth Whitening", "extra_service_price": "79" } },
+      { "type": "tab", "settings": { "label": "Houston", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "" } }
     ]
   }]
 }

@@ -1692,6 +1692,16 @@ small, .small { font-size: .82rem; color: var(--muted); }
   color: var(--hht-black);
 }
 .hht-plan-table tr:last-child td { border-bottom: 0; }
+.hht-plan-section-label td {
+  font-family: var(--font-body);
+  font-size: 12px !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--hht-muted) !important;
+  padding-top: 28px;
+  background: var(--hht-white);
+  border-bottom: 1px solid rgba(166, 159, 226, 0.22);
+}
 .hht-table-note {
   max-width: 680px;
   margin: 22px auto 0;
