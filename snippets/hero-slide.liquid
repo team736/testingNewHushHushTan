@@ -83,6 +83,21 @@
             class="hero__visual-img{% if is_cutout %} hero__visual-img--cutout{% else %} hero__visual-img--card{% endif %}"
             {% if first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
         {%- endif -%}
+
+        <div class="hero__image-pills" aria-hidden="true">
+          <a class="hero__image-pill" href="#locations">Austin</a>
+          <a class="hero__image-pill" href="#locations">Dallas</a>
+          <a class="hero__image-pill" href="#locations">Houston</a>
+          <a class="hero__image-pill" href="#services">Spray Tanning</a>
+        </div>
+
+        <div class="hero__floating-card" aria-hidden="true">
+          <span class="hero__floating-icon">✦</span>
+          <div class="hero__floating-copy">
+            <strong>Everyone Will Notice</strong>
+            <span>Natural-looking glow, customized to your skin tone.</span>
+          </div>
+        </div>
       </div>
     </div>
     </div>
