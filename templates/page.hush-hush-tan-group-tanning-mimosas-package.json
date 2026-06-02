@@ -1,6 +1,6 @@
 {
   "sections": {
-    "intro": { "type": "rich-text", "settings": { "eyebrow": "Parties & Events", "heading": "Group Tanning & Mimosas", "text": "<p>The most glamorous way to gather. Custom Glows, mimosas, and your closest friends.</p>", "text_align": "center" } },
+    "intro": { "type": "page-hero", "settings": { "eyebrow": "Parties & Events", "title": "Group Tanning &", "title_accent": "Mimosas.", "subtitle": "Bachelorettes, birthdays, weddings — your private Hush Hush experience with complimentary bubbles or mimosas. Groups of 5 or more. Entire party must arrive together; cancel 48 hours in advance.", "cta_primary_text": "Contact to Book", "cta_primary_url": "/pages/contact" } },
     "iwt-1": { "type": "image-with-text", "settings": { "eyebrow": "What's included", "heading": "Studio-style soirée", "text": "<p>Reserve our studio for your party. Your group gets the Custom Glow experience back-to-back with mimosas, music and a private vibe.</p>", "image_side": "left" } },
     "icons": { "type": "icon-row", "settings": { "heading": "Perfect for" }, "blocks": {
       "i1": { "type": "item", "settings": { "icon": "sparkle", "title": "Bachelorettes", "text": "Glow before the big day." } },

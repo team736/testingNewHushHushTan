@@ -1,21 +1,53 @@
 {
   "sections": {
-    "intro":  { "type": "rich-text", "settings": { "eyebrow": "Dallas", "heading": "Services & Pricing", "text": "<p>Custom Glow, memberships and packages at our Dallas studio on Oak Lawn.</p>", "text_align": "center" } },
-    "pricing": { "type": "pricing-tabs", "settings": { "heading": "Dallas services" }, "blocks": {
-      "t1": { "type": "tab", "settings": {
-        "label": "Dallas",
-        "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
-        "book_membership_url": "https://go.booker.com/location/hushhushtandallas/buy/membership",
-        "book_packages_url": "https://go.booker.com/location/hushhushtandallas/buy/series",
-        "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40",
-        "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600",
-        "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38",
-        "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25",
-        "group_price": "55", "mobile_price": "",
-        "extra_service_name": "Teeth Whitening", "extra_service_price": "79"
-      } }
-    }, "block_order": ["t1"] },
-    "final": { "type": "final-cta", "settings": { "heading": "Ready to glow in Dallas?", "cta1_text": "Book Dallas", "cta1_url": "https://go.booker.com/location/hushhushtandallas/service-menu" } }
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Dallas Services & Pricing",
+        "title": "Find Your Perfect",
+        "title_accent": "Custom Glow.",
+        "subtitle": "Memberships, packages, and the full Dallas service menu at 4254 Oak Lawn Avenue.",
+        "cta_primary_text": "Book Dallas",
+        "cta_primary_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+        "cta_secondary_text": "Buy a Package",
+        "cta_secondary_url": "https://go.booker.com/location/hushhushtandallas/buy/series"
+      }
+    },
+    "pricing": {
+      "type": "pricing-tabs",
+      "settings": {
+        "location_label": "",
+        "heading_before": "Dallas",
+        "heading_emphasis": "Pricing",
+        "subheading": "Memberships, packages, and the full Custom Glow menu."
+      },
+      "blocks": {
+        "t1": {
+          "type": "tab",
+          "settings": {
+            "label": "Dallas",
+            "services_page_url": "/pages/dallas-services",
+            "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40",
+            "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600",
+            "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38",
+            "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25",
+            "group_price": "55", "mobile_price": "",
+            "extra_service_name": "Teeth Whitening", "extra_service_price": "79"
+          }
+        }
+      },
+      "block_order": ["t1"]
+    },
+    "final": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to glow in Dallas?",
+        "cta1_text": "Book Dallas",
+        "cta1_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+        "cta2_text": "Tanning Memberships",
+        "cta2_url": "https://go.booker.com/location/hushhushtandallas/buy/membership"
+      }
+    }
   },
-  "order": ["intro","pricing","final"]
+  "order": ["hero", "pricing", "final"]
 }

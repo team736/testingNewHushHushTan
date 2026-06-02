@@ -1,20 +1,52 @@
 {
   "sections": {
-    "intro":  { "type": "rich-text", "settings": { "eyebrow": "Houston", "heading": "Services & Pricing", "text": "<p>Custom Glow, memberships, and packages at our Houston studio.</p>", "text_align": "center" } },
-    "pricing": { "type": "pricing-tabs", "settings": { "heading": "Houston services" }, "blocks": {
-      "t1": { "type": "tab", "settings": {
-        "label": "Houston",
-        "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-        "book_membership_url": "https://go.booker.com/location/hushhushtanhouston/buy/membership",
-        "book_packages_url": "https://go.booker.com/location/hushhushtanhouston/buy/series",
-        "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35",
-        "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525",
-        "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34",
-        "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20",
-        "group_price": "50", "mobile_price": ""
-      } }
-    }, "block_order": ["t1"] },
-    "final": { "type": "final-cta", "settings": { "heading": "Ready to glow in Houston?", "cta1_text": "Book Houston", "cta1_url": "https://go.booker.com/location/hushhushtanhouston/service-menu" } }
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Houston Services & Pricing",
+        "title": "Find Your Perfect",
+        "title_accent": "Custom Glow.",
+        "subtitle": "Memberships, packages, and the full Houston service menu — book your Custom Glow today.",
+        "cta_primary_text": "Book Houston",
+        "cta_primary_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+        "cta_secondary_text": "Buy a Package",
+        "cta_secondary_url": "https://go.booker.com/location/hushhushtanhouston/buy/series"
+      }
+    },
+    "pricing": {
+      "type": "pricing-tabs",
+      "settings": {
+        "location_label": "",
+        "heading_before": "Houston",
+        "heading_emphasis": "Pricing",
+        "subheading": "Memberships, packages, and the full Custom Glow menu."
+      },
+      "blocks": {
+        "t1": {
+          "type": "tab",
+          "settings": {
+            "label": "Houston",
+            "services_page_url": "/pages/houston-services",
+            "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35",
+            "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525",
+            "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34",
+            "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20",
+            "group_price": "50", "mobile_price": "75"
+          }
+        }
+      },
+      "block_order": ["t1"]
+    },
+    "final": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to glow in Houston?",
+        "cta1_text": "Book Houston",
+        "cta1_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+        "cta2_text": "Tanning Memberships",
+        "cta2_url": "https://go.booker.com/location/hushhushtanhouston/buy/membership"
+      }
+    }
   },
-  "order": ["intro","pricing","final"]
+  "order": ["hero", "pricing", "final"]
 }
