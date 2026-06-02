@@ -1,30 +1,41 @@
-<section class="section section--tight">
+<section class="press-featured section">
   <div class="container">
-    <div class="text-center" style="margin-bottom: 32px;">
-      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h2 class="mb-0" style="font-size: 1.3rem; letter-spacing: .12em; text-transform: uppercase; font-family: var(--font-body); font-weight: 400; color: var(--muted);">{{ section.settings.heading }}</h2>
+    <div class="press-featured__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="press-featured__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 class="press-featured__title">{{ section.settings.heading }}</h2>
+      <span class="press-featured__divider" aria-hidden="true"></span>
     </div>
-    <div class="press-grid">
-      {%- for block in section.blocks -%}
-        <div class="press-grid__item" {{ block.shopify_attributes }}>
-          {%- if block.settings.image != blank -%}
-            {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
-            <img src="{{ block.settings.image | image_url: width: 240 }}" alt="{{ block.settings.name }}" width="160" height="60" style="height:auto;max-width:160px;" loading="lazy">
-            {%- if block.settings.link != blank -%}</a>{%- endif -%}
-          {%- else -%}
-            {%- assign name_down = block.settings.name | downcase -%}
-            {%- if name_down contains 'vogue' -%}
-              <img src="{{ 'press-vogue.png' | asset_url }}" alt="Vogue" width="160" height="60" style="height:auto;max-width:160px;" loading="lazy">
-            {%- elsif name_down contains 'instyle' -%}
-              <img src="{{ 'press-instyle.png' | asset_url }}" alt="InStyle" width="160" height="60" style="height:auto;max-width:160px;" loading="lazy">
-            {%- elsif name_down contains 'austin' or name_down contains 'texas' -%}
-              <img src="{{ 'press-austin-monthly.png' | asset_url }}" alt="Austin Monthly" width="160" height="60" style="height:auto;max-width:160px;" loading="lazy">
-            {%- else -%}
-              <div style="font-family: var(--font-heading); font-size: 1.3rem; color: var(--muted); text-align: center;">{{ block.settings.name }}</div>
-            {%- endif -%}
-          {%- endif -%}
-        </div>
-      {%- endfor -%}
+
+    <div class="press-marquee">
+      <div class="press-track">
+        {%- for i in (1..2) -%}
+          <div class="press-group"{% if i == 2 %} aria-hidden="true"{% endif %}>
+            {%- for block in section.blocks -%}
+              {%- assign name_down = block.settings.name | downcase -%}
+              {%- assign alt_text = 'Featured in ' | append: block.settings.name -%}
+              <div class="press-logo" {{ block.shopify_attributes }}>
+                {%- if block.settings.image != blank -%}
+                  {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="press-logo__link">{%- endif -%}
+                  <img src="{{ block.settings.image | image_url: width: 320 }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
+                  {%- if block.settings.link != blank -%}</a>{%- endif -%}
+                {%- else -%}
+                  {%- if name_down contains 'vogue' -%}
+                    <img src="{{ 'press-vogue.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
+                  {%- elsif name_down contains 'instyle' -%}
+                    <img src="{{ 'press-instyle.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
+                  {%- elsif name_down contains 'austin' -%}
+                    <img src="{{ 'press-austin-monthly.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
+                  {%- else -%}
+                    <span class="press-logo__placeholder">{{ block.settings.name }}</span>
+                  {%- endif -%}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
     </div>
   </div>
 </section>
@@ -52,11 +63,11 @@
     "name": "Press grid",
     "blocks": [
       { "type": "logo", "settings": { "name": "Vogue" } },
+      { "type": "logo", "settings": { "name": "Miss A" } },
+      { "type": "logo", "settings": { "name": "Austin Monthly" } },
+      { "type": "logo", "settings": { "name": "Austin Beauty Guide" } },
       { "type": "logo", "settings": { "name": "InStyle" } },
-      { "type": "logo", "settings": { "name": "Allure" } },
-      { "type": "logo", "settings": { "name": "Texas Monthly" } },
-      { "type": "logo", "settings": { "name": "Refinery29" } },
-      { "type": "logo", "settings": { "name": "Cosmopolitan" } }
+      { "type": "logo", "settings": { "name": "Vogue" } }
     ]
   }]
 }

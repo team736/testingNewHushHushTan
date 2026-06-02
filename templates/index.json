@@ -142,13 +142,12 @@
       "type": "press-grid",
       "blocks": {
         "p1": { "type": "logo", "settings": { "name": "Vogue" } },
-        "p2": { "type": "logo", "settings": { "name": "InStyle" } },
+        "p2": { "type": "logo", "settings": { "name": "Miss A" } },
         "p3": { "type": "logo", "settings": { "name": "Austin Monthly" } },
-        "p4": { "type": "logo", "settings": { "name": "Texas Monthly" } },
-        "p5": { "type": "logo", "settings": { "name": "Refinery29" } },
-        "p6": { "type": "logo", "settings": { "name": "Cosmopolitan" } }
+        "p4": { "type": "logo", "settings": { "name": "Austin Beauty Guide" } },
+        "p5": { "type": "logo", "settings": { "name": "InStyle" } }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5", "p6"],
+      "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": { "eyebrow": "Featured In", "heading": "Hush Hush Tan is featured in" }
     },
     "faq": {
