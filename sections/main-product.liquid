@@ -148,7 +148,7 @@
     <div style="font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.2;">{{ product.title }}</div>
     <div class="muted">{{ product.price | money }}</div>
   </div>
-  <a href="#" onclick="document.querySelector('.product__form button[type=submit]').click(); return false;" class="btn btn--small btn--lavender">Add to cart</a>
+  <button type="button" onclick="document.querySelector('.product__form button[type=submit]').click();" class="btn btn--small btn--lavender">Add to cart</button>
 </div>
 
 <script>
