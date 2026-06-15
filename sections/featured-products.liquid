@@ -10,7 +10,7 @@
         {%- if section.settings.feature_image != blank -%}
           <img src="{{ section.settings.feature_image | image_url: width: 1200 }}" alt="{{ section.settings.feature_title | default: 'Glow With Confidence' | escape }}" width="1200" height="1500" loading="lazy">
         {%- else -%}
-          <img src="{{ 'hero-slide-3.png' | asset_url }}" alt="{{ section.settings.feature_title | default: 'Glow With Confidence' | escape }}" width="1200" height="1500" loading="lazy">
+          <img src="{{ 'hht-product-shelf.jpg' | asset_url }}" alt="{{ section.settings.feature_title | default: 'Glow With Confidence' | escape }}" width="1200" height="1500" loading="lazy">
         {%- endif -%}
         <div class="aftercare-feature__overlay">
           <h3>{{ section.settings.feature_title | default: 'Glow With Confidence' }}</h3>

@@ -12,9 +12,9 @@
             {%- if block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.city }}" width="800" height="500" loading="lazy">
             {%- else -%}
-              {%- assign fallback_asset = 'location-austin.jpg' -%}
-              {%- if block.settings.city == 'Dallas' -%}{%- assign fallback_asset = 'location-dallas.jpg' -%}
-              {%- elsif block.settings.city == 'Houston' -%}{%- assign fallback_asset = 'location-houston.jpg' -%}{%- endif -%}
+              {%- assign fallback_asset = 'hht-storefront.jpg' -%}
+              {%- if block.settings.city == 'Dallas' -%}{%- assign fallback_asset = 'hht-reception.jpg' -%}
+              {%- elsif block.settings.city == 'Houston' -%}{%- assign fallback_asset = 'hht-glow-wall-2.jpg' -%}{%- endif -%}
               <img src="{{ fallback_asset | asset_url }}" alt="{{ block.settings.city | escape }}" width="800" height="500" loading="lazy">
             {%- endif -%}
           </div>

@@ -7,7 +7,7 @@
             {%- if block.settings.image != blank -%}
               <img src="{{ block.settings.image | image_url: width: 1200 }}" alt="{{ block.settings.heading | escape }}" width="1200" height="600" loading="lazy">
             {%- else -%}
-              {%- assign fallback_asset = 'hht-spray-tanning.png' -%}
+              {%- assign fallback_asset = 'hht-glow-wall-2.jpg' -%}
               {%- if forloop.index == 2 -%}{%- assign fallback_asset = 'hht-products.png' -%}{%- endif -%}
               <img src="{{ fallback_asset | asset_url }}" alt="{{ block.settings.heading | escape }}" width="1200" height="600" loading="lazy">
             {%- endif -%}

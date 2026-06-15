@@ -10,7 +10,7 @@
         {%- if section.settings.image != blank -%}
           <img src="{{ section.settings.image | image_url: width: 1400 }}" alt="{{ section.settings.image_heading | escape }}" width="1400" height="1400" loading="lazy">
         {%- else -%}
-          <img src="{{ 'hht-studio-glow.png' | asset_url }}" alt="{{ section.settings.image_heading | escape }}" width="1400" height="1400" loading="lazy">
+          <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ section.settings.image_heading | escape }}" width="1400" height="1400" loading="lazy">
         {%- endif -%}
         <div class="editorial__image-copy">
           {%- if section.settings.image_heading != blank -%}<h3>{{ section.settings.image_heading }}</h3>{%- endif -%}
