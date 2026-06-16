@@ -1,17 +1,30 @@
+{%- liquid
+  assign book_url = section.settings.button_url
+  if book_url == blank
+    assign book_url = settings.book_austin_url | default: settings.book_now_url | default: '/pages/locations'
+  endif
+-%}
+
 <div class="announcement-bar" role="region" aria-label="Announcement">
-  {%- if section.settings.link != blank -%}
-    <a href="{{ section.settings.link }}">{{ section.settings.text }}</a>
-  {%- else -%}
-    {{ section.settings.text }}
-  {%- endif -%}
+  <div class="announcement-bar__inner">
+    {%- if section.settings.text != blank -%}
+      <span class="announcement-bar__text">{{ section.settings.text }}</span>
+    {%- endif -%}
+    {%- if section.settings.button_label != blank -%}
+      <a href="{{ book_url }}" class="announcement-bar__btn"{% if book_url contains 'booker.com' or book_url contains 'secure-booker.com' %} target="_blank" rel="noopener"{% endif %}>
+        {{ section.settings.button_label }}
+      </a>
+    {%- endif -%}
+  </div>
 </div>
 
 {% schema %}
 {
   "name": "Announcement bar",
   "settings": [
-    { "type": "text", "id": "text", "label": "Text", "default": "Complimentary Glow Guide with Every First Visit · Now Booking" },
-    { "type": "url", "id": "link", "label": "Link (optional)" }
+    { "type": "text", "id": "text", "label": "Message", "default": "Complimentary Glow Guide with Every First Visit" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Now Booking" },
+    { "type": "url", "id": "button_url", "label": "Button link", "info": "Defaults to Austin Booker booking if empty." }
   ],
   "presets": [{ "name": "Announcement bar" }]
 }

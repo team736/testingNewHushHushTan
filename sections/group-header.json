@@ -2,7 +2,14 @@
   "type": "header",
   "name": "Header group",
   "sections": {
-    "announcement": { "type": "announcement-bar", "settings": { "text": "Complimentary Glow Guide with Every First Visit · Now Booking" } },
+    "announcement": {
+      "type": "announcement-bar",
+      "settings": {
+        "text": "Complimentary Glow Guide with Every First Visit",
+        "button_label": "Now Booking",
+        "button_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      }
+    },
     "header": { "type": "header", "settings": {} }
   },
   "order": ["announcement", "header"]
