@@ -1,5 +1,5 @@
-<section class="section" id="locations">
-  <div class="container">
+<section class="section section--warm" id="locations">
+  <div class="container container--home">
     <div class="section-head">
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h2>{{ section.settings.heading }}</h2>
@@ -26,7 +26,7 @@
             {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
             <div class="location-card__ctas">
               {%- if block.settings.book_url != blank -%}
-                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small">Book Now</a>
+                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small" target="_blank" rel="noopener">Book Now</a>
               {%- endif -%}
               {%- if block.settings.info_url != blank -%}
                 <a href="{{ block.settings.info_url }}" class="btn btn--pill btn--outline btn--small">View Pricing</a>

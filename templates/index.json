@@ -14,9 +14,9 @@
             "title_line1": "Healthier Glow.",
             "title_line2": "Flawless",
             "title_line3": "Confidence.",
-            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
+            "subtitle": "Customizable spray tanning studios in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
             "cta_primary_text": "Book Now",
-            "cta_primary_url": "#locations",
+            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "#locations",
             "image_fallback": "hht-glow-wall.jpg",
@@ -35,7 +35,7 @@
             "title_line3": "No one will know.",
             "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
             "cta_primary_text": "Book Now",
-            "cta_primary_url": "#locations",
+            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "View Services",
             "cta_secondary_url": "#services",
             "image_fallback": "hht-product-shelf.jpg",
@@ -57,7 +57,7 @@
             "cta_primary_url": "#memberships",
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "#locations",
-            "image_fallback": "hero-slide-1.png",
+            "image_fallback": "hht-reception.jpg",
             "show_pills": true,
             "card_title_line1": "Everyone",
             "card_title_line2": "Will Notice",
@@ -70,10 +70,10 @@
     "benefits": {
       "type": "science-features",
       "blocks": {
-        "b1": { "type": "card", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your unique undertones for a seamless, natural finish." } },
-        "b2": { "type": "card", "settings": { "icon": "book", "title": "Luxury Formula", "text": "Clean, vegan, and paraben-free solutions enriched with antioxidants made to nourish and hydrate." } },
-        "b3": { "type": "card", "settings": { "icon": "award", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year by leading publications and our loyal community." } },
-        "b4": { "type": "card", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow with precision, passion, and professional care." } }
+        "b1": { "type": "card", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
+        "b2": { "type": "card", "settings": { "icon": "book", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
+        "b3": { "type": "card", "settings": { "icon": "award", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
+        "b4": { "type": "card", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
       },
       "block_order": ["b1", "b2", "b3", "b4"],
       "settings": {
@@ -82,7 +82,7 @@
         "headline_line1": "Clean, Conscious,",
         "headline_line2_before": "Performance ",
         "headline_line2_emphasis": "Science.",
-        "subtext": "Unreservedly honest products that truly work, while being kind to skin and the planet. We bridge the gap between luxury skincare and professional bronzing.",
+        "subtext": "Unreservedly honest products that truly work, while being kind to skin and the planet.",
         "cta_text": "Learn More",
         "cta_url": "/pages/about-us"
       }
@@ -114,7 +114,7 @@
         "subheading": "Salon-grade essentials to prep, protect, and extend your custom color between visits.",
         "collection": "tanning-products",
         "products_to_show": 6,
-        "cta_text": "",
+        "cta_text": "Shop All Products",
         "cta_url": "/collections/tanning-products"
       }
     },

@@ -7,6 +7,20 @@
 
 <header class="site-header site-header--lavender" role="banner" data-site-header>
   <div class="site-header__bar">
+    <div class="site-header__utilities" aria-label="Store utilities">
+      <a href="{{ routes.search_url }}" class="site-header__utility" aria-label="Search">
+        {% render 'icon', name: 'search' %}
+      </a>
+      <a href="{{ routes.account_url }}" class="site-header__utility" aria-label="Account">
+        {% render 'icon', name: 'account' %}
+      </a>
+      <a href="{{ routes.cart_url }}" class="site-header__utility site-header__utility--cart" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} items{% endif %}">
+        {% render 'icon', name: 'cart' %}
+        {%- if cart.item_count > 0 -%}
+          <span class="site-header__utility-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
     <div class="site-header__inner">
       <a href="{{ routes.root_url }}" class="site-header__wordmark" aria-label="{{ shop.name }} — Home">
         {%- if section.settings.logo != blank -%}

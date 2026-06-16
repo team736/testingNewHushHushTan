@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Fahkwang:wght@500;600&family=Outfit:wght@400;500;600&display=swap">
 
     {{ content_for_header }}
     <style>
@@ -38,6 +38,7 @@
         --line: {{ settings.color_line }};
         --cta-dark: {{ settings.color_cta_dark }};
         --font-heading: {{ settings.heading_font }};
+        --font-eyebrow: {{ settings.eyebrow_font | default: "'Fahkwang', 'Outfit', system-ui, sans-serif" }};
         --font-body: {{ settings.body_font }};
       }
     </style>
@@ -56,7 +57,7 @@
 
     {% sections 'group-footer' %}
 
-    <a href="{{ settings.book_now_url | default: '#' }}" class="mobile-book-cta" aria-label="Book now">
+    <a href="{{ settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu' }}" class="mobile-book-cta" aria-label="Book now">
       Book&nbsp;Now
     </a>
   </body>

@@ -1,5 +1,5 @@
-<section class="section">
-  <div class="container">
+<section class="section section--pale">
+  <div class="container container--home">
     <div class="section-head">
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h2>{{ section.settings.heading }}</h2>
@@ -81,7 +81,7 @@
     </div>
     {%- if section.settings.cta_text != blank -%}
       <div class="text-center" style="margin-top: 48px;">
-        <a href="{{ section.settings.cta_url | default: '/collections/all' }}" class="btn btn--outline">{{ section.settings.cta_text }}</a>
+        <a href="{{ section.settings.cta_url | default: '/collections/tanning-products' }}" class="btn btn--outline">{{ section.settings.cta_text }}</a>
       </div>
     {%- endif -%}
   </div>

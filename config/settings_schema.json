@@ -23,7 +23,7 @@
       { "type": "color", "id": "color_pale",      "label": "Very pale lavender",               "default": "#FAF9FF" },
       { "type": "color", "id": "color_soft",      "label": "Soft lavender section bg",         "default": "#F4F2FF" },
       { "type": "color", "id": "color_grey",      "label": "Light grey section bg",            "default": "#F6F6F6" },
-      { "type": "color", "id": "color_primary",   "label": "Primary lavender",                 "default": "#A8A0E8" },
+      { "type": "color", "id": "color_primary",   "label": "Primary lavender",                 "default": "#A69FE2" },
       { "type": "color", "id": "color_primary_dark", "label": "Lavender hover/accent",         "default": "#8F83D6" },
       { "type": "color", "id": "color_text",      "label": "Main text",                        "default": "#151515" },
       { "type": "color", "id": "color_muted",     "label": "Muted text",                       "default": "#6F6A70" },
@@ -35,15 +35,19 @@
     "name": "Typography",
     "settings": [
       { "type": "select", "id": "heading_font", "label": "Heading font", "options": [
-        { "value": "'Playfair Display', Georgia, serif", "label": "Playfair Display" },
+        { "value": "'Freight Neo Pro', 'Cormorant Garamond', 'EB Garamond', Georgia, serif", "label": "Freight Neo Pro (Cormorant fallback)" },
         { "value": "'Cormorant Garamond', Georgia, serif", "label": "Cormorant Garamond" },
-        { "value": "'Inter', system-ui, sans-serif", "label": "Inter" }
-      ], "default": "'Cormorant Garamond', Georgia, serif" },
+        { "value": "'Playfair Display', Georgia, serif", "label": "Playfair Display" }
+      ], "default": "'Freight Neo Pro', 'Cormorant Garamond', 'EB Garamond', Georgia, serif" },
+      { "type": "select", "id": "eyebrow_font", "label": "Eyebrow font", "options": [
+        { "value": "'Fahkwang', 'Outfit', 'Jost', system-ui, sans-serif", "label": "Fahkwang" },
+        { "value": "'Outfit', 'Jost', system-ui, sans-serif", "label": "Outfit" }
+      ], "default": "'Fahkwang', 'Outfit', 'Jost', system-ui, sans-serif" },
       { "type": "select", "id": "body_font", "label": "Body font", "options": [
+        { "value": "'Outfit', 'Jost', system-ui, sans-serif", "label": "Outfit" },
         { "value": "'Jost', system-ui, sans-serif", "label": "Jost" },
-        { "value": "'Inter', system-ui, sans-serif", "label": "Inter" },
         { "value": "system-ui, -apple-system, sans-serif", "label": "System UI" }
-      ], "default": "'Jost', system-ui, sans-serif" }
+      ], "default": "'Outfit', 'Jost', system-ui, sans-serif" }
     ]
   },
   {

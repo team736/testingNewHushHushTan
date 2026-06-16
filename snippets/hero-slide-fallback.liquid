@@ -1,10 +1,5 @@
 {%- liquid
-  assign idx = which | minus: 1
-  if which == 1
-    assign is_first = true
-  else
-    assign is_first = false
-  endif
+  assign book_url = settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
 -%}
 {%- case which -%}
 {%- when 1 -%}
@@ -12,12 +7,12 @@
   <div class="hero-static__grid">
     <div class="hero-static__copy">
       <span class="hero-static__eyebrow">Custom Spray Tanning</span>
-      <h2 class="hero-static__title">
+      <h1 class="hero-static__title">
         Healthier Glow.<br><span class="hero-static__title-accent">Flawless</span><br>Confidence.
-      </h2>
-      <p class="hero-static__sub">Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.</p>
+      </h1>
+      <p class="hero-static__sub">Customizable spray tanning studios in Austin, Dallas, and Houston — a personalized color experience that looks effortless.</p>
       <div class="hero-static__ctas">
-        <a href="#locations" class="btn-pill btn-pill--dark">Book Now</a>
+        <a href="{{ book_url }}" class="btn-pill btn-pill--dark" target="_blank" rel="noopener">Book Now</a>
         <a href="#locations" class="btn-pill btn-pill--outline">Choose Your Location</a>
       </div>
       {%- render 'hero-proof-row' -%}
@@ -52,7 +47,7 @@
       </h2>
       <p class="hero-static__sub">A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.</p>
       <div class="hero-static__ctas">
-        <a href="#locations" class="btn-pill btn-pill--dark">Book Now</a>
+        <a href="{{ book_url }}" class="btn-pill btn-pill--dark" target="_blank" rel="noopener">Book Now</a>
         <a href="#services" class="btn-pill btn-pill--outline">View Services</a>
       </div>
       {%- render 'hero-proof-row' -%}
@@ -94,7 +89,7 @@
     </div>
     <div class="hero-static__visual">
       <div class="hero-static__image-frame">
-        <img src="{{ 'hero-slide-1.png' | asset_url }}" alt="Hush Hush Tan memberships and packages" width="1280" height="1280" class="hero-static__image" loading="lazy">
+        <img src="{{ 'hht-reception.jpg' | asset_url }}" alt="Hush Hush Tan studio reception and memberships" width="1280" height="1280" class="hero-static__image" loading="lazy">
         <div class="hero-static__pills" aria-hidden="true">
           <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
           <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>

@@ -6,6 +6,18 @@
   if block.settings.card_title_line1 != blank or block.settings.card_title_line2 != blank or card_text != blank
     assign has_card = true
   endif
+  assign primary_url = block.settings.cta_primary_url
+  if primary_url == blank
+    if block.settings.cta_primary_text contains 'Membership'
+      assign primary_url = '#memberships'
+    else
+      assign primary_url = settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+    endif
+  endif
+  assign secondary_url = block.settings.cta_secondary_url
+  if secondary_url == blank
+    assign secondary_url = '#locations'
+  endif
 -%}
 <article
   class="hero-slider__slide{% if is_first %} is-active{% endif %}"
@@ -17,7 +29,11 @@
       {%- if block.settings.eyebrow != blank -%}
         <span class="hero-static__eyebrow">{{ block.settings.eyebrow }}</span>
       {%- endif -%}
-      <h2 class="hero-static__title">
+      {%- if is_first -%}
+        <h1 class="hero-static__title">
+      {%- else -%}
+        <h2 class="hero-static__title">
+      {%- endif -%}
         {{ block.settings.title_line1 }}
         {%- if block.settings.title_line2 != blank -%}
           <br><span class="hero-static__title-accent">{{ block.settings.title_line2 }}</span>
@@ -25,16 +41,20 @@
         {%- if block.settings.title_line3 != blank -%}
           <br>{{ block.settings.title_line3 }}
         {%- endif -%}
-      </h2>
+      {%- if is_first -%}
+        </h1>
+      {%- else -%}
+        </h2>
+      {%- endif -%}
       {%- if block.settings.subtitle != blank -%}
         <p class="hero-static__sub">{{ block.settings.subtitle }}</p>
       {%- endif -%}
       <div class="hero-static__ctas">
         {%- if block.settings.cta_primary_text != blank -%}
-          <a href="{{ block.settings.cta_primary_url | default: '#' }}" class="btn-pill btn-pill--dark">{{ block.settings.cta_primary_text }}</a>
+          <a href="{{ primary_url }}" class="btn-pill btn-pill--dark"{% if primary_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_primary_text }}</a>
         {%- endif -%}
         {%- if block.settings.cta_secondary_text != blank -%}
-          <a href="{{ block.settings.cta_secondary_url | default: '#' }}" class="btn-pill btn-pill--outline">{{ block.settings.cta_secondary_text }}</a>
+          <a href="{{ secondary_url }}" class="btn-pill btn-pill--outline">{{ block.settings.cta_secondary_text }}</a>
         {%- endif -%}
       </div>
       <div class="hero-static__proof">
