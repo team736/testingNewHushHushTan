@@ -1,36 +1,46 @@
+{%- liquid
+  assign learn_url = section.settings.cta_url
+  if learn_url == blank
+    assign learn_url = '/pages/about-us'
+  endif
+  assign image_fallback = section.settings.image_fallback | default: 'hht-product-shelf.jpg'
+-%}
+
 <section class="hht-science-section" id="science-features-{{ section.id }}">
-  <div class="hht-science-inner">
-    <div class="hht-science-copy">
-      <h2>
-        {{ section.settings.headline_line1 }}<br>
-        {{ section.settings.headline_line2_before }}<em>{{ section.settings.headline_line2_emphasis }}</em>
-      </h2>
-      {%- if section.settings.subtext != blank -%}
-        <p>{{ section.settings.subtext | newline_to_br }}</p>
-      {%- endif -%}
-    </div>
+  <div class="container hht-science-inner">
+    <div class="hht-science-hero">
+      <div class="hht-science-copy">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="hht-science-eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        <h2>
+          {{ section.settings.headline_line1 }}<br>
+          {{ section.settings.headline_line2_before }}<em>{{ section.settings.headline_line2_emphasis }}</em>
+        </h2>
+        {%- if section.settings.subtext != blank -%}
+          <p>{{ section.settings.subtext }}</p>
+        {%- endif -%}
+        {%- if section.settings.cta_text != blank -%}
+          <a href="{{ learn_url }}" class="hht-science-link">{{ section.settings.cta_text }} {% render 'icon', name: 'arrow-right' %}</a>
+        {%- endif -%}
+      </div>
 
-    <div class="hht-science-visual" aria-hidden="true">
-      <div class="hht-line hht-line-top"></div>
-      <div class="hht-line hht-line-main"></div>
-      <div class="hht-line hht-line-side"></div>
-
-      <div class="hht-photo-blob">
+      <div class="hht-science-media">
         {%- if section.settings.image != blank -%}
           <img
-            src="{{ section.settings.image | image_url: width: 1440 }}"
-            srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1440 }} 1440w"
-            sizes="(min-width: 1180px) 720px, 85vw"
-            alt="{{ section.settings.image.alt | default: 'Hush Hush Tan glowing skin model' | escape }}"
-            width="1440"
-            height="880"
+            src="{{ section.settings.image | image_url: width: 1200 }}"
+            srcset="{{ section.settings.image | image_url: width: 800 }} 800w, {{ section.settings.image | image_url: width: 1200 }} 1200w"
+            sizes="(min-width: 900px) 520px, 100vw"
+            alt="{{ section.settings.image.alt | default: 'Hush Hush Tan aftercare products' | escape }}"
+            width="1200"
+            height="1200"
             loading="lazy">
         {%- else -%}
           <img
-            src="{{ 'hht-glow-wall-art.jpg' | asset_url }}"
-            alt="Hush Hush Tan glowing skin model"
-            width="1024"
-            height="682"
+            src="{{ image_fallback | asset_url }}"
+            alt="Hush Hush Tan aftercare products on studio shelf"
+            width="1200"
+            height="1200"
             loading="lazy">
         {%- endif -%}
       </div>
@@ -39,8 +49,10 @@
     <div class="hht-feature-cards">
       {%- for block in section.blocks -%}
         <article class="hht-feature-card" {{ block.shopify_attributes }}>
-          <div class="hht-icon">
-            {% render 'science-feature-icon', icon: block.settings.icon %}
+          <div class="hht-icon-wrap">
+            <div class="hht-icon">
+              {% render 'science-feature-icon', icon: block.settings.icon %}
+            </div>
           </div>
           {%- if block.settings.title != blank -%}
             <h3>{{ block.settings.title }}</h3>
@@ -61,10 +73,22 @@
   "class": "hht-science-section-wrap",
   "settings": [
     {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Hush Hush Standard"
+    },
+    {
       "type": "image_picker",
       "id": "image",
-      "label": "Model image",
-      "info": "Organic blob mask. Default uses hht-glow-wall-art.jpg."
+      "label": "Feature image",
+      "info": "Square crop recommended. Default uses hht-product-shelf.jpg."
+    },
+    {
+      "type": "text",
+      "id": "image_fallback",
+      "label": "Fallback asset filename",
+      "default": "hht-product-shelf.jpg"
     },
     {
       "type": "text",
@@ -88,7 +112,18 @@
       "type": "textarea",
       "id": "subtext",
       "label": "Subtext",
-      "default": "Unreservedly honest products that truly work, be kind\nto skin and the planet – no exceptions!"
+      "default": "Unreservedly honest products that truly work, while being kind to skin and the planet. We bridge the gap between luxury skincare and professional bronzing."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Link text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Link URL"
     }
   ],
   "blocks": [
@@ -101,15 +136,15 @@
           "id": "icon",
           "label": "Icon",
           "options": [
-            { "value": "sparkle", "label": "Sparkle" },
-            { "value": "leaf", "label": "Leaf" },
-            { "value": "heart", "label": "Heart" },
+            { "value": "sparkle", "label": "Custom color" },
+            { "value": "book", "label": "Luxury formula" },
+            { "value": "award", "label": "Award" },
             { "value": "shield", "label": "Shield check" }
           ],
           "default": "sparkle"
         },
         { "type": "text", "id": "title", "label": "Title", "default": "Custom Color" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Every shade hand-mixed to flatter your undertones." }
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Every shade hand-mixed to flatter your unique undertones for a seamless, natural finish." }
       ]
     }
   ],
@@ -123,23 +158,23 @@
           "settings": {
             "icon": "sparkle",
             "title": "Custom Color",
-            "text": "Every shade hand-mixed to flatter your undertones."
+            "text": "Every shade hand-mixed to flatter your unique undertones for a seamless, natural finish."
           }
         },
         {
           "type": "card",
           "settings": {
-            "icon": "leaf",
+            "icon": "book",
             "title": "Luxury Formula",
-            "text": "Clean, vegan, paraben-free solutions made to nourish."
+            "text": "Clean, vegan, and paraben-free solutions enriched with antioxidants made to nourish and hydrate."
           }
         },
         {
           "type": "card",
           "settings": {
-            "icon": "heart",
+            "icon": "award",
             "title": "Award Winning",
-            "text": "Voted best spray tan in Texas year after year."
+            "text": "Voted best spray tan in Texas year after year by leading publications and our loyal community."
           }
         },
         {
@@ -147,7 +182,7 @@
           "settings": {
             "icon": "shield",
             "title": "Trusted Since 2007",
-            "text": "Nearly two decades perfecting the art of the glow."
+            "text": "Nearly two decades perfecting the art of the glow with precision, passion, and professional care."
           }
         }
       ]
