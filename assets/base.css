@@ -3248,8 +3248,42 @@ small, .small { font-size: .82rem; color: var(--muted); }
   text-align: center;
   margin: 0 auto clamp(36px, 5vw, 52px);
 }
-.hht-spv2__location-tabs {
+.hht-spv2 .hht-location-tabs {
   display: inline-flex;
+  padding: 4px;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+  border-radius: 999px;
+  background: var(--pale);
+  gap: 0;
+}
+.hht-spv2 .hht-location-tab {
+  min-width: 112px;
+  height: 38px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #111111;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.hht-spv2 .hht-location-tab:hover {
+  color: var(--primary-dark);
+}
+.hht-spv2 .hht-location-tab.active {
+  background: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(166, 159, 226, 0.34);
+}
+.hht-spv2 .hht-location-tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
 }
 .hht-spv2__grid {
   display: grid;
@@ -3449,15 +3483,16 @@ small, .small { font-size: .82rem; color: var(--muted); }
   }
 }
 @media (max-width: 600px) {
-  .hht-spv2__location-tabs {
+  .hht-spv2 .hht-location-tabs {
     display: flex;
     width: 100%;
     max-width: 100%;
   }
-  .hht-spv2__location-tabs .hht-location-tab {
+  .hht-spv2 .hht-location-tab {
     flex: 1 1 0;
     min-width: 0;
     font-size: 13px;
+    padding: 0 12px;
   }
   .hht-spv2__row .btn {
     width: 100%;
