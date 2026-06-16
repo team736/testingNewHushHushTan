@@ -5,7 +5,63 @@
     assign book_url = 'https://go.booker.com/location/hushhushtan/service-menu'
   endif
   assign menu_index = 0
+  assign newsletter_block = nil
+  for block in section.blocks
+    if block.type == 'newsletter'
+      assign newsletter_block = block
+    endif
+  endfor
 -%}
+
+{%- if newsletter_block -%}
+<section class="hht-newsletter-band section-lavender-soft" aria-label="Newsletter signup">
+  <div class="hht-newsletter-band__inner">
+    <div class="section-card-panel hht-newsletter-band__panel" {{ newsletter_block.shopify_attributes }}>
+      <h2 class="hht-newsletter-band__title">{{ newsletter_block.settings.heading | default: 'Get In The Know' }}</h2>
+      {%- if newsletter_block.settings.text != blank -%}
+        <p class="hht-newsletter-band__text">{{ newsletter_block.settings.text }}</p>
+      {%- endif -%}
+
+      {%- assign footer_newsletter_id = 'footer-newsletter-' | append: section.id -%}
+      {%- form 'customer', class: 'hht-newsletter-band__form', id: footer_newsletter_id -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+
+        {%- if form.posted_successfully? -%}
+          <p class="hht-newsletter-band__message hht-newsletter-band__message--success" role="status">
+            {{ newsletter_block.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
+          </p>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p class="hht-newsletter-band__message hht-newsletter-band__message--error" role="alert">
+              {{ form.errors | default_errors }}
+            </p>
+          {%- endif -%}
+
+          <div class="hht-newsletter-band__signup-pill">
+            <label class="visually-hidden" for="footer-email-{{ section.id }}">Email address</label>
+            <input
+              type="email"
+              id="footer-email-{{ section.id }}"
+              name="contact[email]"
+              class="hht-newsletter-band__signup-input"
+              placeholder="{{ newsletter_block.settings.placeholder | default: 'Email address' }}"
+              autocomplete="email"
+              required
+              {% if form.errors %}aria-invalid="true"{% endif %}>
+            <button type="submit" class="hht-newsletter-band__signup-btn">
+              {{ newsletter_block.settings.button_text | default: 'Subscribe' }}
+            </button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+
+      {%- if newsletter_block.settings.disclaimer != blank -%}
+        <p class="hht-newsletter-band__disclaimer">{{ newsletter_block.settings.disclaimer }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
 
 <footer class="hht-footer" role="contentinfo">
   <div class="container hht-footer__inner">
@@ -66,55 +122,6 @@
           {%- endif -%}
         {%- endfor -%}
       </div>
-
-      {%- comment -%} Column 4 — Newsletter {%- endcomment -%}
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'newsletter' -%}
-          <div class="hht-footer__col hht-footer__col--newsletter" {{ block.shopify_attributes }}>
-            <h3 class="hht-footer__newsletter-title">{{ block.settings.heading | default: 'Sign up for the newsletter' }}</h3>
-            {%- if block.settings.text != blank -%}
-              <p class="hht-footer__newsletter-text">{{ block.settings.text }}</p>
-            {%- endif -%}
-
-            {%- assign footer_newsletter_id = 'footer-newsletter-' | append: section.id -%}
-            {%- form 'customer', class: 'hht-footer__newsletter-form', id: footer_newsletter_id -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-
-              {%- if form.posted_successfully? -%}
-                <p class="hht-footer__newsletter-message hht-footer__newsletter-message--success" role="status">
-                  {{ block.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
-                </p>
-              {%- else -%}
-                {%- if form.errors -%}
-                  <p class="hht-footer__newsletter-message hht-footer__newsletter-message--error" role="alert">
-                    {{ form.errors | default_errors }}
-                  </p>
-                {%- endif -%}
-
-                <div class="hht-footer__signup-pill">
-                  <label class="visually-hidden" for="footer-email-{{ section.id }}">Email address</label>
-                  <input
-                    type="email"
-                    id="footer-email-{{ section.id }}"
-                    name="contact[email]"
-                    class="hht-footer__signup-input"
-                    placeholder="{{ block.settings.placeholder | default: 'Email address' }}"
-                    autocomplete="email"
-                    required
-                    {% if form.errors %}aria-invalid="true"{% endif %}>
-                  <button type="submit" class="hht-footer__signup-btn">
-                    {{ block.settings.button_text | default: 'Sign Up' }}
-                  </button>
-                </div>
-              {%- endif -%}
-            {%- endform -%}
-
-            {%- if block.settings.disclaimer != blank -%}
-              <p class="hht-footer__newsletter-disclaimer">{{ block.settings.disclaimer }}</p>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
     </div>
 
     <div class="hht-footer__bottom">
@@ -177,10 +184,10 @@
       "name": "Newsletter",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Sign up for the newsletter" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Get In The Know" },
         { "type": "textarea", "id": "text", "label": "Text", "default": "Join us for glow tips, new drops, packages and special offers." },
         { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "Email address" },
-        { "type": "text", "id": "button_text", "label": "Button text", "default": "Sign Up" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Subscribe" },
         { "type": "text", "id": "success_message", "label": "Success message" },
         { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "We respect your privacy. Unsubscribe anytime." }
       ]
