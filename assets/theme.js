@@ -3,31 +3,95 @@
 (function () {
   'use strict';
 
-  // Mobile drawer
+  // Mobile drawer + desktop nav dropdowns
+  function closeDrawer(drawer) {
+    if (!drawer) return;
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    var toggle = document.querySelector('[data-drawer-open="#' + drawer.id + '"]');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function openDrawer(drawer, toggle) {
+    if (!drawer) return;
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    var closeBtn = drawer.querySelector('[data-drawer-close]');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeAllNavDropdowns(except) {
+    document.querySelectorAll('[data-nav-item].is-open').forEach(function (item) {
+      if (item === except) return;
+      item.classList.remove('is-open');
+      var trigger = item.querySelector('[data-nav-trigger]');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   document.addEventListener('click', function (e) {
     var openBtn = e.target.closest('[data-drawer-open]');
     var closeBtn = e.target.closest('[data-drawer-close]');
+    var drawerLink = e.target.closest('[data-drawer-link]');
+
     if (openBtn) {
       var drawer = document.querySelector(openBtn.getAttribute('data-drawer-open'));
-      if (drawer) {
-        drawer.classList.add('is-open');
-        drawer.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-      }
+      openDrawer(drawer, openBtn);
+      return;
     }
+
     if (closeBtn) {
-      var d = closeBtn.closest('.drawer') || document.querySelector(closeBtn.getAttribute('data-drawer-close'));
-      if (d) {
-        d.classList.remove('is-open');
-        d.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
+      var drawerFromClose = closeBtn.closest('.drawer');
+      if (drawerFromClose) closeDrawer(drawerFromClose);
+      return;
     }
-    // close on backdrop
+
+    if (drawerLink) {
+      var drawerFromLink = drawerLink.closest('.drawer');
+      if (drawerFromLink) closeDrawer(drawerFromLink);
+      return;
+    }
+
     if (e.target.classList && e.target.classList.contains('drawer')) {
-      e.target.classList.remove('is-open');
-      document.body.style.overflow = '';
+      closeDrawer(e.target);
+      return;
     }
+
+    var navTrigger = e.target.closest('[data-nav-trigger]');
+    if (navTrigger) {
+      var item = navTrigger.closest('[data-nav-item]');
+      if (!item) return;
+      var willOpen = !item.classList.contains('is-open');
+      closeAllNavDropdowns(item);
+      item.classList.toggle('is-open', willOpen);
+      navTrigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      return;
+    }
+
+    if (!e.target.closest('[data-nav-item]')) {
+      closeAllNavDropdowns();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    document.querySelectorAll('.drawer.is-open').forEach(closeDrawer);
+    closeAllNavDropdowns();
+  });
+
+  document.querySelectorAll('[data-nav-item]').forEach(function (item) {
+    item.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      item.classList.remove('is-open');
+      var trigger = item.querySelector('[data-nav-trigger]');
+      if (trigger) {
+        trigger.setAttribute('aria-expanded', 'false');
+        trigger.focus();
+      }
+    });
   });
 
   // Pricing ecosystem (location + content tabs)
