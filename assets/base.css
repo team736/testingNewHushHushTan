@@ -3326,7 +3326,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
   grid-column: 1 / -1;
 }
 .hht-spv2__head {
-  background: var(--soft);
+  background: #ECE8FA;
   text-align: center;
   padding: 14px 18px;
   min-height: 72px;
@@ -3335,11 +3335,11 @@ small, .small { font-size: .82rem; color: var(--muted); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border-bottom: 1px solid rgba(166, 159, 226, 0.28);
+  border-bottom: 1px solid rgba(94, 82, 168, 0.22);
 }
 .hht-spv2__ic {
   display: inline-flex;
-  color: var(--primary);
+  color: #6B5EB8;
   margin: 0 0 6px;
 }
 .hht-spv2__ic svg {
@@ -3348,7 +3348,7 @@ small, .small { font-size: .82rem; color: var(--muted); }
 }
 .hht-spv2__ctitle {
   font-family: var(--font-heading);
-  font-weight: 500;
+  font-weight: 600;
   color: #111111;
   font-size: clamp(1.15rem, 1.8vw, 1.45rem);
   line-height: 1.15;
@@ -3356,14 +3356,15 @@ small, .small { font-size: .82rem; color: var(--muted); }
   margin: 0;
 }
 .hht-spv2__ctitle em {
-  color: var(--primary);
+  color: #5E52A8;
   font-style: italic;
-  font-weight: 500;
+  font-weight: 600;
 }
 .hht-spv2__csub {
   font-family: var(--font-heading);
   font-style: italic;
-  color: var(--primary-dark);
+  font-weight: 500;
+  color: #4F4589;
   font-size: 0.88rem;
   line-height: 1.35;
   margin: 4px 0 0;
