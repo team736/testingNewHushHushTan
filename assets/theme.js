@@ -301,5 +301,51 @@
   }
   document.addEventListener('shopify:section:load', initHeroSliders);
 
+  // Stitch FAQ accordion — one open at a time
+  function initHhtAccordions() {
+    document.querySelectorAll('[data-hht-accordion]').forEach(function (root) {
+      if (root.getAttribute('data-hht-accordion-init') === 'true') return;
+      root.setAttribute('data-hht-accordion-init', 'true');
+
+      var items = root.querySelectorAll('[data-hht-accordion-item]');
+
+      function closeItem(item) {
+        item.classList.remove('is-open');
+        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        var panel = item.querySelector('.hht-stitch-faq__panel');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        if (panel) panel.hidden = true;
+      }
+
+      function openItem(item) {
+        items.forEach(closeItem);
+        item.classList.add('is-open');
+        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        var panel = item.querySelector('.hht-stitch-faq__panel');
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+        if (panel) panel.hidden = false;
+      }
+
+      items.forEach(function (item) {
+        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        if (!trigger) return;
+        trigger.addEventListener('click', function () {
+          if (item.classList.contains('is-open')) {
+            closeItem(item);
+          } else {
+            openItem(item);
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHhtAccordions);
+  } else {
+    initHhtAccordions();
+  }
+  document.addEventListener('shopify:section:load', initHhtAccordions);
+
   // Newsletter inline confirmation message handled by Shopify natively.
 })();

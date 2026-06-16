@@ -15,7 +15,17 @@
     },
     "faq": {
       "type": "faq-accordion",
-      "settings": { "heading": "", "show_banner": true },
+      "settings": {
+        "eyebrow": "Good to Know",
+        "heading": "Frequently asked questions",
+        "subheading": "Answers about preparing, your appointment, aftercare, safety, and memberships.",
+        "show_prep_sidebar": false,
+        "show_banner": true,
+        "show_ctas": true,
+        "show_view_all": false,
+        "view_all_url": "/pages/faqs",
+        "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      },
       "blocks": {
         "g1": { "type": "group", "settings": { "title": "General" } },
         "q1": { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50-75%.</p>" } },

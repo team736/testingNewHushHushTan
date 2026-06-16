@@ -3986,3 +3986,374 @@ small, .small { font-size: .82rem; color: var(--muted); }
     padding: 20px 18px;
   }
 }
+
+/* ============ Stitch FAQ & Newsletter (homepage) ============ */
+.hht-stitch-faq {
+  background: #FBFAF7;
+  padding: clamp(48px, 7vw, 80px) 0;
+}
+.hht-stitch-faq__head {
+  margin-bottom: clamp(32px, 5vw, 56px);
+  max-width: 640px;
+}
+.hht-stitch-faq__eyebrow,
+.hht-stitch-newsletter__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #A69FE2;
+  margin-bottom: 14px;
+}
+.hht-stitch-faq__title,
+.hht-stitch-newsletter__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin: 0 0 12px;
+}
+.hht-stitch-faq__sub,
+.hht-stitch-newsletter__sub {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
+  color: #5F5F68;
+  margin: 0;
+  max-width: 52ch;
+}
+.hht-stitch-faq__banner {
+  margin-bottom: clamp(28px, 4vw, 40px);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.hht-stitch-faq__banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.hht-stitch-faq__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .hht-stitch-faq__grid:has(.hht-stitch-faq__prep) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(32px, 5vw, 64px);
+  }
+}
+.hht-stitch-faq__prep-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+  border-radius: 12px;
+  padding: clamp(24px, 3vw, 32px);
+  box-shadow: 0 10px 30px rgba(166, 159, 226, 0.1);
+}
+@media (min-width: 1024px) {
+  .hht-stitch-faq__prep-card {
+    position: sticky;
+    top: calc(var(--header-stack-h) + 24px);
+  }
+}
+.hht-stitch-faq__prep-title {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #A69FE2;
+  margin: 0 0 24px;
+}
+.hht-stitch-faq__prep-group + .hht-stitch-faq__prep-group {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(166, 159, 226, 0.35);
+}
+.hht-stitch-faq__prep-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111111;
+  margin: 0 0 12px;
+}
+.hht-stitch-faq__prep-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.hht-stitch-faq__prep-list li {
+  position: relative;
+  padding-left: 22px;
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #5F5F68;
+}
+.hht-stitch-faq__prep-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #A69FE2;
+  opacity: 0.85;
+}
+.hht-stitch-faq__accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hht-stitch-faq__item {
+  background: #FFFFFF;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(166, 159, 226, 0.08);
+  transition: border-color 0.22s var(--ease);
+}
+.hht-stitch-faq__item.is-open {
+  border-color: rgba(166, 159, 226, 0.55);
+}
+.hht-stitch-faq__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 56px;
+  padding: 18px 22px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s var(--ease);
+}
+.hht-stitch-faq__trigger:hover {
+  background: #FBFAFF;
+}
+.hht-stitch-faq__question {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111111;
+  line-height: 1.4;
+}
+.hht-stitch-faq__icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  color: #A69FE2;
+}
+.hht-stitch-faq__icon::before,
+.hht-stitch-faq__icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: currentColor;
+  border-radius: 1px;
+  transition: transform 0.28s var(--ease), opacity 0.28s var(--ease);
+}
+.hht-stitch-faq__icon::before {
+  width: 12px;
+  height: 1.5px;
+  transform: translate(-50%, -50%);
+}
+.hht-stitch-faq__icon::after {
+  width: 1.5px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+}
+.hht-stitch-faq__item.is-open .hht-stitch-faq__icon::after {
+  transform: translate(-50%, -50%) scaleY(0);
+  opacity: 0;
+}
+.hht-stitch-faq__panel {
+  overflow: hidden;
+  transition: max-height 0.38s var(--ease);
+}
+.hht-stitch-faq__panel[hidden] {
+  display: block;
+  max-height: 0;
+}
+.hht-stitch-faq__item.is-open .hht-stitch-faq__panel {
+  max-height: 600px;
+}
+.hht-stitch-faq__answer {
+  padding: 0 22px 20px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #5F5F68;
+}
+.hht-stitch-faq__answer p:last-child {
+  margin-bottom: 0;
+}
+.hht-stitch-faq__ctas {
+  margin-top: clamp(40px, 6vw, 64px);
+  text-align: center;
+}
+.hht-stitch-faq__cta-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #A69FE2;
+  margin: 0 0 20px;
+}
+.hht-stitch-faq__cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+.hht-stitch-btn {
+  min-height: 48px;
+  min-width: 0;
+  padding: 0 clamp(24px, 4vw, 40px);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  border-radius: 4px;
+}
+.hht-stitch-btn--lavender {
+  background: #A69FE2;
+  border-color: #A69FE2;
+  color: #fff;
+}
+.hht-stitch-btn--lavender:hover {
+  background: #4A2B68;
+  border-color: #4A2B68;
+  color: #fff;
+}
+.hht-stitch-btn--dark {
+  background: #111111;
+  border-color: #111111;
+  color: #fff;
+}
+.hht-stitch-btn--dark:hover {
+  background: #A69FE2;
+  border-color: #A69FE2;
+  color: #fff;
+}
+
+/* Newsletter */
+.hht-stitch-newsletter {
+  background: #F4F1FF;
+  padding: clamp(48px, 7vw, 80px) 0;
+}
+.hht-stitch-newsletter__card {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  background: #FFFFFF;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+  border-radius: 12px;
+  padding: clamp(32px, 5vw, 48px) clamp(24px, 4vw, 40px);
+  box-shadow: 0 10px 30px rgba(166, 159, 226, 0.1);
+}
+.hht-stitch-newsletter__head {
+  margin-bottom: 24px;
+}
+.hht-stitch-newsletter__title {
+  font-style: normal;
+}
+.hht-stitch-newsletter__sub {
+  margin: 0 auto;
+}
+.hht-stitch-newsletter__fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: stretch;
+}
+.hht-stitch-newsletter__input {
+  flex: 1 1 220px;
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+  border-radius: 4px;
+  background: #FBFAFF;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: #111111;
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.hht-stitch-newsletter__input::placeholder {
+  color: #8a8594;
+}
+.hht-stitch-newsletter__input:focus {
+  outline: none;
+  border-color: #A69FE2;
+  box-shadow: 0 0 0 3px rgba(166, 159, 226, 0.2);
+}
+.hht-stitch-newsletter__submit {
+  flex: 0 0 auto;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid #A69FE2;
+  border-radius: 4px;
+  background: #A69FE2;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.22s var(--ease), border-color 0.22s var(--ease);
+}
+.hht-stitch-newsletter__submit:hover {
+  background: #4A2B68;
+  border-color: #4A2B68;
+}
+.hht-stitch-newsletter__message {
+  margin: 0 0 16px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+.hht-stitch-newsletter__message--success {
+  background: #F4F1FF;
+  color: #4A2B68;
+  border: 1px solid rgba(166, 159, 226, 0.35);
+}
+.hht-stitch-newsletter__message--error {
+  background: #fff5f5;
+  color: #93000a;
+  border: 1px solid rgba(186, 26, 26, 0.2);
+}
+.hht-stitch-newsletter__disclaimer {
+  margin: 16px 0 0;
+  font-size: 0.82rem;
+  color: #5F5F68;
+  line-height: 1.5;
+}
+@media (max-width: 560px) {
+  .hht-stitch-newsletter__fields {
+    flex-direction: column;
+  }
+  .hht-stitch-newsletter__input,
+  .hht-stitch-newsletter__submit {
+    width: 100%;
+  }
+  .hht-stitch-faq__cta-row .hht-stitch-btn {
+    width: 100%;
+  }
+}

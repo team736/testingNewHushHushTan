@@ -1,15 +1,54 @@
-<section class="section section--soft newsletter-premium">
+<section class="section hht-stitch-newsletter" id="newsletter-{{ section.id }}">
   <div class="container">
-    <div class="newsletter-band">
-      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h2>{{ section.settings.heading }}</h2>
-      {%- if section.settings.text != blank -%}<p class="newsletter-premium__text">{{ section.settings.text }}</p>{%- endif -%}
-      {%- form 'customer', class: 'newsletter-form' -%}
+    <div class="hht-stitch-newsletter__card">
+      <div class="hht-stitch-newsletter__head">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="hht-stitch-newsletter__eyebrow">{{ section.settings.eyebrow }}</span>
+        {%- endif -%}
+        {%- if section.settings.heading != blank -%}
+          <h2 class="hht-stitch-newsletter__title">{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <p class="hht-stitch-newsletter__sub">{{ section.settings.text }}</p>
+        {%- endif -%}
+      </div>
+
+      {%- assign newsletter_form_id = 'newsletter-form-' | append: section.id -%}
+      {%- form 'customer', class: 'hht-stitch-newsletter__form', id: newsletter_form_id -%}
         <input type="hidden" name="contact[tags]" value="newsletter">
-        <input type="email" name="contact[email]" placeholder="Enter your email address" aria-label="Email address" required>
-        <button type="submit">Subscribe →</button>
+
+        {%- if form.posted_successfully? -%}
+          <p class="hht-stitch-newsletter__message hht-stitch-newsletter__message--success" role="status">
+            {{ section.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
+          </p>
+        {%- else -%}
+          {%- if form.errors -%}
+            <p class="hht-stitch-newsletter__message hht-stitch-newsletter__message--error" role="alert">
+              {{ form.errors | default_errors }}
+            </p>
+          {%- endif -%}
+
+          <div class="hht-stitch-newsletter__fields">
+            <label class="visually-hidden" for="newsletter-email-{{ section.id }}">Email address</label>
+            <input
+              type="email"
+              id="newsletter-email-{{ section.id }}"
+              name="contact[email]"
+              class="hht-stitch-newsletter__input"
+              placeholder="{{ section.settings.placeholder | default: 'Enter your email address' }}"
+              autocomplete="email"
+              required
+              {% if form.errors %}aria-invalid="true"{% endif %}>
+            <button type="submit" class="hht-stitch-newsletter__submit">
+              {{ section.settings.button_text | default: 'Subscribe →' }}
+            </button>
+          </div>
+        {%- endif -%}
       {%- endform -%}
-      <p class="small newsletter-premium__disclaimer">{{ section.settings.disclaimer | default: 'We respect your privacy. Unsubscribe anytime.' }}</p>
+
+      {%- if section.settings.disclaimer != blank -%}
+        <p class="hht-stitch-newsletter__disclaimer">{{ section.settings.disclaimer }}</p>
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -18,9 +57,12 @@
 {
   "name": "Newsletter",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Stay in the know" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Good emails." },
-    { "type": "text", "id": "text", "label": "Text", "default": "Be the first to hear about new products, packages and seasonal events." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get In The Know" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Glow tips, offers & event invites" },
+    { "type": "text", "id": "text", "label": "Subtext", "default": "Join us for new drops, packages and special offers." },
+    { "type": "text", "id": "placeholder", "label": "Input placeholder", "default": "Enter your email address" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Subscribe →" },
+    { "type": "text", "id": "success_message", "label": "Success message", "default": "Thank you for subscribing. Check your inbox for glow tips and offers." },
     { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "We respect your privacy. Unsubscribe anytime." }
   ],
   "presets": [{ "name": "Newsletter" }]

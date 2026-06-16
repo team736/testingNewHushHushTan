@@ -1,101 +1,123 @@
-<section class="section faq-premium">
+{%- assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu' -%}
+
+<section class="section hht-stitch-faq" id="faq-{{ section.id }}">
   <div class="container">
-    {%- if section.settings.heading != blank -%}
-      <div class="section-head">
-        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-        <h2>{{ section.settings.heading }}</h2>
-        {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
-      </div>
-    {%- endif -%}
+    <div class="hht-stitch-faq__head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="hht-stitch-faq__eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="hht-stitch-faq__title">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.subheading != blank -%}
+        <p class="hht-stitch-faq__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+    </div>
 
     {%- if section.settings.show_banner -%}
-      <div class="faq-banner">
+      <div class="hht-stitch-faq__banner">
         {%- if section.settings.banner_image != blank -%}
-          <img src="{{ section.settings.banner_image | image_url: width: 1800 }}" alt="{{ section.settings.heading | default: 'Frequently asked questions' | escape }}" width="1800" height="760" loading="lazy">
+          <img src="{{ section.settings.banner_image | image_url: width: 1800 }}" alt="" width="1800" height="760" loading="lazy">
         {%- else -%}
-          <img src="{{ 'hht-glow-wall-2.jpg' | asset_url }}" alt="{{ section.settings.heading | default: 'Frequently asked questions' | escape }}" width="1800" height="760" loading="lazy">
+          <img src="{{ 'hht-glow-wall-2.jpg' | asset_url }}" alt="" width="1800" height="760" loading="lazy">
         {%- endif -%}
       </div>
     {%- endif -%}
 
-    {%- assign group_blocks = section.blocks | where: 'type', 'group' -%}
-    {%- if group_blocks.size > 1 -%}
-      <div class="faq-layout">
-        <div class="faq-tabs" role="tablist">
-          {%- for g in group_blocks -%}
-            <button class="{% if forloop.first %}is-active{% endif %}" data-faq-tab="panel-{{ g.id }}" {% if forloop.first %}aria-selected="true"{% endif %}>{{ g.settings.title }}</button>
-          {%- endfor -%}
-        </div>
+    <div class="hht-stitch-faq__grid">
+      {%- if section.settings.show_prep_sidebar -%}
+        <aside class="hht-stitch-faq__prep" aria-label="Glow prep basics">
+          <div class="hht-stitch-faq__prep-card">
+            <h3 class="hht-stitch-faq__prep-title">Glow Prep Basics</h3>
 
-        <div class="faq-panels">
-          {%- for g in group_blocks -%}
-            <div class="faq-panel{% if forloop.first %} is-active{% endif %}" id="panel-{{ g.id }}">
-              <h3 class="faq__group-title">{{ g.settings.title }}</h3>
-              {%- assign current = -1 -%}
-              {%- for blk in section.blocks -%}
-                {%- if blk.id == g.id -%}{%- assign current = forloop.index0 -%}{%- endif -%}
-              {%- endfor -%}
-              {%- for inner in section.blocks -%}
-                {%- if forloop.index0 > current and inner.type == 'qa' -%}
-                  <details class="faq__item">
-                    <summary>{{ inner.settings.question }}</summary>
-                    <div class="faq__answer">{{ inner.settings.answer }}</div>
-                  </details>
-                {%- elsif forloop.index0 > current and inner.type == 'group' -%}
-                  {%- break -%}
-                {%- endif -%}
-              {%- endfor -%}
+            <div class="hht-stitch-faq__prep-group">
+              <h4 class="hht-stitch-faq__prep-label">Before Your Tan</h4>
+              <ul class="hht-stitch-faq__prep-list">
+                <li>Exfoliate &amp; shave 24 hours prior.</li>
+                <li>Avoid lotions or oils on skin.</li>
+                <li>Wear loose, dark clothing.</li>
+              </ul>
             </div>
-          {%- endfor -%}
-        </div>
-      </div>
-    {%- else -%}
-      <div class="faq-premium__list-wrap" style="max-width: 820px; margin: 0 auto;">
+
+            <div class="hht-stitch-faq__prep-group">
+              <h4 class="hht-stitch-faq__prep-label">Day of Your Tan</h4>
+              <ul class="hht-stitch-faq__prep-list">
+                <li>Arrive with clean, bare skin.</li>
+                <li>Avoid deodorant and perfume.</li>
+              </ul>
+            </div>
+
+            <div class="hht-stitch-faq__prep-group">
+              <h4 class="hht-stitch-faq__prep-label">After Your Tan</h4>
+              <ul class="hht-stitch-faq__prep-list">
+                <li>Rinse after 8–12 hours (Custom Glow) or follow your technician's Rapid Glow timing.</li>
+                <li>Moisturize daily with oil-free products.</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      {%- endif -%}
+
+      <div class="hht-stitch-faq__accordion" data-hht-accordion>
+        {%- assign qa_index = 0 -%}
         {%- for blk in section.blocks -%}
-          {%- if blk.type == 'group' -%}
-            <h3 class="faq__group-title">{{ blk.settings.title }}</h3>
-          {%- elsif blk.type == 'qa' -%}
-            <details class="faq__item">
-              <summary>{{ blk.settings.question }}</summary>
-              <div class="faq__answer">{{ blk.settings.answer }}</div>
-            </details>
+          {%- if blk.type == 'qa' -%}
+            {%- assign qa_index = qa_index | plus: 1 -%}
+            {%- assign panel_id = 'faq-panel-' | append: section.id | append: '-' | append: qa_index -%}
+            <div class="hht-stitch-faq__item{% if qa_index == 1 %} is-open{% endif %}" data-hht-accordion-item>
+              <button
+                type="button"
+                class="hht-stitch-faq__trigger"
+                aria-expanded="{% if qa_index == 1 %}true{% else %}false{% endif %}"
+                aria-controls="{{ panel_id }}"
+                id="faq-trigger-{{ section.id }}-{{ qa_index }}">
+                <span class="hht-stitch-faq__question">{{ blk.settings.question }}</span>
+                <span class="hht-stitch-faq__icon" aria-hidden="true"></span>
+              </button>
+              <div
+                class="hht-stitch-faq__panel"
+                id="{{ panel_id }}"
+                role="region"
+                aria-labelledby="faq-trigger-{{ section.id }}-{{ qa_index }}"
+                {% unless qa_index == 1 %}hidden{% endunless %}>
+                <div class="hht-stitch-faq__answer">{{ blk.settings.answer }}</div>
+              </div>
+            </div>
           {%- endif -%}
         {%- endfor -%}
       </div>
-    {%- endif -%}
+    </div>
 
-    {%- if section.settings.show_view_all -%}
-      <div class="text-center" style="margin-top: 40px;">
-        <a href="{{ section.settings.view_all_url | default: '/pages/faqs' }}" class="btn btn--pill btn--outline">View All FAQs</a>
+    {%- if section.settings.show_ctas -%}
+      <div class="hht-stitch-faq__ctas">
+        <p class="hht-stitch-faq__cta-label">Still have questions?</p>
+        <div class="hht-stitch-faq__cta-row">
+          <a href="{{ section.settings.view_all_url | default: '/pages/faqs' }}" class="btn hht-stitch-btn hht-stitch-btn--lavender">Read All FAQs →</a>
+          <a href="{{ book_url }}" class="btn hht-stitch-btn hht-stitch-btn--dark" target="_blank" rel="noopener">Book Your Glow</a>
+        </div>
+      </div>
+    {%- elsif section.settings.show_view_all -%}
+      <div class="hht-stitch-faq__ctas">
+        <a href="{{ section.settings.view_all_url | default: '/pages/faqs' }}" class="btn hht-stitch-btn hht-stitch-btn--lavender">Read All FAQs →</a>
       </div>
     {%- endif -%}
   </div>
 </section>
 
-<script>
-  document.querySelectorAll('[data-faq-tab]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var root = btn.closest('.faq-layout');
-      root.querySelectorAll('[data-faq-tab]').forEach(function(b){ b.classList.remove('is-active'); b.setAttribute('aria-selected','false'); });
-      root.querySelectorAll('.faq-panel').forEach(function(p){ p.classList.remove('is-active'); });
-      btn.classList.add('is-active'); btn.setAttribute('aria-selected','true');
-      var p = root.querySelector('#' + btn.getAttribute('data-faq-tab'));
-      if (p) p.classList.add('is-active');
-    });
-  });
-</script>
-
 {% schema %}
 {
   "name": "FAQ accordion",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Good to Know" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Frequently asked questions" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Everything you need to feel ready for your glow." },
+    { "type": "checkbox", "id": "show_prep_sidebar", "label": "Show prep checklist sidebar", "default": true },
     { "type": "checkbox", "id": "show_banner", "label": "Show image banner", "default": false },
     { "type": "image_picker", "id": "banner_image", "label": "Banner image" },
-    { "type": "checkbox", "id": "show_view_all", "label": "Show View all FAQs link", "default": false },
-    { "type": "url", "id": "view_all_url", "label": "View all URL" }
+    { "type": "checkbox", "id": "show_ctas", "label": "Show bottom CTAs (Read All FAQs + Book)", "default": true },
+    { "type": "checkbox", "id": "show_view_all", "label": "Show View all FAQs link only", "default": false },
+    { "type": "url", "id": "view_all_url", "label": "View all URL", "default": "/pages/faqs" },
+    { "type": "url", "id": "book_url", "label": "Book Your Glow URL", "info": "Defaults to Austin Booker service menu." }
   ],
   "blocks": [
     {
@@ -109,22 +131,22 @@
       "type": "qa",
       "name": "Question",
       "settings": [
-        { "type": "text", "id": "question", "label": "Question", "default": "How should I prepare for my spray tan?" },
-        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Exfoliate 24 hours before, shave/wax at least 12 hours prior, and arrive with clean, product-free skin.</p>" }
+        { "type": "text", "id": "question", "label": "Question", "default": "How long will my tan last?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare.</p>" }
       ]
     }
   ],
   "presets": [{
     "name": "FAQ accordion",
     "blocks": [
-      { "type": "group", "settings": { "title": "Before Your Tan" } },
-      { "type": "qa" },
-      { "type": "qa", "settings": { "question": "What should I wear?", "answer": "<p>Wear loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>" } },
-      { "type": "group", "settings": { "title": "During Your Appointment" } },
-      { "type": "qa", "settings": { "question": "How long is the appointment?", "answer": "<p>A Custom Glow takes about 15–20 minutes start to finish.</p>" } },
-      { "type": "group", "settings": { "title": "Aftercare" } },
-      { "type": "qa", "settings": { "question": "How long does a spray tan last?", "answer": "<p>With proper aftercare, your Custom Glow lasts 7–10 days.</p>" } },
-      { "type": "qa", "settings": { "question": "When can I shower?", "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow the technician's timing.</p>" } }
+      { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50-75%.</p>" } },
+      { "type": "qa", "settings": { "question": "How do I prepare for my airbrush tanning session?", "answer": "<p>Shower, shave, and exfoliate. After showering do not apply any body or face moisturizers, makeup, or deodorant. Complete all grooming and workouts beforehand, and wear loose, dark clothing.</p>" } },
+      { "type": "qa", "settings": { "question": "What should I expect after my appointment?", "answer": "<p>You may feel slightly damp for an hour but can resume normal activities. Remain dry and avoid touching your skin to ensure that your tan dries flawlessly. The tan darkens over 2–3 hours. Shower lightly after 8 hours, and avoid pools and hot tubs.</p>" } },
+      { "type": "qa", "settings": { "question": "How do I take care of my spray tan?", "answer": "<p>Remain dry for the next 6–8 hours following your appointment. Take short, warm showers with mild soap, shave gently, moisturize with a mild lotion or Hush Hush Tan Enhancer, and apply perfume to clothes rather than skin.</p>" } },
+      { "type": "qa", "settings": { "question": "What do I wear for my airbrush tanning session?", "answer": "<p>Women need a bottom cover; complimentary disposable undies are available, plus C-string undies for $6. Men must wear boxers or briefs; disposable options cost $3.</p>" } },
+      { "type": "qa", "settings": { "question": "Is airbrush tanning safe?", "answer": "<p>Yes, DHA is FDA-approved and considered nontoxic and non-carcinogenic. Major health organizations have recommended sunless tanning. Pregnant or nursing mothers should consult their doctor before tanning.</p>" } },
+      { "type": "qa", "settings": { "question": "Can my tanning membership be frozen?", "answer": "<p>Yes, memberships can be frozen for a $10 monthly fee. Contact contact@hushhushtan.com for details.</p>" } },
+      { "type": "qa", "settings": { "question": "Do tans rollover?", "answer": "<p>No, tans do not rollover.</p>" } }
     ]
   }]
 }

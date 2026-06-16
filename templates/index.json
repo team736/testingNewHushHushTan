@@ -129,20 +129,26 @@
     "faq": {
       "type": "faq-accordion",
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How do I prepare for my tan?", "answer": "<p>Exfoliate 24 hours before and arrive with clean, product-free skin.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Loose, dark, comfortable clothing. Avoid tight straps and jeans.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "How long does a spray tan last?", "answer": "<p>With proper aftercare, your Custom Glow typically lasts 7–10 days.</p>" } },
-        "q4": { "type": "qa", "settings": { "question": "When can I shower?", "answer": "<p>Wait 8–12 hours for a Custom Glow. For Rapid Glow, follow your technician's timing.</p>" } },
-        "q5": { "type": "qa", "settings": { "question": "How do memberships work?", "answer": "<p>Memberships have a 3-month minimum and require 30 days written notice to cancel. Tans do not roll over month to month. You can freeze your membership for a $10 monthly fee.</p>" } }
+        "q1": { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50-75%.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "How do I prepare for my airbrush tanning session?", "answer": "<p>Shower, shave, and exfoliate. After showering do not apply any body or face moisturizers, makeup, or deodorant. Complete all grooming and workouts beforehand, and wear loose, dark clothing.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "What should I expect after my appointment?", "answer": "<p>You may feel slightly damp for an hour but can resume normal activities. Remain dry and avoid touching your skin to ensure that your tan dries flawlessly. The tan darkens over 2–3 hours. Shower lightly after 8 hours, and avoid pools and hot tubs.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "How do I take care of my spray tan?", "answer": "<p>Remain dry for the next 6–8 hours following your appointment. Take short, warm showers with mild soap, shave gently, moisturize with a mild lotion or Hush Hush Tan Enhancer, and apply perfume to clothes rather than skin.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "What do I wear for my airbrush tanning session?", "answer": "<p>Women need a bottom cover; complimentary disposable undies are available, plus C-string undies for $6. Men must wear boxers or briefs; disposable options cost $3.</p>" } },
+        "q6": { "type": "qa", "settings": { "question": "Is airbrush tanning safe?", "answer": "<p>Yes, DHA is FDA-approved and considered nontoxic and non-carcinogenic. Major health organizations have recommended sunless tanning. Pregnant or nursing mothers should consult their doctor before tanning.</p>" } },
+        "q7": { "type": "qa", "settings": { "question": "Can my tanning membership be frozen?", "answer": "<p>Yes, memberships can be frozen for a $10 monthly fee. Contact contact@hushhushtan.com for details.</p>" } },
+        "q8": { "type": "qa", "settings": { "question": "Do tans rollover?", "answer": "<p>No, tans do not rollover.</p>" } }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
       "settings": {
         "eyebrow": "Good to Know",
         "heading": "Frequently asked questions",
         "subheading": "Everything you need to feel ready for your glow.",
+        "show_prep_sidebar": true,
         "show_banner": false,
+        "show_ctas": true,
         "show_view_all": false,
-        "view_all_url": "/pages/faqs"
+        "view_all_url": "/pages/faqs",
+        "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
     },
     "newsletter": {
@@ -151,6 +157,8 @@
         "eyebrow": "Get In The Know",
         "heading": "Glow tips, offers & event invites",
         "text": "Join us for new drops, packages and special offers.",
+        "placeholder": "Enter your email address",
+        "button_text": "Subscribe →",
         "disclaimer": "We respect your privacy. Unsubscribe anytime."
       }
     }
