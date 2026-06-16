@@ -96,6 +96,7 @@
     "memberships": {
       "type": "services-pricing-v2",
       "settings": {
+        "eyebrow": "Services & Pricing",
         "heading": "Our Services",
         "subheading": "Select a location to get started:",
         "homepage_anchors": true

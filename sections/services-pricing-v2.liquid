@@ -1,117 +1,43 @@
 {%- comment -%}
-  Hush Hush Tan — Services / Pricing (V2)
-  Stitch-inspired location-tabbed services menu. Self-contained section.
-  Real HHT content + live Booker links. Does NOT replace the V1 pricing-tabs
-  section; this is an additive V2 candidate. Styles + JS are scoped to this
-  section's unique id so nothing leaks into the rest of the theme.
+  Hush Hush Tan — Services / Pricing V2
+  Location-tabbed services menu aligned with homepage design system
+  (base.css tokens, section-head, hht-location-tabs, btn--pill).
 {%- endcomment -%}
 
 {%- assign uid = 'hht-spv2-' | append: section.id -%}
 
-{%- comment -%} Booker links: BOOK NOW uses the global per-location settings
-  (service-menu); JOIN/BUY use this section's settings. Defaults below are the
-  REAL links from the live-site audit (docs/BOOKER-LINK-MAP.md).
-  TODO: confirm final Booker URLs with client before launch. {%- endcomment -%}
-{%- assign book_austin   = settings.book_austin_url   | default: 'https://go.booker.com/location/hushhushtan/service-menu' -%}
-{%- assign book_houston  = settings.book_houston_url  | default: 'https://go.booker.com/location/hushhushtanhouston/service-menu' -%}
-{%- assign book_dallas   = settings.book_dallas_url   | default: 'https://go.booker.com/location/hushhushtandallas/service-menu' -%}
+{%- assign book_austin  = settings.book_austin_url  | default: 'https://go.booker.com/location/hushhushtan/service-menu' -%}
+{%- assign book_houston = settings.book_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/service-menu' -%}
+{%- assign book_dallas  = settings.book_dallas_url  | default: 'https://go.booker.com/location/hushhushtandallas/service-menu' -%}
 
-<section id="{{ uid }}" class="hht-spv2" aria-labelledby="{{ uid }}-title">
+<section id="{{ uid }}" class="section section--soft hht-spv2" aria-labelledby="{{ uid }}-title">
   {%- if section.settings.homepage_anchors -%}
-    {%- comment -%} Scroll targets for the homepage hero CTAs (replaces the anchors
-      that lived in the old pricing-tabs section). {%- endcomment -%}
     <span id="services" class="hht-spv2__anchor" aria-hidden="true"></span>
     <span id="memberships" class="hht-spv2__anchor" aria-hidden="true"></span>
   {%- endif -%}
-  <div class="hht-spv2__wrap">
-    <h2 id="{{ uid }}-title" class="hht-spv2__title">{{ section.settings.heading }}</h2>
-    {%- if section.settings.subheading != blank -%}
-      <p class="hht-spv2__sub">{{ section.settings.subheading }}</p>
-    {%- endif -%}
-    <div class="hht-spv2__tabs" role="tablist" aria-label="Choose location">
-      <button class="hht-spv2__tab is-active" role="tab" aria-selected="true"  data-tab="austin"  aria-controls="{{ uid }}-panel">Austin</button>
-      <button class="hht-spv2__tab"           role="tab" aria-selected="false" data-tab="houston" aria-controls="{{ uid }}-panel">Houston</button>
-      <button class="hht-spv2__tab"           role="tab" aria-selected="false" data-tab="dallas"  aria-controls="{{ uid }}-panel">Dallas</button>
+
+  <div class="container">
+    <div class="section-head">
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h2 id="{{ uid }}-title">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}
+        <p class="section-head__sub">{{ section.settings.subheading }}</p>
+      {%- endif -%}
     </div>
+
+    <div class="hht-spv2__tabs-wrap">
+      <div class="hht-location-tabs hht-spv2__location-tabs" role="tablist" aria-label="Choose location">
+        <button type="button" class="hht-location-tab active" role="tab" aria-selected="true" data-tab="austin" aria-controls="{{ uid }}-panel">Austin</button>
+        <button type="button" class="hht-location-tab" role="tab" aria-selected="false" data-tab="houston" aria-controls="{{ uid }}-panel">Houston</button>
+        <button type="button" class="hht-location-tab" role="tab" aria-selected="false" data-tab="dallas" aria-controls="{{ uid }}-panel">Dallas</button>
+      </div>
+    </div>
+
     <div id="{{ uid }}-panel" class="hht-spv2__grid" role="tabpanel" data-panel></div>
   </div>
 </section>
-
-<style>
-  #{{ uid }}{
-    --lav:#A69FE2; --lav-strong:#8F83D6; --lav-soft:#F4F1FF; --lav-pale:#FBFAFF;
-    --white:#FFFFFF; --ink:#111111; --body:#5F5F68; --plum:#4A2B68;
-    --border:rgba(166,159,226,0.45);
-    --serif:var(--font-heading,'Cormorant Garamond',Georgia,serif);
-    --sans:var(--font-body,'Jost',system-ui,sans-serif);
-    background:var(--lav-pale); padding:80px 0; overflow-x:clip;
-  }
-  #{{ uid }} *,#{{ uid }} *::before,#{{ uid }} *::after{box-sizing:border-box}
-  #{{ uid }} .hht-spv2__anchor{display:block;height:0;scroll-margin-top:120px}
-  #{{ uid }} .hht-spv2__wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  #{{ uid }} .hht-spv2__title{font-family:var(--serif);font-weight:500;color:var(--ink);text-align:center;
-    font-size:clamp(40px,6vw,60px);line-height:1.05;letter-spacing:-.01em;margin:0 0 14px}
-  #{{ uid }} .hht-spv2__title em{font-style:italic}
-  #{{ uid }} .hht-spv2__sub{text-align:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--plum);margin:0 0 28px;font-weight:500}
-
-  #{{ uid }} .hht-spv2__tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 44px}
-  #{{ uid }} .hht-spv2__tab{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--plum);background:var(--white);border:1px solid var(--lav);
-    border-radius:6px;min-width:110px;height:40px;padding:0 22px;cursor:pointer;
-    transition:background .25s ease,color .25s ease,border-color .25s ease}
-  #{{ uid }} .hht-spv2__tab:hover{background:var(--lav-soft)}
-  #{{ uid }} .hht-spv2__tab.is-active{background:var(--lav);border-color:var(--lav);color:var(--white)}
-  #{{ uid }} .hht-spv2__tab:focus-visible{outline:2px solid var(--lav);outline-offset:3px}
-
-  #{{ uid }} .hht-spv2__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-  #{{ uid }} .hht-spv2__card{grid-column:span 1;background:var(--white);border:1px solid var(--border);
-    border-radius:16px;overflow:hidden}
-  #{{ uid }} .hht-spv2__card--full{grid-column:1 / -1}
-  #{{ uid }} .hht-spv2__head{background:var(--lav-soft);text-align:center;padding:26px 24px 22px;
-    border-bottom:1px solid var(--border)}
-  #{{ uid }} .hht-spv2__ic{display:inline-flex;color:var(--plum);margin:0 0 8px}
-  #{{ uid }} .hht-spv2__ic svg{width:30px;height:30px}
-  #{{ uid }} .hht-spv2__ctitle{font-family:var(--serif);font-weight:500;color:var(--ink);
-    font-size:clamp(26px,3vw,34px);line-height:1.15;margin:0}
-  #{{ uid }} .hht-spv2__ctitle em{font-style:italic}
-  #{{ uid }} .hht-spv2__csub{font-family:var(--serif);font-style:italic;color:var(--plum);font-size:18px;margin:6px 0 0}
-  #{{ uid }} .hht-spv2__body{padding:8px 26px 22px}
-  #{{ uid }} .hht-spv2__intro{font-size:14px;line-height:1.6;color:var(--body);margin:16px 0 4px}
-  #{{ uid }} .hht-spv2__note{font-size:12.5px;line-height:1.6;color:var(--body);margin:16px 0 0;padding-top:14px;border-top:1px solid var(--border)}
-  #{{ uid }} .hht-spv2__note a{color:var(--plum);text-decoration:underline;text-underline-offset:2px}
-
-  #{{ uid }} .hht-spv2__row{padding:20px 0;border-bottom:1px solid var(--border)}
-  #{{ uid }} .hht-spv2__row:last-child{border-bottom:0}
-  #{{ uid }} .hht-spv2__rowhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
-  #{{ uid }} .hht-spv2__namewrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-  #{{ uid }} .hht-spv2__name{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
-  #{{ uid }} .hht-spv2__badge{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--lav-strong);background:var(--lav-soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
-  #{{ uid }} .hht-spv2__pricewrap{display:flex;flex-direction:column;align-items:flex-end;text-align:right;white-space:nowrap}
-  #{{ uid }} .hht-spv2__price{font-family:var(--sans);font-weight:600;font-size:22px;color:var(--plum);line-height:1.1}
-  #{{ uid }} .hht-spv2__pricesub{font-family:var(--sans);font-size:11px;color:var(--body);margin-top:2px}
-  #{{ uid }} .hht-spv2__desc{font-size:14px;line-height:1.6;color:var(--body);margin:8px 0 0;max-width:48ch}
-  #{{ uid }} .hht-spv2__bullets{margin:10px 0 0;padding:0;list-style:none}
-  #{{ uid }} .hht-spv2__bullets li{position:relative;font-size:13.5px;line-height:1.55;color:var(--body);padding-left:16px;margin:3px 0}
-  #{{ uid }} .hht-spv2__bullets li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--lav)}
-  #{{ uid }} .hht-spv2__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;height:36px;min-width:150px;
-    padding:0 22px;border-radius:6px;border:1px solid var(--lav);background:var(--lav);color:var(--white);
-    font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-    text-decoration:none;cursor:pointer;transition:background .25s ease,border-color .25s ease}
-  #{{ uid }} .hht-spv2__btn:hover,#{{ uid }} .hht-spv2__btn:focus-visible{background:var(--plum);border-color:var(--plum);outline:none}
-  #{{ uid }} .hht-spv2__btn:focus-visible{box-shadow:0 0 0 3px rgba(166,159,226,.35)}
-  #{{ uid }} .hht-spv2__card--acc .hht-spv2__row{padding:13px 0}
-  #{{ uid }} .hht-spv2__card--acc .hht-spv2__desc{margin-top:4px}
-
-  @media (max-width:760px){
-    #{{ uid }}{padding:56px 0}
-    #{{ uid }} .hht-spv2__grid{grid-template-columns:1fr;gap:18px}
-    #{{ uid }} .hht-spv2__card,#{{ uid }} .hht-spv2__card--full{grid-column:1 / -1}
-    #{{ uid }} .hht-spv2__btn{width:100%}
-    #{{ uid }} .hht-spv2__tab{flex:1 1 auto;min-width:0}
-  }
-</style>
 
 <script>
 (function(){
@@ -121,9 +47,9 @@
   var panel = root.querySelector('[data-panel]');
 
   var URL = {
-    austin:  { book: {{ book_austin | json }},  join: {{ section.settings.membership_austin_url | json }},  pack: {{ section.settings.package_austin_url | json }} },
-    houston: { book: {{ book_houston | json }}, join: {{ section.settings.membership_houston_url | json }}, pack: {{ section.settings.package_houston_url | json }} },
-    dallas:  { book: {{ book_dallas | json }},  join: {{ section.settings.membership_dallas_url | json }},  pack: {{ section.settings.package_dallas_url | json }} }
+    austin:  { book: {{ book_austin | json }},  join: {{ section.settings.membership_austin_url | default: 'https://go.booker.com/location/hushhushtan/buy/membership' | json }},  pack: {{ section.settings.package_austin_url | default: 'https://go.booker.com/location/hushhushtan/buy/series' | json }} },
+    houston: { book: {{ book_houston | json }}, join: {{ section.settings.membership_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/buy/membership' | json }}, pack: {{ section.settings.package_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/buy/series' | json }} },
+    dallas:  { book: {{ book_dallas | json }},  join: {{ section.settings.membership_dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/membership' | json }},  pack: {{ section.settings.package_dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/series' | json }} }
   };
 
   var ICONS = {
@@ -210,7 +136,7 @@
     var price='<div class="hht-spv2__pricewrap"><span class="hht-spv2__price">'+r.price+'</span>'+(r.priceSub?'<span class="hht-spv2__pricesub">'+r.priceSub+'</span>':'')+'</div>';
     var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+(r.badge?'<span class="hht-spv2__badge">'+r.badge+'</span>':'')+'</div>';
     var detail=r.bullets?'<ul class="hht-spv2__bullets">'+r.bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>':(r.desc?'<p class="hht-spv2__desc">'+r.desc+'</p>':'');
-    var btn=r.btn?'<a class="hht-spv2__btn" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
+    var btn=r.btn?'<a class="btn btn--pill btn--small" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
     return '<div class="hht-spv2__row"><div class="hht-spv2__rowhead">'+name+price+'</div>'+detail+btn+'</div>';
   }
   function cardHTML(c){
@@ -222,13 +148,23 @@
 
   var tabs = [].slice.call(root.querySelectorAll('[data-tab]'));
   function activate(tab){
-    tabs.forEach(function(t){ var on=t===tab; t.classList.toggle('is-active',on); t.setAttribute('aria-selected',on?'true':'false'); });
+    tabs.forEach(function(t){
+      var on = t === tab;
+      t.classList.toggle('active', on);
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
     render(tab.getAttribute('data-tab'));
   }
   tabs.forEach(function(tab,i){
     tab.addEventListener('click', function(){ activate(tab); });
     tab.addEventListener('keydown', function(e){
-      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); var d=e.key==='ArrowRight'?1:-1; var n=tabs[(i+d+tabs.length)%tabs.length]; n.focus(); activate(n); }
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+        e.preventDefault();
+        var d = e.key==='ArrowRight' ? 1 : -1;
+        var n = tabs[(i+d+tabs.length)%tabs.length];
+        n.focus();
+        activate(n);
+      }
     });
   });
   render('austin');
@@ -241,10 +177,11 @@
   "tag": "section",
   "class": "section-services-pricing-v2",
   "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Services & Pricing" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Our Services" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Select a location to get started:" },
     { "type": "checkbox", "id": "homepage_anchors", "label": "Add #services / #memberships scroll anchors", "info": "Keep on when this section is the homepage services/pricing block so the hero CTAs scroll here.", "default": true },
-    { "type": "header", "content": "Booker links — Memberships (JOIN NOW)", "info": "Defaults are the live-site audited Booker URLs. Confirm final URLs with client." },
+    { "type": "header", "content": "Booker links — Memberships (JOIN NOW)" },
     { "type": "text", "id": "membership_austin_url",  "label": "Austin membership URL",  "default": "https://go.booker.com/location/hushhushtan/buy/membership" },
     { "type": "text", "id": "membership_houston_url", "label": "Houston membership URL", "default": "https://go.booker.com/location/hushhushtanhouston/buy/membership" },
     { "type": "text", "id": "membership_dallas_url",  "label": "Dallas membership URL",  "default": "https://go.booker.com/location/hushhushtandallas/buy/membership" },
