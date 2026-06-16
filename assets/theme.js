@@ -309,24 +309,36 @@
 
       var items = root.querySelectorAll('[data-hht-accordion-item]');
 
+      function setPanelHeight(item, open) {
+        var panel = item.querySelector('.hht-stitch-faq__panel');
+        if (!panel) return;
+        if (open) {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          item.style.setProperty('--hht-faq-panel-h', panel.scrollHeight + 'px');
+        } else {
+          panel.style.maxHeight = '0';
+        }
+      }
+
       function closeItem(item) {
         item.classList.remove('is-open');
         var trigger = item.querySelector('.hht-stitch-faq__trigger');
-        var panel = item.querySelector('.hht-stitch-faq__panel');
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
-        if (panel) panel.hidden = true;
+        setPanelHeight(item, false);
       }
 
       function openItem(item) {
         items.forEach(closeItem);
         item.classList.add('is-open');
         var trigger = item.querySelector('.hht-stitch-faq__trigger');
-        var panel = item.querySelector('.hht-stitch-faq__panel');
         if (trigger) trigger.setAttribute('aria-expanded', 'true');
-        if (panel) panel.hidden = false;
+        setPanelHeight(item, true);
       }
 
       items.forEach(function (item) {
+        if (item.classList.contains('is-open')) {
+          setPanelHeight(item, true);
+        }
         var trigger = item.querySelector('.hht-stitch-faq__trigger');
         if (!trigger) return;
         trigger.addEventListener('click', function () {
@@ -334,6 +346,14 @@
             closeItem(item);
           } else {
             openItem(item);
+          }
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        items.forEach(function (item) {
+          if (item.classList.contains('is-open')) {
+            setPanelHeight(item, true);
           }
         });
       });

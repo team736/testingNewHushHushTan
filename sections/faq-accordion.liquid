@@ -33,25 +33,25 @@
             <div class="hht-stitch-faq__prep-group">
               <h4 class="hht-stitch-faq__prep-label">Before Your Tan</h4>
               <ul class="hht-stitch-faq__prep-list">
-                <li>Exfoliate &amp; shave 24 hours prior.</li>
-                <li>Avoid lotions or oils on skin.</li>
-                <li>Wear loose, dark clothing.</li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Exfoliate &amp; shave 24 hours prior.</span></li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Avoid lotions or oils on skin.</span></li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Wear loose, dark clothing.</span></li>
               </ul>
             </div>
 
             <div class="hht-stitch-faq__prep-group">
               <h4 class="hht-stitch-faq__prep-label">Day of Your Tan</h4>
               <ul class="hht-stitch-faq__prep-list">
-                <li>Arrive with clean, bare skin.</li>
-                <li>Avoid deodorant and perfume.</li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Arrive with clean, bare skin.</span></li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Avoid deodorant and perfume.</span></li>
               </ul>
             </div>
 
             <div class="hht-stitch-faq__prep-group">
               <h4 class="hht-stitch-faq__prep-label">After Your Tan</h4>
               <ul class="hht-stitch-faq__prep-list">
-                <li>Rinse after 8–12 hours (Custom Glow) or follow your technician's Rapid Glow timing.</li>
-                <li>Moisturize daily with oil-free products.</li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Rinse after 8–12 hours (Custom Glow) or follow your technician's Rapid Glow timing.</span></li>
+                <li><span class="hht-stitch-faq__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Moisturize daily with oil-free products.</span></li>
               </ul>
             </div>
           </div>
@@ -79,7 +79,7 @@
                 id="{{ panel_id }}"
                 role="region"
                 aria-labelledby="faq-trigger-{{ section.id }}-{{ qa_index }}"
-                {% unless qa_index == 1 %}hidden{% endunless %}>
+                {% if qa_index != 1 %}style="max-height:0"{% endif %}>
                 <div class="hht-stitch-faq__answer">{{ blk.settings.answer }}</div>
               </div>
             </div>
