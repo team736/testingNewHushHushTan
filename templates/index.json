@@ -94,24 +94,99 @@
       "settings": { "eyebrow": "Visit Us", "heading": "Three Texas Locations", "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed." }
     },
     "memberships": {
-      "type": "pricing-tabs",
+      "type": "services-pricing-v2",
       "settings": {
-        "location_label": "Select location",
-        "heading_before": "Glow More,",
-        "heading_emphasis": "Save More",
-        "subheading": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long.",
-        "cta_eyebrow": "Memberships & Packages",
-        "cta_heading_before": "Join the HHT",
-        "cta_heading_emphasis": "Family",
-        "cta_subtext": "Explore the full Austin service menu, book your Custom Glow, and find the plan that fits your glow goals.",
-        "cta_text": "Join the HHT Family"
+        "heading": "Our Services",
+        "subheading": "Select a location to get started:",
+        "homepage_anchors": true
       },
       "blocks": {
-        "austin": { "type": "tab", "settings": { "label": "Austin", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "75" } },
-        "dallas": { "type": "tab", "settings": { "label": "Dallas", "mem_absolute": "140", "mem_deluxe": "111", "mem_glow": "78", "mem_discount_rate": "40", "pkg_per_session": "40", "pkg_glow_getter": "200", "pkg_ultimate": "400", "pkg_elite": "600", "svc_clear": "45", "svc_custom": "45", "svc_gold": "50", "svc_brazilian": "55", "svc_rapid": "60", "svc_bbtl": "60", "svc_birthday": "38", "svc_face": "7", "svc_partial": "15", "svc_upper_lower": "25", "group_price": "55", "mobile_price": "", "extra_service_name": "Teeth Whitening", "extra_service_price": "79" } },
-        "houston": { "type": "tab", "settings": { "label": "Houston", "mem_absolute": "120", "mem_deluxe": "96", "mem_glow": "66", "mem_discount_rate": "35", "pkg_per_session": "35", "pkg_glow_getter": "175", "pkg_ultimate": "350", "pkg_elite": "525", "svc_clear": "40", "svc_custom": "40", "svc_gold": "45", "svc_brazilian": "50", "svc_rapid": "55", "svc_bbtl": "55", "svc_birthday": "34", "svc_face": "5", "svc_partial": "10", "svc_upper_lower": "20", "group_price": "50", "mobile_price": "" } }
+        "austin": {
+          "type": "tab",
+          "settings": {
+            "label": "Austin",
+            "mem_absolute": "120",
+            "mem_deluxe": "96",
+            "mem_glow": "66",
+            "mem_discount_rate": "35",
+            "pkg_per_session": "35",
+            "pkg_glow_getter": "175",
+            "pkg_ultimate": "350",
+            "pkg_elite": "525",
+            "svc_clear": "40",
+            "svc_custom": "40",
+            "svc_gold": "45",
+            "svc_brazilian": "50",
+            "svc_rapid": "55",
+            "svc_bbtl": "55",
+            "svc_birthday": "34",
+            "svc_face": "5",
+            "svc_partial": "10",
+            "svc_upper_lower": "20",
+            "group_price": "50",
+            "mobile_price": "75"
+          }
+        },
+        "dallas": {
+          "type": "tab",
+          "settings": {
+            "label": "Dallas",
+            "mem_absolute": "140",
+            "mem_deluxe": "111",
+            "mem_glow": "78",
+            "mem_discount_rate": "40",
+            "pkg_per_session": "40",
+            "pkg_glow_getter": "200",
+            "pkg_ultimate": "400",
+            "pkg_elite": "600",
+            "svc_clear": "45",
+            "svc_custom": "45",
+            "svc_gold": "50",
+            "svc_brazilian": "55",
+            "svc_rapid": "60",
+            "svc_bbtl": "60",
+            "svc_birthday": "38",
+            "svc_face": "7",
+            "svc_partial": "15",
+            "svc_upper_lower": "25",
+            "group_price": "55",
+            "mobile_price": "",
+            "extra_service_name": "Teeth Whitening",
+            "extra_service_price": "79"
+          }
+        },
+        "houston": {
+          "type": "tab",
+          "settings": {
+            "label": "Houston",
+            "mem_absolute": "120",
+            "mem_deluxe": "96",
+            "mem_glow": "66",
+            "mem_discount_rate": "35",
+            "pkg_per_session": "35",
+            "pkg_glow_getter": "175",
+            "pkg_ultimate": "350",
+            "pkg_elite": "525",
+            "svc_clear": "40",
+            "svc_custom": "40",
+            "svc_gold": "45",
+            "svc_brazilian": "50",
+            "svc_rapid": "55",
+            "svc_bbtl": "55",
+            "svc_birthday": "34",
+            "svc_face": "5",
+            "svc_partial": "10",
+            "svc_upper_lower": "20",
+            "group_price": "50",
+            "mobile_price": ""
+          }
+        }
       },
-      "block_order": ["austin", "dallas", "houston"]
+      "block_order": [
+        "austin",
+        "dallas",
+        "houston"
+      ]
     },
     "products": {
       "type": "featured-products",
