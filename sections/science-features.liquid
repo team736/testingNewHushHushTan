@@ -3,7 +3,7 @@
   if learn_url == blank
     assign learn_url = '/pages/about-us'
   endif
-  assign image_fallback = section.settings.image_fallback | default: 'hht-product-shelf.jpg'
+  assign image_fallback = section.settings.image_fallback | default: 'hht-science-shelf.jpg'
 -%}
 
 <section class="hht-science-section" id="science-features-{{ section.id }}">
@@ -38,7 +38,7 @@
         {%- else -%}
           <img
             src="{{ image_fallback | asset_url }}"
-            alt="Hush Hush Tan aftercare products on studio shelf"
+            alt="Hush Hush Tan professional tanning and aftercare products on a lit studio shelf"
             width="1200"
             height="1200"
             loading="lazy">
@@ -82,13 +82,13 @@
       "type": "image_picker",
       "id": "image",
       "label": "Feature image",
-      "info": "Square crop recommended. Default uses hht-product-shelf.jpg."
+      "info": "Square crop recommended. Default uses hht-science-shelf.jpg."
     },
     {
       "type": "text",
       "id": "image_fallback",
       "label": "Fallback asset filename",
-      "default": "hht-product-shelf.jpg"
+      "default": "hht-science-shelf.jpg"
     },
     {
       "type": "text",

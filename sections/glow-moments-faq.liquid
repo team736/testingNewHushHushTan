@@ -16,17 +16,23 @@
   assign url_exfoliant = shop_coll.url | default: '/collections/tanning-products'
   assign url_mousse = shop_coll.url | default: '/collections/tanning-products'
   assign url_wash = shop_coll.url | default: '/collections/tanning-products'
+  assign product_exfoliant = blank
+  assign product_mousse = blank
+  assign product_wash = blank
   if shop_coll.products.size > 0
     for product in shop_coll.products
       assign handle_down = product.handle | downcase
       if handle_down contains 'exfoliant'
         assign url_exfoliant = product.url
+        assign product_exfoliant = product
       elsif handle_down contains 'mousse'
         unless handle_down contains 'mitt'
           assign url_mousse = product.url
+          assign product_mousse = product
         endunless
       elsif handle_down contains 'body-wash' or handle_down contains 'wash'
         assign url_wash = product.url
+        assign product_wash = product
       endif
     endfor
   endif
@@ -54,7 +60,7 @@
           <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
-                <img src="{{ 'hht-reception.jpg' | asset_url }}" alt="Hush Hush Tan studio interior" width="640" height="960" loading="lazy">
+                <img src="{{ 'hht-moment-prep.jpg' | asset_url }}" alt="Hush Hush Tan studio retail display with branded stickers and prep essentials" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Prep</span>
               </div>
               <div class="hht-glow-stitch__card-body">
@@ -74,14 +80,18 @@
           <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
-                <img src="{{ 'hht-product-shelf.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products on shelf" width="640" height="960" loading="lazy">
+                {%- if product_exfoliant.featured_image -%}
+                  <img src="{{ product_exfoliant.featured_image | image_url: width: 960 }}" alt="{{ product_exfoliant.featured_image.alt | default: product_exfoliant.title | escape }}" width="640" height="960" loading="lazy">
+                {%- else -%}
+                  <img src="{{ 'hht-moment-aftercare.jpg' | asset_url }}" alt="Hush Hush Tan Body Exfoliant and aftercare products on studio shelf" width="640" height="960" loading="lazy">
+                {%- endif -%}
                 <span class="hht-glow-stitch__badge">Aftercare</span>
               </div>
               <div class="hht-glow-stitch__card-body">
                 <div class="hht-glow-stitch__card-main">
                   <div class="hht-glow-stitch__card-row">
                     <h3 class="hht-glow-stitch__card-title">Body Exfoliant</h3>
-                    <span class="hht-glow-stitch__price">$16.00</span>
+                    <span class="hht-glow-stitch__price">{% if product_exfoliant %}{{ product_exfoliant.price | money }}{% else %}$16.00{% endif %}</span>
                   </div>
                   <p class="hht-glow-stitch__card-text">Gently buff away old color with our pH-balanced salt scrub.</p>
                 </div>
@@ -95,14 +105,18 @@
           <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
-                <img src="{{ 'hht-products.png' | asset_url }}" alt="Hush Hush Tan Custom Glow Mousse" width="640" height="960" loading="lazy">
+                {%- if product_mousse.featured_image -%}
+                  <img src="{{ product_mousse.featured_image | image_url: width: 960 }}" alt="{{ product_mousse.featured_image.alt | default: product_mousse.title | escape }}" width="640" height="960" loading="lazy">
+                {%- else -%}
+                  <img src="{{ 'hht-moment-aftercare.jpg' | asset_url }}" alt="Hush Hush Tan Custom Glow Mousse and tanning products" width="640" height="960" loading="lazy">
+                {%- endif -%}
                 <span class="hht-glow-stitch__badge">Best Seller</span>
               </div>
               <div class="hht-glow-stitch__card-body">
                 <div class="hht-glow-stitch__card-main">
                   <div class="hht-glow-stitch__card-row">
                     <h3 class="hht-glow-stitch__card-title">Custom Glow Mousse</h3>
-                    <span class="hht-glow-stitch__price">$39.00</span>
+                    <span class="hht-glow-stitch__price">{% if product_mousse %}{{ product_mousse.price | money }}{% else %}$39.00{% endif %}</span>
                   </div>
                   <p class="hht-glow-stitch__card-text">Professional-grade violet-based bronzing mousse for a streak-free tan at home.</p>
                 </div>
@@ -116,7 +130,7 @@
           <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
-                <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="Hush Hush Tan studio glow wall" width="640" height="960" loading="lazy">
+                <img src="{{ 'hht-moment-group.jpg' | asset_url }}" alt="Hush Hush Tan branded lifestyle merchandise displayed in studio" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Parties &amp; Events</span>
               </div>
               <div class="hht-glow-stitch__card-body">
@@ -136,14 +150,18 @@
           <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
-                <img src="{{ 'hht-glow-wall-art.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products" width="640" height="960" loading="lazy">
+                {%- if product_wash.featured_image -%}
+                  <img src="{{ product_wash.featured_image | image_url: width: 960 }}" alt="{{ product_wash.featured_image.alt | default: product_wash.title | escape }}" width="640" height="960" loading="lazy">
+                {%- else -%}
+                  <img src="{{ 'hht-moment-aftercare.jpg' | asset_url }}" alt="Hush Hush Tan Body Wash and aftercare products on studio shelf" width="640" height="960" loading="lazy">
+                {%- endif -%}
                 <span class="hht-glow-stitch__badge">Aftercare</span>
               </div>
               <div class="hht-glow-stitch__card-body">
                 <div class="hht-glow-stitch__card-main">
                   <div class="hht-glow-stitch__card-row">
                     <h3 class="hht-glow-stitch__card-title">Body Wash</h3>
-                    <span class="hht-glow-stitch__price">$16.00</span>
+                    <span class="hht-glow-stitch__price">{% if product_wash %}{{ product_wash.price | money }}{% else %}$16.00{% endif %}</span>
                   </div>
                   <p class="hht-glow-stitch__card-text">Gentle tan-friendly body wash for daily glow maintenance.</p>
                 </div>
