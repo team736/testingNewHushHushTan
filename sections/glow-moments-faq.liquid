@@ -1,0 +1,246 @@
+{%- liquid
+  assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+  assign group_url = section.settings.group_url | default: 'https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct'
+  assign tips_url = section.settings.tips_url | default: '/pages/tanning-tips'
+  assign faqs_url = section.settings.faqs_url | default: '/pages/faqs'
+  assign shop_coll = collections['tanning-products']
+  assign url_exfoliant = shop_coll.url | default: '/collections/tanning-products'
+  assign url_mousse = shop_coll.url | default: '/collections/tanning-products'
+  assign url_wash = shop_coll.url | default: '/collections/tanning-products'
+  if shop_coll.products.size > 0
+    for product in shop_coll.products
+      assign handle_down = product.handle | downcase
+      if handle_down contains 'exfoliant'
+        assign url_exfoliant = product.url
+      elsif handle_down contains 'mousse'
+        unless handle_down contains 'mitt'
+          assign url_mousse = product.url
+        endunless
+      elsif handle_down contains 'body-wash' or handle_down contains 'wash'
+        assign url_wash = product.url
+      endif
+    endfor
+  endif
+-%}
+
+<section class="hht-glow-stitch" id="glow-stitch-{{ section.id }}" aria-label="Glow moments and frequently asked questions">
+  {%- comment -%} ——— Glow Moments carousel ——— {%- endcomment -%}
+  <div class="hht-glow-stitch__moments">
+    <div class="container">
+      <div class="hht-glow-stitch__moments-head">
+        <span class="hht-glow-stitch__eyebrow">{{ section.settings.moments_eyebrow | default: 'Glow Moments' }}</span>
+        <h2 class="hht-glow-stitch__moments-title">{{ section.settings.moments_heading | default: 'For the ones who glow.' }}</h2>
+        <p class="hht-glow-stitch__moments-sub">{{ section.settings.moments_subheading | default: 'Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.' }}</p>
+      </div>
+
+      <div class="hht-glow-stitch__carousel-wrap">
+        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--prev" data-hht-carousel-prev aria-label="Scroll cards left">
+          {% render 'icon', name: 'chevron-left' %}
+        </button>
+        <div class="hht-glow-stitch__carousel" data-hht-carousel tabindex="0">
+          <article class="hht-glow-stitch__card snap-start">
+            <div class="hht-glow-stitch__card-inner">
+              <div class="hht-glow-stitch__card-media">
+                <img src="{{ 'hht-reception.jpg' | asset_url }}" alt="Hush Hush Tan studio interior" width="640" height="960" loading="lazy">
+                <span class="hht-glow-stitch__badge">Prep</span>
+              </div>
+              <div class="hht-glow-stitch__card-body">
+                <h3 class="hht-glow-stitch__card-title">Before Your Tan</h3>
+                <p class="hht-glow-stitch__card-text">Shower, shave &amp; exfoliate at least 4–6 hours before your appointment for the smoothest base.</p>
+                <a href="{{ tips_url }}" class="hht-glow-stitch__card-link">View Tanning Tips {% render 'icon', name: 'arrow-right' %}</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hht-glow-stitch__card snap-start">
+            <div class="hht-glow-stitch__card-inner">
+              <div class="hht-glow-stitch__card-media">
+                <img src="{{ 'hht-product-shelf.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products on shelf" width="640" height="960" loading="lazy">
+                <span class="hht-glow-stitch__badge">Aftercare</span>
+              </div>
+              <div class="hht-glow-stitch__card-body">
+                <div class="hht-glow-stitch__card-row">
+                  <h3 class="hht-glow-stitch__card-title">Body Exfoliant</h3>
+                  <span class="hht-glow-stitch__price">$16.00</span>
+                </div>
+                <p class="hht-glow-stitch__card-text">Gently buff away old color with our pH-balanced salt scrub.</p>
+                <a href="{{ url_exfoliant }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Exfoliant">{% render 'icon', name: 'plus' %}</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hht-glow-stitch__card snap-start">
+            <div class="hht-glow-stitch__card-inner">
+              <div class="hht-glow-stitch__card-media">
+                <img src="{{ 'hht-products.png' | asset_url }}" alt="Hush Hush Tan Custom Glow Mousse" width="640" height="960" loading="lazy">
+                <span class="hht-glow-stitch__badge">Best Seller</span>
+              </div>
+              <div class="hht-glow-stitch__card-body">
+                <div class="hht-glow-stitch__card-row">
+                  <h3 class="hht-glow-stitch__card-title">Custom Glow Mousse</h3>
+                  <span class="hht-glow-stitch__price">$39.00</span>
+                </div>
+                <p class="hht-glow-stitch__card-text">Professional-grade violet-based bronzing mousse for a streak-free tan at home.</p>
+                <a href="{{ url_mousse }}" class="hht-glow-stitch__card-add" aria-label="Shop Custom Glow Mousse">{% render 'icon', name: 'plus' %}</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hht-glow-stitch__card snap-start">
+            <div class="hht-glow-stitch__card-inner">
+              <div class="hht-glow-stitch__card-media">
+                <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="Hush Hush Tan studio glow wall" width="640" height="960" loading="lazy">
+                <span class="hht-glow-stitch__badge">Parties &amp; Events</span>
+              </div>
+              <div class="hht-glow-stitch__card-body">
+                <h3 class="hht-glow-stitch__card-title">Group Tanning &amp; Mimosas</h3>
+                <p class="hht-glow-stitch__card-text">Book the studio for your bridal party or group. We handle the glow and the bubbles.</p>
+                <a href="{{ group_url }}" class="hht-glow-stitch__card-link" target="_blank" rel="noopener">Book Group Glow {% render 'icon', name: 'arrow-right' %}</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="hht-glow-stitch__card snap-start">
+            <div class="hht-glow-stitch__card-inner">
+              <div class="hht-glow-stitch__card-media">
+                <img src="{{ 'hht-glow-wall-art.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products" width="640" height="960" loading="lazy">
+                <span class="hht-glow-stitch__badge">Aftercare</span>
+              </div>
+              <div class="hht-glow-stitch__card-body">
+                <div class="hht-glow-stitch__card-row">
+                  <h3 class="hht-glow-stitch__card-title">Body Wash</h3>
+                  <span class="hht-glow-stitch__price">$16.00</span>
+                </div>
+                <p class="hht-glow-stitch__card-text">Gentle tan-friendly body wash for daily glow maintenance.</p>
+                <a href="{{ url_wash }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Wash">{% render 'icon', name: 'plus' %}</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--next" data-hht-carousel-next aria-label="Scroll cards right">
+          {% render 'icon', name: 'chevron-right' %}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ——— FAQ / Education ——— {%- endcomment -%}
+  <div class="hht-glow-stitch__faq">
+    <div class="container">
+      <div class="hht-glow-stitch__faq-head">
+        <span class="hht-glow-stitch__eyebrow">{{ section.settings.faq_eyebrow | default: 'Good to Know' }}</span>
+        <h2 class="hht-glow-stitch__faq-title">{{ section.settings.faq_heading | default: 'Frequently asked questions' }}</h2>
+        <p class="hht-glow-stitch__faq-sub">{{ section.settings.faq_subheading | default: 'Everything you need to feel ready for your glow.' }}</p>
+      </div>
+
+      <div class="hht-glow-stitch__faq-grid">
+        <aside class="hht-glow-stitch__prep" aria-label="Glow prep basics">
+          <div class="hht-glow-stitch__prep-card">
+            <h3 class="hht-glow-stitch__prep-title">Glow Prep Basics</h3>
+            <div class="hht-glow-stitch__prep-group">
+              <h4 class="hht-glow-stitch__prep-label">Before Your Tan</h4>
+              <ul class="hht-glow-stitch__prep-list">
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Exfoliate &amp; shave 24 hours prior.</span></li>
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Avoid lotions or oils on skin.</span></li>
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Wear loose, dark clothing.</span></li>
+              </ul>
+            </div>
+            <div class="hht-glow-stitch__prep-group">
+              <h4 class="hht-glow-stitch__prep-label">Day of Your Tan</h4>
+              <ul class="hht-glow-stitch__prep-list">
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Arrive with clean, bare skin.</span></li>
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Avoid deodorant and perfume.</span></li>
+              </ul>
+            </div>
+            <div class="hht-glow-stitch__prep-group">
+              <h4 class="hht-glow-stitch__prep-label">After Your Tan</h4>
+              <ul class="hht-glow-stitch__prep-list">
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Rinse after 2–4 (Rapid) or 8–12 (Custom Glow) hours.</span></li>
+                <li><span class="hht-glow-stitch__prep-check" aria-hidden="true">{% render 'icon', name: 'check-circle' %}</span><span>Moisturize daily with oil-free products.</span></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <div class="hht-glow-stitch__accordion" data-hht-accordion>
+          {%- for blk in section.blocks -%}
+            {%- if blk.type == 'qa' -%}
+              {%- assign qa_index = forloop.index -%}
+              {%- assign panel_id = 'glow-faq-' | append: section.id | append: '-' | append: qa_index -%}
+              <div class="hht-glow-stitch__item{% if qa_index == 1 %} is-open{% endif %}" data-hht-accordion-item>
+                <button
+                  type="button"
+                  class="hht-glow-stitch__trigger"
+                  aria-expanded="{% if qa_index == 1 %}true{% else %}false{% endif %}"
+                  aria-controls="{{ panel_id }}"
+                  id="glow-faq-trigger-{{ section.id }}-{{ qa_index }}">
+                  <span class="hht-glow-stitch__question">{{ blk.settings.question }}</span>
+                  <span class="hht-glow-stitch__chevron" aria-hidden="true"></span>
+                </button>
+                <div
+                  class="hht-glow-stitch__panel"
+                  id="{{ panel_id }}"
+                  role="region"
+                  aria-labelledby="glow-faq-trigger-{{ section.id }}-{{ qa_index }}"
+                  {% if qa_index != 1 %}style="max-height:0"{% endif %}>
+                  <div class="hht-glow-stitch__answer">{{ blk.settings.answer }}</div>
+                </div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="hht-glow-stitch__ctas">
+        <p class="hht-glow-stitch__cta-label">Still have questions?</p>
+        <div class="hht-glow-stitch__cta-row">
+          <a href="{{ faqs_url }}" class="btn hht-glow-stitch__btn hht-glow-stitch__btn--lavender">Read All FAQs →</a>
+          <a href="{{ book_url }}" class="btn hht-glow-stitch__btn hht-glow-stitch__btn--dark" target="_blank" rel="noopener">Book Your Glow</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Glow Moments + FAQ",
+  "settings": [
+    { "type": "header", "content": "Glow Moments" },
+    { "type": "text", "id": "moments_eyebrow", "label": "Eyebrow", "default": "Glow Moments" },
+    { "type": "text", "id": "moments_heading", "label": "Heading", "default": "For the ones who glow." },
+    { "type": "textarea", "id": "moments_subheading", "label": "Subheading", "default": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color." },
+    { "type": "url", "id": "tips_url", "label": "Tanning tips URL", "default": "/pages/tanning-tips" },
+    { "type": "url", "id": "group_url", "label": "Group booking URL" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_eyebrow", "label": "FAQ eyebrow", "default": "Good to Know" },
+    { "type": "text", "id": "faq_heading", "label": "FAQ heading", "default": "Frequently asked questions" },
+    { "type": "text", "id": "faq_subheading", "label": "FAQ subheading", "default": "Everything you need to feel ready for your glow." },
+    { "type": "url", "id": "faqs_url", "label": "Read all FAQs URL", "default": "/pages/faqs" },
+    { "type": "url", "id": "book_url", "label": "Book Your Glow URL" }
+  ],
+  "blocks": [
+    {
+      "type": "qa",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer" }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Glow Moments + FAQ",
+    "blocks": [
+      { "type": "qa", "settings": { "question": "How long will my spray tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50–75%.</p>" } },
+      { "type": "qa", "settings": { "question": "Will I look orange?", "answer": "<p>No. We use violet-based solutions customized to your unique skin tone and undertones for a natural, Mediterranean bronze glow — never orange.</p>" } },
+      { "type": "qa", "settings": { "question": "How soon can I shower after my session?", "answer": "<p>For Rapid Glow, you can rinse in 2–4 hours. For Custom Glow, we recommend waiting 8–12 hours for the color to fully develop.</p>" } },
+      { "type": "qa", "settings": { "question": "Should I shave before or after?", "answer": "<p>Always shave before your appointment, ideally 24 hours prior. Shaving after your tan acts as a mechanical exfoliant and will strip color faster.</p>" } },
+      { "type": "qa", "settings": { "question": "Can I exercise with my spray tan?", "answer": "<p>Avoid sweating or excessive friction until after your first post-tan shower. Once developed, moderate exercise is fine, but heavy sweating may cause premature fading.</p>" } },
+      { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Wear loose, dark-colored clothing and sandals. Tight straps, jeans, and light colors can cause smudging during the development phase.</p>" } },
+      { "type": "qa", "settings": { "question": "Is it safe during pregnancy?", "answer": "<p>Spray tanning is considered safe as DHA affects only the surface layer of skin. Pregnant or nursing mothers should consult their physician before tanning.</p>" } },
+      { "type": "qa", "settings": { "question": "How do I remove an old spray tan?", "answer": "<p>Use our Body Exfoliant or Tan Removing Mitt after a long soak in a warm tub to soften skin cells and gently lift remaining color.</p>" } }
+    ]
+  }]
+}
+{% endschema %}

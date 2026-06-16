@@ -310,7 +310,7 @@
       var items = root.querySelectorAll('[data-hht-accordion-item]');
 
       function setPanelHeight(item, open) {
-        var panel = item.querySelector('.hht-stitch-faq__panel');
+        var panel = item.querySelector('.hht-stitch-faq__panel, .hht-glow-stitch__panel');
         if (!panel) return;
         if (open) {
           panel.style.maxHeight = panel.scrollHeight + 'px';
@@ -322,7 +322,7 @@
 
       function closeItem(item) {
         item.classList.remove('is-open');
-        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        var trigger = item.querySelector('.hht-stitch-faq__trigger, .hht-glow-stitch__trigger');
         if (trigger) trigger.setAttribute('aria-expanded', 'false');
         setPanelHeight(item, false);
       }
@@ -330,7 +330,7 @@
       function openItem(item) {
         items.forEach(closeItem);
         item.classList.add('is-open');
-        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        var trigger = item.querySelector('.hht-stitch-faq__trigger, .hht-glow-stitch__trigger');
         if (trigger) trigger.setAttribute('aria-expanded', 'true');
         setPanelHeight(item, true);
       }
@@ -339,7 +339,7 @@
         if (item.classList.contains('is-open')) {
           setPanelHeight(item, true);
         }
-        var trigger = item.querySelector('.hht-stitch-faq__trigger');
+        var trigger = item.querySelector('.hht-stitch-faq__trigger, .hht-glow-stitch__trigger');
         if (!trigger) return;
         trigger.addEventListener('click', function () {
           if (item.classList.contains('is-open')) {
@@ -366,6 +366,40 @@
     initHhtAccordions();
   }
   document.addEventListener('shopify:section:load', initHhtAccordions);
+
+  // Glow Moments carousel — scroll snap + arrow nav
+  function initHhtCarousels() {
+    document.querySelectorAll('[data-hht-carousel]').forEach(function (track) {
+      if (track.getAttribute('data-hht-carousel-init') === 'true') return;
+      track.setAttribute('data-hht-carousel-init', 'true');
+
+      var wrap = track.closest('.hht-glow-stitch__carousel-wrap');
+      if (!wrap) return;
+      var prevBtn = wrap.querySelector('[data-hht-carousel-prev]');
+      var nextBtn = wrap.querySelector('[data-hht-carousel-next]');
+      var card = track.querySelector('.hht-glow-stitch__card');
+      var step = card ? card.offsetWidth + 24 : 320;
+
+      function scrollByDir(dir) {
+        track.scrollBy({ left: dir * step, behavior: 'smooth' });
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function () { scrollByDir(-1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { scrollByDir(1); });
+
+      track.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); scrollByDir(-1); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); scrollByDir(1); }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHhtCarousels);
+  } else {
+    initHhtCarousels();
+  }
+  document.addEventListener('shopify:section:load', initHhtCarousels);
 
   // Newsletter inline confirmation message handled by Shopify natively.
 })();

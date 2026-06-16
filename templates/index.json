@@ -126,42 +126,32 @@
       "block_order": ["p1", "p2", "p3", "p4", "p5"],
       "settings": { "eyebrow": "Featured In", "heading": "Hush Hush Tan is featured in" }
     },
-    "faq": {
-      "type": "faq-accordion",
+    "glow_moments": {
+      "type": "glow-moments-faq",
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50-75%.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "How do I prepare for my airbrush tanning session?", "answer": "<p>Shower, shave, and exfoliate. After showering do not apply any body or face moisturizers, makeup, or deodorant. Complete all grooming and workouts beforehand, and wear loose, dark clothing.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "What should I expect after my appointment?", "answer": "<p>You may feel slightly damp for an hour but can resume normal activities. Remain dry and avoid touching your skin to ensure that your tan dries flawlessly. The tan darkens over 2–3 hours. Shower lightly after 8 hours, and avoid pools and hot tubs.</p>" } },
-        "q4": { "type": "qa", "settings": { "question": "How do I take care of my spray tan?", "answer": "<p>Remain dry for the next 6–8 hours following your appointment. Take short, warm showers with mild soap, shave gently, moisturize with a mild lotion or Hush Hush Tan Enhancer, and apply perfume to clothes rather than skin.</p>" } },
-        "q5": { "type": "qa", "settings": { "question": "What do I wear for my airbrush tanning session?", "answer": "<p>Women need a bottom cover; complimentary disposable undies are available, plus C-string undies for $6. Men must wear boxers or briefs; disposable options cost $3.</p>" } },
-        "q6": { "type": "qa", "settings": { "question": "Is airbrush tanning safe?", "answer": "<p>Yes, DHA is FDA-approved and considered nontoxic and non-carcinogenic. Major health organizations have recommended sunless tanning. Pregnant or nursing mothers should consult their doctor before tanning.</p>" } },
-        "q7": { "type": "qa", "settings": { "question": "Can my tanning membership be frozen?", "answer": "<p>Yes, memberships can be frozen for a $10 monthly fee. Contact contact@hushhushtan.com for details.</p>" } },
-        "q8": { "type": "qa", "settings": { "question": "Do tans rollover?", "answer": "<p>No, tans do not rollover.</p>" } }
+        "q1": { "type": "qa", "settings": { "question": "How long will my spray tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50–75%.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "Will I look orange?", "answer": "<p>No. We use violet-based solutions customized to your unique skin tone and undertones for a natural, Mediterranean bronze glow — never orange.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "How soon can I shower after my session?", "answer": "<p>For Rapid Glow, you can rinse in 2–4 hours. For Custom Glow, we recommend waiting 8–12 hours for the color to fully develop.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "Should I shave before or after?", "answer": "<p>Always shave before your appointment, ideally 24 hours prior. Shaving after your tan acts as a mechanical exfoliant and will strip color faster.</p>" } },
+        "q5": { "type": "qa", "settings": { "question": "Can I exercise with my spray tan?", "answer": "<p>Avoid sweating or excessive friction until after your first post-tan shower. Once developed, moderate exercise is fine, but heavy sweating may cause premature fading.</p>" } },
+        "q6": { "type": "qa", "settings": { "question": "What should I wear to my appointment?", "answer": "<p>Wear loose, dark-colored clothing and sandals. Tight straps, jeans, and light colors can cause smudging during the development phase.</p>" } },
+        "q7": { "type": "qa", "settings": { "question": "Is it safe during pregnancy?", "answer": "<p>Spray tanning is considered safe as DHA affects only the surface layer of skin. Pregnant or nursing mothers should consult their physician before tanning.</p>" } },
+        "q8": { "type": "qa", "settings": { "question": "How do I remove an old spray tan?", "answer": "<p>Use our Body Exfoliant or Tan Removing Mitt after a long soak in a warm tub to soften skin cells and gently lift remaining color.</p>" } }
       },
       "block_order": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8"],
       "settings": {
-        "eyebrow": "Good to Know",
-        "heading": "Frequently asked questions",
-        "subheading": "Everything you need to feel ready for your glow.",
-        "show_prep_sidebar": true,
-        "show_banner": false,
-        "show_ctas": true,
-        "show_view_all": false,
-        "view_all_url": "/pages/faqs",
+        "moments_eyebrow": "Glow Moments",
+        "moments_heading": "For the ones who glow.",
+        "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
+        "tips_url": "/pages/tanning-tips",
+        "group_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct",
+        "faq_eyebrow": "Good to Know",
+        "faq_heading": "Frequently asked questions",
+        "faq_subheading": "Everything you need to feel ready for your glow.",
+        "faqs_url": "/pages/faqs",
         "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "eyebrow": "Get In The Know",
-        "heading": "Glow tips, offers & event invites",
-        "text": "Join us for new drops, packages and special offers.",
-        "placeholder": "Enter your email address",
-        "button_text": "Subscribe →",
-        "disclaimer": "We respect your privacy. Unsubscribe anytime."
       }
     }
   },
-  "order": ["hero", "benefits", "locations", "memberships", "products", "press", "faq", "newsletter"]
+  "order": ["hero", "benefits", "locations", "memberships", "products", "press", "glow_moments"]
 }
