@@ -33,93 +33,119 @@
         <p class="hht-glow-stitch__moments-sub">{{ section.settings.moments_subheading | default: 'Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.' }}</p>
       </div>
 
-      <div class="hht-glow-stitch__carousel-wrap">
-        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--prev" data-hht-carousel-prev aria-label="Scroll cards left">
+      <div
+        class="hht-glow-stitch__carousel-wrap"
+        data-hht-carousel-wrap
+        {% if section.settings.carousel_autoplay %}data-hht-carousel-autoplay="{{ section.settings.carousel_delay | default: 5 | times: 1000 }}"{% endif %}>
+        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--prev" data-hht-carousel-prev aria-label="Previous card">
           {% render 'icon', name: 'chevron-left' %}
         </button>
-        <div class="hht-glow-stitch__carousel" data-hht-carousel tabindex="0">
-          <article class="hht-glow-stitch__card snap-start">
+        <div class="hht-glow-stitch__carousel-mask">
+          <div class="hht-glow-stitch__carousel" data-hht-carousel tabindex="0" aria-roledescription="carousel" aria-label="Glow moments">
+          <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
                 <img src="{{ 'hht-reception.jpg' | asset_url }}" alt="Hush Hush Tan studio interior" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Prep</span>
               </div>
               <div class="hht-glow-stitch__card-body">
-                <h3 class="hht-glow-stitch__card-title">Before Your Tan</h3>
-                <p class="hht-glow-stitch__card-text">Shower, shave &amp; exfoliate at least 4–6 hours before your appointment for the smoothest base.</p>
-                <a href="{{ tips_url }}" class="hht-glow-stitch__card-link">View Tanning Tips {% render 'icon', name: 'arrow-right' %}</a>
+                <div class="hht-glow-stitch__card-main">
+                  <h3 class="hht-glow-stitch__card-title">Before Your Tan</h3>
+                  <p class="hht-glow-stitch__card-text">Shower, shave &amp; exfoliate at least 4–6 hours before your appointment for the smoothest base.</p>
+                </div>
+                <div class="hht-glow-stitch__card-footer">
+                  <a href="{{ tips_url }}" class="hht-glow-stitch__card-link">View Tanning Tips {% render 'icon', name: 'arrow-right' %}</a>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="hht-glow-stitch__card snap-start">
+          <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
                 <img src="{{ 'hht-product-shelf.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products on shelf" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Aftercare</span>
               </div>
-              <div class="hht-glow-stitch__card-body">
-                <div class="hht-glow-stitch__card-row">
-                  <h3 class="hht-glow-stitch__card-title">Body Exfoliant</h3>
-                  <span class="hht-glow-stitch__price">$16.00</span>
+              <div class="hht-glow-stitch__card-body hht-glow-stitch__card-body--product">
+                <div class="hht-glow-stitch__card-main">
+                  <div class="hht-glow-stitch__card-row">
+                    <h3 class="hht-glow-stitch__card-title">Body Exfoliant</h3>
+                    <span class="hht-glow-stitch__price">$16.00</span>
+                  </div>
+                  <p class="hht-glow-stitch__card-text">Gently buff away old color with our pH-balanced salt scrub.</p>
                 </div>
-                <p class="hht-glow-stitch__card-text">Gently buff away old color with our pH-balanced salt scrub.</p>
-                <a href="{{ url_exfoliant }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Exfoliant">{% render 'icon', name: 'plus' %}</a>
+                <div class="hht-glow-stitch__card-footer">
+                  <a href="{{ url_exfoliant }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Exfoliant">{% render 'icon', name: 'plus' %}</a>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="hht-glow-stitch__card snap-start">
+          <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
                 <img src="{{ 'hht-products.png' | asset_url }}" alt="Hush Hush Tan Custom Glow Mousse" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Best Seller</span>
               </div>
-              <div class="hht-glow-stitch__card-body">
-                <div class="hht-glow-stitch__card-row">
-                  <h3 class="hht-glow-stitch__card-title">Custom Glow Mousse</h3>
-                  <span class="hht-glow-stitch__price">$39.00</span>
+              <div class="hht-glow-stitch__card-body hht-glow-stitch__card-body--product">
+                <div class="hht-glow-stitch__card-main">
+                  <div class="hht-glow-stitch__card-row">
+                    <h3 class="hht-glow-stitch__card-title">Custom Glow Mousse</h3>
+                    <span class="hht-glow-stitch__price">$39.00</span>
+                  </div>
+                  <p class="hht-glow-stitch__card-text">Professional-grade violet-based bronzing mousse for a streak-free tan at home.</p>
                 </div>
-                <p class="hht-glow-stitch__card-text">Professional-grade violet-based bronzing mousse for a streak-free tan at home.</p>
-                <a href="{{ url_mousse }}" class="hht-glow-stitch__card-add" aria-label="Shop Custom Glow Mousse">{% render 'icon', name: 'plus' %}</a>
+                <div class="hht-glow-stitch__card-footer">
+                  <a href="{{ url_mousse }}" class="hht-glow-stitch__card-add" aria-label="Shop Custom Glow Mousse">{% render 'icon', name: 'plus' %}</a>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="hht-glow-stitch__card snap-start">
+          <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
                 <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="Hush Hush Tan studio glow wall" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Parties &amp; Events</span>
               </div>
               <div class="hht-glow-stitch__card-body">
-                <h3 class="hht-glow-stitch__card-title">Group Tanning &amp; Mimosas</h3>
-                <p class="hht-glow-stitch__card-text">Book the studio for your bridal party or group. We handle the glow and the bubbles.</p>
-                <a href="{{ group_url }}" class="hht-glow-stitch__card-link" target="_blank" rel="noopener">Book Group Glow {% render 'icon', name: 'arrow-right' %}</a>
+                <div class="hht-glow-stitch__card-main">
+                  <h3 class="hht-glow-stitch__card-title">Group Tanning &amp; Mimosas</h3>
+                  <p class="hht-glow-stitch__card-text">Book the studio for your bridal party or group. We handle the glow and the bubbles.</p>
+                </div>
+                <div class="hht-glow-stitch__card-footer">
+                  <a href="{{ group_url }}" class="hht-glow-stitch__card-link" target="_blank" rel="noopener">Book Group Glow {% render 'icon', name: 'arrow-right' %}</a>
+                </div>
               </div>
             </div>
           </article>
 
-          <article class="hht-glow-stitch__card snap-start">
+          <article class="hht-glow-stitch__card">
             <div class="hht-glow-stitch__card-inner">
               <div class="hht-glow-stitch__card-media">
                 <img src="{{ 'hht-glow-wall-art.jpg' | asset_url }}" alt="Hush Hush Tan aftercare products" width="640" height="960" loading="lazy">
                 <span class="hht-glow-stitch__badge">Aftercare</span>
               </div>
-              <div class="hht-glow-stitch__card-body">
-                <div class="hht-glow-stitch__card-row">
-                  <h3 class="hht-glow-stitch__card-title">Body Wash</h3>
-                  <span class="hht-glow-stitch__price">$16.00</span>
+              <div class="hht-glow-stitch__card-body hht-glow-stitch__card-body--product">
+                <div class="hht-glow-stitch__card-main">
+                  <div class="hht-glow-stitch__card-row">
+                    <h3 class="hht-glow-stitch__card-title">Body Wash</h3>
+                    <span class="hht-glow-stitch__price">$16.00</span>
+                  </div>
+                  <p class="hht-glow-stitch__card-text">Gentle tan-friendly body wash for daily glow maintenance.</p>
                 </div>
-                <p class="hht-glow-stitch__card-text">Gentle tan-friendly body wash for daily glow maintenance.</p>
-                <a href="{{ url_wash }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Wash">{% render 'icon', name: 'plus' %}</a>
+                <div class="hht-glow-stitch__card-footer">
+                  <a href="{{ url_wash }}" class="hht-glow-stitch__card-add" aria-label="Shop Body Wash">{% render 'icon', name: 'plus' %}</a>
+                </div>
               </div>
             </div>
           </article>
+          </div>
         </div>
-        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--next" data-hht-carousel-next aria-label="Scroll cards right">
+        <button type="button" class="hht-glow-stitch__carousel-btn hht-glow-stitch__carousel-btn--next" data-hht-carousel-next aria-label="Next card">
           {% render 'icon', name: 'chevron-right' %}
         </button>
+        <div class="hht-glow-stitch__carousel-dots" data-hht-carousel-dots aria-hidden="true"></div>
       </div>
     </div>
   </div>
@@ -210,6 +236,8 @@
     { "type": "text", "id": "moments_eyebrow", "label": "Eyebrow", "default": "Glow Moments" },
     { "type": "text", "id": "moments_heading", "label": "Heading", "default": "For the ones who glow." },
     { "type": "textarea", "id": "moments_subheading", "label": "Subheading", "default": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color." },
+    { "type": "checkbox", "id": "carousel_autoplay", "label": "Carousel autoplay", "default": true },
+    { "type": "range", "id": "carousel_delay", "label": "Autoplay interval (seconds)", "min": 3, "max": 8, "step": 1, "default": 5 },
     { "type": "url", "id": "tips_url", "label": "Tanning tips URL" },
     { "type": "url", "id": "group_url", "label": "Group booking URL" },
     { "type": "header", "content": "FAQ" },

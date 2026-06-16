@@ -147,6 +147,8 @@
         "moments_eyebrow": "Glow Moments",
         "moments_heading": "For the ones who glow.",
         "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
+        "carousel_autoplay": true,
+        "carousel_delay": 5,
         "tips_url": "/pages/tanning-tips",
         "group_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct",
         "faq_eyebrow": "Good to Know",
