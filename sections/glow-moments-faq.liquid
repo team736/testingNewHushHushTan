@@ -3,6 +3,15 @@
   assign group_url = section.settings.group_url | default: 'https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct'
   assign tips_url = section.settings.tips_url | default: '/pages/tanning-tips'
   assign faqs_url = section.settings.faqs_url | default: '/pages/faqs'
+  if tips_url == blank
+    assign tips_url = '/pages/tanning-tips'
+  endif
+  if faqs_url == blank
+    assign faqs_url = '/pages/faqs'
+  endif
+  if book_url == blank
+    assign book_url = 'https://go.booker.com/location/hushhushtan/service-menu'
+  endif
   assign shop_coll = collections['tanning-products']
   assign url_exfoliant = shop_coll.url | default: '/collections/tanning-products'
   assign url_mousse = shop_coll.url | default: '/collections/tanning-products'
@@ -160,7 +169,7 @@
       </div>
 
       <div class="hht-glow-stitch__faq-grid">
-        <aside class="hht-glow-stitch__prep" aria-label="Glow prep basics">
+        <aside class="hht-glow-stitch__faq-col hht-glow-stitch__prep" aria-label="Glow prep basics">
           <div class="hht-glow-stitch__prep-card">
             <h3 class="hht-glow-stitch__prep-title">Glow Prep Basics</h3>
             <div class="hht-glow-stitch__prep-group">
@@ -188,10 +197,12 @@
           </div>
         </aside>
 
+        <div class="hht-glow-stitch__faq-col hht-glow-stitch__faq-col--accordion">
         <div class="hht-glow-stitch__accordion" data-hht-accordion>
+          {%- assign qa_index = 0 -%}
           {%- for blk in section.blocks -%}
             {%- if blk.type == 'qa' -%}
-              {%- assign qa_index = forloop.index -%}
+              {%- assign qa_index = qa_index | plus: 1 -%}
               {%- assign panel_id = 'glow-faq-' | append: section.id | append: '-' | append: qa_index -%}
               <div class="hht-glow-stitch__item{% if qa_index == 1 %} is-open{% endif %}" data-hht-accordion-item>
                 <button
@@ -201,7 +212,7 @@
                   aria-controls="{{ panel_id }}"
                   id="glow-faq-trigger-{{ section.id }}-{{ qa_index }}">
                   <span class="hht-glow-stitch__question">{{ blk.settings.question }}</span>
-                  <span class="hht-glow-stitch__chevron" aria-hidden="true"></span>
+                  <span class="hht-glow-stitch__chevron" aria-hidden="true">{% render 'icon', name: 'chevron-down' %}</span>
                 </button>
                 <div
                   class="hht-glow-stitch__panel"
@@ -214,6 +225,7 @@
               </div>
             {%- endif -%}
           {%- endfor -%}
+        </div>
         </div>
       </div>
 
