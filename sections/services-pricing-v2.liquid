@@ -1,0 +1,258 @@
+{%- comment -%}
+  Hush Hush Tan — Services / Pricing (V2)
+  Stitch-inspired location-tabbed services menu. Self-contained section.
+  Real HHT content + live Booker links. Does NOT replace the V1 pricing-tabs
+  section; this is an additive V2 candidate. Styles + JS are scoped to this
+  section's unique id so nothing leaks into the rest of the theme.
+{%- endcomment -%}
+
+{%- assign uid = 'hht-spv2-' | append: section.id -%}
+
+{%- comment -%} Booker links: BOOK NOW uses the global per-location settings
+  (service-menu); JOIN/BUY use this section's settings. Defaults below are the
+  REAL links from the live-site audit (docs/BOOKER-LINK-MAP.md).
+  TODO: confirm final Booker URLs with client before launch. {%- endcomment -%}
+{%- assign book_austin   = settings.book_austin_url   | default: 'https://go.booker.com/location/hushhushtan/service-menu' -%}
+{%- assign book_houston  = settings.book_houston_url  | default: 'https://go.booker.com/location/hushhushtanhouston/service-menu' -%}
+{%- assign book_dallas   = settings.book_dallas_url   | default: 'https://go.booker.com/location/hushhushtandallas/service-menu' -%}
+
+<section id="{{ uid }}" class="hht-spv2" aria-labelledby="{{ uid }}-title">
+  {%- if section.settings.homepage_anchors -%}
+    {%- comment -%} Scroll targets for the homepage hero CTAs (replaces the anchors
+      that lived in the old pricing-tabs section). {%- endcomment -%}
+    <span id="services" class="hht-spv2__anchor" aria-hidden="true"></span>
+    <span id="memberships" class="hht-spv2__anchor" aria-hidden="true"></span>
+  {%- endif -%}
+  <div class="hht-spv2__wrap">
+    <h2 id="{{ uid }}-title" class="hht-spv2__title">{{ section.settings.heading }}</h2>
+    {%- if section.settings.subheading != blank -%}
+      <p class="hht-spv2__sub">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+    <div class="hht-spv2__tabs" role="tablist" aria-label="Choose location">
+      <button class="hht-spv2__tab is-active" role="tab" aria-selected="true"  data-tab="austin"  aria-controls="{{ uid }}-panel">Austin</button>
+      <button class="hht-spv2__tab"           role="tab" aria-selected="false" data-tab="houston" aria-controls="{{ uid }}-panel">Houston</button>
+      <button class="hht-spv2__tab"           role="tab" aria-selected="false" data-tab="dallas"  aria-controls="{{ uid }}-panel">Dallas</button>
+    </div>
+    <div id="{{ uid }}-panel" class="hht-spv2__grid" role="tabpanel" data-panel></div>
+  </div>
+</section>
+
+<style>
+  #{{ uid }}{
+    --lav:#A69FE2; --lav-strong:#8F83D6; --lav-soft:#F4F1FF; --lav-pale:#FBFAFF;
+    --white:#FFFFFF; --ink:#111111; --body:#5F5F68; --plum:#4A2B68;
+    --border:rgba(166,159,226,0.45);
+    --serif:var(--font-heading,'Cormorant Garamond',Georgia,serif);
+    --sans:var(--font-body,'Jost',system-ui,sans-serif);
+    background:var(--lav-pale); padding:80px 0; overflow-x:clip;
+  }
+  #{{ uid }} *,#{{ uid }} *::before,#{{ uid }} *::after{box-sizing:border-box}
+  #{{ uid }} .hht-spv2__anchor{display:block;height:0;scroll-margin-top:120px}
+  #{{ uid }} .hht-spv2__wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  #{{ uid }} .hht-spv2__title{font-family:var(--serif);font-weight:500;color:var(--ink);text-align:center;
+    font-size:clamp(40px,6vw,60px);line-height:1.05;letter-spacing:-.01em;margin:0 0 14px}
+  #{{ uid }} .hht-spv2__title em{font-style:italic}
+  #{{ uid }} .hht-spv2__sub{text-align:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--plum);margin:0 0 28px;font-weight:500}
+
+  #{{ uid }} .hht-spv2__tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:0 0 44px}
+  #{{ uid }} .hht-spv2__tab{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--plum);background:var(--white);border:1px solid var(--lav);
+    border-radius:6px;min-width:110px;height:40px;padding:0 22px;cursor:pointer;
+    transition:background .25s ease,color .25s ease,border-color .25s ease}
+  #{{ uid }} .hht-spv2__tab:hover{background:var(--lav-soft)}
+  #{{ uid }} .hht-spv2__tab.is-active{background:var(--lav);border-color:var(--lav);color:var(--white)}
+  #{{ uid }} .hht-spv2__tab:focus-visible{outline:2px solid var(--lav);outline-offset:3px}
+
+  #{{ uid }} .hht-spv2__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+  #{{ uid }} .hht-spv2__card{grid-column:span 1;background:var(--white);border:1px solid var(--border);
+    border-radius:16px;overflow:hidden}
+  #{{ uid }} .hht-spv2__card--full{grid-column:1 / -1}
+  #{{ uid }} .hht-spv2__head{background:var(--lav-soft);text-align:center;padding:26px 24px 22px;
+    border-bottom:1px solid var(--border)}
+  #{{ uid }} .hht-spv2__ic{display:inline-flex;color:var(--plum);margin:0 0 8px}
+  #{{ uid }} .hht-spv2__ic svg{width:30px;height:30px}
+  #{{ uid }} .hht-spv2__ctitle{font-family:var(--serif);font-weight:500;color:var(--ink);
+    font-size:clamp(26px,3vw,34px);line-height:1.15;margin:0}
+  #{{ uid }} .hht-spv2__ctitle em{font-style:italic}
+  #{{ uid }} .hht-spv2__csub{font-family:var(--serif);font-style:italic;color:var(--plum);font-size:18px;margin:6px 0 0}
+  #{{ uid }} .hht-spv2__body{padding:8px 26px 22px}
+  #{{ uid }} .hht-spv2__intro{font-size:14px;line-height:1.6;color:var(--body);margin:16px 0 4px}
+  #{{ uid }} .hht-spv2__note{font-size:12.5px;line-height:1.6;color:var(--body);margin:16px 0 0;padding-top:14px;border-top:1px solid var(--border)}
+  #{{ uid }} .hht-spv2__note a{color:var(--plum);text-decoration:underline;text-underline-offset:2px}
+
+  #{{ uid }} .hht-spv2__row{padding:20px 0;border-bottom:1px solid var(--border)}
+  #{{ uid }} .hht-spv2__row:last-child{border-bottom:0}
+  #{{ uid }} .hht-spv2__rowhead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+  #{{ uid }} .hht-spv2__namewrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+  #{{ uid }} .hht-spv2__name{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink)}
+  #{{ uid }} .hht-spv2__badge{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--lav-strong);background:var(--lav-soft);border-radius:999px;padding:4px 10px;white-space:nowrap}
+  #{{ uid }} .hht-spv2__pricewrap{display:flex;flex-direction:column;align-items:flex-end;text-align:right;white-space:nowrap}
+  #{{ uid }} .hht-spv2__price{font-family:var(--sans);font-weight:600;font-size:22px;color:var(--plum);line-height:1.1}
+  #{{ uid }} .hht-spv2__pricesub{font-family:var(--sans);font-size:11px;color:var(--body);margin-top:2px}
+  #{{ uid }} .hht-spv2__desc{font-size:14px;line-height:1.6;color:var(--body);margin:8px 0 0;max-width:48ch}
+  #{{ uid }} .hht-spv2__bullets{margin:10px 0 0;padding:0;list-style:none}
+  #{{ uid }} .hht-spv2__bullets li{position:relative;font-size:13.5px;line-height:1.55;color:var(--body);padding-left:16px;margin:3px 0}
+  #{{ uid }} .hht-spv2__bullets li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--lav)}
+  #{{ uid }} .hht-spv2__btn{display:inline-flex;align-items:center;justify-content:center;margin-top:14px;height:36px;min-width:150px;
+    padding:0 22px;border-radius:6px;border:1px solid var(--lav);background:var(--lav);color:var(--white);
+    font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;cursor:pointer;transition:background .25s ease,border-color .25s ease}
+  #{{ uid }} .hht-spv2__btn:hover,#{{ uid }} .hht-spv2__btn:focus-visible{background:var(--plum);border-color:var(--plum);outline:none}
+  #{{ uid }} .hht-spv2__btn:focus-visible{box-shadow:0 0 0 3px rgba(166,159,226,.35)}
+  #{{ uid }} .hht-spv2__card--acc .hht-spv2__row{padding:13px 0}
+  #{{ uid }} .hht-spv2__card--acc .hht-spv2__desc{margin-top:4px}
+
+  @media (max-width:760px){
+    #{{ uid }}{padding:56px 0}
+    #{{ uid }} .hht-spv2__grid{grid-template-columns:1fr;gap:18px}
+    #{{ uid }} .hht-spv2__card,#{{ uid }} .hht-spv2__card--full{grid-column:1 / -1}
+    #{{ uid }} .hht-spv2__btn{width:100%}
+    #{{ uid }} .hht-spv2__tab{flex:1 1 auto;min-width:0}
+  }
+</style>
+
+<script>
+(function(){
+  "use strict";
+  var root = document.getElementById('{{ uid }}');
+  if(!root) return;
+  var panel = root.querySelector('[data-panel]');
+
+  var URL = {
+    austin:  { book: {{ book_austin | json }},  join: {{ section.settings.membership_austin_url | json }},  pack: {{ section.settings.package_austin_url | json }} },
+    houston: { book: {{ book_houston | json }}, join: {{ section.settings.membership_houston_url | json }}, pack: {{ section.settings.package_houston_url | json }} },
+    dallas:  { book: {{ book_dallas | json }},  join: {{ section.settings.membership_dallas_url | json }},  pack: {{ section.settings.package_dallas_url | json }} }
+  };
+
+  var ICONS = {
+    sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+    sparkle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9.4 13.8 11.2 12 15.8 10.2 11.2 5.5 9.4l4.7-1.8z"/><path d="M18 14l.7 1.8L20.5 16.5l-1.8.7L18 19l-.7-1.8L15.5 16.5l1.8-.7z"/></svg>',
+    sunrise:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M5.6 8.6l1.4 1.4M2 15h2M20 15h2M17 10l1.4-1.4M8 17a4 4 0 0 1 8 0"/><path d="M2 21h20M9 6l3-3 3 3"/></svg>',
+    crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5z"/><path d="M5 21h14"/></svg>',
+    gift:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9"/><path d="M12 8S11 3 8.5 3 6 6 6 6s2 2 6 2zM12 8s1-5 3.5-5S18 6 18 6s-2 2-6 2z"/></svg>',
+    star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg>',
+    heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.6 5.5 4.8 4.8 7 4.3 9 5.6 12 8c3-2.4 5-3.7 7.2-3.2 3.2.7 4.2 4.2 2.8 7C19.5 16.4 12 21 12 21z"/></svg>',
+    tooth:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.5 4 8.5 3.4 6.8 4 4.6 4.8 3.6 7.2 4 10c.4 2.6.9 4.3 1.6 7.3.3 1.3.6 2.7 1.6 2.7 1.2 0 1.3-1.6 1.7-3.3.3-1.4.7-2.4 1.5-2.4s1.2 1 1.5 2.4c.4 1.7.5 3.3 1.7 3.3 1 0 1.3-1.4 1.6-2.7.7-3 1.2-4.7 1.6-7.3.4-2.8-.6-5.2-2.8-6C15.5 3.4 13.5 4 12 5.5z"/></svg>',
+    bag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>'
+  };
+
+  function makeLocation(cfg){
+    var U = cfg.urls, cats = [];
+    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First-timer? Start here.', rows:[
+      { name:'Custom Glow', badge:'Most Popular', desc:'Our most popular airbrush spray tan customized to your unique skin tone', price:'$'+cfg.core.custom, btn:{label:'Book Now',url:U.book} },
+      { name:'Clear Glow', badge:'First-Timer Fave', desc:'A clear solution that will not rub off on clothing', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
+      { name:'Rapid Glow', badge:'Fast Results', desc:'Luxurious quick spray tan that develops in 3 hours', price:'$'+cfg.core.rapid, btn:{label:'Book Now',url:U.book} }
+    ]});
+    cats.push({ icon:'sparkle', title:'Add Ons', span:'half', rows:[
+      { name:'Gold Glow', desc:'Gold drops added', price:'$'+cfg.addons.gold, btn:{label:'Book Now',url:U.book} },
+      { name:'Bye Bye Tan Line', desc:'Tan line erasing', price:'$'+cfg.addons.byebye, btn:{label:'Book Now',url:U.book} },
+      { name:'Brazilian Glow', desc:'Our famous double-dip', price:'$'+cfg.addons.brazilian, btn:{label:'Book Now',url:U.book} }
+    ]});
+    cats.push({ icon:'sunrise', title:'Partial Tans', span:'half', rows:[
+      { name:'Face', desc:'A sun-kissed glow for the face', price:'$'+cfg.partial.face, btn:{label:'Book Now',url:U.book} },
+      { name:'Partial Upper or Lower', desc:'Arms, chest and up (no face), or below the knees', price:'$'+cfg.partial.partial, btn:{label:'Book Now',url:U.book} },
+      { name:'Upper or Lower', desc:'Waist up (no face), or waist down', price:'$'+cfg.partial.upperlower, btn:{label:'Book Now',url:U.book} }
+    ]});
+    var memB = function(t){ return [ t+' tans per month', '10% off Hush Hush Tan products', 'Additional custom tan discounted rate only $'+cfg.memb.addl ]; };
+    cats.push({ icon:'crown', title:'Memberships', span:'half',
+      intro:'Keep your glow looking fresh and fierce all month long with one of our 3-month memberships that save you money on regular tans.',
+      note:'Tans do not rollover. 30-day written notice is required via email to <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a>. Memberships can be frozen for a $10 monthly fee.',
+      rows:[
+        { name:'Absolute', bullets:memB(4), price:'$'+cfg.memb.absolute, priceSub:'per month', btn:{label:'Join Now',url:U.join} },
+        { name:'Deluxe',   bullets:memB(3), price:'$'+cfg.memb.deluxe,   priceSub:'per month', btn:{label:'Join Now',url:U.join} },
+        { name:'Glow',     bullets:memB(2), price:'$'+cfg.memb.glow,     priceSub:'per month', btn:{label:'Join Now',url:U.join} }
+      ]});
+    var pkSub = '$'+cfg.pack.session+'/session · one-time';
+    cats.push({ icon:'gift', title:'Tan Packages', span:'half',
+      intro:'Not ready for a membership? You can still save with these glowing deals on pre-paid packages.',
+      rows:[
+        { name:'Elite Glow', desc:'Package of 15 Custom Glows', price:'$'+cfg.pack.elite, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} },
+        { name:'Ultimate Glow', badge:'Best Value', desc:'Package of 10 Custom Glows', price:'$'+cfg.pack.ultimate, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} },
+        { name:'Glow-Getter', desc:'Package of 5 Custom Glows', price:'$'+cfg.pack.getter, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} }
+      ]});
+    cats.push({ icon:'star', title:'Special Offer', span:'half', rows:[
+      { name:'Happy Birthday Glow', desc:'Get one discounted Custom Glow during your birthday month', price:'$'+cfg.special, btn:{label:'Book Now',url:U.book} }
+    ]});
+    var groupRows = [{ name:cfg.group.label, desc:'Choice of clear glow, custom glow, or winter glow and complimentary bubbles or mimosas. 5 person minimum.', price:'$'+cfg.group.instore, priceSub:'per person', btn:{label:'Book Now',url:U.book} }];
+    if(cfg.group.mobile){ groupRows.push({ name:'Mobile Tanning', desc:'With Hush Hush mobile tanning, a tanning specialist comes to you. 5 person minimum.', price:'$'+cfg.group.mobile, priceSub:'per person', btn:{label:'Book Now',url:U.book} }); }
+    cats.push({ icon:'heart', title:'Group Experiences', span:'half', rows:groupRows });
+    if(cfg.teeth){ cats.push({ icon:'tooth', title:'Other Services', span:'full', rows:[
+      { name:'Teeth Whitening', desc:'An express 20-minute session for a dazzling, whiter smile that complements your glowing spray tan', price:'$'+cfg.teeth, btn:{label:'Book Now',url:U.book} }
+    ]}); }
+    cats.push({ icon:'bag', title:'Accessories & Complimentary Gear', span:'full', acc:true, rows:[
+      { name:'Disposable Boxers', price:'$3 / Pair' },
+      { name:'Floral Pasties', price:'$2 / Pair' },
+      { name:'C-String Undies', desc:'Wash and wear for multiple glow sessions', price:'$6 / Pair' },
+      { name:'Disposable Undies', price:'Free' },
+      { name:'Disposable Nose Plugs', price:'Free' },
+      { name:'Disposable Hair Clips', price:'Free' }
+    ]});
+    return cats;
+  }
+
+  var AH = { core:{custom:40,clear:40,rapid:55}, addons:{gold:45,byebye:55,brazilian:50}, partial:{face:5,partial:10,upperlower:20},
+    memb:{absolute:120,deluxe:96,glow:66,addl:35}, pack:{session:35,elite:525,ultimate:350,getter:175}, special:34, teeth:null };
+  function assign(o){ var r={},i,a; for(i=0;i<arguments.length;i++){a=arguments[i];for(var k in a){if(Object.prototype.hasOwnProperty.call(a,k))r[k]=a[k];}} return r; }
+
+  var DATA = {
+    austin:  makeLocation(assign({urls:URL.austin,  group:{label:'In Store Group Tanning & Mimosas',instore:50,mobile:75}}, AH)),
+    houston: makeLocation(assign({urls:URL.houston, group:{label:'In Store Group Tanning & Mimosas',instore:50,mobile:75}}, AH)),
+    dallas:  makeLocation({ urls:URL.dallas,
+      core:{custom:45,clear:45,rapid:60}, addons:{gold:50,byebye:60,brazilian:55}, partial:{face:7,partial:15,upperlower:25},
+      memb:{absolute:140,deluxe:111,glow:78,addl:40}, pack:{session:40,elite:600,ultimate:400,getter:200}, special:38, teeth:79,
+      group:{label:'Group Tanning & Mimosas',instore:55,mobile:null} })
+  };
+
+  function titleHTML(t){ var p=t.split(' '); return '<em>'+p.shift()+'</em>'+(p.length?' '+p.join(' '):''); }
+  function rowHTML(r){
+    var price='<div class="hht-spv2__pricewrap"><span class="hht-spv2__price">'+r.price+'</span>'+(r.priceSub?'<span class="hht-spv2__pricesub">'+r.priceSub+'</span>':'')+'</div>';
+    var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+(r.badge?'<span class="hht-spv2__badge">'+r.badge+'</span>':'')+'</div>';
+    var detail=r.bullets?'<ul class="hht-spv2__bullets">'+r.bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>':(r.desc?'<p class="hht-spv2__desc">'+r.desc+'</p>':'');
+    var btn=r.btn?'<a class="hht-spv2__btn" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
+    return '<div class="hht-spv2__row"><div class="hht-spv2__rowhead">'+name+price+'</div>'+detail+btn+'</div>';
+  }
+  function cardHTML(c){
+    var head='<div class="hht-spv2__head"><span class="hht-spv2__ic">'+(ICONS[c.icon]||'')+'</span><h3 class="hht-spv2__ctitle">'+titleHTML(c.title)+'</h3>'+(c.subtitle?'<p class="hht-spv2__csub">'+c.subtitle+'</p>':'')+'</div>';
+    var body='<div class="hht-spv2__body">'+(c.intro?'<p class="hht-spv2__intro">'+c.intro+'</p>':'')+c.rows.map(rowHTML).join('')+(c.note?'<p class="hht-spv2__note">'+c.note+'</p>':'')+'</div>';
+    return '<div class="hht-spv2__card'+(c.span==='full'?' hht-spv2__card--full':'')+(c.acc?' hht-spv2__card--acc':'')+'">'+head+body+'</div>';
+  }
+  function render(loc){ panel.innerHTML = DATA[loc].map(cardHTML).join(''); }
+
+  var tabs = [].slice.call(root.querySelectorAll('[data-tab]'));
+  function activate(tab){
+    tabs.forEach(function(t){ var on=t===tab; t.classList.toggle('is-active',on); t.setAttribute('aria-selected',on?'true':'false'); });
+    render(tab.getAttribute('data-tab'));
+  }
+  tabs.forEach(function(tab,i){
+    tab.addEventListener('click', function(){ activate(tab); });
+    tab.addEventListener('keydown', function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){ e.preventDefault(); var d=e.key==='ArrowRight'?1:-1; var n=tabs[(i+d+tabs.length)%tabs.length]; n.focus(); activate(n); }
+    });
+  });
+  render('austin');
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Services / Pricing V2",
+  "tag": "section",
+  "class": "section-services-pricing-v2",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Services" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Select a location to get started:" },
+    { "type": "checkbox", "id": "homepage_anchors", "label": "Add #services / #memberships scroll anchors", "info": "Keep on when this section is the homepage services/pricing block so the hero CTAs scroll here.", "default": true },
+    { "type": "header", "content": "Booker links — Memberships (JOIN NOW)", "info": "Defaults are the live-site audited Booker URLs. Confirm final URLs with client." },
+    { "type": "text", "id": "membership_austin_url",  "label": "Austin membership URL",  "default": "https://go.booker.com/location/hushhushtan/buy/membership" },
+    { "type": "text", "id": "membership_houston_url", "label": "Houston membership URL", "default": "https://go.booker.com/location/hushhushtanhouston/buy/membership" },
+    { "type": "text", "id": "membership_dallas_url",  "label": "Dallas membership URL",  "default": "https://go.booker.com/location/hushhushtandallas/buy/membership" },
+    { "type": "header", "content": "Booker links — Packages (BUY PACKAGE)" },
+    { "type": "text", "id": "package_austin_url",  "label": "Austin packages URL",  "default": "https://go.booker.com/location/hushhushtan/buy/series" },
+    { "type": "text", "id": "package_houston_url", "label": "Houston packages URL", "default": "https://go.booker.com/location/hushhushtanhouston/buy/series" },
+    { "type": "text", "id": "package_dallas_url",  "label": "Dallas packages URL",  "default": "https://go.booker.com/location/hushhushtandallas/buy/series" }
+  ],
+  "presets": [{ "name": "Services / Pricing V2" }]
+}
+{% endschema %}
