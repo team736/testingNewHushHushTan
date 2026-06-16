@@ -1,12 +1,17 @@
 {%- liquid
   assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
   assign book_text = section.settings.book_text | default: 'Book Your Glow'
+  if book_url == blank
+    assign book_url = 'https://go.booker.com/location/hushhushtan/service-menu'
+  endif
+  assign menu_index = 0
 -%}
 
 <footer class="hht-footer" role="contentinfo">
   <div class="container hht-footer__inner">
-    <div class="hht-footer__main">
-      <div class="hht-footer__brand">
+    <div class="hht-footer__grid">
+      {%- comment -%} Column 1 — Brand {%- endcomment -%}
+      <div class="hht-footer__col hht-footer__col--brand">
         <a href="{{ routes.root_url }}" class="hht-footer__logo" aria-label="{{ shop.name }} — Home">
           {%- if settings.logo != blank -%}
             <img src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
@@ -14,102 +19,99 @@
             <span class="hht-footer__logo-text">{{ shop.name }}</span>
           {%- endif -%}
         </a>
+
+        <div class="hht-footer__social-row" aria-label="Social media">
+          {%- if settings.social_facebook != blank -%}
+            <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener">Fb.</a>
+          {%- endif -%}
+          {%- if settings.social_instagram != blank -%}
+            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Ig.</a>
+          {%- endif -%}
+          {%- if settings.social_tiktok != blank -%}
+            <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">Tt.</a>
+          {%- endif -%}
+          {%- if settings.social_pinterest != blank -%}
+            <a href="{{ settings.social_pinterest }}" target="_blank" rel="noopener">Pin.</a>
+          {%- endif -%}
+        </div>
+
         {%- if section.settings.brand_tagline != blank -%}
           <p class="hht-footer__tagline">{{ section.settings.brand_tagline }}</p>
         {%- endif -%}
-        <a href="{{ book_url }}" class="btn btn--lavender hht-footer__book" target="_blank" rel="noopener">{{ book_text }}</a>
-        <div class="hht-footer__social">
-          {%- if settings.social_instagram != blank -%}
-            <a href="{{ settings.social_instagram }}" class="hht-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}</a>
-          {%- endif -%}
-          {%- if settings.social_facebook != blank -%}
-            <a href="{{ settings.social_facebook }}" class="hht-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">{% render 'icon', name: 'facebook' %}</a>
-          {%- endif -%}
-          {%- if settings.social_tiktok != blank -%}
-            <a href="{{ settings.social_tiktok }}" class="hht-footer__social-link" aria-label="TikTok" target="_blank" rel="noopener">{% render 'icon', name: 'tiktok' %}</a>
-          {%- endif -%}
-          {%- if settings.social_pinterest != blank -%}
-            <a href="{{ settings.social_pinterest }}" class="hht-footer__social-link" aria-label="Pinterest" target="_blank" rel="noopener">{% render 'icon', name: 'pinterest' %}</a>
-          {%- endif -%}
-        </div>
+
+        <a href="{{ book_url }}" class="hht-footer__book-link" target="_blank" rel="noopener">{{ book_text }} →</a>
       </div>
 
-      <div class="hht-footer__columns">
+      {%- comment -%} Column 2 — Menu groups 1–2 {%- endcomment -%}
+      <div class="hht-footer__col hht-footer__col--menus">
         {%- for block in section.blocks -%}
           {%- if block.type == 'menu_column' -%}
-            <div class="hht-footer__col" {{ block.shopify_attributes }}>
-              <h3 class="hht-footer__col-title">{{ block.settings.heading }}</h3>
-              <ul class="hht-footer__links">
-                {%- if block.settings.menu != blank -%}
-                  {%- for link in block.settings.menu.links -%}
-                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                  {%- endfor -%}
-                {%- else -%}
-                  {%- assign items = block.settings.fallback_items | newline_to_br | split: '<br />' -%}
-                  {%- for item in items -%}
-                    {%- assign parts = item | split: '|' -%}
-                    {%- assign link_title = parts[0] | strip -%}
-                    {%- assign link_url = parts[1] | default: '' | strip -%}
-                    {%- if link_title != blank and link_url != blank and link_url != '#' -%}
-                      <li><a href="{{ link_url }}">{{ link_title }}</a></li>
-                    {%- endif -%}
-                  {%- endfor -%}
-                {%- endif -%}
-              </ul>
-            </div>
+            {%- assign menu_index = menu_index | plus: 1 -%}
+            {%- if menu_index <= 2 -%}
+              {% render 'footer-menu-block', block: block %}
+            {%- endif -%}
           {%- endif -%}
         {%- endfor -%}
       </div>
 
+      {%- comment -%} Column 3 — Menu groups 3–4 {%- endcomment -%}
+      <div class="hht-footer__col hht-footer__col--menus">
+        {%- assign menu_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'menu_column' -%}
+            {%- assign menu_index = menu_index | plus: 1 -%}
+            {%- if menu_index > 2 -%}
+              {% render 'footer-menu-block', block: block %}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
+      {%- comment -%} Column 4 — Newsletter {%- endcomment -%}
       {%- for block in section.blocks -%}
         {%- if block.type == 'newsletter' -%}
-          <div class="hht-footer__newsletter" {{ block.shopify_attributes }}>
-            <div class="hht-footer__newsletter-card">
-              {%- if block.settings.eyebrow != blank -%}
-                <span class="hht-footer__newsletter-eyebrow">{{ block.settings.eyebrow }}</span>
-              {%- endif -%}
-              <h3 class="hht-footer__newsletter-title">{{ block.settings.heading }}</h3>
-              {%- if block.settings.text != blank -%}
-                <p class="hht-footer__newsletter-text">{{ block.settings.text }}</p>
-              {%- endif -%}
+          <div class="hht-footer__col hht-footer__col--newsletter" {{ block.shopify_attributes }}>
+            <h3 class="hht-footer__newsletter-title">{{ block.settings.heading | default: 'Sign up for the newsletter' }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p class="hht-footer__newsletter-text">{{ block.settings.text }}</p>
+            {%- endif -%}
 
-              {%- assign footer_newsletter_id = 'footer-newsletter-' | append: section.id -%}
-              {%- form 'customer', class: 'hht-footer__newsletter-form', id: footer_newsletter_id -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
+            {%- assign footer_newsletter_id = 'footer-newsletter-' | append: section.id -%}
+            {%- form 'customer', class: 'hht-footer__newsletter-form', id: footer_newsletter_id -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
 
-                {%- if form.posted_successfully? -%}
-                  <p class="hht-footer__newsletter-message hht-footer__newsletter-message--success" role="status">
-                    {{ block.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
+              {%- if form.posted_successfully? -%}
+                <p class="hht-footer__newsletter-message hht-footer__newsletter-message--success" role="status">
+                  {{ block.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
+                </p>
+              {%- else -%}
+                {%- if form.errors -%}
+                  <p class="hht-footer__newsletter-message hht-footer__newsletter-message--error" role="alert">
+                    {{ form.errors | default_errors }}
                   </p>
-                {%- else -%}
-                  {%- if form.errors -%}
-                    <p class="hht-footer__newsletter-message hht-footer__newsletter-message--error" role="alert">
-                      {{ form.errors | default_errors }}
-                    </p>
-                  {%- endif -%}
-
-                  <div class="hht-footer__newsletter-fields">
-                    <label class="visually-hidden" for="footer-email-{{ section.id }}">Email address</label>
-                    <input
-                      type="email"
-                      id="footer-email-{{ section.id }}"
-                      name="contact[email]"
-                      class="hht-footer__newsletter-input"
-                      placeholder="{{ block.settings.placeholder | default: 'Enter your email address' }}"
-                      autocomplete="email"
-                      required
-                      {% if form.errors %}aria-invalid="true"{% endif %}>
-                    <button type="submit" class="hht-footer__newsletter-submit">
-                      {{ block.settings.button_text | default: 'Subscribe →' }}
-                    </button>
-                  </div>
                 {%- endif -%}
-              {%- endform -%}
 
-              {%- if block.settings.disclaimer != blank -%}
-                <p class="hht-footer__newsletter-disclaimer">{{ block.settings.disclaimer }}</p>
+                <div class="hht-footer__signup-pill">
+                  <label class="visually-hidden" for="footer-email-{{ section.id }}">Email address</label>
+                  <input
+                    type="email"
+                    id="footer-email-{{ section.id }}"
+                    name="contact[email]"
+                    class="hht-footer__signup-input"
+                    placeholder="{{ block.settings.placeholder | default: 'Email address' }}"
+                    autocomplete="email"
+                    required
+                    {% if form.errors %}aria-invalid="true"{% endif %}>
+                  <button type="submit" class="hht-footer__signup-btn">
+                    {{ block.settings.button_text | default: 'Sign Up' }}
+                  </button>
+                </div>
               {%- endif -%}
-            </div>
+            {%- endform -%}
+
+            {%- if block.settings.disclaimer != blank -%}
+              <p class="hht-footer__newsletter-disclaimer">{{ block.settings.disclaimer }}</p>
+            {%- endif -%}
           </div>
         {%- endif -%}
       {%- endfor -%}
@@ -126,7 +128,7 @@
         <a href="/pages/sitemap">Sitemap</a>
       </div>
       <div class="hht-footer__payments" aria-label="Accepted payment methods">
-        <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>Apple Pay</span>
+        <span>Visa</span><span>MC</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
       </div>
     </div>
   </div>
@@ -139,25 +141,25 @@
     {
       "type": "textarea",
       "id": "brand_tagline",
-      "label": "Brand tagline",
-      "default": "Customizable spray tanning studios in Austin, Dallas, and Houston."
+      "label": "Brand description",
+      "default": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence."
     },
     {
       "type": "text",
       "id": "book_text",
-      "label": "Book button text",
+      "label": "Book link text",
       "default": "Book Your Glow"
     },
     {
       "type": "url",
       "id": "book_url",
-      "label": "Book button URL"
+      "label": "Book link URL"
     },
     {
       "type": "text",
       "id": "colophon",
-      "label": "Copyright line",
-      "default": "Healthier glow. Flawless confidence."
+      "label": "Copyright tagline",
+      "default": "All rights reserved."
     }
   ],
   "blocks": [
@@ -175,11 +177,10 @@
       "name": "Newsletter",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get In The Know" },
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Glow tips, offers & event invites" },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Join us for new drops, packages and special offers." },
-        { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "Enter your email address" },
-        { "type": "text", "id": "button_text", "label": "Button text", "default": "Subscribe →" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Sign up for the newsletter" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Join us for glow tips, new drops, packages and special offers." },
+        { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "Email address" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Sign Up" },
         { "type": "text", "id": "success_message", "label": "Success message" },
         { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "We respect your privacy. Unsubscribe anytime." }
       ]
@@ -188,7 +189,7 @@
   "max_blocks": 6,
   "default": {
     "blocks": [
-      { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/\nSitemap|/pages/sitemap" } },
+      { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/" } },
       { "type": "menu_column", "settings": { "heading": "Shop & Services", "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips" } },
       { "type": "menu_column", "settings": { "heading": "Support", "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
       { "type": "menu_column", "settings": { "heading": "Locations", "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },

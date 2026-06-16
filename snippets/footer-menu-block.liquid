@@ -1,0 +1,23 @@
+{%- comment -%}
+  Footer menu group — usage: {% render 'footer-menu-block', block: block %}
+{%- endcomment -%}
+<div class="hht-footer__menu-group" {{ block.shopify_attributes }}>
+  <h3 class="hht-footer__col-title">{{ block.settings.heading }}</h3>
+  <ul class="hht-footer__links">
+    {%- if block.settings.menu != blank -%}
+      {%- for link in block.settings.menu.links -%}
+        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+      {%- endfor -%}
+    {%- else -%}
+      {%- assign items = block.settings.fallback_items | newline_to_br | split: '<br />' -%}
+      {%- for item in items -%}
+        {%- assign parts = item | split: '|' -%}
+        {%- assign link_title = parts[0] | strip -%}
+        {%- assign link_url = parts[1] | default: '' | strip -%}
+        {%- if link_title != blank and link_url != blank and link_url != '#' -%}
+          <li><a href="{{ link_url }}">{{ link_title }}</a></li>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  </ul>
+</div>
