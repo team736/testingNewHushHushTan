@@ -1,58 +1,133 @@
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <div class="site-footer__top">
+{%- liquid
+  assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+  assign book_text = section.settings.book_text | default: 'Book Your Glow'
+-%}
+
+<footer class="hht-footer" role="contentinfo">
+  <div class="container hht-footer__inner">
+    <div class="hht-footer__main">
+      <div class="hht-footer__brand">
+        <a href="{{ routes.root_url }}" class="hht-footer__logo" aria-label="{{ shop.name }} — Home">
+          {%- if settings.logo != blank -%}
+            <img src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
+          {%- else -%}
+            <span class="hht-footer__logo-text">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+        {%- if section.settings.brand_tagline != blank -%}
+          <p class="hht-footer__tagline">{{ section.settings.brand_tagline }}</p>
+        {%- endif -%}
+        <a href="{{ book_url }}" class="btn btn--lavender hht-footer__book" target="_blank" rel="noopener">{{ book_text }}</a>
+        <div class="hht-footer__social">
+          {%- if settings.social_instagram != blank -%}
+            <a href="{{ settings.social_instagram }}" class="hht-footer__social-link" aria-label="Instagram" target="_blank" rel="noopener">{% render 'icon', name: 'instagram' %}</a>
+          {%- endif -%}
+          {%- if settings.social_facebook != blank -%}
+            <a href="{{ settings.social_facebook }}" class="hht-footer__social-link" aria-label="Facebook" target="_blank" rel="noopener">{% render 'icon', name: 'facebook' %}</a>
+          {%- endif -%}
+          {%- if settings.social_tiktok != blank -%}
+            <a href="{{ settings.social_tiktok }}" class="hht-footer__social-link" aria-label="TikTok" target="_blank" rel="noopener">{% render 'icon', name: 'tiktok' %}</a>
+          {%- endif -%}
+          {%- if settings.social_pinterest != blank -%}
+            <a href="{{ settings.social_pinterest }}" class="hht-footer__social-link" aria-label="Pinterest" target="_blank" rel="noopener">{% render 'icon', name: 'pinterest' %}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="hht-footer__columns">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'menu_column' -%}
+            <div class="hht-footer__col" {{ block.shopify_attributes }}>
+              <h3 class="hht-footer__col-title">{{ block.settings.heading }}</h3>
+              <ul class="hht-footer__links">
+                {%- if block.settings.menu != blank -%}
+                  {%- for link in block.settings.menu.links -%}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {%- endfor -%}
+                {%- else -%}
+                  {%- assign items = block.settings.fallback_items | newline_to_br | split: '<br />' -%}
+                  {%- for item in items -%}
+                    {%- assign parts = item | split: '|' -%}
+                    {%- assign link_title = parts[0] | strip -%}
+                    {%- assign link_url = parts[1] | default: '' | strip -%}
+                    {%- if link_title != blank and link_url != blank and link_url != '#' -%}
+                      <li><a href="{{ link_url }}">{{ link_title }}</a></li>
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%}
+              </ul>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+
       {%- for block in section.blocks -%}
-        {%- if block.type == 'menu_column' -%}
-          <div class="site-footer__col" {{ block.shopify_attributes }}>
-            <h4>{{ block.settings.heading }}</h4>
-            <ul>
-              {%- if block.settings.menu != blank -%}
-                {%- for link in block.settings.menu.links -%}
-                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-                {%- endfor -%}
-              {%- else -%}
-                {%- assign items = block.settings.fallback_items | newline_to_br | split: '<br />' -%}
-                {%- for item in items -%}
-                  {%- assign parts = item | split: '|' -%}
-                  {%- if parts[0] != blank -%}<li><a href="{{ parts[1] | default: '#' | strip }}">{{ parts[0] | strip }}</a></li>{%- endif -%}
-                {%- endfor -%}
+        {%- if block.type == 'newsletter' -%}
+          <div class="hht-footer__newsletter" {{ block.shopify_attributes }}>
+            <div class="hht-footer__newsletter-card">
+              {%- if block.settings.eyebrow != blank -%}
+                <span class="hht-footer__newsletter-eyebrow">{{ block.settings.eyebrow }}</span>
               {%- endif -%}
-            </ul>
-          </div>
-        {%- elsif block.type == 'newsletter' -%}
-          <div class="site-footer__newsletter" {{ block.shopify_attributes }}>
-            <h4>{{ block.settings.heading }}</h4>
-            <p class="muted" style="font-size: .92rem; margin-bottom: 18px;">{{ block.settings.text }}</p>
-            {%- form 'customer', class: 'newsletter-form' -%}
-              <input type="hidden" name="contact[tags]" value="newsletter">
-              <input type="email" name="contact[email]" placeholder="Enter your email address" required>
-              <button type="submit">Subscribe →</button>
-            {%- endform -%}
+              <h3 class="hht-footer__newsletter-title">{{ block.settings.heading }}</h3>
+              {%- if block.settings.text != blank -%}
+                <p class="hht-footer__newsletter-text">{{ block.settings.text }}</p>
+              {%- endif -%}
+
+              {%- assign footer_newsletter_id = 'footer-newsletter-' | append: section.id -%}
+              {%- form 'customer', class: 'hht-footer__newsletter-form', id: footer_newsletter_id -%}
+                <input type="hidden" name="contact[tags]" value="newsletter">
+
+                {%- if form.posted_successfully? -%}
+                  <p class="hht-footer__newsletter-message hht-footer__newsletter-message--success" role="status">
+                    {{ block.settings.success_message | default: 'Thank you for subscribing. Check your inbox for glow tips and offers.' }}
+                  </p>
+                {%- else -%}
+                  {%- if form.errors -%}
+                    <p class="hht-footer__newsletter-message hht-footer__newsletter-message--error" role="alert">
+                      {{ form.errors | default_errors }}
+                    </p>
+                  {%- endif -%}
+
+                  <div class="hht-footer__newsletter-fields">
+                    <label class="visually-hidden" for="footer-email-{{ section.id }}">Email address</label>
+                    <input
+                      type="email"
+                      id="footer-email-{{ section.id }}"
+                      name="contact[email]"
+                      class="hht-footer__newsletter-input"
+                      placeholder="{{ block.settings.placeholder | default: 'Enter your email address' }}"
+                      autocomplete="email"
+                      required
+                      {% if form.errors %}aria-invalid="true"{% endif %}>
+                    <button type="submit" class="hht-footer__newsletter-submit">
+                      {{ block.settings.button_text | default: 'Subscribe →' }}
+                    </button>
+                  </div>
+                {%- endif -%}
+              {%- endform -%}
+
+              {%- if block.settings.disclaimer != blank -%}
+                <p class="hht-footer__newsletter-disclaimer">{{ block.settings.disclaimer }}</p>
+              {%- endif -%}
+            </div>
           </div>
         {%- endif -%}
       {%- endfor -%}
     </div>
 
-    <div class="site-footer__bottom">
-      <div class="site-footer__social">
-        {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" aria-label="Instagram">{% render 'icon', name: 'instagram' %}</a>{%- endif -%}
-        {%- if settings.social_facebook  != blank -%}<a href="{{ settings.social_facebook  }}" aria-label="Facebook">{%  render 'icon', name: 'facebook'  %}</a>{%- endif -%}
-        {%- if settings.social_tiktok    != blank -%}<a href="{{ settings.social_tiktok    }}" aria-label="TikTok">{%    render 'icon', name: 'tiktok'    %}</a>{%- endif -%}
-        {%- if settings.social_pinterest != blank -%}<a href="{{ settings.social_pinterest }}" aria-label="Pinterest">{% render 'icon', name: 'pinterest' %}</a>{%- endif -%}
+    <div class="hht-footer__bottom">
+      <p class="hht-footer__copy">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}
+        {%- if section.settings.colophon != blank -%}<span class="hht-footer__copy-sep" aria-hidden="true">·</span>{{ section.settings.colophon }}{%- endif -%}
+      </p>
+      <div class="hht-footer__legal">
+        <a href="/policies/privacy-policy">Privacy</a>
+        <a href="/policies/terms-of-service">Terms</a>
+        <a href="/pages/sitemap">Sitemap</a>
       </div>
-      <a href="{{ routes.root_url }}" class="site-footer__logo">
-        {%- if settings.logo != blank -%}
-          <img src="{{ settings.logo | image_url: width: 240 }}" alt="{{ shop.name }}" width="160" height="40" style="height:auto;" loading="lazy">
-        {%- else -%}
-          {{ shop.name }}
-        {%- endif -%}
-      </a>
-      <div class="site-footer__payments">
-        <span>VISA</span><span>MC</span><span>AMEX</span><span>PAYPAL</span><span>APPLE</span>
+      <div class="hht-footer__payments" aria-label="Accepted payment methods">
+        <span>VISA</span><span>MC</span><span>AMEX</span><span>PayPal</span><span>Apple Pay</span>
       </div>
-    </div>
-    <div class="text-center" style="margin-top: 18px; color: var(--muted); font-size: .82rem;">
-      © {{ 'now' | date: '%Y' }} {{ shop.name }} · {{ section.settings.colophon }}
     </div>
   </div>
 </footer>
@@ -61,7 +136,29 @@
 {
   "name": "Footer",
   "settings": [
-    { "type": "text", "id": "colophon", "label": "Bottom text", "default": "Customizable spray tanning · Austin · Dallas · Houston" }
+    {
+      "type": "textarea",
+      "id": "brand_tagline",
+      "label": "Brand tagline",
+      "default": "Customizable spray tanning studios in Austin, Dallas, and Houston."
+    },
+    {
+      "type": "text",
+      "id": "book_text",
+      "label": "Book button text",
+      "default": "Book Your Glow"
+    },
+    {
+      "type": "url",
+      "id": "book_url",
+      "label": "Book button URL"
+    },
+    {
+      "type": "text",
+      "id": "colophon",
+      "label": "Copyright line",
+      "default": "Healthier glow. Flawless confidence."
+    }
   ],
   "blocks": [
     {
@@ -78,17 +175,22 @@
       "name": "Newsletter",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "heading", "label": "Heading", "default": "Good emails." },
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Enter your email below to be the first to know about new collections and product launches." }
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Get In The Know" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Glow tips, offers & event invites" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Join us for new drops, packages and special offers." },
+        { "type": "text", "id": "placeholder", "label": "Email placeholder", "default": "Enter your email address" },
+        { "type": "text", "id": "button_text", "label": "Button text", "default": "Subscribe →" },
+        { "type": "text", "id": "success_message", "label": "Success message" },
+        { "type": "text", "id": "disclaimer", "label": "Disclaimer", "default": "We respect your privacy. Unsubscribe anytime." }
       ]
     }
   ],
   "max_blocks": 6,
   "default": {
     "blocks": [
-      { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/\nSitemap|/sitemap.xml" } },
-      { "type": "menu_column", "settings": { "heading": "Useful Links", "fallback_items": "Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nAustin Mobile Tanning|/pages/mobile-spray-tan\nParental Consent Form|https://docs.google.com/forms/d/e/1FAIpQLSemwKKAfDiy9N901J4PoE1oBDY2ZbLfGtbPSLMokwVHhiH_Ag/viewform" } },
-      { "type": "menu_column", "settings": { "heading": "Information", "fallback_items": "Contact|/pages/contact\nFAQ|/pages/faqs\nShipping|/pages/shipping\nTanning Tips|/pages/tanning-tips\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
+      { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/\nSitemap|/pages/sitemap" } },
+      { "type": "menu_column", "settings": { "heading": "Shop & Services", "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips" } },
+      { "type": "menu_column", "settings": { "heading": "Support", "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
       { "type": "menu_column", "settings": { "heading": "Locations", "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },
       { "type": "newsletter" }
     ]
