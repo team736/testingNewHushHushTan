@@ -5610,6 +5610,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 
 /* Media column (bleeds to panel edge) */
 .hero2__media { position: relative; min-width: 0; }
+.hero2__media-inner { position: relative; width: 100%; height: 100%; }
 .hero2__image {
   display: block;
   width: 100%;
@@ -5625,6 +5626,21 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   pointer-events: none;
   background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.55) 14%, rgba(255, 255, 255, 0) 34%);
 }
+
+/* Slide 1 — contained 400x400 square image (not full-bleed) */
+.hero2__slide--boxed .hero2__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px, 2vw, 28px);
+}
+.hero2__slide--boxed .hero2__media::before { display: none; }
+.hero2__slide--boxed .hero2__media-inner {
+  width: min(400px, 100%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+.hero2__slide--boxed .hero2__image { border-radius: 20px; }
 .hero2__pills {
   position: absolute;
   top: clamp(16px, 2vw, 24px);

@@ -17,7 +17,7 @@
   endif
 -%}
 <article
-  class="hero2__slide{% if is_first %} is-active{% endif %}"
+  class="hero2__slide{% if is_first %} is-active hero2__slide--boxed{% endif %}"
   data-hero-slide="{{ slide_index }}"
   aria-hidden="{% if is_first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}>
@@ -60,33 +60,35 @@
   </div>
 
   <div class="hero2__media">
-    {%- if block.settings.image != blank -%}
-      <img
-        src="{{ block.settings.image | image_url: width: 1400 }}"
-        srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1400 }} 1400w"
-        sizes="(min-width: 990px) 52vw, 100vw"
-        alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
-        width="1400"
-        height="1180"
-        class="hero2__image"
-        {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-    {%- else -%}
-      <img
-        src="{{ image_fallback | asset_url }}"
-        alt="{{ block.settings.title_line1 | escape }}"
-        width="1400"
-        height="1180"
-        class="hero2__image"
-        {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-    {%- endif -%}
+    <div class="hero2__media-inner">
+      {%- if block.settings.image != blank -%}
+        <img
+          src="{{ block.settings.image | image_url: width: 1400 }}"
+          srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1400 }} 1400w"
+          sizes="(min-width: 990px) 52vw, 100vw"
+          alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
+          width="1400"
+          height="1180"
+          class="hero2__image"
+          {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- else -%}
+        <img
+          src="{{ image_fallback | asset_url }}"
+          alt="{{ block.settings.title_line1 | escape }}"
+          width="1400"
+          height="1180"
+          class="hero2__image"
+          {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+      {%- endif -%}
 
-    {%- if show_pills -%}
-      <div class="hero2__pills" aria-hidden="true">
-        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
-        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
-        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
-        <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Spray Tanning</span></span>
-      </div>
-    {%- endif -%}
+      {%- if show_pills -%}
+        <div class="hero2__pills" aria-hidden="true">
+          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
+          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
+          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
+          <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Spray Tanning</span></span>
+        </div>
+      {%- endif -%}
+    </div>
   </div>
 </article>
