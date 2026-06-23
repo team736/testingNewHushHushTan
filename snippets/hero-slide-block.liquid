@@ -17,20 +17,23 @@
   endif
 -%}
 <article
-  class="hero2__slide{% if is_first %} is-active hero2__slide--boxed{% endif %}"
+  class="hero2__slide{% if is_first %} is-active{% endif %}"
   data-hero-slide="{{ slide_index }}"
   aria-hidden="{% if is_first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}>
 
   <div class="hero2__copy">
     {%- if block.settings.eyebrow != blank -%}
-      <span class="hero2__eyebrow">{{ block.settings.eyebrow }}</span>
+      <span class="hero2__eyebrow">
+        {{ block.settings.eyebrow }}
+        <span class="hero2__eyebrow-icon" aria-hidden="true">{% render 'icon', name: 'sparkle' %}</span>
+      </span>
     {%- endif -%}
 
     {%- if is_first -%}<h1 class="hero2__title">{%- else -%}<h2 class="hero2__title">{%- endif -%}
       {{ block.settings.title_line1 }}
       {%- if block.settings.title_line2 != blank -%}
-        <br><span class="hero2__title-accent">{{ block.settings.title_line2 }}</span>
+        <br><em class="hero2__title-accent">{{ block.settings.title_line2 }}</em>
       {%- endif -%}
       {%- if block.settings.title_line3 != blank -%}
         <br>{{ block.settings.title_line3 }}
@@ -50,13 +53,23 @@
       {%- endif -%}
     </div>
 
-    <div class="hero2__trust">
-      <span class="hero2__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Award Winning</span></span>
-      <span class="hero2__trust-divider" aria-hidden="true"></span>
-      <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Since 2007</span></span>
-      <span class="hero2__trust-divider" aria-hidden="true"></span>
-      <span class="hero2__trust-item">{% render 'icon', name: 'map-pin' %}<span>3 Texas Studios</span></span>
-    </div>
+    {%- if is_first -%}
+      <div class="hero2__trust">
+        <span class="hero2__trust-item">{% render 'icon', name: 'sparkle' %}<span>Clean &amp; Conscious</span></span>
+        <span class="hero2__trust-divider" aria-hidden="true"></span>
+        <span class="hero2__trust-item">{% render 'icon', name: 'heart' %}<span>Custom To You</span></span>
+        <span class="hero2__trust-divider" aria-hidden="true"></span>
+        <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Trusted Since 2007</span></span>
+      </div>
+    {%- else -%}
+      <div class="hero2__trust">
+        <span class="hero2__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Award Winning</span></span>
+        <span class="hero2__trust-divider" aria-hidden="true"></span>
+        <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Since 2007</span></span>
+        <span class="hero2__trust-divider" aria-hidden="true"></span>
+        <span class="hero2__trust-item">{% render 'icon', name: 'map-pin' %}<span>3 Texas Studios</span></span>
+      </div>
+    {%- endif -%}
   </div>
 
   <div class="hero2__media">
@@ -83,10 +96,24 @@
 
       {%- if show_pills -%}
         <div class="hero2__pills" aria-hidden="true">
-          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
-          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
-          <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
-          <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Spray Tanning</span></span>
+          {%- if is_first -%}
+            <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Luxury Experience</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
+          {%- else -%}
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
+            <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Spray Tanning</span></span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if is_first -%}
+        <div class="hero2__float-card" aria-hidden="true">
+          <span class="hero2__float-icon">{% render 'icon', name: 'sparkle' %}</span>
+          <span class="hero2__float-label">Luxury Experience</span>
         </div>
       {%- endif -%}
     </div>

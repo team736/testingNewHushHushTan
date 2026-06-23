@@ -213,7 +213,7 @@
       if (root.getAttribute('data-hero-initialized') === 'true') return;
       root.setAttribute('data-hero-initialized', 'true');
 
-      var slides = root.querySelectorAll('.hero-slider__slide[data-hero-slide]');
+      var slides = root.querySelectorAll('[data-hero-slide]');
       var dots = root.querySelectorAll('[data-hero-dot]');
       if (slides.length < 2) return;
 

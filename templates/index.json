@@ -11,15 +11,15 @@
         "slide-1": {
           "type": "slide",
           "settings": {
-            "eyebrow": "Custom Spray Tanning",
+            "eyebrow": "Luxury Tanning, Elevated.",
             "title_line1": "Healthier Glow.",
             "title_line2": "Flawless",
             "title_line3": "Confidence.",
-            "subtitle": "Customizable spray tanning studios in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
+            "subtitle": "Our custom airbrush tans enhance, not hide. In a clean, luxury studio where you'll always feel your best.",
             "cta_primary_text": "Book Now",
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
+            "cta_secondary_text": "New Client Offer",
+            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "image_fallback": "hht-hero-slide-1.webp",
             "show_pills": true
           }
@@ -56,7 +56,7 @@
             "show_pills": true
           }
         },
-        "std-1": { "type": "standard", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
+        "std-1": { "type": "standard", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your unique undertones." } },
         "std-2": { "type": "standard", "settings": { "icon": "book", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
         "std-3": { "type": "standard", "settings": { "icon": "award", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
         "std-4": { "type": "standard", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
