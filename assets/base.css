@@ -5526,7 +5526,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   align-items: stretch;
-  min-height: clamp(300px, 28vw, 392px);
+  min-height: clamp(236px, 22vw, 330px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -5551,7 +5551,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.5vw, 40px) clamp(24px, 2.8vw, 40px) clamp(26px, 3.5vw, 56px);
+  padding: clamp(18px, 2.2vw, 30px) clamp(22px, 2.4vw, 38px) clamp(18px, 2.2vw, 30px) clamp(26px, 3.5vw, 56px);
 }
 .hero2__eyebrow {
   display: inline-flex;
@@ -5563,17 +5563,17 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
   color: var(--primary);
-  margin-bottom: var(--eyebrow-gap);
+  margin-bottom: clamp(6px, 0.8vw, 10px);
 }
 .hero2__eyebrow svg { width: 14px; height: 14px; color: var(--primary); }
 .hero2__title {
   font-family: var(--font-heading);
   font-weight: 500;
   color: #111111;
-  font-size: var(--type-hero);
+  font-size: clamp(1.9rem, 3.2vw, 3.25rem);
   line-height: var(--lh-hero);
   letter-spacing: 0;
-  margin: 0 0 var(--heading-sub-gap);
+  margin: 0 0 clamp(8px, 1vw, 12px);
   text-transform: none;
 }
 .hero2__title-accent { color: var(--primary); font-style: normal; }
@@ -5583,13 +5583,13 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   font-size: var(--type-body-lg);
   line-height: var(--lh-body-lg);
   max-width: 30rem;
-  margin: 0 0 var(--cta-gap);
+  margin: 0 0 clamp(14px, 1.6vw, 18px);
 }
 .hero2__ctas {
   display: flex;
   flex-wrap: wrap;
   gap: clamp(12px, 1.4vw, 16px);
-  margin-bottom: clamp(14px, 1.6vw, 20px);
+  margin-bottom: clamp(10px, 1.2vw, 14px);
 }
 .hero2__trust {
   display: flex;
@@ -5703,14 +5703,14 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 
 /* The Hush Hush Standard band (merged) */
 .hero2__standard {
-  padding: clamp(20px, 2.2vw, 32px) clamp(24px, 4vw, 56px) clamp(24px, 2.6vw, 38px);
+  padding: clamp(14px, 1.8vw, 24px) clamp(24px, 4vw, 56px) clamp(18px, 2vw, 28px);
 }
 .hero2__standard-head {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(16px, 2.5vw, 32px);
-  margin-bottom: clamp(16px, 1.8vw, 24px);
+  margin-bottom: clamp(10px, 1.4vw, 16px);
 }
 .hero2__standard-rule {
   flex: 1;
@@ -5737,42 +5737,42 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 .hero2__cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(12px, 1.3vw, 18px);
+  gap: clamp(10px, 1.2vw, 16px);
 }
 .hero2__card {
   background: #FFFFFF;
   border: 1px solid var(--line);
   border-radius: 14px;
-  padding: clamp(16px, 1.6vw, 22px);
+  padding: clamp(13px, 1.4vw, 18px);
   box-shadow: 0 18px 50px -42px rgba(143, 131, 214, 0.55);
 }
 .hero2__card-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--soft);
   color: var(--primary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
-.hero2__card-icon svg { width: 22px; height: 22px; }
+.hero2__card-icon svg { width: 20px; height: 20px; }
 .hero2__card-title {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
   line-height: var(--lh-h3);
   letter-spacing: 0;
   text-transform: none;
   color: #111111;
-  margin: 0 0 8px;
+  margin: 0 0 5px;
 }
 .hero2__card-text {
   font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--type-body-sm);
-  line-height: 1.55;
+  line-height: 1.45;
   letter-spacing: 0;
   color: #5F5F68;
   margin: 0;
