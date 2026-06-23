@@ -5502,7 +5502,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
    ============================================================ */
 .hero2 {
   background: linear-gradient(180deg, #F4F2FF 0%, #FBFAFF 100%);
-  padding: clamp(16px, 2vw, 28px) clamp(14px, 2vw, 28px) clamp(28px, 3vw, 48px);
+  padding: clamp(10px, 1.3vw, 16px) clamp(12px, 1.6vw, 22px) clamp(12px, 1.6vw, 22px);
 }
 .hero2__panel {
   width: 100%;
@@ -5526,7 +5526,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   display: grid;
   grid-template-columns: 1fr 1.1fr;
   align-items: stretch;
-  min-height: clamp(440px, 40vw, 560px);
+  min-height: clamp(300px, 28vw, 392px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -5551,7 +5551,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   flex-direction: column;
   justify-content: center;
   min-width: 0;
-  padding: clamp(40px, 4.5vw, 76px) clamp(24px, 2.5vw, 44px) clamp(40px, 4.5vw, 76px) clamp(28px, 4vw, 68px);
+  padding: clamp(24px, 2.8vw, 40px) clamp(24px, 2.5vw, 40px) clamp(24px, 2.8vw, 40px) clamp(26px, 3.5vw, 56px);
 }
 .hero2__eyebrow {
   display: inline-flex;
@@ -5589,23 +5589,24 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   display: flex;
   flex-wrap: wrap;
   gap: clamp(12px, 1.4vw, 16px);
-  margin-bottom: clamp(22px, 2.4vw, 32px);
+  margin-bottom: clamp(14px, 1.6vw, 20px);
 }
 .hero2__trust {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: clamp(14px, 1.6vw, 22px);
+  gap: 14px;
   font-family: var(--font-eyebrow);
-  font-size: 0.7rem;
+  font-size: var(--type-eyebrow);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
-  color: #6F6A70;
+  color: #5F5F68;
   line-height: 1;
 }
 .hero2__trust-item { display: inline-flex; align-items: center; gap: 8px; }
 .hero2__trust-item svg { width: 16px; height: 16px; color: var(--primary); }
+.hero2__trust-divider { width: 1px; height: 14px; background: rgba(0, 0, 0, 0.12); }
 
 /* Media column (bleeds to panel edge) */
 .hero2__media { position: relative; min-width: 0; }
@@ -5640,20 +5641,20 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   gap: 8px;
   padding: 9px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: #2b2731;
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   white-space: nowrap;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px -18px rgba(143, 131, 214, 0.5);
 }
-.hero2__pill svg { width: 15px; height: 15px; color: var(--primary); }
+.hero2__pill svg { width: 14px; height: 14px; color: var(--primary); }
 
 /* Carousel controls (bottom-right of image) */
 .hero2__controls {
@@ -5702,14 +5703,14 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 
 /* The Hush Hush Standard band (merged) */
 .hero2__standard {
-  padding: clamp(40px, 4vw, 64px) clamp(24px, 4vw, 64px) clamp(44px, 4.5vw, 68px);
+  padding: clamp(20px, 2.2vw, 32px) clamp(24px, 4vw, 56px) clamp(24px, 2.6vw, 38px);
 }
 .hero2__standard-head {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: clamp(16px, 2.5vw, 32px);
-  margin-bottom: clamp(28px, 3vw, 40px);
+  margin-bottom: clamp(16px, 1.8vw, 24px);
 }
 .hero2__standard-rule {
   flex: 1;
@@ -5736,40 +5737,44 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 .hero2__cards {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(16px, 1.6vw, 24px);
+  gap: clamp(12px, 1.3vw, 18px);
 }
 .hero2__card {
   background: #FFFFFF;
   border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: clamp(22px, 2vw, 28px);
+  border-radius: 14px;
+  padding: clamp(16px, 1.6vw, 22px);
   box-shadow: 0 18px 50px -42px rgba(143, 131, 214, 0.55);
 }
 .hero2__card-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--soft);
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-.hero2__card-icon svg { width: 26px; height: 26px; }
+.hero2__card-icon svg { width: 22px; height: 22px; }
 .hero2__card-title {
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
-  line-height: 1.2;
+  font-size: clamp(1.125rem, 1.5vw, 1.5rem);
+  line-height: var(--lh-h3);
+  letter-spacing: 0;
+  text-transform: none;
   color: #111111;
   margin: 0 0 8px;
 }
 .hero2__card-text {
   font-family: var(--font-body);
+  font-weight: 400;
   font-size: var(--type-body-sm);
-  line-height: 1.5;
-  color: var(--muted);
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: #5F5F68;
   margin: 0;
 }
 

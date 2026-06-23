@@ -24,7 +24,7 @@
 
   <div class="hero2__copy">
     {%- if block.settings.eyebrow != blank -%}
-      <span class="hero2__eyebrow">{{ block.settings.eyebrow }} {% render 'icon', name: 'sparkle' %}</span>
+      <span class="hero2__eyebrow">{{ block.settings.eyebrow }}</span>
     {%- endif -%}
 
     {%- if is_first -%}<h1 class="hero2__title">{%- else -%}<h2 class="hero2__title">{%- endif -%}
@@ -51,9 +51,11 @@
     </div>
 
     <div class="hero2__trust">
-      <span class="hero2__trust-item">{% render 'icon', name: 'sparkle' %}<span>Clean &amp; Conscious</span></span>
-      <span class="hero2__trust-item">{% render 'icon', name: 'heart' %}<span>Custom to You</span></span>
-      <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Trusted Since 2007</span></span>
+      <span class="hero2__trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><span>Award Winning</span></span>
+      <span class="hero2__trust-divider" aria-hidden="true"></span>
+      <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Since 2007</span></span>
+      <span class="hero2__trust-divider" aria-hidden="true"></span>
+      <span class="hero2__trust-item">{% render 'icon', name: 'map-pin' %}<span>3 Texas Studios</span></span>
     </div>
   </div>
 
@@ -80,9 +82,10 @@
 
     {%- if show_pills -%}
       <div class="hero2__pills" aria-hidden="true">
-        <span class="hero2__pill">{% render 'icon', name: 'leaf' %}<span>Clean Ingredients</span></span>
-        <span class="hero2__pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg><span>Custom Results</span></span>
-        <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Luxury Experience</span></span>
+        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Austin</span></span>
+        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Dallas</span></span>
+        <span class="hero2__pill">{% render 'icon', name: 'map-pin' %}<span>Houston</span></span>
+        <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Spray Tanning</span></span>
       </div>
     {%- endif -%}
   </div>

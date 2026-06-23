@@ -11,15 +11,15 @@
         "slide-1": {
           "type": "slide",
           "settings": {
-            "eyebrow": "Luxury Tanning, Elevated.",
+            "eyebrow": "Custom Spray Tanning",
             "title_line1": "Healthier Glow.",
             "title_line2": "Flawless",
             "title_line3": "Confidence.",
-            "subtitle": "Our custom airbrush tans enhance, not hide. In a clean, luxury studio where you'll always feel your best.",
+            "subtitle": "Customizable spray tanning studios in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
             "cta_primary_text": "Book Now",
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "New Client Offer",
-            "cta_secondary_url": "/pages/spray-tanning",
+            "cta_secondary_text": "Choose Your Location",
+            "cta_secondary_url": "#locations",
             "image_fallback": "hht-hero-slide-1.webp",
             "show_pills": true
           }
