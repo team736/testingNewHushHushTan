@@ -3988,27 +3988,6 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   height: 0;
   scroll-margin-top: var(--header-stack-h);
 }
-.hht-spv2 .section-head .eyebrow {
-  color: var(--spv2-plum);
-  letter-spacing: 0.28em;
-}
-.hht-spv2 .section-head h2 {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 500;
-  color: var(--spv2-plum);
-  letter-spacing: -0.01em;
-}
-.hht-spv2 .section-head__sub {
-  color: var(--spv2-plum);
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  line-height: 1.5;
-  max-width: none;
-}
 .hht-spv2__tabs-wrap {
   text-align: center;
   margin: 0 auto clamp(28px, 3vw, 44px);
@@ -4379,16 +4358,6 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 }
 .template-index .hht-spv2 .section-head {
   margin-bottom: clamp(28px, 3vw, 32px);
-}
-.template-index .hht-spv2 .section-head h2 {
-  color: var(--spv2-plum);
-  font-style: italic;
-}
-.template-index .hht-spv2 .section-head__sub {
-  color: var(--spv2-plum);
-  font-size: 12px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
 }
 @media (max-width: 1024px) {
   .template-index .aftercare-feature {
