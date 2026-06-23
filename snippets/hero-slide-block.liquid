@@ -1,121 +1,89 @@
 {%- liquid
-  assign image_fallback = block.settings.image_fallback | default: 'hht-hero-slide-1.jpg'
+  assign image_fallback = block.settings.image_fallback | default: 'hht-hero-slide-1.webp'
   assign show_pills = block.settings.show_pills
-  assign card_text = block.settings.card_text
-  assign has_card = false
-  if block.settings.card_title_line1 != blank or block.settings.card_title_line2 != blank or card_text != blank
-    assign has_card = true
-  endif
+
   assign primary_url = block.settings.cta_primary_url
   if primary_url == blank
     if block.settings.cta_primary_text contains 'Membership'
       assign primary_url = '#memberships'
     else
-      assign primary_url = settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+      assign primary_url = settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
     endif
   endif
+
   assign secondary_url = block.settings.cta_secondary_url
   if secondary_url == blank
     assign secondary_url = '#locations'
   endif
 -%}
 <article
-  class="hero-slider__slide{% if is_first %} is-active{% endif %}"
+  class="hero2__slide{% if is_first %} is-active{% endif %}"
   data-hero-slide="{{ slide_index }}"
   aria-hidden="{% if is_first %}false{% else %}true{% endif %}"
   {{ block.shopify_attributes }}>
-  <div class="hero-static__grid">
-    <div class="hero-static__copy">
-      {%- if block.settings.eyebrow != blank -%}
-        <span class="hero-static__eyebrow">{{ block.settings.eyebrow }}</span>
+
+  <div class="hero2__copy">
+    {%- if block.settings.eyebrow != blank -%}
+      <span class="hero2__eyebrow">{{ block.settings.eyebrow }} {% render 'icon', name: 'sparkle' %}</span>
+    {%- endif -%}
+
+    {%- if is_first -%}<h1 class="hero2__title">{%- else -%}<h2 class="hero2__title">{%- endif -%}
+      {{ block.settings.title_line1 }}
+      {%- if block.settings.title_line2 != blank -%}
+        <br><span class="hero2__title-accent">{{ block.settings.title_line2 }}</span>
       {%- endif -%}
-      {%- if is_first -%}
-        <h1 class="hero-static__title">
-      {%- else -%}
-        <h2 class="hero-static__title">
+      {%- if block.settings.title_line3 != blank -%}
+        <br>{{ block.settings.title_line3 }}
       {%- endif -%}
-        {{ block.settings.title_line1 }}
-        {%- if block.settings.title_line2 != blank -%}
-          <br><span class="hero-static__title-accent">{{ block.settings.title_line2 }}</span>
-        {%- endif -%}
-        {%- if block.settings.title_line3 != blank -%}
-          <br>{{ block.settings.title_line3 }}
-        {%- endif -%}
-      {%- if is_first -%}
-        </h1>
-      {%- else -%}
-        </h2>
+    {%- if is_first -%}</h1>{%- else -%}</h2>{%- endif -%}
+
+    {%- if block.settings.subtitle != blank -%}
+      <p class="hero2__sub">{{ block.settings.subtitle }}</p>
+    {%- endif -%}
+
+    <div class="hero2__ctas">
+      {%- if block.settings.cta_primary_text != blank -%}
+        <a href="{{ primary_url }}" class="btn-pill btn-pill--dark"{% if primary_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_primary_text }}</a>
       {%- endif -%}
-      {%- if block.settings.subtitle != blank -%}
-        <p class="hero-static__sub">{{ block.settings.subtitle }}</p>
+      {%- if block.settings.cta_secondary_text != blank -%}
+        <a href="{{ secondary_url }}" class="btn-pill btn-pill--outline"{% if secondary_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_secondary_text }}</a>
       {%- endif -%}
-      <div class="hero-static__ctas">
-        {%- if block.settings.cta_primary_text != blank -%}
-          <a href="{{ primary_url }}" class="btn-pill btn-pill--dark"{% if primary_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.cta_primary_text }}</a>
-        {%- endif -%}
-        {%- if block.settings.cta_secondary_text != blank -%}
-          <a href="{{ secondary_url }}" class="btn-pill btn-pill--outline">{{ block.settings.cta_secondary_text }}</a>
-        {%- endif -%}
-      </div>
-      <div class="hero-static__proof">
-        <div class="hero-static__proof-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <span>Award Winning</span>
-        </div>
-        <span class="hero-static__proof-divider" aria-hidden="true"></span>
-        <div class="hero-static__proof-item">
-          {%- render 'icon', name: 'shield' -%}
-          <span>Since 2007</span>
-        </div>
-        <span class="hero-static__proof-divider" aria-hidden="true"></span>
-        <div class="hero-static__proof-item">
-          {%- render 'icon', name: 'map-pin' -%}
-          <span>3 Texas Studios</span>
-        </div>
-      </div>
     </div>
 
-    <div class="hero-static__visual">
-      <div class="hero-static__image-frame">
-        {%- if block.settings.image != blank -%}
-          <img
-            src="{{ block.settings.image | image_url: width: 1280 }}"
-            srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1280 }} 1280w"
-            sizes="(min-width: 990px) 46vw, 92vw"
-            alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
-            width="1280"
-            height="1280"
-            class="hero-static__image"
-            {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-        {%- else -%}
-          <img
-            src="{{ image_fallback | asset_url }}"
-            alt="{{ block.settings.title_line1 | escape }}"
-            width="1280"
-            height="1280"
-            class="hero-static__image"
-            {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
-        {%- endif -%}
-
-        {%- if show_pills -%}
-          <div class="hero-static__pills" aria-hidden="true">
-            <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Austin</span></span>
-            <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Dallas</span></span>
-            <span class="hero-static__pill">{%- render 'icon', name: 'map-pin' -%}<span>Houston</span></span>
-            <span class="hero-static__pill">{%- render 'icon', name: 'sparkle' -%}<span>Spray Tanning</span></span>
-          </div>
-        {%- endif -%}
-
-        {%- if has_card -%}
-          <div class="hero-static__floating-card" aria-hidden="true">
-            <div class="hero-static__floating-copy">
-              <strong>{{ block.settings.card_title_line1 }}{% if block.settings.card_title_line2 != blank %}<br>{{ block.settings.card_title_line2 }}{% endif %}</strong>
-              {%- if card_text != blank -%}<span>{{ card_text }}</span>{%- endif -%}
-            </div>
-            <span class="hero-static__floating-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span>
-          </div>
-        {%- endif -%}
-      </div>
+    <div class="hero2__trust">
+      <span class="hero2__trust-item">{% render 'icon', name: 'sparkle' %}<span>Clean &amp; Conscious</span></span>
+      <span class="hero2__trust-item">{% render 'icon', name: 'heart' %}<span>Custom to You</span></span>
+      <span class="hero2__trust-item">{% render 'icon', name: 'shield' %}<span>Trusted Since 2007</span></span>
     </div>
+  </div>
+
+  <div class="hero2__media">
+    {%- if block.settings.image != blank -%}
+      <img
+        src="{{ block.settings.image | image_url: width: 1400 }}"
+        srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1400 }} 1400w"
+        sizes="(min-width: 990px) 52vw, 100vw"
+        alt="{{ block.settings.image.alt | default: block.settings.title_line1 | escape }}"
+        width="1400"
+        height="1180"
+        class="hero2__image"
+        {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+    {%- else -%}
+      <img
+        src="{{ image_fallback | asset_url }}"
+        alt="{{ block.settings.title_line1 | escape }}"
+        width="1400"
+        height="1180"
+        class="hero2__image"
+        {% if is_first %}fetchpriority="high"{% else %}loading="lazy"{% endif %}>
+    {%- endif -%}
+
+    {%- if show_pills -%}
+      <div class="hero2__pills" aria-hidden="true">
+        <span class="hero2__pill">{% render 'icon', name: 'leaf' %}<span>Clean Ingredients</span></span>
+        <span class="hero2__pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg><span>Custom Results</span></span>
+        <span class="hero2__pill">{% render 'icon', name: 'sparkle' %}<span>Luxury Experience</span></span>
+      </div>
+    {%- endif -%}
   </div>
 </article>

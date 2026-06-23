@@ -1,48 +1,89 @@
-{%- assign autoplay_ms = section.settings.autoplay_ms | default: 4500 -%}
-{%- assign use_fallback = false -%}
-{%- if section.blocks.size == 0 -%}
-  {%- assign use_fallback = true -%}
-  {%- assign slide_count = 3 -%}
-{%- else -%}
-  {%- assign slide_count = section.blocks.size -%}
-{%- endif -%}
+{%- liquid
+  assign autoplay_ms = section.settings.autoplay_ms | default: 4500
+
+  assign slide_count = 0
+  assign std_count = 0
+  for block in section.blocks
+    if block.type == 'slide'
+      assign slide_count = slide_count | plus: 1
+    elsif block.type == 'standard'
+      assign std_count = std_count | plus: 1
+    endif
+  endfor
+-%}
 
 <section
-  class="hero-slider hero-static"
+  class="hero2"
   id="top"
   data-hero-slider
   data-autoplay="{{ autoplay_ms }}"
   {% if section.settings.autoplay == false %}data-autoplay-off{% endif %}
   aria-label="Hero"
   aria-roledescription="carousel">
-  <div class="container container--home hero-static__container">
-    <div class="hero-static__card">
-      <div class="hero-slider__track" data-hero-track>
-        {%- if use_fallback -%}
-          {%- render 'hero-slide-fallback', which: 1 -%}
-          {%- render 'hero-slide-fallback', which: 2 -%}
-          {%- render 'hero-slide-fallback', which: 3 -%}
-        {%- else -%}
-          {%- for block in section.blocks -%}
-            {%- render 'hero-slide-block', block: block, is_first: forloop.first, slide_index: forloop.index0 -%}
-          {%- endfor -%}
-        {%- endif -%}
+  <div class="hero2__panel">
+    <div class="hero2__stage">
+      <div class="hero2__track" data-hero-track>
+        {%- assign slide_index = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'slide' -%}
+            {%- assign is_first = false -%}
+            {%- if slide_index == 0 -%}{%- assign is_first = true -%}{%- endif -%}
+            {%- render 'hero-slide-block', block: block, is_first: is_first, slide_index: slide_index -%}
+            {%- assign slide_index = slide_index | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
       </div>
 
       {%- if slide_count > 1 -%}
-        <div class="hero-slider__dots" role="tablist" aria-label="Choose slide">
-          {%- for i in (1..slide_count) -%}
-            <button
-              type="button"
-              class="hero-slider__dot{% if forloop.first %} is-active{% endif %}"
-              role="tab"
-              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
-              aria-label="Slide {{ forloop.index }} of {{ slide_count }}"
-              data-hero-dot="{{ forloop.index0 }}"></button>
-          {%- endfor -%}
+        <div class="hero2__controls">
+          <button type="button" class="hero2__arrow" data-hero-prev aria-label="Previous slide">{% render 'icon', name: 'chevron-left' %}</button>
+          <div class="hero2__dots" role="tablist" aria-label="Choose slide">
+            {%- for i in (1..slide_count) -%}
+              <button
+                type="button"
+                class="hero2__dot{% if forloop.first %} is-active{% endif %}"
+                role="tab"
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-label="Slide {{ forloop.index }} of {{ slide_count }}"
+                data-hero-dot="{{ forloop.index0 }}"></button>
+            {%- endfor -%}
+          </div>
+          <button type="button" class="hero2__arrow" data-hero-next aria-label="Next slide">{% render 'icon', name: 'chevron-right' %}</button>
         </div>
       {%- endif -%}
     </div>
+
+    {%- if std_count > 0 -%}
+      <div class="hero2__standard">
+        {%- if section.settings.standard_heading != blank -%}
+          <div class="hero2__standard-head">
+            <span class="hero2__standard-rule" aria-hidden="true"></span>
+            <h2 class="hero2__standard-title">
+              <span class="hero2__standard-spark" aria-hidden="true">{% render 'icon', name: 'sparkle' %}</span>
+              {{ section.settings.standard_heading }}
+              <span class="hero2__standard-spark" aria-hidden="true">{% render 'icon', name: 'sparkle' %}</span>
+            </h2>
+            <span class="hero2__standard-rule" aria-hidden="true"></span>
+          </div>
+        {%- endif -%}
+
+        <div class="hero2__cards">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'standard' -%}
+              <article class="hero2__card" {{ block.shopify_attributes }}>
+                <span class="hero2__card-icon">{% render 'science-feature-icon', icon: block.settings.icon %}</span>
+                {%- if block.settings.title != blank -%}
+                  <h3 class="hero2__card-title">{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.text != blank -%}
+                  <p class="hero2__card-text">{{ block.settings.text }}</p>
+                {%- endif -%}
+              </article>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -51,7 +92,9 @@
   "name": "Hero slider",
   "settings": [
     { "type": "checkbox", "id": "autoplay", "label": "Auto-advance slides", "default": true },
-    { "type": "range", "id": "autoplay_ms", "label": "Slide duration", "min": 3000, "max": 8000, "step": 500, "default": 4500, "unit": "ms" }
+    { "type": "range", "id": "autoplay_ms", "label": "Slide duration", "min": 3000, "max": 8000, "step": 500, "default": 4500, "unit": "ms" },
+    { "type": "header", "content": "The Hush Hush Standard (merged band)" },
+    { "type": "text", "id": "standard_heading", "label": "Standard band heading", "default": "The Hush Hush Standard" }
   ],
   "blocks": [
     {
@@ -59,76 +102,50 @@
       "name": "Slide",
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Hero image" },
-        { "type": "text", "id": "image_fallback", "label": "Default image filename", "default": "hht-hero-slide-1.jpg" },
-        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Custom Spray Tanning" },
+        { "type": "text", "id": "image_fallback", "label": "Default image filename", "default": "hht-hero-slide-1.webp" },
+        { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Luxury Tanning, Elevated." },
         { "type": "text", "id": "title_line1", "label": "Heading line 1", "default": "Healthier Glow." },
         { "type": "text", "id": "title_line2", "label": "Heading line 2 (lavender accent)", "default": "Flawless" },
         { "type": "text", "id": "title_line3", "label": "Heading line 3", "default": "Confidence." },
         { "type": "textarea", "id": "subtitle", "label": "Paragraph" },
         { "type": "text", "id": "cta_primary_text", "label": "Primary button text", "default": "Book Now" },
         { "type": "url", "id": "cta_primary_url", "label": "Primary button URL" },
-        { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text", "default": "Choose Your Location" },
+        { "type": "text", "id": "cta_secondary_text", "label": "Secondary button text", "default": "New Client Offer" },
         { "type": "url", "id": "cta_secondary_url", "label": "Secondary button URL" },
-        { "type": "checkbox", "id": "show_pills", "label": "Show location/service pills on image", "default": false },
-        { "type": "header", "content": "Floating info card (optional)" },
-        { "type": "text", "id": "card_title_line1", "label": "Card title line 1" },
-        { "type": "text", "id": "card_title_line2", "label": "Card title line 2" },
-        { "type": "textarea", "id": "card_text", "label": "Card body" }
+        { "type": "checkbox", "id": "show_pills", "label": "Show feature pills on image", "default": true }
+      ]
+    },
+    {
+      "type": "standard",
+      "name": "Standard card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "sparkle", "label": "Custom color" },
+            { "value": "book", "label": "Luxury formula" },
+            { "value": "award", "label": "Award" },
+            { "value": "shield", "label": "Shield check" }
+          ],
+          "default": "sparkle"
+        },
+        { "type": "text", "id": "title", "label": "Title", "default": "Custom Color" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Every shade hand-mixed to flatter your undertones." }
       ]
     }
   ],
+  "max_blocks": 12,
   "presets": [
     {
       "name": "Hero slider",
       "blocks": [
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Custom Spray Tanning",
-            "title_line1": "Healthier Glow.",
-            "title_line2": "Flawless",
-            "title_line3": "Confidence.",
-            "subtitle": "Customized spray tan salons in Austin, Dallas, and Houston — a personalized color experience that looks effortless.",
-            "cta_primary_text": "Book Now",
-            "cta_primary_url": "#locations",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hht-hero-slide-1.jpg",
-            "show_pills": true,
-            "card_title_line1": "Everyone",
-            "card_title_line2": "Will Notice",
-            "card_text": "Natural-looking glow, customized to your skin tone."
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "The Hush Hush Experience",
-            "title_line1": "Everyone will",
-            "title_line2": "notice.",
-            "title_line3": "No one will know.",
-            "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
-            "cta_primary_text": "Book Now",
-            "cta_primary_url": "#locations",
-            "cta_secondary_text": "View Services",
-            "cta_secondary_url": "#services",
-            "image_fallback": "hht-hero-slide-2.jpg",
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "eyebrow": "Memberships & Packages",
-            "title_line1": "Glow More,",
-            "title_line2": "Save More",
-            "subtitle": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long.",
-            "cta_primary_text": "View Memberships",
-            "cta_primary_url": "#memberships",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
-            "image_fallback": "hht-hero-slide-3.jpg"
-          }
-        }
+        { "type": "slide" },
+        { "type": "standard", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your undertones." } },
+        { "type": "standard", "settings": { "icon": "book", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
+        { "type": "standard", "settings": { "icon": "award", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
+        { "type": "standard", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
       ]
     }
   ]

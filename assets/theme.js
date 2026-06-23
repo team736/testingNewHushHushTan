@@ -257,6 +257,11 @@
         });
       });
 
+      var prevBtn = root.querySelector('[data-hero-prev]');
+      var nextBtn = root.querySelector('[data-hero-next]');
+      if (prevBtn) prevBtn.addEventListener('click', function () { prev(); start(); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { next(); start(); });
+
       root.addEventListener('mouseenter', stop);
       root.addEventListener('mouseleave', start);
       root.addEventListener('focusin', stop);

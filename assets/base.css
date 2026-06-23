@@ -5495,3 +5495,298 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
     width: 100%;
   }
 }
+
+/* ============================================================
+   Hero V2 — full-width merged hero + "Hush Hush Standard" band
+   (replaces hero-static + science-features on the homepage)
+   ============================================================ */
+.hero2 {
+  background: linear-gradient(180deg, #F4F2FF 0%, #FBFAFF 100%);
+  padding: clamp(16px, 2vw, 28px) clamp(14px, 2vw, 28px) clamp(28px, 3vw, 48px);
+}
+.hero2__panel {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: clamp(24px, 2.5vw, 40px);
+  overflow: hidden;
+  box-shadow: 0 40px 100px -60px rgba(143, 131, 214, 0.55);
+}
+
+/* Stage / slider */
+.hero2__stage { position: relative; }
+.hero2__track {
+  display: grid;
+  grid-template-areas: "stack";
+  width: 100%;
+}
+.hero2__slide {
+  grid-area: stack;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: stretch;
+  min-height: clamp(440px, 40vw, 560px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.hero2__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+  z-index: 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero2__slide { transition: none; }
+}
+
+/* Copy column */
+.hero2__copy {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+  padding: clamp(40px, 4.5vw, 76px) clamp(24px, 2.5vw, 44px) clamp(40px, 4.5vw, 76px) clamp(28px, 4vw, 68px);
+}
+.hero2__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-eyebrow);
+  font-size: var(--type-eyebrow);
+  font-weight: 500;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: var(--eyebrow-gap);
+}
+.hero2__eyebrow svg { width: 14px; height: 14px; color: var(--primary); }
+.hero2__title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: #111111;
+  font-size: var(--type-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: 0;
+  margin: 0 0 var(--heading-sub-gap);
+  text-transform: none;
+}
+.hero2__title-accent { color: var(--primary); font-style: normal; }
+.hero2__sub {
+  font-family: var(--font-body);
+  color: var(--body-text);
+  font-size: var(--type-body-lg);
+  line-height: var(--lh-body-lg);
+  max-width: 30rem;
+  margin: 0 0 var(--cta-gap);
+}
+.hero2__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.4vw, 16px);
+  margin-bottom: clamp(22px, 2.4vw, 32px);
+}
+.hero2__trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(14px, 1.6vw, 22px);
+  font-family: var(--font-eyebrow);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6F6A70;
+  line-height: 1;
+}
+.hero2__trust-item { display: inline-flex; align-items: center; gap: 8px; }
+.hero2__trust-item svg { width: 16px; height: 16px; color: var(--primary); }
+
+/* Media column (bleeds to panel edge) */
+.hero2__media { position: relative; min-width: 0; }
+.hero2__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero2__media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0.55) 14%, rgba(255, 255, 255, 0) 34%);
+}
+.hero2__pills {
+  position: absolute;
+  top: clamp(16px, 2vw, 24px);
+  right: clamp(16px, 2vw, 24px);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.hero2__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #2b2731;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px -18px rgba(143, 131, 214, 0.5);
+}
+.hero2__pill svg { width: 15px; height: 15px; color: var(--primary); }
+
+/* Carousel controls (bottom-right of image) */
+.hero2__controls {
+  position: absolute;
+  right: clamp(16px, 2vw, 28px);
+  bottom: clamp(16px, 2vw, 28px);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 12px 34px -18px rgba(21, 21, 21, 0.4);
+}
+.hero2__arrow {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #2b2731;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.hero2__arrow:hover { background: var(--primary); color: #fff; }
+.hero2__arrow svg { width: 18px; height: 18px; }
+.hero2__dots { display: flex; align-items: center; gap: 8px; padding: 0 6px; }
+.hero2__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.hero2__dot:hover { border-color: var(--primary); }
+.hero2__dot.is-active { background: var(--primary); border-color: var(--primary); transform: scale(1.12); }
+
+/* The Hush Hush Standard band (merged) */
+.hero2__standard {
+  padding: clamp(40px, 4vw, 64px) clamp(24px, 4vw, 64px) clamp(44px, 4.5vw, 68px);
+}
+.hero2__standard-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(16px, 2.5vw, 32px);
+  margin-bottom: clamp(28px, 3vw, 40px);
+}
+.hero2__standard-rule {
+  flex: 1;
+  height: 1px;
+  max-width: 320px;
+  background: linear-gradient(90deg, rgba(166, 159, 226, 0) 0%, rgba(166, 159, 226, 0.45) 100%);
+}
+.hero2__standard-rule:last-child {
+  background: linear-gradient(90deg, rgba(166, 159, 226, 0.45) 0%, rgba(166, 159, 226, 0) 100%);
+}
+.hero2__standard-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--primary);
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.hero2__standard-spark svg { width: 18px; height: 18px; color: var(--primary); }
+.hero2__cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 1.6vw, 24px);
+}
+.hero2__card {
+  background: #FFFFFF;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: clamp(22px, 2vw, 28px);
+  box-shadow: 0 18px 50px -42px rgba(143, 131, 214, 0.55);
+}
+.hero2__card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--soft);
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+.hero2__card-icon svg { width: 26px; height: 26px; }
+.hero2__card-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.2;
+  color: #111111;
+  margin: 0 0 8px;
+}
+.hero2__card-text {
+  font-family: var(--font-body);
+  font-size: var(--type-body-sm);
+  line-height: 1.5;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Hero V2 — responsive */
+@media (max-width: 990px) {
+  .hero2__slide { grid-template-columns: 1fr; min-height: 0; }
+  .hero2__media::before { display: none; }
+  .hero2__image { aspect-ratio: 16 / 11; height: auto; }
+  .hero2__cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .hero2__ctas { flex-direction: column; align-items: stretch; }
+  .hero2__ctas .btn-pill--dark,
+  .hero2__ctas .btn-pill--outline { width: 100%; min-width: 0; }
+  .hero2__cards { grid-template-columns: 1fr; }
+  .hero2__standard-rule { display: none; }
+  .hero2__standard-title { white-space: normal; text-align: center; }
+  .hero2__pill { padding: 7px 12px; font-size: 0.6rem; letter-spacing: 0.12em; }
+  .hero2__pill svg { width: 13px; height: 13px; }
+}
