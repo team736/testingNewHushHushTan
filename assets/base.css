@@ -2878,6 +2878,9 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   margin-top: 0;
   padding: clamp(56px, 6vw, 80px) 0 clamp(24px, 3vw, 32px);
   color: rgba(255, 255, 255, 0.72);
+  position: relative;
+  z-index: 5;
+  clear: both;
 }
 .hht-footer__inner {
   max-width: var(--container-home);
@@ -3202,7 +3205,12 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   box-shadow: var(--shadow);
 }
 .mobile-book-cta:hover { background: var(--primary-dark); color: #fff; }
-@media (max-width: 1100px) { .mobile-book-cta { display: inline-flex; } }
+@media (max-width: 1100px) {
+  body {
+    padding-bottom: 88px;
+  }
+  .mobile-book-cta { display: inline-flex; }
+}
 .template-product .mobile-book-cta { bottom: 88px; }
 
 /* ============ Forms (generic) ============ */

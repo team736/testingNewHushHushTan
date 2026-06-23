@@ -2,7 +2,63 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "footer": { "type": "footer", "settings": {} }
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "brand_tagline": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence.",
+        "book_text": "Book Your Glow",
+        "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+        "colophon": "All rights reserved."
+      },
+      "blocks": {
+        "footer_menu_company": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Company",
+            "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/"
+          }
+        },
+        "footer_menu_shop": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Shop & Services",
+            "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips"
+          }
+        },
+        "footer_menu_support": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Support",
+            "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service"
+          }
+        },
+        "footer_menu_locations": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Locations",
+            "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston"
+          }
+        },
+        "footer_newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Get In The Know",
+            "text": "Join us for glow tips, new drops, packages and special offers.",
+            "placeholder": "Email address",
+            "button_text": "Subscribe",
+            "success_message": "Thank you for subscribing. Check your inbox for glow tips and offers.",
+            "disclaimer": "We respect your privacy. Unsubscribe anytime."
+          }
+        }
+      },
+      "block_order": [
+        "footer_menu_company",
+        "footer_menu_shop",
+        "footer_menu_support",
+        "footer_menu_locations",
+        "footer_newsletter"
+      ]
+    }
   },
   "order": ["footer"]
 }

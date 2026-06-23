@@ -21,7 +21,10 @@
     "gift_austin_url": "https://www.secure-booker.com/HushHushTan/ShopOnline/GiftCertificate.aspx",
     "gift_dallas_url": "https://www.secure-booker.com/HushHushTanDallas/ShopOnline/GiftCertificate.aspx",
     "gift_houston_url": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate",
-    "logo_width": 160
+    "logo_width": 160,
+    "social_instagram": "https://instagram.com/hushhushtan",
+    "social_facebook": "https://facebook.com/hushhushtanaustin",
+    "social_tiktok": "https://tiktok.com/@hushhushtan"
   },
   "presets": { "Default": {} }
 }

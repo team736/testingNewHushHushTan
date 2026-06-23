@@ -72,7 +72,7 @@
           {%- if settings.logo != blank -%}
             <img src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
           {%- else -%}
-            <span class="hht-footer__logo-text">{{ shop.name }}</span>
+            <img src="{{ 'hht-logo-horizontal.png' | asset_url }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
           {%- endif -%}
         </a>
 
@@ -194,14 +194,22 @@
     }
   ],
   "max_blocks": 6,
-  "default": {
-    "blocks": [
-      { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/" } },
-      { "type": "menu_column", "settings": { "heading": "Shop & Services", "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips" } },
-      { "type": "menu_column", "settings": { "heading": "Support", "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
-      { "type": "menu_column", "settings": { "heading": "Locations", "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },
-      { "type": "newsletter" }
-    ]
-  }
+  "presets": [
+    {
+      "name": "Footer",
+      "settings": {
+        "brand_tagline": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence.",
+        "book_text": "Book Your Glow",
+        "colophon": "All rights reserved."
+      },
+      "blocks": [
+        { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/" } },
+        { "type": "menu_column", "settings": { "heading": "Shop & Services", "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips" } },
+        { "type": "menu_column", "settings": { "heading": "Support", "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
+        { "type": "menu_column", "settings": { "heading": "Locations", "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },
+        { "type": "newsletter" }
+      ]
+    }
+  ]
 }
 {% endschema %}
