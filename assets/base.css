@@ -71,7 +71,7 @@
   --heading-sub-gap: clamp(14px, 1.6vw, 18px);
   --cta-gap: clamp(22px, 2.5vw, 28px);
   --section-head-gap: var(--heading-gap);
-  --hht-spv2-head-bg: #E9E4F8;
+  --hht-spv2-head-bg: #F3F2FE;
   --shadow: 0 18px 60px -20px rgba(143,131,214,.18), 0 6px 20px -10px rgba(21,21,21,.06);
   --shadow-card: 0 1px 2px rgba(21,21,21,.04);
   --ease: cubic-bezier(.2,.7,.2,1);
@@ -5349,7 +5349,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 .template-index .hht-science-section {
   border-bottom: 1px solid var(--hht-border-divider);
 }
-.template-index .section-lavender-soft.hht-spv2 {
+.template-index .section-white.hht-spv2 {
   border-top: 1px solid var(--hht-border-divider);
   border-bottom: 1px solid var(--hht-border-divider);
 }
