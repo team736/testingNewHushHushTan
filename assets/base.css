@@ -3979,53 +3979,85 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 /* ============ Services / Pricing V2 (homepage) ============ */
 .hht-spv2 {
   overflow-x: clip;
+  --spv2-plum: #4B2475;
+  --spv2-lavender-active: #ADA5E8;
+  --spv2-shadow: 6px 6px 0 var(--spv2-plum);
 }
 .hht-spv2__anchor {
   display: block;
   height: 0;
   scroll-margin-top: var(--header-stack-h);
 }
+.hht-spv2 .section-head .eyebrow {
+  color: var(--spv2-plum);
+  letter-spacing: 0.28em;
+}
+.hht-spv2 .section-head h2 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--spv2-plum);
+  letter-spacing: -0.01em;
+}
+.hht-spv2 .section-head__sub {
+  color: var(--spv2-plum);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  max-width: none;
+}
 .hht-spv2__tabs-wrap {
   text-align: center;
-  margin: 0 auto clamp(28px, 3vw, 32px);
+  margin: 0 auto clamp(28px, 3vw, 44px);
 }
 .hht-spv2 .hht-location-tabs {
   display: inline-flex;
-  padding: 4px;
-  border: 1px solid rgba(166, 159, 226, 0.35);
-  border-radius: 999px;
-  background: var(--pale);
-  gap: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 .hht-spv2 .hht-location-tab {
-  min-width: 112px;
-  height: 38px;
+  min-width: 110px;
+  height: 40px;
   padding: 0 22px;
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  color: #111111;
-  font-family: var(--font-eyebrow);
-  font-size: var(--type-button);
-  font-weight: 500;
-  letter-spacing: var(--ls-button);
+  border: 1px solid var(--spv2-plum);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--spv2-plum);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   line-height: 1;
   cursor: pointer;
-  transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+  box-shadow: none;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   -webkit-appearance: none;
   appearance: none;
 }
 .hht-spv2 .hht-location-tab:hover {
-  color: var(--primary-dark);
+  background: #ffffff;
+  color: var(--spv2-plum);
+  box-shadow: var(--spv2-shadow);
+  transform: translate(-3px, -3px);
 }
 .hht-spv2 .hht-location-tab.active {
-  background: var(--primary);
+  background: var(--spv2-lavender-active);
   color: #ffffff;
-  box-shadow: 0 6px 18px rgba(166, 159, 226, 0.34);
+  border-color: var(--spv2-plum);
+  box-shadow: var(--spv2-shadow);
+  transform: translate(-3px, -3px);
 }
 .hht-spv2 .hht-location-tab:focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--spv2-lavender-active);
   outline-offset: 3px;
 }
 .hht-spv2__grid {
@@ -4347,6 +4379,16 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 }
 .template-index .hht-spv2 .section-head {
   margin-bottom: clamp(28px, 3vw, 32px);
+}
+.template-index .hht-spv2 .section-head h2 {
+  color: var(--spv2-plum);
+  font-style: italic;
+}
+.template-index .hht-spv2 .section-head__sub {
+  color: var(--spv2-plum);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
 @media (max-width: 1024px) {
   .template-index .aftercare-feature {
