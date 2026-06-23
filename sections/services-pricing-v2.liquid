@@ -59,79 +59,94 @@
     crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5z"/><path d="M5 21h14"/></svg>',
     gift:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M5 12v9h14v-9"/><path d="M12 8S11 3 8.5 3 6 6 6 6s2 2 6 2zM12 8s1-5 3.5-5S18 6 18 6s-2 2-6 2z"/></svg>',
     star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg>',
-    heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.6 5.5 4.8 4.8 7 4.3 9 5.6 12 8c3-2.4 5-3.7 7.2-3.2 3.2.7 4.2 4.2 2.8 7C19.5 16.4 12 21 12 21z"/></svg>',
-    tooth:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5C10.5 4 8.5 3.4 6.8 4 4.6 4.8 3.6 7.2 4 10c.4 2.6.9 4.3 1.6 7.3.3 1.3.6 2.7 1.6 2.7 1.2 0 1.3-1.6 1.7-3.3.3-1.4.7-2.4 1.5-2.4s1.2 1 1.5 2.4c.4 1.7.5 3.3 1.7 3.3 1 0 1.3-1.4 1.6-2.7.7-3 1.2-4.7 1.6-7.3.4-2.8-.6-5.2-2.8-6C15.5 3.4 13.5 4 12 5.5z"/></svg>',
-    bag:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>'
+    heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.6-10-9.2C.6 9 1.6 5.5 4.8 4.8 7 4.3 9 5.6 12 8c3-2.4 5-3.7 7.2-3.2 3.2.7 4.2 4.2 2.8 7C19.5 16.4 12 21 12 21z"/></svg>'
   };
 
   function makeLocation(cfg){
     var U = cfg.urls, cats = [];
-    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First-timer? Start here.', rows:[
-      { name:'Custom Glow', badge:'Most Popular', desc:'Our most popular airbrush spray tan customized to your unique skin tone', price:'$'+cfg.core.custom, btn:{label:'Book Now',url:U.book} },
-      { name:'Clear Glow', badge:'First-Timer Fave', desc:'A clear solution that will not rub off on clothing', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
-      { name:'Rapid Glow', badge:'Fast Results', desc:'Luxurious quick spray tan that develops in 3 hours', price:'$'+cfg.core.rapid, btn:{label:'Book Now',url:U.book} }
+
+    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First time? Start here.', rows:[
+      { name:'Custom Glow', badge:'Most Popular', desc:'Customized to your individual skin tone', price:'$'+cfg.core.custom, btn:{label:'Book Now',url:U.book} },
+      { name:'Clear Glow', badge:'Transfer Free', desc:'Clear solution for a natural finish', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
+      { name:'Rapid Glow', badge:'Fast Results', desc:'Rinse in 2-4 hours', price:'$'+cfg.core.rapid, btn:{label:'Book Now',url:U.book} }
     ]});
-    cats.push({ icon:'sparkle', title:'Add Ons', span:'half', rows:[
-      { name:'Gold Glow', desc:'Gold drops added', price:'$'+cfg.addons.gold, btn:{label:'Book Now',url:U.book} },
-      { name:'Bye Bye Tan Line', desc:'Tan line erasing', price:'$'+cfg.addons.byebye, btn:{label:'Book Now',url:U.book} },
-      { name:'Brazilian Glow', desc:'Our famous double-dip', price:'$'+cfg.addons.brazilian, btn:{label:'Book Now',url:U.book} }
-    ]});
-    cats.push({ icon:'sunrise', title:'Partial Tans', span:'half', rows:[
-      { name:'Face', desc:'A sun-kissed glow for the face', price:'$'+cfg.partial.face, btn:{label:'Book Now',url:U.book} },
-      { name:'Partial Upper or Lower', desc:'Arms, chest and up (no face), or below the knees', price:'$'+cfg.partial.partial, btn:{label:'Book Now',url:U.book} },
-      { name:'Upper or Lower', desc:'Waist up (no face), or waist down', price:'$'+cfg.partial.upperlower, btn:{label:'Book Now',url:U.book} }
-    ]});
-    var memB = function(t){ return [ t+' tans per month', '10% off Hush Hush Tan products', 'Additional custom tan discounted rate only $'+cfg.memb.addl ]; };
-    cats.push({ icon:'crown', title:'Memberships', span:'half',
-      intro:'Keep your glow looking fresh and fierce all month long with one of our 3-month memberships that save you money on regular tans.',
-      note:'Tans do not rollover. 30-day written notice is required via email to <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a>. Memberships can be frozen for a $10 monthly fee.',
+
+    cats.push({ icon:'crown', title:'Memberships Services', span:'half',
+      note:'Rapid Glow is not available for the complimentary tan; option to upgrade available.',
       rows:[
-        { name:'Absolute', bullets:memB(4), price:'$'+cfg.memb.absolute, priceSub:'per month', btn:{label:'Join Now',url:U.join} },
-        { name:'Deluxe',   bullets:memB(3), price:'$'+cfg.memb.deluxe,   priceSub:'per month', btn:{label:'Join Now',url:U.join} },
-        { name:'Glow',     bullets:memB(2), price:'$'+cfg.memb.glow,     priceSub:'per month', btn:{label:'Join Now',url:U.join} }
+        { name:'Glow Pass', bullets:['35% off all tans','15% off all products','Cancel anytime'], price:'$'+cfg.memb.pass, priceSub:'per month', btn:{label:'Join Now',url:U.join} },
+        { name:'Glow Club', bullets:['1 complimentary tan per month','25% off all additional tans','15% off all products','Cancel anytime'], price:'$'+cfg.memb.club, priceSub:'per month', btn:{label:'Join Now',url:U.join} }
       ]});
-    var pkSub = '$'+cfg.pack.session+'/session · one-time';
+
     cats.push({ icon:'gift', title:'Tan Packages', span:'half',
-      intro:'Not ready for a membership? You can still save with these glowing deals on pre-paid packages.',
+      note:'Please note, Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only.',
       rows:[
-        { name:'Elite Glow', desc:'Package of 15 Custom Glows', price:'$'+cfg.pack.elite, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} },
-        { name:'Ultimate Glow', badge:'Best Value', desc:'Package of 10 Custom Glows', price:'$'+cfg.pack.ultimate, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} },
-        { name:'Glow-Getter', desc:'Package of 5 Custom Glows', price:'$'+cfg.pack.getter, priceSub:pkSub, btn:{label:'Buy Package',url:U.pack} }
+        { name:'6-Pack', bullets:['6 full spray tan sessions','Mix and match any core service','Valid for 6 months from purchase'], price:'$'+cfg.pack.six, priceSub:'just $'+cfg.pack.sixSession+'/session', btn:{label:'Buy the 6-Pack',url:U.pack} },
+        { name:'10-Pack', bullets:['10 full spray tan sessions','Mix and match any core service','Valid for 6 months from purchase'], price:'$'+cfg.pack.ten, priceSub:'just $'+cfg.pack.tenSession+'/session', btn:{label:'Buy the 10-Pack',url:U.pack} }
       ]});
-    cats.push({ icon:'star', title:'Special Offer', span:'half', rows:[
-      { name:'Happy Birthday Glow', desc:'Get one discounted Custom Glow during your birthday month', price:'$'+cfg.special, btn:{label:'Book Now',url:U.book} }
+
+    cats.push({ icon:'sunrise', title:'Partial Tans', span:'half', rows:[
+      { name:'Face', desc:'Face only', price:'$'+cfg.partial.face, btn:{label:'Book Now',url:U.book} },
+      { name:'Upper / Lower Only', desc:'An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.', price:'$'+cfg.partial.ul, btn:{label:'Book Now',url:U.book} },
+      { name:'Partial Upper / Lower', desc:'Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.', price:'$'+cfg.partial.partial, btn:{label:'Book Now',url:U.book} }
     ]});
-    var groupRows = [{ name:cfg.group.label, desc:'Choice of clear glow, custom glow, or winter glow and complimentary bubbles or mimosas. 5 person minimum.', price:'$'+cfg.group.instore, priceSub:'per person', btn:{label:'Book Now',url:U.book} }];
-    if(cfg.group.mobile){ groupRows.push({ name:'Mobile Tanning', desc:'With Hush Hush mobile tanning, a tanning specialist comes to you. 5 person minimum.', price:'$'+cfg.group.mobile, priceSub:'per person', btn:{label:'Book Now',url:U.book} }); }
-    cats.push({ icon:'heart', title:'Group Experiences', span:'half', rows:groupRows });
-    if(cfg.teeth){ cats.push({ icon:'tooth', title:'Other Services', span:'full', rows:[
-      { name:'Teeth Whitening', desc:'An express 20-minute session for a dazzling, whiter smile that complements your glowing spray tan', price:'$'+cfg.teeth, btn:{label:'Book Now',url:U.book} }
-    ]}); }
-    cats.push({ icon:'bag', title:'Accessories & Complimentary Gear', span:'full', acc:true, rows:[
-      { name:'Disposable Boxers', price:'$3 / Pair' },
-      { name:'Floral Pasties', price:'$2 / Pair' },
-      { name:'C-String Undies', desc:'Wash and wear for multiple glow sessions', price:'$6 / Pair' },
+
+    cats.push({ icon:'sparkle', title:'Add Ons', span:'half', rows:[
+      { name:'Gold Glow', desc:'Gold drops are added to give you a subtle elegant shimmer.', price:'+$5', btn:{label:'Book Now',url:U.book} },
+      { name:'Bye Bye Tan Line', desc:'Tan line erasing glow by a full body spray.', price:'+$20', btn:{label:'Book Now',url:U.book} },
+      { name:'Brazilian Glow', desc:'Custom fabulous double dip. Sprayed twice for a rich, dark tan.', price:'+$25', btn:{label:'Book Now',url:U.book} }
+    ]});
+
+    cats.push({ icon:'star', title:'Special Offer', span:'half', rows:[
+      { name:'Birthday Glow', desc:'Exclusive pricing for one Custom Glow during your birthday month.', price:'$'+cfg.special, btn:{label:'Book Now',url:U.book} }
+    ]});
+
+    cats.push({ icon:'heart', title:'Group Experiences', span:'half',
+      note:'Group bookings require advance notice.',
+      rows:[
+        { name:'Tanning & Mimosas', bullets:['Includes 5 Custom Glow tans','Studio access for your group','Complimentary champagne & mimosas'], price:'$'+cfg.group.mimosas, priceSub:'+$50 ea add’l guest', btn:{label:'Book Now',url:U.book} },
+        { name:'Austin Mobile Tanning', badge:'Austin Only', desc:'Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $25 travel fee if further than 10 miles from studio, $20 hotel travel fee. Please include address and party size in request notes box!', price:'$75 / hour', btn:{label:'Book Now',url:U.book} }
+      ]});
+
+    cats.push({ title:'Accessories', span:'full', acc:true, plain:true, rows:[
+      { name:'Disposable Boxers', desc:'Purchase available on-site.', price:'$3', priceSub:'Per Pair' },
+      { name:'Floral Pasties', desc:'Purchase available on-site.', price:'$2', priceSub:'Per Pair' },
+      { name:'C-String Undies', desc:'Wash and wear for multiple glow sessions. Purchase available on-site.', price:'$2', priceSub:'Per Pair' }
+    ]});
+
+    cats.push({ title:'Complimentary Gear', span:'full', acc:true, plain:true, rows:[
       { name:'Disposable Undies', price:'Free' },
       { name:'Disposable Nose Plugs', price:'Free' },
-      { name:'Disposable Hair Clips', price:'Free' }
+      { name:'Disposable Hair Caps', price:'Free' }
     ]});
+
     return cats;
   }
 
-  var AH = { core:{custom:40,clear:40,rapid:55}, addons:{gold:45,byebye:55,brazilian:50}, partial:{face:5,partial:10,upperlower:20},
-    memb:{absolute:120,deluxe:96,glow:66,addl:35}, pack:{session:35,elite:525,ultimate:350,getter:175}, special:34, teeth:null };
   function assign(o){ var r={},i,a; for(i=0;i<arguments.length;i++){a=arguments[i];for(var k in a){if(Object.prototype.hasOwnProperty.call(a,k))r[k]=a[k];}} return r; }
 
-  var DATA = {
-    austin:  makeLocation(assign({urls:URL.austin,  group:{label:'In Store Group Tanning & Mimosas',instore:50,mobile:75}}, AH)),
-    houston: makeLocation(assign({urls:URL.houston, group:{label:'In Store Group Tanning & Mimosas',instore:50,mobile:75}}, AH)),
-    dallas:  makeLocation({ urls:URL.dallas,
-      core:{custom:45,clear:45,rapid:60}, addons:{gold:50,byebye:60,brazilian:55}, partial:{face:7,partial:15,upperlower:25},
-      memb:{absolute:140,deluxe:111,glow:78,addl:40}, pack:{session:40,elite:600,ultimate:400,getter:200}, special:38, teeth:79,
-      group:{label:'Group Tanning & Mimosas',instore:55,mobile:null} })
+  var AH = {
+    core:{custom:50,clear:50,rapid:60},
+    memb:{pass:29,club:45},
+    pack:{six:270,sixSession:'45',ten:400,tenSession:'40'},
+    partial:{face:10,ul:25,partial:35},
+    special:39,
+    group:{mimosas:300}
   };
 
-  function titleHTML(t){ var p=t.split(' '); return '<em>'+p.shift()+'</em>'+(p.length?' '+p.join(' '):''); }
+  var DATA = {
+    austin:  makeLocation(assign({urls:URL.austin},  AH)),
+    houston: makeLocation(assign({urls:URL.houston}, AH)),
+    dallas:  makeLocation({ urls:URL.dallas,
+      core:{custom:55,clear:55,rapid:65},
+      memb:{pass:39,club:50},
+      pack:{six:285,sixSession:'47.50',ten:420,tenSession:'42'},
+      partial:{face:12,ul:30,partial:40},
+      special:44,
+      group:{mimosas:325} })
+  };
+
+  function titleHTML(t){ var p=t.split(' '); var last=p.pop(); return (p.length?p.join(' ')+' ':'')+'<em>'+last+'</em>'; }
   function rowHTML(r){
     var price='<div class="hht-spv2__pricewrap"><span class="hht-spv2__price">'+r.price+'</span>'+(r.priceSub?'<span class="hht-spv2__pricesub">'+r.priceSub+'</span>':'')+'</div>';
     var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+(r.badge?'<span class="hht-spv2__badge">'+r.badge+'</span>':'')+'</div>';
@@ -140,7 +155,9 @@
     return '<div class="hht-spv2__row"><div class="hht-spv2__rowhead">'+name+price+'</div>'+detail+btn+'</div>';
   }
   function cardHTML(c){
-    var head='<div class="hht-spv2__head"><span class="hht-spv2__ic">'+(ICONS[c.icon]||'')+'</span><h3 class="hht-spv2__ctitle">'+titleHTML(c.title)+'</h3>'+(c.subtitle?'<p class="hht-spv2__csub">'+c.subtitle+'</p>':'')+'</div>';
+    var ic = c.icon ? '<span class="hht-spv2__ic">'+(ICONS[c.icon]||'')+'</span>' : '';
+    var title = c.plain ? c.title : titleHTML(c.title);
+    var head='<div class="hht-spv2__head">'+ic+'<h3 class="hht-spv2__ctitle">'+title+'</h3>'+(c.subtitle?'<p class="hht-spv2__csub">'+c.subtitle+'</p>':'')+'</div>';
     var body='<div class="hht-spv2__body">'+(c.intro?'<p class="hht-spv2__intro">'+c.intro+'</p>':'')+c.rows.map(rowHTML).join('')+(c.note?'<p class="hht-spv2__note">'+c.note+'</p>':'')+'</div>';
     return '<div class="hht-spv2__card'+(c.span==='full'?' hht-spv2__card--full':'')+(c.acc?' hht-spv2__card--acc':'')+'">'+head+body+'</div>';
   }
