@@ -1,8 +1,6 @@
 {%- liquid
-  assign gift_austin = settings.gift_austin_url | default: 'https://www.secure-booker.com/HushHushTan/ShopOnline/GiftCertificate.aspx'
-  assign gift_dallas = settings.gift_dallas_url | default: 'https://www.secure-booker.com/HushHushTanDallas/ShopOnline/GiftCertificate.aspx'
-  assign gift_houston = settings.gift_houston_url | default: 'https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate'
   assign careers_url = 'https://hushhushtan.com/a/careers/'
+  assign book_url = settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
 -%}
 
 <header class="site-header site-header--lavender" role="banner" data-site-header>
@@ -69,19 +67,17 @@
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            Our Services <span class="site-header__chevron" aria-hidden="true"></span>
+            Services <span class="site-header__chevron" aria-hidden="true"></span>
           </button>
           <div class="site-header__dropdown" role="menu">
+            <a href="/pages/spray-tanning" role="menuitem">Spray Tanning</a>
             <a href="/pages/austin-services" role="menuitem">Austin Services</a>
             <a href="/pages/dallas-services" role="menuitem">Dallas Services</a>
             <a href="/pages/houston-services" role="menuitem">Houston Services</a>
-            <a href="/pages/spray-tanning" role="menuitem">Spray Tanning</a>
-            <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" role="menuitem">Group Tanning &amp; Mimosas</a>
-            <a href="/pages/mobile-spray-tan" role="menuitem">Austin Mobile Tanning</a>
           </div>
         </div>
 
-        <a href="/collections/tanning-products" class="site-header__link site-header__link--direct">Products</a>
+        <a href="/collections/tanning-products" class="site-header__link site-header__link--direct">Shop</a>
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
@@ -93,16 +89,7 @@
           </div>
         </div>
 
-        <div class="site-header__item has-submenu" data-nav-item>
-          <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            Gift Certificates <span class="site-header__chevron" aria-hidden="true"></span>
-          </button>
-          <div class="site-header__dropdown" role="menu">
-            <a href="{{ gift_austin }}" role="menuitem" target="_blank" rel="noopener">Austin Gift Certificate</a>
-            <a href="{{ gift_dallas }}" role="menuitem" target="_blank" rel="noopener">Dallas Gift Certificate</a>
-            <a href="{{ gift_houston }}" role="menuitem" target="_blank" rel="noopener">Houston Gift Certificate</a>
-          </div>
-        </div>
+        <a href="/pages/faqs" class="site-header__link site-header__link--direct">FAQs</a>
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
@@ -112,11 +99,12 @@
             <a href="/pages/about-us" role="menuitem">Our Story</a>
             <a href="/pages/contact" role="menuitem">Contact</a>
             <a href="/pages/press" role="menuitem">Press</a>
-            <a href="/pages/faqs" role="menuitem">FAQ</a>
             <a href="{{ careers_url }}" role="menuitem">Careers</a>
             <a href="/pages/tanning-tips" role="menuitem">Tanning Tips</a>
           </div>
         </div>
+
+        <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>Book Now</a>
       </nav>
     </div>
   </div>
@@ -133,6 +121,8 @@
       </button>
     </div>
 
+    <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>Book Now</a>
+
     <nav class="drawer__nav" aria-label="Mobile">
       <details class="drawer__accordion">
         <summary>Locations</summary>
@@ -144,18 +134,16 @@
       </details>
 
       <details class="drawer__accordion">
-        <summary>Our Services</summary>
+        <summary>Services</summary>
         <div class="drawer__sub">
+          <a href="/pages/spray-tanning" data-drawer-link>Spray Tanning</a>
           <a href="/pages/austin-services" data-drawer-link>Austin Services</a>
           <a href="/pages/dallas-services" data-drawer-link>Dallas Services</a>
           <a href="/pages/houston-services" data-drawer-link>Houston Services</a>
-          <a href="/pages/spray-tanning" data-drawer-link>Spray Tanning</a>
-          <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" data-drawer-link>Group Tanning &amp; Mimosas</a>
-          <a href="/pages/mobile-spray-tan" data-drawer-link>Austin Mobile Tanning</a>
         </div>
       </details>
 
-      <a href="/collections/tanning-products" class="drawer__link" data-drawer-link>Products</a>
+      <a href="/collections/tanning-products" class="drawer__link" data-drawer-link>Shop</a>
 
       <details class="drawer__accordion">
         <summary>Parties &amp; Events</summary>
@@ -165,14 +153,7 @@
         </div>
       </details>
 
-      <details class="drawer__accordion">
-        <summary>Gift Certificates</summary>
-        <div class="drawer__sub">
-          <a href="{{ gift_austin }}" data-drawer-link target="_blank" rel="noopener">Austin Gift Certificate</a>
-          <a href="{{ gift_dallas }}" data-drawer-link target="_blank" rel="noopener">Dallas Gift Certificate</a>
-          <a href="{{ gift_houston }}" data-drawer-link target="_blank" rel="noopener">Houston Gift Certificate</a>
-        </div>
-      </details>
+      <a href="/pages/faqs" class="drawer__link" data-drawer-link>FAQs</a>
 
       <details class="drawer__accordion">
         <summary>About</summary>
@@ -180,7 +161,6 @@
           <a href="/pages/about-us" data-drawer-link>Our Story</a>
           <a href="/pages/contact" data-drawer-link>Contact</a>
           <a href="/pages/press" data-drawer-link>Press</a>
-          <a href="/pages/faqs" data-drawer-link>FAQ</a>
           <a href="{{ careers_url }}" data-drawer-link>Careers</a>
           <a href="/pages/tanning-tips" data-drawer-link>Tanning Tips</a>
         </div>

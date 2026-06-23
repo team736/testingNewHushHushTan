@@ -35,10 +35,11 @@
     "name": "Typography",
     "settings": [
       { "type": "select", "id": "heading_font", "label": "Heading font", "options": [
-        { "value": "'Freight Neo Pro', 'Cormorant Garamond', 'EB Garamond', Georgia, serif", "label": "Freight Neo Pro (Cormorant fallback)" },
+        { "value": "'Freight Neo Pro', 'Fraunces', 'Cormorant Garamond', 'EB Garamond', Georgia, serif", "label": "Freight Neo (Fraunces free fallback)" },
+        { "value": "'Fraunces', Georgia, serif", "label": "Fraunces" },
         { "value": "'Cormorant Garamond', Georgia, serif", "label": "Cormorant Garamond" },
         { "value": "'Playfair Display', Georgia, serif", "label": "Playfair Display" }
-      ], "default": "'Freight Neo Pro', 'Cormorant Garamond', 'EB Garamond', Georgia, serif" },
+      ], "default": "'Freight Neo Pro', 'Fraunces', 'Cormorant Garamond', 'EB Garamond', Georgia, serif" },
       { "type": "select", "id": "eyebrow_font", "label": "Eyebrow font", "options": [
         { "value": "'Fahkwang', 'Outfit', 'Jost', system-ui, sans-serif", "label": "Fahkwang" },
         { "value": "'Outfit', 'Jost', system-ui, sans-serif", "label": "Outfit" }
