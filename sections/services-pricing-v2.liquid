@@ -149,10 +149,11 @@
   function titleHTML(t){ var p=t.split(' '); var last=p.pop(); return (p.length?p.join(' ')+' ':'')+'<em>'+last+'</em>'; }
   function rowHTML(r){
     var price='<div class="hht-spv2__pricewrap"><span class="hht-spv2__price">'+r.price+'</span>'+(r.priceSub?'<span class="hht-spv2__pricesub">'+r.priceSub+'</span>':'')+'</div>';
-    var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+(r.badge?'<span class="hht-spv2__badge">'+r.badge+'</span>':'')+'</div>';
+    var badge=r.badge?'<span class="hht-spv2__badge"><span class="hht-spv2__badge-spark" aria-hidden="true">✨</span> '+r.badge+'</span>':'';
+    var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+badge+'</div>';
     var detail=r.bullets?'<ul class="hht-spv2__bullets">'+r.bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>':(r.desc?'<p class="hht-spv2__desc">'+r.desc+'</p>':'');
-    var btn=r.btn?'<a class="btn btn--pill btn--small" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
-    return '<div class="hht-spv2__row"><div class="hht-spv2__rowhead">'+name+price+'</div>'+detail+btn+'</div>';
+    var btn=r.btn?'<a class="hht-spv2__btn" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
+    return '<div class="hht-spv2__row"><div class="hht-spv2__row-top">'+name+price+'</div>'+detail+btn+'</div>';
   }
   function cardHTML(c){
     var ic = c.icon ? '<span class="hht-spv2__ic">'+(ICONS[c.icon]||'')+'</span>' : '';
