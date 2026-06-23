@@ -65,9 +65,9 @@
   function makeLocation(cfg){
     var U = cfg.urls, cats = [];
 
-    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First time? Start here.', rows:[
+    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First-timer? Start here.', rows:[
       { name:'Custom Glow', badge:'Most Popular', desc:'Customized to your individual skin tone', price:'$'+cfg.core.custom, btn:{label:'Book Now',url:U.book} },
-      { name:'Clear Glow', badge:'Transfer Free', desc:'Clear solution for a natural finish', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
+      { name:'Clear Glow', badge:'First-Timer Fave', desc:'Clear solution for a natural finish', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
       { name:'Rapid Glow', badge:'Fast Results', desc:'Rinse in 2-4 hours', price:'$'+cfg.core.rapid, btn:{label:'Book Now',url:U.book} }
     ]});
 
@@ -105,7 +105,7 @@
       note:'Group bookings require advance notice.',
       rows:[
         { name:'Tanning & Mimosas', bullets:['Includes 5 Custom Glow tans','Studio access for your group','Complimentary champagne & mimosas'], price:'$'+cfg.group.mimosas, priceSub:'+$50 ea add’l guest', btn:{label:'Book Now',url:U.book} },
-        { name:'Austin Mobile Tanning', badge:'Austin Only', desc:'Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $25 travel fee if further than 10 miles from studio, $20 hotel travel fee. Please include address and party size in request notes box!', price:'$75 / hour', btn:{label:'Book Now',url:U.book} }
+        { name:'Austin Mobile Tanning', badge:'Austin Only', desc:'Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from studio, $30 hotel travel fee. Please include address and party size in request notes box!', price:'$75 / hour', btn:{label:'Book Now',url:U.book} }
       ]});
 
     cats.push({ title:'Accessories', span:'full', acc:true, plain:true, rows:[
