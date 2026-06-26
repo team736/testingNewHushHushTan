@@ -740,28 +740,12 @@
         "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
     },
-    "press_grid_gG4bPb": {
+    "press_grid_4eKEi6": {
       "type": "press-grid",
       "name": "Press grid",
       "settings": {
         "eyebrow": "Featured In",
-        "heading": "Trusted by Texas. Recognized nationally.",
-        "instyle_image_url": "https://hushhushtan.com/cdn/shop/files/instyle-logo.png",
-        "dmagazine_image_url": "https://hushhushtan.com/cdn/shop/files/d-magazine-logo.png",
-        "papercity_image_url": "https://hushhushtan.com/cdn/shop/files/papercity-magazine-logo.png",
-        "austinmonthly_image_url": "https://hushhushtan.com/cdn/shop/files/austin-monthly-logo.png",
-        "parkcities_image_url": "https://hushhushtan.com/cdn/shop/files/park-cities-people-logo.png",
-        "leader_image_url": "https://hushhushtan.com/cdn/shop/files/theleader-logo.png",
-        "show_vogue": true,
-        "show_instyle": true,
-        "show_dmagazine": true,
-        "show_papercity": true,
-        "show_austinmonthly": true,
-        "show_austinbeauty": true,
-        "show_tlm": true,
-        "show_parkcities": true,
-        "show_leader": true,
-        "show_communityimpact": true
+        "heading": "Trusted by Texas. Recognized nationally."
       }
     }
   },
@@ -771,6 +755,6 @@
     "services_pricing_v2_V8rWkN",
     "products",
     "glow_moments",
-    "press_grid_gG4bPb"
+    "press_grid_4eKEi6"
   ]
 }
