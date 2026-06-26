@@ -679,74 +679,6 @@
         "cta_url": "/collections/tanning-products"
       }
     },
-    "press_grid_GfLhPm": {
-      "type": "press-grid",
-      "blocks": {
-        "logo_eYnizV": {
-          "type": "logo",
-          "settings": {
-            "name": "Vogue",
-            "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty"
-          }
-        },
-        "logo_zCkaQA": {
-          "type": "logo",
-          "settings": {
-            "name": "InStyle",
-            "link": "https://hushhushtan.com/pages/press"
-          }
-        },
-        "logo_43ChUz": {
-          "type": "logo",
-          "settings": {
-            "name": "D Magazine",
-            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/"
-          }
-        },
-        "logo_JK4UCA": {
-          "type": "logo",
-          "settings": {
-            "name": "PaperCity",
-            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/"
-          }
-        },
-        "logo_VTTR9B": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Beauty Guide",
-            "link": "http://austinbeautyguide.com/blog/detail.php?id=64"
-          }
-        },
-        "logo_nNFcGF": {
-          "type": "logo",
-          "settings": {
-            "name": "Park Cities People",
-            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/#164783"
-          }
-        },
-        "logo_6MwjP8": {
-          "type": "logo",
-          "settings": {
-            "name": "Texas Lifestyle Magazine",
-            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/"
-          }
-        }
-      },
-      "block_order": [
-        "logo_eYnizV",
-        "logo_zCkaQA",
-        "logo_43ChUz",
-        "logo_JK4UCA",
-        "logo_VTTR9B",
-        "logo_nNFcGF",
-        "logo_6MwjP8"
-      ],
-      "name": "Press grid",
-      "settings": {
-        "eyebrow": "Featured In",
-        "heading": "Trusted by Texas. Recognized nationally."
-      }
-    },
     "glow_moments": {
       "type": "glow-moments-faq",
       "blocks": {
@@ -807,6 +739,113 @@
         "faqs_url": "/pages/faqs",
         "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
+    },
+    "press_grid_zgrmqW": {
+      "type": "press-grid",
+      "blocks": {
+        "logo_mddNH3": {
+          "type": "logo",
+          "settings": {
+            "name": "Vogue",
+            "image": "shopify://shop_images/VOGUE_LOGO.svg",
+            "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty",
+            "size": "md"
+          }
+        },
+        "logo_anMQh3": {
+          "type": "logo",
+          "settings": {
+            "name": "InStyle",
+            "image": "shopify://shop_images/download-1.jpg",
+            "link": "https://hushhushtan.com/pages/press",
+            "size": "md"
+          }
+        },
+        "logo_bYJbMH": {
+          "type": "logo",
+          "settings": {
+            "name": "D Magazine",
+            "image": "shopify://shop_images/featured-in-d-magazine.png",
+            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
+            "size": "lg"
+          }
+        },
+        "logo_qK6cJW": {
+          "type": "logo",
+          "settings": {
+            "name": "PaperCity",
+            "image": "shopify://shop_images/papercity-magazine-black.webp",
+            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
+            "size": "lg"
+          }
+        },
+        "logo_mBpABH": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Monthly",
+            "image": "shopify://shop_images/form_logo.jpg",
+            "link": "https://hushhushtan.com/pages/press",
+            "size": "md"
+          }
+        },
+        "logo_h47q7X": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Beauty Guide",
+            "link": "http://austinbeautyguide.com/blog/detail.php?id=64",
+            "size": "xl"
+          }
+        },
+        "logo_xNii6y": {
+          "type": "logo",
+          "settings": {
+            "name": "Texas Lifestyle Magazine",
+            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
+            "size": "lg"
+          }
+        },
+        "logo_KNACD8": {
+          "type": "logo",
+          "settings": {
+            "name": "Park Cities People",
+            "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
+            "size": "lg"
+          }
+        },
+        "logo_nYxJBG": {
+          "type": "logo",
+          "settings": {
+            "name": "The Leader",
+            "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
+            "size": "lg"
+          }
+        },
+        "logo_fHWG8i": {
+          "type": "logo",
+          "settings": {
+            "name": "Community Impact",
+            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
+            "size": "md"
+          }
+        }
+      },
+      "block_order": [
+        "logo_mddNH3",
+        "logo_anMQh3",
+        "logo_bYJbMH",
+        "logo_qK6cJW",
+        "logo_mBpABH",
+        "logo_h47q7X",
+        "logo_xNii6y",
+        "logo_KNACD8",
+        "logo_nYxJBG",
+        "logo_fHWG8i"
+      ],
+      "name": "Press grid",
+      "settings": {
+        "eyebrow": "Featured In",
+        "heading": "Trusted by Texas. Recognized nationally."
+      }
     }
   },
   "order": [
@@ -814,7 +853,7 @@
     "locations",
     "services_pricing_v2_V8rWkN",
     "products",
-    "press_grid_GfLhPm",
-    "glow_moments"
+    "glow_moments",
+    "press_grid_zgrmqW"
   ]
 }
