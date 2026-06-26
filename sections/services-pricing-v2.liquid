@@ -1,213 +1,767 @@
-{%- comment -%}
-  Hush Hush Tan — Services / Pricing V2
-  Location-tabbed services menu aligned with homepage design system
-  (base.css tokens, section-head, hht-location-tabs, btn--pill).
-{%- endcomment -%}
+{% style %}
+  /* Hard-coded Freight Neo Pro Medium */
+  @font-face {
+    font-family: 'Freight Neo Pro';
+    src: url('https://cdn.shopify.com/s/files/1/0329/1109/7991/files/freight-neo-pro-medium_4.otf?v=1780773403') format('opentype');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  {{ section.settings.body_font | font_face: font_display: 'swap' }}
 
-{%- assign uid = 'hht-spv2-' | append: section.id -%}
+  div#hht-services-{{ section.id }}, div#hht-services-{{ section.id }} * { box-sizing: border-box; }
+  div#hht-services-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color | default: '#FFFFFF' }};
+    --heading-color: {{ section.settings.heading_color | default: '#51217C' }};
+    --text-main: {{ section.settings.text_color | default: '#4D1D78' }};
+    --text-light: {{ section.settings.text_light | default: '#9B8AB0' }};
+    --accent: {{ section.settings.accent_color | default: '#ABA0EA' }};
+    --card-bg: {{ section.settings.card_bg_color | default: '#FFFFFF' }};
+    --card-border: {{ section.settings.card_border_color | default: '#BFB6EF' }};
+    --header-strip: {{ section.settings.header_strip_color | default: '#F3F2FE' }};
+    --badge-bg: {{ section.settings.badge_bg_color | default: '#5F3786' }};
+    --badge-text: {{ section.settings.badge_text_color | default: '#FFFFFF' }};
+    --btn-bg: {{ section.settings.btn_bg_color | default: '#ABA0EA' }};
+    --btn-text: {{ section.settings.btn_text_color | default: '#FFFFFF' }};
+    --btn-hover-bg: {{ section.settings.btn_hover_bg | default: '#5F3786' }};
+    --btn-hover-text: {{ section.settings.btn_hover_text | default: '#FFFFFF' }};
+    --toggle-idle-bg: {{ section.settings.toggle_idle_bg | default: '#FFFFFF' }};
+    --toggle-idle-text: {{ section.settings.toggle_idle_text | default: '#51217C' }};
+    --toggle-idle-border: {{ section.settings.toggle_idle_border | default: '#BFB6EF' }};
+    --toggle-active-bg: {{ section.settings.toggle_active_bg | default: '#ABA0EA' }};
+    --toggle-active-text: {{ section.settings.toggle_active_text | default: '#FFFFFF' }};
+    --toggle-active-border: {{ section.settings.toggle_active_border | default: '#ABA0EA' }};
+    --toggle-glitch: {{ section.settings.toggle_glitch_color | default: '#5F3786' }};
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: {{ section.settings.body_font.family }}, sans-serif;
+    padding: 70px 20px;
+  }
+  div#hht-services-{{ section.id }} .hht-container { max-width: 1200px; margin: 0 auto; }
 
-{%- assign book_austin  = settings.book_austin_url  | default: 'https://go.booker.com/location/hushhushtan/service-menu' -%}
-{%- assign book_houston = settings.book_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/service-menu' -%}
-{%- assign book_dallas  = settings.book_dallas_url  | default: 'https://go.booker.com/location/hushhushtandallas/service-menu' -%}
+  /* Page Header */
+  div#hht-services-{{ section.id }} .hht-header { text-align: center; margin-bottom: 40px; }
+  div#hht-services-{{ section.id }} .hht-header h1 {
+    font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+    color: var(--heading-color);
+    margin: 0 0 20px 0;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: -0.01em;
+  }
+  div#hht-services-{{ section.id }} .hht-header h1 .roman { font-style: normal; font-weight: 500; }
+  div#hht-services-{{ section.id }} .hht-header .hht-subheading {
+    font-size: 0.85rem;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin: 0 0 16px 0;
+    font-weight: 500;
+  }
 
-<section id="{{ uid }}" class="section section-white hht-spv2" aria-labelledby="{{ uid }}-title">
-  {%- if section.settings.homepage_anchors -%}
-    <span id="services" class="hht-spv2__anchor" aria-hidden="true"></span>
-    <span id="memberships" class="hht-spv2__anchor" aria-hidden="true"></span>
-  {%- endif -%}
+  /* Location Toggle */
+  div#hht-services-{{ section.id }} .hht-loc-toggle { display: inline-flex; align-items: center; gap: 10px; }
+  div#hht-services-{{ section.id }} button.hht-loc-btn {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    padding: 12px 28px !important;
+    border: 1px solid var(--toggle-idle-border) !important;
+    background: var(--toggle-idle-bg) !important;
+    font-family: {{ section.settings.body_font.family }}, sans-serif !important;
+    font-weight: 600 !important; font-size: 0.8rem !important;
+    text-transform: uppercase !important; letter-spacing: 0.15em !important;
+    color: var(--toggle-idle-text) !important;
+    cursor: pointer !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
+    border-radius: 0 !important; line-height: 1 !important;
+    box-shadow: 0 0 0 var(--toggle-glitch) !important;
+  }
+  div#hht-services-{{ section.id }} button.hht-loc-btn:hover {
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 4px 4px 0 var(--toggle-glitch) !important;
+  }
+  div#hht-services-{{ section.id }} button.hht-loc-btn.active {
+    background: var(--toggle-active-bg) !important;
+    color: var(--toggle-active-text) !important;
+    border-color: var(--toggle-active-border) !important;
+    transform: translate(-3px, -3px) !important;
+    box-shadow: 4px 4px 0 var(--toggle-glitch) !important;
+  }
 
-  <div class="container container--home">
-    <div class="section-head">
-      {%- if section.settings.eyebrow != blank -%}
-        <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-      {%- endif -%}
-      <h2 id="{{ uid }}-title">{{ section.settings.heading }}</h2>
-      {%- if section.settings.subheading != blank -%}
-        <p class="section-head__sub">{{ section.settings.subheading }}</p>
-      {%- endif -%}
+  /* Section Card */
+  div#hht-services-{{ section.id }} .hht-section-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  div#hht-services-{{ section.id }} .hht-section-strip {
+    background: var(--header-strip);
+    padding: 28px 30px 22px;
+    text-align: center;
+    border-bottom: 1px solid color-mix(in srgb, var(--card-border) 55%, transparent);
+  }
+  div#hht-services-{{ section.id }} .hht-section-icon {
+    object-fit: contain;
+    display: inline-block;
+    margin-bottom: 6px;
+    height: auto;
+  }
+  div#hht-services-{{ section.id }} .hht-section-title {
+    font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
+    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    color: var(--heading-color);
+    margin: 4px 0 6px 0;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1.1;
+  }
+  div#hht-services-{{ section.id }} .hht-section-title .roman { font-style: normal; font-weight: 500; }
+  div#hht-services-{{ section.id }} .hht-section-note {
+    font-size: 0.95rem;
+    color: var(--heading-color);
+    margin: 0;
+    font-style: italic;
+    opacity: 0.85;
+  }
+  div#hht-services-{{ section.id }} .hht-section-body {
+    padding: 8px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  /* Service Row */
+  div#hht-services-{{ section.id }} .hht-row {
+    padding: 26px 0 22px 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--card-border) 45%, transparent);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    column-gap: 20px;
+    align-items: start;
+  }
+  div#hht-services-{{ section.id }} .hht-row:last-child { border-bottom: none; }
+  div#hht-services-{{ section.id }} .hht-row-head {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    grid-column: 1; grid-row: 1;
+  }
+  div#hht-services-{{ section.id }} .hht-row-title {
+    font-family: {{ section.settings.body_font.family }}, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0;
+    line-height: 1.15;
+  }
+  div#hht-services-{{ section.id }} .hht-row-price {
+    font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+    line-height: 1;
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: start;
+    text-align: right;
+    white-space: nowrap;
+  }
+  div#hht-services-{{ section.id }} .hht-row-price .price-sub {
+    display: block;
+    font-family: {{ section.settings.body_font.family }}, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    margin-top: 6px;
+    text-transform: none;
+  }
+  div#hht-services-{{ section.id }} .hht-row-desc {
+    font-size: 0.92rem;
+    color: var(--text-main);
+    line-height: 1.45;
+    margin: 8px 0 0 0;
+    grid-column: 1;
+    grid-row: 2;
+    opacity: 0.85;
+  }
+  div#hht-services-{{ section.id }} .hht-row-desc ul {
+    list-style: none; padding: 0; margin: 0;
+  }
+  div#hht-services-{{ section.id }} .hht-row-desc li {
+    padding: 1px 0;
+  }
+
+  /* Badge */
+  div#hht-services-{{ section.id }} .hht-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--badge-bg); color: var(--badge-text);
+    font-size: 0.62rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.12em;
+    padding: 4px 10px 4px 8px; border-radius: 20px;
+    line-height: 1; white-space: nowrap;
+  }
+  div#hht-services-{{ section.id }} .hht-badge .hht-badge-icon {
+    font-size: 0.85em; line-height: 1; opacity: 0.95;
+    /* let emoji render at its natural color (no text-color inheritance) */
+    color: initial;
+  }
+
+  /* Book Now button */
+  div#hht-services-{{ section.id }} a.hht-book-btn {
+    display: inline-flex !important; align-items: center !important; justify-content: center !important;
+    background: var(--btn-bg) !important; color: var(--btn-text) !important;
+    text-decoration: none !important;
+    font-family: {{ section.settings.body_font.family }}, sans-serif !important;
+    font-weight: 700 !important; font-size: 0.78rem !important;
+    text-transform: uppercase !important; letter-spacing: 0.18em !important;
+    padding: 13px 30px !important;
+    border-radius: 0 !important; border: none !important;
+    margin-top: 16px !important;
+    transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+    width: fit-content !important; cursor: pointer !important; line-height: 1 !important;
+    grid-column: 1; grid-row: 3;
+  }
+  div#hht-services-{{ section.id }} a.hht-book-btn:hover {
+    background: var(--btn-hover-bg) !important;
+    color: var(--btn-hover-text) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Footer note */
+  div#hht-services-{{ section.id }} .hht-section-foot {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    text-align: center;
+    padding: 0 30px 22px 30px;
+    font-style: italic;
+  }
+
+  /* Layout: full-width sections stack with gap; pair-mode renders 2-col grid */
+  div#hht-services-{{ section.id }} .hht-section-card { margin-bottom: 28px; }
+  div#hht-services-{{ section.id }} .hht-pair-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+  div#hht-services-{{ section.id }} .hht-pair-row .hht-section-card { margin-bottom: 0; }
+
+  /* Animations */
+  div#hht-services-{{ section.id }} .hht-anim-float { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+  div#hht-services-{{ section.id }} .hht-anim-float:hover { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(81, 33, 124, 0.08); }
+  div#hht-services-{{ section.id }} .hht-anim-glow { transition: box-shadow 0.3s ease, border-color 0.3s ease; }
+  div#hht-services-{{ section.id }} .hht-anim-glow:hover { box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 55%, transparent); border-color: var(--accent); }
+  div#hht-services-{{ section.id }} .hht-anim-scale { transition: transform 0.3s ease; }
+  div#hht-services-{{ section.id }} .hht-anim-scale:hover { transform: scale(1.01); }
+
+  /* Location targeting on rows */
+  div#hht-services-{{ section.id }}.show-loc1 .target-loc2,
+  div#hht-services-{{ section.id }}.show-loc1 .target-loc3 { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc2 .target-loc1,
+  div#hht-services-{{ section.id }}.show-loc2 .target-loc3 { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc3 .target-loc1,
+  div#hht-services-{{ section.id }}.show-loc3 .target-loc2,
+  div#hht-services-{{ section.id }}.show-loc3 .target-loc12 { display: none !important; }
+
+  div#hht-services-{{ section.id }} .loc2-display,
+  div#hht-services-{{ section.id }} .loc3-display { display: none !important; }
+  div#hht-services-{{ section.id }} a.hht-book-btn.loc2-display,
+  div#hht-services-{{ section.id }} a.hht-book-btn.loc3-display { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc2 .loc1-display,
+  div#hht-services-{{ section.id }}.show-loc2 .loc3-display { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc2 span.loc2-display { display: inline !important; }
+  div#hht-services-{{ section.id }}.show-loc2 a.hht-book-btn.loc2-display { display: inline-flex !important; }
+  div#hht-services-{{ section.id }}.show-loc3 .loc1-display,
+  div#hht-services-{{ section.id }}.show-loc3 .loc2-display { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc3 span.loc3-display { display: inline !important; }
+  div#hht-services-{{ section.id }}.show-loc3 a.hht-book-btn.loc3-display { display: inline-flex !important; }
+
+  /* Mobile */
+  @media (max-width: 820px) {
+    div#hht-services-{{ section.id }} { padding: 40px 14px; }
+    div#hht-services-{{ section.id }} .hht-pair-row { grid-template-columns: 1fr; gap: 24px; }
+    div#hht-services-{{ section.id }} .hht-section-strip { padding: 22px 20px 18px; }
+    div#hht-services-{{ section.id }} .hht-section-body { padding: 6px 22px 24px; }
+    div#hht-services-{{ section.id }} .hht-row { grid-template-columns: 1fr auto; column-gap: 14px; }
+    div#hht-services-{{ section.id }} .hht-row-title { font-size: 0.95rem; }
+    div#hht-services-{{ section.id }} .hht-row-price { font-size: 1.5rem; }
+    div#hht-services-{{ section.id }} a.hht-book-btn { padding: 11px 22px !important; font-size: 0.72rem !important; }
+    div#hht-services-{{ section.id }} .hht-loc-toggle { flex-direction: column; gap: 8px; }
+    div#hht-services-{{ section.id }} button.hht-loc-btn { width: 100% !important; min-width: 200px !important; }
+  }
+  @media (max-width: 480px) {
+    div#hht-services-{{ section.id }} .hht-row {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+    }
+    div#hht-services-{{ section.id }} .hht-row-head { grid-column: 1; grid-row: 1; }
+    div#hht-services-{{ section.id }} .hht-row-price { grid-column: 1; grid-row: 2; text-align: left; margin-top: 4px; }
+    div#hht-services-{{ section.id }} .hht-row-desc { grid-column: 1; grid-row: 3; }
+    div#hht-services-{{ section.id }} a.hht-book-btn { grid-column: 1; grid-row: 4; }
+  }
+{% endstyle %}
+
+<div id="hht-services-{{ section.id }}" class="hht-services-wrapper show-loc1">
+  <div class="hht-container">
+
+    {%- comment -%} ============ PAGE HEADER ============ {%- endcomment -%}
+    <div class="hht-header">
+      <h1>{{ section.settings.heading }}</h1>
+      {% if section.settings.show_location_toggle %}
+        <div class="hht-subheading">{{ section.settings.subheading }}</div>
+        <div class="hht-loc-toggle">
+          <button class="hht-loc-btn loc-btn-1 active" type="button">{{ section.settings.loc1_name }}</button>
+          <button class="hht-loc-btn loc-btn-2" type="button">{{ section.settings.loc2_name }}</button>
+          <button class="hht-loc-btn loc-btn-3" type="button">{{ section.settings.loc3_name }}</button>
+        </div>
+      {% endif %}
     </div>
 
-    <div class="hht-spv2__tabs-wrap">
-      <div class="hht-location-tabs hht-spv2__location-tabs" role="tablist" aria-label="Choose location">
-        <button type="button" class="hht-location-tab active" role="tab" aria-selected="true" data-tab="austin" aria-controls="{{ uid }}-panel">Austin</button>
-        <button type="button" class="hht-location-tab" role="tab" aria-selected="false" data-tab="houston" aria-controls="{{ uid }}-panel">Houston</button>
-        <button type="button" class="hht-location-tab" role="tab" aria-selected="false" data-tab="dallas" aria-controls="{{ uid }}-panel">Dallas</button>
-      </div>
-    </div>
+    {%- comment -%}
+      ============ RENDER WALK ============
+      Two-pass approach:
+      Pass 1: Build a list of "sections" — each section_header block is a section, with the service_row blocks that follow it (until the next section_header) as its children.
+      Pass 2: Walk the sections list. If a section's "pair_next" is true AND the next section exists, render both inside a .hht-pair-row wrapper. Otherwise render full-width.
+    {%- endcomment -%}
 
-    <div id="{{ uid }}-panel" class="hht-spv2__grid" role="tabpanel" data-panel></div>
+    {%- comment -%} Pass 1: assign each block to its parent section index {%- endcomment -%}
+    {%- assign section_indexes = '' -%}
+    {%- assign current_section_idx = -1 -%}
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'section_header' -%}
+        {%- assign current_section_idx = forloop.index0 -%}
+        {%- assign section_indexes = section_indexes | append: forloop.index0 | append: ',' -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- assign section_idx_list = section_indexes | split: ',' -%}
+    {%- assign total_sections = section_idx_list | size -%}
+
+    {%- comment -%} Pass 2: walk sections. Use a counter to know when to skip the next one (because it was paired). {%- endcomment -%}
+    {%- assign skip_next = false -%}
+    {%- for s_idx_str in section_idx_list -%}
+      {%- if skip_next -%}
+        {%- assign skip_next = false -%}
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- assign s_idx = s_idx_str | plus: 0 -%}
+      {%- assign section_block = section.blocks[s_idx] -%}
+
+      {%- comment -%} Find next section index (if any) to use as upper bound for child rows {%- endcomment -%}
+      {%- assign next_pos = forloop.index0 | plus: 1 -%}
+      {%- if next_pos < total_sections -%}
+        {%- assign next_s_idx_str = section_idx_list[next_pos] -%}
+        {%- assign next_s_idx = next_s_idx_str | plus: 0 -%}
+        {%- assign has_next_section = true -%}
+      {%- else -%}
+        {%- assign next_s_idx = 999999 -%}
+        {%- assign has_next_section = false -%}
+      {%- endif -%}
+
+      {%- comment -%} Decide if this section pairs with the next one {%- endcomment -%}
+      {%- assign pair_now = false -%}
+      {%- if section_block.settings.pair_next and has_next_section -%}
+        {%- assign pair_now = true -%}
+        {%- assign next_section_block = section.blocks[next_s_idx] -%}
+
+        {%- comment -%} Find the bound for the PAIRED section's children {%- endcomment -%}
+        {%- assign nextnext_pos = next_pos | plus: 1 -%}
+        {%- if nextnext_pos < total_sections -%}
+          {%- assign nextnext_s_idx_str = section_idx_list[nextnext_pos] -%}
+          {%- assign nextnext_s_idx = nextnext_s_idx_str | plus: 0 -%}
+        {%- else -%}
+          {%- assign nextnext_s_idx = 999999 -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {% if pair_now %}
+        <div class="hht-pair-row">
+          {%- comment -%} CARD 1 (this section) {%- endcomment -%}
+          <div class="hht-section-card hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
+            <div class="hht-section-strip">
+              {% if section_block.settings.icon != blank %}
+                <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
+              {% endif %}
+              <h2 class="hht-section-title">
+                {% if section_block.settings.title_a != blank %}<span class="roman">{{ section_block.settings.title_a }}</span>{% endif %}
+                {% if section_block.settings.title_b != blank %} {{ section_block.settings.title_b }}{% endif %}
+              </h2>
+              {% if section_block.settings.note != blank %}<p class="hht-section-note">{{ section_block.settings.note }}</p>{% endif %}
+            </div>
+            <div class="hht-section-body">
+              {% for child in section.blocks %}
+                {% if forloop.index0 > s_idx and forloop.index0 < next_s_idx and child.type == 'service_row' %}
+                  <div class="hht-row target-{{ child.settings.target_location | default: 'all' }}" {{ child.shopify_attributes }}>
+                    <div class="hht-row-head">
+                      <h3 class="hht-row-title">{{ child.settings.title }}</h3>
+                      {% if child.settings.badge != blank %}
+                        {%- capture badge_style -%}
+                          {%- if child.settings.badge_bg != blank %}background:{{ child.settings.badge_bg }};{% endif -%}
+                          {%- if child.settings.badge_text_color != blank %}color:{{ child.settings.badge_text_color }};{% endif -%}
+                        {%- endcapture -%}
+                        <span class="hht-badge"{% if badge_style != blank %} style="{{ badge_style }}"{% endif %}>{% if child.settings.badge_icon != blank %}<span class="hht-badge-icon">{{ child.settings.badge_icon }}</span>{% endif %}{{ child.settings.badge }}</span>
+                      {% endif %}
+                    </div>
+                    <div class="hht-row-price">
+                      {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
+                      {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                    </div>
+                    {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
+                    {% if child.settings.benefits != blank %}
+                      <div class="hht-row-desc">
+                        <ul>
+                          {% assign feats = child.settings.benefits | split: ',' %}
+                          {% for feat in feats %}<li>· {{ feat | strip }}</li>{% endfor %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                    {% if child.settings.button_text != blank %}
+                      <a href="{{ child.settings.link_loc1 | default: '#booking' }}" class="hht-book-btn loc1-display">{{ child.settings.button_text }}</a>
+                      <a href="{{ child.settings.link_loc2 | default: '#booking' }}" class="hht-book-btn loc2-display">{{ child.settings.button_text }}</a>
+                      <a href="{{ child.settings.link_loc3 | default: '#booking' }}" class="hht-book-btn loc3-display">{{ child.settings.button_text }}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% if section_block.settings.footer != blank %}
+              <div class="hht-section-foot">{{ section_block.settings.footer }}</div>
+            {% endif %}
+          </div>
+
+          {%- comment -%} CARD 2 (the paired section) {%- endcomment -%}
+          <div class="hht-section-card hht-anim-{{ next_section_block.settings.animation | default: 'float' }}" {{ next_section_block.shopify_attributes }}>
+            <div class="hht-section-strip">
+              {% if next_section_block.settings.icon != blank %}
+                <img src="{{ next_section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ next_section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
+              {% endif %}
+              <h2 class="hht-section-title">
+                {% if next_section_block.settings.title_a != blank %}<span class="roman">{{ next_section_block.settings.title_a }}</span>{% endif %}
+                {% if next_section_block.settings.title_b != blank %} {{ next_section_block.settings.title_b }}{% endif %}
+              </h2>
+              {% if next_section_block.settings.note != blank %}<p class="hht-section-note">{{ next_section_block.settings.note }}</p>{% endif %}
+            </div>
+            <div class="hht-section-body">
+              {% for child in section.blocks %}
+                {% if forloop.index0 > next_s_idx and forloop.index0 < nextnext_s_idx and child.type == 'service_row' %}
+                  <div class="hht-row target-{{ child.settings.target_location | default: 'all' }}" {{ child.shopify_attributes }}>
+                    <div class="hht-row-head">
+                      <h3 class="hht-row-title">{{ child.settings.title }}</h3>
+                      {% if child.settings.badge != blank %}
+                        {%- capture badge_style -%}
+                          {%- if child.settings.badge_bg != blank %}background:{{ child.settings.badge_bg }};{% endif -%}
+                          {%- if child.settings.badge_text_color != blank %}color:{{ child.settings.badge_text_color }};{% endif -%}
+                        {%- endcapture -%}
+                        <span class="hht-badge"{% if badge_style != blank %} style="{{ badge_style }}"{% endif %}>{% if child.settings.badge_icon != blank %}<span class="hht-badge-icon">{{ child.settings.badge_icon }}</span>{% endif %}{{ child.settings.badge }}</span>
+                      {% endif %}
+                    </div>
+                    <div class="hht-row-price">
+                      {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
+                      {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                    </div>
+                    {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
+                    {% if child.settings.benefits != blank %}
+                      <div class="hht-row-desc">
+                        <ul>
+                          {% assign feats = child.settings.benefits | split: ',' %}
+                          {% for feat in feats %}<li>· {{ feat | strip }}</li>{% endfor %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                    {% if child.settings.button_text != blank %}
+                      <a href="{{ child.settings.link_loc1 | default: '#booking' }}" class="hht-book-btn loc1-display">{{ child.settings.button_text }}</a>
+                      <a href="{{ child.settings.link_loc2 | default: '#booking' }}" class="hht-book-btn loc2-display">{{ child.settings.button_text }}</a>
+                      <a href="{{ child.settings.link_loc3 | default: '#booking' }}" class="hht-book-btn loc3-display">{{ child.settings.button_text }}</a>
+                    {% endif %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            {% if next_section_block.settings.footer != blank %}
+              <div class="hht-section-foot">{{ next_section_block.settings.footer }}</div>
+            {% endif %}
+          </div>
+        </div>
+        {%- assign skip_next = true -%}
+      {% else %}
+        {%- comment -%} FULL-WIDTH single section {%- endcomment -%}
+        <div class="hht-section-card hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
+          <div class="hht-section-strip">
+            {% if section_block.settings.icon != blank %}
+              <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
+            {% endif %}
+            <h2 class="hht-section-title">
+              {% if section_block.settings.title_a != blank %}<span class="roman">{{ section_block.settings.title_a }}</span>{% endif %}
+              {% if section_block.settings.title_b != blank %} {{ section_block.settings.title_b }}{% endif %}
+            </h2>
+            {% if section_block.settings.note != blank %}<p class="hht-section-note">{{ section_block.settings.note }}</p>{% endif %}
+          </div>
+          <div class="hht-section-body">
+            {% for child in section.blocks %}
+              {% if forloop.index0 > s_idx and forloop.index0 < next_s_idx and child.type == 'service_row' %}
+                <div class="hht-row target-{{ child.settings.target_location | default: 'all' }}" {{ child.shopify_attributes }}>
+                  <div class="hht-row-head">
+                    <h3 class="hht-row-title">{{ child.settings.title }}</h3>
+                    {% if child.settings.badge != blank %}
+                        {%- capture badge_style -%}
+                          {%- if child.settings.badge_bg != blank %}background:{{ child.settings.badge_bg }};{% endif -%}
+                          {%- if child.settings.badge_text_color != blank %}color:{{ child.settings.badge_text_color }};{% endif -%}
+                        {%- endcapture -%}
+                        <span class="hht-badge"{% if badge_style != blank %} style="{{ badge_style }}"{% endif %}>{% if child.settings.badge_icon != blank %}<span class="hht-badge-icon">{{ child.settings.badge_icon }}</span>{% endif %}{{ child.settings.badge }}</span>
+                      {% endif %}
+                  </div>
+                  <div class="hht-row-price">
+                    {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
+                    {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                  </div>
+                  {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
+                  {% if child.settings.benefits != blank %}
+                    <div class="hht-row-desc">
+                      <ul>
+                        {% assign feats = child.settings.benefits | split: ',' %}
+                        {% for feat in feats %}<li>· {{ feat | strip }}</li>{% endfor %}
+                      </ul>
+                    </div>
+                  {% endif %}
+                  {% if child.settings.button_text != blank %}
+                    <a href="{{ child.settings.link_loc1 | default: '#booking' }}" class="hht-book-btn loc1-display">{{ child.settings.button_text }}</a>
+                    <a href="{{ child.settings.link_loc2 | default: '#booking' }}" class="hht-book-btn loc2-display">{{ child.settings.button_text }}</a>
+                    <a href="{{ child.settings.link_loc3 | default: '#booking' }}" class="hht-book-btn loc3-display">{{ child.settings.button_text }}</a>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          {% if section_block.settings.footer != blank %}
+            <div class="hht-section-foot">{{ section_block.settings.footer }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {%- endfor -%}
+
   </div>
-</section>
+</div>
 
 <script>
-(function(){
-  "use strict";
-  var root = document.getElementById('{{ uid }}');
-  if(!root) return;
-  var panel = root.querySelector('[data-panel]');
+  (function() {
+    document.addEventListener('DOMContentLoaded', function() {
+      var wrapper = document.getElementById('hht-services-{{ section.id }}');
+      if (!wrapper) return;
+      var btn1 = wrapper.querySelector('.loc-btn-1');
+      var btn2 = wrapper.querySelector('.loc-btn-2');
+      var btn3 = wrapper.querySelector('.loc-btn-3');
 
-  var URL = {
-    austin:  { book: {{ book_austin | json }},  join: {{ section.settings.membership_austin_url | default: 'https://go.booker.com/location/hushhushtan/buy/membership' | json }},  pack: {{ section.settings.package_austin_url | default: 'https://go.booker.com/location/hushhushtan/buy/series' | json }} },
-    houston: { book: {{ book_houston | json }}, join: {{ section.settings.membership_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/buy/membership' | json }}, pack: {{ section.settings.package_houston_url | default: 'https://go.booker.com/location/hushhushtanhouston/buy/series' | json }} },
-    dallas:  { book: {{ book_dallas | json }},  join: {{ section.settings.membership_dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/membership' | json }},  pack: {{ section.settings.package_dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/series' | json }} }
-  };
+      // Map button labels (case/whitespace-insensitive) to their button + class
+      var locationMap = [
+        { btn: btn1, locClass: 'show-loc1', slug: (btn1 ? btn1.textContent.trim().toLowerCase() : '') },
+        { btn: btn2, locClass: 'show-loc2', slug: (btn2 ? btn2.textContent.trim().toLowerCase() : '') },
+        { btn: btn3, locClass: 'show-loc3', slug: (btn3 ? btn3.textContent.trim().toLowerCase() : '') }
+      ];
 
-  var ICONS = {
-    sun:'<img class="hht-spv2__icimg" src="{{ 'icon-core-services.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    sparkle:'<img class="hht-spv2__icimg" src="{{ 'icon-add-ons.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    sunrise:'<img class="hht-spv2__icimg" src="{{ 'icon-partial-tans.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    crown:'<img class="hht-spv2__icimg" src="{{ 'icon-memberships.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    gift:'<img class="hht-spv2__icimg" src="{{ 'icon-tan-packages.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    star:'<img class="hht-spv2__icimg" src="{{ 'icon-special-offer.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">',
-    heart:'<img class="hht-spv2__icimg" src="{{ 'icon-group-experiences.png' | asset_url }}" alt="" width="240" height="240" loading="lazy">'
-  };
-
-  function makeLocation(cfg){
-    var U = cfg.urls, cats = [];
-
-    cats.push({ icon:'sun', title:'Core Services', span:'full', subtitle:'First-timer? Start here.', rows:[
-      { name:'Custom Glow', badge:'Most Popular', desc:'Customized to your individual skin tone', price:'$'+cfg.core.custom, btn:{label:'Book Now',url:U.book} },
-      { name:'Clear Glow', badge:'First-Timer Fave', desc:'Clear solution for a natural finish', price:'$'+cfg.core.clear, btn:{label:'Book Now',url:U.book} },
-      { name:'Rapid Glow', badge:'Fast Results', desc:'Rinse in 2-4 hours', price:'$'+cfg.core.rapid, btn:{label:'Book Now',url:U.book} }
-    ]});
-
-    cats.push({ icon:'crown', title:'Memberships Services', span:'half',
-      note:'Rapid Glow is not available for the complimentary tan; option to upgrade available.',
-      rows:[
-        { name:'Glow Pass', bullets:['35% off all tans','15% off all products','Cancel anytime'], price:'$'+cfg.memb.pass, priceSub:'per month', btn:{label:'Join Now',url:U.join} },
-        { name:'Glow Club', bullets:['1 complimentary tan per month','25% off all additional tans','15% off all products','Cancel anytime'], price:'$'+cfg.memb.club, priceSub:'per month', btn:{label:'Join Now',url:U.join} }
-      ]});
-
-    cats.push({ icon:'gift', title:'Tan Packages', span:'half',
-      note:'Please note, Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only.',
-      rows:[
-        { name:'6-Pack', bullets:['6 full spray tan sessions','Mix and match any core service','Valid for 6 months from purchase'], price:'$'+cfg.pack.six, priceSub:'just $'+cfg.pack.sixSession+'/session', btn:{label:'Buy the 6-Pack',url:U.pack} },
-        { name:'10-Pack', bullets:['10 full spray tan sessions','Mix and match any core service','Valid for 6 months from purchase'], price:'$'+cfg.pack.ten, priceSub:'just $'+cfg.pack.tenSession+'/session', btn:{label:'Buy the 10-Pack',url:U.pack} }
-      ]});
-
-    cats.push({ icon:'sunrise', title:'Partial Tans', span:'half', rows:[
-      { name:'Face', desc:'Face only', price:'$'+cfg.partial.face, btn:{label:'Book Now',url:U.book} },
-      { name:'Upper / Lower Only', desc:'An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.', price:'$'+cfg.partial.ul, btn:{label:'Book Now',url:U.book} },
-      { name:'Partial Upper / Lower', desc:'Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.', price:'$'+cfg.partial.partial, btn:{label:'Book Now',url:U.book} }
-    ]});
-
-    cats.push({ icon:'sparkle', title:'Add Ons', span:'half', rows:[
-      { name:'Gold Glow', desc:'Gold drops are added to give you a subtle elegant shimmer.', price:'+$5', btn:{label:'Book Now',url:U.book} },
-      { name:'Bye Bye Tan Line', desc:'Tan line erasing glow by a full body spray.', price:'+$20', btn:{label:'Book Now',url:U.book} },
-      { name:'Brazilian Glow', desc:'Custom fabulous double dip. Sprayed twice for a rich, dark tan.', price:'+$25', btn:{label:'Book Now',url:U.book} }
-    ]});
-
-    cats.push({ icon:'star', title:'Special Offer', span:'half', rows:[
-      { name:'Birthday Glow', desc:'Exclusive pricing for one Custom Glow during your birthday month.', price:'$'+cfg.special, btn:{label:'Book Now',url:U.book} }
-    ]});
-
-    cats.push({ icon:'heart', title:'Group Experiences', span:'half',
-      note:'Group bookings require advance notice.',
-      rows:[
-        { name:'Tanning & Mimosas', bullets:['Includes 5 Custom Glow tans','Studio access for your group','Complimentary champagne & mimosas'], price:'$'+cfg.group.mimosas, priceSub:'+$50 ea add’l guest', btn:{label:'Book Now',url:U.book} },
-        { name:'Austin Mobile Tanning', badge:'Austin Only', desc:'Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from studio, $30 hotel travel fee. Please include address and party size in request notes box!', price:'$75 / hour', btn:{label:'Book Now',url:U.book} }
-      ]});
-
-    cats.push({ title:'Accessories', span:'full', acc:true, plain:true, rows:[
-      { name:'Disposable Boxers', desc:'Purchase available on-site.', price:'$3', priceSub:'Per Pair' },
-      { name:'Floral Pasties', desc:'Purchase available on-site.', price:'$2', priceSub:'Per Pair' },
-      { name:'C-String Undies', desc:'Wash and wear for multiple glow sessions. Purchase available on-site.', price:'$2', priceSub:'Per Pair' }
-    ]});
-
-    cats.push({ title:'Complimentary Gear', span:'full', acc:true, plain:true, rows:[
-      { name:'Disposable Undies', price:'Free' },
-      { name:'Disposable Nose Plugs', price:'Free' },
-      { name:'Disposable Hair Caps', price:'Free' }
-    ]});
-
-    return cats;
-  }
-
-  function assign(o){ var r={},i,a; for(i=0;i<arguments.length;i++){a=arguments[i];for(var k in a){if(Object.prototype.hasOwnProperty.call(a,k))r[k]=a[k];}} return r; }
-
-  var AH = {
-    core:{custom:50,clear:50,rapid:60},
-    memb:{pass:29,club:45},
-    pack:{six:270,sixSession:'45',ten:400,tenSession:'40'},
-    partial:{face:10,ul:25,partial:35},
-    special:39,
-    group:{mimosas:300}
-  };
-
-  var DATA = {
-    austin:  makeLocation(assign({urls:URL.austin},  AH)),
-    houston: makeLocation(assign({urls:URL.houston}, AH)),
-    dallas:  makeLocation({ urls:URL.dallas,
-      core:{custom:55,clear:55,rapid:65},
-      memb:{pass:39,club:50},
-      pack:{six:285,sixSession:'47.50',ten:420,tenSession:'42'},
-      partial:{face:12,ul:30,partial:40},
-      special:44,
-      group:{mimosas:325} })
-  };
-
-  function titleHTML(t){ var p=t.split(' '); var last=p.pop(); return (p.length?p.join(' ')+' ':'')+'<em>'+last+'</em>'; }
-  function rowHTML(r){
-    var price='<div class="hht-spv2__pricewrap"><span class="hht-spv2__price">'+r.price+'</span>'+(r.priceSub?'<span class="hht-spv2__pricesub">'+r.priceSub+'</span>':'')+'</div>';
-    var badge=r.badge?'<span class="hht-spv2__badge"><span class="hht-spv2__badge-spark" aria-hidden="true">✨</span> '+r.badge+'</span>':'';
-    var name='<div class="hht-spv2__namewrap"><span class="hht-spv2__name">'+r.name+'</span>'+badge+'</div>';
-    var detail=r.bullets?'<ul class="hht-spv2__bullets">'+r.bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>':(r.desc?'<p class="hht-spv2__desc">'+r.desc+'</p>':'');
-    var btn=r.btn?'<a class="hht-spv2__btn" href="'+r.btn.url+'" target="_blank" rel="noopener">'+r.btn.label+'</a>':'';
-    return '<div class="hht-spv2__row"><div class="hht-spv2__row-top">'+name+price+'</div>'+detail+btn+'</div>';
-  }
-  function cardHTML(c){
-    var ic = c.icon ? '<span class="hht-spv2__ic">'+(ICONS[c.icon]||'')+'</span>' : '';
-    var title = c.plain ? c.title : titleHTML(c.title);
-    var head='<div class="hht-spv2__head">'+ic+'<h3 class="hht-spv2__ctitle">'+title+'</h3>'+(c.subtitle?'<p class="hht-spv2__csub">'+c.subtitle+'</p>':'')+'</div>';
-    var body='<div class="hht-spv2__body">'+(c.intro?'<p class="hht-spv2__intro">'+c.intro+'</p>':'')+c.rows.map(rowHTML).join('')+(c.note?'<p class="hht-spv2__note">'+c.note+'</p>':'')+'</div>';
-    return '<div class="hht-spv2__card'+(c.span==='full'?' hht-spv2__card--full':'')+(c.acc?' hht-spv2__card--acc':'')+'">'+head+body+'</div>';
-  }
-  function render(loc){ panel.innerHTML = DATA[loc].map(cardHTML).join(''); }
-
-  var tabs = [].slice.call(root.querySelectorAll('[data-tab]'));
-  function activate(tab){
-    tabs.forEach(function(t){
-      var on = t === tab;
-      t.classList.toggle('active', on);
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    render(tab.getAttribute('data-tab'));
-  }
-  tabs.forEach(function(tab,i){
-    tab.addEventListener('click', function(){ activate(tab); });
-    tab.addEventListener('keydown', function(e){
-      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
-        e.preventDefault();
-        var d = e.key==='ArrowRight' ? 1 : -1;
-        var n = tabs[(i+d+tabs.length)%tabs.length];
-        n.focus();
-        activate(n);
+      function reset() {
+        wrapper.classList.remove('show-loc1', 'show-loc2', 'show-loc3');
+        if (btn1) btn1.classList.remove('active');
+        if (btn2) btn2.classList.remove('active');
+        if (btn3) btn3.classList.remove('active');
       }
+
+      function activateByEntry(entry, updateHash) {
+        if (!entry || !entry.btn) return false;
+        reset();
+        wrapper.classList.add(entry.locClass);
+        entry.btn.classList.add('active');
+        if (updateHash) {
+          // update hash without triggering a jump or another hashchange loop
+          if (history && history.replaceState) {
+            history.replaceState(null, '', '#' + entry.slug);
+          }
+        }
+        return true;
+      }
+
+      function activateBySlug(slug, updateHash) {
+        if (!slug) return false;
+        slug = String(slug).trim().toLowerCase();
+        for (var i = 0; i < locationMap.length; i++) {
+          if (locationMap[i].slug && locationMap[i].slug === slug) {
+            return activateByEntry(locationMap[i], updateHash);
+          }
+        }
+        return false;
+      }
+
+      // Wire click handlers — update hash on click so it survives sharing/bookmarking
+      if (btn1) btn1.addEventListener('click', function () { activateByEntry(locationMap[0], true); });
+      if (btn2) btn2.addEventListener('click', function () { activateByEntry(locationMap[1], true); });
+      if (btn3) btn3.addEventListener('click', function () { activateByEntry(locationMap[2], true); });
+
+      // Deep-link support: read hash AND ?loc= query param on load
+      function applyFromUrl() {
+        var hash = (window.location.hash || '').replace(/^#/, '');
+        if (activateBySlug(hash, false)) return;
+        // Fallback: ?loc=austin / ?location=austin in case hash gets stripped
+        var search = window.location.search || '';
+        var m = search.match(/[?&](?:loc|location)=([^&#]+)/i);
+        if (m && m[1]) {
+          activateBySlug(decodeURIComponent(m[1]), false);
+        }
+      }
+      applyFromUrl();
+
+      // If the user navigates via back/forward, re-apply
+      window.addEventListener('hashchange', applyFromUrl);
     });
-  });
-  render('austin');
-})();
+  })();
 </script>
 
 {% schema %}
 {
-  "name": "Services / Pricing V2",
-  "tag": "section",
-  "class": "section-services-pricing-v2",
+  "name": "HHT Services",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Services & Pricing" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Our Services" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Select a location to get started:" },
-    { "type": "checkbox", "id": "homepage_anchors", "label": "Add #services / #memberships scroll anchors", "info": "Keep on when this section is the homepage services/pricing block so the hero CTAs scroll here.", "default": true },
-    { "type": "header", "content": "Booker links — Memberships (JOIN NOW)" },
-    { "type": "text", "id": "membership_austin_url",  "label": "Austin membership URL",  "default": "https://go.booker.com/location/hushhushtan/buy/membership" },
-    { "type": "text", "id": "membership_houston_url", "label": "Houston membership URL", "default": "https://go.booker.com/location/hushhushtanhouston/buy/membership" },
-    { "type": "text", "id": "membership_dallas_url",  "label": "Dallas membership URL",  "default": "https://go.booker.com/location/hushhushtandallas/buy/membership" },
-    { "type": "header", "content": "Booker links — Packages (BUY PACKAGE)" },
-    { "type": "text", "id": "package_austin_url",  "label": "Austin packages URL",  "default": "https://go.booker.com/location/hushhushtan/buy/series" },
-    { "type": "text", "id": "package_houston_url", "label": "Houston packages URL", "default": "https://go.booker.com/location/hushhushtanhouston/buy/series" },
-    { "type": "text", "id": "package_dallas_url",  "label": "Dallas packages URL",  "default": "https://go.booker.com/location/hushhushtandallas/buy/series" }
+    { "type": "header", "content": "Page Heading" },
+    { "type": "text", "id": "heading", "label": "Main Heading", "default": "Our Services" },
+    { "type": "text", "id": "subheading", "label": "Subheading (above toggle)", "default": "Select a location to get started:" },
+
+    { "type": "header", "content": "Location Toggle" },
+    { "type": "checkbox", "id": "show_location_toggle", "label": "Show Location Toggle", "default": true },
+    { "type": "text", "id": "loc1_name", "label": "Location 1 Name", "default": "Austin" },
+    { "type": "text", "id": "loc2_name", "label": "Location 2 Name", "default": "Houston" },
+    { "type": "text", "id": "loc3_name", "label": "Location 3 Name", "default": "Dallas" },
+
+    { "type": "header", "content": "Location Toggle Colors" },
+    { "type": "color", "id": "toggle_idle_bg", "label": "Idle Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "toggle_idle_text", "label": "Idle Text", "default": "#51217C" },
+    { "type": "color", "id": "toggle_idle_border", "label": "Idle Border", "default": "#BFB6EF" },
+    { "type": "color", "id": "toggle_active_bg", "label": "Active Background", "default": "#ABA0EA" },
+    { "type": "color", "id": "toggle_active_text", "label": "Active Text", "default": "#FFFFFF" },
+    { "type": "color", "id": "toggle_active_border", "label": "Active Border", "default": "#ABA0EA" },
+    { "type": "color", "id": "toggle_glitch_color", "label": "Glitch / Shadow Color", "default": "#5F3786" },
+
+    { "type": "header", "content": "Main Color Palette" },
+    { "type": "color", "id": "bg_color", "label": "Page Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#51217C" },
+    { "type": "color", "id": "text_color", "label": "Body / Price Text", "default": "#4D1D78" },
+    { "type": "color", "id": "text_light", "label": "Subtle Text", "default": "#9B8AB0" },
+    { "type": "color", "id": "accent_color", "label": "Accent (Lavender)", "default": "#ABA0EA" },
+    { "type": "color", "id": "card_bg_color", "label": "Card Background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border_color", "label": "Card Border", "default": "#BFB6EF" },
+    { "type": "color", "id": "header_strip_color", "label": "Section Header Strip", "default": "#F3F2FE" },
+
+    { "type": "header", "content": "Badge Colors" },
+    { "type": "color", "id": "badge_bg_color", "label": "Badge Background", "default": "#5F3786" },
+    { "type": "color", "id": "badge_text_color", "label": "Badge Text", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Book Now Button Colors" },
+    { "type": "color", "id": "btn_bg_color", "label": "Background", "default": "#ABA0EA" },
+    { "type": "color", "id": "btn_text_color", "label": "Text", "default": "#FFFFFF" },
+    { "type": "color", "id": "btn_hover_bg", "label": "Hover Background", "default": "#5F3786" },
+    { "type": "color", "id": "btn_hover_text", "label": "Hover Text", "default": "#FFFFFF" },
+
+    { "type": "header", "content": "Typography" },
+    { "type": "paragraph", "content": "Heading font is locked to Freight Neo Pro Medium (loaded from Shopify CDN)." },
+    { "type": "text", "id": "heading_font_fallback", "label": "Heading Fallback Font", "default": "Cormorant Garamond" },
+    { "type": "font_picker", "id": "body_font", "label": "Body Font", "default": "jost_n4" },
+
+    { "type": "header", "content": "How To Use This Section" },
+    { "type": "paragraph", "content": "Add a 'Section Header' block to start a new section card (e.g. Core Services). Then add 'Service Row' blocks underneath it for each service. To create two side-by-side sections, turn ON 'Pair with next section' on the first one. Drag blocks freely to reorder." }
   ],
-  "presets": [{ "name": "Services / Pricing V2" }]
+  "blocks": [
+    {
+      "type": "section_header",
+      "name": "Section Header",
+      "settings": [
+        { "type": "paragraph", "content": "This opens a new section card. Any Service Row blocks below it (until the next Section Header) will render inside this card." },
+        { "type": "text", "id": "title_a", "label": "Title Part 1 (roman / regular)", "default": "Core", "info": "First word, regular weight" },
+        { "type": "text", "id": "title_b", "label": "Title Part 2 (italic)", "default": "Services", "info": "Second word, italic" },
+        { "type": "text", "id": "note", "label": "Subtitle Note", "info": "Optional, e.g. 'First-timer? Start here.'" },
+        { "type": "text", "id": "footer", "label": "Footer Note", "info": "Optional small text under the section" },
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "range", "id": "icon_size", "min": 20, "max": 120, "step": 2, "unit": "px", "label": "Icon Size", "default": 44 },
+        { "type": "checkbox", "id": "pair_next", "label": "Pair with next section (2-column layout)", "default": false, "info": "Turn ON to render this section side-by-side with the next Section Header. Leave OFF for full-width." },
+        { "type": "select", "id": "animation", "label": "Hover Animation", "default": "float",
+          "options": [
+            { "value": "float", "label": "Float Up" },
+            { "value": "glow", "label": "Glow" },
+            { "value": "scale", "label": "Scale" },
+            { "value": "none", "label": "None" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "service_row",
+      "name": "Service Row",
+      "settings": [
+        { "type": "paragraph", "content": "A single service line inside the most recent Section Header above this block." },
+        { "type": "text", "id": "title", "label": "Service Title", "default": "Custom Glow" },
+        { "type": "text", "id": "badge", "label": "Badge Text", "info": "Optional, e.g. 'Most Popular'" },
+        { "type": "text", "id": "badge_icon", "label": "Badge Icon (emoji or character)", "default": "✨", "info": "Shows to the left of the badge text. Use any emoji (✨ ⭐ 🔥 💜 ⚡) or character. Leave blank for none." },
+        { "type": "color", "id": "badge_bg", "label": "Badge Background Override", "info": "Leave blank to use the section default badge color." },
+        { "type": "color", "id": "badge_text_color", "label": "Badge Text Color Override", "info": "Leave blank to use the section default badge text color." },
+        { "type": "text", "id": "price_prefix", "label": "Price Prefix", "info": "Optional, e.g. '$' or '+$' or 'From '" },
+        { "type": "text", "id": "price_loc1", "label": "Price (Location 1)", "default": "50" },
+        { "type": "text", "id": "price_loc2", "label": "Price (Location 2)", "default": "50" },
+        { "type": "text", "id": "price_loc3", "label": "Price (Location 3)", "default": "55" },
+        { "type": "text", "id": "price_sub", "label": "Price Sub-label", "info": "Optional small text under the price, e.g. 'per month' or 'Just $45/session'" },
+        { "type": "textarea", "id": "description", "label": "Description", "info": "Use either description OR benefits, not both" },
+        { "type": "textarea", "id": "benefits", "label": "Benefits (comma separated)", "info": "Each item becomes a bullet. Use either description OR benefits." },
+        {
+          "type": "select", "id": "target_location", "label": "Show In Location",
+          "options": [
+            { "value": "all", "label": "All Locations" },
+            { "value": "loc12", "label": "Austin & Houston Only" },
+            { "value": "loc3", "label": "Dallas Only" }
+          ],
+          "default": "all"
+        },
+        { "type": "text", "id": "button_text", "label": "Button Text", "default": "Book Now" },
+        { "type": "url", "id": "link_loc1", "label": "Booking Link (Location 1)" },
+        { "type": "url", "id": "link_loc2", "label": "Booking Link (Location 2)" },
+        { "type": "url", "id": "link_loc3", "label": "Booking Link (Location 3)" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HHT Services",
+      "blocks": [
+        { "type": "section_header", "settings": { "title_a": "Core", "title_b": "Services", "note": "First-timer? Start here.", "pair_next": false } },
+        { "type": "service_row", "settings": { "title": "Custom Glow", "badge": "Most Popular", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "50", "description": "Customized to your individual skin tone", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" } },
+        { "type": "service_row", "settings": { "title": "Clear Glow", "badge": "First-Timer Fave", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "50", "description": "Clear solution for a natural finish", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930655", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930657", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656" } },
+        { "type": "service_row", "settings": { "title": "Rapid Glow", "badge": "Fast Results", "price_prefix": "$", "price_loc1": "60", "price_loc2": "60", "price_loc3": "60", "description": "Rinse in 2-4 hours", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" } },
+
+        { "type": "section_header", "settings": { "title_a": "Memberships", "title_b": "Services", "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.", "pair_next": true } },
+        { "type": "service_row", "settings": { "title": "Glow Pass", "price_prefix": "$", "price_loc1": "29", "price_loc2": "29", "price_loc3": "29", "price_sub": "per month", "benefits": "35% off all tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145917?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145917", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145918" } },
+        { "type": "service_row", "settings": { "title": "Glow Club", "price_prefix": "$", "price_loc1": "45", "price_loc2": "45", "price_loc3": "45", "price_sub": "per month", "benefits": "1 complimentary tan per month, 25% off all additional tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145919", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145920" } },
+
+        { "type": "section_header", "settings": { "title_a": "Tan", "title_b": "Packages", "footer": "Please note: Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only." } },
+        { "type": "service_row", "settings": { "title": "6-Pack", "price_prefix": "$", "price_loc1": "270", "price_loc2": "270", "price_loc3": "270", "price_sub": "Just $45/session", "benefits": "6 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 6-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "service_row", "settings": { "title": "10-Pack", "price_prefix": "$", "price_loc1": "400", "price_loc2": "400", "price_loc3": "400", "price_sub": "Just $40/session", "benefits": "10 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 10-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+
+        { "type": "section_header", "settings": { "title_a": "Add", "title_b": "Ons", "pair_next": true } },
+        { "type": "service_row", "settings": { "title": "Gold Glow", "price_prefix": "+$", "price_loc1": "5", "price_loc2": "5", "price_loc3": "5", "description": "Gold drops are added to give you a subtle elegant shimmer.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931005?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931007", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931006" } },
+        { "type": "service_row", "settings": { "title": "Bye Bye Tan Line", "price_prefix": "+$", "price_loc1": "20", "price_loc2": "20", "price_loc3": "20", "description": "Tan line erasing followed by a full body spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931015?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931017", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931016" } },
+        { "type": "service_row", "settings": { "title": "Brazilian Glow", "price_prefix": "+$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931020?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931022", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931021" } },
+
+        { "type": "section_header", "settings": { "title_a": "Partial", "title_b": "Tans" } },
+        { "type": "service_row", "settings": { "title": "Face", "price_prefix": "$", "price_loc1": "10", "price_loc2": "10", "price_loc3": "10", "description": "Face only", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931027?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931029", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931028" } },
+        { "type": "service_row", "settings": { "title": "Upper / Lower only", "price_prefix": "$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" } },
+        { "type": "service_row", "settings": { "title": "Partial Upper / Lower", "price_prefix": "$", "price_loc1": "35", "price_loc2": "35", "price_loc3": "35", "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
+
+        { "type": "section_header", "settings": { "title_a": "Special", "title_b": "Offer", "pair_next": true } },
+        { "type": "service_row", "settings": { "title": "Birthday Glow", "price_prefix": "$", "price_loc1": "39", "price_loc2": "39", "price_loc3": "39", "description": "Exclusive pricing for one Custom Glow during your birthday month.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931043?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931045", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931044" } },
+
+        { "type": "section_header", "settings": { "title_a": "Group", "title_b": "Experiences", "footer": "Group bookings require advance notice" } },
+        { "type": "service_row", "settings": { "title": "Tanning & Mimosas", "price_prefix": "$", "price_loc1": "300", "price_loc2": "300", "price_loc3": "300", "price_sub": "+$60 per add'l guest", "benefits": "Includes 5 Custom Glow tans, Studio access for your group, Complimentary champagne & mimosas", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4537755", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/2672014" } },
+        { "type": "service_row", "settings": { "title": "Austin Mobile Tanning", "badge": "Austin Only", "price_prefix": "", "price_loc1": "$75 / hour", "price_loc2": "$75 / hour", "price_loc3": "$75 / hour", "description": "Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from studio, $30 hotel travel fee. Please include address and party size in request notes box!", "target_location": "loc12", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
