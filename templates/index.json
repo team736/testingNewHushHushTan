@@ -710,13 +710,6 @@
             "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/"
           }
         },
-        "logo_h4fHcV": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Monthly",
-            "link": "https://hushhushtan.com/pages/press"
-          }
-        },
         "logo_VTTR9B": {
           "type": "logo",
           "settings": {
@@ -728,7 +721,7 @@
           "type": "logo",
           "settings": {
             "name": "Park Cities People",
-            "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/"
+            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/#164783"
           }
         },
         "logo_6MwjP8": {
@@ -737,13 +730,6 @@
             "name": "Texas Lifestyle Magazine",
             "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/"
           }
-        },
-        "logo_3NrytL": {
-          "type": "logo",
-          "settings": {
-            "name": "Miss A",
-            "link": "https://hushhushtan.com/pages/press"
-          }
         }
       },
       "block_order": [
@@ -751,11 +737,9 @@
         "logo_zCkaQA",
         "logo_43ChUz",
         "logo_JK4UCA",
-        "logo_h4fHcV",
         "logo_VTTR9B",
         "logo_nNFcGF",
-        "logo_6MwjP8",
-        "logo_3NrytL"
+        "logo_6MwjP8"
       ],
       "name": "Press grid",
       "settings": {
