@@ -16,15 +16,15 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/4.png",
-            "image_fallback": "hht-hero-slide-1.webp",
+            "image_fallback": "",
             "eyebrow": "Luxury Tanning, Elevated.",
             "title_line1": "Healthier Glow.",
             "title_line2": "Flawless",
             "title_line3": "Confidence.",
-            "subtitle": "Our custom airbrush tans enhance, not hide. In a clean, luxury studio where you'll always feel your best.",
-            "cta_primary_text": "Book Now",
-            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "New Client Offer",
+            "subtitle": "Our custom airbrush tans enhance your skin tone in a clean, luxury studio where you'll always feel your best.",
+            "cta_primary_text": "view services",
+            "cta_primary_url": "shopify://pages/our-services",
+            "cta_secondary_text": "Book Custom glow",
             "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "show_pills": true
           }
