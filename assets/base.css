@@ -5924,5 +5924,50 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   .hero2__standard-title { white-space: normal; text-align: center; }
   .hero2__pill { padding: 7px 12px; font-size: 0.6rem; letter-spacing: 0.12em; }
   .hero2__pill svg { width: 13px; height: 13px; }
-  .hero2__float-card { left: 12px; bottom: 14px; padding: 10px 14px; }
+}
+
+/* ============================================================
+   Homepage button consistency (client revision)
+   Reuse the exact Our Services page button style across every
+   homepage CTA. Scoped to .template-index so no other page or
+   layout/content/section is affected. Mirrors live .hht-book-btn:
+   bg #aba0ea, text #fff, square, Jost 700, hover #5f3786.
+   ============================================================ */
+.template-index .btn,
+.template-index .btn-pill,
+.template-index .hht-spv2__btn,
+.template-index .aftercare-feature__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #aba0ea !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 11px 22px !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  width: fit-content !important;
+  font-family: var(--font-button) !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+}
+.template-index .btn:hover,
+.template-index .btn:focus-visible,
+.template-index .btn-pill:hover,
+.template-index .btn-pill:focus-visible,
+.template-index .hht-spv2__btn:hover,
+.template-index .hht-spv2__btn:focus-visible,
+.template-index .aftercare-feature__btn:hover,
+.template-index .aftercare-feature__btn:focus-visible {
+  background: #5f3786 !important;
+  color: #ffffff !important;
+  border-color: #5f3786 !important;
+  transform: translateY(-1px) !important;
 }
