@@ -68,7 +68,7 @@
           "settings": {
             "icon": "sparkle",
             "title": "Custom Color",
-            "text": "Every shade hand-mixed to flatter your unique undertones."
+            "text": "Every shade hand-mixed to flatter your undertones. Always included, never extra."
           }
         },
         "std-2": {
@@ -76,7 +76,7 @@
           "settings": {
             "icon": "book",
             "title": "Luxury Formula",
-            "text": "Clean, vegan, paraben-free solutions made to nourish."
+            "text": "All-natural, cruelty-free, paraben-free. Made with botanicals like aloe, acai, and vitamin E."
           }
         },
         "std-3": {
@@ -84,15 +84,15 @@
           "settings": {
             "icon": "award",
             "title": "Award Winning",
-            "text": "Voted best spray tan in Texas year after year."
+            "text": "Featured in Vogue, InStyle, and Austin Monthly as one of the country's top spray tans."
           }
         },
         "std-4": {
           "type": "standard",
           "settings": {
             "icon": "shield",
-            "title": "Trusted Since 2007",
-            "text": "Nearly two decades perfecting the art of the glow."
+            "title": "Trusted Since 2009",
+            "text": "Texas-founded, women-owned, and bringing the glow to Austin, Dallas, and Houston."
           }
         }
       },
