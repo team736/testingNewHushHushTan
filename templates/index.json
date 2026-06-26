@@ -1,16 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
-      "settings": {
-        "autoplay": true,
-        "autoplay_ms": 4500,
-        "standard_heading": "The Hush Hush Standard"
-      },
       "blocks": {
         "slide-1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/4.png",
+            "image_fallback": "hht-hero-slide-1.webp",
             "eyebrow": "Luxury Tanning, Elevated.",
             "title_line1": "Healthier Glow.",
             "title_line2": "Flawless",
@@ -20,13 +26,14 @@
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "New Client Offer",
             "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "image_fallback": "hht-hero-slide-1.webp",
             "show_pills": true
           }
         },
         "slide-2": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Best_Spray_Tans_Austin_Dallas_Houston_Texas.png",
+            "image_fallback": "hht-hero-slide-2.webp",
             "eyebrow": "The Hush Hush Experience",
             "title_line1": "Everyone will",
             "title_line2": "notice.",
@@ -36,13 +43,14 @@
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "View Services",
             "cta_secondary_url": "#services",
-            "image_fallback": "hht-hero-slide-2.webp",
             "show_pills": true
           }
         },
         "slide-3": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/HH-28.jpg",
+            "image_fallback": "hht-hero-slide-3.webp",
             "eyebrow": "Memberships & Packages",
             "title_line1": "Glow More,",
             "title_line2": "Save More",
@@ -52,26 +60,107 @@
             "cta_primary_url": "#memberships",
             "cta_secondary_text": "Choose Your Location",
             "cta_secondary_url": "#locations",
-            "image_fallback": "hht-hero-slide-3.webp",
             "show_pills": true
           }
         },
-        "std-1": { "type": "standard", "settings": { "icon": "sparkle", "title": "Custom Color", "text": "Every shade hand-mixed to flatter your unique undertones." } },
-        "std-2": { "type": "standard", "settings": { "icon": "book", "title": "Luxury Formula", "text": "Clean, vegan, paraben-free solutions made to nourish." } },
-        "std-3": { "type": "standard", "settings": { "icon": "award", "title": "Award Winning", "text": "Voted best spray tan in Texas year after year." } },
-        "std-4": { "type": "standard", "settings": { "icon": "shield", "title": "Trusted Since 2007", "text": "Nearly two decades perfecting the art of the glow." } }
+        "std-1": {
+          "type": "standard",
+          "settings": {
+            "icon": "sparkle",
+            "title": "Custom Color",
+            "text": "Every shade hand-mixed to flatter your unique undertones."
+          }
+        },
+        "std-2": {
+          "type": "standard",
+          "settings": {
+            "icon": "book",
+            "title": "Luxury Formula",
+            "text": "Clean, vegan, paraben-free solutions made to nourish."
+          }
+        },
+        "std-3": {
+          "type": "standard",
+          "settings": {
+            "icon": "award",
+            "title": "Award Winning",
+            "text": "Voted best spray tan in Texas year after year."
+          }
+        },
+        "std-4": {
+          "type": "standard",
+          "settings": {
+            "icon": "shield",
+            "title": "Trusted Since 2007",
+            "text": "Nearly two decades perfecting the art of the glow."
+          }
+        }
       },
-      "block_order": ["slide-1", "slide-2", "slide-3", "std-1", "std-2", "std-3", "std-4"]
+      "block_order": [
+        "slide-1",
+        "slide-2",
+        "slide-3",
+        "std-1",
+        "std-2",
+        "std-3",
+        "std-4"
+      ],
+      "settings": {
+        "autoplay": true,
+        "autoplay_ms": 4500,
+        "standard_heading": "The Hush Hush Standard"
+      }
     },
     "locations": {
       "type": "location-cards",
       "blocks": {
-        "l1": { "type": "location", "settings": { "city": "Austin", "tagline": "Our flagship studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin-services" } },
-        "l2": { "type": "location", "settings": { "city": "Dallas", "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas-services" } },
-        "l3": { "type": "location", "settings": { "city": "Houston", "tagline": "Houston M-K-T Heights", "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007", "phone": "713-485-0633", "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston-services" } }
+        "l1": {
+          "type": "location",
+          "settings": {
+            "city": "Austin",
+            "tagline": "Our flagship studio on West 6th",
+            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
+            "phone": "512-482-8339",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "info_url": "/pages/austin-services"
+          }
+        },
+        "l2": {
+          "type": "location",
+          "settings": {
+            "city": "Dallas",
+            "tagline": "Oak Lawn studio",
+            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
+            "phone": "469-868-6228",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+            "info_url": "/pages/dallas-services"
+          }
+        },
+        "l3": {
+          "type": "location",
+          "settings": {
+            "city": "Houston",
+            "tagline": "Houston M-K-T Heights",
+            "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
+            "phone": "713-485-0633",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+            "info_url": "/pages/houston-services"
+          }
+        }
       },
-      "block_order": ["l1", "l2", "l3"],
-      "settings": { "eyebrow": "Visit Us", "heading": "Three Texas Locations", "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed." }
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "eyebrow": "Visit Us",
+        "heading": "Three Texas Locations",
+        "subheading": "Each studio shares the same standard of artistry — color-matched, hand-mixed, and beautifully appointed."
+      }
     },
     "memberships": {
       "type": "services-pricing-v2",
@@ -79,7 +168,13 @@
         "eyebrow": "Services & Pricing",
         "heading": "Our Services",
         "subheading": "Select a location to get started:",
-        "homepage_anchors": true
+        "homepage_anchors": true,
+        "membership_austin_url": "https://go.booker.com/location/hushhushtan/buy/membership",
+        "membership_houston_url": "https://go.booker.com/location/hushhushtanhouston/buy/membership",
+        "membership_dallas_url": "https://go.booker.com/location/hushhushtandallas/buy/membership",
+        "package_austin_url": "https://go.booker.com/location/hushhushtan/buy/series",
+        "package_houston_url": "https://go.booker.com/location/hushhushtanhouston/buy/series",
+        "package_dallas_url": "https://go.booker.com/location/hushhushtandallas/buy/series"
       }
     },
     "products": {
@@ -88,6 +183,10 @@
         "eyebrow": "Aftercare Products",
         "heading": "Shop the Custom Glow Collection",
         "subheading": "Salon-grade essentials to prep, protect, and extend your custom color between visits.",
+        "feature_title": "Glow With Confidence",
+        "feature_text": "Prep, protect, and extend your custom glow.",
+        "feature_cta_text": "Explore More",
+        "feature_cta_url": "",
         "collection": "tanning-products",
         "products_to_show": 6,
         "cta_text": "Shop All Products",
@@ -97,25 +196,100 @@
     "press": {
       "type": "press-grid",
       "blocks": {
-        "p1": { "type": "logo", "settings": { "name": "Vogue" } },
-        "p2": { "type": "logo", "settings": { "name": "Miss A" } },
-        "p3": { "type": "logo", "settings": { "name": "Austin Monthly" } },
-        "p4": { "type": "logo", "settings": { "name": "Austin Beauty Guide" } },
-        "p5": { "type": "logo", "settings": { "name": "InStyle" } }
+        "p1": {
+          "type": "logo",
+          "settings": {
+            "name": "Vogue",
+            "link": ""
+          }
+        },
+        "p2": {
+          "type": "logo",
+          "settings": {
+            "name": "Miss A",
+            "link": ""
+          }
+        },
+        "p3": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Monthly",
+            "link": ""
+          }
+        },
+        "p4": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Beauty Guide",
+            "link": ""
+          }
+        },
+        "p5": {
+          "type": "logo",
+          "settings": {
+            "name": "InStyle",
+            "link": ""
+          }
+        }
       },
-      "block_order": ["p1", "p2", "p3", "p4", "p5"],
-      "settings": { "eyebrow": "Featured In", "heading": "Hush Hush Tan is featured in" }
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "eyebrow": "Featured In",
+        "heading": "Hush Hush Tan is featured in"
+      }
     },
     "glow_moments": {
       "type": "glow-moments-faq",
       "blocks": {
-        "q1": { "type": "qa", "settings": { "question": "How long will my spray tan last?", "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50–75%.</p>" } },
-        "q2": { "type": "qa", "settings": { "question": "Will I look orange?", "answer": "<p>No. We use violet-based solutions customized to your unique skin tone and undertones for a natural, Mediterranean bronze glow — never orange.</p>" } },
-        "q3": { "type": "qa", "settings": { "question": "How soon can I shower after my session?", "answer": "<p>For Rapid Glow, you can rinse in 2–4 hours. For Custom Glow, we recommend waiting 8–12 hours for the color to fully develop.</p>" } },
-        "q4": { "type": "qa", "settings": { "question": "Should I shave before or after?", "answer": "<p>Always shave before your appointment, ideally 24 hours prior. Shaving after your tan acts as a mechanical exfoliant and will strip color faster.</p>" } },
-        "q5": { "type": "qa", "settings": { "question": "Can I exercise with my spray tan?", "answer": "<p>Avoid sweating or excessive friction until after your first post-tan shower. Once developed, moderate exercise is fine, but heavy sweating may cause premature fading.</p>" } }
+        "q1": {
+          "type": "qa",
+          "settings": {
+            "question": "How long will my spray tan last?",
+            "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50–75%.</p>"
+          }
+        },
+        "q2": {
+          "type": "qa",
+          "settings": {
+            "question": "Will I look orange?",
+            "answer": "<p>No. We use violet-based solutions customized to your unique skin tone and undertones for a natural, Mediterranean bronze glow — never orange.</p>"
+          }
+        },
+        "q3": {
+          "type": "qa",
+          "settings": {
+            "question": "How soon can I shower after my session?",
+            "answer": "<p>For Rapid Glow, you can rinse in 2–4 hours. For Custom Glow, we recommend waiting 8–12 hours for the color to fully develop.</p>"
+          }
+        },
+        "q4": {
+          "type": "qa",
+          "settings": {
+            "question": "Should I shave before or after?",
+            "answer": "<p>Always shave before your appointment, ideally 24 hours prior. Shaving after your tan acts as a mechanical exfoliant and will strip color faster.</p>"
+          }
+        },
+        "q5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I exercise with my spray tan?",
+            "answer": "<p>Avoid sweating or excessive friction until after your first post-tan shower. Once developed, moderate exercise is fine, but heavy sweating may cause premature fading.</p>"
+          }
+        }
       },
-      "block_order": ["q1", "q2", "q3", "q4", "q5"],
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5"
+      ],
       "settings": {
         "moments_eyebrow": "Glow Moments",
         "moments_heading": "For the ones who glow.",
@@ -132,5 +306,12 @@
       }
     }
   },
-  "order": ["hero", "locations", "memberships", "products", "press", "glow_moments"]
+  "order": [
+    "hero",
+    "locations",
+    "memberships",
+    "products",
+    "press",
+    "glow_moments"
+  ]
 }
