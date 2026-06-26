@@ -703,13 +703,6 @@
             "link": ""
           }
         },
-        "p4": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Beauty Guide",
-            "link": ""
-          }
-        },
         "p5": {
           "type": "logo",
           "settings": {
@@ -722,7 +715,6 @@
         "p1",
         "p2",
         "p3",
-        "p4",
         "p5"
       ],
       "settings": {
