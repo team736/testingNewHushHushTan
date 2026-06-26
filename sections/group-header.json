@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header group",
@@ -6,11 +15,17 @@
       "type": "announcement-bar",
       "settings": {
         "text": "Complimentary Glow Guide with Every First Visit",
-        "button_label": "Now Booking",
+        "button_label": "Book Now",
         "button_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
     },
-    "header": { "type": "header", "settings": {} }
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
   },
-  "order": ["announcement", "header"]
+  "order": [
+    "announcement",
+    "header"
+  ]
 }
