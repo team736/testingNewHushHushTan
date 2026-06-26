@@ -739,14 +739,6 @@
         "faqs_url": "/pages/faqs",
         "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
-    },
-    "press_grid_4eKEi6": {
-      "type": "press-grid",
-      "name": "Press grid",
-      "settings": {
-        "eyebrow": "Featured In",
-        "heading": "Trusted by Texas. Recognized nationally."
-      }
     }
   },
   "order": [
@@ -754,7 +746,6 @@
     "locations",
     "services_pricing_v2_V8rWkN",
     "products",
-    "glow_moments",
-    "press_grid_4eKEi6"
+    "glow_moments"
   ]
 }
