@@ -11,7 +11,7 @@
           {%- if block.settings.price != blank -%}<div class="service-card__price">{{ block.settings.price }}</div>{%- endif -%}
           <p class="service-card__desc">{{ block.settings.description }}</p>
           {%- if block.settings.cta_text != blank -%}
-            <a href="{{ block.settings.cta_url }}" class="btn btn--outline btn--small">{{ block.settings.cta_text }}</a>
+            <a href="{{ block.settings.cta_url }}" class="btn btn--lavender btn--small service-card__cta">{{ block.settings.cta_text }}</a>
           {%- endif -%}
         </div>
       {%- endfor -%}

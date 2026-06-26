@@ -3735,6 +3735,19 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   flex: 1;
 }
 .service-card .btn { align-self: flex-start; }
+/* Unified service-card CTA: lavender fill, deep-purple on card/button hover */
+.service-card__cta {
+  background: #A69FE2;
+  border-color: #A69FE2;
+  color: #fff;
+}
+.service-card:hover .service-card__cta,
+.service-card__cta:hover,
+.service-card__cta:focus-visible {
+  background: #5F3B91;
+  border-color: #5F3B91;
+  color: #fff;
+}
 @media (max-width: 900px)  { .service-cards { grid-template-columns: 1fr; } }
 
 /* ---- Contact info cards ---- */
