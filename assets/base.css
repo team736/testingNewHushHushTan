@@ -4107,6 +4107,14 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   width: 30px;
   height: 30px;
 }
+/* Branded card icons: consistent size, transparent PNGs */
+.hht-spv2__ic img,
+.hht-spv2__icimg {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
 .hht-spv2__ctitle {
   font-family: var(--font-heading);
   font-weight: 500;
