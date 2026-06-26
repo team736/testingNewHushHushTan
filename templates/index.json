@@ -119,6 +119,7 @@
           "settings": {
             "city": "Austin",
             "tagline": "Our flagship studio on West 6th",
+            "image": "shopify://shop_images/press.jpg",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
             "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
@@ -131,6 +132,7 @@
           "settings": {
             "city": "Dallas",
             "tagline": "Oak Lawn studio",
+            "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
             "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
@@ -143,6 +145,7 @@
           "settings": {
             "city": "Houston",
             "tagline": "Houston M-K-T Heights",
+            "image": "shopify://shop_images/16-HushHushTanHouston15_3.jpg",
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
             "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
