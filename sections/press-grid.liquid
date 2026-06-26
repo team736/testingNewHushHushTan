@@ -1,3 +1,12 @@
+{%- comment -%}
+  Hush Hush Tan — Press Grid / Featured-In Marquee
+  All publications below pulled from https://hushhushtan.com/pages/press
+  Logos use Shopify CDN files already uploaded to the store.
+
+  Per-publication URLs and logo files live in the preset so all blocks
+  are pre-populated. They remain fully editable in the theme customizer.
+{%- endcomment -%}
+
 <section class="press-featured section section-compact section-lavender-pale section-border-y">
   <div class="container container--home">
     <div class="press-featured__head">
@@ -10,26 +19,56 @@
 
     <div class="press-marquee">
       <div class="press-track">
+        {%- comment -%} Duplicate the group for the marquee scroll effect {%- endcomment -%}
         {%- for i in (1..2) -%}
           <div class="press-group"{% if i == 2 %} aria-hidden="true"{% endif %}>
             {%- for block in section.blocks -%}
-              {%- assign name_down = block.settings.name | downcase -%}
-              {%- assign alt_text = 'Featured in ' | append: block.settings.name -%}
+              {%- assign name_down = block.settings.name | downcase | strip -%}
+              {%- assign alt_text  = 'Featured in ' | append: block.settings.name -%}
+
+              {%- comment -%} Resolve a CDN logo URL based on the publication name.
+                  These point to assets already uploaded to the store. Used as a
+                  fallback when the merchandiser hasn't set a custom image_picker. {%- endcomment -%}
+              {%- assign cdn_logo = '' -%}
+              {%- if name_down contains 'vogue' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/vogue-logo-b_800x.png?v=1613796049' -%}
+              {%- elsif name_down contains 'instyle' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/instyle-logo-b_800x.png?v=1613796049' -%}
+              {%- elsif name_down contains 'austin monthly' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/austin-monthly-logo-b_800x.png?v=1613796049' -%}
+              {%- elsif name_down contains 'austin beauty' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/austin-beauty-guide-logo-b_800x.png?v=1613796049' -%}
+              {%- elsif name_down contains 'miss a' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/miss-a-logo-b_800x.png?v=1613796049' -%}
+              {%- elsif name_down contains 'd magazine' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/d-magazine_800x.png?v=1614710552' -%}
+              {%- elsif name_down contains 'papercity' or name_down contains 'paper city' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/paper-city_800x.png?v=1614710553' -%}
+              {%- elsif name_down contains 'texas lifestyle' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/texas-lifestyle-magazine_800x.png?v=1614710553' -%}
+              {%- elsif name_down contains 'park cities' -%}
+                {%- assign cdn_logo = 'https://cdn.shopify.com/s/files/1/0329/1109/7991/files/park-cities-people_800x.png?v=1614710658' -%}
+              {%- endif -%}
+
               <div class="press-logo" {{ block.shopify_attributes }}>
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="press-logo__link" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}">
+                {%- endif -%}
+
                 {%- if block.settings.image != blank -%}
-                  {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}" class="press-logo__link">{%- endif -%}
-                  <img src="{{ block.settings.image | image_url: width: 320 }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
-                  {%- if block.settings.link != blank -%}</a>{%- endif -%}
+                  <img src="{{ block.settings.image | image_url: width: 320 }}"
+                       alt="{{ alt_text | escape }}"
+                       width="220" height="80" loading="lazy">
+                {%- elsif cdn_logo != '' -%}
+                  <img src="{{ cdn_logo }}"
+                       alt="{{ alt_text | escape }}"
+                       width="220" height="80" loading="lazy">
                 {%- else -%}
-                  {%- if name_down contains 'vogue' -%}
-                    <img src="{{ 'press-vogue.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
-                  {%- elsif name_down contains 'instyle' -%}
-                    <img src="{{ 'press-instyle.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
-                  {%- elsif name_down contains 'austin' -%}
-                    <img src="{{ 'press-austin-monthly.png' | asset_url }}" alt="{{ alt_text | escape }}" width="220" height="80" loading="lazy">
-                  {%- else -%}
-                    <span class="press-logo__placeholder">{{ block.settings.name }}</span>
-                  {%- endif -%}
+                  <span class="press-logo__placeholder">{{ block.settings.name }}</span>
+                {%- endif -%}
+
+                {%- if block.settings.link != blank -%}
+                  </a>
                 {%- endif -%}
               </div>
             {%- endfor -%}
@@ -44,17 +83,17 @@
 {
   "name": "Press grid",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Hush Hush Tan is featured in" }
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Featured In" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Trusted by Texas. Recognized nationally." }
   ],
   "blocks": [
     {
       "type": "logo",
       "name": "Logo",
       "settings": [
-        { "type": "text", "id": "name", "label": "Name" },
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "url", "id": "link", "label": "Link" }
+        { "type": "text",         "id": "name",  "label": "Publication name", "info": "Used for alt text and to auto-resolve a CDN logo if no image is uploaded." },
+        { "type": "image_picker", "id": "image", "label": "Logo image (optional override)", "info": "Leave blank to use the auto-resolved CDN logo for known publications (Vogue, InStyle, Austin Monthly, Austin Beauty Guide, Miss A, D Magazine, PaperCity, Texas Lifestyle, Park Cities People)." },
+        { "type": "url",          "id": "link",  "label": "Article URL" }
       ]
     }
   ],
@@ -62,12 +101,69 @@
   "presets": [{
     "name": "Press grid",
     "blocks": [
-      { "type": "logo", "settings": { "name": "Vogue" } },
-      { "type": "logo", "settings": { "name": "Miss A" } },
-      { "type": "logo", "settings": { "name": "Austin Monthly" } },
-      { "type": "logo", "settings": { "name": "Austin Beauty Guide" } },
-      { "type": "logo", "settings": { "name": "InStyle" } },
-      { "type": "logo", "settings": { "name": "Vogue" } }
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Vogue",
+          "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "InStyle",
+          "link": "https://hushhushtan.com/pages/press"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "D Magazine",
+          "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "PaperCity",
+          "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Austin Monthly",
+          "link": "https://hushhushtan.com/pages/press"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Austin Beauty Guide",
+          "link": "http://austinbeautyguide.com/blog/detail.php?id=64"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Park Cities People",
+          "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Texas Lifestyle Magazine",
+          "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/"
+        }
+      },
+      {
+        "type": "logo",
+        "settings": {
+          "name": "Miss A",
+          "link": "https://hushhushtan.com/pages/press"
+        }
+      }
     ]
   }]
 }
