@@ -65,6 +65,9 @@
     object-fit: contain;
     display: block;
   }
+  #{{ uid }} .press-logo--invert img {
+    filter: invert(1);
+  }
   #{{ uid }} .press-logo__placeholder {
     font-family: Georgia, 'Cormorant Garamond', serif;
     font-size: 24px;
@@ -108,8 +111,12 @@
       {%- for block in section.blocks -%}
         {%- assign alt_text = 'Featured in ' | append: block.settings.name -%}
         {%- assign size_class = 'press-logo--' | append: block.settings.size -%}
+        {%- assign invert_class = '' -%}
+        {%- if block.settings.invert_color -%}
+          {%- assign invert_class = ' press-logo--invert' -%}
+        {%- endif -%}
 
-        <div class="press-logo {{ size_class }}" {{ block.shopify_attributes }}>
+        <div class="press-logo {{ size_class }}{{ invert_class }}" {{ block.shopify_attributes }}>
           {%- if block.settings.link != blank -%}
             <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}" style="display:inline-flex;align-items:center;">
           {%- endif -%}
@@ -156,6 +163,11 @@
             { "value": "xl", "label": "Extra large" }
           ],
           "default": "md"
+        },
+        {
+          "type": "checkbox", "id": "invert_color", "label": "Invert color (for white logos)",
+          "info": "Turn ON if the logo file is white-on-transparent (designed for dark backgrounds). Flips white to black so it shows on light backgrounds. Only use on pure monochrome white logos — distorts color logos.",
+          "default": false
         }
       ]
     }
@@ -173,7 +185,7 @@
       { "type": "logo", "settings": { "name": "Texas Lifestyle Magazine", "size": "lg", "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/" } },
       { "type": "logo", "settings": { "name": "Park Cities People",       "size": "lg", "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/" } },
       { "type": "logo", "settings": { "name": "The Leader",               "size": "lg", "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html" } },
-      { "type": "logo", "settings": { "name": "Community Impact",         "size": "md", "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/" } }
+      { "type": "logo", "settings": { "name": "Community Impact",         "size": "md", "invert_color": true, "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/" } }
     ]
   }]
 }
