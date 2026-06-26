@@ -679,47 +679,88 @@
         "cta_url": "/collections/tanning-products"
       }
     },
-    "press": {
+    "press_grid_GfLhPm": {
       "type": "press-grid",
       "blocks": {
-        "p1": {
+        "logo_eYnizV": {
           "type": "logo",
           "settings": {
             "name": "Vogue",
-            "link": ""
+            "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty"
           }
         },
-        "p2": {
-          "type": "logo",
-          "settings": {
-            "name": "Miss A",
-            "link": ""
-          }
-        },
-        "p3": {
-          "type": "logo",
-          "settings": {
-            "name": "Austin Monthly",
-            "link": ""
-          }
-        },
-        "p5": {
+        "logo_zCkaQA": {
           "type": "logo",
           "settings": {
             "name": "InStyle",
-            "link": ""
+            "link": "https://hushhushtan.com/pages/press"
+          }
+        },
+        "logo_43ChUz": {
+          "type": "logo",
+          "settings": {
+            "name": "D Magazine",
+            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/"
+          }
+        },
+        "logo_JK4UCA": {
+          "type": "logo",
+          "settings": {
+            "name": "PaperCity",
+            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/"
+          }
+        },
+        "logo_h4fHcV": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Monthly",
+            "link": "https://hushhushtan.com/pages/press"
+          }
+        },
+        "logo_VTTR9B": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Beauty Guide",
+            "link": "http://austinbeautyguide.com/blog/detail.php?id=64"
+          }
+        },
+        "logo_nNFcGF": {
+          "type": "logo",
+          "settings": {
+            "name": "Park Cities People",
+            "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/"
+          }
+        },
+        "logo_6MwjP8": {
+          "type": "logo",
+          "settings": {
+            "name": "Texas Lifestyle Magazine",
+            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/"
+          }
+        },
+        "logo_3NrytL": {
+          "type": "logo",
+          "settings": {
+            "name": "Miss A",
+            "link": "https://hushhushtan.com/pages/press"
           }
         }
       },
       "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p5"
+        "logo_eYnizV",
+        "logo_zCkaQA",
+        "logo_43ChUz",
+        "logo_JK4UCA",
+        "logo_h4fHcV",
+        "logo_VTTR9B",
+        "logo_nNFcGF",
+        "logo_6MwjP8",
+        "logo_3NrytL"
       ],
+      "name": "Press grid",
       "settings": {
         "eyebrow": "Featured In",
-        "heading": "Hush Hush Tan is featured in"
+        "heading": "Trusted by Texas. Recognized nationally."
       }
     },
     "glow_moments": {
@@ -789,7 +830,7 @@
     "locations",
     "services_pricing_v2_V8rWkN",
     "products",
-    "press",
+    "press_grid_GfLhPm",
     "glow_moments"
   ]
 }
