@@ -681,65 +681,156 @@
         "cta_url": "/collections/tanning-products"
       }
     },
-    "glow_moments": {
+    "glow_moments_faq_gkPY4D": {
       "type": "glow-moments-faq",
       "blocks": {
-        "q1": {
+        "card_maKqiK": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Spray_Tanning_Products.png",
+            "badge": "Prep",
+            "badge_bg": "",
+            "badge_text": "",
+            "title": "Before Your Tan",
+            "price": "",
+            "body": "Shower, shave & exfoliate at least 4-6 hours before your appointment for the smoothest base.",
+            "link_label": "View Tanning Tips",
+            "link_url": "/pages/tanning-tips",
+            "open_in_new_tab": false
+          }
+        },
+        "card_DGMYt6": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/DSC0052.jpg",
+            "badge": "Aftercare",
+            "badge_bg": "",
+            "badge_text": "",
+            "title": "Body Exfoliant",
+            "price": "$16.00",
+            "body": "Gently buff away old color with our pH-balanced salt scrub.",
+            "link_label": "Shop Product",
+            "link_url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "card_TMQqpN": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/DSC0045-2.jpg",
+            "badge": "Best Seller",
+            "badge_bg": "",
+            "badge_text": "",
+            "title": "Custom Glow Mousse",
+            "price": "$39.00",
+            "body": "Professional-grade violet-based bronzing mousse for a streak-free tan at home.",
+            "link_label": "Shop Product",
+            "link_url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "card_fiKKPC": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Square_Hush_Hush_Tan_Spray_Tanning_Friends.png",
+            "badge": "Parties & Events",
+            "badge_bg": "",
+            "badge_text": "",
+            "title": "Group Tanning & Mimosas",
+            "price": "",
+            "body": "Book the studio for your bridal party or group. We handle the glow and the bubbles.",
+            "link_label": "Book Group Glow",
+            "link_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct",
+            "open_in_new_tab": true
+          }
+        },
+        "card_in8hqd": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/DSC0050.jpg",
+            "badge": "Aftercare",
+            "badge_bg": "",
+            "badge_text": "",
+            "title": "Body Wash",
+            "price": "$16.00",
+            "body": "Gentle tan-friendly body wash for daily glow maintenance.",
+            "link_label": "Shop Product",
+            "link_url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "qa_eK6CNr": {
           "type": "qa",
           "settings": {
             "question": "How long will my spray tan last?",
-            "answer": "<p>Airbrush tans can last up to ten days depending on skin preparation and aftercare. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using tan extenders or mixing body lotion with self-tanner daily can extend the tan by 50–75%.</p>"
+            "answer": "<p>Your airbrush tan can last up to ten days depending on how well you prep and care for your skin. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using a tan extender, or mixing body lotion with a self-tanner daily, can extend the life of your tan by 50-75%.</p>"
           }
         },
-        "q2": {
+        "qa_V8NQgD": {
           "type": "qa",
           "settings": {
-            "question": "Will I look orange?",
-            "answer": "<p>No. We use violet-based solutions customized to your unique skin tone and undertones for a natural, Mediterranean bronze glow — never orange.</p>"
+            "question": "How do I prepare for my session?",
+            "answer": "<p>Shower, shave, and exfoliate before your appointment. Don't apply any body or face moisturizers, makeup, or deodorant after showering. Complete all hair/spa treatments and workouts before your tan, and wear loose, dark clothing or bring some to change into after.</p>"
           }
         },
-        "q3": {
+        "qa_4Ntriw": {
           "type": "qa",
           "settings": {
-            "question": "How soon can I shower after my session?",
-            "answer": "<p>For Rapid Glow, you can rinse in 2–4 hours. For Custom Glow, we recommend waiting 8–12 hours for the color to fully develop.</p>"
+            "question": "What should I expect after my appointment?",
+            "answer": "<p>You may feel slightly damp in the hour following your tan but can go about your normal routine. Stay dry and avoid touching your skin so your tan dries flawlessly. Your color will darken over the next 2-3 hours. You may shower lightly after 8 hours to wash off the cosmetic bronzer and reveal your golden glow. Limit exposure to pools and hot tubs to keep your tan looking fresh.</p>"
           }
         },
-        "q4": {
+        "qa_9iRcwj": {
           "type": "qa",
           "settings": {
-            "question": "Should I shave before or after?",
-            "answer": "<p>Always shave before your appointment, ideally 24 hours prior. Shaving after your tan acts as a mechanical exfoliant and will strip color faster.</p>"
+            "question": "What do I wear for my session?",
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
           }
         },
-        "q5": {
+        "qa_RYBLhG": {
           "type": "qa",
           "settings": {
-            "question": "Can I exercise with my spray tan?",
-            "answer": "<p>Avoid sweating or excessive friction until after your first post-tan shower. Once developed, moderate exercise is fine, but heavy sweating may cause premature fading.</p>"
+            "question": "Is airbrush tanning safe?",
+            "answer": "<p>Yes. DHA, the active ingredient in our solution, is FDA-approved for cosmetic use and considered nontoxic and non-carcinogenic. DHA-based sunless tanning is recommended by the Skin Cancer Organization, American Academy of Dermatology, the American Cancer Society, and the American Medical Association. If you're pregnant or nursing, please check with your doctor before booking.</p>"
           }
         }
       },
       "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5"
+        "card_maKqiK",
+        "card_DGMYt6",
+        "card_TMQqpN",
+        "card_fiKKPC",
+        "card_in8hqd",
+        "qa_eK6CNr",
+        "qa_V8NQgD",
+        "qa_4Ntriw",
+        "qa_9iRcwj",
+        "qa_RYBLhG"
       ],
+      "name": "Glow Moments + FAQ",
       "settings": {
         "moments_eyebrow": "Glow Moments",
         "moments_heading": "For the ones who glow.",
         "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
         "carousel_autoplay": true,
         "carousel_delay": 5,
-        "tips_url": "/pages/tanning-tips",
-        "group_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct",
         "faq_eyebrow": "Good to Know",
         "faq_heading": "Frequently asked questions",
         "faq_subheading": "Everything you need to feel ready for your glow.",
-        "faqs_url": "/pages/faqs",
-        "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
+        "show_prep_card": true,
+        "prep_title": "Glow Prep Basics",
+        "prep_before_label": "Before Your Tan",
+        "prep_before_items": "Exfoliate & shave 24 hours prior.\nAvoid lotions or oils on skin.\nWear loose, dark clothing.",
+        "prep_day_label": "Day of Your Tan",
+        "prep_day_items": "Arrive with clean, bare skin.\nAvoid deodorant and perfume.",
+        "prep_after_label": "After Your Tan",
+        "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
+        "cta_label": "Still have questions?",
+        "faq_btn_label": "Read All FAQs →",
+        "faqs_url": "",
+        "book_btn_label": "Book Your Glow",
+        "book_url": "",
+        "tips_url": ""
       }
     },
     "press_grid_Uniykx": {
@@ -870,7 +961,7 @@
     "locations",
     "services_pricing_v2_V8rWkN",
     "products",
-    "glow_moments",
+    "glow_moments_faq_gkPY4D",
     "press_grid_Uniykx"
   ]
 }
