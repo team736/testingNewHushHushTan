@@ -1,9 +1,10 @@
 {%- liquid
-  assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+  assign book_url  = section.settings.book_url  | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
   assign book_text = section.settings.book_text | default: 'Book Your Glow'
   if book_url == blank
     assign book_url = 'https://go.booker.com/location/hushhushtan/service-menu'
   endif
+
   assign menu_index = 0
   assign newsletter_block = nil
   for block in section.blocks
@@ -11,7 +12,115 @@
       assign newsletter_block = block
     endif
   endfor
+
+  assign cdn_base = 'https://hushhushtan.com/cdn/shop/files/'
+
+  # Social configuration: pre-resolve URL + icon source for each platform.
+  # Shopify doesn't allow URL defaults in schema/presets, so we fall back here.
+  # All filenames match what's in Shopify Content.
+  assign s_instagram_url = section.settings.instagram_url | default: settings.social_instagram | default: 'https://www.instagram.com/hushhushtan'
+  assign s_facebook_url  = section.settings.facebook_url  | default: settings.social_facebook  | default: 'https://www.facebook.com/hushhushtanaustin'
+  assign s_tiktok_url    = section.settings.tiktok_url    | default: settings.social_tiktok    | default: 'https://www.tiktok.com/@hushhushtan'
+  assign s_linkedin_url  = section.settings.linkedin_url
+  assign s_website_url   = section.settings.website_url
+  assign s_phone_url     = section.settings.phone_url
+
+  # Footer colors with sensible fallbacks
+  assign footer_bg          = section.settings.footer_bg          | default: '#0F0A1F'
+  assign footer_text        = section.settings.footer_text        | default: '#E9E2F5'
+  assign footer_heading     = section.settings.footer_heading     | default: '#FFFFFF'
+  assign footer_link        = section.settings.footer_link        | default: '#C4B5DD'
+  assign footer_link_hover  = section.settings.footer_link_hover  | default: '#FFFFFF'
+  assign footer_divider     = section.settings.footer_divider     | default: 'rgba(255,255,255,0.12)'
+  assign social_color       = section.settings.social_color       | default: '#FFFFFF'
+  assign social_hover_color = section.settings.social_hover_color | default: '#C4B5DD'
+  assign social_bg          = section.settings.social_bg          | default: 'rgba(255,255,255,0.08)'
+  assign social_bg_hover    = section.settings.social_bg_hover    | default: 'rgba(255,255,255,0.18)'
+  assign social_size        = section.settings.social_size        | default: 40
+  assign social_icon_size   = section.settings.social_icon_size   | default: 20
+  assign credit_color       = section.settings.credit_color       | default: '#8A7BAA'
+  assign credit_hover_color = section.settings.credit_hover_color | default: '#FFFFFF'
 -%}
+
+<style>
+  .hht-footer {
+    --footer-bg: {{ footer_bg }};
+    --footer-text: {{ footer_text }};
+    --footer-heading: {{ footer_heading }};
+    --footer-link: {{ footer_link }};
+    --footer-link-hover: {{ footer_link_hover }};
+    --footer-divider: {{ footer_divider }};
+    --social-color: {{ social_color }};
+    --social-hover-color: {{ social_hover_color }};
+    --social-bg: {{ social_bg }};
+    --social-bg-hover: {{ social_bg_hover }};
+    --social-size: {{ social_size }}px;
+    --social-icon-size: {{ social_icon_size }}px;
+    --credit-color: {{ credit_color }};
+    --credit-hover-color: {{ credit_hover_color }};
+
+    background: var(--footer-bg);
+    color: var(--footer-text);
+  }
+  .hht-footer a { color: var(--footer-link); transition: color 0.2s ease; }
+  .hht-footer a:hover { color: var(--footer-link-hover); }
+  .hht-footer h3, .hht-footer h4, .hht-footer .hht-footer__heading { color: var(--footer-heading); }
+  .hht-footer .hht-footer__bottom { border-top: 1px solid var(--footer-divider); }
+
+  /* Social icons */
+  .hht-footer__social-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 20px;
+    flex-wrap: wrap;
+  }
+  .hht-footer__social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--social-size);
+    height: var(--social-size);
+    border-radius: 50%;
+    background: var(--social-bg);
+    color: var(--social-color) !important;
+    transition: background 0.25s ease, transform 0.25s ease, color 0.25s ease;
+    text-decoration: none;
+  }
+  .hht-footer__social:hover {
+    background: var(--social-bg-hover);
+    color: var(--social-hover-color) !important;
+    transform: translateY(-2px);
+  }
+  .hht-footer__social img,
+  .hht-footer__social svg {
+    width: var(--social-icon-size);
+    height: var(--social-icon-size);
+    display: block;
+  }
+
+  /* Cedar & Cactus credit */
+  .hht-footer__credit {
+    text-align: center;
+    padding: 16px 0 8px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--credit-color);
+  }
+  .hht-footer__credit a {
+    color: var(--credit-color) !important;
+    text-decoration: none;
+    border-bottom: 1px dotted currentColor;
+    padding-bottom: 1px;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .hht-footer__credit a:hover {
+    color: var(--credit-hover-color) !important;
+    border-bottom-color: var(--credit-hover-color);
+  }
+</style>
 
 {%- if newsletter_block -%}
 <section class="hht-newsletter-band section-lavender-soft" aria-label="Newsletter signup">
@@ -69,25 +178,45 @@
       {%- comment -%} Column 1 — Brand {%- endcomment -%}
       <div class="hht-footer__col hht-footer__col--brand">
         <a href="{{ routes.root_url }}" class="hht-footer__logo" aria-label="{{ shop.name }} — Home">
-          {%- if settings.logo != blank -%}
+          {%- if section.settings.footer_logo != blank -%}
+            <img src="{{ section.settings.footer_logo | image_url: width: 400 }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
+          {%- elsif settings.logo != blank -%}
             <img src="{{ settings.logo | image_url: width: 320 }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
           {%- else -%}
             <img src="{{ 'hht-logo-horizontal.png' | asset_url }}" alt="{{ shop.name }}" width="200" height="48" loading="lazy">
           {%- endif -%}
         </a>
 
-        <div class="hht-footer__social-row" aria-label="Social media">
-          {%- if settings.social_facebook != blank -%}
-            <a href="{{ settings.social_facebook }}" target="_blank" rel="noopener">Fb.</a>
+        <div class="hht-footer__social-row" aria-label="Connect with us">
+          {%- if s_instagram_url != blank -%}
+            <a href="{{ s_instagram_url }}" target="_blank" rel="noopener" class="hht-footer__social" aria-label="Instagram">
+              <img src="{{ cdn_base }}hht-instagram.svg" alt="" loading="lazy">
+            </a>
           {%- endif -%}
-          {%- if settings.social_instagram != blank -%}
-            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener">Ig.</a>
+          {%- if s_facebook_url != blank -%}
+            <a href="{{ s_facebook_url }}" target="_blank" rel="noopener" class="hht-footer__social" aria-label="Facebook">
+              <img src="{{ cdn_base }}hht-facebook.svg" alt="" loading="lazy">
+            </a>
           {%- endif -%}
-          {%- if settings.social_tiktok != blank -%}
-            <a href="{{ settings.social_tiktok }}" target="_blank" rel="noopener">Tt.</a>
+          {%- if s_tiktok_url != blank -%}
+            <a href="{{ s_tiktok_url }}" target="_blank" rel="noopener" class="hht-footer__social" aria-label="TikTok">
+              <img src="{{ cdn_base }}hht-tiktok.svg" alt="" loading="lazy">
+            </a>
           {%- endif -%}
-          {%- if settings.social_pinterest != blank -%}
-            <a href="{{ settings.social_pinterest }}" target="_blank" rel="noopener">Pin.</a>
+          {%- if s_linkedin_url != blank -%}
+            <a href="{{ s_linkedin_url }}" target="_blank" rel="noopener" class="hht-footer__social" aria-label="LinkedIn">
+              <img src="{{ cdn_base }}hht-linkedin.svg" alt="" loading="lazy">
+            </a>
+          {%- endif -%}
+          {%- if s_website_url != blank -%}
+            <a href="{{ s_website_url }}" target="_blank" rel="noopener" class="hht-footer__social" aria-label="Website">
+              <img src="{{ cdn_base }}hht-website.svg" alt="" loading="lazy">
+            </a>
+          {%- endif -%}
+          {%- if s_phone_url != blank -%}
+            <a href="{{ s_phone_url }}" class="hht-footer__social" aria-label="Phone">
+              <img src="{{ cdn_base }}hht-phone.svg" alt="" loading="lazy">
+            </a>
           {%- endif -%}
         </div>
 
@@ -138,6 +267,13 @@
         <span>Visa</span><span>MC</span><span>Amex</span><span>PayPal</span><span>Apple Pay</span>
       </div>
     </div>
+
+    {%- if section.settings.show_credit -%}
+      <div class="hht-footer__credit">
+        {{ section.settings.credit_prefix | default: 'Site built &amp; managed by' }}
+        <a href="{{ section.settings.credit_url | default: 'https://www.cedarandcactus.com' }}" target="_blank" rel="noopener">{{ section.settings.credit_name | default: 'Cedar &amp; Cactus' }}</a>
+      </div>
+    {%- endif -%}
   </div>
 </footer>
 
@@ -145,29 +281,46 @@
 {
   "name": "Footer",
   "settings": [
-    {
-      "type": "textarea",
-      "id": "brand_tagline",
-      "label": "Brand description",
-      "default": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence."
-    },
-    {
-      "type": "text",
-      "id": "book_text",
-      "label": "Book link text",
-      "default": "Book Your Glow"
-    },
-    {
-      "type": "url",
-      "id": "book_url",
-      "label": "Book link URL"
-    },
-    {
-      "type": "text",
-      "id": "colophon",
-      "label": "Copyright tagline",
-      "default": "All rights reserved."
-    }
+    { "type": "header", "content": "Brand" },
+    { "type": "image_picker", "id": "footer_logo",    "label": "Footer logo (optional override)", "info": "Defaults to your theme logo if blank." },
+    { "type": "textarea",     "id": "brand_tagline",  "label": "Brand description",
+      "default": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence." },
+    { "type": "text", "id": "book_text", "label": "Book link text", "default": "Book Your Glow" },
+    { "type": "url",  "id": "book_url",  "label": "Book link URL" },
+    { "type": "text", "id": "colophon",  "label": "Copyright tagline", "default": "All rights reserved." },
+
+    { "type": "header", "content": "Social Icons — URLs" },
+    { "type": "paragraph", "content": "Add the URL for each platform you want to show. Leave blank to hide that icon. Icons pull from hht-instagram.svg, hht-facebook.svg, hht-tiktok.svg, hht-linkedin.svg, hht-website.svg, and hht-phone.svg in your Shopify Content." },
+    { "type": "url",  "id": "instagram_url", "label": "Instagram URL" },
+    { "type": "url",  "id": "facebook_url",  "label": "Facebook URL" },
+    { "type": "url",  "id": "tiktok_url",    "label": "TikTok URL" },
+    { "type": "url",  "id": "linkedin_url",  "label": "LinkedIn URL" },
+    { "type": "url",  "id": "website_url",   "label": "Additional website URL", "info": "Optional — e.g. a partner or sister site." },
+    { "type": "text", "id": "phone_url",     "label": "Phone link (tel:XXXXXXXXXX)", "info": "Format: tel:5124828339 — no spaces or dashes." },
+
+    { "type": "header", "content": "Social Icons — Style" },
+    { "type": "range", "id": "social_size",      "label": "Icon circle size",    "min": 28, "max": 72, "step": 2, "unit": "px", "default": 40 },
+    { "type": "range", "id": "social_icon_size", "label": "Icon size within circle", "min": 14, "max": 48, "step": 2, "unit": "px", "default": 20 },
+    { "type": "color", "id": "social_bg",        "label": "Icon circle background",       "default": "#1F1639" },
+    { "type": "color", "id": "social_bg_hover",  "label": "Icon circle hover background", "default": "#3A2A66" },
+    { "type": "color", "id": "social_color",     "label": "Icon color",       "default": "#FFFFFF", "info": "Note: SVGs render their own colors. This sets the surrounding text color for fallbacks." },
+    { "type": "color", "id": "social_hover_color","label": "Icon hover color", "default": "#C4B5DD" },
+
+    { "type": "header", "content": "Footer Colors" },
+    { "type": "color", "id": "footer_bg",         "label": "Background color",    "default": "#0F0A1F" },
+    { "type": "color", "id": "footer_text",       "label": "Body text color",     "default": "#E9E2F5" },
+    { "type": "color", "id": "footer_heading",    "label": "Headings color",      "default": "#FFFFFF" },
+    { "type": "color", "id": "footer_link",       "label": "Link color",          "default": "#C4B5DD" },
+    { "type": "color", "id": "footer_link_hover", "label": "Link hover color",    "default": "#FFFFFF" },
+    { "type": "color", "id": "footer_divider",    "label": "Divider line color",  "default": "#262040" },
+
+    { "type": "header", "content": "Built By Credit (bottom)" },
+    { "type": "checkbox", "id": "show_credit",    "label": "Show 'Built by' credit", "default": true },
+    { "type": "text",     "id": "credit_prefix", "label": "Credit prefix text",  "default": "Site built & managed by" },
+    { "type": "text",     "id": "credit_name",   "label": "Credit name",         "default": "Cedar & Cactus" },
+    { "type": "url",      "id": "credit_url",    "label": "Credit URL", "info": "Defaults to https://www.cedarandcactus.com if left blank." },
+    { "type": "color",    "id": "credit_color",       "label": "Credit text color",       "default": "#8A7BAA" },
+    { "type": "color",    "id": "credit_hover_color", "label": "Credit hover color",      "default": "#FFFFFF" }
   ],
   "blocks": [
     {
@@ -200,13 +353,16 @@
       "settings": {
         "brand_tagline": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence.",
         "book_text": "Book Your Glow",
-        "colophon": "All rights reserved."
+        "colophon": "All rights reserved.",
+        "show_credit": true,
+        "credit_prefix": "Site built & managed by",
+        "credit_name": "Cedar & Cactus"
       },
       "blocks": [
-        { "type": "menu_column", "settings": { "heading": "Company", "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/" } },
+        { "type": "menu_column", "settings": { "heading": "Company",         "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/" } },
         { "type": "menu_column", "settings": { "heading": "Shop & Services", "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips" } },
-        { "type": "menu_column", "settings": { "heading": "Support", "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
-        { "type": "menu_column", "settings": { "heading": "Locations", "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },
+        { "type": "menu_column", "settings": { "heading": "Support",         "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service" } },
+        { "type": "menu_column", "settings": { "heading": "Locations",       "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston" } },
         { "type": "newsletter" }
       ]
     }
