@@ -740,72 +740,56 @@
         "book_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
     },
-    "press_grid_AYaFP6": {
+    "press_grid_EXBckG": {
       "type": "press-grid",
       "blocks": {
-        "logo_DmVHfT": {
-          "type": "logo",
-          "settings": {
-            "name": "",
-            "image": "shopify://shop_images/CI-Logo-2022-Website-White-1.svg",
-            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
-            "size": "md",
-            "invert_color": true
-          }
-        },
-        "logo_4PXY4L": {
+        "logo_bpgLHM": {
           "type": "logo",
           "settings": {
             "name": "Vogue",
-            "image": "shopify://shop_images/VOGUE_LOGO.svg",
             "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty",
             "size": "md",
             "invert_color": false
           }
         },
-        "logo_TUPPPd": {
+        "logo_wK8gjk": {
           "type": "logo",
           "settings": {
             "name": "InStyle",
-            "image": "shopify://shop_images/download-1.jpg",
             "link": "https://hushhushtan.com/pages/press",
             "size": "md",
             "invert_color": false
           }
         },
-        "logo_PxMB84": {
+        "logo_FXPPwr": {
           "type": "logo",
           "settings": {
             "name": "D Magazine",
-            "image": "shopify://shop_images/featured-in-d-magazine.png",
             "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
             "size": "lg",
             "invert_color": false
           }
         },
-        "logo_wTKHLb": {
+        "logo_riX8xa": {
           "type": "logo",
           "settings": {
             "name": "PaperCity",
-            "image": "shopify://shop_images/papercity-magazine-black.webp",
             "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
             "size": "lg",
             "invert_color": false
           }
         },
-        "logo_mHrXWQ": {
+        "logo_6j4icr": {
           "type": "logo",
           "settings": {
             "name": "Austin Monthly",
-            "image": "shopify://shop_images/form_logo.jpg",
             "link": "https://hushhushtan.com/pages/press",
             "size": "md",
             "invert_color": false
           }
         },
-        "logo_WMM9xT": {
+        "logo_GBpH4j": {
           "type": "logo",
-          "disabled": true,
           "settings": {
             "name": "Austin Beauty Guide",
             "link": "http://austinbeautyguide.com/blog/detail.php?id=64",
@@ -813,48 +797,55 @@
             "invert_color": false
           }
         },
-        "logo_9wwLac": {
+        "logo_zeqtKH": {
           "type": "logo",
           "settings": {
             "name": "Texas Lifestyle Magazine",
-            "image": "shopify://shop_images/TLM_10Years_Color-1-1.svg",
-            "link": "",
+            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
             "size": "lg",
             "invert_color": false
           }
         },
-        "logo_AcVAg8": {
+        "logo_fxbJ4c": {
           "type": "logo",
           "settings": {
             "name": "Park Cities People",
-            "image": "shopify://shop_images/cropped-PN-LogoBlue.png",
             "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
             "size": "lg",
             "invert_color": false
           }
         },
-        "logo_g7hNQf": {
+        "logo_FGbh73": {
           "type": "logo",
           "settings": {
             "name": "The Leader",
-            "image": "shopify://shop_images/bd5862c8-e80f-45c3-9dfd-ae884f3263a9-1.webp",
             "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
             "size": "lg",
             "invert_color": false
           }
+        },
+        "logo_8Tcnz9": {
+          "type": "logo",
+          "settings": {
+            "name": "Community Impact",
+            "image": "shopify://shop_images/CI-Logo-2022-Website-White.svg",
+            "link": "",
+            "size": "md",
+            "invert_color": true
+          }
         }
       },
       "block_order": [
-        "logo_DmVHfT",
-        "logo_4PXY4L",
-        "logo_TUPPPd",
-        "logo_PxMB84",
-        "logo_wTKHLb",
-        "logo_mHrXWQ",
-        "logo_WMM9xT",
-        "logo_9wwLac",
-        "logo_AcVAg8",
-        "logo_g7hNQf"
+        "logo_bpgLHM",
+        "logo_wK8gjk",
+        "logo_FXPPwr",
+        "logo_riX8xa",
+        "logo_6j4icr",
+        "logo_GBpH4j",
+        "logo_zeqtKH",
+        "logo_fxbJ4c",
+        "logo_FGbh73",
+        "logo_8Tcnz9"
       ],
       "name": "Press grid",
       "settings": {
@@ -869,6 +860,6 @@
     "services_pricing_v2_V8rWkN",
     "products",
     "glow_moments",
-    "press_grid_AYaFP6"
+    "press_grid_EXBckG"
   ]
 }
