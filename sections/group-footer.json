@@ -1,20 +1,24 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer group",
   "sections": {
     "footer": {
       "type": "footer",
-      "settings": {
-        "brand_tagline": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence.",
-        "book_text": "Book Your Glow",
-        "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
-        "colophon": "All rights reserved."
-      },
       "blocks": {
         "footer_menu_company": {
           "type": "menu_column",
           "settings": {
             "heading": "Company",
+            "menu": "",
             "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/"
           }
         },
@@ -22,6 +26,7 @@
           "type": "menu_column",
           "settings": {
             "heading": "Shop & Services",
+            "menu": "",
             "fallback_items": "Tanning Products|/collections/tanning-products\nGift Certificates|/pages/tanning-gift-certificates\nGroup Tanning & Mimosas|/pages/hush-hush-tan-group-tanning-mimosas-package\nMobile Spray Tan|/pages/mobile-spray-tan\nTanning Tips|/pages/tanning-tips"
           }
         },
@@ -29,6 +34,7 @@
           "type": "menu_column",
           "settings": {
             "heading": "Support",
+            "menu": "",
             "fallback_items": "Contact|/pages/contact\nFAQs|/pages/faqs\nShipping|/pages/shipping\nPrivacy Policy|/policies/privacy-policy\nTerms of Service|/policies/terms-of-service"
           }
         },
@@ -36,6 +42,7 @@
           "type": "menu_column",
           "settings": {
             "heading": "Locations",
+            "menu": "",
             "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston"
           }
         },
@@ -57,8 +64,41 @@
         "footer_menu_support",
         "footer_menu_locations",
         "footer_newsletter"
-      ]
+      ],
+      "settings": {
+        "footer_logo": "shopify://shop_images/HHT_PrimaryLogotype_Horizontal_1_1_1.png",
+        "brand_tagline": "Customizable spray tanning studios in Austin, Dallas, and Houston. Healthier glow. Flawless confidence.",
+        "book_text": "Book Your Glow",
+        "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+        "colophon": "All rights reserved.",
+        "instagram_url": "",
+        "facebook_url": "",
+        "tiktok_url": "",
+        "linkedin_url": "",
+        "website_url": "",
+        "phone_url": "",
+        "social_size": 40,
+        "social_icon_size": 20,
+        "social_bg": "#1f1639",
+        "social_bg_hover": "#3a2a66",
+        "social_color": "#ffffff",
+        "social_hover_color": "#c4b5dd",
+        "footer_bg": "#0f0a1f",
+        "footer_text": "#e9e2f5",
+        "footer_heading": "#ffffff",
+        "footer_link": "#c4b5dd",
+        "footer_link_hover": "#ffffff",
+        "footer_divider": "#262040",
+        "show_credit": true,
+        "credit_prefix": "Site built & managed by",
+        "credit_name": "Cedar & Cactus",
+        "credit_url": "",
+        "credit_color": "#8a7baa",
+        "credit_hover_color": "#ffffff"
+      }
     }
   },
-  "order": ["footer"]
+  "order": [
+    "footer"
+  ]
 }
