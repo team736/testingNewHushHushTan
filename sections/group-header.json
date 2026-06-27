@@ -21,7 +21,33 @@
     },
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "logo": "shopify://shop_images/HHT_PrimaryLogotype_Horizontal_1_1_1.png",
+        "wordmark_text": "HUSH HUSH TAN",
+        "logo_width": 220,
+        "logo_height": 48,
+        "nav_link_size": 14,
+        "nav_link_spacing": 24,
+        "nav_locations_label": "Locations",
+        "nav_services_label": "Services",
+        "nav_shop_label": "Shop",
+        "nav_parties_label": "Parties & Events",
+        "nav_faqs_label": "FAQs",
+        "nav_about_label": "About",
+        "book_btn_label": "Book Now",
+        "book_url": "",
+        "book_btn_size": 13,
+        "book_btn_padding": 14,
+        "header_bg": "#eae3f7",
+        "nav_text_color": "#EAE3F7",
+        "nav_hover_color": "#7b5ea7",
+        "book_btn_bg": "#7b5ea7",
+        "book_btn_text": "#ffffff",
+        "book_btn_hover_bg": "#4a2c7a",
+        "show_search": true,
+        "show_account": true,
+        "show_cart": true
+      }
     }
   },
   "order": [
