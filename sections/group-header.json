@@ -19,31 +19,203 @@
         "button_url": "https://go.booker.com/location/hushhushtan/service-menu"
       }
     },
-    "header": {
+    "header_RqXJyL": {
       "type": "header",
+      "blocks": {
+        "parent_menu_XVd4wV": {
+          "type": "parent_menu",
+          "name": "Locations",
+          "settings": {
+            "label": "Locations"
+          }
+        },
+        "child_link_QgKVj4": {
+          "type": "child_link",
+          "settings": {
+            "label": "Austin",
+            "url": "/pages/austin",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_JAk3hV": {
+          "type": "child_link",
+          "settings": {
+            "label": "Dallas",
+            "url": "/pages/dallas",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_mXwR6L": {
+          "type": "child_link",
+          "settings": {
+            "label": "Houston",
+            "url": "/pages/houston",
+            "open_in_new_tab": false
+          }
+        },
+        "parent_menu_Cp6qzz": {
+          "type": "parent_menu",
+          "settings": {
+            "label": "Services"
+          }
+        },
+        "child_link_YUeWBE": {
+          "type": "child_link",
+          "settings": {
+            "label": "Our Services",
+            "url": "/pages/our-services",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_QcafM6": {
+          "type": "child_link",
+          "settings": {
+            "label": "Austin Services",
+            "url": "/pages/austin-services",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_UtNxnJ": {
+          "type": "child_link",
+          "settings": {
+            "label": "Dallas Services",
+            "url": "/pages/dallas-services",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_betENK": {
+          "type": "child_link",
+          "settings": {
+            "label": "Houston Services",
+            "url": "/pages/houston-services",
+            "open_in_new_tab": false
+          }
+        },
+        "top_link_n8ieBq": {
+          "type": "top_link",
+          "settings": {
+            "label": "Shop",
+            "url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "parent_menu_K7AkEn": {
+          "type": "parent_menu",
+          "settings": {
+            "label": "Parties & Events"
+          }
+        },
+        "child_link_ajhTAF": {
+          "type": "child_link",
+          "settings": {
+            "label": "Group Tanning & Mimosas",
+            "url": "/pages/hush-hush-tan-group-tanning-mimosas-package",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_UNpekD": {
+          "type": "child_link",
+          "settings": {
+            "label": "Mobile Tanning",
+            "url": "/pages/mobile-spray-tan",
+            "open_in_new_tab": false
+          }
+        },
+        "top_link_cd34Td": {
+          "type": "top_link",
+          "settings": {
+            "label": "FAQs",
+            "url": "/pages/faqs",
+            "open_in_new_tab": false
+          }
+        },
+        "parent_menu_eafMwF": {
+          "type": "parent_menu",
+          "settings": {
+            "label": "About"
+          }
+        },
+        "child_link_YkzDbf": {
+          "type": "child_link",
+          "settings": {
+            "label": "Our Story",
+            "url": "/pages/about-us",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_7axdPC": {
+          "type": "child_link",
+          "settings": {
+            "label": "Contact",
+            "url": "/pages/contact",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_7rJVp3": {
+          "type": "child_link",
+          "settings": {
+            "label": "Press",
+            "url": "/pages/press",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_WXBnWp": {
+          "type": "child_link",
+          "settings": {
+            "label": "Careers",
+            "url": "https://hushhushtan.com/a/careers/",
+            "open_in_new_tab": true
+          }
+        },
+        "child_link_WA7MLA": {
+          "type": "child_link",
+          "settings": {
+            "label": "Tanning Tips",
+            "url": "/pages/tanning-tips",
+            "open_in_new_tab": false
+          }
+        }
+      },
+      "block_order": [
+        "parent_menu_XVd4wV",
+        "child_link_QgKVj4",
+        "child_link_JAk3hV",
+        "child_link_mXwR6L",
+        "parent_menu_Cp6qzz",
+        "child_link_YUeWBE",
+        "child_link_QcafM6",
+        "child_link_UtNxnJ",
+        "child_link_betENK",
+        "top_link_n8ieBq",
+        "parent_menu_K7AkEn",
+        "child_link_ajhTAF",
+        "child_link_UNpekD",
+        "top_link_cd34Td",
+        "parent_menu_eafMwF",
+        "child_link_YkzDbf",
+        "child_link_7axdPC",
+        "child_link_7rJVp3",
+        "child_link_WXBnWp",
+        "child_link_WA7MLA"
+      ],
+      "name": "Header",
       "settings": {
         "logo": "shopify://shop_images/HHT_PrimaryLogotype_Horizontal_1_1_1.png",
         "wordmark_text": "HUSH HUSH TAN",
-        "logo_width": 280,
+        "logo_width": 290,
         "logo_height": 48,
         "nav_link_size": 14,
         "nav_link_spacing": 24,
-        "nav_locations_label": "Locations",
-        "nav_services_label": "Services",
-        "nav_shop_label": "Shop",
-        "nav_parties_label": "Parties & Events",
-        "nav_faqs_label": "FAQs",
-        "nav_about_label": "About",
         "book_btn_label": "Book Now",
         "book_url": "",
         "book_btn_size": 13,
         "book_btn_padding": 14,
-        "header_bg": "#eae3f7",
+        "header_bg": "#EAE3F7",
         "nav_text_color": "#EAE3F7",
-        "nav_hover_color": "#7b5ea7",
-        "book_btn_bg": "#7b5ea7",
-        "book_btn_text": "#ffffff",
-        "book_btn_hover_bg": "#4a2c7a",
+        "nav_hover_color": "#7B5EA7",
+        "book_btn_bg": "#7B5EA7",
+        "book_btn_text": "#FFFFFF",
+        "book_btn_hover_bg": "#4A2C7A",
         "show_search": true,
         "show_account": true,
         "show_cart": true
@@ -52,6 +224,6 @@
   },
   "order": [
     "announcement",
-    "header"
+    "header_RqXJyL"
   ]
 }
