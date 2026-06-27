@@ -65,10 +65,18 @@
     object-fit: contain;
     display: block;
   }
-  #{{ uid }} .press-logo--invert img,
-  #{{ uid }} .press-logo--invert a img {
+  /* Invert filter — applied via inline style on the img directly to defeat any theme cascade */
+  #{{ uid }} img.press-logo__img--invert {
     filter: invert(1) !important;
     -webkit-filter: invert(1) !important;
+  }
+  /* Also kill any theme transforms that might be applied to anchored images */
+  #{{ uid }} .press-logo a,
+  #{{ uid }} .press-logo a:hover,
+  #{{ uid }} .press-logo a:focus {
+    filter: none !important;
+    opacity: 1 !important;
+    mix-blend-mode: normal !important;
   }
   #{{ uid }} .press-logo__placeholder {
     font-family: Georgia, 'Cormorant Garamond', serif;
@@ -113,18 +121,26 @@
       {%- for block in section.blocks -%}
         {%- assign alt_text = 'Featured in ' | append: block.settings.name -%}
         {%- assign size_class = 'press-logo--' | append: block.settings.size -%}
-        {%- assign invert_class = '' -%}
+
+        {%- comment -%} Build the img-specific invert hooks: a class AND an inline style {%- endcomment -%}
+        {%- assign img_class = '' -%}
+        {%- assign img_style = '' -%}
         {%- if block.settings.invert_color -%}
-          {%- assign invert_class = ' press-logo--invert' -%}
+          {%- assign img_class = ' press-logo__img--invert' -%}
+          {%- assign img_style = 'filter: invert(1); -webkit-filter: invert(1);' -%}
         {%- endif -%}
 
-        <div class="press-logo {{ size_class }}{{ invert_class }}" {{ block.shopify_attributes }}>
+        <div class="press-logo {{ size_class }}" {{ block.shopify_attributes }}>
           {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}" style="display:inline-flex;align-items:center;">
+            <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}" style="display:inline-flex;align-items:center;filter:none;opacity:1;">
           {%- endif -%}
 
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ alt_text | escape }}" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 600 }}"
+                 alt="{{ alt_text | escape }}"
+                 class="press-logo__img{{ img_class }}"
+                 {% if img_style != blank %}style="{{ img_style }}"{% endif %}
+                 loading="lazy">
           {%- else -%}
             <span class="press-logo__placeholder">{{ block.settings.name }}</span>
           {%- endif -%}
