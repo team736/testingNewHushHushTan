@@ -53,10 +53,12 @@
             "open_in_new_tab": false
           }
         },
-        "parent_menu_Cp6qzz": {
-          "type": "parent_menu",
+        "top_link_jXr9Pi": {
+          "type": "top_link",
           "settings": {
-            "label": "Services"
+            "label": "Services",
+            "url": "shopify://pages/our-services",
+            "open_in_new_tab": false
           }
         },
         "top_link_n8ieBq": {
@@ -149,7 +151,7 @@
         "child_link_QgKVj4",
         "child_link_JAk3hV",
         "child_link_mXwR6L",
-        "parent_menu_Cp6qzz",
+        "top_link_jXr9Pi",
         "top_link_n8ieBq",
         "parent_menu_K7AkEn",
         "child_link_ajhTAF",
