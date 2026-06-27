@@ -65,8 +65,10 @@
     object-fit: contain;
     display: block;
   }
-  #{{ uid }} .press-logo--invert img {
-    filter: invert(1);
+  #{{ uid }} .press-logo--invert img,
+  #{{ uid }} .press-logo--invert a img {
+    filter: invert(1) !important;
+    -webkit-filter: invert(1) !important;
   }
   #{{ uid }} .press-logo__placeholder {
     font-family: Georgia, 'Cormorant Garamond', serif;
