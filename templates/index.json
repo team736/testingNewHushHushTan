@@ -630,6 +630,7 @@
         "service_row_kzbRhm",
         "service_row_GJtBiN"
       ],
+      "disabled": true,
       "name": "HHT Services",
       "settings": {
         "heading": "Our Services",

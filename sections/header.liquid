@@ -1,45 +1,109 @@
 {%- liquid
   assign careers_url = 'https://hushhushtan.com/a/careers/'
-  assign book_url = settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+  assign book_url = section.settings.book_url | default: settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
+
+  assign logo_width        = section.settings.logo_width | default: 220
+  assign logo_height       = section.settings.logo_height | default: 48
+  assign nav_link_size     = section.settings.nav_link_size | default: 14
+  assign nav_link_spacing  = section.settings.nav_link_spacing | default: 24
+  assign book_btn_size     = section.settings.book_btn_size | default: 13
+  assign book_btn_padding  = section.settings.book_btn_padding | default: 14
+
+  assign header_bg         = section.settings.header_bg | default: '#EAE3F7'
+  assign nav_text_color    = section.settings.nav_text_color | default: '#2C1A4D'
+  assign nav_hover_color   = section.settings.nav_hover_color | default: '#7B5EA7'
+  assign book_btn_bg       = section.settings.book_btn_bg | default: '#7B5EA7'
+  assign book_btn_text     = section.settings.book_btn_text | default: '#FFFFFF'
+  assign book_btn_hover_bg = section.settings.book_btn_hover_bg | default: '#4A2C7A'
 -%}
+
+<style>
+  [data-site-header] {
+    --header-bg: {{ header_bg }};
+    --header-text: {{ nav_text_color }};
+    --header-hover: {{ nav_hover_color }};
+    --header-book-bg: {{ book_btn_bg }};
+    --header-book-text: {{ book_btn_text }};
+    --header-book-hover-bg: {{ book_btn_hover_bg }};
+    --header-logo-width: {{ logo_width }}px;
+    --header-logo-height: {{ logo_height }}px;
+    --header-nav-size: {{ nav_link_size }}px;
+    --header-nav-spacing: {{ nav_link_spacing }}px;
+    --header-book-size: {{ book_btn_size }}px;
+    --header-book-padding: {{ book_btn_padding }}px;
+
+    background: var(--header-bg);
+  }
+  [data-site-header] .site-header__wordmark-img {
+    width: var(--header-logo-width) !important;
+    max-width: var(--header-logo-width) !important;
+    height: auto !important;
+    max-height: var(--header-logo-height) !important;
+  }
+  [data-site-header] .site-header__wordmark-text {
+    font-size: calc(var(--header-logo-width) / 11);
+    color: var(--header-text);
+  }
+  [data-site-header] .site-header__nav .site-header__link {
+    font-size: var(--header-nav-size);
+    color: var(--header-text);
+  }
+  [data-site-header] .site-header__nav .site-header__link:hover { color: var(--header-hover); }
+  [data-site-header] .site-header__nav > .site-header__item,
+  [data-site-header] .site-header__nav > .site-header__link {
+    margin: 0 calc(var(--header-nav-spacing) / 2);
+  }
+  [data-site-header] .site-header__book {
+    background: var(--header-book-bg) !important;
+    color: var(--header-book-text) !important;
+    font-size: var(--header-book-size) !important;
+    padding: var(--header-book-padding) calc(var(--header-book-padding) * 2.2) !important;
+  }
+  [data-site-header] .site-header__book:hover {
+    background: var(--header-book-hover-bg) !important;
+  }
+  [data-site-header] .site-header__utility { color: var(--header-text); }
+</style>
 
 <header class="site-header site-header--lavender" role="banner" data-site-header>
   <div class="site-header__bar">
     <div class="site-header__utilities" aria-label="Store utilities">
-      <a href="{{ routes.search_url }}" class="site-header__utility" aria-label="Search">
-        {% render 'icon', name: 'search' %}
-      </a>
-      <a href="{{ routes.account_url }}" class="site-header__utility" aria-label="Account">
-        {% render 'icon', name: 'account' %}
-      </a>
-      <a href="{{ routes.cart_url }}" class="site-header__utility site-header__utility--cart" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} items{% endif %}">
-        {% render 'icon', name: 'cart' %}
-        {%- if cart.item_count > 0 -%}
-          <span class="site-header__utility-count">{{ cart.item_count }}</span>
-        {%- endif -%}
-      </a>
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" class="site-header__utility" aria-label="Search">
+          {% render 'icon', name: 'search' %}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_account -%}
+        <a href="{{ routes.account_url }}" class="site-header__utility" aria-label="Account">
+          {% render 'icon', name: 'account' %}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_cart -%}
+        <a href="{{ routes.cart_url }}" class="site-header__utility site-header__utility--cart" aria-label="Cart{% if cart.item_count > 0 %}, {{ cart.item_count }} items{% endif %}">
+          {% render 'icon', name: 'cart' %}
+          {%- if cart.item_count > 0 -%}
+            <span class="site-header__utility-count">{{ cart.item_count }}</span>
+          {%- endif -%}
+        </a>
+      {%- endif -%}
     </div>
+
     <div class="site-header__inner">
       <a href="{{ routes.root_url }}" class="site-header__wordmark" aria-label="{{ shop.name }} — Home">
         {%- if section.settings.logo != blank -%}
           <img
-            src="{{ section.settings.logo | image_url: width: 520 }}"
+            src="{{ section.settings.logo | image_url: width: 600 }}"
             alt="{{ shop.name }}"
-            width="320"
-            height="48"
             loading="eager"
             class="site-header__wordmark-img">
         {%- elsif settings.logo != blank -%}
           <img
-            src="{{ settings.logo | image_url: width: 520 }}"
+            src="{{ settings.logo | image_url: width: 600 }}"
             alt="{{ shop.name }}"
-            width="{{ settings.logo_width | default: 220 }}"
-            height="48"
             loading="eager"
-            class="site-header__wordmark-img"
-            style="max-width: {{ settings.logo_width | default: 220 }}px;">
+            class="site-header__wordmark-img">
         {%- else -%}
-          <span class="site-header__wordmark-text">HUSH HUSH TAN</span>
+          <span class="site-header__wordmark-text">{{ section.settings.wordmark_text | default: 'HUSH HUSH TAN' }}</span>
         {%- endif -%}
       </a>
 
@@ -56,7 +120,7 @@
       <nav class="site-header__nav" aria-label="Primary">
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            Locations <span class="site-header__chevron" aria-hidden="true"></span>
+            {{ section.settings.nav_locations_label | default: 'Locations' }} <span class="site-header__chevron" aria-hidden="true"></span>
           </button>
           <div class="site-header__dropdown" role="menu">
             <a href="/pages/austin" role="menuitem">Austin</a>
@@ -67,7 +131,7 @@
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            Services <span class="site-header__chevron" aria-hidden="true"></span>
+            {{ section.settings.nav_services_label | default: 'Services' }} <span class="site-header__chevron" aria-hidden="true"></span>
           </button>
           <div class="site-header__dropdown" role="menu">
             <a href="/pages/spray-tanning" role="menuitem">Spray Tanning</a>
@@ -77,11 +141,11 @@
           </div>
         </div>
 
-        <a href="/collections/tanning-products" class="site-header__link site-header__link--direct">Shop</a>
+        <a href="/collections/tanning-products" class="site-header__link site-header__link--direct">{{ section.settings.nav_shop_label | default: 'Shop' }}</a>
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            Parties &amp; Events <span class="site-header__chevron" aria-hidden="true"></span>
+            {{ section.settings.nav_parties_label | default: 'Parties & Events' }} <span class="site-header__chevron" aria-hidden="true"></span>
           </button>
           <div class="site-header__dropdown" role="menu">
             <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" role="menuitem">Group Tanning &amp; Mimosas</a>
@@ -89,11 +153,11 @@
           </div>
         </div>
 
-        <a href="/pages/faqs" class="site-header__link site-header__link--direct">FAQs</a>
+        <a href="/pages/faqs" class="site-header__link site-header__link--direct">{{ section.settings.nav_faqs_label | default: 'FAQs' }}</a>
 
         <div class="site-header__item has-submenu" data-nav-item>
           <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            About <span class="site-header__chevron" aria-hidden="true"></span>
+            {{ section.settings.nav_about_label | default: 'About' }} <span class="site-header__chevron" aria-hidden="true"></span>
           </button>
           <div class="site-header__dropdown" role="menu">
             <a href="/pages/about-us" role="menuitem">Our Story</a>
@@ -104,7 +168,7 @@
           </div>
         </div>
 
-        <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>Book Now</a>
+        <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
       </nav>
     </div>
   </div>
@@ -114,18 +178,18 @@
   <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="drawer__top">
       <a href="{{ routes.root_url }}" class="site-header__wordmark site-header__wordmark--drawer" data-drawer-close>
-        <span class="site-header__wordmark-text site-header__wordmark-text--drawer">HUSH HUSH TAN</span>
+        <span class="site-header__wordmark-text site-header__wordmark-text--drawer">{{ section.settings.wordmark_text | default: 'HUSH HUSH TAN' }}</span>
       </a>
       <button type="button" class="drawer__close icon-btn" data-drawer-close aria-label="Close menu">
         {% render 'icon', name: 'close' %}
       </button>
     </div>
 
-    <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>Book Now</a>
+    <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
 
     <nav class="drawer__nav" aria-label="Mobile">
       <details class="drawer__accordion">
-        <summary>Locations</summary>
+        <summary>{{ section.settings.nav_locations_label | default: 'Locations' }}</summary>
         <div class="drawer__sub">
           <a href="/pages/austin" data-drawer-link>Austin</a>
           <a href="/pages/dallas" data-drawer-link>Dallas</a>
@@ -134,7 +198,7 @@
       </details>
 
       <details class="drawer__accordion">
-        <summary>Services</summary>
+        <summary>{{ section.settings.nav_services_label | default: 'Services' }}</summary>
         <div class="drawer__sub">
           <a href="/pages/spray-tanning" data-drawer-link>Spray Tanning</a>
           <a href="/pages/austin-services" data-drawer-link>Austin Services</a>
@@ -143,20 +207,20 @@
         </div>
       </details>
 
-      <a href="/collections/tanning-products" class="drawer__link" data-drawer-link>Shop</a>
+      <a href="/collections/tanning-products" class="drawer__link" data-drawer-link>{{ section.settings.nav_shop_label | default: 'Shop' }}</a>
 
       <details class="drawer__accordion">
-        <summary>Parties &amp; Events</summary>
+        <summary>{{ section.settings.nav_parties_label | default: 'Parties & Events' }}</summary>
         <div class="drawer__sub">
           <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" data-drawer-link>Group Tanning &amp; Mimosas</a>
           <a href="/pages/mobile-spray-tan" data-drawer-link>Mobile Tanning</a>
         </div>
       </details>
 
-      <a href="/pages/faqs" class="drawer__link" data-drawer-link>FAQs</a>
+      <a href="/pages/faqs" class="drawer__link" data-drawer-link>{{ section.settings.nav_faqs_label | default: 'FAQs' }}</a>
 
       <details class="drawer__accordion">
-        <summary>About</summary>
+        <summary>{{ section.settings.nav_about_label | default: 'About' }}</summary>
         <div class="drawer__sub">
           <a href="/pages/about-us" data-drawer-link>Our Story</a>
           <a href="/pages/contact" data-drawer-link>Contact</a>
@@ -168,18 +232,24 @@
     </nav>
 
     <div class="drawer__utilities">
-      <a href="{{ routes.search_url }}" class="drawer__utility" data-drawer-link aria-label="Search">
-        {% render 'icon', name: 'search' %}
-        <span>Search</span>
-      </a>
-      <a href="{{ routes.account_url }}" class="drawer__utility" data-drawer-link aria-label="Account">
-        {% render 'icon', name: 'account' %}
-        <span>Account</span>
-      </a>
-      <a href="{{ routes.cart_url }}" class="drawer__utility" data-drawer-link aria-label="Cart">
-        {% render 'icon', name: 'cart' %}
-        <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
-      </a>
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" class="drawer__utility" data-drawer-link aria-label="Search">
+          {% render 'icon', name: 'search' %}
+          <span>Search</span>
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_account -%}
+        <a href="{{ routes.account_url }}" class="drawer__utility" data-drawer-link aria-label="Account">
+          {% render 'icon', name: 'account' %}
+          <span>Account</span>
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_cart -%}
+        <a href="{{ routes.cart_url }}" class="drawer__utility" data-drawer-link aria-label="Cart">
+          {% render 'icon', name: 'cart' %}
+          <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
+        </a>
+      {%- endif -%}
     </div>
   </div>
 </div>
@@ -188,7 +258,42 @@
 {
   "name": "Header",
   "settings": [
-    { "type": "image_picker", "id": "logo", "label": "Header logo (optional — text wordmark used if empty)" }
+    { "type": "header",       "content": "Logo / Wordmark" },
+    { "type": "image_picker", "id": "logo",         "label": "Header logo",         "info": "Optional. If empty, the wordmark text below is shown instead." },
+    { "type": "text",         "id": "wordmark_text","label": "Wordmark text",       "default": "HUSH HUSH TAN", "info": "Used only when no logo image is uploaded." },
+    { "type": "range",        "id": "logo_width",   "label": "Logo width",          "min": 100, "max": 480, "step": 10, "unit": "px", "default": 220 },
+    { "type": "range",        "id": "logo_height",  "label": "Logo max height",     "min": 24,  "max": 120, "step": 2,  "unit": "px", "default": 48 },
+
+    { "type": "header",       "content": "Navigation Links" },
+    { "type": "range",        "id": "nav_link_size",   "label": "Link text size",        "min": 11, "max": 22, "step": 1, "unit": "px", "default": 14 },
+    { "type": "range",        "id": "nav_link_spacing","label": "Spacing between links", "min": 8,  "max": 60, "step": 2, "unit": "px", "default": 24 },
+
+    { "type": "header",       "content": "Navigation Labels (rename anything)" },
+    { "type": "text",         "id": "nav_locations_label", "label": "Locations label", "default": "Locations" },
+    { "type": "text",         "id": "nav_services_label",  "label": "Services label",  "default": "Services" },
+    { "type": "text",         "id": "nav_shop_label",      "label": "Shop label",      "default": "Shop" },
+    { "type": "text",         "id": "nav_parties_label",   "label": "Parties label",   "default": "Parties & Events" },
+    { "type": "text",         "id": "nav_faqs_label",      "label": "FAQs label",      "default": "FAQs" },
+    { "type": "text",         "id": "nav_about_label",     "label": "About label",     "default": "About" },
+
+    { "type": "header",       "content": "Book Now Button" },
+    { "type": "text",         "id": "book_btn_label",   "label": "Button label",   "default": "Book Now" },
+    { "type": "url",          "id": "book_url",         "label": "Button URL",     "info": "Leave blank to use the site-wide Book Now URL from theme settings." },
+    { "type": "range",        "id": "book_btn_size",    "label": "Button text size","min": 10, "max": 22, "step": 1, "unit": "px", "default": 13 },
+    { "type": "range",        "id": "book_btn_padding", "label": "Button padding",  "min": 6,  "max": 28, "step": 1, "unit": "px", "default": 14 },
+
+    { "type": "header",       "content": "Colors" },
+    { "type": "color",        "id": "header_bg",         "label": "Header background",     "default": "#EAE3F7" },
+    { "type": "color",        "id": "nav_text_color",    "label": "Link / text color",      "default": "#2C1A4D" },
+    { "type": "color",        "id": "nav_hover_color",   "label": "Link hover color",       "default": "#7B5EA7" },
+    { "type": "color",        "id": "book_btn_bg",       "label": "Book button background", "default": "#7B5EA7" },
+    { "type": "color",        "id": "book_btn_text",     "label": "Book button text",       "default": "#FFFFFF" },
+    { "type": "color",        "id": "book_btn_hover_bg", "label": "Book button hover bg",   "default": "#4A2C7A" },
+
+    { "type": "header",       "content": "Utility Icons (Search / Account / Cart)" },
+    { "type": "checkbox",     "id": "show_search",  "label": "Show search icon",  "default": true },
+    { "type": "checkbox",     "id": "show_account", "label": "Show account icon", "default": true },
+    { "type": "checkbox",     "id": "show_cart",    "label": "Show cart icon",    "default": true }
   ]
 }
 {% endschema %}
