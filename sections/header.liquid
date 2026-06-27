@@ -1,5 +1,4 @@
 {%- liquid
-  assign careers_url = 'https://hushhushtan.com/a/careers/'
   assign book_url = section.settings.book_url | default: settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
 
   assign logo_width        = section.settings.logo_width | default: 220
@@ -91,17 +90,9 @@
     <div class="site-header__inner">
       <a href="{{ routes.root_url }}" class="site-header__wordmark" aria-label="{{ shop.name }} — Home">
         {%- if section.settings.logo != blank -%}
-          <img
-            src="{{ section.settings.logo | image_url: width: 600 }}"
-            alt="{{ shop.name }}"
-            loading="eager"
-            class="site-header__wordmark-img">
+          <img src="{{ section.settings.logo | image_url: width: 600 }}" alt="{{ shop.name }}" loading="eager" class="site-header__wordmark-img">
         {%- elsif settings.logo != blank -%}
-          <img
-            src="{{ settings.logo | image_url: width: 600 }}"
-            alt="{{ shop.name }}"
-            loading="eager"
-            class="site-header__wordmark-img">
+          <img src="{{ settings.logo | image_url: width: 600 }}" alt="{{ shop.name }}" loading="eager" class="site-header__wordmark-img">
         {%- else -%}
           <span class="site-header__wordmark-text">{{ section.settings.wordmark_text | default: 'HUSH HUSH TAN' }}</span>
         {%- endif -%}
@@ -118,55 +109,50 @@
       </button>
 
       <nav class="site-header__nav" aria-label="Primary">
-        <div class="site-header__item has-submenu" data-nav-item>
-          <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            {{ section.settings.nav_locations_label | default: 'Locations' }} <span class="site-header__chevron" aria-hidden="true"></span>
-          </button>
-          <div class="site-header__dropdown" role="menu">
-            <a href="/pages/austin" role="menuitem">Austin</a>
-            <a href="/pages/dallas" role="menuitem">Dallas</a>
-            <a href="/pages/houston" role="menuitem">Houston</a>
-          </div>
-        </div>
+        {%- comment -%}
+          Walk every block in order. There are two block types:
+            • parent_menu  — renders a dropdown trigger; child_link blocks until the next parent become its items
+            • child_link   — used only inside a parent_menu's dropdown OR as a top-level direct link if it has no preceding parent_menu
 
-        <div class="site-header__item has-submenu" data-nav-item>
-          <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            {{ section.settings.nav_services_label | default: 'Services' }} <span class="site-header__chevron" aria-hidden="true"></span>
-          </button>
-          <div class="site-header__dropdown" role="menu">
-            <a href="/pages/spray-tanning" role="menuitem">Spray Tanning</a>
-            <a href="/pages/austin-services" role="menuitem">Austin Services</a>
-            <a href="/pages/dallas-services" role="menuitem">Dallas Services</a>
-            <a href="/pages/houston-services" role="menuitem">Houston Services</a>
-          </div>
-        </div>
+          Implementation: pre-compute which blocks are parents and which are children of which parent.
+        {%- endcomment -%}
 
-        <a href="/collections/tanning-products" class="site-header__link site-header__link--direct">{{ section.settings.nav_shop_label | default: 'Shop' }}</a>
+        {%- comment -%} Pass 1: tag each block with its parent index (if any) {%- endcomment -%}
+        {%- assign current_parent_idx = -1 -%}
+        {%- assign parent_indexes = '' -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'parent_menu' -%}
+            {%- assign current_parent_idx = forloop.index0 -%}
+            {%- assign parent_indexes = parent_indexes | append: current_parent_idx | append: ',' -%}
+          {%- else -%}
+            {%- assign parent_indexes = parent_indexes | append: current_parent_idx | append: ',' -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- assign parent_idx_arr = parent_indexes | split: ',' -%}
 
-        <div class="site-header__item has-submenu" data-nav-item>
-          <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            {{ section.settings.nav_parties_label | default: 'Parties & Events' }} <span class="site-header__chevron" aria-hidden="true"></span>
-          </button>
-          <div class="site-header__dropdown" role="menu">
-            <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" role="menuitem">Group Tanning &amp; Mimosas</a>
-            <a href="/pages/mobile-spray-tan" role="menuitem">Mobile Tanning</a>
-          </div>
-        </div>
-
-        <a href="/pages/faqs" class="site-header__link site-header__link--direct">{{ section.settings.nav_faqs_label | default: 'FAQs' }}</a>
-
-        <div class="site-header__item has-submenu" data-nav-item>
-          <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-            {{ section.settings.nav_about_label | default: 'About' }} <span class="site-header__chevron" aria-hidden="true"></span>
-          </button>
-          <div class="site-header__dropdown" role="menu">
-            <a href="/pages/about-us" role="menuitem">Our Story</a>
-            <a href="/pages/contact" role="menuitem">Contact</a>
-            <a href="/pages/press" role="menuitem">Press</a>
-            <a href="{{ careers_url }}" role="menuitem">Careers</a>
-            <a href="/pages/tanning-tips" role="menuitem">Tanning Tips</a>
-          </div>
-        </div>
+        {%- comment -%} Pass 2: render parents in document order. For each parent, walk children. {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'parent_menu' -%}
+            {%- assign this_idx = forloop.index0 -%}
+            <div class="site-header__item has-submenu" data-nav-item {{ block.shopify_attributes }}>
+              <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
+                {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
+              </button>
+              <div class="site-header__dropdown" role="menu">
+                {%- for child in section.blocks -%}
+                  {%- if child.type == 'child_link' -%}
+                    {%- assign child_parent = parent_idx_arr[forloop.index0] | plus: 0 -%}
+                    {%- if child_parent == this_idx -%}
+                      <a href="{{ child.settings.url | default: '#' }}" role="menuitem" {{ child.shopify_attributes }}{% if child.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ child.settings.label }}</a>
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- elsif block.type == 'top_link' -%}
+            <a href="{{ block.settings.url | default: '#' }}" class="site-header__link site-header__link--direct" {{ block.shopify_attributes }}{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.label }}</a>
+          {%- endif -%}
+        {%- endfor -%}
 
         <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
       </nav>
@@ -188,66 +174,42 @@
     <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
 
     <nav class="drawer__nav" aria-label="Mobile">
-      <details class="drawer__accordion">
-        <summary>{{ section.settings.nav_locations_label | default: 'Locations' }}</summary>
-        <div class="drawer__sub">
-          <a href="/pages/austin" data-drawer-link>Austin</a>
-          <a href="/pages/dallas" data-drawer-link>Dallas</a>
-          <a href="/pages/houston" data-drawer-link>Houston</a>
-        </div>
-      </details>
-
-      <details class="drawer__accordion">
-        <summary>{{ section.settings.nav_services_label | default: 'Services' }}</summary>
-        <div class="drawer__sub">
-          <a href="/pages/spray-tanning" data-drawer-link>Spray Tanning</a>
-          <a href="/pages/austin-services" data-drawer-link>Austin Services</a>
-          <a href="/pages/dallas-services" data-drawer-link>Dallas Services</a>
-          <a href="/pages/houston-services" data-drawer-link>Houston Services</a>
-        </div>
-      </details>
-
-      <a href="/collections/tanning-products" class="drawer__link" data-drawer-link>{{ section.settings.nav_shop_label | default: 'Shop' }}</a>
-
-      <details class="drawer__accordion">
-        <summary>{{ section.settings.nav_parties_label | default: 'Parties & Events' }}</summary>
-        <div class="drawer__sub">
-          <a href="/pages/hush-hush-tan-group-tanning-mimosas-package" data-drawer-link>Group Tanning &amp; Mimosas</a>
-          <a href="/pages/mobile-spray-tan" data-drawer-link>Mobile Tanning</a>
-        </div>
-      </details>
-
-      <a href="/pages/faqs" class="drawer__link" data-drawer-link>{{ section.settings.nav_faqs_label | default: 'FAQs' }}</a>
-
-      <details class="drawer__accordion">
-        <summary>{{ section.settings.nav_about_label | default: 'About' }}</summary>
-        <div class="drawer__sub">
-          <a href="/pages/about-us" data-drawer-link>Our Story</a>
-          <a href="/pages/contact" data-drawer-link>Contact</a>
-          <a href="/pages/press" data-drawer-link>Press</a>
-          <a href="{{ careers_url }}" data-drawer-link>Careers</a>
-          <a href="/pages/tanning-tips" data-drawer-link>Tanning Tips</a>
-        </div>
-      </details>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'parent_menu' -%}
+          {%- assign this_idx = forloop.index0 -%}
+          <details class="drawer__accordion">
+            <summary>{{ block.settings.label }}</summary>
+            <div class="drawer__sub">
+              {%- for child in section.blocks -%}
+                {%- if child.type == 'child_link' -%}
+                  {%- assign child_parent = parent_idx_arr[forloop.index0] | plus: 0 -%}
+                  {%- if child_parent == this_idx -%}
+                    <a href="{{ child.settings.url | default: '#' }}" data-drawer-link{% if child.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ child.settings.label }}</a>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          </details>
+        {%- elsif block.type == 'top_link' -%}
+          <a href="{{ block.settings.url | default: '#' }}" class="drawer__link" data-drawer-link{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.label }}</a>
+        {%- endif -%}
+      {%- endfor -%}
     </nav>
 
     <div class="drawer__utilities">
       {%- if section.settings.show_search -%}
         <a href="{{ routes.search_url }}" class="drawer__utility" data-drawer-link aria-label="Search">
-          {% render 'icon', name: 'search' %}
-          <span>Search</span>
+          {% render 'icon', name: 'search' %} <span>Search</span>
         </a>
       {%- endif -%}
       {%- if section.settings.show_account -%}
         <a href="{{ routes.account_url }}" class="drawer__utility" data-drawer-link aria-label="Account">
-          {% render 'icon', name: 'account' %}
-          <span>Account</span>
+          {% render 'icon', name: 'account' %} <span>Account</span>
         </a>
       {%- endif -%}
       {%- if section.settings.show_cart -%}
         <a href="{{ routes.cart_url }}" class="drawer__utility" data-drawer-link aria-label="Cart">
-          {% render 'icon', name: 'cart' %}
-          <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
+          {% render 'icon', name: 'cart' %} <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
         </a>
       {%- endif -%}
     </div>
@@ -267,14 +229,7 @@
     { "type": "header",       "content": "Navigation Links" },
     { "type": "range",        "id": "nav_link_size",   "label": "Link text size",        "min": 11, "max": 22, "step": 1, "unit": "px", "default": 14 },
     { "type": "range",        "id": "nav_link_spacing","label": "Spacing between links", "min": 8,  "max": 60, "step": 2, "unit": "px", "default": 24 },
-
-    { "type": "header",       "content": "Navigation Labels (rename anything)" },
-    { "type": "text",         "id": "nav_locations_label", "label": "Locations label", "default": "Locations" },
-    { "type": "text",         "id": "nav_services_label",  "label": "Services label",  "default": "Services" },
-    { "type": "text",         "id": "nav_shop_label",      "label": "Shop label",      "default": "Shop" },
-    { "type": "text",         "id": "nav_parties_label",   "label": "Parties label",   "default": "Parties & Events" },
-    { "type": "text",         "id": "nav_faqs_label",      "label": "FAQs label",      "default": "FAQs" },
-    { "type": "text",         "id": "nav_about_label",     "label": "About label",     "default": "About" },
+    { "type": "paragraph",    "content": "Add nav items as BLOCKS below. There are two block types: 'Dropdown Menu' (creates a parent with a dropdown) and 'Direct Link' (a single clickable link with no dropdown). Add 'Dropdown Item' blocks AFTER a Dropdown Menu — they'll appear as items inside that menu. Drag blocks to reorder." },
 
     { "type": "header",       "content": "Book Now Button" },
     { "type": "text",         "id": "book_btn_label",   "label": "Button label",   "default": "Book Now" },
@@ -294,6 +249,67 @@
     { "type": "checkbox",     "id": "show_search",  "label": "Show search icon",  "default": true },
     { "type": "checkbox",     "id": "show_account", "label": "Show account icon", "default": true },
     { "type": "checkbox",     "id": "show_cart",    "label": "Show cart icon",    "default": true }
-  ]
+  ],
+  "blocks": [
+    {
+      "type": "parent_menu",
+      "name": "Dropdown Menu",
+      "settings": [
+        { "type": "paragraph", "content": "A parent menu with a dropdown. Add 'Dropdown Item' blocks AFTER this one — they'll appear inside this menu's dropdown until the next 'Dropdown Menu' or 'Direct Link' block." },
+        { "type": "text", "id": "label", "label": "Menu label", "default": "Menu" }
+      ]
+    },
+    {
+      "type": "child_link",
+      "name": "Dropdown Item",
+      "settings": [
+        { "type": "paragraph", "content": "A link inside the most recent Dropdown Menu above. Has no effect if placed before any Dropdown Menu." },
+        { "type": "text",     "id": "label",            "label": "Link label", "default": "New item" },
+        { "type": "url",      "id": "url",              "label": "Link URL" },
+        { "type": "checkbox", "id": "open_in_new_tab",  "label": "Open in new tab", "default": false }
+      ]
+    },
+    {
+      "type": "top_link",
+      "name": "Direct Link",
+      "settings": [
+        { "type": "paragraph", "content": "A single top-level link with no dropdown (e.g. Shop, FAQs)." },
+        { "type": "text",     "id": "label",            "label": "Link label", "default": "Link" },
+        { "type": "url",      "id": "url",              "label": "Link URL" },
+        { "type": "checkbox", "id": "open_in_new_tab",  "label": "Open in new tab", "default": false }
+      ]
+    }
+  ],
+  "max_blocks": 50,
+  "presets": [{
+    "name": "Header",
+    "blocks": [
+      { "type": "parent_menu", "settings": { "label": "Locations" } },
+      { "type": "child_link",  "settings": { "label": "Austin",  "url": "/pages/austin" } },
+      { "type": "child_link",  "settings": { "label": "Dallas",  "url": "/pages/dallas" } },
+      { "type": "child_link",  "settings": { "label": "Houston", "url": "/pages/houston" } },
+
+      { "type": "parent_menu", "settings": { "label": "Services" } },
+      { "type": "child_link",  "settings": { "label": "Our Services",     "url": "/pages/our-services" } },
+      { "type": "child_link",  "settings": { "label": "Austin Services",  "url": "/pages/austin-services" } },
+      { "type": "child_link",  "settings": { "label": "Dallas Services",  "url": "/pages/dallas-services" } },
+      { "type": "child_link",  "settings": { "label": "Houston Services", "url": "/pages/houston-services" } },
+
+      { "type": "top_link",    "settings": { "label": "Shop", "url": "/collections/tanning-products" } },
+
+      { "type": "parent_menu", "settings": { "label": "Parties & Events" } },
+      { "type": "child_link",  "settings": { "label": "Group Tanning & Mimosas", "url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
+      { "type": "child_link",  "settings": { "label": "Mobile Tanning",          "url": "/pages/mobile-spray-tan" } },
+
+      { "type": "top_link",    "settings": { "label": "FAQs", "url": "/pages/faqs" } },
+
+      { "type": "parent_menu", "settings": { "label": "About" } },
+      { "type": "child_link",  "settings": { "label": "Our Story",    "url": "/pages/about-us" } },
+      { "type": "child_link",  "settings": { "label": "Contact",      "url": "/pages/contact" } },
+      { "type": "child_link",  "settings": { "label": "Press",        "url": "/pages/press" } },
+      { "type": "child_link",  "settings": { "label": "Careers",      "url": "https://hushhushtan.com/a/careers/", "open_in_new_tab": true } },
+      { "type": "child_link",  "settings": { "label": "Tanning Tips", "url": "/pages/tanning-tips" } }
+    ]
+  }]
 }
 {% endschema %}
