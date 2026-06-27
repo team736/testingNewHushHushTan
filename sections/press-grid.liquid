@@ -1,11 +1,16 @@
 {%- comment -%}
-  Hush Hush Tan — Press Grid / Featured-In Marquee  (v5 — block-based with image picker + size)
+  Hush Hush Tan — Press Grid / Featured-In Marquee  (v6 — invert applied at parent)
 
   Each logo is its own block. In the customizer you can:
-   • Set the publication name (used for alt text and to look up an auto-resolved logo)
-   • Pick the logo image directly from Shopify Content (override)
+   • Set the publication name (used for alt text)
+   • Pick the logo image directly from Shopify Content
    • Set the article URL
    • Pick the logo size: xs / sm / md / lg / xl
+   • Toggle "Invert color" for white-on-transparent logos
+
+  Invert is applied via inline style on the OUTER .press-logo div, not the img.
+  Filters inherit through descendants, including anchors. This bypasses any
+  theme CSS that could override the img-level rule.
 {%- endcomment -%}
 
 {%- assign uid = 'press-' | append: section.id -%}
@@ -59,24 +64,17 @@
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
   #{{ uid }} .press-logo:hover { opacity: 1; transform: translateY(-2px); }
+  #{{ uid }} .press-logo a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
   #{{ uid }} .press-logo img {
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
-  }
-  /* Invert filter — applied via inline style on the img directly to defeat any theme cascade */
-  #{{ uid }} img.press-logo__img--invert {
-    filter: invert(1) !important;
-    -webkit-filter: invert(1) !important;
-  }
-  /* Also kill any theme transforms that might be applied to anchored images */
-  #{{ uid }} .press-logo a,
-  #{{ uid }} .press-logo a:hover,
-  #{{ uid }} .press-logo a:focus {
-    filter: none !important;
-    opacity: 1 !important;
-    mix-blend-mode: normal !important;
   }
   #{{ uid }} .press-logo__placeholder {
     font-family: Georgia, 'Cormorant Garamond', serif;
@@ -85,7 +83,7 @@
     letter-spacing: 0.04em;
   }
 
-  /* Per-logo size: xs / sm / md / lg / xl */
+  /* Per-logo size */
   #{{ uid }} .press-logo--xs img { max-height: 40px; max-width: 140px; }
   #{{ uid }} .press-logo--sm img { max-height: 56px; max-width: 170px; }
   #{{ uid }} .press-logo--md img { max-height: 72px; max-width: 210px; }
@@ -119,27 +117,26 @@
 
     <div class="press-strip">
       {%- for block in section.blocks -%}
-        {%- assign alt_text = 'Featured in ' | append: block.settings.name -%}
+        {%- assign alt_text  = 'Featured in ' | append: block.settings.name -%}
         {%- assign size_class = 'press-logo--' | append: block.settings.size -%}
 
-        {%- comment -%} Build the img-specific invert hooks: a class AND an inline style {%- endcomment -%}
-        {%- assign img_class = '' -%}
-        {%- assign img_style = '' -%}
+        {%- comment -%} Invert applied as inline style on the OUTER div.
+            Filters cascade to all descendants — including the anchor and img. {%- endcomment -%}
+        {%- assign wrapper_style = '' -%}
         {%- if block.settings.invert_color -%}
-          {%- assign img_class = ' press-logo__img--invert' -%}
-          {%- assign img_style = 'filter: invert(1); -webkit-filter: invert(1);' -%}
+          {%- assign wrapper_style = 'filter: invert(1); -webkit-filter: invert(1);' -%}
         {%- endif -%}
 
-        <div class="press-logo {{ size_class }}" {{ block.shopify_attributes }}>
+        <div class="press-logo {{ size_class }}"
+             {% if wrapper_style != blank %}style="{{ wrapper_style }}"{% endif %}
+             {{ block.shopify_attributes }}>
           {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}" style="display:inline-flex;align-items:center;filter:none;opacity:1;">
+            <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}">
           {%- endif -%}
 
           {%- if block.settings.image != blank -%}
             <img src="{{ block.settings.image | image_url: width: 600 }}"
                  alt="{{ alt_text | escape }}"
-                 class="press-logo__img{{ img_class }}"
-                 {% if img_style != blank %}style="{{ img_style }}"{% endif %}
                  loading="lazy">
           {%- else -%}
             <span class="press-logo__placeholder">{{ block.settings.name }}</span>
@@ -184,7 +181,7 @@
         },
         {
           "type": "checkbox", "id": "invert_color", "label": "Invert color (for white logos)",
-          "info": "Turn ON if the logo file is white-on-transparent (designed for dark backgrounds). Flips white to black so it shows on light backgrounds. Only use on pure monochrome white logos — distorts color logos.",
+          "info": "Turn ON if the logo file is white-on-transparent. Flips white to black so it shows on light backgrounds. Only use on pure monochrome white logos — distorts color logos.",
           "default": false
         }
       ]
