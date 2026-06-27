@@ -743,6 +743,16 @@
     "press_grid_AYaFP6": {
       "type": "press-grid",
       "blocks": {
+        "logo_DmVHfT": {
+          "type": "logo",
+          "settings": {
+            "name": "",
+            "image": "shopify://shop_images/CI-Logo-2022-Website-White-1.svg",
+            "link": "",
+            "size": "md",
+            "invert_color": true
+          }
+        },
         "logo_4PXY4L": {
           "type": "logo",
           "settings": {
@@ -817,6 +827,7 @@
           "type": "logo",
           "settings": {
             "name": "Park Cities People",
+            "image": "shopify://shop_images/cropped-PN-LogoBlue.png",
             "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
             "size": "lg",
             "invert_color": false
@@ -826,22 +837,15 @@
           "type": "logo",
           "settings": {
             "name": "The Leader",
+            "image": "shopify://shop_images/bd5862c8-e80f-45c3-9dfd-ae884f3263a9-1.webp",
             "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
             "size": "lg",
             "invert_color": false
           }
-        },
-        "logo_tezPe6": {
-          "type": "logo",
-          "settings": {
-            "name": "Community Impact",
-            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
-            "size": "md",
-            "invert_color": true
-          }
         }
       },
       "block_order": [
+        "logo_DmVHfT",
         "logo_4PXY4L",
         "logo_TUPPPd",
         "logo_PxMB84",
@@ -850,8 +854,7 @@
         "logo_WMM9xT",
         "logo_9wwLac",
         "logo_AcVAg8",
-        "logo_g7hNQf",
-        "logo_tezPe6"
+        "logo_g7hNQf"
       ],
       "name": "Press grid",
       "settings": {
