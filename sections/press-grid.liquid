@@ -64,12 +64,7 @@
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
   #{{ uid }} .press-logo:hover { opacity: 1; transform: translateY(-2px); }
-  #{{ uid }} .press-logo a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-  }
+  #{{ uid }} a.press-logo { text-decoration: none; color: inherit; }
   #{{ uid }} .press-logo img {
     width: auto;
     height: auto;
@@ -120,32 +115,44 @@
         {%- assign alt_text  = 'Featured in ' | append: block.settings.name -%}
         {%- assign size_class = 'press-logo--' | append: block.settings.size -%}
 
-        {%- comment -%} Invert applied as inline style on the OUTER div.
-            Filters cascade to all descendants — including the anchor and img. {%- endcomment -%}
+        {%- comment -%} Render the WHOLE logo wrapper as the <a> when linked,
+            or as a <div> when not. The img is always a direct child of the
+            outer element — no nested anchor structure for the invert filter to lose. {%- endcomment -%}
+
         {%- assign wrapper_style = '' -%}
         {%- if block.settings.invert_color -%}
           {%- assign wrapper_style = 'filter: invert(1); -webkit-filter: invert(1);' -%}
         {%- endif -%}
 
-        <div class="press-logo {{ size_class }}"
+        {%- if block.settings.link != blank -%}
+          <a class="press-logo {{ size_class }}"
+             href="{{ block.settings.link }}"
+             target="_blank"
+             rel="noopener"
+             aria-label="{{ alt_text | escape }}"
              {% if wrapper_style != blank %}style="{{ wrapper_style }}"{% endif %}
              {{ block.shopify_attributes }}>
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" target="_blank" rel="noopener" aria-label="{{ alt_text | escape }}">
-          {%- endif -%}
-
-          {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 600 }}"
-                 alt="{{ alt_text | escape }}"
-                 loading="lazy">
-          {%- else -%}
-            <span class="press-logo__placeholder">{{ block.settings.name }}</span>
-          {%- endif -%}
-
-          {%- if block.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        </div>
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 600 }}"
+                   alt="{{ alt_text | escape }}"
+                   loading="lazy">
+            {%- else -%}
+              <span class="press-logo__placeholder">{{ block.settings.name }}</span>
+            {%- endif -%}
+          </a>
+        {%- else -%}
+          <div class="press-logo {{ size_class }}"
+               {% if wrapper_style != blank %}style="{{ wrapper_style }}"{% endif %}
+               {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              <img src="{{ block.settings.image | image_url: width: 600 }}"
+                   alt="{{ alt_text | escape }}"
+                   loading="lazy">
+            {%- else -%}
+              <span class="press-logo__placeholder">{{ block.settings.name }}</span>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
