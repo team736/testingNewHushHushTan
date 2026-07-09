@@ -11,36 +11,37 @@
 
   div#hht-services-{{ section.id }}, div#hht-services-{{ section.id }} * { box-sizing: border-box; }
   div#hht-services-{{ section.id }} {
-    --bg-color: {{ section.settings.bg_color | default: '#FFFFFF' }};
-    --heading-color: {{ section.settings.heading_color | default: '#51217C' }};
-    --text-main: {{ section.settings.text_color | default: '#4D1D78' }};
-    --text-light: {{ section.settings.text_light | default: '#9B8AB0' }};
-    --accent: {{ section.settings.accent_color | default: '#ABA0EA' }};
+    --bg-color: {{ section.settings.bg_color | default: '#FAF8F5' }};
+    --heading-color: {{ section.settings.heading_color | default: '#151515' }};
+    --text-main: {{ section.settings.text_color | default: '#373741' }};
+    --text-light: {{ section.settings.text_light | default: '#6F6A70' }};
+    --accent: {{ section.settings.accent_color | default: '#A69FE2' }};
     --card-bg: {{ section.settings.card_bg_color | default: '#FFFFFF' }};
-    --card-border: {{ section.settings.card_border_color | default: '#BFB6EF' }};
-    --header-strip: {{ section.settings.header_strip_color | default: '#F3F2FE' }};
-    --badge-bg: {{ section.settings.badge_bg_color | default: '#5F3786' }};
+    --card-border: {{ section.settings.card_border_color | default: '#E7E3F5' }};
+    --header-strip: {{ section.settings.header_strip_color | default: '#F4F2FF' }};
+    --badge-bg: {{ section.settings.badge_bg_color | default: '#A69FE2' }};
     --badge-text: {{ section.settings.badge_text_color | default: '#FFFFFF' }};
-    --btn-bg: {{ section.settings.btn_bg_color | default: '#ABA0EA' }};
+    --btn-bg: {{ section.settings.btn_bg_color | default: '#A69FE2' }};
     --btn-text: {{ section.settings.btn_text_color | default: '#FFFFFF' }};
-    --btn-hover-bg: {{ section.settings.btn_hover_bg | default: '#5F3786' }};
+    --btn-hover-bg: {{ section.settings.btn_hover_bg | default: '#8F83D6' }};
     --btn-hover-text: {{ section.settings.btn_hover_text | default: '#FFFFFF' }};
-    --toggle-idle-bg: {{ section.settings.toggle_idle_bg | default: '#FFFFFF' }};
-    --toggle-idle-text: {{ section.settings.toggle_idle_text | default: '#51217C' }};
-    --toggle-idle-border: {{ section.settings.toggle_idle_border | default: '#BFB6EF' }};
-    --toggle-active-bg: {{ section.settings.toggle_active_bg | default: '#ABA0EA' }};
+    --toggle-idle-bg: {{ section.settings.toggle_idle_bg | default: '#FAF9FF' }};
+    --toggle-idle-text: {{ section.settings.toggle_idle_text | default: '#373741' }};
+    --toggle-idle-border: {{ section.settings.toggle_idle_border | default: 'rgba(166, 159, 226, 0.35)' }};
+    --toggle-active-bg: {{ section.settings.toggle_active_bg | default: '#A69FE2' }};
     --toggle-active-text: {{ section.settings.toggle_active_text | default: '#FFFFFF' }};
-    --toggle-active-border: {{ section.settings.toggle_active_border | default: '#ABA0EA' }};
-    --toggle-glitch: {{ section.settings.toggle_glitch_color | default: '#5F3786' }};
+    --toggle-active-border: {{ section.settings.toggle_active_border | default: '#A69FE2' }};
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: {{ section.settings.body_font.family }}, sans-serif;
-    padding: 70px 20px;
+    padding: clamp(32px, 5vw, 56px) 20px clamp(48px, 6vw, 72px);
   }
-  div#hht-services-{{ section.id }} .hht-container { max-width: 1200px; margin: 0 auto; }
+  div#hht-services-{{ section.id }} .hht-container { max-width: 1240px; margin: 0 auto; }
 
   /* Page Header */
-  div#hht-services-{{ section.id }} .hht-header { text-align: center; margin-bottom: 40px; }
+  div#hht-services-{{ section.id }} .hht-header { text-align: center; margin-bottom: 28px; }
+  div#hht-services-{{ section.id }} .hht-header--compact { margin-bottom: 20px; }
+  div#hht-services-{{ section.id }} .hht-header--compact h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 12px; }
   div#hht-services-{{ section.id }} .hht-header h1 {
     font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
     font-size: clamp(2.4rem, 4.5vw, 3.4rem);
@@ -60,44 +61,87 @@
     font-weight: 500;
   }
 
-  /* Location Toggle */
-  div#hht-services-{{ section.id }} .hht-loc-toggle { display: inline-flex; align-items: center; gap: 10px; }
+  /* Location Toggle — matches homepage pill tabs */
+  div#hht-services-{{ section.id }} .hht-loc-toggle {
+    display: inline-flex; align-items: center; gap: 0; padding: 4px;
+    border: 1px solid var(--toggle-idle-border); border-radius: 999px;
+    background: var(--toggle-idle-bg);
+  }
   div#hht-services-{{ section.id }} button.hht-loc-btn {
     display: inline-flex !important; align-items: center !important; justify-content: center !important;
-    padding: 12px 28px !important;
-    border: 1px solid var(--toggle-idle-border) !important;
-    background: var(--toggle-idle-bg) !important;
+    min-width: 112px; padding: 10px 24px !important;
+    border: 0 !important; background: transparent !important;
     font-family: {{ section.settings.body_font.family }}, sans-serif !important;
-    font-weight: 600 !important; font-size: 0.8rem !important;
-    text-transform: uppercase !important; letter-spacing: 0.15em !important;
+    font-weight: 500 !important; font-size: 0.875rem !important;
+    text-transform: none !important; letter-spacing: 0 !important;
     color: var(--toggle-idle-text) !important;
     cursor: pointer !important;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease, border-color 0.15s ease !important;
-    border-radius: 0 !important; line-height: 1 !important;
-    box-shadow: 0 0 0 var(--toggle-glitch) !important;
+    transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease !important;
+    border-radius: 999px !important; line-height: 1 !important;
+    box-shadow: none !important;
   }
-  div#hht-services-{{ section.id }} button.hht-loc-btn:hover {
-    transform: translate(-3px, -3px) !important;
-    box-shadow: 4px 4px 0 var(--toggle-glitch) !important;
-  }
+  div#hht-services-{{ section.id }} button.hht-loc-btn:hover { color: #7B72C8 !important; }
   div#hht-services-{{ section.id }} button.hht-loc-btn.active {
     background: var(--toggle-active-bg) !important;
     color: var(--toggle-active-text) !important;
-    border-color: var(--toggle-active-border) !important;
-    transform: translate(-3px, -3px) !important;
-    box-shadow: 4px 4px 0 var(--toggle-glitch) !important;
+    box-shadow: 0 6px 18px rgba(166, 159, 226, 0.34) !important;
   }
+
+  /* Studio photo strip */
+  div#hht-services-{{ section.id }} .hht-studio-strip {
+    margin: 0 0 28px; border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--card-border); background: var(--card-bg);
+  }
+  div#hht-services-{{ section.id }} .hht-studio-strip__grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px;
+  }
+  div#hht-services-{{ section.id }} .hht-studio-strip__cell { aspect-ratio: 4/3; overflow: hidden; }
+  div#hht-services-{{ section.id }} .hht-studio-strip__cell img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  div#hht-services-{{ section.id }} .hht-studio-strip__meta {
+    padding: 12px 18px; text-align: center;
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600;
+  }
+  div#hht-services-{{ section.id }} .hht-studio-panel { display: none; }
+  div#hht-services-{{ section.id }}.show-loc1 .hht-studio-panel[data-studio="austin"],
+  div#hht-services-{{ section.id }}.show-loc2 .hht-studio-panel[data-studio="houston"],
+  div#hht-services-{{ section.id }}.show-loc3 .hht-studio-panel[data-studio="dallas"] { display: block; }
 
   /* Section Card */
   div#hht-services-{{ section.id }} .hht-section-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 18px;
+    border-radius: 22px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
+    box-shadow: 0 16px 44px rgba(85, 74, 140, 0.04);
   }
+  div#hht-services-{{ section.id }} .hht-section-card--featured {
+    border-color: rgba(166, 159, 226, 0.55);
+    box-shadow: 0 20px 50px rgba(166, 159, 226, 0.12);
+  }
+  div#hht-services-{{ section.id }} .hht-section-card--featured .hht-section-strip {
+    background: linear-gradient(180deg, #F4F2FF 0%, #FAF9FF 100%);
+    padding: 32px 30px 24px;
+  }
+  div#hht-services-{{ section.id }} .hht-section-card--featured .hht-section-body {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px;
+    padding: 8px 30px 30px;
+  }
+  div#hht-services-{{ section.id }} .hht-section-card--featured .hht-row {
+    border-bottom: 1px solid color-mix(in srgb, var(--card-border) 45%, transparent);
+    padding: 22px 0 18px;
+  }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-section-strip { padding: 18px 22px 14px; }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-section-title { font-size: clamp(1.35rem, 2vw, 1.65rem); }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-section-body { padding: 4px 22px 20px; }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-row { padding: 16px 0 14px; }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-row-title { font-size: 0.88rem; }
+  div#hht-services-{{ section.id }} .hht-section-card--compact .hht-row-price { font-size: 1.45rem; }
   div#hht-services-{{ section.id }} .hht-section-strip {
     background: var(--header-strip);
     padding: 28px 30px 22px;
@@ -212,18 +256,18 @@
     color: initial;
   }
 
-  /* Book Now button */
+  /* Book Now button — matches homepage .btn--pill.btn--lavender */
   div#hht-services-{{ section.id }} a.hht-book-btn {
     display: inline-flex !important; align-items: center !important; justify-content: center !important;
     background: var(--btn-bg) !important; color: var(--btn-text) !important;
     text-decoration: none !important;
     font-family: {{ section.settings.body_font.family }}, sans-serif !important;
-    font-weight: 700 !important; font-size: 0.78rem !important;
-    text-transform: uppercase !important; letter-spacing: 0.18em !important;
-    padding: 13px 30px !important;
-    border-radius: 0 !important; border: none !important;
-    margin-top: 16px !important;
-    transition: background 0.2s ease, transform 0.2s ease, color 0.2s ease !important;
+    font-weight: 600 !important; font-size: 0.875rem !important;
+    text-transform: none !important; letter-spacing: 0 !important;
+    padding: 0 28px !important; min-height: 48px !important;
+    border-radius: 999px !important; border: none !important;
+    margin-top: 14px !important;
+    transition: background 0.22s ease, transform 0.22s ease, color 0.22s ease !important;
     width: fit-content !important; cursor: pointer !important; line-height: 1 !important;
     grid-column: 1; grid-row: 3;
   }
@@ -243,14 +287,24 @@
   }
 
   /* Layout: full-width sections stack with gap; pair-mode renders 2-col grid */
-  div#hht-services-{{ section.id }} .hht-section-card { margin-bottom: 28px; }
+  div#hht-services-{{ section.id }} .hht-section-card { margin-bottom: 20px; }
   div#hht-services-{{ section.id }} .hht-pair-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-bottom: 28px;
+    gap: 20px;
+    margin-bottom: 20px;
   }
   div#hht-services-{{ section.id }} .hht-pair-row .hht-section-card { margin-bottom: 0; }
+
+  /* LeadConnector chat widget */
+  div#hht-services-{{ section.id }} .hht-chat-widget-wrap {
+    margin-top: 32px; padding-top: 28px;
+    border-top: 1px solid color-mix(in srgb, var(--card-border) 55%, transparent);
+  }
+  div#hht-services-{{ section.id }} .hht-chat-widget-panel { display: none; min-height: 0; }
+  div#hht-services-{{ section.id }}.show-loc1 .hht-chat-widget-panel[data-chat-loc="austin"],
+  div#hht-services-{{ section.id }}.show-loc2 .hht-chat-widget-panel[data-chat-loc="houston"],
+  div#hht-services-{{ section.id }}.show-loc3 .hht-chat-widget-panel[data-chat-loc="dallas"] { display: block; }
 
   /* Animations */
   div#hht-services-{{ section.id }} .hht-anim-float { transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -284,16 +338,18 @@
 
   /* Mobile */
   @media (max-width: 820px) {
-    div#hht-services-{{ section.id }} { padding: 40px 14px; }
-    div#hht-services-{{ section.id }} .hht-pair-row { grid-template-columns: 1fr; gap: 24px; }
+    div#hht-services-{{ section.id }} { padding: 28px 14px 48px; }
+    div#hht-services-{{ section.id }} .hht-pair-row { grid-template-columns: 1fr; gap: 16px; }
+    div#hht-services-{{ section.id }} .hht-section-card--featured .hht-section-body { grid-template-columns: 1fr; }
+    div#hht-services-{{ section.id }} .hht-studio-strip__grid { grid-template-columns: repeat(2, 1fr); }
     div#hht-services-{{ section.id }} .hht-section-strip { padding: 22px 20px 18px; }
     div#hht-services-{{ section.id }} .hht-section-body { padding: 6px 22px 24px; }
     div#hht-services-{{ section.id }} .hht-row { grid-template-columns: 1fr auto; column-gap: 14px; }
     div#hht-services-{{ section.id }} .hht-row-title { font-size: 0.95rem; }
     div#hht-services-{{ section.id }} .hht-row-price { font-size: 1.5rem; }
-    div#hht-services-{{ section.id }} a.hht-book-btn { padding: 11px 22px !important; font-size: 0.72rem !important; }
-    div#hht-services-{{ section.id }} .hht-loc-toggle { flex-direction: column; gap: 8px; }
-    div#hht-services-{{ section.id }} button.hht-loc-btn { width: 100% !important; min-width: 200px !important; }
+    div#hht-services-{{ section.id }} a.hht-book-btn { min-height: 44px !important; padding: 0 22px !important; font-size: 0.8125rem !important; }
+    div#hht-services-{{ section.id }} .hht-loc-toggle { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); }
+    div#hht-services-{{ section.id }} button.hht-loc-btn { width: 100% !important; min-width: 0 !important; padding: 10px 8px !important; font-size: 0.8125rem !important; }
   }
   @media (max-width: 480px) {
     div#hht-services-{{ section.id }} .hht-row {
@@ -307,21 +363,57 @@
   }
 {% endstyle %}
 
-<div id="hht-services-{{ section.id }}" class="hht-services-wrapper show-loc1">
+<div id="hht-services-{{ section.id }}" class="hht-services-wrapper show-loc1" data-default-location="{{ section.settings.default_location | default: 'austin' }}">
   <div class="hht-container">
 
     {%- comment -%} ============ PAGE HEADER ============ {%- endcomment -%}
-    <div class="hht-header">
+    {%- unless section.settings.hide_page_heading -%}
+    <div class="hht-header{% if section.settings.compact_heading %} hht-header--compact{% endif %}">
       <h1>{{ section.settings.heading }}</h1>
-      {% if section.settings.show_location_toggle %}
+      {% if section.settings.show_location_toggle and section.settings.lock_location == false %}
         <div class="hht-subheading">{{ section.settings.subheading }}</div>
-        <div class="hht-loc-toggle">
-          <button class="hht-loc-btn loc-btn-1 active" type="button">{{ section.settings.loc1_name }}</button>
-          <button class="hht-loc-btn loc-btn-2" type="button">{{ section.settings.loc2_name }}</button>
-          <button class="hht-loc-btn loc-btn-3" type="button">{{ section.settings.loc3_name }}</button>
+        <div class="hht-loc-toggle" role="tablist" aria-label="Studio location">
+          <button class="hht-loc-btn loc-btn-1 active" type="button" role="tab" aria-selected="true">{{ section.settings.loc1_name }}</button>
+          <button class="hht-loc-btn loc-btn-2" type="button" role="tab" aria-selected="false">{{ section.settings.loc2_name }}</button>
+          <button class="hht-loc-btn loc-btn-3" type="button" role="tab" aria-selected="false">{{ section.settings.loc3_name }}</button>
         </div>
+      {% elsif section.settings.lock_location -%}
+        <div class="hht-subheading">{{ section.settings.subheading }}</div>
       {% endif %}
     </div>
+    {%- endunless -%}
+
+    {%- if section.settings.show_studio_photos -%}
+    <div class="hht-studio-strip" aria-label="Studio photos">
+      <div class="hht-studio-panel" data-studio="austin">
+        <div class="hht-studio-strip__grid">
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.austin_photo_1 != blank %}{{ section.settings.austin_photo_1 | image_url: width: 480 }}{% else %}{{ 'hht-location-austin.jpg' | asset_url }}{% endif %}" alt="Hush Hush Tan Austin studio" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.austin_photo_2 != blank %}{{ section.settings.austin_photo_2 | image_url: width: 480 }}{% else %}{{ 'hht-reception.jpg' | asset_url }}{% endif %}" alt="Austin studio reception" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.austin_photo_3 != blank %}{{ section.settings.austin_photo_3 | image_url: width: 480 }}{% else %}{{ 'hht-storefront.jpg' | asset_url }}{% endif %}" alt="Austin studio interior" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.austin_photo_4 != blank %}{{ section.settings.austin_photo_4 | image_url: width: 480 }}{% else %}{{ 'hht-moment-prep.jpg' | asset_url }}{% endif %}" alt="Austin glow prep" loading="lazy" width="240" height="180"></div>
+        </div>
+        <p class="hht-studio-strip__meta">Austin · West 6th Street</p>
+      </div>
+      <div class="hht-studio-panel" data-studio="houston">
+        <div class="hht-studio-strip__grid">
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.houston_photo_1 != blank %}{{ section.settings.houston_photo_1 | image_url: width: 480 }}{% else %}{{ 'hht-location-houston.jpg' | asset_url }}{% endif %}" alt="Hush Hush Tan Houston studio" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.houston_photo_2 != blank %}{{ section.settings.houston_photo_2 | image_url: width: 480 }}{% else %}{{ 'hht-moment-group.jpg' | asset_url }}{% endif %}" alt="Houston studio experience" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.houston_photo_3 != blank %}{{ section.settings.houston_photo_3 | image_url: width: 480 }}{% else %}{{ 'hht-glow-editorial.jpg' | asset_url }}{% endif %}" alt="Houston studio glow" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.houston_photo_4 != blank %}{{ section.settings.houston_photo_4 | image_url: width: 480 }}{% else %}{{ 'hht-moment-aftercare.jpg' | asset_url }}{% endif %}" alt="Houston aftercare" loading="lazy" width="240" height="180"></div>
+        </div>
+        <p class="hht-studio-strip__meta">Houston · M-K-T Heights</p>
+      </div>
+      <div class="hht-studio-panel" data-studio="dallas">
+        <div class="hht-studio-strip__grid">
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.dallas_photo_1 != blank %}{{ section.settings.dallas_photo_1 | image_url: width: 480 }}{% else %}{{ 'hht-location-dallas.jpg' | asset_url }}{% endif %}" alt="Hush Hush Tan Dallas studio" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.dallas_photo_2 != blank %}{{ section.settings.dallas_photo_2 | image_url: width: 480 }}{% else %}{{ 'hht-glow-wall.jpg' | asset_url }}{% endif %}" alt="Dallas studio interior" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.dallas_photo_3 != blank %}{{ section.settings.dallas_photo_3 | image_url: width: 480 }}{% else %}{{ 'hht-science-shelf.jpg' | asset_url }}{% endif %}" alt="Dallas product shelf" loading="lazy" width="240" height="180"></div>
+          <div class="hht-studio-strip__cell"><img src="{% if section.settings.dallas_photo_4 != blank %}{{ section.settings.dallas_photo_4 | image_url: width: 480 }}{% else %}{{ 'hht-glow-wall-2.jpg' | asset_url }}{% endif %}" alt="Dallas glow wall" loading="lazy" width="240" height="180"></div>
+        </div>
+        <p class="hht-studio-strip__meta">Dallas · Oak Lawn</p>
+      </div>
+    </div>
+    {%- endif -%}
 
     {%- comment -%}
       ============ RENDER WALK ============
@@ -383,7 +475,7 @@
       {% if pair_now %}
         <div class="hht-pair-row">
           {%- comment -%} CARD 1 (this section) {%- endcomment -%}
-          <div class="hht-section-card hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
+          <div class="hht-section-card hht-section-card--{{ section_block.settings.section_style | default: 'default' }} hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
             <div class="hht-section-strip">
               {% if section_block.settings.icon != blank %}
                 <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
@@ -436,7 +528,7 @@
           </div>
 
           {%- comment -%} CARD 2 (the paired section) {%- endcomment -%}
-          <div class="hht-section-card hht-anim-{{ next_section_block.settings.animation | default: 'float' }}" {{ next_section_block.shopify_attributes }}>
+          <div class="hht-section-card hht-section-card--{{ next_section_block.settings.section_style | default: 'default' }} hht-anim-{{ next_section_block.settings.animation | default: 'float' }}" {{ next_section_block.shopify_attributes }}>
             <div class="hht-section-strip">
               {% if next_section_block.settings.icon != blank %}
                 <img src="{{ next_section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ next_section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
@@ -491,7 +583,7 @@
         {%- assign skip_next = true -%}
       {% else %}
         {%- comment -%} FULL-WIDTH single section {%- endcomment -%}
-        <div class="hht-section-card hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
+        <div class="hht-section-card hht-section-card--{{ section_block.settings.section_style | default: 'default' }} hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
           <div class="hht-section-strip">
             {% if section_block.settings.icon != blank %}
               <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
@@ -545,6 +637,14 @@
       {% endif %}
     {%- endfor -%}
 
+    {%- if section.settings.show_chat_widget -%}
+    <div class="hht-chat-widget-wrap" aria-label="Studio chat">
+      <div class="hht-chat-widget-panel" data-chat-loc="austin" id="hht-chat-austin-{{ section.id }}"></div>
+      <div class="hht-chat-widget-panel" data-chat-loc="houston" id="hht-chat-houston-{{ section.id }}"></div>
+      <div class="hht-chat-widget-panel" data-chat-loc="dallas" id="hht-chat-dallas-{{ section.id }}"></div>
+    </div>
+    {%- endif -%}
+
   </div>
 </div>
 
@@ -557,27 +657,60 @@
       var btn2 = wrapper.querySelector('.loc-btn-2');
       var btn3 = wrapper.querySelector('.loc-btn-3');
 
-      // Map button labels (case/whitespace-insensitive) to their button + class
+      var widgetIds = {
+        austin: '6a271bc1ea8f17ad15e03cce',
+        houston: '6a271a87ea8f17ad15dffdb2',
+        dallas: '6a271be49372a70f7d3c61f8'
+      };
+      var loadedWidgets = {};
+
+      function loadChatWidget(city, container) {
+        if (!container || loadedWidgets[city]) return;
+        var widgetId = widgetIds[city];
+        if (!widgetId) return;
+        var script = document.createElement('script');
+        script.src = 'https://beta.leadconnectorhq.com/loader.js';
+        script.setAttribute('data-resources-url', 'https://beta.leadconnectorhq.com/chat-widget/loader.js');
+        script.setAttribute('data-widget-id', widgetId);
+        script.async = true;
+        container.appendChild(script);
+        loadedWidgets[city] = true;
+      }
+
+      var lockedLocation = {{ section.settings.lock_location | json }};
+      var defaultLoc = wrapper.getAttribute('data-default-location') || 'austin';
+
       var locationMap = [
-        { btn: btn1, locClass: 'show-loc1', slug: (btn1 ? btn1.textContent.trim().toLowerCase() : '') },
-        { btn: btn2, locClass: 'show-loc2', slug: (btn2 ? btn2.textContent.trim().toLowerCase() : '') },
-        { btn: btn3, locClass: 'show-loc3', slug: (btn3 ? btn3.textContent.trim().toLowerCase() : '') }
+        { btn: btn1, locClass: 'show-loc1', slug: 'austin', city: 'austin' },
+        { btn: btn2, locClass: 'show-loc2', slug: 'houston', city: 'houston' },
+        { btn: btn3, locClass: 'show-loc3', slug: 'dallas', city: 'dallas' }
       ];
+
+      function activateByCity(city) {
+        for (var i = 0; i < locationMap.length; i++) {
+          if (locationMap[i].city === city) return activateByEntry(locationMap[i], false);
+        }
+        return false;
+      }
 
       function reset() {
         wrapper.classList.remove('show-loc1', 'show-loc2', 'show-loc3');
-        if (btn1) btn1.classList.remove('active');
-        if (btn2) btn2.classList.remove('active');
-        if (btn3) btn3.classList.remove('active');
+        if (btn1) { btn1.classList.remove('active'); btn1.setAttribute('aria-selected', 'false'); }
+        if (btn2) { btn2.classList.remove('active'); btn2.setAttribute('aria-selected', 'false'); }
+        if (btn3) { btn3.classList.remove('active'); btn3.setAttribute('aria-selected', 'false'); }
       }
 
       function activateByEntry(entry, updateHash) {
-        if (!entry || !entry.btn) return false;
+        if (!entry) return false;
         reset();
         wrapper.classList.add(entry.locClass);
-        entry.btn.classList.add('active');
-        if (updateHash) {
-          // update hash without triggering a jump or another hashchange loop
+        if (entry.btn) {
+          entry.btn.classList.add('active');
+          entry.btn.setAttribute('aria-selected', 'true');
+        }
+        var chatPanel = wrapper.querySelector('[data-chat-loc="' + entry.city + '"]');
+        loadChatWidget(entry.city, chatPanel);
+        if (updateHash && !{{ section.settings.lock_location | json }}) {
           if (history && history.replaceState) {
             history.replaceState(null, '', '#' + entry.slug);
           }
@@ -596,25 +729,29 @@
         return false;
       }
 
-      // Wire click handlers — update hash on click so it survives sharing/bookmarking
       if (btn1) btn1.addEventListener('click', function () { activateByEntry(locationMap[0], true); });
       if (btn2) btn2.addEventListener('click', function () { activateByEntry(locationMap[1], true); });
       if (btn3) btn3.addEventListener('click', function () { activateByEntry(locationMap[2], true); });
 
-      // Deep-link support: read hash AND ?loc= query param on load
       function applyFromUrl() {
+        if (lockedLocation) {
+          activateByCity(defaultLoc);
+          return;
+        }
         var hash = (window.location.hash || '').replace(/^#/, '');
         if (activateBySlug(hash, false)) return;
-        // Fallback: ?loc=austin / ?location=austin in case hash gets stripped
         var search = window.location.search || '';
         var m = search.match(/[?&](?:loc|location)=([^&#]+)/i);
         if (m && m[1]) {
-          activateBySlug(decodeURIComponent(m[1]), false);
+          if (activateBySlug(decodeURIComponent(m[1]), false)) return;
         }
+        var path = (window.location.pathname || '').toLowerCase();
+        if (path.indexOf('dallas') !== -1) { activateByCity('dallas'); return; }
+        if (path.indexOf('houston') !== -1) { activateByCity('houston'); return; }
+        if (path.indexOf('austin') !== -1) { activateByCity('austin'); return; }
+        activateByCity(defaultLoc);
       }
       applyFromUrl();
-
-      // If the user navigates via back/forward, re-apply
       window.addEventListener('hashchange', applyFromUrl);
     });
   })();
@@ -625,14 +762,42 @@
   "name": "HHT Services",
   "settings": [
     { "type": "header", "content": "Page Heading" },
+    { "type": "checkbox", "id": "hide_page_heading", "label": "Hide page heading (city-specific pages)", "default": false },
+    { "type": "checkbox", "id": "compact_heading", "label": "Compact heading", "default": false },
     { "type": "text", "id": "heading", "label": "Main Heading", "default": "Our Services" },
     { "type": "text", "id": "subheading", "label": "Subheading (above toggle)", "default": "Select a location to get started:" },
 
     { "type": "header", "content": "Location Toggle" },
     { "type": "checkbox", "id": "show_location_toggle", "label": "Show Location Toggle", "default": true },
+    { "type": "checkbox", "id": "lock_location", "label": "Lock to default location (hide toggle)", "default": false },
+    { "type": "select", "id": "default_location", "label": "Default / locked location", "default": "austin",
+      "options": [
+        { "value": "austin", "label": "Austin" },
+        { "value": "houston", "label": "Houston" },
+        { "value": "dallas", "label": "Dallas" }
+      ]
+    },
     { "type": "text", "id": "loc1_name", "label": "Location 1 Name", "default": "Austin" },
     { "type": "text", "id": "loc2_name", "label": "Location 2 Name", "default": "Houston" },
     { "type": "text", "id": "loc3_name", "label": "Location 3 Name", "default": "Dallas" },
+
+    { "type": "header", "content": "Studio Photos" },
+    { "type": "checkbox", "id": "show_studio_photos", "label": "Show studio photo strip per city", "default": true },
+    { "type": "image_picker", "id": "austin_photo_1", "label": "Austin photo 1" },
+    { "type": "image_picker", "id": "austin_photo_2", "label": "Austin photo 2" },
+    { "type": "image_picker", "id": "austin_photo_3", "label": "Austin photo 3" },
+    { "type": "image_picker", "id": "austin_photo_4", "label": "Austin photo 4" },
+    { "type": "image_picker", "id": "houston_photo_1", "label": "Houston photo 1" },
+    { "type": "image_picker", "id": "houston_photo_2", "label": "Houston photo 2" },
+    { "type": "image_picker", "id": "houston_photo_3", "label": "Houston photo 3" },
+    { "type": "image_picker", "id": "houston_photo_4", "label": "Houston photo 4" },
+    { "type": "image_picker", "id": "dallas_photo_1", "label": "Dallas photo 1" },
+    { "type": "image_picker", "id": "dallas_photo_2", "label": "Dallas photo 2" },
+    { "type": "image_picker", "id": "dallas_photo_3", "label": "Dallas photo 3" },
+    { "type": "image_picker", "id": "dallas_photo_4", "label": "Dallas photo 4" },
+
+    { "type": "header", "content": "AI Chat Widget" },
+    { "type": "checkbox", "id": "show_chat_widget", "label": "Show LeadConnector chat widget", "default": true },
 
     { "type": "header", "content": "Location Toggle Colors" },
     { "type": "color", "id": "toggle_idle_bg", "label": "Idle Background", "default": "#FFFFFF" },
@@ -640,27 +805,26 @@
     { "type": "color", "id": "toggle_idle_border", "label": "Idle Border", "default": "#BFB6EF" },
     { "type": "color", "id": "toggle_active_bg", "label": "Active Background", "default": "#ABA0EA" },
     { "type": "color", "id": "toggle_active_text", "label": "Active Text", "default": "#FFFFFF" },
-    { "type": "color", "id": "toggle_active_border", "label": "Active Border", "default": "#ABA0EA" },
-    { "type": "color", "id": "toggle_glitch_color", "label": "Glitch / Shadow Color", "default": "#5F3786" },
+    { "type": "color", "id": "toggle_active_border", "label": "Active Border", "default": "#A69FE2" },
 
     { "type": "header", "content": "Main Color Palette" },
-    { "type": "color", "id": "bg_color", "label": "Page Background", "default": "#FFFFFF" },
-    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#51217C" },
-    { "type": "color", "id": "text_color", "label": "Body / Price Text", "default": "#4D1D78" },
-    { "type": "color", "id": "text_light", "label": "Subtle Text", "default": "#9B8AB0" },
-    { "type": "color", "id": "accent_color", "label": "Accent (Lavender)", "default": "#ABA0EA" },
+    { "type": "color", "id": "bg_color", "label": "Page Background", "default": "#FAF8F5" },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#151515" },
+    { "type": "color", "id": "text_color", "label": "Body / Price Text", "default": "#373741" },
+    { "type": "color", "id": "text_light", "label": "Subtle Text", "default": "#6F6A70" },
+    { "type": "color", "id": "accent_color", "label": "Accent (Lavender)", "default": "#A69FE2" },
     { "type": "color", "id": "card_bg_color", "label": "Card Background", "default": "#FFFFFF" },
-    { "type": "color", "id": "card_border_color", "label": "Card Border", "default": "#BFB6EF" },
-    { "type": "color", "id": "header_strip_color", "label": "Section Header Strip", "default": "#F3F2FE" },
+    { "type": "color", "id": "card_border_color", "label": "Card Border", "default": "#E7E3F5" },
+    { "type": "color", "id": "header_strip_color", "label": "Section Header Strip", "default": "#F4F2FF" },
 
     { "type": "header", "content": "Badge Colors" },
-    { "type": "color", "id": "badge_bg_color", "label": "Badge Background", "default": "#5F3786" },
+    { "type": "color", "id": "badge_bg_color", "label": "Badge Background", "default": "#A69FE2" },
     { "type": "color", "id": "badge_text_color", "label": "Badge Text", "default": "#FFFFFF" },
 
     { "type": "header", "content": "Book Now Button Colors" },
-    { "type": "color", "id": "btn_bg_color", "label": "Background", "default": "#ABA0EA" },
+    { "type": "color", "id": "btn_bg_color", "label": "Background", "default": "#A69FE2" },
     { "type": "color", "id": "btn_text_color", "label": "Text", "default": "#FFFFFF" },
-    { "type": "color", "id": "btn_hover_bg", "label": "Hover Background", "default": "#5F3786" },
+    { "type": "color", "id": "btn_hover_bg", "label": "Hover Background", "default": "#8F83D6" },
     { "type": "color", "id": "btn_hover_text", "label": "Hover Text", "default": "#FFFFFF" },
 
     { "type": "header", "content": "Typography" },
@@ -684,6 +848,13 @@
         { "type": "image_picker", "id": "icon", "label": "Icon" },
         { "type": "range", "id": "icon_size", "min": 20, "max": 120, "step": 2, "unit": "px", "label": "Icon Size", "default": 44 },
         { "type": "checkbox", "id": "pair_next", "label": "Pair with next section (2-column layout)", "default": false, "info": "Turn ON to render this section side-by-side with the next Section Header. Leave OFF for full-width." },
+        { "type": "select", "id": "section_style", "label": "Section style", "default": "default",
+          "options": [
+            { "value": "default", "label": "Default" },
+            { "value": "featured", "label": "Featured (memberships)" },
+            { "value": "compact", "label": "Compact (partials / add-ons)" }
+          ]
+        },
         { "type": "select", "id": "animation", "label": "Hover Animation", "default": "float",
           "options": [
             { "value": "float", "label": "Float Up" },
@@ -736,23 +907,23 @@
         { "type": "service_row", "settings": { "title": "Clear Glow", "badge": "First-Timer Fave", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "50", "description": "Clear solution for a natural finish", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930655", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930657", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656" } },
         { "type": "service_row", "settings": { "title": "Rapid Glow", "badge": "Fast Results", "price_prefix": "$", "price_loc1": "60", "price_loc2": "60", "price_loc3": "60", "description": "Rinse in 2-4 hours", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" } },
 
-        { "type": "section_header", "settings": { "title_a": "Memberships", "title_b": "Services", "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.", "pair_next": true } },
+        { "type": "section_header", "settings": { "title_a": "Memberships", "title_b": "", "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.", "pair_next": false, "section_style": "featured" } },
         { "type": "service_row", "settings": { "title": "Glow Pass", "price_prefix": "$", "price_loc1": "29", "price_loc2": "29", "price_loc3": "29", "price_sub": "per month", "benefits": "35% off all tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145917?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145917", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145918" } },
         { "type": "service_row", "settings": { "title": "Glow Club", "price_prefix": "$", "price_loc1": "45", "price_loc2": "45", "price_loc3": "45", "price_sub": "per month", "benefits": "1 complimentary tan per month, 25% off all additional tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145919", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145920" } },
 
-        { "type": "section_header", "settings": { "title_a": "Tan", "title_b": "Packages", "footer": "Please note: Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only." } },
-        { "type": "service_row", "settings": { "title": "6-Pack", "price_prefix": "$", "price_loc1": "270", "price_loc2": "270", "price_loc3": "270", "price_sub": "Just $45/session", "benefits": "6 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 6-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
-        { "type": "service_row", "settings": { "title": "10-Pack", "price_prefix": "$", "price_loc1": "400", "price_loc2": "400", "price_loc3": "400", "price_sub": "Just $40/session", "benefits": "10 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 10-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "section_header", "settings": { "title_a": "Partial", "title_b": "Tans", "pair_next": true, "section_style": "compact" } },
+        { "type": "service_row", "settings": { "title": "Face", "price_prefix": "$", "price_loc1": "10", "price_loc2": "10", "price_loc3": "10", "description": "Face only", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931027?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931029", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931028" } },
+        { "type": "service_row", "settings": { "title": "Upper / Lower only", "price_prefix": "$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" } },
+        { "type": "service_row", "settings": { "title": "Partial Upper / Lower", "price_prefix": "$", "price_loc1": "35", "price_loc2": "35", "price_loc3": "35", "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
 
-        { "type": "section_header", "settings": { "title_a": "Add", "title_b": "Ons", "pair_next": true } },
+        { "type": "section_header", "settings": { "title_a": "Add", "title_b": "Ons", "pair_next": false, "section_style": "compact" } },
         { "type": "service_row", "settings": { "title": "Gold Glow", "price_prefix": "+$", "price_loc1": "5", "price_loc2": "5", "price_loc3": "5", "description": "Gold drops are added to give you a subtle elegant shimmer.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931005?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931007", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931006" } },
         { "type": "service_row", "settings": { "title": "Bye Bye Tan Line", "price_prefix": "+$", "price_loc1": "20", "price_loc2": "20", "price_loc3": "20", "description": "Tan line erasing followed by a full body spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931015?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931017", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931016" } },
         { "type": "service_row", "settings": { "title": "Brazilian Glow", "price_prefix": "+$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931020?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931022", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931021" } },
 
-        { "type": "section_header", "settings": { "title_a": "Partial", "title_b": "Tans" } },
-        { "type": "service_row", "settings": { "title": "Face", "price_prefix": "$", "price_loc1": "10", "price_loc2": "10", "price_loc3": "10", "description": "Face only", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931027?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931029", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931028" } },
-        { "type": "service_row", "settings": { "title": "Upper / Lower only", "price_prefix": "$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" } },
-        { "type": "service_row", "settings": { "title": "Partial Upper / Lower", "price_prefix": "$", "price_loc1": "35", "price_loc2": "35", "price_loc3": "35", "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
+        { "type": "section_header", "settings": { "title_a": "Tan", "title_b": "Packages", "footer": "Please note: Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only." } },
+        { "type": "service_row", "settings": { "title": "6-Pack", "price_prefix": "$", "price_loc1": "270", "price_loc2": "270", "price_loc3": "270", "price_sub": "Just $45/session", "benefits": "6 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 6-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "service_row", "settings": { "title": "10-Pack", "price_prefix": "$", "price_loc1": "400", "price_loc2": "400", "price_loc3": "400", "price_sub": "Just $40/session", "benefits": "10 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 10-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
 
         { "type": "section_header", "settings": { "title_a": "Special", "title_b": "Offer", "pair_next": true } },
         { "type": "service_row", "settings": { "title": "Birthday Glow", "price_prefix": "$", "price_loc1": "39", "price_loc2": "39", "price_loc3": "39", "description": "Exclusive pricing for one Custom Glow during your birthday month.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931043?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931045", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931044" } },

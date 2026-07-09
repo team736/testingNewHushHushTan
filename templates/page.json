@@ -14,6 +14,44 @@
       "disabled": true,
       "settings": {}
     },
+    "service_reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "The most natural spray tan I've ever had — perfectly color-matched and never orange. The studio feels like a luxury spa.",
+            "author": "Ashley R.",
+            "location": "Austin, TX"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "Grace is amazing! Hush Hush is #1. Book your apt. You won't be disappointed. Lasts & doesn't ever look splotchy.",
+            "author": "Amber Richardson",
+            "location": "Houston, TX"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "I've been coming for years. The team is incredible and my glow always looks flawless for events.",
+            "author": "Megan T.",
+            "location": "Dallas, TX"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "eyebrow": "Loved By Texas",
+        "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews — book with confidence.",
+        "layout": "compact",
+        "cta_text": "Read Our Reviews",
+        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan"
+      }
+    },
     "services_pricing_v2_M6ArYz": {
       "type": "services-pricing-v2",
       "blocks": {
@@ -99,12 +137,13 @@
           "type": "section_header",
           "settings": {
             "title_a": "Memberships",
-            "title_b": "Services",
-            "note": "",
+            "title_b": "",
+            "note": "Our top offering — save more when you glow all year.",
             "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.",
             "icon_size": 44,
-            "pair_next": true,
-            "animation": "float"
+            "pair_next": false,
+            "section_style": "featured",
+            "animation": "glow"
           }
         },
         "service_row_cbwDeR": {
@@ -215,7 +254,8 @@
             "note": "",
             "footer": "",
             "icon_size": 44,
-            "pair_next": true,
+            "pair_next": false,
+            "section_style": "compact",
             "animation": "float"
           }
         },
@@ -293,7 +333,8 @@
             "note": "",
             "footer": "",
             "icon_size": 44,
-            "pair_next": false,
+            "pair_next": true,
+            "section_style": "compact",
             "animation": "float"
           }
         },
@@ -462,17 +503,17 @@
         "section_header_7igrfH",
         "service_row_cbwDeR",
         "service_row_JffQCT",
-        "section_header_AhqVch",
-        "service_row_xJ7nwW",
-        "service_row_gXmELF",
-        "section_header_DwEKnE",
-        "service_row_Vy9CXd",
-        "service_row_3FfRky",
-        "service_row_C3rxtd",
         "section_header_ayefQk",
         "service_row_7UpGxr",
         "service_row_qyiUh9",
         "service_row_nfp6pn",
+        "section_header_DwEKnE",
+        "service_row_Vy9CXd",
+        "service_row_3FfRky",
+        "service_row_C3rxtd",
+        "section_header_AhqVch",
+        "service_row_xJ7nwW",
+        "service_row_gXmELF",
         "section_header_87xqEe",
         "service_row_i9eBaz",
         "section_header_w9ArMx",
@@ -483,30 +524,35 @@
       "settings": {
         "heading": "Our Services",
         "subheading": "Select a location to get started:",
+        "hide_page_heading": false,
+        "compact_heading": true,
         "show_location_toggle": true,
+        "lock_location": false,
+        "default_location": "austin",
+        "show_studio_photos": true,
+        "show_chat_widget": true,
         "loc1_name": "Austin",
         "loc2_name": "Houston",
         "loc3_name": "Dallas",
-        "toggle_idle_bg": "#FFFFFF",
-        "toggle_idle_text": "#51217C",
-        "toggle_idle_border": "#BFB6EF",
-        "toggle_active_bg": "#ABA0EA",
+        "toggle_idle_bg": "#FAF9FF",
+        "toggle_idle_text": "#373741",
+        "toggle_idle_border": "#E7E3F5",
+        "toggle_active_bg": "#A69FE2",
         "toggle_active_text": "#FFFFFF",
-        "toggle_active_border": "#ABA0EA",
-        "toggle_glitch_color": "#5F3786",
-        "bg_color": "#FFFFFF",
-        "heading_color": "#51217C",
-        "text_color": "#4D1D78",
-        "text_light": "#9B8AB0",
-        "accent_color": "#ABA0EA",
+        "toggle_active_border": "#A69FE2",
+        "bg_color": "#FAF8F5",
+        "heading_color": "#151515",
+        "text_color": "#373741",
+        "text_light": "#6F6A70",
+        "accent_color": "#A69FE2",
         "card_bg_color": "#FFFFFF",
-        "card_border_color": "#BFB6EF",
-        "header_strip_color": "#F3F2FE",
-        "badge_bg_color": "#5F3786",
+        "card_border_color": "#E7E3F5",
+        "header_strip_color": "#F4F2FF",
+        "badge_bg_color": "#A69FE2",
         "badge_text_color": "#FFFFFF",
-        "btn_bg_color": "#ABA0EA",
+        "btn_bg_color": "#A69FE2",
         "btn_text_color": "#FFFFFF",
-        "btn_hover_bg": "#5F3786",
+        "btn_hover_bg": "#8F83D6",
         "btn_hover_text": "#FFFFFF",
         "heading_font_fallback": "Cormorant Garamond",
         "body_font": "jost_n4"
@@ -515,6 +561,7 @@
   },
   "order": [
     "main",
+    "service_reviews",
     "services_pricing_v2_M6ArYz"
   ]
 }
