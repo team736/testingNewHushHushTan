@@ -6153,6 +6153,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 /* Homepage CTA consistency — lavender pill primary across booking CTAs */
 .template-index .hero2__ctas .btn,
 .template-index .hht-reviews__cta .btn,
+.template-page .hht-reviews__cta .btn,
 .template-index .hht-starthere__cta .btn,
 .template-index .hht-results__cta .btn,
 .template-index .location-card__ctas .btn,

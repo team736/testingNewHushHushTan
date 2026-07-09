@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -16,41 +7,127 @@
     },
     "service_reviews": {
       "type": "reviews",
+      "settings": {
+        "eyebrow": "Loved By Texas",
+        "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews \u2014 book with confidence.",
+        "cta_text": "Read Our Reviews",
+        "cta_url": "/pages/locations",
+        "speed": 50,
+        "layout": "full"
+      },
       "blocks": {
         "r1": {
           "type": "review",
           "settings": {
-            "quote": "The most natural spray tan I've ever had — perfectly color-matched and never orange. The studio feels like a luxury spa.",
-            "author": "Ashley R.",
+            "quote": "Hush hush is the only place I will go in Austin! I've had several tans done here and I always love the results. They are accommodating, honest and always make you feel comfortable!",
+            "author": "Audrey Kuhl",
             "location": "Austin, TX"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
-            "quote": "Grace is amazing! Hush Hush is #1. Book your apt. You won't be disappointed. Lasts & doesn't ever look splotchy.",
-            "author": "Amber Richardson",
-            "location": "Houston, TX"
+            "quote": "Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!! Ashly at the front is very professional and knowledgeable.",
+            "author": "Haley Collins",
+            "location": "Dallas, TX"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
-            "quote": "I've been coming for years. The team is incredible and my glow always looks flawless for events.",
-            "author": "Megan T.",
+            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed.",
+            "author": "Amber Richardson",
+            "location": "Houston, TX"
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "quote": "My experience here was amazing! Everyone was so nice from the start, from Kathy and Chloe at the front to Tarin who did my spray tan! Highly recommend, I will definitely be coming back.",
+            "author": "Samantha Robinson",
+            "location": "Austin, TX"
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "author": "Meaghan Estes",
             "location": "Dallas, TX"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "author": "Ashley Post",
+            "location": "Houston, TX"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "quote": "This place is THE best! My tans always come out incredibly even (yes, including hands + feet), have the perfect color/undertone every time, and fade nicely. Every artist has made me extremely comfortable.",
+            "author": "Hali Crawford",
+            "location": "Austin, TX"
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "author": "Calla Taylor",
+            "location": "Dallas, TX"
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "quote": "I had the absolute best experience with Ale at Hush Hush Tan! From the moment I walked in, she made me feel so comfortable and welcomed. She is incredibly knowledgeable, professional, and truly pays attention to detail.",
+            "author": "Gracie Solano",
+            "location": "Houston, TX"
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "quote": "Greeted by Chloe, who was incredibly kind and helpful during my first tan at Hush Hush. I was sprayed by Tarin, who had amazing attention to detail and made the entire experience feel comfortable and never awkward.",
+            "author": "Emma Kenny",
+            "location": "Austin, TX"
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "quote": "Tried HushHush today after coming from another local tanning salon that does airbrush, and what a world of difference. Amanda was very thorough and detailed, and the overall experience was great.",
+            "author": "Priscilla Rodriguez",
+            "location": "Dallas, TX"
+          }
+        },
+        "r12": {
+          "type": "review",
+          "settings": {
+            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights.",
+            "author": "Caroline Ross",
+            "location": "Houston, TX"
           }
         }
       },
-      "block_order": ["r1", "r2", "r3"],
-      "settings": {
-        "eyebrow": "Loved By Texas",
-        "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews — book with confidence.",
-        "layout": "compact",
-        "cta_text": "Read Our Reviews",
-        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan"
-      }
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11",
+        "r12"
+      ]
     },
     "services_pricing_v2_M6ArYz": {
       "type": "services-pricing-v2",
@@ -72,7 +149,7 @@
           "settings": {
             "title": "Custom Glow",
             "badge": "Most Popular",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -94,7 +171,7 @@
           "settings": {
             "title": "Clear Glow",
             "badge": "First-Timer Fave",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -116,7 +193,7 @@
           "settings": {
             "title": "Rapid Glow",
             "badge": "Fast Results",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -138,7 +215,7 @@
           "settings": {
             "title_a": "Memberships",
             "title_b": "",
-            "note": "Our top offering — save more when you glow all year.",
+            "note": "Our top offering \u2014 save more when you glow all year.",
             "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.",
             "icon_size": 44,
             "pair_next": false,
@@ -151,7 +228,7 @@
           "settings": {
             "title": "Glow Pass",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -173,7 +250,7 @@
           "settings": {
             "title": "Glow Club",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -207,7 +284,7 @@
           "settings": {
             "title": "6-Pack",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -229,7 +306,7 @@
           "settings": {
             "title": "10-Pack",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -264,7 +341,7 @@
           "settings": {
             "title": "Gold Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -286,7 +363,7 @@
           "settings": {
             "title": "Bye Bye Tan Line",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -308,7 +385,7 @@
           "settings": {
             "title": "Brazilian Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -343,7 +420,7 @@
           "settings": {
             "title": "Face",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -365,7 +442,7 @@
           "settings": {
             "title": "Upper / Lower only",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -387,7 +464,7 @@
           "settings": {
             "title": "Partial Upper / Lower",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -421,7 +498,7 @@
           "settings": {
             "title": "Birthday Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -455,7 +532,7 @@
           "settings": {
             "title": "Tanning & Mimosas",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -477,7 +554,7 @@
           "settings": {
             "title": "Austin Mobile Tanning",
             "badge": "Austin Only",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "",
