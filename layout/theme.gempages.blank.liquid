@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="{{ settings.color_bg | default: '#FAF7F2' }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}{% if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif %}{% if current_page != 1 %} &ndash; Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'meta-tags' %}
+
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {%- comment -%}
+      Headings: Freight Neo (brand font, licensed). Until the client's licensed
+      kit is supplied, Fraunces is loaded as the closest free match — a
+      high-contrast humanist face with flared terminals (Optima-adjacent), the
+      same character as Freight Neo. Swap to the real font by adding its kit and
+      it takes over automatically (it's first in the --font-heading chain).
+      Subheadings/labels: Fahkwang. Body/UI/buttons/pricing: Outfit.
+    {%- endcomment -%}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Fahkwang:wght@500;600&family=Outfit:wght@400;500;600&display=swap">
+
+    {{ content_for_header }}
+    <style>
+      :root {
+        --bg: {{ settings.color_bg }};
+        --surface: {{ settings.color_surface }};
+        --pale: {{ settings.color_pale }};
+        --soft: {{ settings.color_soft }};
+        --grey: {{ settings.color_grey }};
+        --primary: {{ settings.color_primary }};
+        --primary-dark: {{ settings.color_primary_dark }};
+        --text: {{ settings.color_text }};
+        --muted: {{ settings.color_muted }};
+        --line: {{ settings.color_line }};
+        --cta-dark: {{ settings.color_cta_dark }};
+        --font-heading: {{ settings.heading_font }};
+        --font-eyebrow: {{ settings.eyebrow_font | default: "'Fahkwang', 'Outfit', system-ui, sans-serif" }};
+        --font-body: {{ settings.body_font }};
+      }
+    </style>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    <script>document.documentElement.classList.remove('no-js');</script>
+  </head>
+  <body class="template-{{ template | replace: '.', '-' | handle }}"><main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main></body>
+</html>

@@ -1,0 +1,37 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "gp_section_481527001111331710": {
+      "settings": {
+        "checksum": "9d6c9713adfc8821b41c47e6312f393fbde51e836221508501402bd7d78d4dd8_1_1_0_0__1",
+        "gg-pI-WgXbO_text": "<p><span style=\"color:#E2AD6F;\"><strong>M-K-T Heights</strong></span></p><p><span style=\"color:#E2AD6F;\"><strong>600 N Shepherd Dr, Ste. 128, Houston, TX 77007</strong></span></p>",
+        "ggNIXJakjUu_alt": "Hush Hush Tan new location coming soon to houston texas",
+        "ggNIXJakjUu_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "ggNIXJakjUu_title": "Image Title",
+        "ggW8w4zMepc_alt": "Hush Hush Tan new location coming soon to houston texas",
+        "ggW8w4zMepc_srcSet_desktop_src": "https://ucarecdn.com/ee6d5074-1640-4cc7-8933-47c8589c3dee/-/format/auto/",
+        "ggW8w4zMepc_title": "Image Title",
+        "ggZLGTP_tMo_text": "<p><span style=\"background-color:rgb(255,255,255);color:rgb(87,87,87);font-size:19px;\">Be the first to know about exciting announcements for the newest Hush Hush Tan location!</span></p>",
+        "gg_L9HErsBz_text": "<p><span style=\"font-size:14px;\">*Opening End of 2023</span></p>",
+        "gg_WKqkhZ3-_text": "<p><span style=\"font-size:37px;\">STAY UP TO DATE</span></p>",
+        "ggfxqFS2ivK_errorMessage": "Unable to subscribe. Please try again later.",
+        "ggfxqFS2ivK_successMessage": "Thank you for subscribing!",
+        "ggxq7h4lfua_placeholder": "Email",
+        "ggy_JvPuRfT_label": "Subscribe",
+        "section_preload": "true"
+      },
+      "type": "gp-section-481527001111331710"
+    }
+  },
+  "order": [
+    "gp_section_481527001111331710"
+  ]
+}
