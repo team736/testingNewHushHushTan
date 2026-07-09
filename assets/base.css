@@ -6054,6 +6054,15 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   padding: 4px 10px; border-radius: 999px;
 }
 .hht-results__tag--after { background: var(--primary); color: #fff; }
+.hht-results__placeholder {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(160deg, #F4F1FF 0%, #E4DCF8 100%);
+  color: var(--primary-dark);
+}
+.hht-results__placeholder--after { background: linear-gradient(160deg, #EBE4FB 0%, #D8CCF3 100%); }
+.hht-results__placeholder svg { opacity: .75; }
+.hht-results__placeholder span { font-family: var(--font-eyebrow); font-size: .625rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 .hht-results__caption { padding: 16px 20px; color: var(--body-text); font-size: var(--type-body-sm); text-align: center; }
 .hht-results__cta { text-align: center; margin-top: var(--cta-gap); }
 

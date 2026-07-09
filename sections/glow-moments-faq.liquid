@@ -14,6 +14,7 @@
 -%}
 
 <section class="hht-glow-stitch" id="glow-stitch-{{ section.id }}" aria-label="Glow moments and frequently asked questions">
+  {%- if section.settings.show_moments -%}
   {%- comment -%} ——— Glow Moments carousel ——— {%- endcomment -%}
   <div class="hht-glow-stitch__moments">
     <div class="container container--home">
@@ -88,6 +89,7 @@
       </div>
     </div>
   </div>
+  {%- endif -%}
 
   {%- comment -%} ——— FAQ / Education ——— {%- endcomment -%}
   <div class="hht-glow-stitch__faq">
@@ -200,6 +202,7 @@
   "name": "Glow Moments + FAQ",
   "settings": [
     { "type": "header",   "content": "Glow Moments (top section)" },
+    { "type": "checkbox", "id": "show_moments",       "label": "Show Glow Moments carousel", "default": true },
     { "type": "text",     "id": "moments_eyebrow",    "label": "Eyebrow",    "default": "Glow Moments" },
     { "type": "text",     "id": "moments_heading",    "label": "Heading",    "default": "For the ones who glow." },
     { "type": "textarea", "id": "moments_subheading", "label": "Subheading", "default": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color." },
