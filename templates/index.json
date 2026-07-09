@@ -304,7 +304,8 @@
         "heading": "3,000+ Five-Star Google Reviews",
         "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
         "cta_text": "Read Our Reviews",
-        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan/@29.7823504,-95.4086721,17z/data=!4m8!3m7!1s0x8640c7150d0e8bed:0x2a1007b554c370af!8m2!3d29.7823504!4d-95.4086721!9m1!1b1!16s%2Fg%2F11l3722kxg"
+        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan/@29.7823504,-95.4086721,17z/data=!4m8!3m7!1s0x8640c7150d0e8bed:0x2a1007b554c370af!8m2!3d29.7823504!4d-95.4086721!9m1!1b1!16s%2Fg%2F11l3722kxg",
+        "speed": 50
       },
       "blocks": {
         "r1": {
@@ -312,30 +313,93 @@
           "settings": {
             "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed. Lasts & doesn't ever look splotchy.",
             "author": "Amber Richardson",
-            "location": "Houston, TX · Google Review"
+            "location": "Houston, TX"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
-            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights.",
-            "author": "Caroline Ross",
-            "location": "Houston, TX · Google Review"
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there. Can't wait to see my tan develop!",
+            "author": "Ashley Post",
+            "location": "Houston, TX"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
+            "quote": "Ally & Sam were both fantastic and extremely professional and friendly. Also super fast. Will be coming here regularly for my tans :)",
+            "author": "Paulina Varela",
+            "location": "Houston, TX"
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
             "quote": "First time spray and visit here! Sam and Abby were absolutely angels to me, so warm and welcoming! Answered all my questions and gave me total peace of mind. Also tan was amazing!",
             "author": "Emma Sanders",
-            "location": "Houston, TX · Google Review"
+            "location": "Houston, TX"
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "quote": "Sam and Ali were amazing, so sweet and professional. I always have a great experience here and will be back!",
+            "author": "Abigail Fuller",
+            "location": "Houston, TX"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas — elated to see there was a Hush Hush right by my house in the Heights.",
+            "author": "Caroline Ross",
+            "location": "Houston, TX"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "quote": "I had a great time at Hush Hush Tan! Abby did a great job spraying me and made me feel confident. Sam at the desk was so friendly. I would definitely come back!",
+            "author": "Emily Jenks",
+            "location": "Houston, TX"
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "quote": "The best spray tan in Houston! Love all the girls there and the service is top tier. Definitely recommend.",
+            "author": "Alaina Dufrene",
+            "location": "Houston, TX"
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "quote": "I had the absolute best experience with Ale at Hush Hush Tan! From the moment I walked in, she made me feel so comfortable and welcomed. She is incredibly knowledgeable, professional, and truly pays attention to detail.",
+            "author": "Gracie Solano",
+            "location": "Houston, TX"
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "quote": "I had such an amazing experience at this spray tan salon and I am beyond happy with my results! Grace and Zoe were absolutely wonderful — so kind, friendly, and made me feel completely comfortable the entire time.",
+            "author": "Jillian Robles",
+            "location": "Houston, TX"
           }
         }
       },
       "block_order": [
         "r1",
         "r2",
-        "r3"
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10"
       ]
     },
     "start_here": {
