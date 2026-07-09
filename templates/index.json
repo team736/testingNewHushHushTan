@@ -59,7 +59,7 @@
             "image": "shopify://shop_images/press.jpg",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "info_url": "/pages/austin-services"
           }
@@ -72,7 +72,7 @@
             "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
             "info_url": "/pages/dallas-services"
           }
@@ -85,7 +85,7 @@
             "image": "shopify://shop_images/16-HushHushTanHouston15_3.jpg",
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
-            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
+            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
             "info_url": "/pages/houston-services"
           }
@@ -130,7 +130,7 @@
           "type": "qa",
           "settings": {
             "question": "What do I wear for my session?",
-            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs \u2014 disposable boxers are available for $3/pair.</p>"
           }
         },
         "qa_RYBLhG": {
@@ -167,7 +167,7 @@
         "prep_after_label": "After Your Tan",
         "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
         "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs →",
+        "faq_btn_label": "Read All FAQs \u2192",
         "faqs_url": "",
         "book_btn_label": "Book Your Glow",
         "book_url": "",
@@ -302,74 +302,75 @@
       "settings": {
         "eyebrow": "Loved By Texas",
         "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
+        "subheading": "Real glows, real reviews \u2014 the most-loved custom spray tan in Austin, Dallas & Houston.",
         "cta_text": "Read Our Reviews",
-        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan/@29.7823504,-95.4086721,17z/data=!4m8!3m7!1s0x8640c7150d0e8bed:0x2a1007b554c370af!8m2!3d29.7823504!4d-95.4086721!9m1!1b1!16s%2Fg%2F11l3722kxg",
-        "speed": 50
+        "cta_url": "/pages/locations",
+        "speed": 50,
+        "layout": "full"
       },
       "blocks": {
         "r1": {
           "type": "review",
           "settings": {
-            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed. Lasts & doesn't ever look splotchy.",
-            "author": "Amber Richardson",
-            "location": "Houston, TX"
+            "quote": "Hush hush is the only place I will go in Austin! I've had several tans done here and I always love the results. They are accommodating, honest and always make you feel comfortable!",
+            "author": "Audrey Kuhl",
+            "location": "Austin, TX"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there. Can't wait to see my tan develop!",
-            "author": "Ashley Post",
-            "location": "Houston, TX"
+            "quote": "Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!! Ashly at the front is very professional and knowledgeable.",
+            "author": "Haley Collins",
+            "location": "Dallas, TX"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
-            "quote": "Ally & Sam were both fantastic and extremely professional and friendly. Also super fast. Will be coming here regularly for my tans :)",
-            "author": "Paulina Varela",
+            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed.",
+            "author": "Amber Richardson",
             "location": "Houston, TX"
           }
         },
         "r4": {
           "type": "review",
           "settings": {
-            "quote": "First time spray and visit here! Sam and Abby were absolutely angels to me, so warm and welcoming! Answered all my questions and gave me total peace of mind. Also tan was amazing!",
-            "author": "Emma Sanders",
-            "location": "Houston, TX"
+            "quote": "My experience here was amazing! Everyone was so nice from the start, from Kathy and Chloe at the front to Tarin who did my spray tan! Highly recommend, I will definitely be coming back.",
+            "author": "Samantha Robinson",
+            "location": "Austin, TX"
           }
         },
         "r5": {
           "type": "review",
           "settings": {
-            "quote": "Sam and Ali were amazing, so sweet and professional. I always have a great experience here and will be back!",
-            "author": "Abigail Fuller",
-            "location": "Houston, TX"
+            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "author": "Meaghan Estes",
+            "location": "Dallas, TX"
           }
         },
         "r6": {
           "type": "review",
           "settings": {
-            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas — elated to see there was a Hush Hush right by my house in the Heights.",
-            "author": "Caroline Ross",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "author": "Ashley Post",
             "location": "Houston, TX"
           }
         },
         "r7": {
           "type": "review",
           "settings": {
-            "quote": "I had a great time at Hush Hush Tan! Abby did a great job spraying me and made me feel confident. Sam at the desk was so friendly. I would definitely come back!",
-            "author": "Emily Jenks",
-            "location": "Houston, TX"
+            "quote": "This place is THE best! My tans always come out incredibly even (yes, including hands + feet), have the perfect color/undertone every time, and fade nicely. Every artist has made me extremely comfortable.",
+            "author": "Hali Crawford",
+            "location": "Austin, TX"
           }
         },
         "r8": {
           "type": "review",
           "settings": {
-            "quote": "The best spray tan in Houston! Love all the girls there and the service is top tier. Definitely recommend.",
-            "author": "Alaina Dufrene",
-            "location": "Houston, TX"
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "author": "Calla Taylor",
+            "location": "Dallas, TX"
           }
         },
         "r9": {
@@ -383,8 +384,24 @@
         "r10": {
           "type": "review",
           "settings": {
-            "quote": "I had such an amazing experience at this spray tan salon and I am beyond happy with my results! Grace and Zoe were absolutely wonderful — so kind, friendly, and made me feel completely comfortable the entire time.",
-            "author": "Jillian Robles",
+            "quote": "Greeted by Chloe, who was incredibly kind and helpful during my first tan at Hush Hush. I was sprayed by Tarin, who had amazing attention to detail and made the entire experience feel comfortable and never awkward.",
+            "author": "Emma Kenny",
+            "location": "Austin, TX"
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "quote": "Tried HushHush today after coming from another local tanning salon that does airbrush, and what a world of difference. Amanda was very thorough and detailed, and the overall experience was great.",
+            "author": "Priscilla Rodriguez",
+            "location": "Dallas, TX"
+          }
+        },
+        "r12": {
+          "type": "review",
+          "settings": {
+            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights.",
+            "author": "Caroline Ross",
             "location": "Houston, TX"
           }
         }
@@ -399,7 +416,9 @@
         "r7",
         "r8",
         "r9",
-        "r10"
+        "r10",
+        "r11",
+        "r12"
       ]
     },
     "start_here": {
@@ -407,8 +426,8 @@
       "settings": {
         "eyebrow": "First Time?",
         "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow — our signature first-time experience.",
-        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
+        "feature": "The Custom Glow \u2014 our signature first-time experience.",
+        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish \u2014 no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
         "cta_text": "Book Now",
         "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
       },
@@ -422,7 +441,7 @@
         "b2": {
           "type": "point",
           "settings": {
-            "text": "Natural, streak-free finish — never orange"
+            "text": "Natural, streak-free finish \u2014 never orange"
           }
         },
         "b3": {
@@ -443,7 +462,7 @@
       "settings": {
         "eyebrow": "Real Client Results",
         "heading": "15 Years of Flawless Glows",
-        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time.",
+        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning \u2014 perfecting the art of the natural, streak-free glow, one client at a time.",
         "show_stats": true,
         "stat_1_num": "15 Years",
         "stat_1_label": "Perfecting the glow",
@@ -458,7 +477,7 @@
         "ba1": {
           "type": "pair",
           "settings": {
-            "caption": "Custom Glow — color-matched finish"
+            "caption": "Custom Glow \u2014 color-matched finish"
           }
         },
         "ba2": {
