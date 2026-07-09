@@ -1,0 +1,17 @@
+{%- comment -%}
+  Renders a clickable phone number.
+  Usage: {% render 'tel-link', phone: block.settings.phone, class: 'location-card__meta' %}
+{%- endcomment -%}
+{%- if phone != blank -%}
+  {%- assign digits = phone | remove: '(' | remove: ')' | remove: ' ' | remove: '-' | remove: '.' | remove: '+' -%}
+  {%- if digits.size >= 10 -%}
+    {%- if digits.size == 11 and digits[0] == '1' -%}
+      {%- assign tel_href = '+' | append: digits -%}
+    {%- else -%}
+      {%- assign tel_href = '+1' | append: digits -%}
+    {%- endif -%}
+    <a href="tel:{{ tel_href }}"{% if class != blank %} class="{{ class }}"{% endif %}>{{ phone }}</a>
+  {%- else -%}
+    <span{% if class != blank %} class="{{ class }}"{% endif %}>{{ phone }}</span>
+  {%- endif -%}
+{%- endif -%}

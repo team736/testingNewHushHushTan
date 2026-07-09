@@ -33,7 +33,7 @@
           "type": "child_link",
           "settings": {
             "label": "Austin",
-            "url": "/pages/austin",
+            "url": "/pages/our-services#austin",
             "open_in_new_tab": false
           }
         },
@@ -41,7 +41,7 @@
           "type": "child_link",
           "settings": {
             "label": "Dallas",
-            "url": "/pages/dallas",
+            "url": "/pages/our-services#dallas",
             "open_in_new_tab": false
           }
         },
@@ -49,7 +49,7 @@
           "type": "child_link",
           "settings": {
             "label": "Houston",
-            "url": "/pages/houston",
+            "url": "/pages/our-services#houston",
             "open_in_new_tab": false
           }
         },
@@ -172,8 +172,8 @@
         "logo_height": 48,
         "nav_link_size": 14,
         "nav_link_spacing": 24,
-        "book_btn_label": "Book Now",
-        "book_url": "",
+        "book_btn_label": "Book a Service",
+        "book_url": "/pages/our-services",
         "book_btn_size": 13,
         "book_btn_padding": 14,
         "header_bg": "#EAE3F7",

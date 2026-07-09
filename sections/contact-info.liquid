@@ -15,7 +15,14 @@
             {%- if block.settings.text != blank -%}<div class="muted small" style="margin-bottom: 8px;">{{ block.settings.text | newline_to_br }}</div>{%- endif -%}
             {%- if block.settings.line1 != blank -%}<p>{{ block.settings.line1 }}</p>{%- endif -%}
             {%- if block.settings.line2 != blank -%}<p>{{ block.settings.line2 }}</p>{%- endif -%}
-            {%- if block.settings.line3 != blank -%}<p>{{ block.settings.line3 }}</p>{%- endif -%}
+            {%- if block.settings.line3 != blank -%}
+              {%- assign line3_digits = block.settings.line3 | remove: '(' | remove: ')' | remove: ' ' | remove: '-' | remove: '.' | remove: '+' -%}
+              {%- if line3_digits.size >= 10 -%}
+                <p>{% render 'tel-link', phone: block.settings.line3 %}</p>
+              {%- else -%}
+                <p>{{ block.settings.line3 }}</p>
+              {%- endif -%}
+            {%- endif -%}
             {%- if block.settings.cta_text != blank -%}
               <p style="margin-top: 16px;"><a href="{{ block.settings.cta_url | default: '#' }}" class="btn--ghost">{{ block.settings.cta_text }} →</a></p>
             {%- endif -%}

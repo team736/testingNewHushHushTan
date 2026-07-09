@@ -6,7 +6,7 @@
         "eyebrow": "Contact",
         "title": "Need Assistance?",
         "title_accent": "We're Here to Help.",
-        "subtitle": "Call your nearest studio or send us a message. For marketing or partnership inquiries, email marketing@hushhushtan.com.",
+        "subtitle": "Call your nearest studio or send us a message at contact@hushhushtan.com. For marketing or partnership inquiries, email marketing@hushhushtan.com.",
         "cta_primary_text": "Choose Your Location",
         "cta_primary_url": "/pages/locations"
       }
@@ -21,7 +21,14 @@
       },
       "block_order": ["austin", "dallas", "houston"]
     },
-    "contact-form": { "type": "contact-form", "settings": {} },
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "heading": "Send A Message",
+        "text": "We'll respond within one business day.",
+        "recipient_email": "contact@hushhushtan.com"
+      }
+    },
     "final-cta": {
       "type": "final-cta",
       "settings": {

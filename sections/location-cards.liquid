@@ -22,7 +22,9 @@
             <div class="location-card__city">{{ block.settings.city }}</div>
             {%- if block.settings.tagline != blank -%}<p class="location-card__meta">{{ block.settings.tagline }}</p>{%- endif -%}
             {%- if block.settings.address != blank -%}<p class="location-card__meta">{{ block.settings.address }}</p>{%- endif -%}
-            {%- if block.settings.phone != blank -%}<p class="location-card__meta">{{ block.settings.phone }}</p>{%- endif -%}
+            {%- if block.settings.phone != blank -%}
+              <p class="location-card__meta">{% render 'tel-link', phone: block.settings.phone %}</p>
+            {%- endif -%}
             {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
             <div class="location-card__ctas">
               {%- if block.settings.book_url != blank -%}

@@ -154,7 +154,7 @@
           {%- endif -%}
         {%- endfor -%}
 
-        <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
+        <a href="{{ book_url }}" class="site-header__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.book_btn_label | default: 'Book a Service' }}</a>
       </nav>
     </div>
   </div>
@@ -171,7 +171,7 @@
       </button>
     </div>
 
-    <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>{{ section.settings.book_btn_label | default: 'Book Now' }}</a>
+    <a href="{{ book_url }}" class="drawer__book"{% if book_url contains 'booker.com' %} target="_blank" rel="noopener"{% endif %} data-drawer-link>{{ section.settings.book_btn_label | default: 'Book a Service' }}</a>
 
     <nav class="drawer__nav" aria-label="Mobile">
       {%- for block in section.blocks -%}
@@ -231,8 +231,8 @@
     { "type": "range",        "id": "nav_link_spacing","label": "Spacing between links", "min": 8,  "max": 60, "step": 2, "unit": "px", "default": 24 },
     { "type": "paragraph",    "content": "Add nav items as BLOCKS below. There are two block types: 'Dropdown Menu' (creates a parent with a dropdown) and 'Direct Link' (a single clickable link with no dropdown). Add 'Dropdown Item' blocks AFTER a Dropdown Menu — they'll appear as items inside that menu. Drag blocks to reorder." },
 
-    { "type": "header",       "content": "Book Now Button" },
-    { "type": "text",         "id": "book_btn_label",   "label": "Button label",   "default": "Book Now" },
+    { "type": "header",       "content": "Book a Service Button" },
+    { "type": "text",         "id": "book_btn_label",   "label": "Button label",   "default": "Book a Service" },
     { "type": "url",          "id": "book_url",         "label": "Button URL",     "info": "Leave blank to use the site-wide Book Now URL from theme settings." },
     { "type": "range",        "id": "book_btn_size",    "label": "Button text size","min": 10, "max": 22, "step": 1, "unit": "px", "default": 13 },
     { "type": "range",        "id": "book_btn_padding", "label": "Button padding",  "min": 6,  "max": 28, "step": 1, "unit": "px", "default": 14 },
@@ -285,9 +285,9 @@
     "name": "Header",
     "blocks": [
       { "type": "parent_menu", "settings": { "label": "Locations" } },
-      { "type": "child_link",  "settings": { "label": "Austin",  "url": "/pages/austin" } },
-      { "type": "child_link",  "settings": { "label": "Dallas",  "url": "/pages/dallas" } },
-      { "type": "child_link",  "settings": { "label": "Houston", "url": "/pages/houston" } },
+      { "type": "child_link",  "settings": { "label": "Austin",  "url": "/pages/our-services#austin" } },
+      { "type": "child_link",  "settings": { "label": "Dallas",  "url": "/pages/our-services#dallas" } },
+      { "type": "child_link",  "settings": { "label": "Houston", "url": "/pages/our-services#houston" } },
 
       { "type": "parent_menu", "settings": { "label": "Services" } },
       { "type": "child_link",  "settings": { "label": "Our Services",     "url": "/pages/our-services" } },

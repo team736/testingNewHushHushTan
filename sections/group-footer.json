@@ -43,7 +43,7 @@
           "settings": {
             "heading": "Locations",
             "menu": "",
-            "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston"
+            "fallback_items": "Austin|/pages/our-services#austin\nDallas|/pages/our-services#dallas\nHouston|/pages/our-services#houston"
           }
         }
       },
