@@ -45,25 +45,13 @@
             "menu": "",
             "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston"
           }
-        },
-        "footer_newsletter": {
-          "type": "newsletter",
-          "settings": {
-            "heading": "Get In The Know",
-            "text": "Join us for glow tips, new drops, packages and special offers.",
-            "placeholder": "Email address",
-            "button_text": "Subscribe",
-            "success_message": "Thank you for subscribing. Check your inbox for glow tips and offers.",
-            "disclaimer": "We respect your privacy. Unsubscribe anytime."
-          }
         }
       },
       "block_order": [
         "footer_menu_company",
         "footer_menu_shop",
         "footer_menu_support",
-        "footer_menu_locations",
-        "footer_newsletter"
+        "footer_menu_locations"
       ],
       "settings": {
         "footer_logo": "shopify://shop_images/HHT_PrimaryLogotype_Horizontal_1_1_1.png",
