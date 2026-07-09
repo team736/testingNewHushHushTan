@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "hero": {
@@ -22,8 +13,8 @@
             "title_line2": "Flawless",
             "title_line3": "Confidence.",
             "subtitle": "Our custom airbrush tans enhance your skin tone in a clean, luxury studio where you'll always feel your best.",
-            "cta_primary_text": "view services",
-            "cta_primary_url": "shopify://pages/our-services",
+            "cta_primary_text": "Book Now",
+            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "cta_secondary_text": "Book Custom glow",
             "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "show_pills": true
@@ -41,25 +32,8 @@
             "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
             "cta_primary_text": "Book Now",
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "View Services",
-            "cta_secondary_url": "#services",
-            "show_pills": true
-          }
-        },
-        "slide-3": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
-            "image_fallback": "hht-hero-slide-3.webp",
-            "eyebrow": "Memberships & Packages",
-            "title_line1": "Glow More,",
-            "title_line2": "Save More",
-            "title_line3": "",
-            "subtitle": "Join the HHT family and enjoy exclusive savings and the perks of glowing all year long.",
-            "cta_primary_text": "View Memberships",
-            "cta_primary_url": "#memberships",
-            "cta_secondary_text": "Choose Your Location",
-            "cta_secondary_url": "#locations",
+            "cta_secondary_text": "Book Your Glow",
+            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "show_pills": true
           }
         },
@@ -99,7 +73,6 @@
       "block_order": [
         "slide-1",
         "slide-2",
-        "slide-3",
         "std-1",
         "std-2",
         "std-3",
@@ -954,14 +927,196 @@
         "eyebrow": "Featured In",
         "heading": "Trusted by Texas. Recognized nationally."
       }
+    },
+    "reviews": {
+      "type": "reviews",
+      "settings": {
+        "eyebrow": "Loved By Texas",
+        "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
+        "cta_text": "Read Our Reviews",
+        "cta_url": "https://www.google.com/maps/place/Hush+Hush+Tan/@29.7823504,-95.4086721,17z/data=!4m8!3m7!1s0x8640c7150d0e8bed:0x2a1007b554c370af!8m2!3d29.7823504!4d-95.4086721!9m1!1b1!16s%2Fg%2F11l3722kxg"
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed. Lasts & doesn't ever look splotchy.",
+            "author": "Amber Richardson",
+            "location": "Houston, TX · Google Review"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights.",
+            "author": "Caroline Ross",
+            "location": "Houston, TX · Google Review"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "First time spray and visit here! Sam and Abby were absolutely angels to me, so warm and welcoming! Answered all my questions and gave me total peace of mind. Also tan was amazing!",
+            "author": "Emma Sanders",
+            "location": "Houston, TX · Google Review"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ]
+    },
+    "start_here": {
+      "type": "start-here",
+      "settings": {
+        "eyebrow": "First Time?",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
+        "cta_text": "Book Now",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      },
+      "blocks": {
+        "b1": {
+          "type": "point",
+          "settings": {
+            "text": "Hand-mixed, color-matched shade"
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "text": "Natural, streak-free finish — never orange"
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "text": "Perfect for your first-ever spray tan"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "before_after": {
+      "type": "before-after",
+      "settings": {
+        "eyebrow": "Real Client Results",
+        "heading": "15 Years of Flawless Glows",
+        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time.",
+        "show_stats": true,
+        "stat_1_num": "15 Years",
+        "stat_1_label": "Perfecting the glow",
+        "stat_2_num": "3,000+",
+        "stat_2_label": "Five-star reviews",
+        "stat_3_num": "3 Studios",
+        "stat_3_label": "Across Texas",
+        "cta_text": "Book Your Glow",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      },
+      "blocks": {
+        "ba1": {
+          "type": "pair",
+          "settings": {
+            "caption": "Custom Glow — color-matched finish"
+          }
+        },
+        "ba2": {
+          "type": "pair",
+          "settings": {
+            "caption": "Event-ready in one session"
+          }
+        },
+        "ba3": {
+          "type": "pair",
+          "settings": {
+            "caption": "Natural bronze, never orange"
+          }
+        }
+      },
+      "block_order": [
+        "ba1",
+        "ba2",
+        "ba3"
+      ]
+    },
+    "social": {
+      "type": "social-feed",
+      "settings": {
+        "eyebrow": "@HushHushTan",
+        "heading": "Follow The Glow",
+        "handle": "@hushhushtan",
+        "profile_url": "https://www.instagram.com/hushhushtan/",
+        "cta_text": "Follow Us on Instagram"
+      },
+      "blocks": {
+        "s1": {
+          "type": "post"
+        },
+        "s2": {
+          "type": "post"
+        },
+        "s3": {
+          "type": "post"
+        },
+        "s4": {
+          "type": "post"
+        },
+        "s5": {
+          "type": "post"
+        },
+        "s6": {
+          "type": "post"
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6"
+      ]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "New Client Offer",
+        "heading": "Get 10% off your first visit",
+        "text": "Join the list for 10% off your first Custom Glow, plus glow tips, new packages, and special offers.",
+        "placeholder": "Enter your email address",
+        "button_text": "Claim My 10% Off",
+        "success_message": "You're in! Check your inbox for your 10% off code and glow tips.",
+        "disclaimer": "We respect your privacy. Unsubscribe anytime."
+      }
+    },
+    "sticky_book": {
+      "type": "sticky-book",
+      "settings": {
+        "enabled": true,
+        "text": "Book Now",
+        "url": "https://go.booker.com/location/hushhushtan/service-menu",
+        "scroll_threshold": 500
+      }
     }
   },
   "order": [
     "hero",
+    "reviews",
+    "press_grid_Uniykx",
+    "start_here",
     "locations",
-    "services_pricing_v2_V8rWkN",
+    "before_after",
     "glow_moments_faq_gkPY4D",
-    "products",
-    "press_grid_Uniykx"
+    "social",
+    "newsletter",
+    "sticky_book"
   ]
 }

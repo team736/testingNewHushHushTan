@@ -5951,9 +5951,9 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   background: #aba0ea !important;
   color: #ffffff !important;
   border: none !important;
-  border-radius: 0 !important;
-  padding: 11px 22px !important;
-  min-height: 0 !important;
+  border-radius: 999px !important;
+  padding: 0 30px !important;
+  min-height: 50px !important;
   min-width: 0 !important;
   width: fit-content !important;
   font-family: var(--font-button) !important;
@@ -5979,3 +5979,139 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   border-color: #5f3786 !important;
   transform: translateY(-1px) !important;
 }
+
+/* ============================================================
+   Homepage booking-focus sections (2026 refresh)
+   Reviews · Start Here · Before/After · Social · Sticky Book
+   Uses existing tokens/classes — no new brand colors.
+   ============================================================ */
+
+/* --- Google reviews --- */
+.hht-reviews__head { text-align: center; max-width: 760px; margin: 0 auto var(--heading-gap); }
+.hht-reviews__stars { display: inline-flex; gap: 4px; margin-bottom: 12px; }
+.hht-review-star { fill: #E8B84B; }
+.hht-reviews__title { font-size: var(--type-h2); margin: 0 0 var(--heading-sub-gap); letter-spacing: 0; }
+.hht-reviews__sub { color: var(--body-text); max-width: 620px; margin: 0 auto; }
+.hht-reviews__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap); margin-top: 8px;
+}
+.hht-reviews__card {
+  background: var(--surface); border: 1px solid var(--hht-border-soft);
+  border-radius: var(--radius-lg); padding: var(--card-padding);
+  display: flex; flex-direction: column; gap: 14px; box-shadow: var(--shadow-card);
+}
+.hht-reviews__card-stars { display: inline-flex; gap: 3px; }
+.hht-reviews__quote { color: var(--text-heading); font-size: var(--type-body); line-height: var(--lh-body); margin: 0; }
+.hht-reviews__meta { display: flex; flex-direction: column; gap: 2px; margin-top: auto; }
+.hht-reviews__author { font-family: var(--font-eyebrow); font-weight: 600; color: var(--text-heading); font-size: .875rem; }
+.hht-reviews__loc { color: var(--muted); font-size: var(--type-body-sm); }
+.hht-reviews__source { color: var(--muted); font-size: var(--type-body-sm); letter-spacing: .04em; }
+.hht-reviews__cta { text-align: center; margin-top: var(--cta-gap); }
+
+/* --- New to HHT — Start here --- */
+.hht-starthere__panel {
+  display: grid; grid-template-columns: 0.9fr 1.1fr; gap: var(--hero-col-gap, 48px);
+  align-items: center;
+  background: var(--soft); border: 1px solid var(--hht-border-soft);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.hht-starthere__media { height: 100%; min-height: 380px; }
+.hht-starthere__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hht-starthere__body { padding: clamp(28px, 4vw, 56px); }
+.hht-starthere__title { font-size: var(--type-h2); margin: 6px 0 14px; letter-spacing: 0; }
+.hht-starthere__feature { font-family: var(--font-heading); font-size: var(--type-h3); color: var(--primary-dark); margin: 0 0 12px; }
+.hht-starthere__text { color: var(--body-text); margin: 0 0 20px; }
+.hht-starthere__list { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 12px; }
+.hht-starthere__item { display: flex; align-items: center; gap: 12px; color: var(--text-heading); font-size: var(--type-body); }
+.hht-starthere__tick {
+  flex: 0 0 auto; width: 26px; height: 26px; border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--primary); color: #fff;
+}
+.hht-starthere__cta { margin-top: 4px; }
+
+/* --- Before / after results --- */
+.hht-results__stats {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(24px, 5vw, 72px);
+  margin: 0 auto var(--heading-gap); padding-bottom: 4px;
+}
+.hht-results__stat { text-align: center; }
+.hht-results__stat-num { display: block; font-family: var(--font-heading); font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--text-heading); line-height: 1.1; }
+.hht-results__stat-label { display: block; font-family: var(--font-eyebrow); font-size: var(--type-body-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.hht-results__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--card-gap); }
+.hht-results__card {
+  margin: 0; background: var(--surface); border: 1px solid var(--hht-border-soft);
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card);
+}
+.hht-results__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.hht-results__shot { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
+.hht-results__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hht-results__tag {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  font-family: var(--font-eyebrow); font-size: .625rem; letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(255,255,255,.9); color: var(--text-heading);
+  padding: 4px 10px; border-radius: 999px;
+}
+.hht-results__tag--after { background: var(--primary); color: #fff; }
+.hht-results__caption { padding: 16px 20px; color: var(--body-text); font-size: var(--type-body-sm); text-align: center; }
+.hht-results__cta { text-align: center; margin-top: var(--cta-gap); }
+
+/* --- Social feed --- */
+.hht-social__handle { color: var(--primary-dark); font-family: var(--font-eyebrow); letter-spacing: .06em; }
+.hht-social__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(8px, 1vw, 14px); }
+.hht-social__tile { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: var(--radius); display: block; }
+.hht-social__tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease); }
+.hht-social__tile:hover img { transform: scale(1.05); }
+.hht-social__icon {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  color: #fff; opacity: 0; background: rgba(143,131,214,.35); transition: opacity .3s var(--ease);
+}
+.hht-social__tile:hover .hht-social__icon { opacity: 1; }
+.hht-social__cta { text-align: center; margin-top: var(--cta-gap); }
+
+/* --- Sticky Book Now --- */
+.hht-sticky-book {
+  position: fixed; right: clamp(16px, 3vw, 28px); bottom: clamp(16px, 3vw, 28px);
+  z-index: 900; opacity: 0; visibility: hidden;
+  transform: translateY(14px); transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.hht-sticky-book.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+/* Match the homepage CTA button (rounded lavender pill per client brief #8):
+   lavender #aba0ea, hover #5f3786, Jost 700. Keeps floating shadow
+   + a larger tap target than inline buttons for easy mobile tapping. */
+.hht-sticky-book__btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--font-button); font-size: .72rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; line-height: 1;
+  background: #aba0ea; color: #fff; border: none;
+  border-radius: 999px; padding: 16px 30px;
+  box-shadow: 0 12px 34px -10px rgba(143,131,214,.6), 0 4px 14px -6px rgba(21,21,21,.25);
+  transition: background .2s ease, transform .2s ease, color .2s ease;
+}
+.hht-sticky-book__btn:hover { background: #5f3786; color: #fff; transform: translateY(-1px); }
+.hht-sticky-book__spark { display: inline-flex; }
+
+/* ---- Responsive: tablet ---- */
+@media (max-width: 1024px) {
+  .hht-reviews__grid { grid-template-columns: repeat(2, 1fr); }
+  .hht-reviews__card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .hht-results__grid { grid-template-columns: 1fr 1fr; }
+  .hht-results__card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .hht-social__grid { grid-template-columns: repeat(3, 1fr); }
+  .hht-starthere__panel { grid-template-columns: 1fr; }
+  .hht-starthere__media { min-height: 300px; max-height: 420px; }
+}
+
+/* ---- Responsive: mobile ---- */
+@media (max-width: 640px) {
+  .hht-reviews__grid { grid-template-columns: 1fr; }
+  .hht-results__grid { grid-template-columns: 1fr; }
+  .hht-social__grid { grid-template-columns: repeat(3, 1fr); }
+  .hht-results__stats { gap: 20px 32px; }
+  .hht-starthere__body { padding: 28px 22px 32px; }
+  .hht-sticky-book { left: 16px; right: 16px; bottom: 14px; }
+  .hht-sticky-book__btn { width: 100%; justify-content: center; }
+}
+

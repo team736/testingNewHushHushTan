@@ -1,0 +1,107 @@
+{%- liquid
+  assign fallbacks = 'hht-glow-editorial.jpg,hht-glow-wall.jpg,hht-glow-wall-2.jpg,hht-glow-wall-art.jpg' | split: ','
+-%}
+
+<section class="section section-offwhite hht-results" aria-label="{{ section.settings.heading | escape }}">
+  <div class="container container--home">
+    <div class="section-head">
+      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+      {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
+    </div>
+
+    {%- if section.settings.show_stats -%}
+      <div class="hht-results__stats">
+        <div class="hht-results__stat">
+          <span class="hht-results__stat-num">{{ section.settings.stat_1_num }}</span>
+          <span class="hht-results__stat-label">{{ section.settings.stat_1_label }}</span>
+        </div>
+        <div class="hht-results__stat">
+          <span class="hht-results__stat-num">{{ section.settings.stat_2_num }}</span>
+          <span class="hht-results__stat-label">{{ section.settings.stat_2_label }}</span>
+        </div>
+        <div class="hht-results__stat">
+          <span class="hht-results__stat-num">{{ section.settings.stat_3_num }}</span>
+          <span class="hht-results__stat-label">{{ section.settings.stat_3_label }}</span>
+        </div>
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="hht-results__grid">
+        {%- for block in section.blocks -%}
+          {%- assign fb = fallbacks[forloop.index0] | default: 'hht-glow-editorial.jpg' -%}
+          <figure class="hht-results__card" {{ block.shopify_attributes }}>
+            <div class="hht-results__pair">
+              <div class="hht-results__shot">
+                <span class="hht-results__tag">Before</span>
+                {%- if block.settings.before_image != blank -%}
+                  <img src="{{ block.settings.before_image | image_url: width: 600 }}" alt="Before Hush Hush Tan" width="600" height="720" loading="lazy">
+                {%- else -%}
+                  <img src="{{ fb | asset_url }}" alt="Before Hush Hush Tan" width="600" height="720" loading="lazy">
+                {%- endif -%}
+              </div>
+              <div class="hht-results__shot">
+                <span class="hht-results__tag hht-results__tag--after">After</span>
+                {%- if block.settings.after_image != blank -%}
+                  <img src="{{ block.settings.after_image | image_url: width: 600 }}" alt="After Hush Hush Tan Custom Glow" width="600" height="720" loading="lazy">
+                {%- else -%}
+                  <img src="{{ fb | asset_url }}" alt="After Hush Hush Tan Custom Glow" width="600" height="720" loading="lazy">
+                {%- endif -%}
+              </div>
+            </div>
+            {%- if block.settings.caption != blank -%}
+              <figcaption class="hht-results__caption">{{ block.settings.caption }}</figcaption>
+            {%- endif -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+      <div class="hht-results__cta">
+        <a href="{{ section.settings.cta_url }}" class="btn btn--pill"{% if section.settings.cta_url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.cta_text }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Before & after results",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real Client Results" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "15 Years of Flawless Glows" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time." },
+    { "type": "checkbox", "id": "show_stats", "label": "Show trust stats", "default": true },
+    { "type": "text", "id": "stat_1_num", "label": "Stat 1 number", "default": "15 Years" },
+    { "type": "text", "id": "stat_1_label", "label": "Stat 1 label", "default": "Perfecting the glow" },
+    { "type": "text", "id": "stat_2_num", "label": "Stat 2 number", "default": "3,000+" },
+    { "type": "text", "id": "stat_2_label", "label": "Stat 2 label", "default": "Five-star reviews" },
+    { "type": "text", "id": "stat_3_num", "label": "Stat 3 number", "default": "3 Studios" },
+    { "type": "text", "id": "stat_3_label", "label": "Stat 3 label", "default": "Across Texas" },
+    { "type": "text", "id": "cta_text", "label": "Button text", "default": "Book Your Glow" },
+    { "type": "url", "id": "cta_url", "label": "Button URL" }
+  ],
+  "blocks": [
+    {
+      "type": "pair",
+      "name": "Before / after pair",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before image", "info": "Use approved real client before/after photos." },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "caption", "label": "Caption" }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [{
+    "name": "Before & after results",
+    "blocks": [
+      { "type": "pair", "settings": { "caption": "Custom Glow — color-matched finish" } },
+      { "type": "pair", "settings": { "caption": "Event-ready in one session" } },
+      { "type": "pair", "settings": { "caption": "Natural bronze, never orange" } }
+    ]
+  }]
+}
+{% endschema %}
