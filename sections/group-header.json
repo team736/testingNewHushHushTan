@@ -16,7 +16,7 @@
       "settings": {
         "text": "Complimentary Glow Guide with Every First Visit",
         "button_label": "Book Now",
-        "button_url": "https://go.booker.com/location/hushhushtan/service-menu"
+        "button_url": "https://hushhushtan.com/pages/our-services"
       }
     },
     "header_RqXJyL": {
@@ -26,7 +26,9 @@
           "type": "parent_menu",
           "name": "Locations",
           "settings": {
-            "label": "Locations"
+            "label": "Locations",
+            "url": "",
+            "open_in_new_tab": false
           }
         },
         "child_link_QgKVj4": {
@@ -53,66 +55,13 @@
             "open_in_new_tab": false
           }
         },
-        "top_link_cd34Td": {
-          "type": "top_link",
-          "settings": {
-            "label": "FAQs",
-            "url": "/pages/faqs",
-            "open_in_new_tab": false
-          }
-        },
-        "parent_menu_eafMwF": {
-          "type": "parent_menu",
-          "settings": {
-            "label": "About"
-          }
-        },
-        "child_link_YkzDbf": {
-          "type": "child_link",
-          "settings": {
-            "label": "Our Story",
-            "url": "/pages/about-us",
-            "open_in_new_tab": false
-          }
-        },
-        "child_link_7axdPC": {
-          "type": "child_link",
-          "settings": {
-            "label": "Contact",
-            "url": "/pages/contact",
-            "open_in_new_tab": false
-          }
-        },
-        "child_link_7rJVp3": {
-          "type": "child_link",
-          "settings": {
-            "label": "Press",
-            "url": "/pages/press",
-            "open_in_new_tab": false
-          }
-        },
-        "child_link_WXBnWp": {
-          "type": "child_link",
-          "settings": {
-            "label": "Careers",
-            "url": "https://hushhushtan.com/a/careers/",
-            "open_in_new_tab": true
-          }
-        },
-        "child_link_WA7MLA": {
-          "type": "child_link",
-          "settings": {
-            "label": "Tanning Tips",
-            "url": "/pages/tanning-tips",
-            "open_in_new_tab": false
-          }
-        },
         "parent_menu_services": {
           "type": "parent_menu",
           "name": "Our Services",
           "settings": {
             "label": "Our Services",
-            "url": "/pages/our-services"
+            "url": "",
+            "open_in_new_tab": false
           }
         },
         "child_link_svc_main": {
@@ -154,6 +103,62 @@
             "url": "/pages/tanning-gift-certificates",
             "open_in_new_tab": false
           }
+        },
+        "top_link_cd34Td": {
+          "type": "top_link",
+          "settings": {
+            "label": "FAQs",
+            "url": "/pages/faqs",
+            "open_in_new_tab": false
+          }
+        },
+        "parent_menu_eafMwF": {
+          "type": "parent_menu",
+          "settings": {
+            "label": "About",
+            "url": "",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_YkzDbf": {
+          "type": "child_link",
+          "settings": {
+            "label": "Our Story",
+            "url": "/pages/about-us",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_7axdPC": {
+          "type": "child_link",
+          "settings": {
+            "label": "Contact",
+            "url": "/pages/contact",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_7rJVp3": {
+          "type": "child_link",
+          "settings": {
+            "label": "Press",
+            "url": "/pages/press",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_WXBnWp": {
+          "type": "child_link",
+          "settings": {
+            "label": "Careers",
+            "url": "https://hushhushtan.com/a/careers/",
+            "open_in_new_tab": true
+          }
+        },
+        "child_link_WA7MLA": {
+          "type": "child_link",
+          "settings": {
+            "label": "Tanning Tips",
+            "url": "/pages/tanning-tips",
+            "open_in_new_tab": false
+          }
         }
       },
       "block_order": [
@@ -187,12 +192,12 @@
         "book_url": "/pages/our-services",
         "book_btn_size": 13,
         "book_btn_padding": 14,
-        "header_bg": "#EAE3F7",
-        "nav_text_color": "#EAE3F7",
-        "nav_hover_color": "#7B5EA7",
-        "book_btn_bg": "#7B5EA7",
-        "book_btn_text": "#FFFFFF",
-        "book_btn_hover_bg": "#4A2C7A",
+        "header_bg": "#eae3f7",
+        "nav_text_color": "#eae3f7",
+        "nav_hover_color": "#7b5ea7",
+        "book_btn_bg": "#7b5ea7",
+        "book_btn_text": "#ffffff",
+        "book_btn_hover_bg": "#4a2c7a",
         "show_search": true,
         "show_account": true,
         "show_cart": true
