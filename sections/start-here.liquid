@@ -1,5 +1,6 @@
 {%- liquid
   assign img = section.settings.image
+  assign fallback = section.settings.image_fallback | default: 'hht-glow-editorial.jpg'
 -%}
 
 <section class="section hht-starthere" aria-label="{{ section.settings.heading | escape }}">
@@ -7,9 +8,9 @@
     <div class="hht-starthere__panel">
       <div class="hht-starthere__media">
         {%- if img != blank -%}
-          <img src="{{ img | image_url: width: 900 }}" alt="Hush Hush Tan Custom Glow" width="900" height="1000" loading="lazy">
+          <img src="{{ img | image_url: width: 900 }}" alt="{{ section.settings.image_alt | default: 'Hush Hush Tan Custom Glow' | escape }}" width="900" height="1000" loading="lazy">
         {%- else -%}
-          <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="Hush Hush Tan Custom Glow" width="900" height="1000" loading="lazy">
+          <img src="{{ fallback | asset_url }}" alt="{{ section.settings.image_alt | default: 'Hush Hush Tan Custom Glow' | escape }}" width="900" height="1000" loading="lazy">
         {%- endif -%}
       </div>
 
@@ -42,7 +43,7 @@
 
         {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
           <div class="hht-starthere__cta">
-            <a href="{{ section.settings.cta_url }}" class="btn btn--pill"{% if section.settings.cta_url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.cta_text }}</a>
+            <a href="{{ section.settings.cta_url }}" class="btn btn--pill"{% if section.settings.cta_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta_text }}</a>
           </div>
         {%- endif -%}
       </div>
@@ -59,6 +60,8 @@
     { "type": "text", "id": "feature", "label": "Featured service", "default": "The Custom Glow — our signature first-time experience." },
     { "type": "textarea", "id": "text", "label": "Supporting copy", "default": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest." },
     { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "image_fallback", "label": "Image asset filename", "default": "hht-glow-editorial.jpg" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Hush Hush Tan Custom Glow" },
     { "type": "text", "id": "cta_text", "label": "Button text", "default": "Book Now" },
     { "type": "url", "id": "cta_url", "label": "Button URL" }
   ],
@@ -71,7 +74,7 @@
       ]
     }
   ],
-  "max_blocks": 4,
+  "max_blocks": 6,
   "presets": [{
     "name": "New to HHT — Start here",
     "blocks": [

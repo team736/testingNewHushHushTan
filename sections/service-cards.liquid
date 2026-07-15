@@ -1,8 +1,9 @@
-<section class="section">
-  <div class="container">
-    <div class="text-center" style="margin-bottom: 40px;">
+<section class="section{% if section.settings.soft_bg %} section-offwhite{% endif %}">
+  <div class="container container--home">
+    <div class="section-head" style="margin-bottom: 40px;">
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h2 class="mb-0">{{ section.settings.heading }}</h2>
+      {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
     <div class="service-cards">
       {%- for block in section.blocks -%}
@@ -11,7 +12,7 @@
           {%- if block.settings.price != blank -%}<div class="service-card__price">{{ block.settings.price }}</div>{%- endif -%}
           <p class="service-card__desc">{{ block.settings.description }}</p>
           {%- if block.settings.cta_text != blank -%}
-            <a href="{{ block.settings.cta_url }}" class="btn btn--lavender btn--small service-card__cta">{{ block.settings.cta_text }}</a>
+            <a href="{{ block.settings.cta_url }}" class="btn btn--lavender btn--small service-card__cta"{% if block.settings.cta_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ block.settings.cta_text }}</a>
           {%- endif -%}
         </div>
       {%- endfor -%}
@@ -24,7 +25,9 @@
   "name": "Service cards",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Services" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Spray tanning services" }
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Spray tanning services" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading" },
+    { "type": "checkbox", "id": "soft_bg", "label": "Soft background", "default": false }
   ],
   "blocks": [
     {

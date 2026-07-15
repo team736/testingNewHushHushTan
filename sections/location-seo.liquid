@@ -1,0 +1,44 @@
+{%- comment -%}
+  Invisible SEO helper for location landing pages.
+  Outputs LocalBusiness JSON-LD only. Page title/description must also be set in Shopify Admin → Pages.
+{%- endcomment -%}
+{%- if section.settings.city != blank and section.settings.address != blank -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Hush Hush Tan {{ section.settings.city | escape }}",
+  "image": {{ section.settings.image_url | default: '' | json }},
+  "url": {{ section.settings.canonical_url | default: request.origin | append: request.path | json }},
+  "telephone": {{ section.settings.phone | json }},
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ section.settings.street | json }},
+    "addressLocality": {{ section.settings.city | json }},
+    "addressRegion": "TX",
+    "postalCode": {{ section.settings.postal_code | json }},
+    "addressCountry": "US"
+  }{% if section.settings.map_url != blank %},
+  "hasMap": {{ section.settings.map_url | json }}{% endif %}
+}
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Location SEO (JSON-LD)",
+  "settings": [
+    { "type": "text", "id": "city", "label": "City" },
+    { "type": "text", "id": "street", "label": "Street address" },
+    { "type": "text", "id": "postal_code", "label": "Postal code" },
+    { "type": "text", "id": "phone", "label": "Phone (E.164 or display)" },
+    { "type": "text", "id": "address", "label": "Full address (required to output schema)" },
+    { "type": "url", "id": "map_url", "label": "Maps URL" },
+    { "type": "url", "id": "canonical_url", "label": "Canonical URL" },
+    { "type": "text", "id": "image_url", "label": "Schema image URL" },
+    { "type": "textarea", "id": "meta_title", "label": "Recommended page title (set in Admin)" },
+    { "type": "textarea", "id": "meta_description", "label": "Recommended meta description (set in Admin)" }
+  ],
+  "presets": [{ "name": "Location SEO (JSON-LD)" }]
+}
+{% endschema %}

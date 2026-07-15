@@ -5,8 +5,12 @@
       <h2>{{ section.settings.heading }}</h2>
       {%- if section.settings.text != blank -%}<p>{{ section.settings.text }}</p>{%- endif -%}
       <div class="flex" style="justify-content: center;">
-        {%- if section.settings.cta1_text != blank -%}<a href="{{ section.settings.cta1_url | default: '#' }}" class="btn">{{ section.settings.cta1_text }}</a>{%- endif -%}
-        {%- if section.settings.cta2_text != blank -%}<a href="{{ section.settings.cta2_url | default: '#' }}" class="btn btn--outline" style="background:transparent;color:#fff;border-color:#fff;">{{ section.settings.cta2_text }}</a>{%- endif -%}
+        {%- if section.settings.cta1_text != blank -%}
+          <a href="{{ section.settings.cta1_url | default: '#' }}" class="btn"{% if section.settings.cta1_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta1_text }}</a>
+        {%- endif -%}
+        {%- if section.settings.cta2_text != blank -%}
+          <a href="{{ section.settings.cta2_url | default: '#' }}" class="btn btn--outline" style="background:transparent;color:#fff;border-color:#fff;"{% if section.settings.cta2_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta2_text }}</a>
+        {%- endif -%}
       </div>
     </div>
   </div>

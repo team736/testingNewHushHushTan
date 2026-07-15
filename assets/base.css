@@ -1919,6 +1919,16 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 
 /* ============ Location cards ============ */
 .location-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--grid-gap); }
+.location-cards--single {
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin-inline: auto;
+}
+.location-card__meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .location-card {
   background: #FFFFFF;
   border: 1px solid var(--hht-border-soft);

@@ -1,37 +1,77 @@
-<section class="section section-offwhite" id="locations">
+{%- liquid
+  assign section_id = section.settings.section_id | default: 'locations' | strip
+  if section_id == blank
+    assign section_id = 'locations'
+  endif
+-%}
+<section class="section section-offwhite" id="{{ section_id }}">
   <div class="container container--home">
     <div class="section-head">
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h2>{{ section.settings.heading }}</h2>
       {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
-    <div class="location-cards">
+    <div class="location-cards{% if section.blocks.size == 1 %} location-cards--single{% endif %}">
       {%- for block in section.blocks -%}
+        {%- liquid
+          assign book_label = block.settings.book_label | default: 'Book Appointment'
+          assign secondary_label = block.settings.secondary_label
+          assign secondary_url = block.settings.info_url
+          if block.settings.map_url != blank
+            assign secondary_url = block.settings.map_url
+            if secondary_label == blank
+              assign secondary_label = 'Get Directions'
+            endif
+          elsif secondary_label == blank and secondary_url != blank
+            assign secondary_label = 'View Pricing'
+          endif
+
+          assign fallback_asset = block.settings.image_fallback
+          if fallback_asset == blank
+            assign fallback_asset = 'hht-location-austin.jpg'
+            if block.settings.city == 'Dallas'
+              assign fallback_asset = 'hht-location-dallas.jpg'
+            elsif block.settings.city == 'Houston'
+              assign fallback_asset = 'hht-location-houston.jpg'
+            endif
+          endif
+
+          assign maps_href = block.settings.map_url
+        -%}
         <article class="location-card" {{ block.shopify_attributes }}>
           <div class="location-card__media">
             {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.city }}" width="800" height="500" loading="lazy">
+              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
             {%- else -%}
-              {%- assign fallback_asset = 'hht-location-austin.jpg' -%}
-              {%- if block.settings.city == 'Dallas' -%}{%- assign fallback_asset = 'hht-location-dallas.jpg' -%}
-              {%- elsif block.settings.city == 'Houston' -%}{%- assign fallback_asset = 'hht-location-houston.jpg' -%}{%- endif -%}
               <img src="{{ fallback_asset | asset_url }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
             {%- endif -%}
           </div>
           <div class="location-card__body">
             <div class="location-card__city">{{ block.settings.city }}</div>
             {%- if block.settings.tagline != blank -%}<p class="location-card__meta">{{ block.settings.tagline }}</p>{%- endif -%}
-            {%- if block.settings.address != blank -%}<p class="location-card__meta">{{ block.settings.address }}</p>{%- endif -%}
+            {%- if block.settings.address != blank -%}
+              <p class="location-card__meta">
+                {%- if maps_href != blank -%}
+                  <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
+                {%- else -%}
+                  {{ block.settings.address }}
+                {%- endif -%}
+              </p>
+            {%- endif -%}
             {%- if block.settings.phone != blank -%}
               <p class="location-card__meta">{% render 'tel-link', phone: block.settings.phone %}</p>
             {%- endif -%}
             {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
             <div class="location-card__ctas">
               {%- if block.settings.book_url != blank -%}
-                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small" target="_blank" rel="noopener">Book Now</a>
+                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
               {%- endif -%}
-              {%- if block.settings.info_url != blank -%}
-                <a href="{{ block.settings.info_url }}" class="btn btn--pill btn--outline btn--small">View Pricing</a>
+              {%- if secondary_url != blank and secondary_label != blank -%}
+                <a
+                  href="{{ secondary_url }}"
+                  class="btn btn--pill btn--outline btn--small"
+                  {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >{{ secondary_label }}</a>
               {%- endif -%}
             </div>
           </div>
@@ -45,6 +85,7 @@
 {
   "name": "Location cards",
   "settings": [
+    { "type": "text", "id": "section_id", "label": "Section ID (anchor)", "default": "locations", "info": "Used for in-page links like #visit-austin" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Visit us" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Three Texas locations" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Austin · Dallas · Houston" }
@@ -55,13 +96,17 @@
       "name": "Location",
       "settings": [
         { "type": "text", "id": "city", "label": "City", "default": "Austin" },
-        { "type": "text", "id": "tagline", "label": "Tagline", "default": "Downtown studio on West 6th" },
+        { "type": "text", "id": "tagline", "label": "Tagline / neighborhood", "default": "Downtown studio on West 6th" },
         { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_fallback", "label": "Image asset filename", "info": "Used when no theme editor image is set" },
         { "type": "text", "id": "address", "label": "Address" },
         { "type": "text", "id": "phone", "label": "Phone" },
         { "type": "text", "id": "hours", "label": "Hours" },
         { "type": "url", "id": "book_url", "label": "Booking URL" },
-        { "type": "url", "id": "info_url", "label": "Location page URL" }
+        { "type": "text", "id": "book_label", "label": "Book button label", "default": "Book Appointment" },
+        { "type": "url", "id": "map_url", "label": "Get Directions / Maps URL" },
+        { "type": "url", "id": "info_url", "label": "Secondary URL (pricing page fallback)" },
+        { "type": "text", "id": "secondary_label", "label": "Secondary button label" }
       ]
     }
   ],
@@ -71,7 +116,7 @@
     "blocks": [
       { "type": "location", "settings": { "city": "Austin",  "tagline": "Downtown studio on West 6th", "address": "1211 West 6th St, Suite #400, Austin, TX 78703", "phone": "512-482-8339", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtan/service-menu", "info_url": "/pages/austin" } },
       { "type": "location", "settings": { "city": "Dallas",  "tagline": "Oak Lawn studio", "address": "4254 Oak Lawn Avenue, Dallas, TX 75219", "phone": "469-868-6228", "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu", "info_url": "/pages/dallas" } },
-      { "type": "location", "settings": { "city": "Houston", "tagline": "Newest Hush Hush studio", "address": "Houston studio details to be confirmed", "phone": "", "hours": "", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston" } }
+      { "type": "location", "settings": { "city": "Houston", "tagline": "M-K-T Heights", "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007", "phone": "713-485-0633", "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5", "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu", "info_url": "/pages/houston" } }
     ]
   }]
 }

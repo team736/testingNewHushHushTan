@@ -78,7 +78,7 @@
     {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
       <div class="container container--home">
         <div class="hht-reviews__cta">
-          <a href="{{ section.settings.cta_url }}" class="btn btn--pill"{% if section.settings.cta_url contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ section.settings.cta_text }}</a>
+          <a href="{{ section.settings.cta_url }}" class="btn btn--pill"{% if section.settings.cta_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta_text }}</a>
         </div>
       </div>
     {%- endif -%}
