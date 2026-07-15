@@ -60,7 +60,15 @@
     {% sections 'group-header' %}
 
     <main id="MainContent" role="main">
-      {{ content_for_layout }}
+      {%- comment -%}
+        Gift Card page (/pages/tanning-gift-certificates) is stuck on the Default
+        template in Admin. Render the gift section directly so the page is not empty.
+      {%- endcomment -%}
+      {%- if request.page_type == 'page' and page.handle == 'tanning-gift-certificates' and template.suffix == blank -%}
+        {% section 'gift-certificates' %}
+      {%- else -%}
+        {{ content_for_layout }}
+      {%- endif -%}
     </main>
 
     {% sections 'group-footer' %}
