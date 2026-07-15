@@ -749,7 +749,37 @@
   min-height: 280px;
 }
 
-/* Final CTA band */
+/* Final CTA — simple centered block (avoids flex width quirks) */
+.hht-sp .hht-sp-cta-center {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: clamp(48px, 7vw, 88px) 0;
+  text-align: center;
+}
+
+.hht-sp .hht-sp-cta-center .hht-sp__eyebrow,
+.hht-sp .hht-sp-cta-center .hht-sp__h2,
+.hht-sp .hht-sp-cta-center .hht-sp__lead {
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hht-sp .hht-sp-cta-center .hht-sp__lead {
+  max-width: 36rem;
+}
+
+.hht-sp .hht-sp-cta-center .hht-sp__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+/* Legacy final CTA band */
 .hht-sp .hht-sp-final,
 .hht-sp .hht-sp__wrap.hht-sp-final {
   text-align: center !important;
@@ -792,7 +822,6 @@
   margin-right: 0;
 }
 
-/* Final CTA band on lavender sections — keep copy + actions centered */
 .hht-sp .hht-sp-final-band .hht-sp-final,
 .hht-sp section.hht-sp-final-band .hht-sp__wrap {
   text-align: center !important;
