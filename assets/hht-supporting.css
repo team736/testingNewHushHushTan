@@ -792,6 +792,28 @@
   margin-right: 0;
 }
 
+/* Final CTA band on lavender sections — keep copy + actions centered */
+.hht-sp .hht-sp-final-band .hht-sp-final,
+.hht-sp section.hht-sp-final-band .hht-sp__wrap {
+  text-align: center !important;
+}
+
+.hht-sp .hht-sp-final-band .hht-sp__eyebrow,
+.hht-sp .hht-sp-final-band .hht-sp__h2,
+.hht-sp .hht-sp-final-band .hht-sp__lead {
+  display: block;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.hht-sp .hht-sp-final-band .hht-sp__ctas {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  width: 100%;
+}
+
 @media (max-width: 1024px) {
   .hht-sp .hht-sp-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hht-sp .hht-sp-steps--4,
