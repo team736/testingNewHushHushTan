@@ -1,3 +1,10 @@
+{%- liquid
+  assign hht_skip = false
+  if section.settings.only_on_handle != blank and page.handle != section.settings.only_on_handle
+    assign hht_skip = true
+  endif
+-%}
+{%- unless hht_skip -%}
 <section class="section">
   <div class="container container--home">
     <div class="final-cta">
@@ -42,10 +49,13 @@
   </div>
 </section>
 
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "Final CTA",
   "settings": [
+    { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. our-services), this section renders only on that page." },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Ready to glow" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Book your Custom Glow today" },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Three Texas locations. Mixed for your undertones." },

@@ -1,4 +1,11 @@
 {%- liquid
+  assign hht_skip = false
+  if section.settings.only_on_handle != blank and page.handle != section.settings.only_on_handle
+    assign hht_skip = true
+  endif
+-%}
+{%- unless hht_skip -%}
+{%- liquid
   assign book_url = section.settings.book_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu'
   assign tips_url = section.settings.tips_url | default: '/pages/tanning-tips'
   assign faqs_url = section.settings.faqs_url | default: '/pages/faqs'
@@ -197,10 +204,13 @@
   </div>
 </section>
 
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "Glow Moments + FAQ",
   "settings": [
+    { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. our-services), this section renders only on that page." },
     { "type": "header",   "content": "Glow Moments (top section)" },
     { "type": "checkbox", "id": "show_moments",       "label": "Show Glow Moments carousel", "default": true },
     { "type": "text",     "id": "moments_eyebrow",    "label": "Eyebrow",    "default": "Glow Moments" },

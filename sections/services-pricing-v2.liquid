@@ -1,3 +1,10 @@
+{%- liquid
+  assign hht_skip = false
+  if section.settings.only_on_handle != blank and page.handle != section.settings.only_on_handle
+    assign hht_skip = true
+  endif
+-%}
+{%- unless hht_skip -%}
 {% style %}
   /* Hard-coded Freight Neo Pro Medium */
   @font-face {
@@ -836,10 +843,13 @@
   })();
 </script>
 
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "HHT Services",
   "settings": [
+    { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. our-services), this section renders only on that page." },
     { "type": "header", "content": "Page Heading" },
     { "type": "checkbox", "id": "hide_page_heading", "label": "Hide page heading (city-specific pages)", "default": false },
     { "type": "checkbox", "id": "compact_heading", "label": "Compact heading", "default": false },

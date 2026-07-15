@@ -1,3 +1,8 @@
+{%- comment -%}
+  Hide the empty default page chrome when /pages/our-services is still on the
+  Default template — the gated Our Services sections in page.json render instead.
+{%- endcomment -%}
+{%- unless page.handle == 'our-services' -%}
 <section class="page-hero">
   <div class="container">
     <div class="page-hero__card">
@@ -14,6 +19,7 @@
     </div>
   </div>
 </section>
+{%- endunless -%}
 
 {% schema %}
 { "name": "Page", "settings": [] }
