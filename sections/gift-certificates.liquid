@@ -186,6 +186,132 @@
     margin: 18px auto 0; max-width: 44rem; text-align: center;
     font-size: 0.85rem; color: var(--gift-muted); line-height: 1.45;
   }
+
+  /* Gift Value Ideas — services-style pricing card */
+    #hht-gift-{{ sid }} .hht-gift-values-card {
+      background: #fff;
+      border: 1px solid rgba(166, 159, 226, 0.55);
+      border-radius: 22px;
+      overflow: hidden;
+      margin-top: 8px;
+      box-shadow: 0 20px 50px rgba(166, 159, 226, 0.12);
+      text-align: left;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__strip {
+      background: linear-gradient(180deg, #F4F2FF 0%, #FAF9FF 100%);
+      padding: 32px 30px 24px;
+      text-align: center;
+      border-bottom: 1px solid rgba(231, 227, 245, 0.55);
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__eyebrow {
+      display: block;
+      margin: 0 0 10px;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__h2 {
+      margin: 0 0 10px;
+      font-style: italic;
+      font-weight: 500;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__lead {
+      margin: 0 auto;
+      max-width: 46rem;
+      font-style: italic;
+      opacity: 0.9;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 28px;
+      padding: 8px 30px 18px;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto auto;
+      column-gap: 20px;
+      align-items: start;
+      padding: 22px 0 18px;
+      border-bottom: 1px solid rgba(231, 227, 245, 0.55);
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row:nth-last-child(-n+2) { border-bottom: none; }
+    #hht-gift-{{ sid }} .hht-gift-values-row__head {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row__title {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gift-ink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row__price {
+      grid-column: 2;
+      grid-row: 1;
+      font-family: var(--font-heading);
+      font-size: clamp(1.7rem, 2.4vw, 2.15rem);
+      font-weight: 500;
+      color: var(--gift-ink);
+      line-height: 1;
+      text-align: right;
+      white-space: nowrap;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row__desc {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin: 8px 0 0;
+      color: var(--gift-body);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row__list {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin: 10px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--gift-body);
+      font-size: 0.92rem;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-row__list li {
+      margin: 0 0 4px;
+    }
+    #hht-gift-{{ sid }} .hht-gift-values-card__foot {
+      padding: 0 30px 26px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gift-muted);
+      line-height: 1.45;
+    }
+    @media (max-width: 800px) {
+      #hht-gift-{{ sid }} .hht-gift-values-card__body {
+        grid-template-columns: 1fr;
+        padding: 4px 22px 12px;
+      }
+      #hht-gift-{{ sid }} .hht-gift-values-card__strip { padding: 26px 22px 20px; }
+      #hht-gift-{{ sid }} .hht-gift-values-row {
+        grid-template-columns: 1fr;
+        padding: 18px 0 16px;
+        border-bottom: 1px solid rgba(231, 227, 245, 0.55);
+      }
+      #hht-gift-{{ sid }} .hht-gift-values-row:last-child { border-bottom: none; }
+      #hht-gift-{{ sid }} .hht-gift-values-row:nth-last-child(-n+2) { border-bottom: 1px solid rgba(231, 227, 245, 0.55); }
+      #hht-gift-{{ sid }} .hht-gift-values-row:last-child { border-bottom: none; }
+      #hht-gift-{{ sid }} .hht-gift-values-row__head { grid-column: 1; grid-row: 1; }
+      #hht-gift-{{ sid }} .hht-gift-values-row__price {
+        grid-column: 1; grid-row: 2; text-align: left; margin-top: 6px;
+        font-size: 1.55rem;
+      }
+      #hht-gift-{{ sid }} .hht-gift-values-row__desc { grid-row: 3; }
+      #hht-gift-{{ sid }} .hht-gift-values-row__list { grid-row: 4; }
+      #hht-gift-{{ sid }} .hht-gift-values-card__foot { padding: 0 22px 22px; }
+    }
   #hht-gift-{{ sid }} .hht-gift-steps {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px;
   }
@@ -368,49 +494,65 @@
     </div>
   </div>
 
-  {%- comment -%} ===== VALUE INSPIRATION ===== {%- endcomment -%}
+  {%- comment -%} ===== VALUE INSPIRATION (services pricing style) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--white" id="gift-values">
-    <div class="hht-gift__wrap hht-gift__center">
-      <span class="hht-gift__eyebrow">Gift Value Ideas</span>
-      <h2 class="hht-gift__h2">What Could Their Gift Cover?</h2>
-      <p class="hht-gift__lead">Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.</p>
-      <div class="hht-gift-grid hht-gift-grid--3" style="text-align:left;" data-gift-values>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">A little glow</span>
-          <p class="hht-gift-amount" data-gift-amount="little">$25</p>
-          <p>Could be used toward an eligible partial tan or glow-enhancing add-on, based on current listed pricing.</p>
-          <ul>
-            <li>Face or upper/lower partials</li>
-            <li>Selected add-ons</li>
-          </ul>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">The signature experience</span>
-          <p class="hht-gift-amount" data-gift-amount="custom">$50</p>
-          <p>May cover one Custom Glow appointment at the selected studio, based on current listed pricing.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Rapid-ready</span>
-          <p class="hht-gift-amount" data-gift-amount="rapid">$60</p>
-          <p>May cover one Rapid Glow appointment at the selected studio, based on current listed pricing.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Glow and go</span>
-          <p class="hht-gift-amount" data-gift-amount="combo">$55</p>
-          <p>Could be used toward one core service plus an eligible add-on, depending on selections and taxes.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">A complete treat</span>
-          <p class="hht-gift-amount" data-gift-amount="complete">$110</p>
-          <p>A broader gift amount that may cover multiple eligible services over time, subject to studio terms.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Custom amount</span>
-          <p class="hht-gift-amount">Any</p>
-          <p>Choose any available amount in the secure Booker checkout when creating the certificate.</p>
-        </article>
+    <div class="hht-gift__wrap">
+      <div class="hht-gift-values-card" data-gift-values>
+        <div class="hht-gift-values-card__strip">
+          <span class="hht-gift__eyebrow">Gift Value Ideas</span>
+          <h2 class="hht-gift__h2">What Could Their Gift Cover?</h2>
+          <p class="hht-gift__lead">Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.</p>
+        </div>
+        <div class="hht-gift-values-card__body">
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">A little glow</h3>
+            </div>
+            <div class="hht-gift-values-row__price" data-gift-amount="little">$25</div>
+            <p class="hht-gift-values-row__desc">Could be used toward an eligible partial tan or glow-enhancing add-on, based on current listed pricing.</p>
+            <ul class="hht-gift-values-row__list">
+              <li>· Face or upper/lower partials</li>
+              <li>· Selected add-ons</li>
+            </ul>
+          </article>
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">The signature experience</h3>
+            </div>
+            <div class="hht-gift-values-row__price" data-gift-amount="custom">$50</div>
+            <p class="hht-gift-values-row__desc">May cover one Custom Glow appointment at the selected studio, based on current listed pricing.</p>
+          </article>
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">Rapid-ready</h3>
+            </div>
+            <div class="hht-gift-values-row__price" data-gift-amount="rapid">$60</div>
+            <p class="hht-gift-values-row__desc">May cover one Rapid Glow appointment at the selected studio, based on current listed pricing.</p>
+          </article>
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">Glow and go</h3>
+            </div>
+            <div class="hht-gift-values-row__price" data-gift-amount="combo">$55</div>
+            <p class="hht-gift-values-row__desc">Could be used toward one core service plus an eligible add-on, depending on selections and taxes.</p>
+          </article>
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">A complete treat</h3>
+            </div>
+            <div class="hht-gift-values-row__price" data-gift-amount="complete">$110</div>
+            <p class="hht-gift-values-row__desc">A broader gift amount that may cover multiple eligible services over time, subject to studio terms.</p>
+          </article>
+          <article class="hht-gift-values-row">
+            <div class="hht-gift-values-row__head">
+              <h3 class="hht-gift-values-row__title">Custom amount</h3>
+            </div>
+            <div class="hht-gift-values-row__price">Any</div>
+            <p class="hht-gift-values-row__desc">Choose any available amount in the secure Booker checkout when creating the certificate.</p>
+          </article>
+        </div>
+        <p class="hht-gift-values-card__foot">Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms.</p>
       </div>
-      <p class="hht-gift-fine">Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms.</p>
     </div>
   </div>
 
