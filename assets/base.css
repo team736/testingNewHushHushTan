@@ -6370,3 +6370,57 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   .template-page .hht-chat-widget-wrap { padding-bottom: 100px; }
 }
 
+/* ============================================================
+   Location landing pages (Austin / Dallas / Houston)
+   Equalize vertical section rhythm to homepage --section-y.
+   No layout redesign — spacing only.
+   ============================================================ */
+.hht-location-landing {
+  --loc-section-y: var(--section-y);
+  --loc-head-gap: var(--heading-gap);
+}
+
+.hht-location-landing .shopify-section > .section,
+.hht-location-landing .shopify-section > .press-featured,
+.hht-location-landing .hht-glow-stitch__faq,
+.hht-location-landing .hht-glow-stitch__moments {
+  padding-top: var(--loc-section-y);
+  padding-bottom: var(--loc-section-y);
+}
+
+/* Kill compact / ad-hoc overrides that create uneven gaps */
+.hht-location-landing .section-compact,
+.hht-location-landing .section--tight,
+.hht-location-landing .section-large {
+  padding-top: var(--loc-section-y);
+  padding-bottom: var(--loc-section-y);
+}
+
+/* Keep hero band spacing identical to homepage hero (not a .section) */
+.hht-location-landing .hero2 {
+  padding-top: clamp(16px, 2vw, 24px);
+  padding-bottom: clamp(20px, 2.5vw, 32px);
+}
+
+/* Align section heading gaps across location pages */
+.hht-location-landing .section-head,
+.hht-location-landing .hht-reviews__head,
+.hht-location-landing .press-featured__head,
+.hht-location-landing .hht-glow-stitch__faq-head,
+.hht-location-landing .hht-results__stats {
+  margin-bottom: var(--loc-head-gap);
+}
+
+.hht-location-landing .hht-reviews__cta,
+.hht-location-landing .hht-social__cta,
+.hht-location-landing .hht-results__cta {
+  margin-top: var(--loc-head-gap);
+}
+
+/* Prevent Shopify section wrappers from adding extra vertical offsets */
+.hht-location-landing .shopify-section {
+  margin: 0;
+  padding: 0;
+}
+
+

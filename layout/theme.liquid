@@ -54,7 +54,7 @@
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script>document.documentElement.classList.remove('no-js');</script>
   </head>
-  <body class="template-{{ template | replace: '.', '-' | handle }}">
+  <body class="template-{{ template | replace: '.', '-' | handle }}{% if template.suffix == 'austin' or template.suffix == 'dallas' or template.suffix == 'houston' %} hht-location-landing{% endif %}">
     <a class="skip-link visually-hidden" href="#MainContent">Skip to content</a>
 
     {% sections 'group-header' %}

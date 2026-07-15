@@ -16,8 +16,8 @@
 {%- assign uid = 'press-' | append: section.id -%}
 
 <style>
-  #{{ uid }}.press-featured { padding: 56px 0 64px; }
-  #{{ uid }} .press-featured__head { text-align: center; margin-bottom: 40px; }
+  #{{ uid }}.press-featured { padding: var(--section-y) 0; }
+  #{{ uid }} .press-featured__head { text-align: center; margin-bottom: var(--section-head-gap, 40px); }
   #{{ uid }} .press-featured__eyebrow {
     display: inline-block;
     font-family: Arial, sans-serif;
