@@ -19,6 +19,7 @@
         "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
         "map_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703",
         "canonical_url": "https://hushhushtan.com/pages/austin",
+        "image_url": "",
         "meta_title": "Spray Tan Austin, TX | Custom Airbrush Tanning | Hush Hush Tan",
         "meta_description": "Book a customized spray tan at the Hush Hush Tan Austin flagship. Natural-looking airbrush tanning personally matched to your skin tone."
       }
@@ -30,7 +31,7 @@
           "type": "slide",
           "settings": {
             "image_fallback": "hht-loc-austin-hero.jpg",
-            "eyebrow": "AUSTIN FLAGSHIP \u00b7 CLARKSVILLE",
+            "eyebrow": "AUSTIN FLAGSHIP · CLARKSVILLE",
             "title_line1": "Your Flawless",
             "title_line2": "Spray Tan",
             "title_line3": "in Austin",
@@ -38,7 +39,7 @@
             "cta_primary_text": "BOOK YOUR AUSTIN GLOW",
             "cta_primary_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
             "cta_secondary_text": "PLAN YOUR VISIT",
-            "cta_secondary_url": "#visit-austin",
+            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "show_pills": false
           }
         },
@@ -131,6 +132,7 @@
         "r4"
       ],
       "settings": {
+        "only_on_handle": "",
         "eyebrow": "Loved Locally",
         "heading": "Austin Loves the Glow",
         "subheading": "Real five-star Google reviews from Austin clients.",
@@ -305,7 +307,7 @@
       "settings": {
         "eyebrow": "YOUR FIRST GLOW",
         "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow \u2014 our signature first-time experience.",
+        "feature": "The Custom Glow — our signature first-time experience.",
         "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
         "image_fallback": "hht-loc-austin-start.jpg",
         "image_alt": "Hush Hush Tan Austin Custom Glow studio experience",
@@ -320,14 +322,15 @@
           "type": "location",
           "settings": {
             "city": "Austin",
-            "tagline": "Austin Flagship \u00b7 Clarksville",
+            "tagline": "Austin Flagship · Clarksville",
             "image_fallback": "hht-loc-austin-hero.jpg",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
             "book_label": "Book Appointment",
             "map_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703",
+            "info_url": "",
             "secondary_label": "Get Directions"
           }
         }
@@ -418,14 +421,14 @@
           "type": "qa",
           "settings": {
             "question": "Where is the Austin studio located?",
-            "answer": "<p>Our flagship salon is at 1211 West 6th St, Suite #400, Austin, TX 78703 \u2014 nestled in Clarksville just off West 6th Street.</p>"
+            "answer": "<p>Our flagship salon is at 1211 West 6th St, Suite #400, Austin, TX 78703 — nestled in Clarksville just off West 6th Street.</p>"
           }
         },
         "qa2": {
           "type": "qa",
           "settings": {
             "question": "Is parking available in Austin?",
-            "answer": "<p>Yes \u2014 street and lot parking are available around the West 6th / Clarksville studio. Arrive a few minutes early so you can park comfortably before your appointment.</p>"
+            "answer": "<p>Yes — street and lot parking are available around the West 6th / Clarksville studio. Arrive a few minutes early so you can park comfortably before your appointment.</p>"
           }
         },
         "qa3": {
@@ -446,14 +449,14 @@
           "type": "qa",
           "settings": {
             "question": "How is my shade customized?",
-            "answer": "<p>Every airbrush tan is personally matched to your skin tone, undertones, and desired depth of color \u2014 never a one-size-fits-all formula.</p>"
+            "answer": "<p>Every airbrush tan is personally matched to your skin tone, undertones, and desired depth of color — never a one-size-fits-all formula.</p>"
           }
         },
         "qa6": {
           "type": "qa",
           "settings": {
             "question": "How long does a Custom Glow take to develop?",
-            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2\u20134 hours.</p>"
+            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2–4 hours.</p>"
           }
         },
         "qa7": {
@@ -482,16 +485,30 @@
         "qa8"
       ],
       "settings": {
+        "only_on_handle": "",
         "show_moments": false,
+        "moments_eyebrow": "Glow Moments",
+        "moments_heading": "For the ones who glow.",
+        "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
+        "carousel_autoplay": true,
+        "carousel_delay": 5,
         "faq_eyebrow": "Austin FAQ",
         "faq_heading": "Questions before you glow in Austin",
         "faq_subheading": "Everything you need to feel ready for your appointment.",
         "show_prep_card": true,
+        "prep_title": "Glow Prep Basics",
+        "prep_before_label": "Before Your Tan",
+        "prep_before_items": "Exfoliate & shave 24 hours prior.\nAvoid lotions or oils on skin.\nWear loose, dark clothing.",
+        "prep_day_label": "Day of Your Tan",
+        "prep_day_items": "Arrive with clean, bare skin.\nAvoid deodorant and perfume.",
+        "prep_after_label": "After Your Tan",
+        "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
         "cta_label": "Ready to book?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Austin",
-        "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591"
+        "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
+        "tips_url": ""
       }
     },
     "social": {
@@ -553,11 +570,15 @@
     "final": {
       "type": "final-cta",
       "settings": {
+        "only_on_handle": "",
         "eyebrow": "READY FOR YOUR GLOW?",
         "heading": "Book Your Austin Appointment",
         "text": "A natural-looking, customized glow begins with a personalized consultation and expert airbrush application.",
         "cta1_text": "BOOK AUSTIN",
         "cta1_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
+        "cta1_url_austin": "",
+        "cta1_url_houston": "",
+        "cta1_url_dallas": "",
         "cta2_text": "VIEW LOCATION DETAILS",
         "cta2_url": "#visit-austin"
       }
