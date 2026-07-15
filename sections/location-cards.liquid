@@ -47,13 +47,69 @@
         -%}
 
         {%- if is_single -%}
+          <div class="hht-visit__intro section-head">
+            {%- if section.settings.eyebrow != blank -%}
+              <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+            {%- endif -%}
+            {%- if section.settings.heading != blank -%}
+              <h2>{{ section.settings.heading }}</h2>
+            {%- endif -%}
+            {%- if block.settings.tagline != blank -%}
+              <p class="section-head__sub hht-visit__tagline">{{ block.settings.tagline }}</p>
+            {%- elsif section.settings.subheading != blank -%}
+              <p class="section-head__sub">{{ section.settings.subheading }}</p>
+            {%- endif -%}
+          </div>
+
           <article class="hht-visit__panel" {{ block.shopify_attributes }}>
+            <div class="hht-visit__body">
+              <div class="hht-visit__facts">
+                {%- if block.settings.address != blank -%}
+                  <div class="hht-visit__fact">
+                    <span class="hht-visit__fact-label">Address</span>
+                    <p class="hht-visit__fact-value">
+                      {%- if maps_href != blank -%}
+                        <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
+                      {%- else -%}
+                        {{ block.settings.address }}
+                      {%- endif -%}
+                    </p>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.phone != blank -%}
+                  <div class="hht-visit__fact">
+                    <span class="hht-visit__fact-label">Phone</span>
+                    <p class="hht-visit__fact-value">{% render 'tel-link', phone: block.settings.phone %}</p>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.hours != blank -%}
+                  <div class="hht-visit__fact">
+                    <span class="hht-visit__fact-label">Hours</span>
+                    <p class="hht-visit__fact-value">{{ block.settings.hours }}</p>
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div class="hht-visit__ctas">
+                {%- if block.settings.book_url != blank -%}
+                  <a href="{{ block.settings.book_url }}" class="btn btn--pill" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
+                {%- endif -%}
+                {%- if secondary_url != blank and secondary_label != blank -%}
+                  <a
+                    href="{{ secondary_url }}"
+                    class="btn btn--pill btn--outline"
+                    {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+                  >{{ secondary_label }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+
             <div class="hht-visit__media">
               {%- if block.settings.image != blank -%}
                 <img
                   src="{{ block.settings.image | image_url: width: 1200 }}"
                   srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1200 }} 1200w"
-                  sizes="(max-width: 900px) 100vw, 48vw"
+                  sizes="(max-width: 900px) 100vw, 46vw"
                   alt="Hush Hush Tan {{ block.settings.city | escape }} studio"
                   width="1200"
                   height="900"
@@ -68,60 +124,6 @@
                   loading="lazy"
                 >
               {%- endif -%}
-            </div>
-
-            <div class="hht-visit__body">
-              {%- if section.settings.eyebrow != blank -%}
-                <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-              {%- endif -%}
-              {%- if section.settings.heading != blank -%}
-                <h2 class="hht-visit__title">{{ section.settings.heading }}</h2>
-              {%- endif -%}
-              {%- if block.settings.tagline != blank -%}
-                <p class="hht-visit__feature">{{ block.settings.tagline }}</p>
-              {%- elsif section.settings.subheading != blank -%}
-                <p class="hht-visit__feature">{{ section.settings.subheading }}</p>
-              {%- endif -%}
-
-              <dl class="hht-visit__details">
-                {%- if block.settings.address != blank -%}
-                  <div class="hht-visit__row">
-                    <dt>Address</dt>
-                    <dd>
-                      {%- if maps_href != blank -%}
-                        <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
-                      {%- else -%}
-                        {{ block.settings.address }}
-                      {%- endif -%}
-                    </dd>
-                  </div>
-                {%- endif -%}
-                {%- if block.settings.phone != blank -%}
-                  <div class="hht-visit__row">
-                    <dt>Phone</dt>
-                    <dd>{% render 'tel-link', phone: block.settings.phone %}</dd>
-                  </div>
-                {%- endif -%}
-                {%- if block.settings.hours != blank -%}
-                  <div class="hht-visit__row">
-                    <dt>Hours</dt>
-                    <dd>{{ block.settings.hours }}</dd>
-                  </div>
-                {%- endif -%}
-              </dl>
-
-              <div class="hht-visit__ctas">
-                {%- if block.settings.book_url != blank -%}
-                  <a href="{{ block.settings.book_url }}" class="btn btn--pill" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
-                {%- endif -%}
-                {%- if secondary_url != blank and secondary_label != blank -%}
-                  <a
-                    href="{{ secondary_url }}"
-                    class="btn btn--pill btn--outline"
-                    {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
-                  >{{ secondary_label }}</a>
-                {%- endif -%}
-              </div>
             </div>
           </article>
         {%- else -%}
