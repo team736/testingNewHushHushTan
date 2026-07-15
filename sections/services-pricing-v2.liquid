@@ -307,6 +307,9 @@
   div#hht-services-{{ section.id }} .hht-pair-row .hht-section-card { margin-bottom: 0; }
 
   /* LeadConnector chat widget */
+  div#hht-services-{{ section.id }} {
+    padding-bottom: calc(clamp(48px, 6vw, 72px) + env(safe-area-inset-bottom, 0px) + 88px);
+  }
   div#hht-services-{{ section.id }}.hht-loc-booting {
     opacity: 0;
   }
