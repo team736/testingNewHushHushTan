@@ -8,62 +8,148 @@
  * ------------------------------------------------------------
  */
 {
-  "order": [
-    "hero",
-    "reviews",
-    "press_grid_Uniykx",
-    "start_here",
-    "locations",
-    "before_after",
-    "glow_moments_faq_gkPY4D",
-    "social",
-    "newsletter",
-    "sticky_book"
-  ],
   "sections": {
-    "before_after": {
-      "block_order": [
-        "ba1",
-        "ba2",
-        "ba3"
-      ],
+    "hero": {
+      "type": "hero",
       "blocks": {
-        "ba1": {
+        "slide-1": {
+          "type": "slide",
           "settings": {
-            "caption": "Custom Glow — color-matched finish"
-          },
-          "type": "pair"
+            "image": "shopify://shop_images/4.png",
+            "image_fallback": "",
+            "eyebrow": "Luxury Tanning, Elevated.",
+            "title_line1": "Healthier Glow.",
+            "title_line2": "Flawless",
+            "title_line3": "Confidence.",
+            "subtitle": "Our custom airbrush tans enhance your skin tone in a clean, luxury studio where you'll always feel your best.",
+            "cta_primary_text": "Book Now",
+            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_secondary_text": "Book Custom glow",
+            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "show_pills": true
+          }
         },
-        "ba2": {
+        "slide-2": {
+          "type": "slide",
           "settings": {
-            "caption": "Event-ready in one session"
-          },
-          "type": "pair"
-        },
-        "ba3": {
-          "settings": {
-            "caption": "Natural bronze, never orange"
-          },
-          "type": "pair"
+            "image": "shopify://shop_images/Best_Spray_Tans_Austin_Dallas_Houston_Texas.png",
+            "image_fallback": "hht-hero-slide-2.webp",
+            "eyebrow": "The Hush Hush Experience",
+            "title_line1": "Everyone will",
+            "title_line2": "notice.",
+            "title_line3": "No one will know.",
+            "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
+            "cta_primary_text": "Book Now",
+            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_secondary_text": "Book Your Glow",
+            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "show_pills": true
+          }
         }
       },
+      "block_order": [
+        "slide-1",
+        "slide-2"
+      ],
       "settings": {
-        "cta_text": "Book Your Glow",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
-        "eyebrow": "Real Client Results",
-        "heading": "15 Years of Flawless Glows",
-        "show_stats": true,
-        "stat_1_label": "Perfecting the glow",
-        "stat_1_num": "15 Years",
-        "stat_2_label": "Five-star reviews",
-        "stat_2_num": "3,000+",
-        "stat_3_label": "Across Texas",
-        "stat_3_num": "3 Studios",
-        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time."
+        "autoplay": true,
+        "autoplay_ms": 4500,
+        "standard_heading": "The Hush Hush Standard"
+      }
+    },
+    "locations": {
+      "type": "location-cards",
+      "blocks": {
+        "l1": {
+          "type": "location",
+          "settings": {
+            "city": "Austin",
+            "tagline": "Our flagship studio on West 6th",
+            "image": "shopify://shop_images/press.jpg",
+            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
+            "phone": "512-482-8339",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "info_url": "/pages/austin-services"
+          }
+        },
+        "l2": {
+          "type": "location",
+          "settings": {
+            "city": "Dallas",
+            "tagline": "Oak Lawn studio",
+            "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
+            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
+            "phone": "469-868-6228",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+            "info_url": "/pages/dallas-services"
+          }
+        },
+        "l3": {
+          "type": "location",
+          "settings": {
+            "city": "Houston",
+            "tagline": "Houston M-K-T Heights",
+            "image": "shopify://shop_images/16-HushHushTanHouston15_3.jpg",
+            "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
+            "phone": "713-485-0633",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+            "info_url": "/pages/houston-services"
+          }
+        }
       },
-      "type": "before-after"
+      "block_order": [
+        "l1",
+        "l2",
+        "l3"
+      ],
+      "settings": {
+        "eyebrow": "Visit Us",
+        "heading": "Three Texas Locations",
+        "subheading": "Walk into any of our three studios and you'll get the same thing: a perfectly mixed glow, professional and experienced consultants, and a space that feels like a quiet escape."
+      }
     },
     "glow_moments_faq_gkPY4D": {
+      "type": "glow-moments-faq",
+      "blocks": {
+        "qa_eK6CNr": {
+          "type": "qa",
+          "settings": {
+            "question": "How long will my spray tan last?",
+            "answer": "<p>Your airbrush tan can last up to ten days depending on how well you prep and care for your skin. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using a tan extender, or mixing body lotion with a self-tanner daily, can extend the life of your tan by 50-75%.</p>"
+          }
+        },
+        "qa_V8NQgD": {
+          "type": "qa",
+          "settings": {
+            "question": "How do I prepare for my session?",
+            "answer": "<p>Shower, shave, and exfoliate before your appointment. Don't apply any body or face moisturizers, makeup, or deodorant after showering. Complete all hair/spa treatments and workouts before your tan, and wear loose, dark clothing or bring some to change into after.</p>"
+          }
+        },
+        "qa_4Ntriw": {
+          "type": "qa",
+          "settings": {
+            "question": "What should I expect after my appointment?",
+            "answer": "<p>You may feel slightly damp in the hour following your tan but can go about your normal routine. Stay dry and avoid touching your skin so your tan dries flawlessly. Your color will darken over the next 2-3 hours. You may shower lightly after 8 hours to wash off the cosmetic bronzer and reveal your golden glow. Limit exposure to pools and hot tubs to keep your tan looking fresh.</p>"
+          }
+        },
+        "qa_9iRcwj": {
+          "type": "qa",
+          "settings": {
+            "question": "What do I wear for my session?",
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
+          }
+        },
+        "qa_RYBLhG": {
+          "type": "qa",
+          "settings": {
+            "question": "Is airbrush tanning safe?",
+            "answer": "<p>Yes. DHA, the active ingredient in our solution, is FDA-approved for cosmetic use and considered nontoxic and non-carcinogenic. DHA-based sunless tanning is recommended by the Skin Cancer Organization, American Academy of Dermatology, the American Cancer Society, and the American Medical Association. If you're pregnant or nursing, please check with your doctor before booking.</p>"
+          }
+        }
+      },
       "block_order": [
         "qa_eK6CNr",
         "qa_V8NQgD",
@@ -71,186 +157,137 @@
         "qa_9iRcwj",
         "qa_RYBLhG"
       ],
-      "blocks": {
-        "qa_4Ntriw": {
-          "settings": {
-            "answer": "<p>You may feel slightly damp in the hour following your tan but can go about your normal routine. Stay dry and avoid touching your skin so your tan dries flawlessly. Your color will darken over the next 2-3 hours. You may shower lightly after 8 hours to wash off the cosmetic bronzer and reveal your golden glow. Limit exposure to pools and hot tubs to keep your tan looking fresh.</p>",
-            "question": "What should I expect after my appointment?"
-          },
-          "type": "qa"
-        },
-        "qa_9iRcwj": {
-          "settings": {
-            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>",
-            "question": "What do I wear for my session?"
-          },
-          "type": "qa"
-        },
-        "qa_RYBLhG": {
-          "settings": {
-            "answer": "<p>Yes. DHA, the active ingredient in our solution, is FDA-approved for cosmetic use and considered nontoxic and non-carcinogenic. DHA-based sunless tanning is recommended by the Skin Cancer Organization, American Academy of Dermatology, the American Cancer Society, and the American Medical Association. If you're pregnant or nursing, please check with your doctor before booking.</p>",
-            "question": "Is airbrush tanning safe?"
-          },
-          "type": "qa"
-        },
-        "qa_V8NQgD": {
-          "settings": {
-            "answer": "<p>Shower, shave, and exfoliate before your appointment. Don't apply any body or face moisturizers, makeup, or deodorant after showering. Complete all hair/spa treatments and workouts before your tan, and wear loose, dark clothing or bring some to change into after.</p>",
-            "question": "How do I prepare for my session?"
-          },
-          "type": "qa"
-        },
-        "qa_eK6CNr": {
-          "settings": {
-            "answer": "<p>Your airbrush tan can last up to ten days depending on how well you prep and care for your skin. Long hot baths or showers and exposure to chlorine will speed up the fading process. Using a tan extender, or mixing body lotion with a self-tanner daily, can extend the life of your tan by 50-75%.</p>",
-            "question": "How long will my spray tan last?"
-          },
-          "type": "qa"
-        }
-      },
       "name": "Glow Moments + FAQ",
       "settings": {
-        "book_btn_label": "Book Your Glow",
-        "book_url": "",
-        "carousel_autoplay": true,
-        "carousel_delay": 5,
-        "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs →",
-        "faq_eyebrow": "Good to Know",
-        "faq_heading": "Frequently asked questions",
-        "faq_subheading": "Everything you need to feel ready for your glow.",
-        "faqs_url": "",
+        "show_moments": false,
         "moments_eyebrow": "Glow Moments",
         "moments_heading": "For the ones who glow.",
         "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
-        "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
-        "prep_after_label": "After Your Tan",
-        "prep_before_items": "Exfoliate & shave 24 hours prior.\nAvoid lotions or oils on skin.\nWear loose, dark clothing.",
-        "prep_before_label": "Before Your Tan",
-        "prep_day_items": "Arrive with clean, bare skin.\nAvoid deodorant and perfume.",
-        "prep_day_label": "Day of Your Tan",
-        "prep_title": "Glow Prep Basics",
-        "show_moments": false,
+        "carousel_autoplay": true,
+        "carousel_delay": 5,
+        "faq_eyebrow": "Good to Know",
+        "faq_heading": "Frequently asked questions",
+        "faq_subheading": "Everything you need to feel ready for your glow.",
         "show_prep_card": true,
+        "prep_title": "Glow Prep Basics",
+        "prep_before_label": "Before Your Tan",
+        "prep_before_items": "Exfoliate & shave 24 hours prior.\nAvoid lotions or oils on skin.\nWear loose, dark clothing.",
+        "prep_day_label": "Day of Your Tan",
+        "prep_day_items": "Arrive with clean, bare skin.\nAvoid deodorant and perfume.",
+        "prep_after_label": "After Your Tan",
+        "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
+        "cta_label": "Still have questions?",
+        "faq_btn_label": "Read All FAQs →",
+        "faqs_url": "",
+        "book_btn_label": "Book Your Glow",
+        "book_url": "",
         "tips_url": ""
-      },
-      "type": "glow-moments-faq"
-    },
-    "hero": {
-      "block_order": [
-        "slide-1",
-        "slide-2"
-      ],
-      "blocks": {
-        "slide-1": {
-          "settings": {
-            "cta_primary_text": "Book Now",
-            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "Book Custom glow",
-            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "eyebrow": "Luxury Tanning, Elevated.",
-            "image": "shopify://shop_images/4.png",
-            "image_fallback": "",
-            "show_pills": true,
-            "subtitle": "Our custom airbrush tans enhance your skin tone in a clean, luxury studio where you'll always feel your best.",
-            "title_line1": "Healthier Glow.",
-            "title_line2": "Flawless",
-            "title_line3": "Confidence."
-          },
-          "type": "slide"
-        },
-        "slide-2": {
-          "settings": {
-            "cta_primary_text": "Book Now",
-            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "cta_secondary_text": "Book Your Glow",
-            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "eyebrow": "The Hush Hush Experience",
-            "image": "shopify://shop_images/Best_Spray_Tans_Austin_Dallas_Houston_Texas.png",
-            "image_fallback": "hht-hero-slide-2.webp",
-            "show_pills": true,
-            "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
-            "title_line1": "Everyone will",
-            "title_line2": "notice.",
-            "title_line3": "No one will know."
-          },
-          "type": "slide"
-        }
-      },
-      "settings": {
-        "autoplay": true,
-        "autoplay_ms": 4500,
-        "standard_heading": "The Hush Hush Standard"
-      },
-      "type": "hero"
-    },
-    "locations": {
-      "block_order": [
-        "l1",
-        "l2",
-        "l3"
-      ],
-      "blocks": {
-        "l1": {
-          "settings": {
-            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
-            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "city": "Austin",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
-            "image": "shopify://shop_images/press.jpg",
-            "info_url": "/pages/austin-services",
-            "phone": "512-482-8339",
-            "tagline": "Our flagship studio on West 6th"
-          },
-          "type": "location"
-        },
-        "l2": {
-          "settings": {
-            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
-            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
-            "city": "Dallas",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
-            "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
-            "info_url": "/pages/dallas-services",
-            "phone": "469-868-6228",
-            "tagline": "Oak Lawn studio"
-          },
-          "type": "location"
-        },
-        "l3": {
-          "settings": {
-            "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
-            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-            "city": "Houston",
-            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
-            "image": "shopify://shop_images/16-HushHushTanHouston15_3.jpg",
-            "info_url": "/pages/houston-services",
-            "phone": "713-485-0633",
-            "tagline": "Houston M-K-T Heights"
-          },
-          "type": "location"
-        }
-      },
-      "settings": {
-        "eyebrow": "Visit Us",
-        "heading": "Three Texas Locations",
-        "subheading": "Walk into any of our three studios and you'll get the same thing: a perfectly mixed glow, professional and experienced consultants, and a space that feels like a quiet escape."
-      },
-      "type": "location-cards"
-    },
-    "newsletter": {
-      "settings": {
-        "button_text": "Claim My 10% Off",
-        "disclaimer": "We respect your privacy. Unsubscribe anytime.",
-        "eyebrow": "New Client Offer",
-        "heading": "Get 10% off your first visit",
-        "placeholder": "Enter your email address",
-        "success_message": "You're in! Check your inbox for your 10% off code and glow tips.",
-        "text": "Join the list for 10% off your first Custom Glow, plus glow tips, new packages, and special offers."
-      },
-      "type": "newsletter"
+      }
     },
     "press_grid_Uniykx": {
+      "type": "press-grid",
+      "blocks": {
+        "logo_w3MRU7": {
+          "type": "logo",
+          "settings": {
+            "name": "",
+            "image": "shopify://shop_images/CI-Logo-2022-Website-White-1.svg",
+            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
+            "size": "md",
+            "invert_color": true
+          }
+        },
+        "logo_T9HbB4": {
+          "type": "logo",
+          "settings": {
+            "name": "Vogue",
+            "image": "shopify://shop_images/VOGUE_LOGO.svg",
+            "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty",
+            "size": "md",
+            "invert_color": false
+          }
+        },
+        "logo_kYkzAL": {
+          "type": "logo",
+          "settings": {
+            "name": "InStyle",
+            "image": "shopify://shop_images/download-1.jpg",
+            "link": "",
+            "size": "md",
+            "invert_color": false
+          }
+        },
+        "logo_V4jCdQ": {
+          "type": "logo",
+          "settings": {
+            "name": "D Magazine",
+            "image": "shopify://shop_images/featured-in-d-magazine.png",
+            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_6ttV8g": {
+          "type": "logo",
+          "settings": {
+            "name": "PaperCity",
+            "image": "shopify://shop_images/papercity-magazine-black.webp",
+            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_h6NJ9p": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Monthly",
+            "image": "shopify://shop_images/form_logo.jpg",
+            "link": "https://hushhushtan.com/pages/press",
+            "size": "md",
+            "invert_color": false
+          }
+        },
+        "logo_K4kcPQ": {
+          "type": "logo",
+          "settings": {
+            "name": "Texas Lifestyle Magazine",
+            "image": "shopify://shop_images/TLM_10Years_Color-1-1.svg",
+            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
+            "size": "xl",
+            "invert_color": false
+          }
+        },
+        "logo_Kd39my": {
+          "type": "logo",
+          "settings": {
+            "name": "Park Cities People",
+            "image": "shopify://shop_images/cropped-PN-LogoBlue.png",
+            "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_QXDd4r": {
+          "type": "logo",
+          "settings": {
+            "name": "The Leader",
+            "image": "shopify://shop_images/bd5862c8-e80f-45c3-9dfd-ae884f3263a9-1.webp",
+            "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_qETkbB": {
+          "type": "logo",
+          "settings": {
+            "name": "",
+            "image": "shopify://shop_images/huston3.png",
+            "link": "https://voyagehouston.com/interview/meet-izabel-wicker-of-hush-hush-tan/",
+            "size": "md",
+            "invert_color": true
+          }
+        }
+      },
       "block_order": [
         "logo_w3MRU7",
         "logo_T9HbB4",
@@ -263,116 +300,112 @@
         "logo_QXDd4r",
         "logo_qETkbB"
       ],
-      "blocks": {
-        "logo_6ttV8g": {
-          "settings": {
-            "image": "shopify://shop_images/papercity-magazine-black.webp",
-            "invert_color": false,
-            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
-            "name": "PaperCity",
-            "size": "lg"
-          },
-          "type": "logo"
-        },
-        "logo_K4kcPQ": {
-          "settings": {
-            "image": "shopify://shop_images/TLM_10Years_Color-1-1.svg",
-            "invert_color": false,
-            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
-            "name": "Texas Lifestyle Magazine",
-            "size": "xl"
-          },
-          "type": "logo"
-        },
-        "logo_Kd39my": {
-          "settings": {
-            "image": "shopify://shop_images/cropped-PN-LogoBlue.png",
-            "invert_color": false,
-            "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
-            "name": "Park Cities People",
-            "size": "lg"
-          },
-          "type": "logo"
-        },
-        "logo_QXDd4r": {
-          "settings": {
-            "image": "shopify://shop_images/bd5862c8-e80f-45c3-9dfd-ae884f3263a9-1.webp",
-            "invert_color": false,
-            "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
-            "name": "The Leader",
-            "size": "lg"
-          },
-          "type": "logo"
-        },
-        "logo_T9HbB4": {
-          "settings": {
-            "image": "shopify://shop_images/VOGUE_LOGO.svg",
-            "invert_color": false,
-            "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty",
-            "name": "Vogue",
-            "size": "md"
-          },
-          "type": "logo"
-        },
-        "logo_V4jCdQ": {
-          "settings": {
-            "image": "shopify://shop_images/featured-in-d-magazine.png",
-            "invert_color": false,
-            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
-            "name": "D Magazine",
-            "size": "lg"
-          },
-          "type": "logo"
-        },
-        "logo_h6NJ9p": {
-          "settings": {
-            "image": "shopify://shop_images/form_logo.jpg",
-            "invert_color": false,
-            "link": "https://hushhushtan.com/pages/press",
-            "name": "Austin Monthly",
-            "size": "md"
-          },
-          "type": "logo"
-        },
-        "logo_kYkzAL": {
-          "settings": {
-            "image": "shopify://shop_images/download-1.jpg",
-            "invert_color": false,
-            "link": "",
-            "name": "InStyle",
-            "size": "md"
-          },
-          "type": "logo"
-        },
-        "logo_qETkbB": {
-          "settings": {
-            "image": "shopify://shop_images/huston3.png",
-            "invert_color": true,
-            "link": "https://voyagehouston.com/interview/meet-izabel-wicker-of-hush-hush-tan/",
-            "name": "",
-            "size": "md"
-          },
-          "type": "logo"
-        },
-        "logo_w3MRU7": {
-          "settings": {
-            "image": "shopify://shop_images/CI-Logo-2022-Website-White-1.svg",
-            "invert_color": true,
-            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
-            "name": "",
-            "size": "md"
-          },
-          "type": "logo"
-        }
-      },
       "name": "Press grid",
       "settings": {
         "eyebrow": "Featured In",
         "heading": "Trusted by Texas. Recognized nationally."
-      },
-      "type": "press-grid"
+      }
     },
     "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "Hush hush is the only place I will go in Austin! I've had several tans done here and I always love the results. They are accommodating, honest and always make you feel comfortable!",
+            "author": "Audrey Kuhl",
+            "location": "Austin, TX"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!! Ashly at the front is very professional and knowledgeable.",
+            "author": "Haley Collins",
+            "location": "Dallas, TX"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed.",
+            "author": "Amber Richardson",
+            "location": "Houston, TX"
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "quote": "My experience here was amazing! Everyone was so nice from the start, from Kathy and Chloe at the front to Tarin who did my spray tan! Highly recommend, I will definitely be coming back.",
+            "author": "Samantha Robinson",
+            "location": "Austin, TX"
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "author": "Meaghan Estes",
+            "location": "Dallas, TX"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "author": "Ashley Post",
+            "location": "Houston, TX"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "quote": "This place is THE best! My tans always come out incredibly even (yes, including hands + feet), have the perfect color/undertone every time, and fade nicely. Every artist has made me extremely comfortable.",
+            "author": "Hali Crawford",
+            "location": "Austin, TX"
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
+            "author": "Calla Taylor",
+            "location": "Dallas, TX"
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "quote": "I had the absolute best experience with Ale at Hush Hush Tan! From the moment I walked in, she made me feel so comfortable and welcomed. She is incredibly knowledgeable, professional, and truly pays attention to detail.",
+            "author": "Gracie Solano",
+            "location": "Houston, TX"
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "quote": "Greeted by Chloe, who was incredibly kind and helpful during my first tan at Hush Hush. I was sprayed by Tarin, who had amazing attention to detail and made the entire experience feel comfortable and never awkward.",
+            "author": "Emma Kenny",
+            "location": "Austin, TX"
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "quote": "Tried HushHush today after coming from another local tanning salon that does airbrush, and what a world of difference. Amanda was very thorough and detailed, and the overall experience was great.",
+            "author": "Priscilla Rodriguez",
+            "location": "Dallas, TX"
+          }
+        },
+        "r12": {
+          "type": "review",
+          "settings": {
+            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights.",
+            "author": "Caroline Ross",
+            "location": "Houston, TX"
+          }
+        }
+      },
       "block_order": [
         "r1",
         "r2",
@@ -387,116 +420,122 @@
         "r11",
         "r12"
       ],
-      "blocks": {
-        "r1": {
-          "settings": {
-            "author": "Audrey Kuhl",
-            "location": "Austin, TX",
-            "quote": "Hush hush is the only place I will go in Austin! I've had several tans done here and I always love the results. They are accommodating, honest and always make you feel comfortable!"
-          },
-          "type": "review"
-        },
-        "r10": {
-          "settings": {
-            "author": "Emma Kenny",
-            "location": "Austin, TX",
-            "quote": "Greeted by Chloe, who was incredibly kind and helpful during my first tan at Hush Hush. I was sprayed by Tarin, who had amazing attention to detail and made the entire experience feel comfortable and never awkward."
-          },
-          "type": "review"
-        },
-        "r11": {
-          "settings": {
-            "author": "Priscilla Rodriguez",
-            "location": "Dallas, TX",
-            "quote": "Tried HushHush today after coming from another local tanning salon that does airbrush, and what a world of difference. Amanda was very thorough and detailed, and the overall experience was great."
-          },
-          "type": "review"
-        },
-        "r12": {
-          "settings": {
-            "author": "Caroline Ross",
-            "location": "Houston, TX",
-            "quote": "Abby and Amanda are truly the best! Made me feel so comfortable and they do the best custom tan. I just moved to Houston and had been going to Hush Hush in Dallas and was elated to see there was a Hush Hush right by my house in the Heights."
-          },
-          "type": "review"
-        },
-        "r2": {
-          "settings": {
-            "author": "Haley Collins",
-            "location": "Dallas, TX",
-            "quote": "Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!! Ashly at the front is very professional and knowledgeable."
-          },
-          "type": "review"
-        },
-        "r3": {
-          "settings": {
-            "author": "Amber Richardson",
-            "location": "Houston, TX",
-            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed."
-          },
-          "type": "review"
-        },
-        "r4": {
-          "settings": {
-            "author": "Samantha Robinson",
-            "location": "Austin, TX",
-            "quote": "My experience here was amazing! Everyone was so nice from the start, from Kathy and Chloe at the front to Tarin who did my spray tan! Highly recommend, I will definitely be coming back."
-          },
-          "type": "review"
-        },
-        "r5": {
-          "settings": {
-            "author": "Meaghan Estes",
-            "location": "Dallas, TX",
-            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!"
-          },
-          "type": "review"
-        },
-        "r6": {
-          "settings": {
-            "author": "Ashley Post",
-            "location": "Houston, TX",
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there."
-          },
-          "type": "review"
-        },
-        "r7": {
-          "settings": {
-            "author": "Hali Crawford",
-            "location": "Austin, TX",
-            "quote": "This place is THE best! My tans always come out incredibly even (yes, including hands + feet), have the perfect color/undertone every time, and fade nicely. Every artist has made me extremely comfortable."
-          },
-          "type": "review"
-        },
-        "r8": {
-          "settings": {
-            "author": "Calla Taylor",
-            "location": "Dallas, TX",
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding."
-          },
-          "type": "review"
-        },
-        "r9": {
-          "settings": {
-            "author": "Gracie Solano",
-            "location": "Houston, TX",
-            "quote": "I had the absolute best experience with Ale at Hush Hush Tan! From the moment I walked in, she made me feel so comfortable and welcomed. She is incredibly knowledgeable, professional, and truly pays attention to detail."
-          },
-          "type": "review"
-        }
-      },
       "settings": {
-        "cta_text": "Read Our Reviews",
-        "cta_url": "/pages/locations",
         "eyebrow": "Loved By Texas",
         "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
         "layout": "full",
         "speed": 50,
-        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston."
+        "cta_text": "Read Our Reviews",
+        "cta_url": "/pages/locations"
+      }
+    },
+    "start_here": {
+      "type": "start-here",
+      "blocks": {
+        "b1": {
+          "type": "point",
+          "settings": {
+            "text": "Hand-mixed, color-matched shade"
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "text": "Natural, streak-free finish — never orange"
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "text": "Perfect for your first-ever spray tan"
+          }
+        }
       },
-      "type": "reviews"
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ],
+      "settings": {
+        "eyebrow": "First Time?",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
+        "cta_text": "Book Now",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      }
+    },
+    "before_after": {
+      "type": "before-after",
+      "blocks": {
+        "ba1": {
+          "type": "pair",
+          "settings": {
+            "caption": "Custom Glow — color-matched finish"
+          }
+        },
+        "ba2": {
+          "type": "pair",
+          "settings": {
+            "caption": "Event-ready in one session"
+          }
+        },
+        "ba3": {
+          "type": "pair",
+          "settings": {
+            "caption": "Natural bronze, never orange"
+          }
+        }
+      },
+      "block_order": [
+        "ba1",
+        "ba2",
+        "ba3"
+      ],
+      "settings": {
+        "eyebrow": "Real Client Results",
+        "heading": "15 Years of Flawless Glows",
+        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time.",
+        "show_stats": true,
+        "stat_1_num": "15 Years",
+        "stat_1_label": "Perfecting the glow",
+        "stat_2_num": "3,000+",
+        "stat_2_label": "Five-star reviews",
+        "stat_3_num": "3 Studios",
+        "stat_3_label": "Across Texas",
+        "cta_text": "Book Your Glow",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      }
     },
     "social": {
+      "type": "social-feed",
+      "blocks": {
+        "s1": {
+          "type": "post",
+          "settings": {}
+        },
+        "s2": {
+          "type": "post",
+          "settings": {}
+        },
+        "s3": {
+          "type": "post",
+          "settings": {}
+        },
+        "s4": {
+          "type": "post",
+          "settings": {}
+        },
+        "s5": {
+          "type": "post",
+          "settings": {}
+        },
+        "s6": {
+          "type": "post",
+          "settings": {}
+        }
+      },
       "block_order": [
         "s1",
         "s2",
@@ -505,85 +544,46 @@
         "s5",
         "s6"
       ],
-      "blocks": {
-        "s1": {
-          "settings": {},
-          "type": "post"
-        },
-        "s2": {
-          "settings": {},
-          "type": "post"
-        },
-        "s3": {
-          "settings": {},
-          "type": "post"
-        },
-        "s4": {
-          "settings": {},
-          "type": "post"
-        },
-        "s5": {
-          "settings": {},
-          "type": "post"
-        },
-        "s6": {
-          "settings": {},
-          "type": "post"
-        }
-      },
       "settings": {
-        "cta_text": "Follow Us on Instagram",
         "eyebrow": "@HushHushTan",
-        "handle": "@hushhushtan",
         "heading": "Follow The Glow",
-        "profile_url": "https://www.instagram.com/hushhushtan/"
-      },
-      "type": "social-feed"
+        "handle": "@hushhushtan",
+        "profile_url": "https://www.instagram.com/hushhushtan/",
+        "cta_text": "Follow Us on Instagram"
+      }
     },
-    "start_here": {
-      "block_order": [
-        "b1",
-        "b2",
-        "b3"
-      ],
-      "blocks": {
-        "b1": {
-          "settings": {
-            "text": "Hand-mixed, color-matched shade"
-          },
-          "type": "point"
-        },
-        "b2": {
-          "settings": {
-            "text": "Natural, streak-free finish — never orange"
-          },
-          "type": "point"
-        },
-        "b3": {
-          "settings": {
-            "text": "Perfect for your first-ever spray tan"
-          },
-          "type": "point"
-        }
-      },
+    "newsletter": {
+      "type": "newsletter",
       "settings": {
-        "cta_text": "Book Now",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu",
-        "eyebrow": "First Time?",
-        "feature": "The Custom Glow — our signature first-time experience.",
-        "heading": "New to HHT? Start Here",
-        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest."
-      },
-      "type": "start-here"
+        "eyebrow": "New Client Offer",
+        "heading": "Get 10% off your first visit",
+        "text": "Join the list for 10% off your first Custom Glow, plus glow tips, new packages, and special offers.",
+        "placeholder": "Enter your email address",
+        "button_text": "Claim My 10% Off",
+        "success_message": "You're in! Check your inbox for your 10% off code and glow tips.",
+        "disclaimer": "We respect your privacy. Unsubscribe anytime."
+      }
     },
     "sticky_book": {
+      "type": "sticky-book",
       "settings": {
         "enabled": true,
-        "scroll_threshold": 500,
         "text": "Book Now",
-        "url": "https://go.booker.com/location/hushhushtan/service-menu"
-      },
-      "type": "sticky-book"
+        "url": "https://go.booker.com/location/hushhushtan/service-menu",
+        "scroll_threshold": 500
+      }
     }
-  }
+  },
+  "order": [
+    "hero",
+    "reviews",
+    "press_grid_Uniykx",
+    "start_here",
+    "locations",
+    "before_after",
+    "glow_moments_faq_gkPY4D",
+    "social",
+    "newsletter",
+    "sticky_book"
+  ]
 }

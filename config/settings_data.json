@@ -9,38 +9,38 @@
  */
 {
   "current": {
-    "logo_width": 160,
-    "color_bg": "#FAF8F5",
-    "color_surface": "#FFFFFF",
-    "color_pale": "#FAF9FF",
-    "color_soft": "#F4F2FF",
-    "color_grey": "#F6F6F6",
-    "color_primary": "#A69FE2",
-    "color_primary_dark": "#8F83D6",
-    "color_text": "#151515",
-    "color_muted": "#6F6A70",
-    "color_line": "#E7E3F5",
-    "color_cta_dark": "#111111",
-    "heading_font": "'Freight Neo Pro', 'Fraunces', 'Cormorant Garamond', 'EB Garamond', Georgia, serif",
-    "eyebrow_font": "'Fahkwang', 'Outfit', 'Jost', system-ui, sans-serif",
+    "blocks": {
+      "6478312753674380289": {
+        "disabled": true,
+        "settings": {},
+        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3"
+      }
+    },
     "body_font": "'Outfit', 'Jost', system-ui, sans-serif",
-    "book_now_url": "https://go.booker.com/location/hushhushtan/service-menu",
     "book_austin_url": "https://go.booker.com/location/hushhushtan/service-menu",
     "book_dallas_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
     "book_houston_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+    "book_now_url": "https://go.booker.com/location/hushhushtan/service-menu",
+    "color_bg": "#FAF8F5",
+    "color_cta_dark": "#111111",
+    "color_grey": "#F6F6F6",
+    "color_line": "#E7E3F5",
+    "color_muted": "#6F6A70",
+    "color_pale": "#FAF9FF",
+    "color_primary": "#A69FE2",
+    "color_primary_dark": "#8F83D6",
+    "color_soft": "#F4F2FF",
+    "color_surface": "#FFFFFF",
+    "color_text": "#151515",
+    "eyebrow_font": "'Fahkwang', 'Outfit', 'Jost', system-ui, sans-serif",
     "gift_austin_url": "https://www.secure-booker.com/HushHushTan/ShopOnline/GiftCertificate.aspx",
     "gift_dallas_url": "https://www.secure-booker.com/HushHushTanDallas/ShopOnline/GiftCertificate.aspx",
     "gift_houston_url": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate",
-    "social_instagram": "https://instagram.com/hushhushtan",
+    "heading_font": "'Freight Neo Pro', 'Fraunces', 'Cormorant Garamond', 'EB Garamond', Georgia, serif",
+    "logo_width": 160,
     "social_facebook": "https://facebook.com/hushhushtanaustin",
-    "social_tiktok": "https://tiktok.com/@hushhushtan",
-    "blocks": {
-      "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": true,
-        "settings": {}
-      }
-    }
+    "social_instagram": "https://instagram.com/hushhushtan",
+    "social_tiktok": "https://tiktok.com/@hushhushtan"
   },
   "presets": {
     "Default": {}
