@@ -22,16 +22,20 @@
   </section>
 
   <section class="hht-sp__section hht-sp__section--lavender" id="faq-search">
-    <div class="hht-sp__wrap">
-      <div class="hht-sp__center">
+    <div class="hht-sp__wrap hht-sp-faqbrowse">
+      <header class="hht-sp-faqbrowse__head">
         <span class="hht-sp__eyebrow">Browse</span>
         <h2 class="hht-sp__h2">Search or Jump to a Topic</h2>
-      </div>
+      </header>
+
       <div class="hht-sp-faqsearch">
-        <label class="visually-hidden" for="FaqSearchInput">Search FAQs</label>
-        <input id="FaqSearchInput" type="search" placeholder="Search questions…" autocomplete="off">
-        <button type="button" class="btn btn--outline" id="FaqSearchClear" hidden>Clear</button>
+        <label class="hht-sp-faqsearch__label" for="FaqSearchInput">Search FAQs</label>
+        <div class="hht-sp-faqsearch__field">
+          <input id="FaqSearchInput" type="search" placeholder="Search questions…" autocomplete="off" aria-controls="faq-results-region">
+          <button type="button" class="hht-sp-faqsearch__clear" id="FaqSearchClear" hidden>Clear</button>
+        </div>
       </div>
+
       <nav class="hht-sp-faqcats" aria-label="FAQ categories">
         <a href="#faq-before">Before Your Appointment</a>
         <a href="#faq-after">After Your Appointment</a>
@@ -40,6 +44,7 @@
         <a href="#faq-clothing">Clothing &amp; Accessories</a>
         <a href="#faq-memberships">Memberships</a>
       </nav>
+
       <p class="hht-sp-empty" id="FaqEmpty" role="status">No questions match your search. Try another keyword or <a href="/pages/contact">contact us</a>.</p>
     </div>
   </section>
