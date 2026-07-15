@@ -831,11 +831,11 @@
       "name": "HHT Services",
       "settings": {
         "only_on_handle": "our-services",
-        "hide_page_heading": false,
+        "hide_page_heading": true,
         "compact_heading": true,
         "eyebrow": "PERSONALIZED AIRBRUSH TANNING",
         "heading": "Find Your Perfect Glow",
-        "subheading": "Every Hush Hush Tan appointment is personalized around your skin tone, undertones, schedule and desired result. Select your preferred studio to view accurate services, memberships, packages and booking options.",
+        "subheading": "Select your preferred studio to view accurate services, memberships, packages and booking options.",
         "show_location_toggle": true,
         "lock_location": false,
         "default_location": "austin",
