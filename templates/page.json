@@ -1,9 +1,10 @@
 /*
  * ------------------------------------------------------------
- * Default page template. Redesigned stacks are gated by
- * only_on_handle for pages still stuck on Default:
- * - our-services
- * - tanning-gift-certificates (Gift Card)
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
 {
@@ -14,16 +15,6 @@
     },
     "reviews": {
       "type": "reviews",
-      "settings": {
-        "eyebrow": "Loved By Texas",
-        "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews \u2014 book with confidence.",
-        "cta_text": "Read Our Reviews",
-        "cta_url": "/pages/locations",
-        "speed": 50,
-        "layout": "full",
-        "only_on_handle": "our-services"
-      },
       "blocks": {
         "r1": {
           "type": "review",
@@ -60,7 +51,7 @@
         "r5": {
           "type": "review",
           "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
             "author": "Meaghan Estes",
             "location": "Dallas, TX"
           }
@@ -68,7 +59,7 @@
         "r6": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
             "author": "Ashley Post",
             "location": "Houston, TX"
           }
@@ -84,7 +75,7 @@
         "r8": {
           "type": "review",
           "settings": {
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
             "author": "Calla Taylor",
             "location": "Dallas, TX"
           }
@@ -135,7 +126,17 @@
         "r10",
         "r11",
         "r12"
-      ]
+      ],
+      "settings": {
+        "only_on_handle": "our-services",
+        "eyebrow": "Loved By Texas",
+        "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews — book with confidence.",
+        "layout": "full",
+        "speed": 50,
+        "cta_text": "Read Our Reviews",
+        "cta_url": "/pages/locations"
+      }
     },
     "services": {
       "type": "services-pricing-v2",
@@ -149,6 +150,7 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": false,
+            "section_style": "default",
             "animation": "float"
           }
         },
@@ -157,7 +159,7 @@
           "settings": {
             "title": "Custom Glow",
             "badge": "MOST POPULAR",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -165,6 +167,9 @@
             "price_loc2": "50",
             "price_loc3": "55",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Customized to your individual skin tone, undertones and desired result.",
             "benefits": "",
             "target_location": "all",
@@ -179,7 +184,7 @@
           "settings": {
             "title": "Clear Glow",
             "badge": "FIRST-TIMER FAVORITE",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -187,6 +192,9 @@
             "price_loc2": "50",
             "price_loc3": "55",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "A clear solution designed to develop into a natural-looking finish without an immediate cosmetic bronzer.",
             "benefits": "",
             "target_location": "all",
@@ -201,7 +209,7 @@
           "settings": {
             "title": "Rapid Glow",
             "badge": "FAST RESULTS",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -209,6 +217,9 @@
             "price_loc2": "60",
             "price_loc3": "65",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "A rapid-developing custom glow designed to rinse in approximately two to four hours.",
             "benefits": "",
             "target_location": "all",
@@ -236,7 +247,7 @@
           "settings": {
             "title": "Glow Pass",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -244,6 +255,9 @@
             "price_loc2": "29",
             "price_loc3": "39",
             "price_sub": "per month",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "",
             "benefits": "35% off all tans, 15% off all products, Cancel anytime",
             "target_location": "all",
@@ -258,7 +272,7 @@
           "settings": {
             "title": "Glow Club",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -266,6 +280,9 @@
             "price_loc2": "45",
             "price_loc3": "50",
             "price_sub": "per month",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "",
             "benefits": "One complimentary tan per month, 25% off additional tans, 15% off all products, Cancel anytime",
             "target_location": "all",
@@ -273,147 +290,6 @@
             "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct",
             "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145919",
             "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145920"
-          }
-        },
-        "section_header_AhqVch": {
-          "type": "section_header",
-          "settings": {
-            "title_a": "Tan",
-            "title_b": "Packages",
-            "note": "",
-            "footer": "Rapid Glow is not included in standard package pricing. Upgrade may be available. Packages are for non-members unless the current Booker terms state otherwise.",
-            "icon_size": 44,
-            "pair_next": false,
-            "animation": "float"
-          }
-        },
-        "service_row_xJ7nwW": {
-          "type": "service_row",
-          "settings": {
-            "title": "6-Pack",
-            "badge": "",
-            "badge_icon": "\u2728",
-            "badge_bg": "",
-            "badge_text_color": "",
-            "price_prefix": "$",
-            "price_loc1": "270",
-            "price_loc2": "270",
-            "price_loc3": "285",
-            "price_sub": "",
-            "description": "",
-            "benefits": "Six full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase",
-            "target_location": "all",
-            "button_text": "Buy Package",
-            "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct",
-            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series",
-            "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series",
-            "price_sub_loc1": "$45 per session",
-            "price_sub_loc2": "$45 per session",
-            "price_sub_loc3": "$47.50 per session"
-          }
-        },
-        "service_row_gXmELF": {
-          "type": "service_row",
-          "settings": {
-            "title": "10-Pack",
-            "badge": "",
-            "badge_icon": "\u2728",
-            "badge_bg": "",
-            "badge_text_color": "",
-            "price_prefix": "$",
-            "price_loc1": "400",
-            "price_loc2": "400",
-            "price_loc3": "420",
-            "price_sub": "",
-            "description": "",
-            "benefits": "Ten full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase",
-            "target_location": "all",
-            "button_text": "Buy Package",
-            "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct",
-            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series",
-            "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series",
-            "price_sub_loc1": "$40 per session",
-            "price_sub_loc2": "$40 per session",
-            "price_sub_loc3": "$42 per session"
-          }
-        },
-        "section_header_DwEKnE": {
-          "type": "section_header",
-          "settings": {
-            "title_a": "Add",
-            "title_b": "Ons",
-            "note": "Add-ons supplement an eligible primary service.",
-            "footer": "",
-            "icon_size": 44,
-            "pair_next": false,
-            "section_style": "compact",
-            "animation": "float"
-          }
-        },
-        "service_row_Vy9CXd": {
-          "type": "service_row",
-          "settings": {
-            "title": "Gold Glow",
-            "badge": "",
-            "badge_icon": "\u2728",
-            "badge_bg": "",
-            "badge_text_color": "",
-            "price_prefix": "+$",
-            "price_loc1": "5",
-            "price_loc2": "5",
-            "price_loc3": "5",
-            "price_sub": "",
-            "description": "Gold drops are added to give you a subtle elegant shimmer.",
-            "benefits": "",
-            "target_location": "all",
-            "button_text": "Book Now",
-            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931005?campaign=hush_hush_tan_website_1&source=web_direct",
-            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931007",
-            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931006"
-          }
-        },
-        "service_row_3FfRky": {
-          "type": "service_row",
-          "settings": {
-            "title": "Bye Bye Tan Line",
-            "badge": "",
-            "badge_icon": "\u2728",
-            "badge_bg": "",
-            "badge_text_color": "",
-            "price_prefix": "+$",
-            "price_loc1": "20",
-            "price_loc2": "20",
-            "price_loc3": "20",
-            "price_sub": "",
-            "description": "Tan line erasing followed by a full body spray.",
-            "benefits": "",
-            "target_location": "all",
-            "button_text": "Book Now",
-            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931015?campaign=hush_hush_tan_website_1&source=web_direct",
-            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931017",
-            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931016"
-          }
-        },
-        "service_row_C3rxtd": {
-          "type": "service_row",
-          "settings": {
-            "title": "Brazilian Glow",
-            "badge": "",
-            "badge_icon": "\u2728",
-            "badge_bg": "",
-            "badge_text_color": "",
-            "price_prefix": "+$",
-            "price_loc1": "25",
-            "price_loc2": "25",
-            "price_loc3": "25",
-            "price_sub": "",
-            "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.",
-            "benefits": "",
-            "target_location": "all",
-            "button_text": "Book Now",
-            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931020?campaign=hush_hush_tan_website_1&source=web_direct",
-            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931022",
-            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931021"
           }
         },
         "section_header_ayefQk": {
@@ -434,7 +310,7 @@
           "settings": {
             "title": "Face",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -442,6 +318,9 @@
             "price_loc2": "10",
             "price_loc3": "12",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Face only",
             "benefits": "",
             "target_location": "all",
@@ -456,7 +335,7 @@
           "settings": {
             "title": "Upper / Lower only",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -464,6 +343,9 @@
             "price_loc2": "25",
             "price_loc3": "30",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.",
             "benefits": "",
             "target_location": "all",
@@ -478,7 +360,7 @@
           "settings": {
             "title": "Partial Upper / Lower",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -486,6 +368,9 @@
             "price_loc2": "35",
             "price_loc3": "40",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.",
             "benefits": "",
             "target_location": "all",
@@ -493,6 +378,157 @@
             "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct",
             "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033",
             "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032"
+          }
+        },
+        "section_header_DwEKnE": {
+          "type": "section_header",
+          "settings": {
+            "title_a": "Add",
+            "title_b": "Ons",
+            "note": "Add-ons supplement an eligible primary service.",
+            "footer": "",
+            "icon_size": 44,
+            "pair_next": false,
+            "section_style": "compact",
+            "animation": "float"
+          }
+        },
+        "service_row_Vy9CXd": {
+          "type": "service_row",
+          "settings": {
+            "title": "Gold Glow",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "price_prefix": "+$",
+            "price_loc1": "5",
+            "price_loc2": "5",
+            "price_loc3": "5",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
+            "description": "Gold drops are added to give you a subtle elegant shimmer.",
+            "benefits": "",
+            "target_location": "all",
+            "button_text": "Book Now",
+            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931005?campaign=hush_hush_tan_website_1&source=web_direct",
+            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931007",
+            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931006"
+          }
+        },
+        "service_row_3FfRky": {
+          "type": "service_row",
+          "settings": {
+            "title": "Bye Bye Tan Line",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "price_prefix": "+$",
+            "price_loc1": "20",
+            "price_loc2": "20",
+            "price_loc3": "20",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
+            "description": "Tan line erasing followed by a full body spray.",
+            "benefits": "",
+            "target_location": "all",
+            "button_text": "Book Now",
+            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931015?campaign=hush_hush_tan_website_1&source=web_direct",
+            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931017",
+            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931016"
+          }
+        },
+        "service_row_C3rxtd": {
+          "type": "service_row",
+          "settings": {
+            "title": "Brazilian Glow",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "price_prefix": "+$",
+            "price_loc1": "25",
+            "price_loc2": "25",
+            "price_loc3": "25",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
+            "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.",
+            "benefits": "",
+            "target_location": "all",
+            "button_text": "Book Now",
+            "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931020?campaign=hush_hush_tan_website_1&source=web_direct",
+            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931022",
+            "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931021"
+          }
+        },
+        "section_header_AhqVch": {
+          "type": "section_header",
+          "settings": {
+            "title_a": "Tan",
+            "title_b": "Packages",
+            "note": "",
+            "footer": "Rapid Glow is not included in standard package pricing. Upgrade may be available. Packages are for non-members unless the current Booker terms state otherwise.",
+            "icon_size": 44,
+            "pair_next": false,
+            "section_style": "default",
+            "animation": "float"
+          }
+        },
+        "service_row_xJ7nwW": {
+          "type": "service_row",
+          "settings": {
+            "title": "6-Pack",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "price_prefix": "$",
+            "price_loc1": "270",
+            "price_loc2": "270",
+            "price_loc3": "285",
+            "price_sub": "",
+            "price_sub_loc1": "$45 per session",
+            "price_sub_loc2": "$45 per session",
+            "price_sub_loc3": "$47.50 per session",
+            "description": "",
+            "benefits": "Six full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase",
+            "target_location": "all",
+            "button_text": "Buy Package",
+            "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct",
+            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series",
+            "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series"
+          }
+        },
+        "service_row_gXmELF": {
+          "type": "service_row",
+          "settings": {
+            "title": "10-Pack",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
+            "price_prefix": "$",
+            "price_loc1": "400",
+            "price_loc2": "400",
+            "price_loc3": "420",
+            "price_sub": "",
+            "price_sub_loc1": "$40 per session",
+            "price_sub_loc2": "$40 per session",
+            "price_sub_loc3": "$42 per session",
+            "description": "",
+            "benefits": "Ten full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase",
+            "target_location": "all",
+            "button_text": "Buy Package",
+            "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct",
+            "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series",
+            "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series"
           }
         },
         "section_header_87xqEe": {
@@ -504,6 +540,7 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": true,
+            "section_style": "default",
             "animation": "float"
           }
         },
@@ -512,7 +549,7 @@
           "settings": {
             "title": "Birthday Glow",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -520,6 +557,9 @@
             "price_loc2": "39",
             "price_loc3": "44",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Exclusive pricing for one Custom Glow during your birthday month.",
             "benefits": "",
             "target_location": "all",
@@ -538,6 +578,7 @@
             "footer": "Group bookings require advance notice",
             "icon_size": 44,
             "pair_next": false,
+            "section_style": "default",
             "animation": "float"
           }
         },
@@ -546,7 +587,7 @@
           "settings": {
             "title": "Tanning & Mimosas",
             "badge": "",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -554,6 +595,9 @@
             "price_loc2": "300",
             "price_loc3": "325",
             "price_sub": "+$60 per add'l guest",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "",
             "benefits": "Includes five Custom Glow tans, Studio access for the group, Complimentary champagne or mimosas",
             "target_location": "all",
@@ -568,7 +612,7 @@
           "settings": {
             "title": "Austin Mobile Tanning",
             "badge": "AUSTIN ONLY",
-            "badge_icon": "\u2728",
+            "badge_icon": "✨",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "",
@@ -576,6 +620,9 @@
             "price_loc2": "",
             "price_loc3": "",
             "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from the studio, $30 hotel travel fee. Please include address and party size in the request notes box.",
             "benefits": "",
             "target_location": "loc1",
@@ -591,86 +638,161 @@
             "title_a": "Appointment",
             "title_b": "Essentials",
             "note": "Accessories available for purchase in studio. Complimentary gear is provided with your appointment.",
+            "footer": "",
+            "icon_size": 44,
             "pair_next": false,
-            "section_style": "compact"
+            "section_style": "compact",
+            "animation": "float"
           }
         },
         "service_row_ess_boxers": {
           "type": "service_row",
           "settings": {
             "title": "Disposable Boxers",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "$3 per pair",
             "price_loc2": "$3 per pair",
             "price_loc3": "$3 per pair",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Available for purchase in studio.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         },
         "service_row_ess_pasties": {
           "type": "service_row",
           "settings": {
             "title": "Floral Pasties",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "$2 per pair",
             "price_loc2": "$2 per pair",
             "price_loc3": "$2 per pair",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Available for purchase in studio.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         },
         "service_row_ess_cstring": {
           "type": "service_row",
           "settings": {
             "title": "C-String Undies",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "$2 per pair",
             "price_loc2": "$2 per pair",
             "price_loc3": "$2 per pair",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Available for purchase in studio.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         },
         "service_row_ess_undies": {
           "type": "service_row",
           "settings": {
             "title": "Disposable Undies",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "Complimentary",
             "price_loc2": "Complimentary",
             "price_loc3": "Complimentary",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Included with your appointment.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         },
         "service_row_ess_nose": {
           "type": "service_row",
           "settings": {
             "title": "Disposable Nose Plugs",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "Complimentary",
             "price_loc2": "Complimentary",
             "price_loc3": "Complimentary",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Included with your appointment.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         },
         "service_row_ess_caps": {
           "type": "service_row",
           "settings": {
             "title": "Disposable Hair Caps",
+            "badge": "",
+            "badge_icon": "✨",
+            "badge_bg": "",
+            "badge_text_color": "",
             "price_prefix": "",
             "price_loc1": "Complimentary",
             "price_loc2": "Complimentary",
             "price_loc3": "Complimentary",
+            "price_sub": "",
+            "price_sub_loc1": "",
+            "price_sub_loc2": "",
+            "price_sub_loc3": "",
             "description": "Included with your appointment.",
+            "benefits": "",
+            "target_location": "all",
             "button_text": "",
-            "target_location": "all"
+            "link_loc1": "",
+            "link_loc2": "",
+            "link_loc3": ""
           }
         }
       },
@@ -708,42 +830,46 @@
       ],
       "name": "HHT Services",
       "settings": {
-        "heading": "Find Your Perfect Glow",
-        "subheading": "Every Hush Hush Tan appointment is personalized around your skin tone, undertones, schedule and desired result. Select your preferred studio to view accurate services, memberships, packages and booking options.",
+        "only_on_handle": "our-services",
         "hide_page_heading": false,
         "compact_heading": true,
+        "eyebrow": "PERSONALIZED AIRBRUSH TANNING",
+        "heading": "Find Your Perfect Glow",
+        "subheading": "Every Hush Hush Tan appointment is personalized around your skin tone, undertones, schedule and desired result. Select your preferred studio to view accurate services, memberships, packages and booking options.",
         "show_location_toggle": true,
         "lock_location": false,
         "default_location": "austin",
-        "show_studio_photos": true,
-        "show_chat_widget": true,
         "loc1_name": "Austin",
         "loc2_name": "Houston",
         "loc3_name": "Dallas",
-        "toggle_idle_bg": "#FAF9FF",
+        "show_studio_photos": true,
+        "austin_photo_1": "shopify://shop_images/012_20230720_hushhushtan_12_1.jpg",
+        "austin_photo_2": "shopify://shop_images/014_20230720_hushhushtan_14.jpg",
+        "austin_photo_3": "shopify://shop_images/20230720_HushHushTan_016.jpg",
+        "austin_photo_4": "shopify://shop_images/003_20230720_hushhushtan_03_522aa558-1cb3-447a-ae99-00b01ae0a583.jpg",
+        "show_chat_widget": true,
+        "toggle_idle_bg": "#faf9ff",
         "toggle_idle_text": "#373741",
-        "toggle_idle_border": "#E7E3F5",
-        "toggle_active_bg": "#A69FE2",
-        "toggle_active_text": "#FFFFFF",
-        "toggle_active_border": "#A69FE2",
-        "bg_color": "#FAF8F5",
+        "toggle_idle_border": "#e7e3f5",
+        "toggle_active_bg": "#a69fe2",
+        "toggle_active_text": "#ffffff",
+        "toggle_active_border": "#a69fe2",
+        "bg_color": "#faf8f5",
         "heading_color": "#151515",
         "text_color": "#373741",
-        "text_light": "#6F6A70",
-        "accent_color": "#A69FE2",
-        "card_bg_color": "#FFFFFF",
-        "card_border_color": "#E7E3F5",
-        "header_strip_color": "#F4F2FF",
-        "badge_bg_color": "#A69FE2",
-        "badge_text_color": "#FFFFFF",
-        "btn_bg_color": "#A69FE2",
-        "btn_text_color": "#FFFFFF",
-        "btn_hover_bg": "#8F83D6",
-        "btn_hover_text": "#FFFFFF",
+        "text_light": "#6f6a70",
+        "accent_color": "#a69fe2",
+        "card_bg_color": "#ffffff",
+        "card_border_color": "#e7e3f5",
+        "header_strip_color": "#f4f2ff",
+        "badge_bg_color": "#a69fe2",
+        "badge_text_color": "#ffffff",
+        "btn_bg_color": "#a69fe2",
+        "btn_text_color": "#ffffff",
+        "btn_hover_bg": "#8f83d6",
+        "btn_hover_text": "#ffffff",
         "heading_font_fallback": "Cormorant Garamond",
-        "body_font": "jost_n4",
-        "eyebrow": "PERSONALIZED AIRBRUSH TANNING",
-        "only_on_handle": "our-services"
+        "body_font": "jost_n4"
       }
     },
     "services_faq": {
@@ -760,7 +886,7 @@
           "type": "qa",
           "settings": {
             "question": "What is the difference between Custom Glow and Clear Glow?",
-            "answer": "<p>Custom Glow is mixed for your individual skin tone, undertones, and desired result. Clear Glow is a clear solution designed for a natural-looking finish without an immediate cosmetic bronzer\u2014popular with first-timers who prefer a subtler rinse-day look.</p>"
+            "answer": "<p>Custom Glow is mixed for your individual skin tone, undertones, and desired result. Clear Glow is a clear solution designed for a natural-looking finish without an immediate cosmetic bronzer—popular with first-timers who prefer a subtler rinse-day look.</p>"
           }
         },
         "qa_svc_03": {
@@ -788,7 +914,7 @@
           "type": "qa",
           "settings": {
             "question": "Can Rapid Glow be used with a membership or package?",
-            "answer": "<p>Rapid Glow is not included as the complimentary Glow Club tan or in standard package pricing. An upgrade may be available\u2014ask your studio when booking.</p>"
+            "answer": "<p>Rapid Glow is not included as the complimentary Glow Club tan or in standard package pricing. An upgrade may be available—ask your studio when booking.</p>"
           }
         },
         "qa_svc_07": {
@@ -809,7 +935,7 @@
           "type": "qa",
           "settings": {
             "question": "How many guests are included with Tanning & Mimosas?",
-            "answer": "<p>Tanning & Mimosas includes five Custom Glow tans, studio access for the group, and complimentary champagne or mimosas. Additional guests can be added where available\u2014see the group price on this page for your city.</p>"
+            "answer": "<p>Tanning & Mimosas includes five Custom Glow tans, studio access for the group, and complimentary champagne or mimosas. Additional guests can be added where available—see the group price on this page for your city.</p>"
           }
         },
         "qa_svc_10": {
@@ -833,22 +959,36 @@
         "qa_svc_10"
       ],
       "settings": {
+        "only_on_handle": "our-services",
         "show_moments": false,
-        "show_prep_card": false,
+        "moments_eyebrow": "Glow Moments",
+        "moments_heading": "For the ones who glow.",
+        "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
+        "carousel_autoplay": true,
+        "carousel_delay": 5,
         "faq_eyebrow": "Good to Know",
         "faq_heading": "Frequently Asked Questions",
         "faq_subheading": "Clear answers for first-timers, members, and group hosts.",
+        "show_prep_card": false,
+        "prep_title": "Glow Prep Basics",
+        "prep_before_label": "Before Your Tan",
+        "prep_before_items": "Exfoliate & shave 24 hours prior.\nAvoid lotions or oils on skin.\nWear loose, dark clothing.",
+        "prep_day_label": "Day of Your Tan",
+        "prep_day_items": "Arrive with clean, bare skin.\nAvoid deodorant and perfume.",
+        "prep_after_label": "After Your Tan",
+        "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
         "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Your Glow",
         "book_url": "/pages/our-services",
-        "only_on_handle": "our-services"
+        "tips_url": ""
       }
     },
     "services_final_cta": {
       "type": "final-cta",
       "settings": {
+        "only_on_handle": "our-services",
         "eyebrow": "READY FOR YOUR GLOW?",
         "heading": "Book Your Personalized Spray Tan",
         "text": "Select your preferred studio and reserve a customized airbrush tan designed around your skin tone, schedule and desired finish.",
@@ -858,232 +998,7 @@
         "cta1_url_houston": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593",
         "cta1_url_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
         "cta2_text": "SHOP AFTERCARE",
-        "cta2_url": "/collections/tanning-products",
-        "only_on_handle": "our-services"
-      }
-    },
-    "gift_main": {
-      "type": "gift-certificates",
-      "settings": {
-        "hero_eyebrow": "THE PERFECT GIFT, BEAUTIFULLY GLOWING",
-        "hero_heading": "Give the Gift of Confidence",
-        "hero_text": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience.",
-        "hero_cta1": "CHOOSE A LOCATION",
-        "hero_cta2": "SEE WHAT IT CAN COVER",
-        "hero_image_alt": "Hush Hush Tan studio glow experience",
-        "default_location": "austin",
-        "buy_eyebrow": "CHOOSE THEIR STUDIO",
-        "buy_heading": "Select a Gift Certificate Location",
-        "buy_text": "Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.",
-        "austin_url": "https://go.booker.com/location/HushHushTan/buy/gift-certificate",
-        "dallas_url": "https://go.booker.com/location/hushhushtandallas/buy/gift-certificate",
-        "houston_url": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate",
-        "services_url": "/pages/our-services",
-        "products_url": "/collections/tanning-products",
-        "only_on_handle": "tanning-gift-certificates"
-      }
-    },
-    "gift_reviews": {
-      "type": "reviews",
-      "blocks": {
-        "gr1": {
-          "type": "review",
-          "settings": {
-            "quote": "Hush hush is the only place I will go in Austin! I've had several tans done here and I always love the results. They are accommodating, honest and always make you feel comfortable!",
-            "author": "Audrey Kuhl",
-            "location": "Austin, TX"
-          }
-        },
-        "gr2": {
-          "type": "review",
-          "settings": {
-            "quote": "Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!! Ashly at the front is very professional and knowledgeable.",
-            "author": "Haley Collins",
-            "location": "Dallas, TX"
-          }
-        },
-        "gr3": {
-          "type": "review",
-          "settings": {
-            "quote": "Grace is amazing! I love having her as my spray technician bc she's the best. I've had many sprays in my life & at 53 yrs old I can honestly say Hush Hush is #1. Book your apt. You won't be disappointed.",
-            "author": "Amber Richardson",
-            "location": "Houston, TX"
-          }
-        },
-        "gr4": {
-          "type": "review",
-          "settings": {
-            "quote": "My experience here was amazing! Everyone was so nice from the start, from Kathy and Chloe at the front to Tarin who did my spray tan! Highly recommend, I will definitely be coming back.",
-            "author": "Samantha Robinson",
-            "location": "Austin, TX"
-          }
-        },
-        "gr5": {
-          "type": "review",
-          "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
-            "author": "Meaghan Estes",
-            "location": "Dallas, TX"
-          }
-        },
-        "gr6": {
-          "type": "review",
-          "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
-            "author": "Ashley Post",
-            "location": "Houston, TX"
-          }
-        }
-      },
-      "block_order": [
-        "gr1",
-        "gr2",
-        "gr3",
-        "gr4",
-        "gr5",
-        "gr6"
-      ],
-      "settings": {
-        "eyebrow": "Loved By Texas",
-        "heading": "A Gift Backed by Thousands of Five-Star Experiences",
-        "subheading": "Real glows, real reviews \u2014 give with confidence.",
-        "cta_text": "Read Our Reviews",
-        "cta_url": "/pages/locations",
-        "speed": 50,
-        "layout": "full",
-        "only_on_handle": "tanning-gift-certificates"
-      }
-    },
-    "gift_faq": {
-      "type": "glow-moments-faq",
-      "blocks": {
-        "qa_gift_01": {
-          "type": "qa",
-          "settings": {
-            "question": "How do I purchase a Hush Hush Tan gift certificate?",
-            "answer": "<p>Select Austin, Dallas or Houston on this page, then continue to the secure Booker gift-certificate checkout for that studio to choose a design, amount, message and delivery option.</p>"
-          }
-        },
-        "qa_gift_02": {
-          "type": "qa",
-          "settings": {
-            "question": "Which location should I choose?",
-            "answer": "<p>Choose the studio where the recipient plans to redeem the gift \u2014 Austin, Dallas or Houston. Gift certificates are purchased through that studio\u2019s Booker account.</p>"
-          }
-        },
-        "qa_gift_03": {
-          "type": "qa",
-          "settings": {
-            "question": "Can a gift certificate be used at any Hush Hush Tan location?",
-            "answer": "<p>Gift certificates are purchased for a specific studio. Please contact the selected Hush Hush Tan studio to confirm whether certificates can be transferred or redeemed at another location.</p>"
-          }
-        },
-        "qa_gift_04": {
-          "type": "qa",
-          "settings": {
-            "question": "Can gift certificates be used toward spray-tan services?",
-            "answer": "<p>Gift certificates are intended for eligible purchases through the selected studio\u2019s Booker checkout. Confirm current service eligibility with that studio when redeeming.</p>"
-          }
-        },
-        "qa_gift_05": {
-          "type": "qa",
-          "settings": {
-            "question": "Can gift certificates be used toward products?",
-            "answer": "<p>Product redemption depends on the selected studio\u2019s current terms. This page does not confirm online Shopify store redemption. Contact the studio for current product eligibility.</p>"
-          }
-        },
-        "qa_gift_06": {
-          "type": "qa",
-          "settings": {
-            "question": "Can the recipient choose their own service?",
-            "answer": "<p>Yes. The recipient can select an eligible service based on the certificate value and the studio\u2019s available menu when they book.</p>"
-          }
-        },
-        "qa_gift_07": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I email the gift certificate directly to the recipient?",
-            "answer": "<p>Yes. In the Booker gift-certificate checkout you can send via email. You can also send it to yourself for printing at home later.</p>"
-          }
-        },
-        "qa_gift_08": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I send the certificate to myself and print it?",
-            "answer": "<p>Yes. Booker offers send-via-email to yourself for print-at-home later, as well as a print-upon-purchase option.</p>"
-          }
-        },
-        "qa_gift_09": {
-          "type": "qa",
-          "settings": {
-            "question": "Can I choose the gift-certificate amount?",
-            "answer": "<p>Yes. The Booker checkout includes a gift amount field so you can choose an available custom amount.</p>"
-          }
-        },
-        "qa_gift_10": {
-          "type": "qa",
-          "settings": {
-            "question": "Do gift certificates expire?",
-            "answer": "<p>Please contact the selected Hush Hush Tan studio for current gift-certificate expiration details.</p>"
-          }
-        },
-        "qa_gift_11": {
-          "type": "qa",
-          "settings": {
-            "question": "Can gift certificates be refunded or exchanged?",
-            "answer": "<p>Please contact the selected Hush Hush Tan studio for current refund and exchange policies.</p>"
-          }
-        },
-        "qa_gift_12": {
-          "type": "qa",
-          "settings": {
-            "question": "What happens if the service costs more than the gift-certificate balance?",
-            "answer": "<p>Please contact the selected Hush Hush Tan studio for current balance, upgrade and payment details.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "qa_gift_01",
-        "qa_gift_02",
-        "qa_gift_03",
-        "qa_gift_04",
-        "qa_gift_05",
-        "qa_gift_06",
-        "qa_gift_07",
-        "qa_gift_08",
-        "qa_gift_09",
-        "qa_gift_10",
-        "qa_gift_11",
-        "qa_gift_12"
-      ],
-      "settings": {
-        "show_moments": false,
-        "show_prep_card": false,
-        "faq_eyebrow": "Good to Know",
-        "faq_heading": "Frequently Asked Questions",
-        "faq_subheading": "Clear answers for gifting a Hush Hush Tan glow.",
-        "cta_label": "Still have questions?",
-        "faq_btn_label": "Contact Us \u2192",
-        "faqs_url": "/pages/contact",
-        "book_btn_label": "Choose a Location",
-        "book_url": "/pages/tanning-gift-certificates#gift-purchase",
-        "only_on_handle": "tanning-gift-certificates"
-      }
-    },
-    "gift_final_cta": {
-      "type": "final-cta",
-      "settings": {
-        "eyebrow": "READY TO MAKE THEIR DAY?",
-        "heading": "Send the Gift of a Glow",
-        "text": "Choose their preferred Hush Hush Tan studio and create a gift certificate through the secure purchase flow.",
-        "cta1_text": "BUY FOR AUSTIN",
-        "cta1_url": "https://go.booker.com/location/HushHushTan/buy/gift-certificate",
-        "cta1_url_austin": "https://go.booker.com/location/HushHushTan/buy/gift-certificate",
-        "cta1_url_dallas": "https://go.booker.com/location/hushhushtandallas/buy/gift-certificate",
-        "cta1_url_houston": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate",
-        "cta2_text": "EXPLORE SERVICES",
-        "cta2_url": "/pages/our-services",
-        "only_on_handle": "tanning-gift-certificates"
+        "cta2_url": "/collections/tanning-products"
       }
     }
   },
@@ -1092,10 +1007,6 @@
     "reviews",
     "services",
     "services_faq",
-    "services_final_cta",
-    "gift_main",
-    "gift_reviews",
-    "gift_faq",
-    "gift_final_cta"
+    "services_final_cta"
   ]
 }
