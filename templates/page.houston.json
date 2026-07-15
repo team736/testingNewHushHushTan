@@ -209,9 +209,9 @@
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
             "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
-            "book_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
             "book_label": "Book Appointment",
-            "map_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007",
+            "map_url": "https://maps.app.goo.gl/ovSkE9qtZ2TtAwPPA",
             "info_url": "",
             "secondary_label": "Get Directions"
           }
@@ -293,7 +293,7 @@
         "stat_3_num": "3 Studios",
         "stat_3_label": "Across Texas",
         "cta_text": "BOOK HOUSTON",
-        "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
+        "cta_url": "https://go.booker.com/location/hushhushtanhouston/service-menu"
       }
     },
     "press": {
@@ -510,7 +510,7 @@
         "faq_btn_label": "Read All FAQs →",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Houston",
-        "book_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593",
+        "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
         "tips_url": ""
       }
     },
@@ -580,7 +580,7 @@
         "cta1_text": "BOOK HOUSTON",
         "cta1_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593",
         "cta1_url_austin": "",
-        "cta1_url_houston": "",
+        "cta1_url_houston": "https://go.booker.com/location/hushhushtanhouston/service-menu",
         "cta1_url_dallas": "",
         "cta2_text": "VIEW LOCATION DETAILS",
         "cta2_url": "#visit-houston"
