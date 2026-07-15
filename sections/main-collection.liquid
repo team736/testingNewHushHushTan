@@ -1,102 +1,273 @@
-<div class="container">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="{{ routes.root_url }}">Home</a><span class="breadcrumb__sep">/</span>
-    <span aria-current="page">{{ collection.title }}</span>
-  </nav>
+{%- liquid
+  assign products_per_page = section.settings.products_per_page | default: 24
+  assign intro_heading = section.settings.heading | default: 'Shop Your Glow Essentials'
+  assign intro_eyebrow = section.settings.eyebrow | default: 'Hush Hush Tan Aftercare'
+  assign intro_text = section.settings.text | default: 'Prep, maintain, and extend your glow with Hush Hush Tan essentials. Explore our curated collection of self-tanning and aftercare products designed to support smooth application and a longer-lasting finish.'
+-%}
 
-  <header class="collection-header">
-    <h1 class="mb-0">{{ collection.title }}</h1>
-    {%- if collection.description != blank -%}
-      <div class="collection-header__sub">{{ collection.description }}</div>
-    {%- endif -%}
-  </header>
+<section class="hht-collection" data-hht-collection>
+  <div class="container container--home">
+    <nav class="breadcrumb hht-collection__breadcrumb" aria-label="Breadcrumb">
+      <a href="{{ routes.root_url }}">Home</a>
+      <span class="breadcrumb__sep" aria-hidden="true">/</span>
+      <span aria-current="page">{{ collection.title }}</span>
+    </nav>
 
-  {%- paginate collection.products by 24 -%}
-    <div class="collection-layout">
-      <aside class="collection-sidebar" aria-label="Filters">
-        <details class="mobile-filter-toggle">
-          <summary>Filter products</summary>
-          <div class="mobile-filter-toggle__body">
-        {%- if collection.filters.size > 0 -%}
-          <form method="get" class="facet-form">
-            {%- if collection.sort_by != blank -%}<input type="hidden" name="sort_by" value="{{ collection.sort_by }}">{%- endif -%}
-            {%- for filter in collection.filters -%}
-              <div class="collection-sidebar__group">
-                <h3>{{ filter.label }}</h3>
-                {%- case filter.type -%}
-                  {%- when 'price_range' -%}
-                    <div class="facet-price">
-                      <input name="{{ filter.min_value.param_name }}" type="number" placeholder="Min" min="0" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-                      <input name="{{ filter.max_value.param_name }}" type="number" placeholder="Max" min="0" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
-                    </div>
-                  {%- else -%}
-                    {%- for value in filter.values -%}
-                      <label class="{% if value.count == 0 and value.active == false %}is-disabled{% endif %}">
-                        <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %} onchange="this.form.submit()">
-                        <span>{{ value.label }} ({{ value.count }})</span>
-                      </label>
-                    {%- endfor -%}
-                {%- endcase -%}
-              </div>
-            {%- endfor -%}
-            <button type="submit" class="btn btn--outline btn--small btn--block">Apply filters</button>
-            {%- if collection.current_vendor or collection.current_type or collection.filters.size > 0 -%}
-              <a href="{{ collection.url }}" class="btn--ghost" style="margin-top: 14px;">Clear filters</a>
-            {%- endif -%}
-          </form>
-        {%- else -%}
-          <div class="collection-sidebar__group">
-            <h3>Availability</h3>
-            <label><input type="checkbox" checked disabled> In stock ({{ collection.products_count }})</label>
-          </div>
-        {%- endif -%}
-          </div>
-        </details>
-      </aside>
-
-      <div>
-        <div class="collection-toolbar">
-          <div class="collection-toolbar__count">We found <strong>{{ collection.products_count }}</strong> products available for you.</div>
-          <form method="get" id="SortForm" class="collection-sort">
-            {%- for filter in collection.filters -%}
-              {%- for value in filter.active_values -%}
-                <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
-              {%- endfor -%}
-              {%- if filter.type == 'price_range' -%}
-                {%- if filter.min_value.value -%}<input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">{%- endif -%}
-                {%- if filter.max_value.value -%}<input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">{%- endif -%}
-              {%- endif -%}
-            {%- endfor -%}
-            <select name="sort_by" onchange="this.form.submit()">
-              {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
-              {%- for option in collection.sort_options -%}
-                <option value="{{ option.value }}" {% if option.value == current_sort %}selected{% endif %}>{{ option.name }}</option>
-              {%- endfor -%}
-            </select>
-          </form>
-        </div>
-
-        {%- if collection.products.size > 0 -%}
-          <div class="collection-grid">
-            {%- for product in collection.products -%}
-              {% render 'product-card', product: product %}
-            {%- endfor -%}
-          </div>
-        {%- else -%}
-          <p class="text-center muted" style="padding: 60px 0;">No products found in this collection.</p>
-        {%- endif -%}
-
-        <div class="text-center" style="margin-top: 56px;">{% render 'pagination', paginate: paginate %}</div>
+    <header class="hht-collection__intro">
+      {%- if intro_eyebrow != blank -%}
+        <span class="eyebrow">{{ intro_eyebrow }}</span>
+      {%- endif -%}
+      <h1 class="hht-collection__title">{{ intro_heading }}</h1>
+      {%- if intro_text != blank -%}
+        <p class="hht-collection__lead">{{ intro_text }}</p>
+      {%- elsif collection.description != blank -%}
+        <div class="hht-collection__lead rte">{{ collection.description }}</div>
+      {%- endif -%}
+      <div class="hht-collection__intro-ctas">
+        <a href="#hht-collection-grid" class="btn btn--pill">{{ section.settings.cta1_label | default: 'Shop All Products' }}</a>
+        <a href="#hht-collection-routine" class="btn btn--pill btn--outline">{{ section.settings.cta2_label | default: 'Build Your Routine' }}</a>
       </div>
+    </header>
+
+    <div class="hht-collection__routine" id="hht-collection-routine">
+      <p class="hht-collection__routine-label">Shop by routine</p>
+      <div class="hht-collection__chips" role="list">
+        <a class="hht-collection__chip" role="listitem" href="#hht-collection-grid" data-hht-chip="prep">Prep</a>
+        <a class="hht-collection__chip" role="listitem" href="#hht-collection-grid" data-hht-chip="self-tan">Self Tan</a>
+        <a class="hht-collection__chip" role="listitem" href="#hht-collection-grid" data-hht-chip="maintain">Maintain</a>
+        <a class="hht-collection__chip" role="listitem" href="#hht-collection-grid" data-hht-chip="tools">Tools</a>
+        <a class="hht-collection__chip" role="listitem" href="#hht-collection-grid" data-hht-chip="bundles">Bundles</a>
+      </div>
+      <p class="hht-collection__routine-note">Curated from our live collection — Prep, Self Tan, Maintain, Tools and Bundles.</p>
     </div>
-  {%- endpaginate -%}
-</div>
+
+    {%- paginate collection.products by products_per_page -%}
+      <div class="hht-collection__layout">
+        <aside class="hht-collection__sidebar" aria-label="Product filters" id="CollectionFilters" data-hht-filters>
+          <div class="hht-collection__sidebar-head">
+            <h2 class="hht-collection__sidebar-title">Filters</h2>
+            <button type="button" class="hht-collection__filter-close" data-hht-filter-close aria-label="Close filters">
+              {% render 'icon', name: 'close' %}
+            </button>
+          </div>
+
+          {%- if collection.filters.size > 0 -%}
+            <form method="get" class="hht-collection__facet-form" id="FacetFiltersForm">
+              {%- if collection.sort_by != blank -%}
+                <input type="hidden" name="sort_by" value="{{ collection.sort_by }}">
+              {%- endif -%}
+
+              {%- for filter in collection.filters -%}
+                <details class="hht-collection__facet" open>
+                  <summary class="hht-collection__facet-summary">
+                    <span>{{ filter.label }}</span>
+                    <span class="hht-collection__facet-icon" aria-hidden="true"></span>
+                  </summary>
+                  <div class="hht-collection__facet-body">
+                    {%- case filter.type -%}
+                      {%- when 'price_range' -%}
+                        <div class="hht-collection__price">
+                          <label class="visually-hidden" for="FilterMin-{{ section.id }}">Minimum price</label>
+                          <input
+                            id="FilterMin-{{ section.id }}"
+                            name="{{ filter.min_value.param_name }}"
+                            type="number"
+                            inputmode="decimal"
+                            placeholder="Min"
+                            min="0"
+                            value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
+                          <span class="hht-collection__price-sep" aria-hidden="true">–</span>
+                          <label class="visually-hidden" for="FilterMax-{{ section.id }}">Maximum price</label>
+                          <input
+                            id="FilterMax-{{ section.id }}"
+                            name="{{ filter.max_value.param_name }}"
+                            type="number"
+                            inputmode="decimal"
+                            placeholder="Max"
+                            min="0"
+                            value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+                        </div>
+                        <button type="submit" class="btn btn--pill btn--outline hht-collection__apply">Apply price</button>
+                      {%- else -%}
+                        <ul class="hht-collection__facet-list" role="list">
+                          {%- for value in filter.values -%}
+                            <li>
+                              <label class="hht-collection__check{% if value.count == 0 and value.active == false %} is-disabled{% endif %}">
+                                <input
+                                  type="checkbox"
+                                  name="{{ value.param_name }}"
+                                  value="{{ value.value }}"
+                                  {% if value.active %}checked{% endif %}
+                                  {% if value.count == 0 and value.active == false %}disabled{% endif %}
+                                  onchange="this.form.submit()">
+                                <span class="hht-collection__check-box" aria-hidden="true"></span>
+                                <span class="hht-collection__check-label">{{ value.label }}</span>
+                                <span class="hht-collection__check-count">{{ value.count }}</span>
+                              </label>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                    {%- endcase -%}
+                  </div>
+                </details>
+              {%- endfor -%}
+
+              <a href="{{ collection.url }}" class="hht-collection__clear">Clear all filters</a>
+            </form>
+          {%- else -%}
+            <div class="hht-collection__facet is-static">
+              <p class="hht-collection__facet-summary"><span>Availability</span></p>
+              <p class="hht-collection__availability-note">{{ collection.products_count }} products in this collection.</p>
+            </div>
+          {%- endif -%}
+        </aside>
+
+        <div class="hht-collection__main" id="hht-collection-grid">
+          <div class="hht-collection__toolbar">
+            <button type="button" class="btn btn--pill btn--outline hht-collection__filter-open" data-hht-filter-open aria-controls="CollectionFilters" aria-expanded="false">
+              Filters
+            </button>
+            <p class="hht-collection__count">
+              {%- if collection.products_count == 1 -%}
+                1 product
+              {%- else -%}
+                {{ collection.products_count }} products
+              {%- endif -%}
+            </p>
+            <form method="get" class="hht-collection__sort" id="SortForm">
+              {%- for filter in collection.filters -%}
+                {%- for value in filter.active_values -%}
+                  <input type="hidden" name="{{ value.param_name }}" value="{{ value.value }}">
+                {%- endfor -%}
+                {%- if filter.type == 'price_range' -%}
+                  {%- if filter.min_value.value -%}<input type="hidden" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">{%- endif -%}
+                  {%- if filter.max_value.value -%}<input type="hidden" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">{%- endif -%}
+                {%- endif -%}
+              {%- endfor -%}
+              <label class="visually-hidden" for="SortBy-{{ section.id }}">Sort by</label>
+              <select name="sort_by" id="SortBy-{{ section.id }}" onchange="this.form.submit()">
+                {%- assign current_sort = collection.sort_by | default: collection.default_sort_by -%}
+                {%- for option in collection.sort_options -%}
+                  <option value="{{ option.value }}" {% if option.value == current_sort %}selected{% endif %}>{{ option.name }}</option>
+                {%- endfor -%}
+              </select>
+            </form>
+          </div>
+
+          {%- if collection.products.size > 0 -%}
+            <div class="hht-collection__grid" data-hht-product-grid>
+              {%- for product in collection.products -%}
+                {% render 'product-card', product: product %}
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <p class="hht-collection__empty">No products match these filters. <a href="{{ collection.url }}">Clear filters</a></p>
+          {%- endif -%}
+
+          {%- if paginate.pages > 1 -%}
+            <div class="hht-collection__pagination">{% render 'pagination', paginate: paginate %}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endpaginate -%}
+  </div>
+
+  <div class="hht-collection__backdrop" data-hht-filter-backdrop hidden></div>
+</section>
+
+<script>
+  (function () {
+    function ready(fn) {
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+      else fn();
+    }
+    ready(function () {
+      var root = document.querySelector('[data-hht-collection]');
+      if (!root) return;
+      var panel = root.querySelector('[data-hht-filters]');
+      var openBtn = root.querySelector('[data-hht-filter-open]');
+      var closeBtn = root.querySelector('[data-hht-filter-close]');
+      var backdrop = root.querySelector('[data-hht-filter-backdrop]');
+
+      function setOpen(open) {
+        root.classList.toggle('is-filters-open', open);
+        if (openBtn) openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (backdrop) backdrop.hidden = !open;
+        document.documentElement.classList.toggle('hht-filters-lock', open);
+      }
+      if (openBtn) openBtn.addEventListener('click', function () { setOpen(true); });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+      if (backdrop) backdrop.addEventListener('click', function () { setOpen(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+
+      /* Soft routine chips — highlight matching cards by category label */
+      root.querySelectorAll('[data-hht-chip]').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          var key = (chip.getAttribute('data-hht-chip') || '').toLowerCase();
+          var map = { prep: 'Prep', 'self-tan': 'Self Tan', maintain: 'Maintain', tools: 'Tools', bundles: 'Bundles' };
+          var label = map[key] || '';
+          root.querySelectorAll('[data-hht-chip]').forEach(function (c) { c.classList.toggle('is-active', c === chip); });
+          root.querySelectorAll('[data-product-card]').forEach(function (card) {
+            var cat = card.querySelector('.hht-pcard__category');
+            var match = !label || (cat && cat.textContent.trim() === label);
+            card.classList.toggle('is-dimmed', !match);
+          });
+        });
+      });
+
+      /* Quick add via Cart AJAX */
+      root.querySelectorAll('[data-hht-quick-add]').forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var btn = form.querySelector('button[type="submit"]');
+          var fd = new FormData(form);
+          if (btn) { btn.disabled = true; btn.textContent = 'Adding…'; }
+          fetch((window.Shopify && Shopify.routes && Shopify.routes.root ? Shopify.routes.root : '/') + 'cart/add.js', {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: fd
+          }).then(function (r) {
+            if (!r.ok) throw new Error('Cart add failed');
+            return r.json();
+          }).then(function () {
+            return fetch((window.Shopify && Shopify.routes && Shopify.routes.root ? Shopify.routes.root : '/') + 'cart.js', { headers: { Accept: 'application/json' } });
+          }).then(function (r) { return r.json(); }).then(function (cart) {
+            document.querySelectorAll('.site-header__utility--cart').forEach(function (link) {
+              var el = link.querySelector('.site-header__utility-count');
+              if (cart.item_count > 0) {
+                if (!el) {
+                  el = document.createElement('span');
+                  el.className = 'site-header__utility-count';
+                  link.appendChild(el);
+                }
+                el.textContent = String(cart.item_count);
+              } else if (el) {
+                el.remove();
+              }
+            });
+            if (btn) { btn.textContent = 'Added'; setTimeout(function () { btn.disabled = false; btn.textContent = 'Add to cart'; }, 1200); }
+          }).catch(function () {
+            form.submit();
+          });
+        });
+      });
+    });
+  })();
+</script>
 
 {% schema %}
 {
   "name": "Collection",
   "settings": [
-    { "type": "checkbox", "id": "show_color_swatches", "label": "Show color swatches in filters", "default": true }
+    { "type": "header", "content": "Collection intro" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Hush Hush Tan Aftercare" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Shop Your Glow Essentials" },
+    { "type": "textarea", "id": "text", "label": "Intro text", "default": "Prep, maintain, and extend your glow with Hush Hush Tan essentials. Explore our curated collection of self-tanning and aftercare products designed to support smooth application and a longer-lasting finish." },
+    { "type": "text", "id": "cta1_label", "label": "Primary CTA label", "default": "Shop All Products" },
+    { "type": "text", "id": "cta2_label", "label": "Secondary CTA label", "default": "Build Your Routine" },
+    { "type": "range", "id": "products_per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 }
   ]
 }
 {% endschema %}

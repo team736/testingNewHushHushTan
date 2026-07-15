@@ -1,43 +1,108 @@
-{%- comment -%} render 'product-card', product: product {%- endcomment -%}
-<a href="{{ product.url }}" class="product-card">
-  <div class="product-card__media">
-    {%- if product.compare_at_price > product.price -%}
-      <div class="product-card__badges"><span class="badge badge--sale">Sale</span></div>
-    {%- elsif product.metafields.custom.new_arrival -%}
-      <div class="product-card__badges"><span class="badge badge--new">New</span></div>
-    {%- endif -%}
-    {%- if product.featured_image -%}
-      <img class="is-front"
-        src="{{ product.featured_image | image_url: width: 600 }}"
-        srcset="{{ product.featured_image | image_url: width: 400 }} 400w,
-                {{ product.featured_image | image_url: width: 600 }} 600w,
-                {{ product.featured_image | image_url: width: 900 }} 900w"
-        sizes="(max-width: 720px) 50vw, 25vw"
-        alt="{{ product.featured_image.alt | default: product.title | escape }}"
-        loading="lazy"
-        width="600" height="750">
-      {%- if product.images[1] -%}
-        <img class="is-back"
-          src="{{ product.images[1] | image_url: width: 600 }}"
-          alt=""
-          loading="lazy"
-          width="600" height="750">
+{%- comment -%} Product card — collection / related products {%- endcomment -%}
+{%- liquid
+  assign variant = product.selected_or_first_available_variant
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+  assign sold_out = false
+  unless product.available
+    assign sold_out = true
+  endunless
+
+  assign card_badge = ''
+  assign title_down = product.title | downcase
+  if on_sale
+    assign card_badge = 'Sale'
+  elsif sold_out
+    assign card_badge = 'Sold Out'
+  elsif title_down contains 'bundle'
+    assign card_badge = 'Bundle'
+  elsif product.metafields.custom.new_arrival
+    assign card_badge = 'New'
+  endif
+
+  assign card_category = ''
+  if title_down contains 'bundle'
+    assign card_category = 'Bundles'
+  elsif title_down contains 'exfoliant' or title_down contains 'glove'
+    assign card_category = 'Prep'
+  elsif title_down contains 'mousse' and title_down contains 'mitt'
+    assign card_category = 'Self Tan'
+  elsif title_down contains 'mousse'
+    assign card_category = 'Self Tan'
+  elsif title_down contains 'mitt'
+    assign card_category = 'Tools'
+  elsif title_down contains 'extender' or title_down contains 'body wash'
+    assign card_category = 'Maintain'
+  endif
+-%}
+
+<article class="hht-pcard{% if sold_out %} is-sold-out{% endif %}" data-product-card>
+  <div class="hht-pcard__media">
+    <a href="{{ product.url }}" class="hht-pcard__media-link" aria-label="{{ product.title | escape }}">
+      {%- if card_badge != blank -%}
+        <span class="hht-pcard__badge{% if on_sale %} hht-pcard__badge--sale{% elsif sold_out %} hht-pcard__badge--sold{% endif %}">{{ card_badge }}</span>
       {%- endif -%}
+      {%- if product.featured_image -%}
+        <img
+          class="hht-pcard__img is-front"
+          src="{{ product.featured_image | image_url: width: 800 }}"
+          srcset="{{ product.featured_image | image_url: width: 400 }} 400w,
+                  {{ product.featured_image | image_url: width: 600 }} 600w,
+                  {{ product.featured_image | image_url: width: 900 }} 900w"
+          sizes="(max-width: 720px) 50vw, (max-width: 1100px) 33vw, 25vw"
+          alt="{{ product.featured_image.alt | default: product.title | escape }}"
+          loading="lazy"
+          width="600"
+          height="750">
+        {%- if product.images[1] -%}
+          <img
+            class="hht-pcard__img is-back"
+            src="{{ product.images[1] | image_url: width: 800 }}"
+            alt=""
+            loading="lazy"
+            width="600"
+            height="750">
+        {%- endif -%}
+      {%- else -%}
+        <div class="hht-pcard__placeholder">Hush Hush Tan</div>
+      {%- endif -%}
+    </a>
+
+    {%- if sold_out -%}
+      <span class="hht-pcard__actions">
+        <a href="{{ product.url }}" class="btn btn--pill btn--outline hht-pcard__cta">View details</a>
+      </span>
+    {%- elsif product.has_only_default_variant -%}
+      <form method="post" action="{{ routes.cart_add_url }}" class="hht-pcard__actions" data-hht-quick-add>
+        <input type="hidden" name="id" value="{{ variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="btn btn--pill hht-pcard__cta">Add to cart</button>
+      </form>
     {%- else -%}
-      <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-family:var(--font-heading);font-size:1.4rem;">
-        Hush Hush Tan
-      </div>
+      <span class="hht-pcard__actions">
+        <a href="{{ product.url }}" class="btn btn--pill hht-pcard__cta">Choose options</a>
+      </span>
     {%- endif -%}
   </div>
-  <h3 class="product-card__title">{{ product.title }}</h3>
-  <div class="product-card__price">
-    {%- if product.compare_at_price > product.price -%}
-      <span class="on-sale">{{ product.price | money }}</span>
-      <s>{{ product.compare_at_price | money }}</s>
-    {%- elsif product.price_varies -%}
-      From {{ product.price_min | money }}
-    {%- else -%}
-      {{ product.price | money }}
+
+  <div class="hht-pcard__body">
+    {%- if card_category != blank -%}
+      <p class="hht-pcard__category">{{ card_category }}</p>
     {%- endif -%}
+    <h3 class="hht-pcard__title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+    <div class="hht-pcard__price">
+      {%- if on_sale -%}
+        <span class="hht-pcard__price-sale">{{ product.price | money }}</span>
+        <s class="hht-pcard__price-compare">{{ product.compare_at_price | money }}</s>
+      {%- elsif product.price_varies -%}
+        <span>From {{ product.price_min | money }}</span>
+      {%- else -%}
+        <span>{{ product.price | money }}</span>
+      {%- endif -%}
+    </div>
   </div>
-</a>
+</article>
