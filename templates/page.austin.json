@@ -196,37 +196,6 @@
         "cta_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591"
       }
     },
-    "studio": {
-      "type": "location-cards",
-      "blocks": {
-        "l1": {
-          "type": "location",
-          "settings": {
-            "city": "Austin",
-            "tagline": "Austin Flagship · Clarksville",
-            "image": "shopify://shop_images/014_20230720_hushhushtan_14.jpg",
-            "image_fallback": "hht-loc-austin-hero.jpg",
-            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
-            "phone": "512-482-8339",
-            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
-            "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
-            "book_label": "Book Appointment",
-            "map_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703",
-            "info_url": "",
-            "secondary_label": "Get Directions"
-          }
-        }
-      },
-      "block_order": [
-        "l1"
-      ],
-      "settings": {
-        "section_id": "visit-austin",
-        "eyebrow": "PLAN YOUR VISIT",
-        "heading": "Visit Our Austin Studio",
-        "subheading": ""
-      }
-    },
     "services": {
       "type": "service-cards",
       "blocks": {
@@ -586,6 +555,37 @@
         "cta2_url": "#visit-austin"
       }
     },
+    "studio": {
+      "type": "location-cards",
+      "blocks": {
+        "l1": {
+          "type": "location",
+          "settings": {
+            "city": "Austin",
+            "tagline": "Austin Flagship · Clarksville",
+            "image": "shopify://shop_images/014_20230720_hushhushtan_14.jpg",
+            "image_fallback": "hht-loc-austin-hero.jpg",
+            "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
+            "phone": "512-482-8339",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4930591",
+            "book_label": "Book Appointment",
+            "map_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703",
+            "info_url": "",
+            "secondary_label": "Get Directions"
+          }
+        }
+      },
+      "block_order": [
+        "l1"
+      ],
+      "settings": {
+        "section_id": "visit-austin",
+        "eyebrow": "PLAN YOUR VISIT",
+        "heading": "Visit Our Austin Studio",
+        "subheading": ""
+      }
+    },
     "sticky_book": {
       "type": "sticky-book",
       "settings": {
@@ -601,13 +601,13 @@
     "hero",
     "reviews",
     "start_here",
-    "studio",
     "services",
     "why",
     "press",
     "faq",
     "social",
     "final",
+    "studio",
     "sticky_book"
   ]
 }
