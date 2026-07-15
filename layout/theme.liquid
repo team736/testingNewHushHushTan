@@ -61,11 +61,11 @@
 
     <main id="MainContent" role="main">
       {%- comment -%}
-        Gift Card page (/pages/tanning-gift-certificates) is stuck on the Default
-        template in Admin. Render the gift section directly so the page is not empty.
+        Gift Card page (/pages/tanning-gift-certificates) is stuck on Default in Admin.
+        Render via snippet so content is visible even if the section file failed theme sync.
       {%- endcomment -%}
       {%- if request.page_type == 'page' and page.handle == 'tanning-gift-certificates' and template.suffix == blank -%}
-        {% section 'gift-certificates' %}
+        {% render 'hht-gift-page' %}
       {%- else -%}
         {{ content_for_layout }}
       {%- endif -%}

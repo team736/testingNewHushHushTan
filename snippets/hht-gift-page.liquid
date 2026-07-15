@@ -1,18 +1,21 @@
+{%- comment -%} Gift Card page content (snippet fallback when section sync fails) {%- endcomment -%}
 {%- liquid
-  assign hht_skip = false
-  if section.settings.only_on_handle != blank and page.handle != section.settings.only_on_handle
-    assign hht_skip = true
-  endif
--%}
-{%- unless hht_skip -%}
-{%- liquid
-  assign sid = section.id
-  assign austin_url = section.settings.austin_url | default: 'https://go.booker.com/location/HushHushTan/buy/gift-certificate'
-  assign dallas_url = section.settings.dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/gift-certificate'
-  assign houston_url = section.settings.houston_url | default: 'https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate'
-  assign services_url = section.settings.services_url | default: '/pages/our-services'
-  assign products_url = section.settings.products_url | default: '/collections/tanning-products'
-  assign default_city = section.settings.default_location | default: 'austin'
+  assign sid = 'gift-snippet'
+  assign austin_url = austin_url | default: 'https://go.booker.com/location/HushHushTan/buy/gift-certificate'
+  assign dallas_url = dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/gift-certificate'
+  assign houston_url = houston_url | default: 'https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate'
+  assign services_url = services_url | default: '/pages/our-services'
+  assign products_url = products_url | default: '/collections/tanning-products'
+  assign default_city = default_location | default: 'austin'
+  assign hero_eyebrow = hero_eyebrow | default: 'THE PERFECT GIFT, BEAUTIFULLY GLOWING'
+  assign hero_heading = hero_heading | default: 'Give the Gift of Confidence'
+  assign hero_text = hero_text | default: 'Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience.'
+  assign hero_cta1 = hero_cta1 | default: 'CHOOSE A LOCATION'
+  assign hero_cta2 = hero_cta2 | default: 'SEE WHAT IT CAN COVER'
+  assign hero_image_alt = hero_image_alt | default: 'Hush Hush Tan studio glow experience'
+  assign buy_eyebrow = buy_eyebrow | default: 'CHOOSE THEIR STUDIO'
+  assign buy_heading = buy_heading | default: 'Select a Gift Certificate Location'
+  assign buy_text = buy_text | default: 'Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.'
 -%}
 
 {% style %}
@@ -244,24 +247,24 @@
     <div class="hht-gift__wrap">
       <div class="hht-gift-hero__panel">
         <div class="hht-gift-hero__body">
-          {% if section.settings.hero_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.hero_eyebrow }}</span>{% endif %}
-          <h1 class="hht-gift__h1">{{ section.settings.hero_heading }}</h1>
-          {% if section.settings.hero_text != blank %}<p class="hht-gift__lead">{{ section.settings.hero_text }}</p>{% endif %}
+          {% if hero_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ hero_eyebrow }}</span>{% endif %}
+          <h1 class="hht-gift__h1">{{ hero_heading }}</h1>
+          {% if hero_text != blank %}<p class="hht-gift__lead">{{ hero_text }}</p>{% endif %}
           <ul class="hht-gift-hero__trust">
             <li>Personalized gift for their preferred Texas studio</li>
             <li>Easy online purchase through secure Booker checkout</li>
             <li>Available for Austin, Dallas and Houston</li>
           </ul>
           <div class="hht-gift-hero__ctas">
-            <a href="#gift-purchase" class="btn btn--pill">{{ section.settings.hero_cta1 | default: 'Choose a Location' }}</a>
-            <a href="#gift-values" class="btn btn--pill btn--outline">{{ section.settings.hero_cta2 | default: 'See What It Can Cover' }}</a>
+            <a href="#gift-purchase" class="btn btn--pill">{{ hero_cta1 | default: 'Choose a Location' }}</a>
+            <a href="#gift-values" class="btn btn--pill btn--outline">{{ hero_cta2 | default: 'See What It Can Cover' }}</a>
           </div>
         </div>
         <div class="hht-gift-hero__media">
-          {%- if section.settings.hero_image != blank -%}
-            <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="{{ section.settings.hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
+          {%- if hero_image != blank -%}
+            <img src="{{ hero_image | image_url: width: 1200 }}" alt="{{ hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
           {%- else -%}
-            <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
+            <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
           {%- endif -%}
         </div>
       </div>
@@ -272,9 +275,9 @@
   <div class="hht-gift__section hht-gift__section--warm" id="gift-purchase">
     <div class="hht-gift__wrap">
       <div class="hht-gift-buy">
-        <span class="hht-gift__eyebrow">{{ section.settings.buy_eyebrow | default: 'Choose Their Studio' }}</span>
-        <h2 class="hht-gift__h2">{{ section.settings.buy_heading | default: 'Select a Gift Certificate Location' }}</h2>
-        <p class="hht-gift__lead" style="margin-left:auto;margin-right:auto;">{{ section.settings.buy_text | default: 'Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.' }}</p>
+        <span class="hht-gift__eyebrow">{{ buy_eyebrow | default: 'Choose Their Studio' }}</span>
+        <h2 class="hht-gift__h2">{{ buy_heading | default: 'Select a Gift Certificate Location' }}</h2>
+        <p class="hht-gift__lead" style="margin-left:auto;margin-right:auto;">{{ buy_text | default: 'Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.' }}</p>
 
         <div class="hht-gift-toggle" role="tablist" aria-label="Gift certificate studio">
           <button type="button" class="hht-gift-toggle__btn" role="tab" data-gift-city="austin" aria-selected="true" aria-controls="hht-gift-live-{{ sid }}">Austin</button>
@@ -572,40 +575,3 @@
   })();
 </script>
 
-{%- endunless -%}
-
-{% schema %}
-{
-  "name": "Gift Certificates",
-  "tag": "section",
-  "settings": [
-    { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. tanning-gift-certificates), this section renders only on that page." },
-    { "type": "header", "content": "Hero" },
-    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "The Perfect Gift, Beautifully Glowing" },
-    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Give the Gift of Confidence" },
-    { "type": "textarea", "id": "hero_text", "label": "Body", "default": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience." },
-    { "type": "text", "id": "hero_cta1", "label": "Primary CTA", "default": "Choose a Location" },
-    { "type": "text", "id": "hero_cta2", "label": "Secondary CTA", "default": "See What It Can Cover" },
-    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
-    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt", "default": "Hush Hush Tan gift glow experience" },
-
-    { "type": "header", "content": "City purchase panel" },
-    { "type": "select", "id": "default_location", "label": "Default city", "default": "austin",
-      "options": [
-        { "value": "austin", "label": "Austin" },
-        { "value": "dallas", "label": "Dallas" },
-        { "value": "houston", "label": "Houston" }
-      ]
-    },
-    { "type": "text", "id": "buy_eyebrow", "label": "Purchase eyebrow", "default": "Choose Their Studio" },
-    { "type": "text", "id": "buy_heading", "label": "Purchase heading", "default": "Select a Gift Certificate Location" },
-    { "type": "textarea", "id": "buy_text", "label": "Purchase text", "default": "Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book." },
-    { "type": "url", "id": "austin_url", "label": "Austin Booker gift URL" },
-    { "type": "url", "id": "dallas_url", "label": "Dallas Booker gift URL" },
-    { "type": "url", "id": "houston_url", "label": "Houston Booker gift URL" },
-    { "type": "url", "id": "services_url", "label": "Explore Services URL" },
-    { "type": "url", "id": "products_url", "label": "Explore Products URL" }
-  ],
-  "presets": [{ "name": "Gift Certificates" }]
-}
-{% endschema %}
