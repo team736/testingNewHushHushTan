@@ -8,6 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": { "main": { "type": "main-product", "settings": { "show_dynamic_checkout": true, "show_related": true } } },
-  "order": ["main"]
+  "order": [
+    "main"
+  ],
+  "sections": {
+    "main": {
+      "settings": {
+        "show_dynamic_checkout": true,
+        "show_related": true
+      },
+      "type": "main-product"
+    }
+  }
 }
