@@ -1,22 +1,78 @@
-<section class="section{% if section.settings.soft_bg %} section-offwhite{% endif %}">
+{%- liquid
+  assign layout = section.settings.layout | default: 'grid'
+  if layout != 'list'
+    assign layout = 'grid'
+  endif
+-%}
+<section class="section{% if section.settings.soft_bg %} section-offwhite{% endif %} hht-services-choose">
   <div class="container container--home">
     <div class="section-head">
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
       <h2 class="mb-0">{{ section.settings.heading }}</h2>
       {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
     </div>
-    <div class="service-cards">
-      {%- for block in section.blocks -%}
-        <div class="service-card" {{ block.shopify_attributes }}>
-          <h3 class="service-card__title">{{ block.settings.title }}</h3>
-          {%- if block.settings.price != blank -%}<div class="service-card__price">{{ block.settings.price }}</div>{%- endif -%}
-          <p class="service-card__desc">{{ block.settings.description }}</p>
-          {%- if block.settings.cta_text != blank -%}
-            <a href="{{ block.settings.cta_url }}" class="btn btn--lavender btn--small service-card__cta"{% if block.settings.cta_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ block.settings.cta_text }}</a>
-          {%- endif -%}
+
+    {%- if layout == 'list' -%}
+      <div class="hht-glow-list">
+        <div class="hht-glow-list__card">
+          <div class="hht-glow-list__card-head">
+            <h3 class="hht-glow-list__card-title">
+              {{ section.settings.panel_title | default: 'Core Services' }}
+            </h3>
+            {%- if section.settings.panel_subtitle != blank -%}
+              <p class="hht-glow-list__card-sub">{{ section.settings.panel_subtitle }}</p>
+            {%- endif -%}
+          </div>
+          <div class="hht-glow-list__rows">
+            {%- for block in section.blocks -%}
+              <article class="hht-glow-list__row" {{ block.shopify_attributes }}>
+                <div class="hht-glow-list__row-main">
+                  <div class="hht-glow-list__row-head">
+                    <h4 class="hht-glow-list__row-title">{{ block.settings.title }}</h4>
+                    {%- if block.settings.badge != blank -%}
+                      <span class="hht-glow-list__badge">{{ block.settings.badge }}</span>
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.description != blank -%}
+                    <p class="hht-glow-list__row-desc">{{ block.settings.description }}</p>
+                  {%- endif -%}
+                  {%- if block.settings.cta_text != blank and block.settings.cta_url != blank -%}
+                    <a
+                      href="{{ block.settings.cta_url }}"
+                      class="btn btn--lavender btn--pill btn--small hht-glow-list__book"
+                      {% if block.settings.cta_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+                    >{{ block.settings.cta_text }}</a>
+                  {%- endif -%}
+                </div>
+                {%- if block.settings.price != blank -%}
+                  <div class="hht-glow-list__row-price" aria-label="Price">{{ block.settings.price }}</div>
+                {%- endif -%}
+              </article>
+            {%- endfor -%}
+          </div>
         </div>
-      {%- endfor -%}
-    </div>
+      </div>
+    {%- else -%}
+      <div class="service-cards">
+        {%- for block in section.blocks -%}
+          <div class="service-card" {{ block.shopify_attributes }}>
+            <div class="service-card__top">
+              <h3 class="service-card__title">{{ block.settings.title }}</h3>
+              {%- if block.settings.badge != blank -%}
+                <span class="service-card__badge">{{ block.settings.badge }}</span>
+              {%- endif -%}
+            </div>
+            {%- if block.settings.price != blank -%}
+              <div class="service-card__price">{{ block.settings.price }}</div>
+            {%- endif -%}
+            <p class="service-card__desc">{{ block.settings.description }}</p>
+            {%- if block.settings.cta_text != blank -%}
+              <a href="{{ block.settings.cta_url }}" class="btn btn--lavender btn--small service-card__cta"{% if block.settings.cta_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ block.settings.cta_text }}</a>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
   </div>
 </section>
 
@@ -27,7 +83,19 @@
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Services" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Spray tanning services" },
     { "type": "textarea", "id": "subheading", "label": "Subheading" },
-    { "type": "checkbox", "id": "soft_bg", "label": "Soft background", "default": false }
+    { "type": "checkbox", "id": "soft_bg", "label": "Soft background", "default": false },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "grid",
+      "options": [
+        { "value": "grid", "label": "Three cards" },
+        { "value": "list", "label": "Core Services list (with pricing)" }
+      ]
+    },
+    { "type": "text", "id": "panel_title", "label": "List panel title", "default": "Core Services" },
+    { "type": "text", "id": "panel_subtitle", "label": "List panel subtitle", "default": "First-timer? Start here." }
   ],
   "blocks": [
     {
@@ -35,9 +103,10 @@
       "name": "Service",
       "settings": [
         { "type": "text", "id": "title", "label": "Title", "default": "Custom Glow" },
-        { "type": "text", "id": "price", "label": "Price", "default": "From $40" },
+        { "type": "text", "id": "badge", "label": "Badge", "default": "MOST POPULAR" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$50", "info": "Shown on the right in list layout (e.g. $50)." },
         { "type": "textarea", "id": "description", "label": "Description", "default": "A signature airbrush tan mixed to your skin's undertones." },
-        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book now" },
+        { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Book Now" },
         { "type": "url", "id": "cta_url", "label": "CTA URL" }
       ]
     }

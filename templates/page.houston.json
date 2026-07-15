@@ -340,9 +340,10 @@
           "type": "service",
           "settings": {
             "title": "Custom Glow",
-            "price": "MOST POPULAR",
-            "description": "A personalized color formulation customized to your individual skin tone, undertones and desired result.",
-            "cta_text": "BOOK CUSTOM GLOW",
+            "badge": "MOST POPULAR",
+            "price": "$50",
+            "description": "Customized to your individual skin tone",
+            "cta_text": "Book Now",
             "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
           }
         },
@@ -350,9 +351,10 @@
           "type": "service",
           "settings": {
             "title": "Clear Glow",
-            "price": "FIRST-TIMER FAVORITE",
-            "description": "A clear solution designed to develop into a natural-looking finish without an instant cosmetic bronzer.",
-            "cta_text": "BOOK CLEAR GLOW",
+            "badge": "FIRST-TIMER FAVE",
+            "price": "$50",
+            "description": "Clear solution for a natural finish",
+            "cta_text": "Book Now",
             "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930657"
           }
         },
@@ -360,9 +362,10 @@
           "type": "service",
           "settings": {
             "title": "Rapid Glow",
-            "price": "FAST RESULTS",
-            "description": "A customized rapid-developing glow designed to rinse in approximately two to four hours.",
-            "cta_text": "BOOK RAPID GLOW",
+            "badge": "FAST RESULTS",
+            "price": "$60",
+            "description": "Rinse in 2-4 hours",
+            "cta_text": "Book Now",
             "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758"
           }
         }
@@ -376,7 +379,10 @@
         "eyebrow": "Services",
         "heading": "Choose Your Glow",
         "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
-        "soft_bg": true
+        "soft_bg": true,
+        "layout": "list",
+        "panel_title": "Core Services",
+        "panel_subtitle": "First-timer? Start here."
       }
     },
     "why": {
