@@ -12,7 +12,25 @@
       {%- endif -%}
       <div class="final-cta__actions">
         {%- if section.settings.cta1_text != blank -%}
-          <a href="{{ section.settings.cta1_url | default: '#' }}" class="btn btn--pill"{% if section.settings.cta1_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta1_text }}</a>
+          {%- liquid
+            assign cta1 = section.settings.cta1_url
+            assign sync_book = false
+            if section.settings.cta1_url_austin != blank or section.settings.cta1_url_houston != blank or section.settings.cta1_url_dallas != blank
+              assign sync_book = true
+              if section.settings.cta1_url_austin != blank
+                assign cta1 = section.settings.cta1_url_austin
+              endif
+            endif
+          -%}
+          <a href="{{ cta1 | default: '#' }}"
+             class="btn btn--pill"
+             {% if sync_book %}
+             data-hht-sync-book
+             data-book-austin="{{ section.settings.cta1_url_austin }}"
+             data-book-houston="{{ section.settings.cta1_url_houston }}"
+             data-book-dallas="{{ section.settings.cta1_url_dallas }}"
+             {% endif %}
+             {% if cta1 contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta1_text }}</a>
         {%- endif -%}
         {%- if section.settings.cta2_text != blank -%}
           <a href="{{ section.settings.cta2_url | default: '#' }}" class="btn btn--pill btn--outline"{% if section.settings.cta2_url contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.cta2_text }}</a>
@@ -30,7 +48,10 @@
     { "type": "text", "id": "heading", "label": "Heading", "default": "Book your Custom Glow today" },
     { "type": "textarea", "id": "text", "label": "Text", "default": "Three Texas locations. Mixed for your undertones." },
     { "type": "text", "id": "cta1_text", "label": "Primary CTA text", "default": "Choose Your Location" },
-    { "type": "url", "id": "cta1_url", "label": "Primary CTA URL" },
+    { "type": "url", "id": "cta1_url", "label": "Primary CTA URL (fallback)" },
+    { "type": "url", "id": "cta1_url_austin", "label": "Primary CTA URL — Austin", "info": "When set with Houston/Dallas URLs, syncs with the Our Services city selector." },
+    { "type": "url", "id": "cta1_url_houston", "label": "Primary CTA URL — Houston" },
+    { "type": "url", "id": "cta1_url_dallas", "label": "Primary CTA URL — Dallas" },
     { "type": "text", "id": "cta2_text", "label": "Secondary CTA text", "default": "Shop Products" },
     { "type": "url", "id": "cta2_url", "label": "Secondary CTA URL" }
   ],

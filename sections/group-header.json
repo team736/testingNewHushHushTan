@@ -53,44 +53,6 @@
             "open_in_new_tab": false
           }
         },
-        "top_link_jXr9Pi": {
-          "type": "top_link",
-          "settings": {
-            "label": "Services",
-            "url": "shopify://pages/our-services",
-            "open_in_new_tab": false
-          }
-        },
-        "top_link_n8ieBq": {
-          "type": "top_link",
-          "settings": {
-            "label": "Shop",
-            "url": "/collections/tanning-products",
-            "open_in_new_tab": false
-          }
-        },
-        "parent_menu_K7AkEn": {
-          "type": "parent_menu",
-          "settings": {
-            "label": "Parties & Events"
-          }
-        },
-        "child_link_ajhTAF": {
-          "type": "child_link",
-          "settings": {
-            "label": "Group Tanning & Mimosas",
-            "url": "/pages/hush-hush-tan-group-tanning-mimosas-package",
-            "open_in_new_tab": false
-          }
-        },
-        "child_link_UNpekD": {
-          "type": "child_link",
-          "settings": {
-            "label": "Mobile Tanning",
-            "url": "/pages/mobile-spray-tan",
-            "open_in_new_tab": false
-          }
-        },
         "top_link_cd34Td": {
           "type": "top_link",
           "settings": {
@@ -144,6 +106,53 @@
             "url": "/pages/tanning-tips",
             "open_in_new_tab": false
           }
+        },
+        "parent_menu_services": {
+          "type": "parent_menu",
+          "name": "Our Services",
+          "settings": {
+            "label": "Our Services"
+          }
+        },
+        "child_link_svc_main": {
+          "type": "child_link",
+          "settings": {
+            "label": "Our Services",
+            "url": "/pages/our-services",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_svc_products": {
+          "type": "child_link",
+          "settings": {
+            "label": "Products",
+            "url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_svc_mimosas": {
+          "type": "child_link",
+          "settings": {
+            "label": "Tanning & Mimosas",
+            "url": "/pages/hush-hush-tan-group-tanning-mimosas-package",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_svc_mobile": {
+          "type": "child_link",
+          "settings": {
+            "label": "Austin Mobile Tanning",
+            "url": "/pages/mobile-spray-tan",
+            "open_in_new_tab": false
+          }
+        },
+        "child_link_svc_gifts": {
+          "type": "child_link",
+          "settings": {
+            "label": "Gift Certificates",
+            "url": "/pages/tanning-gift-certificates",
+            "open_in_new_tab": false
+          }
         }
       },
       "block_order": [
@@ -151,11 +160,12 @@
         "child_link_QgKVj4",
         "child_link_JAk3hV",
         "child_link_mXwR6L",
-        "top_link_jXr9Pi",
-        "top_link_n8ieBq",
-        "parent_menu_K7AkEn",
-        "child_link_ajhTAF",
-        "child_link_UNpekD",
+        "parent_menu_services",
+        "child_link_svc_main",
+        "child_link_svc_products",
+        "child_link_svc_mimosas",
+        "child_link_svc_mobile",
+        "child_link_svc_gifts",
         "top_link_cd34Td",
         "parent_menu_eafMwF",
         "child_link_YkzDbf",

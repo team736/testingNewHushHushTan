@@ -6495,10 +6495,19 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   .hht-reviews--compact .hht-reviews__grid { grid-template-columns: 1fr; }
 }
 
-/* Service page — chat widget spacing */
+/* Service page — chat widget spacing + safe bottom padding so launchers don't cover CTAs */
 .template-page .hht-chat-widget-wrap { padding-bottom: 80px; }
+.template-page.page-our-services,
+body.template-page[class*="our-services"] {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 24px);
+}
 @media (max-width: 640px) {
   .template-page .hht-chat-widget-wrap { padding-bottom: 100px; }
+  .template-page .section:last-of-type,
+  .template-page .final-cta {
+    margin-bottom: 24px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom, 0px));
+  }
 }
 
 /* ============================================================

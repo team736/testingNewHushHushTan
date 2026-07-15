@@ -42,6 +42,16 @@
   div#hht-services-{{ section.id }} .hht-header { text-align: center; margin-bottom: 28px; }
   div#hht-services-{{ section.id }} .hht-header--compact { margin-bottom: 20px; }
   div#hht-services-{{ section.id }} .hht-header--compact h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 12px; }
+  div#hht-services-{{ section.id }} .hht-header__eyebrow {
+    display: block;
+    font-family: {{ section.settings.body_font.family }}, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
   div#hht-services-{{ section.id }} .hht-header h1 {
     font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
     font-size: clamp(2.4rem, 4.5vw, 3.4rem);
@@ -297,6 +307,18 @@
   div#hht-services-{{ section.id }} .hht-pair-row .hht-section-card { margin-bottom: 0; }
 
   /* LeadConnector chat widget */
+  div#hht-services-{{ section.id }}.hht-loc-booting {
+    opacity: 0;
+  }
+  div#hht-services-{{ section.id }}:not(.hht-loc-booting) {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    div#hht-services-{{ section.id }}:not(.hht-loc-booting) { transition: none; }
+    div#hht-services-{{ section.id }} .hht-anim-float:hover,
+    div#hht-services-{{ section.id }} .hht-anim-scale:hover { transform: none; }
+  }
   div#hht-services-{{ section.id }} .hht-chat-widget-wrap {
     margin-top: 32px; padding-top: 28px;
     border-top: 1px solid color-mix(in srgb, var(--card-border) 55%, transparent);
@@ -314,11 +336,12 @@
   div#hht-services-{{ section.id }} .hht-anim-scale { transition: transform 0.3s ease; }
   div#hht-services-{{ section.id }} .hht-anim-scale:hover { transform: scale(1.01); }
 
-  /* Location targeting on rows */
+  /* Location targeting on rows — loc1 = Austin only, loc12 = Austin+Houston, loc3 = Dallas only */
   div#hht-services-{{ section.id }}.show-loc1 .target-loc2,
   div#hht-services-{{ section.id }}.show-loc1 .target-loc3 { display: none !important; }
   div#hht-services-{{ section.id }}.show-loc2 .target-loc1,
-  div#hht-services-{{ section.id }}.show-loc2 .target-loc3 { display: none !important; }
+  div#hht-services-{{ section.id }}.show-loc2 .target-loc3,
+  div#hht-services-{{ section.id }}.show-loc2 .target-loc12 { display: none !important; }
   div#hht-services-{{ section.id }}.show-loc3 .target-loc1,
   div#hht-services-{{ section.id }}.show-loc3 .target-loc2,
   div#hht-services-{{ section.id }}.show-loc3 .target-loc12 { display: none !important; }
@@ -330,11 +353,16 @@
   div#hht-services-{{ section.id }}.show-loc2 .loc1-display,
   div#hht-services-{{ section.id }}.show-loc2 .loc3-display { display: none !important; }
   div#hht-services-{{ section.id }}.show-loc2 span.loc2-display { display: inline !important; }
+  div#hht-services-{{ section.id }}.show-loc2 span.price-sub.loc2-display { display: block !important; }
   div#hht-services-{{ section.id }}.show-loc2 a.hht-book-btn.loc2-display { display: inline-flex !important; }
   div#hht-services-{{ section.id }}.show-loc3 .loc1-display,
   div#hht-services-{{ section.id }}.show-loc3 .loc2-display { display: none !important; }
   div#hht-services-{{ section.id }}.show-loc3 span.loc3-display { display: inline !important; }
+  div#hht-services-{{ section.id }}.show-loc3 span.price-sub.loc3-display { display: block !important; }
   div#hht-services-{{ section.id }}.show-loc3 a.hht-book-btn.loc3-display { display: inline-flex !important; }
+  div#hht-services-{{ section.id }} span.price-sub.loc1-display { display: block !important; }
+  div#hht-services-{{ section.id }}.show-loc2 span.price-sub.loc1-display,
+  div#hht-services-{{ section.id }}.show-loc3 span.price-sub.loc1-display { display: none !important; }
 
   /* Mobile */
   @media (max-width: 820px) {
@@ -363,20 +391,22 @@
   }
 {% endstyle %}
 
-<div id="hht-services-{{ section.id }}" class="hht-services-wrapper show-loc1" data-default-location="{{ section.settings.default_location | default: 'austin' }}">
+<div id="hht-services-{{ section.id }}" class="hht-services-wrapper show-loc1 hht-loc-booting" data-default-location="{{ section.settings.default_location | default: 'austin' }}">
   <div class="hht-container">
 
     {%- comment -%} ============ PAGE HEADER ============ {%- endcomment -%}
     {%- unless section.settings.hide_page_heading -%}
     <div class="hht-header{% if section.settings.compact_heading %} hht-header--compact{% endif %}">
+      {% if section.settings.eyebrow != blank %}<span class="hht-header__eyebrow">{{ section.settings.eyebrow }}</span>{% endif %}
       <h1>{{ section.settings.heading }}</h1>
       {% if section.settings.show_location_toggle and section.settings.lock_location == false %}
         <div class="hht-subheading">{{ section.settings.subheading }}</div>
         <div class="hht-loc-toggle" role="tablist" aria-label="Studio location">
-          <button class="hht-loc-btn loc-btn-1 active" type="button" role="tab" aria-selected="true">{{ section.settings.loc1_name }}</button>
-          <button class="hht-loc-btn loc-btn-2" type="button" role="tab" aria-selected="false">{{ section.settings.loc2_name }}</button>
-          <button class="hht-loc-btn loc-btn-3" type="button" role="tab" aria-selected="false">{{ section.settings.loc3_name }}</button>
+          <button class="hht-loc-btn loc-btn-1 active" type="button" role="tab" aria-selected="true" aria-controls="hht-services-live-{{ section.id }}">{{ section.settings.loc1_name }}</button>
+          <button class="hht-loc-btn loc-btn-2" type="button" role="tab" aria-selected="false" aria-controls="hht-services-live-{{ section.id }}">{{ section.settings.loc2_name }}</button>
+          <button class="hht-loc-btn loc-btn-3" type="button" role="tab" aria-selected="false" aria-controls="hht-services-live-{{ section.id }}">{{ section.settings.loc3_name }}</button>
         </div>
+        <p id="hht-services-live-{{ section.id }}" class="visually-hidden" aria-live="polite" data-hht-loc-live></p>
       {% elsif section.settings.lock_location -%}
         <div class="hht-subheading">{{ section.settings.subheading }}</div>
       {% endif %}
@@ -502,7 +532,14 @@
                     </div>
                     <div class="hht-row-price">
                       {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
-                      {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                      {%- liquid
+                        assign sub1 = child.settings.price_sub_loc1 | default: child.settings.price_sub
+                        assign sub2 = child.settings.price_sub_loc2 | default: child.settings.price_sub
+                        assign sub3 = child.settings.price_sub_loc3 | default: child.settings.price_sub
+                      -%}
+                      {% if sub1 != blank %}<span class="price-sub loc1-display">{{ sub1 }}</span>{% endif %}
+                      {% if sub2 != blank %}<span class="price-sub loc2-display">{{ sub2 }}</span>{% endif %}
+                      {% if sub3 != blank %}<span class="price-sub loc3-display">{{ sub3 }}</span>{% endif %}
                     </div>
                     {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
                     {% if child.settings.benefits != blank %}
@@ -555,7 +592,14 @@
                     </div>
                     <div class="hht-row-price">
                       {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
-                      {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                      {%- liquid
+                        assign sub1 = child.settings.price_sub_loc1 | default: child.settings.price_sub
+                        assign sub2 = child.settings.price_sub_loc2 | default: child.settings.price_sub
+                        assign sub3 = child.settings.price_sub_loc3 | default: child.settings.price_sub
+                      -%}
+                      {% if sub1 != blank %}<span class="price-sub loc1-display">{{ sub1 }}</span>{% endif %}
+                      {% if sub2 != blank %}<span class="price-sub loc2-display">{{ sub2 }}</span>{% endif %}
+                      {% if sub3 != blank %}<span class="price-sub loc3-display">{{ sub3 }}</span>{% endif %}
                     </div>
                     {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
                     {% if child.settings.benefits != blank %}
@@ -610,7 +654,14 @@
                   </div>
                   <div class="hht-row-price">
                     {% if child.settings.price_prefix != blank %}{{ child.settings.price_prefix }}{% endif %}<span class="loc1-display">{{ child.settings.price_loc1 }}</span><span class="loc2-display">{{ child.settings.price_loc2 }}</span><span class="loc3-display">{{ child.settings.price_loc3 }}</span>
-                    {% if child.settings.price_sub != blank %}<span class="price-sub">{{ child.settings.price_sub }}</span>{% endif %}
+                    {%- liquid
+                        assign sub1 = child.settings.price_sub_loc1 | default: child.settings.price_sub
+                        assign sub2 = child.settings.price_sub_loc2 | default: child.settings.price_sub
+                        assign sub3 = child.settings.price_sub_loc3 | default: child.settings.price_sub
+                      -%}
+                      {% if sub1 != blank %}<span class="price-sub loc1-display">{{ sub1 }}</span>{% endif %}
+                      {% if sub2 != blank %}<span class="price-sub loc2-display">{{ sub2 }}</span>{% endif %}
+                      {% if sub3 != blank %}<span class="price-sub loc3-display">{{ sub3 }}</span>{% endif %}
                   </div>
                   {% if child.settings.description != blank %}<p class="hht-row-desc">{{ child.settings.description }}</p>{% endif %}
                   {% if child.settings.benefits != blank %}
@@ -710,9 +761,29 @@
         }
         var chatPanel = wrapper.querySelector('[data-chat-loc="' + entry.city + '"]');
         loadChatWidget(entry.city, chatPanel);
-        if (updateHash && !{{ section.settings.lock_location | json }}) {
-          if (history && history.replaceState) {
-            history.replaceState(null, '', '#' + entry.slug);
+        var live = wrapper.querySelector('[data-hht-loc-live]');
+        if (live) {
+          live.textContent = (entry.btn ? entry.btn.textContent.trim() : entry.city) + ' pricing and booking options are now shown.';
+        }
+        document.querySelectorAll('[data-hht-sync-book]').forEach(function (el) {
+          var url = el.getAttribute('data-book-' + entry.city);
+          if (url) el.setAttribute('href', url);
+        });
+        try {
+          window.dispatchEvent(new CustomEvent('hht:locationchange', { detail: { city: entry.city, slug: entry.slug } }));
+        } catch (e) {}
+        if (updateHash && !lockedLocation) {
+          try {
+            var url = new URL(window.location.href);
+            url.searchParams.set('location', entry.slug);
+            url.hash = '';
+            if (history && history.replaceState) {
+              history.replaceState({ hhtLocation: entry.slug }, '', url.pathname + url.search);
+            }
+          } catch (err) {
+            if (history && history.replaceState) {
+              history.replaceState(null, '', '?location=' + entry.slug);
+            }
           }
         }
         return true;
@@ -738,13 +809,13 @@
           activateByCity(defaultLoc);
           return;
         }
-        var hash = (window.location.hash || '').replace(/^#/, '');
-        if (activateBySlug(hash, false)) return;
         var search = window.location.search || '';
         var m = search.match(/[?&](?:loc|location)=([^&#]+)/i);
         if (m && m[1]) {
           if (activateBySlug(decodeURIComponent(m[1]), false)) return;
         }
+        var hash = (window.location.hash || '').replace(/^#/, '');
+        if (activateBySlug(hash, false)) return;
         var path = (window.location.pathname || '').toLowerCase();
         if (path.indexOf('dallas') !== -1) { activateByCity('dallas'); return; }
         if (path.indexOf('houston') !== -1) { activateByCity('houston'); return; }
@@ -752,7 +823,9 @@
         activateByCity(defaultLoc);
       }
       applyFromUrl();
+      wrapper.classList.remove('hht-loc-booting');
       window.addEventListener('hashchange', applyFromUrl);
+      window.addEventListener('popstate', applyFromUrl);
     });
   })();
 </script>
@@ -764,8 +837,9 @@
     { "type": "header", "content": "Page Heading" },
     { "type": "checkbox", "id": "hide_page_heading", "label": "Hide page heading (city-specific pages)", "default": false },
     { "type": "checkbox", "id": "compact_heading", "label": "Compact heading", "default": false },
-    { "type": "text", "id": "heading", "label": "Main Heading", "default": "Our Services" },
-    { "type": "text", "id": "subheading", "label": "Subheading (above toggle)", "default": "Select a location to get started:" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Personalized Airbrush Tanning" },
+    { "type": "text", "id": "heading", "label": "Main Heading", "default": "Find Your Perfect Glow" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading (above toggle)", "default": "Every Hush Hush Tan appointment is personalized around your skin tone, undertones, schedule and desired result. Select your preferred studio to view accurate services, memberships, packages and booking options." },
 
     { "type": "header", "content": "Location Toggle" },
     { "type": "checkbox", "id": "show_location_toggle", "label": "Show Location Toggle", "default": true },
@@ -879,15 +953,20 @@
         { "type": "text", "id": "price_loc1", "label": "Price (Location 1)", "default": "50" },
         { "type": "text", "id": "price_loc2", "label": "Price (Location 2)", "default": "50" },
         { "type": "text", "id": "price_loc3", "label": "Price (Location 3)", "default": "55" },
-        { "type": "text", "id": "price_sub", "label": "Price Sub-label", "info": "Optional small text under the price, e.g. 'per month' or 'Just $45/session'" },
+        { "type": "text", "id": "price_sub", "label": "Price Sub-label (fallback)", "info": "Used when city-specific sub-labels are blank. e.g. 'per month' or '$45 per session'" },
+        { "type": "text", "id": "price_sub_loc1", "label": "Price Sub-label — Austin" },
+        { "type": "text", "id": "price_sub_loc2", "label": "Price Sub-label — Houston" },
+        { "type": "text", "id": "price_sub_loc3", "label": "Price Sub-label — Dallas" },
         { "type": "textarea", "id": "description", "label": "Description", "info": "Use either description OR benefits, not both" },
         { "type": "textarea", "id": "benefits", "label": "Benefits (comma separated)", "info": "Each item becomes a bullet. Use either description OR benefits." },
         {
           "type": "select", "id": "target_location", "label": "Show In Location",
           "options": [
             { "value": "all", "label": "All Locations" },
-            { "value": "loc12", "label": "Austin & Houston Only" },
-            { "value": "loc3", "label": "Dallas Only" }
+            { "value": "loc1", "label": "Austin Only" },
+            { "value": "loc2", "label": "Houston Only" },
+            { "value": "loc3", "label": "Dallas Only" },
+            { "value": "loc12", "label": "Austin & Houston Only" }
           ],
           "default": "all"
         },
@@ -903,34 +982,34 @@
       "name": "HHT Services",
       "blocks": [
         { "type": "section_header", "settings": { "title_a": "Core", "title_b": "Services", "note": "First-timer? Start here.", "pair_next": false } },
-        { "type": "service_row", "settings": { "title": "Custom Glow", "badge": "Most Popular", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "50", "description": "Customized to your individual skin tone", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" } },
-        { "type": "service_row", "settings": { "title": "Clear Glow", "badge": "First-Timer Fave", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "50", "description": "Clear solution for a natural finish", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930655", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930657", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656" } },
-        { "type": "service_row", "settings": { "title": "Rapid Glow", "badge": "Fast Results", "price_prefix": "$", "price_loc1": "60", "price_loc2": "60", "price_loc3": "60", "description": "Rinse in 2-4 hours", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" } },
+        { "type": "service_row", "settings": { "title": "Custom Glow", "badge": "Most Popular", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "55", "description": "Customized to your individual skin tone, undertones and desired result.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" } },
+        { "type": "service_row", "settings": { "title": "Clear Glow", "badge": "First-Timer Favorite", "price_prefix": "$", "price_loc1": "50", "price_loc2": "50", "price_loc3": "55", "description": "A clear solution designed to develop into a natural-looking finish without an immediate cosmetic bronzer.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930655", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930657", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656" } },
+        { "type": "service_row", "settings": { "title": "Rapid Glow", "badge": "Fast Results", "price_prefix": "$", "price_loc1": "60", "price_loc2": "60", "price_loc3": "65", "description": "A rapid-developing custom glow designed to rinse in approximately two to four hours.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" } },
 
-        { "type": "section_header", "settings": { "title_a": "Memberships", "title_b": "", "footer": "Rapid Glow is not available for the complimentary tan; option to upgrade available.", "pair_next": false, "section_style": "featured" } },
-        { "type": "service_row", "settings": { "title": "Glow Pass", "price_prefix": "$", "price_loc1": "29", "price_loc2": "29", "price_loc3": "29", "price_sub": "per month", "benefits": "35% off all tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145917?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145917", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145918" } },
-        { "type": "service_row", "settings": { "title": "Glow Club", "price_prefix": "$", "price_loc1": "45", "price_loc2": "45", "price_loc3": "45", "price_sub": "per month", "benefits": "1 complimentary tan per month, 25% off all additional tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145919", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145920" } },
+        { "type": "section_header", "settings": { "title_a": "Memberships", "title_b": "", "note": "Glow more often and save more when you glow all year.", "footer": "Rapid Glow is not included as the complimentary tan. Upgrade may be available.", "pair_next": false, "section_style": "featured" } },
+        { "type": "service_row", "settings": { "title": "Glow Pass", "price_prefix": "$", "price_loc1": "29", "price_loc2": "29", "price_loc3": "39", "price_sub": "per month", "benefits": "35% off all tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145917?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145917", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145918" } },
+        { "type": "service_row", "settings": { "title": "Glow Club", "price_prefix": "$", "price_loc1": "45", "price_loc2": "45", "price_loc3": "50", "price_sub": "per month", "benefits": "One complimentary tan per month, 25% off additional tans, 15% off all products, Cancel anytime", "button_text": "Join Now", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/membership/145919", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/membership/145920" } },
 
         { "type": "section_header", "settings": { "title_a": "Partial", "title_b": "Tans", "pair_next": true, "section_style": "compact" } },
-        { "type": "service_row", "settings": { "title": "Face", "price_prefix": "$", "price_loc1": "10", "price_loc2": "10", "price_loc3": "10", "description": "Face only", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931027?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931029", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931028" } },
-        { "type": "service_row", "settings": { "title": "Upper / Lower only", "price_prefix": "$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" } },
-        { "type": "service_row", "settings": { "title": "Partial Upper / Lower", "price_prefix": "$", "price_loc1": "35", "price_loc2": "35", "price_loc3": "35", "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
+        { "type": "service_row", "settings": { "title": "Face", "price_prefix": "$", "price_loc1": "10", "price_loc2": "10", "price_loc3": "12", "description": "Face only", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931027?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931029", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931028" } },
+        { "type": "service_row", "settings": { "title": "Upper / Lower only", "price_prefix": "$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "30", "description": "An upper or lower spray; upper is torso and arms only, a lower is full legs only. Exclude face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" } },
+        { "type": "service_row", "settings": { "title": "Partial Upper / Lower", "price_prefix": "$", "price_loc1": "35", "price_loc2": "35", "price_loc3": "40", "description": "Partial upper or partial lower spray; partial upper is chest and arms or partial lower is calves and feet. Excludes face spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
 
-        { "type": "section_header", "settings": { "title_a": "Add", "title_b": "Ons", "pair_next": false, "section_style": "compact" } },
+        { "type": "section_header", "settings": { "title_a": "Add", "title_b": "Ons", "note": "Add-ons supplement an eligible primary service.", "pair_next": false, "section_style": "compact" } },
         { "type": "service_row", "settings": { "title": "Gold Glow", "price_prefix": "+$", "price_loc1": "5", "price_loc2": "5", "price_loc3": "5", "description": "Gold drops are added to give you a subtle elegant shimmer.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931005?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931007", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931006" } },
         { "type": "service_row", "settings": { "title": "Bye Bye Tan Line", "price_prefix": "+$", "price_loc1": "20", "price_loc2": "20", "price_loc3": "20", "description": "Tan line erasing followed by a full body spray.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931015?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931017", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931016" } },
         { "type": "service_row", "settings": { "title": "Brazilian Glow", "price_prefix": "+$", "price_loc1": "25", "price_loc2": "25", "price_loc3": "25", "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931020?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931022", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931021" } },
 
-        { "type": "section_header", "settings": { "title_a": "Tan", "title_b": "Packages", "footer": "Please note: Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only." } },
-        { "type": "service_row", "settings": { "title": "6-Pack", "price_prefix": "$", "price_loc1": "270", "price_loc2": "270", "price_loc3": "270", "price_sub": "Just $45/session", "benefits": "6 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 6-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
-        { "type": "service_row", "settings": { "title": "10-Pack", "price_prefix": "$", "price_loc1": "400", "price_loc2": "400", "price_loc3": "400", "price_sub": "Just $40/session", "benefits": "10 full spray tan sessions, Mix and match any core service, Valid for 6 months from purchase", "button_text": "Buy the 10-Pack", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "section_header", "settings": { "title_a": "Tan", "title_b": "Packages", "footer": "Rapid Glow is not included in standard package pricing. Upgrade may be available. Packages are for non-members unless the current Booker terms state otherwise." } },
+        { "type": "service_row", "settings": { "title": "6-Pack", "price_prefix": "$", "price_loc1": "270", "price_loc2": "270", "price_loc3": "285", "price_sub_loc1": "$45 per session", "price_sub_loc2": "$45 per session", "price_sub_loc3": "$47.50 per session", "benefits": "Six full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase", "button_text": "Buy Package", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "service_row", "settings": { "title": "10-Pack", "price_prefix": "$", "price_loc1": "400", "price_loc2": "400", "price_loc3": "420", "price_sub_loc1": "$40 per session", "price_sub_loc2": "$40 per session", "price_sub_loc3": "$42 per session", "benefits": "Ten full spray-tan sessions, Mix and match eligible core services, Valid for six months from purchase", "button_text": "Buy Package", "link_loc1": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_loc3": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
 
         { "type": "section_header", "settings": { "title_a": "Special", "title_b": "Offer", "pair_next": true } },
-        { "type": "service_row", "settings": { "title": "Birthday Glow", "price_prefix": "$", "price_loc1": "39", "price_loc2": "39", "price_loc3": "39", "description": "Exclusive pricing for one Custom Glow during your birthday month.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931043?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931045", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931044" } },
+        { "type": "service_row", "settings": { "title": "Birthday Glow", "price_prefix": "$", "price_loc1": "39", "price_loc2": "39", "price_loc3": "44", "description": "Exclusive pricing for one Custom Glow during your birthday month.", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4931043?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931045", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931044" } },
 
         { "type": "section_header", "settings": { "title_a": "Group", "title_b": "Experiences", "footer": "Group bookings require advance notice" } },
-        { "type": "service_row", "settings": { "title": "Tanning & Mimosas", "price_prefix": "$", "price_loc1": "300", "price_loc2": "300", "price_loc3": "300", "price_sub": "+$60 per add'l guest", "benefits": "Includes 5 Custom Glow tans, Studio access for your group, Complimentary champagne & mimosas", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4537755", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/2672014" } },
-        { "type": "service_row", "settings": { "title": "Austin Mobile Tanning", "badge": "Austin Only", "price_prefix": "", "price_loc1": "$75 / hour", "price_loc2": "$75 / hour", "price_loc3": "$75 / hour", "description": "Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from studio, $30 hotel travel fee. Please include address and party size in request notes box!", "target_location": "loc12", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct" } }
+        { "type": "service_row", "settings": { "title": "Tanning & Mimosas", "price_prefix": "$", "price_loc1": "300", "price_loc2": "300", "price_loc3": "325", "price_sub": "+$60 per add'l guest", "benefits": "Includes five Custom Glow tans, Studio access for the group, Complimentary champagne or mimosas", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4537755", "link_loc3": "https://go.booker.com/location/hushhushtandallas/detail-summary/2672014" } },
+        { "type": "service_row", "settings": { "title": "Austin Mobile Tanning", "badge": "Austin Only", "price_prefix": "", "price_loc1": "$75 per person", "price_loc2": "", "price_loc3": "", "description": "Bring Hush Hush to you! Requires parties of 5 or more. $75 per person, $15 travel fee if further than 10 miles from studio, $30 hotel travel fee. Please include address and party size in request notes box!", "target_location": "loc1", "button_text": "Book Now", "link_loc1": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct", "link_loc2": "", "link_loc3": "" } }
       ]
     }
   ]
