@@ -831,7 +831,7 @@
       "name": "HHT Services",
       "settings": {
         "only_on_handle": "our-services",
-        "hide_page_heading": true,
+        "hide_page_heading": false,
         "compact_heading": true,
         "eyebrow": "PERSONALIZED AIRBRUSH TANNING",
         "heading": "Find Your Perfect Glow",
