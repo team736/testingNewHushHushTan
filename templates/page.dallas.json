@@ -143,6 +143,158 @@
         "cta_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219"
       }
     },
+    "start_here": {
+      "type": "start-here",
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "text": "Personalized shade consultation"
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "text": "Customized color formulation"
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "text": "Natural, even-looking results"
+          }
+        },
+        "p4": {
+          "type": "point",
+          "settings": {
+            "text": "Comfortable private experience"
+          }
+        },
+        "p5": {
+          "type": "point",
+          "settings": {
+            "text": "Suitable for first-time and returning clients"
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "eyebrow": "YOUR FIRST GLOW",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
+        "image_fallback": "hht-loc-dallas-start.jpg",
+        "image_alt": "Hush Hush Tan Dallas Custom Glow studio experience",
+        "cta_text": "BOOK THE CUSTOM GLOW",
+        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
+      }
+    },
+    "studio": {
+      "type": "location-cards",
+      "blocks": {
+        "l1": {
+          "type": "location",
+          "settings": {
+            "city": "Dallas",
+            "tagline": "The Shops at Highland Park · Oak Lawn",
+            "image": "shopify://shop_images/13-HushHushTanDallas_12_1.jpg",
+            "image_fallback": "hht-loc-dallas-hero.jpg",
+            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
+            "phone": "469-868-6228",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
+            "book_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
+            "book_label": "Book Appointment",
+            "map_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219",
+            "info_url": "",
+            "secondary_label": "Get Directions"
+          }
+        }
+      },
+      "block_order": [
+        "l1"
+      ],
+      "settings": {
+        "section_id": "visit-dallas",
+        "eyebrow": "PLAN YOUR VISIT",
+        "heading": "Visit Our Dallas Studio",
+        "subheading": ""
+      }
+    },
+    "services": {
+      "type": "service-cards",
+      "blocks": {
+        "s1": {
+          "type": "service",
+          "settings": {
+            "title": "Custom Glow",
+            "badge": "MOST POPULAR",
+            "price": "$55",
+            "description": "Customized to your individual skin tone",
+            "cta_text": "Book Now",
+            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
+          }
+        },
+        "s2": {
+          "type": "service",
+          "settings": {
+            "title": "Clear Glow",
+            "badge": "FIRST-TIMER FAVE",
+            "price": "$55",
+            "description": "Clear solution for a natural finish",
+            "cta_text": "Book Now",
+            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656"
+          }
+        },
+        "s3": {
+          "type": "service",
+          "settings": {
+            "title": "Rapid Glow",
+            "badge": "FAST RESULTS",
+            "price": "$65",
+            "description": "Rinse in 2-4 hours",
+            "cta_text": "Book Now",
+            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757"
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ],
+      "settings": {
+        "eyebrow": "Services",
+        "heading": "Choose Your Glow",
+        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
+        "soft_bg": true,
+        "layout": "list",
+        "panel_title": "Core Services",
+        "panel_subtitle": "First-timer? Start here."
+      }
+    },
+    "why": {
+      "type": "before-after",
+      "settings": {
+        "eyebrow": "WHY HUSH HUSH TAN",
+        "heading": "A Healthier Way to Glow",
+        "subheading": "Our artists combine detailed consultations, customized color matching and expert airbrush application to create a natural-looking result designed specifically for you.",
+        "show_stats": true,
+        "stat_1_num": "15 Years",
+        "stat_1_label": "Perfecting the glow",
+        "stat_2_num": "3,000+",
+        "stat_2_label": "Five-star reviews",
+        "stat_3_num": "3 Studios",
+        "stat_3_label": "Across Texas",
+        "cta_text": "BOOK DALLAS",
+        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
+      }
+    },
     "press": {
       "type": "press-grid",
       "blocks": {
@@ -262,157 +414,6 @@
       "settings": {
         "eyebrow": "Featured In",
         "heading": "Trusted by Texas. Recognized Nationally."
-      }
-    },
-    "start_here": {
-      "type": "start-here",
-      "blocks": {
-        "p1": {
-          "type": "point",
-          "settings": {
-            "text": "Personalized shade consultation"
-          }
-        },
-        "p2": {
-          "type": "point",
-          "settings": {
-            "text": "Customized color formulation"
-          }
-        },
-        "p3": {
-          "type": "point",
-          "settings": {
-            "text": "Natural, even-looking results"
-          }
-        },
-        "p4": {
-          "type": "point",
-          "settings": {
-            "text": "Comfortable private experience"
-          }
-        },
-        "p5": {
-          "type": "point",
-          "settings": {
-            "text": "Suitable for first-time and returning clients"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5"
-      ],
-      "settings": {
-        "eyebrow": "YOUR FIRST GLOW",
-        "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow — our signature first-time experience.",
-        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
-        "image_fallback": "hht-loc-dallas-start.jpg",
-        "image_alt": "Hush Hush Tan Dallas Custom Glow studio experience",
-        "cta_text": "BOOK THE CUSTOM GLOW",
-        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
-      }
-    },
-    "studio": {
-      "type": "location-cards",
-      "blocks": {
-        "l1": {
-          "type": "location",
-          "settings": {
-            "city": "Dallas",
-            "tagline": "The Shops at Highland Park · Oak Lawn",
-            "image_fallback": "hht-loc-dallas-hero.jpg",
-            "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
-            "phone": "469-868-6228",
-            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
-            "book_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
-            "book_label": "Book Appointment",
-            "map_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219",
-            "info_url": "",
-            "secondary_label": "Get Directions"
-          }
-        }
-      },
-      "block_order": [
-        "l1"
-      ],
-      "settings": {
-        "section_id": "visit-dallas",
-        "eyebrow": "PLAN YOUR VISIT",
-        "heading": "Visit Our Dallas Studio",
-        "subheading": ""
-      }
-    },
-    "services": {
-      "type": "service-cards",
-      "blocks": {
-        "s1": {
-          "type": "service",
-          "settings": {
-            "title": "Custom Glow",
-            "badge": "MOST POPULAR",
-            "price": "$55",
-            "description": "Customized to your individual skin tone",
-            "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
-          }
-        },
-        "s2": {
-          "type": "service",
-          "settings": {
-            "title": "Clear Glow",
-            "badge": "FIRST-TIMER FAVE",
-            "price": "$55",
-            "description": "Clear solution for a natural finish",
-            "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930656"
-          }
-        },
-        "s3": {
-          "type": "service",
-          "settings": {
-            "title": "Rapid Glow",
-            "badge": "FAST RESULTS",
-            "price": "$65",
-            "description": "Rinse in 2-4 hours",
-            "cta_text": "Book Now",
-            "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757"
-          }
-        }
-      },
-      "block_order": [
-        "s1",
-        "s2",
-        "s3"
-      ],
-      "settings": {
-        "eyebrow": "Services",
-        "heading": "Choose Your Glow",
-        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
-        "soft_bg": true,
-        "layout": "list",
-        "panel_title": "Core Services",
-        "panel_subtitle": "First-timer? Start here."
-      }
-    },
-    "why": {
-      "type": "before-after",
-      "settings": {
-        "eyebrow": "WHY HUSH HUSH TAN",
-        "heading": "A Healthier Way to Glow",
-        "subheading": "Our artists combine detailed consultations, customized color matching and expert airbrush application to create a natural-looking result designed specifically for you.",
-        "show_stats": true,
-        "stat_1_num": "15 Years",
-        "stat_1_label": "Perfecting the glow",
-        "stat_2_num": "3,000+",
-        "stat_2_label": "Five-star reviews",
-        "stat_3_num": "3 Studios",
-        "stat_3_label": "Across Texas",
-        "cta_text": "BOOK DALLAS",
-        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
       }
     },
     "faq": {
@@ -579,9 +580,9 @@
         "cta1_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
         "cta1_url_austin": "",
         "cta1_url_houston": "",
-        "cta1_url_dallas": "",
+        "cta1_url_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
         "cta2_text": "VIEW LOCATION DETAILS",
-        "cta2_url": "#visit-dallas"
+        "cta2_url": "https://go.booker.com/location/hushhushtandallas/service-menu"
       }
     },
     "sticky_book": {
@@ -598,11 +599,11 @@
     "seo",
     "hero",
     "reviews",
-    "press",
     "start_here",
     "studio",
     "services",
     "why",
+    "press",
     "faq",
     "social",
     "final",
