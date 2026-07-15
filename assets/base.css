@@ -5781,6 +5781,32 @@ html.hht-filters-lock { overflow: hidden; }
   margin: 0;
   max-width: 52ch;
 }
+/* Solo FAQ (no prep sidebar) — center head + full-width accordion like supporting pages */
+.hht-glow-stitch__faq--solo .hht-glow-stitch__faq-head {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--heading-gap);
+  text-align: center;
+}
+.hht-glow-stitch__faq--solo .hht-glow-stitch__eyebrow,
+.hht-glow-stitch__faq--solo .hht-glow-stitch__faq-title,
+.hht-glow-stitch__faq--solo .hht-glow-stitch__faq-sub {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hht-glow-stitch__faq--solo .hht-glow-stitch__faq-grid {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (min-width: 1024px) {
+  .hht-glow-stitch__faq--solo .hht-glow-stitch__faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
 .hht-glow-stitch__faq-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

@@ -99,7 +99,7 @@
   {%- endif -%}
 
   {%- comment -%} ——— FAQ / Education ——— {%- endcomment -%}
-  <div class="hht-glow-stitch__faq">
+  <div class="hht-glow-stitch__faq{% unless section.settings.show_prep_card %} hht-glow-stitch__faq--solo{% endunless %}">
     <div class="container container--home">
       <div class="hht-glow-stitch__faq-head">
         <span class="hht-glow-stitch__eyebrow">{{ section.settings.faq_eyebrow | default: 'Good to Know' }}</span>
