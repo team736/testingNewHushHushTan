@@ -70,7 +70,7 @@
             "phone": "512-482-8339",
             "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
-            "info_url": "/pages/austin-services"
+            "info_url": "/pages/our-services?location=austin"
           }
         },
         "l2": {
@@ -83,7 +83,7 @@
             "phone": "469-868-6228",
             "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
-            "info_url": "/pages/dallas-services"
+            "info_url": "/pages/our-services?location=dallas"
           }
         },
         "l3": {
@@ -96,7 +96,7 @@
             "phone": "713-485-0633",
             "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-            "info_url": "/pages/houston-services"
+            "info_url": "/pages/our-services?location=houston"
           }
         }
       },

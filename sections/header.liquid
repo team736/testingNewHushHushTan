@@ -135,9 +135,15 @@
           {%- if block.type == 'parent_menu' -%}
             {%- assign this_idx = forloop.index0 -%}
             <div class="site-header__item has-submenu" data-nav-item {{ block.shopify_attributes }}>
-              <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
-                {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
-              </button>
+              {%- if block.settings.url != blank -%}
+                <a href="{{ block.settings.url }}" class="site-header__link" aria-haspopup="true" aria-expanded="false" data-nav-trigger{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>
+                  {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
+                </a>
+              {%- else -%}
+                <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
+                  {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
+                </button>
+              {%- endif -%}
               <div class="site-header__dropdown" role="menu">
                 {%- for child in section.blocks -%}
                   {%- if child.type == 'child_link' -%}
@@ -180,6 +186,9 @@
           <details class="drawer__accordion">
             <summary>{{ block.settings.label }}</summary>
             <div class="drawer__sub">
+              {%- if block.settings.url != blank -%}
+                <a href="{{ block.settings.url }}" data-drawer-link{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ block.settings.label }}</a>
+              {%- endif -%}
               {%- for child in section.blocks -%}
                 {%- if child.type == 'child_link' -%}
                   {%- assign child_parent = parent_idx_arr[forloop.index0] | plus: 0 -%}
@@ -256,7 +265,9 @@
       "name": "Dropdown Menu",
       "settings": [
         { "type": "paragraph", "content": "A parent menu with a dropdown. Add 'Dropdown Item' blocks AFTER this one — they'll appear inside this menu's dropdown until the next 'Dropdown Menu' or 'Direct Link' block." },
-        { "type": "text", "id": "label", "label": "Menu label", "default": "Menu" }
+        { "type": "text", "id": "label", "label": "Menu label", "default": "Menu" },
+        { "type": "url", "id": "url", "label": "Parent link URL (optional)", "info": "When set, clicking the label goes to this page. Hover still opens the dropdown." },
+        { "type": "checkbox", "id": "open_in_new_tab", "label": "Open parent link in new tab", "default": false }
       ]
     },
     {
@@ -289,7 +300,7 @@
       { "type": "child_link",  "settings": { "label": "Dallas",  "url": "/pages/dallas-new" } },
       { "type": "child_link",  "settings": { "label": "Houston", "url": "/pages/houston-new" } },
 
-      { "type": "parent_menu", "settings": { "label": "Our Services" } },
+      { "type": "parent_menu", "settings": { "label": "Our Services", "url": "/pages/our-services" } },
       { "type": "child_link",  "settings": { "label": "Our Services", "url": "/pages/our-services" } },
       { "type": "child_link",  "settings": { "label": "Products", "url": "/collections/tanning-products" } },
       { "type": "child_link",  "settings": { "label": "Tanning & Mimosas", "url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },

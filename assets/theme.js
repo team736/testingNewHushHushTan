@@ -62,6 +62,14 @@
 
     var navTrigger = e.target.closest('[data-nav-trigger]');
     if (navTrigger) {
+      // Linked parents (e.g. Our Services → /pages/our-services) navigate on click.
+      // Dropdown still opens on hover via CSS.
+      if (navTrigger.tagName === 'A') {
+        var href = navTrigger.getAttribute('href');
+        if (href && href !== '#' && !href.startsWith('javascript:')) {
+          return;
+        }
+      }
       var item = navTrigger.closest('[data-nav-item]');
       if (!item) return;
       var willOpen = !item.classList.contains('is-open');

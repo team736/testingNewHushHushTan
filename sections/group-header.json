@@ -111,7 +111,8 @@
           "type": "parent_menu",
           "name": "Our Services",
           "settings": {
-            "label": "Our Services"
+            "label": "Our Services",
+            "url": "/pages/our-services"
           }
         },
         "child_link_svc_main": {

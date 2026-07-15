@@ -38,11 +38,11 @@
 
     {%- for tab in tab_blocks -%}
       {%- liquid
-        assign services_url = '/pages/austin-services'
+        assign services_url = '/pages/our-services?location=austin'
         if tab.settings.label == 'Dallas'
-          assign services_url = '/pages/dallas-services'
+          assign services_url = '/pages/our-services?location=dallas'
         elsif tab.settings.label == 'Houston'
-          assign services_url = '/pages/houston-services'
+          assign services_url = '/pages/our-services?location=houston'
         endif
         if tab.settings.services_page_url != blank
           assign services_url = tab.settings.services_page_url
@@ -237,11 +237,11 @@
     var urls = {};
     {%- for tab in tab_blocks -%}
       {%- liquid
-        assign services_url = '/pages/austin-services'
+        assign services_url = '/pages/our-services?location=austin'
         if tab.settings.label == 'Dallas'
-          assign services_url = '/pages/dallas-services'
+          assign services_url = '/pages/our-services?location=dallas'
         elsif tab.settings.label == 'Houston'
-          assign services_url = '/pages/houston-services'
+          assign services_url = '/pages/our-services?location=houston'
         endif
         if tab.settings.services_page_url != blank
           assign services_url = tab.settings.services_page_url
