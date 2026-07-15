@@ -32,3 +32,13 @@ Route: `/pages/tanning-gift-certificates`
 ## Copy stance used on the page
 
 Gift certificates are purchased per studio. Eligible redemption of services and in-studio products is confirmed at the selected studio; contact the studio for current terms.
+
+## Shopify Admin — assign the template
+
+The Gift Certificates page must use theme template:
+- `tanning-gift-certificates` or
+- `gift-card`
+
+Online Store → Pages → Gift Card / Gift Certificates → Theme template → select **tanning-gift-certificates**.
+
+If it stays on **Default page**, the new landing page will not appear.
