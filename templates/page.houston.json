@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "seo": {
@@ -21,7 +30,7 @@
           "type": "slide",
           "settings": {
             "image_fallback": "hht-loc-houston-hero.jpg",
-            "eyebrow": "HOUSTON \u00b7 M-K-T HEIGHTS",
+            "eyebrow": "HOUSTON · M-K-T HEIGHTS",
             "title_line1": "Your Flawless",
             "title_line2": "Spray Tan",
             "title_line3": "in Houston",
@@ -81,15 +90,6 @@
     },
     "reviews": {
       "type": "reviews",
-      "settings": {
-        "eyebrow": "Loved Locally",
-        "heading": "What Houston Is Saying",
-        "subheading": "Real five-star Google reviews from Houston clients.",
-        "cta_text": "Get Directions",
-        "cta_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007",
-        "speed": 45,
-        "layout": "full"
-      },
       "blocks": {
         "r1": {
           "type": "review",
@@ -102,7 +102,7 @@
         "r2": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
             "author": "Ashley Post",
             "location": "Houston, TX"
           }
@@ -129,7 +129,16 @@
         "r2",
         "r3",
         "r4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Loved Locally",
+        "heading": "What Houston Is Saying",
+        "subheading": "Real five-star Google reviews from Houston clients.",
+        "layout": "full",
+        "speed": 45,
+        "cta_text": "Get Directions",
+        "cta_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007"
+      }
     },
     "press": {
       "type": "press-grid",
@@ -254,16 +263,6 @@
     },
     "start_here": {
       "type": "start-here",
-      "settings": {
-        "eyebrow": "YOUR FIRST GLOW",
-        "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow \u2014 our signature first-time experience.",
-        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
-        "image_fallback": "hht-loc-houston-start.jpg",
-        "image_alt": "Hush Hush Tan Houston Custom Glow studio experience",
-        "cta_text": "BOOK THE CUSTOM GLOW",
-        "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
-      },
       "blocks": {
         "p1": {
           "type": "point",
@@ -302,16 +301,20 @@
         "p3",
         "p4",
         "p5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "YOUR FIRST GLOW",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
+        "image_fallback": "hht-loc-houston-start.jpg",
+        "image_alt": "Hush Hush Tan Houston Custom Glow studio experience",
+        "cta_text": "BOOK THE CUSTOM GLOW",
+        "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
+      }
     },
     "studio": {
       "type": "location-cards",
-      "settings": {
-        "section_id": "visit-houston",
-        "eyebrow": "Plan Your Visit",
-        "heading": "Houston Studio Details",
-        "subheading": "Address, hours, and booking for Hush Hush Tan Houston."
-      },
       "blocks": {
         "l1": {
           "type": "location",
@@ -321,7 +324,7 @@
             "image_fallback": "hht-loc-houston-hero.jpg",
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
-            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593",
             "book_label": "Book Appointment",
             "map_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007",
@@ -331,16 +334,16 @@
       },
       "block_order": [
         "l1"
-      ]
+      ],
+      "settings": {
+        "section_id": "visit-houston",
+        "eyebrow": "Plan Your Visit",
+        "heading": "Houston Studio Details",
+        "subheading": "Address, hours, and booking for Hush Hush Tan Houston."
+      }
     },
     "services": {
       "type": "service-cards",
-      "settings": {
-        "eyebrow": "Services",
-        "heading": "Choose Your Glow",
-        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
-        "soft_bg": true
-      },
       "blocks": {
         "s1": {
           "type": "service",
@@ -377,7 +380,13 @@
         "s1",
         "s2",
         "s3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Services",
+        "heading": "Choose Your Glow",
+        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
+        "soft_bg": true
+      }
     },
     "why": {
       "type": "before-after",
@@ -394,9 +403,7 @@
         "stat_3_label": "Across Texas",
         "cta_text": "BOOK HOUSTON",
         "cta_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
-      },
-      "blocks": {},
-      "block_order": []
+      }
     },
     "faq": {
       "type": "glow-moments-faq",
@@ -440,7 +447,7 @@
           "type": "qa",
           "settings": {
             "question": "How long does a Custom Glow take to develop?",
-            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2\u20134 hours.</p>"
+            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2–4 hours.</p>"
           }
         },
         "qa7": {
@@ -475,7 +482,7 @@
         "faq_subheading": "Everything you need to feel ready for your appointment.",
         "show_prep_card": true,
         "cta_label": "Ready to book?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Houston",
         "book_url": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593"
@@ -487,48 +494,36 @@
         "p1": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-houston-01.jpg",
-            "alt": "Houston Hush Hush Tan M-K-T Heights studio interior",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p2": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-houston-02.jpg",
-            "alt": "Houston studio interior detail",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p3": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-houston-03.jpg",
-            "alt": "Hush Hush Tan Custom Glow application mitt",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p4": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-01.jpg",
-            "alt": "Hush Hush Tan product lifestyle photo",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p5": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-02.jpg",
-            "alt": "Hush Hush Tan client glow portrait",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p6": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-03.jpg",
-            "alt": "Hush Hush Tan team group photo",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         }

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -59,7 +68,7 @@
             "image": "shopify://shop_images/press.jpg",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "info_url": "/pages/austin-services"
           }
@@ -72,7 +81,7 @@
             "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
             "info_url": "/pages/dallas-services"
           }
@@ -85,7 +94,7 @@
             "image": "shopify://shop_images/16-HushHushTanHouston15_3.jpg",
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
-            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
             "info_url": "/pages/houston-services"
           }
@@ -130,7 +139,7 @@
           "type": "qa",
           "settings": {
             "question": "What do I wear for my session?",
-            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs \u2014 disposable boxers are available for $3/pair.</p>"
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
           }
         },
         "qa_RYBLhG": {
@@ -150,6 +159,7 @@
       ],
       "name": "Glow Moments + FAQ",
       "settings": {
+        "show_moments": false,
         "moments_eyebrow": "Glow Moments",
         "moments_heading": "For the ones who glow.",
         "moments_subheading": "Real studio moments, aftercare essentials, and glow tips to help you prep, protect, and extend your custom color.",
@@ -167,12 +177,11 @@
         "prep_after_label": "After Your Tan",
         "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
         "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "",
         "book_btn_label": "Book Your Glow",
         "book_url": "",
-        "tips_url": "",
-        "show_moments": false
+        "tips_url": ""
       }
     },
     "press_grid_Uniykx": {
@@ -299,15 +308,6 @@
     },
     "reviews": {
       "type": "reviews",
-      "settings": {
-        "eyebrow": "Loved By Texas",
-        "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews \u2014 the most-loved custom spray tan in Austin, Dallas & Houston.",
-        "cta_text": "Read Our Reviews",
-        "cta_url": "/pages/locations",
-        "speed": 50,
-        "layout": "full"
-      },
       "blocks": {
         "r1": {
           "type": "review",
@@ -344,7 +344,7 @@
         "r5": {
           "type": "review",
           "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
             "author": "Meaghan Estes",
             "location": "Dallas, TX"
           }
@@ -352,7 +352,7 @@
         "r6": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
             "author": "Ashley Post",
             "location": "Houston, TX"
           }
@@ -368,7 +368,7 @@
         "r8": {
           "type": "review",
           "settings": {
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
             "author": "Calla Taylor",
             "location": "Dallas, TX"
           }
@@ -419,18 +419,19 @@
         "r10",
         "r11",
         "r12"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Loved By Texas",
+        "heading": "3,000+ Five-Star Google Reviews",
+        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
+        "layout": "full",
+        "speed": 50,
+        "cta_text": "Read Our Reviews",
+        "cta_url": "/pages/locations"
+      }
     },
     "start_here": {
       "type": "start-here",
-      "settings": {
-        "eyebrow": "First Time?",
-        "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow \u2014 our signature first-time experience.",
-        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish \u2014 no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
-        "cta_text": "Book Now",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
-      },
       "blocks": {
         "b1": {
           "type": "point",
@@ -441,7 +442,7 @@
         "b2": {
           "type": "point",
           "settings": {
-            "text": "Natural, streak-free finish \u2014 never orange"
+            "text": "Natural, streak-free finish — never orange"
           }
         },
         "b3": {
@@ -455,29 +456,23 @@
         "b1",
         "b2",
         "b3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "First Time?",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
+        "cta_text": "Book Now",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      }
     },
     "before_after": {
       "type": "before-after",
-      "settings": {
-        "eyebrow": "Real Client Results",
-        "heading": "15 Years of Flawless Glows",
-        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning \u2014 perfecting the art of the natural, streak-free glow, one client at a time.",
-        "show_stats": true,
-        "stat_1_num": "15 Years",
-        "stat_1_label": "Perfecting the glow",
-        "stat_2_num": "3,000+",
-        "stat_2_label": "Five-star reviews",
-        "stat_3_num": "3 Studios",
-        "stat_3_label": "Across Texas",
-        "cta_text": "Book Your Glow",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
-      },
       "blocks": {
         "ba1": {
           "type": "pair",
           "settings": {
-            "caption": "Custom Glow \u2014 color-matched finish"
+            "caption": "Custom Glow — color-matched finish"
           }
         },
         "ba2": {
@@ -497,35 +492,48 @@
         "ba1",
         "ba2",
         "ba3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Real Client Results",
+        "heading": "15 Years of Flawless Glows",
+        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time.",
+        "show_stats": true,
+        "stat_1_num": "15 Years",
+        "stat_1_label": "Perfecting the glow",
+        "stat_2_num": "3,000+",
+        "stat_2_label": "Five-star reviews",
+        "stat_3_num": "3 Studios",
+        "stat_3_label": "Across Texas",
+        "cta_text": "Book Your Glow",
+        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+      }
     },
     "social": {
       "type": "social-feed",
-      "settings": {
-        "eyebrow": "@HushHushTan",
-        "heading": "Follow The Glow",
-        "handle": "@hushhushtan",
-        "profile_url": "https://www.instagram.com/hushhushtan/",
-        "cta_text": "Follow Us on Instagram"
-      },
       "blocks": {
         "s1": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         },
         "s2": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         },
         "s3": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         },
         "s4": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         },
         "s5": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         },
         "s6": {
-          "type": "post"
+          "type": "post",
+          "settings": {}
         }
       },
       "block_order": [
@@ -535,7 +543,14 @@
         "s4",
         "s5",
         "s6"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "@HushHushTan",
+        "heading": "Follow The Glow",
+        "handle": "@hushhushtan",
+        "profile_url": "https://www.instagram.com/hushhushtan/",
+        "cta_text": "Follow Us on Instagram"
+      }
     },
     "newsletter": {
       "type": "newsletter",

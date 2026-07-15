@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "seo": {
@@ -21,7 +30,7 @@
           "type": "slide",
           "settings": {
             "image_fallback": "hht-loc-dallas-hero.jpg",
-            "eyebrow": "DALLAS \u00b7 THE SHOPS AT HIGHLAND PARK",
+            "eyebrow": "DALLAS · THE SHOPS AT HIGHLAND PARK",
             "title_line1": "Your Flawless",
             "title_line2": "Spray Tan",
             "title_line3": "in Dallas",
@@ -81,15 +90,6 @@
     },
     "reviews": {
       "type": "reviews",
-      "settings": {
-        "eyebrow": "Loved Locally",
-        "heading": "What Dallas Is Saying",
-        "subheading": "Real five-star Google reviews from Dallas clients.",
-        "cta_text": "Get Directions",
-        "cta_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219",
-        "speed": 45,
-        "layout": "full"
-      },
       "blocks": {
         "r1": {
           "type": "review",
@@ -102,7 +102,7 @@
         "r2": {
           "type": "review",
           "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
             "author": "Meaghan Estes",
             "location": "Dallas, TX"
           }
@@ -110,7 +110,7 @@
         "r3": {
           "type": "review",
           "settings": {
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
             "author": "Calla Taylor",
             "location": "Dallas, TX"
           }
@@ -129,7 +129,16 @@
         "r2",
         "r3",
         "r4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Loved Locally",
+        "heading": "What Dallas Is Saying",
+        "subheading": "Real five-star Google reviews from Dallas clients.",
+        "layout": "full",
+        "speed": 45,
+        "cta_text": "Get Directions",
+        "cta_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219"
+      }
     },
     "press": {
       "type": "press-grid",
@@ -254,16 +263,6 @@
     },
     "start_here": {
       "type": "start-here",
-      "settings": {
-        "eyebrow": "YOUR FIRST GLOW",
-        "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow \u2014 our signature first-time experience.",
-        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
-        "image_fallback": "hht-loc-dallas-start.jpg",
-        "image_alt": "Hush Hush Tan Dallas Custom Glow studio experience",
-        "cta_text": "BOOK THE CUSTOM GLOW",
-        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
-      },
       "blocks": {
         "p1": {
           "type": "point",
@@ -302,26 +301,30 @@
         "p3",
         "p4",
         "p5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "YOUR FIRST GLOW",
+        "heading": "New to HHT? Start Here",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "Not sure which service or shade is right for you? Begin with the Custom Glow. Your artist will consult with you, understand your desired result and create a completely custom color formulation designed to complement your skin tone and undertones.",
+        "image_fallback": "hht-loc-dallas-start.jpg",
+        "image_alt": "Hush Hush Tan Dallas Custom Glow studio experience",
+        "cta_text": "BOOK THE CUSTOM GLOW",
+        "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
+      }
     },
     "studio": {
       "type": "location-cards",
-      "settings": {
-        "section_id": "visit-dallas",
-        "eyebrow": "Plan Your Visit",
-        "heading": "Dallas Studio Details",
-        "subheading": "Address, hours, and booking for Hush Hush Tan Dallas."
-      },
       "blocks": {
         "l1": {
           "type": "location",
           "settings": {
             "city": "Dallas",
-            "tagline": "The Shops at Highland Park \u00b7 Oak Lawn",
+            "tagline": "The Shops at Highland Park · Oak Lawn",
             "image_fallback": "hht-loc-dallas-hero.jpg",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592",
             "book_label": "Book Appointment",
             "map_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219",
@@ -331,16 +334,16 @@
       },
       "block_order": [
         "l1"
-      ]
+      ],
+      "settings": {
+        "section_id": "visit-dallas",
+        "eyebrow": "Plan Your Visit",
+        "heading": "Dallas Studio Details",
+        "subheading": "Address, hours, and booking for Hush Hush Tan Dallas."
+      }
     },
     "services": {
       "type": "service-cards",
-      "settings": {
-        "eyebrow": "Services",
-        "heading": "Choose Your Glow",
-        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
-        "soft_bg": true
-      },
       "blocks": {
         "s1": {
           "type": "service",
@@ -377,7 +380,13 @@
         "s1",
         "s2",
         "s3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Services",
+        "heading": "Choose Your Glow",
+        "subheading": "Every Hush Hush Tan appointment is designed around your skin tone, schedule and desired finish.",
+        "soft_bg": true
+      }
     },
     "why": {
       "type": "before-after",
@@ -394,9 +403,7 @@
         "stat_3_label": "Across Texas",
         "cta_text": "BOOK DALLAS",
         "cta_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
-      },
-      "blocks": {},
-      "block_order": []
+      }
     },
     "faq": {
       "type": "glow-moments-faq",
@@ -405,7 +412,7 @@
           "type": "qa",
           "settings": {
             "question": "Where is the Dallas studio located?",
-            "answer": "<p>We are conveniently located at The Shops at Highland Park / Oak Lawn: 4254 Oak Lawn Avenue, Dallas, TX 75219 \u2014 next to Avant Garden and ZO Skin Care. This is our only Dallas-area location.</p>"
+            "answer": "<p>We are conveniently located at The Shops at Highland Park / Oak Lawn: 4254 Oak Lawn Avenue, Dallas, TX 75219 — next to Avant Garden and ZO Skin Care. This is our only Dallas-area location.</p>"
           }
         },
         "qa2": {
@@ -440,7 +447,7 @@
           "type": "qa",
           "settings": {
             "question": "How long does a Custom Glow take to develop?",
-            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2\u20134 hours.</p>"
+            "answer": "<p>Custom Glow typically develops for about 8 hours before rinsing. Rapid Glow is designed to rinse in approximately 2–4 hours.</p>"
           }
         },
         "qa7": {
@@ -475,7 +482,7 @@
         "faq_subheading": "Everything you need to feel ready for your appointment.",
         "show_prep_card": true,
         "cta_label": "Ready to book?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Dallas",
         "book_url": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592"
@@ -487,48 +494,36 @@
         "p1": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-dallas-01.jpg",
-            "alt": "Dallas Hush Hush Tan team at the studio desk",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p2": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-dallas-02.jpg",
-            "alt": "Dallas studio reception with Hush Hush Tan signage",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p3": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-dallas-03.jpg",
-            "alt": "Dallas studio interior detail",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p4": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-01.jpg",
-            "alt": "Hush Hush Tan product lifestyle photo",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p5": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-02.jpg",
-            "alt": "Hush Hush Tan client glow portrait",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         },
         "p6": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-gal-shared-03.jpg",
-            "alt": "Hush Hush Tan team group photo",
             "link": "https://www.instagram.com/hushhushtan/"
           }
         }
