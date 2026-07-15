@@ -4,7 +4,13 @@
 {%- endcomment -%}
 {%- liquid
   assign hht_custom_default = false
-  if page.handle == 'our-services' or page.handle == 'tanning-gift-certificates'
+  if page.handle == 'our-services'
+    or page.handle == 'tanning-gift-certificates'
+    or page.handle == 'hush-hush-tan-group-tanning-mimosas-package'
+    or page.handle == 'mobile-spray-tan'
+    or page.handle == 'faqs'
+    or page.handle == 'our-story'
+    or page.handle == 'contact'
     assign hht_custom_default = true
   endif
 -%}

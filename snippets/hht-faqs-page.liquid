@@ -1,0 +1,217 @@
+{%- comment -%} FAQs page — searchable categorized accordion {%- endcomment -%}
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-faqs-page">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">Help Center</span>
+          <h1 class="hht-sp__h1">Frequently Asked Questions</h1>
+          <p class="hht-sp__lead">Find answers about preparation, appointment timing, aftercare, tanning results, memberships, and studio policies.</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="#faq-search">Search Questions</a>
+            <a class="btn btn--outline" href="/pages/contact">Contact Us</a>
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          <img src="{{ 'hht-glow-wall-2.jpg' | asset_url }}" alt="Hush Hush Tan studio glow wall" width="900" height="1100" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="faq-search">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">Browse</span>
+        <h2 class="hht-sp__h2">Search or Jump to a Topic</h2>
+      </div>
+      <div class="hht-sp-faqsearch">
+        <label class="visually-hidden" for="FaqSearchInput">Search FAQs</label>
+        <input id="FaqSearchInput" type="search" placeholder="Search questions…" autocomplete="off">
+        <button type="button" class="btn btn--outline" id="FaqSearchClear" hidden>Clear</button>
+      </div>
+      <nav class="hht-sp-faqcats" aria-label="FAQ categories">
+        <a href="#faq-before">Before Your Appointment</a>
+        <a href="#faq-after">After Your Appointment</a>
+        <a href="#faq-results">Results &amp; Aftercare</a>
+        <a href="#faq-safety">Process &amp; Safety</a>
+        <a href="#faq-clothing">Clothing &amp; Accessories</a>
+        <a href="#faq-memberships">Memberships</a>
+      </nav>
+      <p class="hht-sp-empty" id="FaqEmpty" role="status">No questions match your search. Try another keyword or <a href="/pages/contact">contact us</a>.</p>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap" style="max-width:920px;" data-faq-root>
+
+      <div class="hht-sp-faqcat" id="faq-before" data-faq-cat>
+        <h2 class="hht-sp__h2">Before Your Appointment</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item is-open" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="true"><span data-faq-q>How should I prepare for my airbrush-tanning session?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Shower, shave, and exfoliate before your appointment. Complete workouts, hair appointments, and spa treatments beforehand. After showering, avoid applying moisturizer, makeup, deodorant, perfume, or body oils unless the studio has given different instructions. Arrive with clean, dry skin and bring loose, dark clothing to wear afterward. More tips live on our <a href="/pages/tanning-tips">Tanning Tips</a> page.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>How long does the appointment take?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>The spray application itself typically takes only several minutes. Allow additional time for consultation, changing, and drying. Appointment duration may vary by service and client. Browse current services on <a href="/pages/our-services">Our Services</a>.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hht-sp-faqcat" id="faq-after" data-faq-cat>
+        <h2 class="hht-sp__h2">After Your Appointment</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>What should I expect after my appointment?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Your skin may feel slightly damp immediately after the application. Stay dry and avoid unnecessary skin contact while the solution develops. Your color will gradually deepen during the development period. Follow the rinse timing provided by your artist because the timing may differ by service.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>How do I care for my spray tan?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Remain dry until your recommended rinse time and avoid sweating, swimming, or getting wet. After rinsing, take short, warm showers and use a gentle, tan-friendly cleanser. Pat the skin dry rather than rubbing and moisturize regularly. Avoid aggressive exfoliation, long hot baths, pools, and hot tubs when possible because they may cause faster fading. Shop aftercare on <a href="/collections/tanning-products">Tanning Products</a>.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hht-sp-faqcat" id="faq-results" data-faq-cat>
+        <h2 class="hht-sp__h2">Results &amp; Aftercare</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>How long will my tan last?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>A professionally applied airbrush tan commonly lasts approximately seven to ten days. Results vary based on skin preparation, aftercare, shower temperature, exfoliation, swimming, and general skincare. Short, warm showers and regular moisturizing with tan-friendly products can help support a more even, longer-lasting fade.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>How does spray tanning work?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Most sunless-tanning solutions use dihydroxyacetone, commonly called DHA. DHA reacts with amino acids in the outermost layer of the skin to create temporary color. The result gradually fades as the skin naturally exfoliates.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hht-sp-faqcat" id="faq-safety" data-faq-cat>
+        <h2 class="hht-sp__h2">Process &amp; Safety</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>What should I know about spray-tan safety?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Sunless tanning provides color without using ultraviolet tanning beds or sunbathing. DHA is permitted for external application in sunless-tanning products. During spray application, follow the studio’s protection instructions and avoid inhaling or ingesting the mist or exposing the eyes, lips, and mucous membranes. Anyone who is pregnant, nursing, highly sensitive, or concerned about a medical condition should consult a qualified healthcare professional before booking.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>Will the solution stain my hair?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Most clients do not notice a lasting effect on their hair. Very light blonde, gray, white, or platinum hair may temporarily pick up some cosmetic bronzer, but it should wash out during the first shower. Complimentary hair caps may be available.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hht-sp-faqcat" id="faq-clothing" data-faq-cat>
+        <h2 class="hht-sp__h2">Clothing &amp; Accessories</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>What should I wear during my airbrush-tanning session?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Clients must wear an appropriate bottom covering during the appointment. Complimentary disposable options may be available, and additional garments may be available for purchase in the studio. Men are required to wear boxers, briefs, or another appropriate bottom covering. Contact your <a href="/pages/contact">selected studio</a> if you have questions about available options.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hht-sp-faqcat" id="faq-memberships" data-faq-cat>
+        <h2 class="hht-sp__h2">Memberships</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>Can my membership be frozen?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>Current memberships may be frozen for a $10 monthly fee. Contact <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a> to confirm the current policy and request a freeze. Compare membership options on <a href="/pages/our-services">Our Services</a>.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>How do I cancel my membership?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>A 30-day written notice is currently required by email. Send cancellation requests to <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a>. A membership freeze may also be available for a $10 monthly fee—confirm against your membership agreement.</p></div>
+          </div>
+          <div class="hht-sp-acc__item" data-faq-item>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="false"><span data-faq-q>Do unused membership tans roll over?</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a><p>No. Unused membership tans currently do not roll over to the following month. Confirm details against your current membership terms if needed.</p></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap hht-sp-final">
+      <span class="hht-sp__eyebrow">Still Have Questions?</span>
+      <h2 class="hht-sp__h2">Our Team Is Ready to Help</h2>
+      <p class="hht-sp__lead">Contact your preferred Hush Hush Tan studio or send our support team a message.</p>
+      <div class="hht-sp__ctas">
+        <a class="btn" href="/pages/contact">Contact Us</a>
+        <a class="btn btn--outline" href="/pages/locations">Book a Service</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hht-faqs-page');
+  if (!root) return;
+
+  root.querySelectorAll('[data-hht-acc]').forEach(function (acc) {
+    acc.querySelectorAll('.hht-sp-acc__trig').forEach(function (trig) {
+      trig.addEventListener('click', function () {
+        var item = trig.closest('.hht-sp-acc__item');
+        var open = item.classList.contains('is-open');
+        acc.querySelectorAll('.hht-sp-acc__item').forEach(function (el) {
+          el.classList.remove('is-open');
+          var b = el.querySelector('.hht-sp-acc__trig');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!open) {
+          item.classList.add('is-open');
+          trig.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+
+  var input = document.getElementById('FaqSearchInput');
+  var clearBtn = document.getElementById('FaqSearchClear');
+  var empty = document.getElementById('FaqEmpty');
+  var items = root.querySelectorAll('[data-faq-item]');
+  var cats = root.querySelectorAll('[data-faq-cat]');
+
+  function runSearch() {
+    var q = (input.value || '').trim().toLowerCase();
+    clearBtn.hidden = !q;
+    var visible = 0;
+    items.forEach(function (item) {
+      var text = ((item.querySelector('[data-faq-q]') || {}).textContent || '') + ' ' + ((item.querySelector('[data-faq-a]') || {}).textContent || '');
+      var match = !q || text.toLowerCase().indexOf(q) !== -1;
+      item.style.display = match ? '' : 'none';
+      if (match) visible += 1;
+    });
+    cats.forEach(function (cat) {
+      var any = false;
+      cat.querySelectorAll('[data-faq-item]').forEach(function (item) {
+        if (item.style.display !== 'none') any = true;
+      });
+      cat.style.display = any ? '' : 'none';
+    });
+    if (empty) empty.classList.toggle('is-visible', q && visible === 0);
+  }
+
+  if (input) {
+    input.addEventListener('input', runSearch);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        runSearch();
+        input.blur();
+      }
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      runSearch();
+      input.focus();
+    });
+  }
+})();
+</script>

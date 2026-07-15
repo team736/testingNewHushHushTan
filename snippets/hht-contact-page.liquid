@@ -1,0 +1,225 @@
+{%- comment -%} Contact page — full redesign {%- endcomment -%}
+{%- liquid
+  assign austin_book = 'https://go.booker.com/location/hushhushtan/service-menu'
+  assign dallas_book = 'https://go.booker.com/location/hushhushtandallas/service-menu'
+  assign houston_book = 'https://go.booker.com/location/hushhushtanhouston/service-menu'
+  assign austin_maps = 'https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703'
+  assign dallas_maps = 'https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219'
+  assign houston_maps = 'https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007'
+-%}
+
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-contact-page">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">Contact</span>
+          <h1 class="hht-sp__h1">Need Assistance? We’re Here to Help.</h1>
+          <p class="hht-sp__lead">Call your nearest studio or send our team a message. For general support, email <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a>. For marketing and partnership inquiries, contact <a href="mailto:marketing@hushhushtan.com">marketing@hushhushtan.com</a>.</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="#studios">Choose Your Studio</a>
+            <a class="btn btn--outline" href="#contact-form">Send a Message</a>
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          <img src="{{ 'hht-reception.jpg' | asset_url }}" alt="Hush Hush Tan reception desk" width="900" height="1100" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">How Can We Help?</span>
+        <h2 class="hht-sp__h2">Choose the Right Path</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">Appointments &amp; Services</span>
+          <h3 class="hht-sp__h3">Book or ask about services</h3>
+          <p>Choose a studio for booking questions, service availability, or appointment support.</p>
+          <p style="margin-top:14px;"><a class="btn btn--outline" href="#studios">View Studios</a></p>
+        </article>
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">General Support</span>
+          <h3 class="hht-sp__h3">Questions &amp; help</h3>
+          <p>Email <a href="mailto:contact@hushhushtan.com">contact@hushhushtan.com</a> or use the message form below.</p>
+        </article>
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">Marketing &amp; Partnerships</span>
+          <h3 class="hht-sp__h3">Press &amp; collabs</h3>
+          <p>Contact <a href="mailto:marketing@hushhushtan.com">marketing@hushhushtan.com</a> for editorial and brand opportunities.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section" id="studios">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">Studios</span>
+        <h2 class="hht-sp__h2">Our Texas Locations</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        <article class="hht-sp-loccard">
+          <div class="hht-sp-loccard__img">
+            <img src="{{ 'hht-location-austin.jpg' | asset_url }}" alt="Hush Hush Tan Austin studio" width="640" height="400" loading="lazy">
+          </div>
+          <div class="hht-sp-loccard__body">
+            <span class="hht-sp-card__label">Austin</span>
+            <h3 class="hht-sp__h3">Hush Hush Tan Austin</h3>
+            <p>1211 West 6th St.<br>Suite #400<br>Austin, TX 78703</p>
+            <p>Phone: <a href="tel:+15124828339">(512) 482-8339</a></p>
+            <div class="hht-sp-loccard__actions">
+              <a class="btn btn--outline" href="tel:+15124828339">Call Austin</a>
+              <a class="btn" href="{{ austin_book }}" target="_blank" rel="noopener noreferrer">Book Austin</a>
+              <a class="btn btn--outline" href="/pages/austin-new">View Location</a>
+              <a class="btn btn--outline" href="{{ austin_maps }}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hht-sp-loccard">
+          <div class="hht-sp-loccard__img">
+            <img src="{{ 'hht-location-dallas.jpg' | asset_url }}" alt="Hush Hush Tan Dallas studio" width="640" height="400" loading="lazy">
+          </div>
+          <div class="hht-sp-loccard__body">
+            <span class="hht-sp-card__label">Dallas</span>
+            <h3 class="hht-sp__h3">Hush Hush Tan Dallas</h3>
+            <p>4254 Oak Lawn Avenue<br>Dallas, TX 75219</p>
+            <p>Phone: <a href="tel:+14698686228">(469) 868-6228</a></p>
+            <div class="hht-sp-loccard__actions">
+              <a class="btn btn--outline" href="tel:+14698686228">Call Dallas</a>
+              <a class="btn" href="{{ dallas_book }}" target="_blank" rel="noopener noreferrer">Book Dallas</a>
+              <a class="btn btn--outline" href="/pages/dallas-new">View Location</a>
+              <a class="btn btn--outline" href="{{ dallas_maps }}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hht-sp-loccard">
+          <div class="hht-sp-loccard__img">
+            <img src="{{ 'hht-location-houston.jpg' | asset_url }}" alt="Hush Hush Tan Houston studio" width="640" height="400" loading="lazy">
+          </div>
+          <div class="hht-sp-loccard__body">
+            <span class="hht-sp-card__label">Houston</span>
+            <h3 class="hht-sp__h3">Hush Hush Tan Houston</h3>
+            <p>600 N Shepherd Dr.<br>Suite 128<br>Houston, TX 77007</p>
+            <p>Phone: <a href="tel:+17134850633">(713) 485-0633</a></p>
+            <div class="hht-sp-loccard__actions">
+              <a class="btn btn--outline" href="tel:+17134850633">Call Houston</a>
+              <a class="btn" href="{{ houston_book }}" target="_blank" rel="noopener noreferrer">Book Houston</a>
+              <a class="btn btn--outline" href="/pages/houston-new">View Location</a>
+              <a class="btn btn--outline" href="{{ houston_maps }}" target="_blank" rel="noopener noreferrer">Get Directions</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="contact-form">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">Message</span>
+        <h2 class="hht-sp__h2">Send Us a Message</h2>
+        <p class="hht-sp__lead">Our team will respond within one business day.</p>
+      </div>
+      <div class="hht-sp-form">
+        {%- form 'contact', class: 'hht-contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="note note--ok" role="status">Thanks — we’ll be in touch shortly.</div>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div class="note note--err" role="alert">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+
+          <input type="hidden" name="contact[tags]" value="website-contact">
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="ContactName">Name</label>
+              <input id="ContactName" type="text" name="contact[name]" autocomplete="name" required value="{% if form.name %}{{ form.name }}{% endif %}">
+            </div>
+            <div class="field">
+              <label for="ContactEmail">Email</label>
+              <input id="ContactEmail" type="email" name="contact[email]" autocomplete="email" required value="{% if form.email %}{{ form.email }}{% endif %}">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="ContactPhone">Phone <span style="text-transform:none;letter-spacing:0;font-family:var(--font-body);color:var(--sp-muted);">(optional)</span></label>
+              <input id="ContactPhone" type="tel" name="contact[phone]" autocomplete="tel" value="{% if form.phone %}{{ form.phone }}{% endif %}">
+            </div>
+            <div class="field">
+              <label for="ContactLocation">Preferred location</label>
+              <select id="ContactLocation" name="contact[location]" required>
+                <option value="">Select…</option>
+                <option value="Austin">Austin</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Houston">Houston</option>
+                <option value="Not location-specific">Not location-specific</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="ContactInquiry">Inquiry type</label>
+            <select id="ContactInquiry" name="contact[inquiry_type]" required>
+              <option value="">Select…</option>
+              <option value="Appointment or service question">Appointment or service question</option>
+              <option value="Membership or package question">Membership or package question</option>
+              <option value="Gift certificate question">Gift certificate question</option>
+              <option value="Product question">Product question</option>
+              <option value="Existing booking support">Existing booking support</option>
+              <option value="Marketing or partnership">Marketing or partnership</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ContactBody">Message</label>
+            <textarea id="ContactBody" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width:100%;">Submit Message</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split">
+        <div>
+          <span class="hht-sp__eyebrow">Work with Hush Hush Tan</span>
+          <h2 class="hht-sp__h2">Marketing &amp; Partnerships</h2>
+          <p class="hht-sp__lead">For editorial opportunities, brand partnerships, press requests, and collaborations, contact the Hush Hush Tan marketing team.</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="mailto:marketing@hushhushtan.com">Email Marketing Team</a>
+            <a class="btn btn--outline" href="/pages/press">Read Press</a>
+          </div>
+        </div>
+        <div class="hht-sp-split__media">
+          <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="Hush Hush Tan editorial glow moment" width="800" height="600" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap hht-sp-final" style="padding-top:0;padding-bottom:0;">
+      <span class="hht-sp__eyebrow">Quick Answers</span>
+      <h2 class="hht-sp__h2">Looking for a Quick Answer?</h2>
+      <p class="hht-sp__lead">Visit the Frequently Asked Questions page for preparation, aftercare, membership, and spray-tanning information.</p>
+      <div class="hht-sp__ctas">
+        <a class="btn" href="/pages/faqs">Read the FAQs</a>
+        <a class="btn btn--outline" href="/pages/locations">Choose a Location</a>
+      </div>
+    </div>
+  </section>
+</div>
