@@ -1,0 +1,601 @@
+{%- liquid
+  assign sid = section.id
+  assign austin_url = section.settings.austin_url | default: 'https://go.booker.com/location/HushHushTan/buy/gift-certificate'
+  assign dallas_url = section.settings.dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/gift-certificate'
+  assign houston_url = section.settings.houston_url | default: 'https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate'
+  assign services_url = section.settings.services_url | default: '/pages/our-services'
+  assign products_url = section.settings.products_url | default: '/collections/tanning-products'
+  assign default_city = section.settings.default_location | default: 'austin'
+-%}
+
+{% style %}
+  #hht-gift-{{ sid }} {
+    --gift-lavender: #EAE3F7;
+    --gift-accent: #A69FE2;
+    --gift-accent-dark: #8F83D6;
+    --gift-ink: #151515;
+    --gift-body: #373741;
+    --gift-muted: #6F6A70;
+    --gift-card: #FFFFFF;
+    --gift-warm: #FBFAF7;
+    --gift-border: #E7E3F5;
+    color: var(--gift-body);
+  }
+  #hht-gift-{{ sid }} .hht-gift__wrap {
+    max-width: var(--container-home, 1120px);
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 32px);
+  }
+  #hht-gift-{{ sid }} .hht-gift__section {
+    padding: clamp(40px, 6vw, 72px) 0;
+  }
+  #hht-gift-{{ sid }} .hht-gift__section--lavender { background: var(--gift-lavender); }
+  #hht-gift-{{ sid }} .hht-gift__section--warm { background: var(--gift-warm); }
+  #hht-gift-{{ sid }} .hht-gift__section--white { background: #fff; }
+  #hht-gift-{{ sid }} .hht-gift__eyebrow {
+    display: block;
+    font-family: var(--font-eyebrow);
+    font-size: var(--type-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--gift-accent-dark);
+    margin: 0 0 var(--eyebrow-gap, 12px);
+  }
+  #hht-gift-{{ sid }} .hht-gift__h1,
+  #hht-gift-{{ sid }} .hht-gift__h2 {
+    font-family: var(--font-heading);
+    color: var(--gift-ink);
+    letter-spacing: 0;
+    margin: 0 0 14px;
+    font-weight: 500;
+  }
+  #hht-gift-{{ sid }} .hht-gift__h1 { font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.1; }
+  #hht-gift-{{ sid }} .hht-gift__h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.15; }
+  #hht-gift-{{ sid }} .hht-gift__h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    color: var(--gift-ink);
+    margin: 0 0 8px;
+    font-weight: 500;
+  }
+  #hht-gift-{{ sid }} .hht-gift__lead {
+    font-size: var(--type-body, 1rem);
+    line-height: 1.55;
+    color: var(--gift-body);
+    margin: 0 0 22px;
+    max-width: 38rem;
+  }
+  #hht-gift-{{ sid }} .hht-gift__center { text-align: center; }
+  #hht-gift-{{ sid }} .hht-gift__center .hht-gift__lead { margin-left: auto; margin-right: auto; }
+
+  /* Hero */
+  #hht-gift-{{ sid }} .hht-gift-hero__panel {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 0;
+    background: #fff;
+    border: 1px solid var(--gift-border);
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px -28px rgba(81, 33, 124, 0.28);
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__body { padding: clamp(28px, 4vw, 56px); }
+  #hht-gift-{{ sid }} .hht-gift-hero__media { min-height: 360px; }
+  #hht-gift-{{ sid }} .hht-gift-hero__media img {
+    width: 100%; height: 100%; object-fit: cover; display: block; min-height: 360px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__trust {
+    list-style: none; padding: 0; margin: 0 0 26px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__trust li {
+    display: flex; align-items: center; gap: 10px; color: var(--gift-ink); font-size: 0.95rem;
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__trust li::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gift-accent); flex: 0 0 auto;
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__ctas {
+    display: flex; flex-wrap: wrap; gap: 12px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-hero__ctas .btn { min-height: 48px; }
+
+  /* City purchase panel */
+  #hht-gift-{{ sid }} .hht-gift-buy {
+    background: #fff;
+    border: 1px solid var(--gift-border);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 40px);
+    box-shadow: 0 14px 34px -26px rgba(81, 33, 124, 0.25);
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  #hht-gift-{{ sid }} .hht-gift-toggle {
+    display: inline-grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 6px;
+    background: #FAF9FF;
+    border: 1px solid rgba(166, 159, 226, 0.35);
+    border-radius: 999px;
+    margin: 18px 0 22px;
+    width: min(100%, 420px);
+  }
+  #hht-gift-{{ sid }} .hht-gift-toggle__btn {
+    appearance: none; border: 0; background: transparent; cursor: pointer;
+    font-family: var(--font-button); font-size: 0.8125rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gift-ink); min-height: 44px; border-radius: 999px; padding: 0 12px;
+    transition: background .2s ease, color .2s ease;
+  }
+  #hht-gift-{{ sid }} .hht-gift-toggle__btn[aria-selected="true"] {
+    background: var(--gift-accent); color: #fff;
+  }
+  #hht-gift-{{ sid }} .hht-gift-buy__note {
+    font-size: 0.9rem; color: var(--gift-muted); margin: 0 0 20px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-buy__studio {
+    font-family: var(--font-heading); font-size: 1.35rem; color: var(--gift-ink); margin: 0 0 8px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-buy__media {
+    margin: 0 auto 18px; width: min(100%, 420px); aspect-ratio: 16/10;
+    border-radius: 18px; overflow: hidden; background: var(--gift-lavender);
+  }
+  #hht-gift-{{ sid }} .hht-gift-buy__media img { width: 100%; height: 100%; object-fit: cover; display: none; }
+  #hht-gift-{{ sid }}.show-austin [data-gift-img="austin"],
+  #hht-gift-{{ sid }}.show-dallas [data-gift-img="dallas"],
+  #hht-gift-{{ sid }}.show-houston [data-gift-img="houston"] { display: block; }
+  #hht-gift-{{ sid }} .hht-gift-buy__cta { width: min(100%, 420px); min-height: 52px; }
+
+  /* Cards */
+  #hht-gift-{{ sid }} .hht-gift-grid {
+    display: grid; gap: 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 28px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #hht-gift-{{ sid }} .hht-gift-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #hht-gift-{{ sid }} .hht-gift-card {
+    background: var(--gift-card);
+    border: 1px solid var(--gift-border);
+    border-radius: 20px;
+    padding: 22px 20px 24px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-card p { margin: 0; color: var(--gift-body); line-height: 1.5; font-size: 0.95rem; }
+  #hht-gift-{{ sid }} .hht-gift-card__label {
+    display: inline-block; font-family: var(--font-eyebrow); font-size: 0.6875rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: var(--gift-accent-dark); margin-bottom: 8px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-amount {
+    font-family: var(--font-heading); font-size: clamp(1.6rem, 2.5vw, 2rem);
+    color: var(--gift-ink); margin: 0 0 8px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-card ul {
+    margin: 10px 0 0; padding: 0 0 0 1.1rem; color: var(--gift-body); font-size: 0.92rem;
+  }
+  #hht-gift-{{ sid }} .hht-gift-card li { margin: 0 0 6px; }
+  #hht-gift-{{ sid }} .hht-gift-fine {
+    margin: 18px auto 0; max-width: 44rem; text-align: center;
+    font-size: 0.85rem; color: var(--gift-muted); line-height: 1.45;
+  }
+  #hht-gift-{{ sid }} .hht-gift-steps {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 28px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-step {
+    background: #fff; border: 1px solid var(--gift-border); border-radius: 20px; padding: 24px 20px; text-align: center;
+  }
+  #hht-gift-{{ sid }} .hht-gift-step__num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%; background: var(--gift-accent); color: #fff;
+    font-family: var(--font-button); font-size: 0.8rem; font-weight: 600; margin-bottom: 12px;
+  }
+  #hht-gift-{{ sid }} .hht-gift-actions { text-align: center; margin-top: 28px; }
+  #hht-gift-{{ sid }} .visually-hidden {
+    position: absolute !important; height: 1px; width: 1px; overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;
+  }
+  #hht-gift-{{ sid }}.hht-gift-booting { opacity: 0; }
+  #hht-gift-{{ sid }}:not(.hht-gift-booting) { opacity: 1; transition: opacity .15s ease; }
+  @media (prefers-reduced-motion: reduce) {
+    #hht-gift-{{ sid }}:not(.hht-gift-booting) { transition: none; }
+  }
+
+  @media (max-width: 900px) {
+    #hht-gift-{{ sid }} .hht-gift-hero__panel { grid-template-columns: 1fr; }
+    #hht-gift-{{ sid }} .hht-gift-hero__media { min-height: 260px; order: -1; }
+    #hht-gift-{{ sid }} .hht-gift-hero__media img { min-height: 260px; }
+    #hht-gift-{{ sid }} .hht-gift-grid--4,
+    #hht-gift-{{ sid }} .hht-gift-grid--3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #hht-gift-{{ sid }} .hht-gift-steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    #hht-gift-{{ sid }} {
+      padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px) + 72px);
+    }
+    #hht-gift-{{ sid }} .hht-gift-grid,
+    #hht-gift-{{ sid }} .hht-gift-grid--3,
+    #hht-gift-{{ sid }} .hht-gift-grid--4 { grid-template-columns: 1fr; }
+    #hht-gift-{{ sid }} .hht-gift-toggle { width: 100%; border-radius: 18px; }
+    #hht-gift-{{ sid }} .hht-gift-hero__ctas .btn,
+    #hht-gift-{{ sid }} .hht-gift-buy__cta { width: 100%; }
+  }
+{% endstyle %}
+
+<section
+  id="hht-gift-{{ sid }}"
+  class="hht-gift show-{{ default_city }} hht-gift-booting"
+  data-hht-gift
+  data-default-location="{{ default_city }}"
+  data-url-austin="{{ austin_url | escape }}"
+  data-url-dallas="{{ dallas_url | escape }}"
+  data-url-houston="{{ houston_url | escape }}"
+  aria-label="Gift certificates">
+
+  {%- comment -%} ===== HERO ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--lavender">
+    <div class="hht-gift__wrap">
+      <div class="hht-gift-hero__panel">
+        <div class="hht-gift-hero__body">
+          {% if section.settings.hero_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.hero_eyebrow }}</span>{% endif %}
+          <h1 class="hht-gift__h1">{{ section.settings.hero_heading }}</h1>
+          {% if section.settings.hero_text != blank %}<p class="hht-gift__lead">{{ section.settings.hero_text }}</p>{% endif %}
+          <ul class="hht-gift-hero__trust">
+            <li>Personalized gift for their preferred Texas studio</li>
+            <li>Easy online purchase through secure Booker checkout</li>
+            <li>Available for Austin, Dallas and Houston</li>
+          </ul>
+          <div class="hht-gift-hero__ctas">
+            <a href="#gift-purchase" class="btn btn--pill">{{ section.settings.hero_cta1 | default: 'Choose a Location' }}</a>
+            <a href="#gift-values" class="btn btn--pill btn--outline">{{ section.settings.hero_cta2 | default: 'See What It Can Cover' }}</a>
+          </div>
+        </div>
+        <div class="hht-gift-hero__media">
+          {%- if section.settings.hero_image != blank -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 1200 }}" alt="{{ section.settings.hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
+          {%- else -%}
+            <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | default: 'Hush Hush Tan gift glow experience' | escape }}" width="900" height="1000" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== CITY SELECTOR ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--warm" id="gift-purchase">
+    <div class="hht-gift__wrap">
+      <div class="hht-gift-buy">
+        <span class="hht-gift__eyebrow">{{ section.settings.buy_eyebrow | default: 'Choose Their Studio' }}</span>
+        <h2 class="hht-gift__h2">{{ section.settings.buy_heading | default: 'Select a Gift Certificate Location' }}</h2>
+        <p class="hht-gift__lead" style="margin-left:auto;margin-right:auto;">{{ section.settings.buy_text | default: 'Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.' }}</p>
+
+        <div class="hht-gift-toggle" role="tablist" aria-label="Gift certificate studio">
+          <button type="button" class="hht-gift-toggle__btn" role="tab" data-gift-city="austin" aria-selected="true" aria-controls="hht-gift-live-{{ sid }}">Austin</button>
+          <button type="button" class="hht-gift-toggle__btn" role="tab" data-gift-city="dallas" aria-selected="false" aria-controls="hht-gift-live-{{ sid }}">Dallas</button>
+          <button type="button" class="hht-gift-toggle__btn" role="tab" data-gift-city="houston" aria-selected="false" aria-controls="hht-gift-live-{{ sid }}">Houston</button>
+        </div>
+        <p id="hht-gift-live-{{ sid }}" class="visually-hidden" aria-live="polite" data-gift-live></p>
+
+        <div class="hht-gift-buy__media" aria-hidden="true">
+          <img data-gift-img="austin" src="{{ 'hht-loc-austin-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          <img data-gift-img="dallas" src="{{ 'hht-loc-dallas-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          <img data-gift-img="houston" src="{{ 'hht-loc-houston-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+        </div>
+
+        <p class="hht-gift-buy__studio" data-gift-studio-label>Hush Hush Tan Austin</p>
+        <p class="hht-gift-buy__note">Select the studio where the recipient plans to redeem the gift. Gift certificates are purchased through that studio’s secure Booker checkout.</p>
+
+        <a
+          href="{{ austin_url }}"
+          class="btn btn--pill hht-gift-buy__cta"
+          data-gift-purchase
+          data-book-austin="{{ austin_url | escape }}"
+          data-book-dallas="{{ dallas_url | escape }}"
+          data-book-houston="{{ houston_url | escape }}"
+          target="_blank"
+          rel="noopener noreferrer">Purchase an Austin Gift Certificate</a>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== WHY PERFECT ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--white">
+    <div class="hht-gift__wrap hht-gift__center">
+      <span class="hht-gift__eyebrow">A Gift They Will Actually Use</span>
+      <h2 class="hht-gift__h2">More Than a Gift Card. A Confidence Boost.</h2>
+      <p class="hht-gift__lead">A Hush Hush Tan gift certificate gives the recipient the freedom to choose a personalized glow experience that fits their schedule, skin tone and desired result.</p>
+      <div class="hht-gift-grid hht-gift-grid--4" style="text-align:left;">
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Personalized for them</span>
+          <h3 class="hht-gift__h3">Made for their glow</h3>
+          <p>Every spray tan experience is customized around the client’s skin tone, undertones and desired finish.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Perfect for any occasion</span>
+          <h3 class="hht-gift__h3">Celebrate anything</h3>
+          <p>A thoughtful option for birthdays, bridal celebrations, vacations, graduations and moments worth celebrating.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Easy to give</span>
+          <h3 class="hht-gift__h3">Purchase online</h3>
+          <p>Complete the purchase online and choose email delivery, print-at-home, or a scheduled send date in Booker checkout.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">They choose</span>
+          <h3 class="hht-gift__h3">Their experience</h3>
+          <p>The recipient can select an eligible service based on the certificate value and the studio’s current redemption terms.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== WHAT IT COVERS ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--lavender">
+    <div class="hht-gift__wrap hht-gift__center">
+      <span class="hht-gift__eyebrow">Let Them Choose</span>
+      <h2 class="hht-gift__h2">Let Them Choose Their Glow</h2>
+      <p class="hht-gift__lead">Depending on the selected value and the studio’s redemption rules, a gift certificate may be applied toward eligible Hush Hush Tan services. Please confirm product and package eligibility with the selected studio.</p>
+      <div class="hht-gift-grid" style="text-align:left;">
+        <article class="hht-gift-card">
+          <h3 class="hht-gift__h3">Custom Glow</h3>
+          <p>A personalized airbrush tan customized to the recipient’s skin tone and desired result.</p>
+        </article>
+        <article class="hht-gift-card">
+          <h3 class="hht-gift__h3">Clear Glow</h3>
+          <p>A clear tanning solution that develops without an immediate cosmetic bronzer.</p>
+        </article>
+        <article class="hht-gift-card">
+          <h3 class="hht-gift__h3">Rapid Glow</h3>
+          <p>A rapid-developing option designed for a shorter rinse window.</p>
+        </article>
+        <article class="hht-gift-card">
+          <h3 class="hht-gift__h3">Partial Tans &amp; Add-Ons</h3>
+          <p>Depending on the gift value, the recipient may select an eligible targeted service or glow-enhancing add-on.</p>
+        </article>
+      </div>
+      <div class="hht-gift-actions">
+        <a href="{{ services_url }}" class="btn btn--pill btn--outline">Explore Services</a>
+        <a href="{{ products_url }}" class="btn btn--pill btn--outline" style="margin-left:10px;">Explore Products</a>
+      </div>
+      <p class="hht-gift-fine">Product and membership redemption may vary by studio. Contact the selected location for current terms. Online Shopify checkout redemption is not confirmed.</p>
+    </div>
+  </div>
+
+  {%- comment -%} ===== VALUE INSPIRATION ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--white" id="gift-values">
+    <div class="hht-gift__wrap hht-gift__center">
+      <span class="hht-gift__eyebrow">Gift Value Ideas</span>
+      <h2 class="hht-gift__h2">What Could Their Gift Cover?</h2>
+      <p class="hht-gift__lead">Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.</p>
+      <div class="hht-gift-grid hht-gift-grid--3" style="text-align:left;" data-gift-values>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">A little glow</span>
+          <p class="hht-gift-amount" data-gift-amount="little">$25</p>
+          <p>Could be used toward an eligible partial tan or glow-enhancing add-on, based on current listed pricing.</p>
+          <ul>
+            <li>Face or upper/lower partials</li>
+            <li>Selected add-ons</li>
+          </ul>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">The signature experience</span>
+          <p class="hht-gift-amount" data-gift-amount="custom">$50</p>
+          <p>May cover one Custom Glow appointment at the selected studio, based on current listed pricing.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Rapid-ready</span>
+          <p class="hht-gift-amount" data-gift-amount="rapid">$60</p>
+          <p>May cover one Rapid Glow appointment at the selected studio, based on current listed pricing.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Glow and go</span>
+          <p class="hht-gift-amount" data-gift-amount="combo">$55</p>
+          <p>Could be used toward one core service plus an eligible add-on, depending on selections and taxes.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">A complete treat</span>
+          <p class="hht-gift-amount" data-gift-amount="complete">$110</p>
+          <p>A broader gift amount that may cover multiple eligible services over time, subject to studio terms.</p>
+        </article>
+        <article class="hht-gift-card">
+          <span class="hht-gift-card__label">Custom amount</span>
+          <p class="hht-gift-amount">Any</p>
+          <p>Choose any available amount in the secure Booker checkout when creating the certificate.</p>
+        </article>
+      </div>
+      <p class="hht-gift-fine">Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms.</p>
+    </div>
+  </div>
+
+  {%- comment -%} ===== OCCASIONS ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--warm">
+    <div class="hht-gift__wrap hht-gift__center">
+      <span class="hht-gift__eyebrow">For Every Reason to Celebrate</span>
+      <h2 class="hht-gift__h2">A Thoughtful Gift for Every Occasion</h2>
+      <div class="hht-gift-grid hht-gift-grid--3" style="text-align:left;">
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Birthdays</h3><p>Give them a personalized experience they can schedule when it works for them.</p></article>
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Brides &amp; bridal parties</h3><p>A thoughtful gift before engagements, showers, bachelorette celebrations or the wedding day.</p></article>
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Vacations</h3><p>Help them prepare for a trip with a natural-looking, customized glow.</p></article>
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Graduations</h3><p>Celebrate a major accomplishment with an experience that feels personal.</p></article>
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Holidays</h3><p>An easy-to-give experience for someone who would rather receive a moment than another item.</p></article>
+        <article class="hht-gift-card"><h3 class="hht-gift__h3">Just because</h3><p>A confidence-boosting surprise does not need a special date.</p></article>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} ===== HOW IT WORKS ===== {%- endcomment -%}
+  <div class="hht-gift__section hht-gift__section--white">
+    <div class="hht-gift__wrap hht-gift__center">
+      <span class="hht-gift__eyebrow">Simple Steps</span>
+      <h2 class="hht-gift__h2">Giving a Glow Is Simple</h2>
+      <div class="hht-gift-steps">
+        <article class="hht-gift-step">
+          <span class="hht-gift-step__num">1</span>
+          <h3 class="hht-gift__h3">Choose a location</h3>
+          <p>Select Austin, Dallas or Houston based on where the recipient plans to visit.</p>
+        </article>
+        <article class="hht-gift-step">
+          <span class="hht-gift-step__num">2</span>
+          <h3 class="hht-gift__h3">Create the certificate</h3>
+          <p>Continue to the secure Booker purchase flow and select the available value, message and delivery options.</p>
+        </article>
+        <article class="hht-gift-step">
+          <span class="hht-gift-step__num">3</span>
+          <h3 class="hht-gift__h3">Send the glow</h3>
+          <p>Email it to the recipient, send it to yourself for print-at-home later, or print upon purchase.</p>
+        </article>
+      </div>
+      <div class="hht-gift-actions">
+        <a href="{{ austin_url }}" class="btn btn--pill" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}" target="_blank" rel="noopener noreferrer">Purchase an Austin Gift Certificate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'hht-gift-certificates.js' | asset_url }}" defer></script>
+<script>
+  (function () {
+    function ready(fn) {
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);
+      else fn();
+    }
+    ready(function () {
+      var root = document.getElementById('hht-gift-{{ sid }}');
+      if (!root) return;
+
+      var data = window.HHT_GIFT_CERTIFICATES || {};
+      // Prefer liquid-provided URLs so theme editor wins
+      ['austin', 'dallas', 'houston'].forEach(function (city) {
+        var url = root.getAttribute('data-url-' + city);
+        if (!data[city]) data[city] = { key: city, label: city.charAt(0).toUpperCase() + city.slice(1), prices: {} };
+        if (url) data[city].purchaseUrl = url;
+      });
+      if (!data.austin.prices) data.austin.prices = { customGlow: 50, rapidGlow: 60, upperLower: 25, goldGlow: 5 };
+      if (!data.dallas.prices) data.dallas.prices = { customGlow: 55, rapidGlow: 65, upperLower: 30, goldGlow: 5 };
+      if (!data.houston.prices) data.houston.prices = { customGlow: 50, rapidGlow: 60, upperLower: 25, goldGlow: 5 };
+
+      var buttons = root.querySelectorAll('[data-gift-city]');
+      var live = root.querySelector('[data-gift-live]');
+      var studioLabel = root.querySelector('[data-gift-studio-label]');
+      var purchaseLinks = root.querySelectorAll('[data-gift-purchase]');
+
+      var purchaseLabels = {
+        austin: 'Purchase an Austin Gift Certificate',
+        dallas: 'Purchase a Dallas Gift Certificate',
+        houston: 'Purchase a Houston Gift Certificate'
+      };
+      var buyForLabels = {
+        austin: 'BUY FOR AUSTIN',
+        dallas: 'BUY FOR DALLAS',
+        houston: 'BUY FOR HOUSTON'
+      };
+
+      function money(n) { return '$' + n; }
+
+      function updateValues(city) {
+        var p = (data[city] && data[city].prices) || {};
+        var custom = p.customGlow || 50;
+        var rapid = p.rapidGlow || 60;
+        var little = p.upperLower || 25;
+        var combo = custom + (p.goldGlow || 5);
+        var complete = custom * 2 + (p.goldGlow || 5);
+        var map = { little: little, custom: custom, rapid: rapid, combo: combo, complete: complete };
+        Object.keys(map).forEach(function (key) {
+          root.querySelectorAll('[data-gift-amount="' + key + '"]').forEach(function (el) {
+            el.textContent = money(map[key]);
+          });
+        });
+      }
+
+      function activate(city, pushState) {
+        if (!data[city]) city = 'austin';
+        root.classList.remove('show-austin', 'show-dallas', 'show-houston');
+        root.classList.add('show-' + city);
+        buttons.forEach(function (btn) {
+          var on = btn.getAttribute('data-gift-city') === city;
+          btn.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        var entry = data[city];
+        var url = entry.purchaseUrl;
+        if (studioLabel) studioLabel.textContent = entry.locationName || ('Hush Hush Tan ' + entry.label);
+        purchaseLinks.forEach(function (a) {
+          var href = a.getAttribute('data-book-' + city) || url;
+          a.setAttribute('href', href);
+          if (a.classList.contains('hht-gift-buy__cta') || a.closest('.hht-gift-actions')) {
+            a.textContent = purchaseLabels[city];
+          }
+          a.setAttribute('aria-label', purchaseLabels[city] + ' (opens in a new tab)');
+        });
+        document.querySelectorAll('[data-hht-sync-book], [data-hht-sync-gift]').forEach(function (el) {
+          var href = el.getAttribute('data-book-' + city) || url;
+          if (href) el.setAttribute('href', href);
+          if (el.hasAttribute('data-gift-buy-for')) el.textContent = buyForLabels[city];
+        });
+        updateValues(city);
+        if (live) live.textContent = entry.label + ' gift certificate selected.';
+        try {
+          window.dispatchEvent(new CustomEvent('hht:giftlocationchange', { detail: { city: city } }));
+        } catch (e) {}
+        if (pushState) {
+          try {
+            var u = new URL(window.location.href);
+            u.searchParams.set('location', city);
+            u.hash = '';
+            history.replaceState({ hhtGiftLocation: city }, '', u.pathname + u.search);
+          } catch (err) {}
+        }
+      }
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          activate(btn.getAttribute('data-gift-city'), true);
+        });
+      });
+
+      function fromUrl() {
+        var m = (window.location.search || '').match(/[?&](?:loc|location)=([^&#]+)/i);
+        var city = m && m[1] ? decodeURIComponent(m[1]).toLowerCase() : (root.getAttribute('data-default-location') || 'austin');
+        if (!data[city]) city = 'austin';
+        activate(city, false);
+      }
+
+      try { fromUrl(); } finally { root.classList.remove('hht-gift-booting'); }
+      window.addEventListener('popstate', fromUrl);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Gift Certificates",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "The Perfect Gift, Beautifully Glowing" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Give the Gift of Confidence" },
+    { "type": "textarea", "id": "hero_text", "label": "Body", "default": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience." },
+    { "type": "text", "id": "hero_cta1", "label": "Primary CTA", "default": "Choose a Location" },
+    { "type": "text", "id": "hero_cta2", "label": "Secondary CTA", "default": "See What It Can Cover" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt", "default": "Hush Hush Tan gift glow experience" },
+
+    { "type": "header", "content": "City purchase panel" },
+    { "type": "select", "id": "default_location", "label": "Default city", "default": "austin",
+      "options": [
+        { "value": "austin", "label": "Austin" },
+        { "value": "dallas", "label": "Dallas" },
+        { "value": "houston", "label": "Houston" }
+      ]
+    },
+    { "type": "text", "id": "buy_eyebrow", "label": "Purchase eyebrow", "default": "Choose Their Studio" },
+    { "type": "text", "id": "buy_heading", "label": "Purchase heading", "default": "Select a Gift Certificate Location" },
+    { "type": "textarea", "id": "buy_text", "label": "Purchase text", "default": "Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book." },
+    { "type": "url", "id": "austin_url", "label": "Austin Booker gift URL", "default": "https://go.booker.com/location/HushHushTan/buy/gift-certificate" },
+    { "type": "url", "id": "dallas_url", "label": "Dallas Booker gift URL", "default": "https://go.booker.com/location/hushhushtandallas/buy/gift-certificate" },
+    { "type": "url", "id": "houston_url", "label": "Houston Booker gift URL", "default": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate" },
+    { "type": "url", "id": "services_url", "label": "Explore Services URL", "default": "/pages/our-services" },
+    { "type": "url", "id": "products_url", "label": "Explore Products URL", "default": "/collections/tanning-products" }
+  ],
+  "presets": [{ "name": "Gift Certificates" }]
+}
+{% endschema %}
