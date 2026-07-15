@@ -1,8 +1,14 @@
 {%- comment -%}
-  Hide the empty default page chrome when /pages/our-services is still on the
-  Default template — the gated Our Services sections in page.json render instead.
+  Hide empty default page chrome when a redesigned page is still on Default.
+  Gated stacks in page.json render instead for these handles.
 {%- endcomment -%}
-{%- unless page.handle == 'our-services' -%}
+{%- liquid
+  assign hht_custom_default = false
+  if page.handle == 'our-services' or page.handle == 'tanning-gift-certificates'
+    assign hht_custom_default = true
+  endif
+-%}
+{%- unless hht_custom_default -%}
 <section class="page-hero">
   <div class="container">
     <div class="page-hero__card">

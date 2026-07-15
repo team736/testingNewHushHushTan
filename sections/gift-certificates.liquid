@@ -1,4 +1,11 @@
 {%- liquid
+  assign hht_skip = false
+  if section.settings.only_on_handle != blank and page.handle != section.settings.only_on_handle
+    assign hht_skip = true
+  endif
+-%}
+{%- unless hht_skip -%}
+{%- liquid
   assign sid = section.id
   assign austin_url = section.settings.austin_url | default: 'https://go.booker.com/location/HushHushTan/buy/gift-certificate'
   assign dallas_url = section.settings.dallas_url | default: 'https://go.booker.com/location/hushhushtandallas/buy/gift-certificate'
@@ -565,11 +572,14 @@
   })();
 </script>
 
+{%- endunless -%}
+
 {% schema %}
 {
   "name": "Gift Certificates",
   "tag": "section",
   "settings": [
+    { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. tanning-gift-certificates), this section renders only on that page." },
     { "type": "header", "content": "Hero" },
     { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "The Perfect Gift, Beautifully Glowing" },
     { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Give the Gift of Confidence" },
