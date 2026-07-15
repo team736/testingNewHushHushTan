@@ -8,6 +8,18 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": { "main": { "type": "main-collection", "settings": {} } },
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "eyebrow": "Hush Hush Tan Aftercare",
+        "heading": "Shop Your Glow Essentials",
+        "text": "Prep, maintain, and extend your glow with Hush Hush Tan essentials. Explore our curated collection of self-tanning and aftercare products designed to support smooth application and a longer-lasting finish.",
+        "cta1_label": "Shop All Products",
+        "cta2_label": "Build Your Routine",
+        "products_per_page": 24
+      }
+    }
+  },
   "order": ["main"]
 }
