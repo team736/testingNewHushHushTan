@@ -825,8 +825,11 @@
         if (path.indexOf('austin') !== -1) { activateByCity('austin'); return; }
         activateByCity(defaultLoc);
       }
-      applyFromUrl();
-      wrapper.classList.remove('hht-loc-booting');
+      try {
+        applyFromUrl();
+      } finally {
+        wrapper.classList.remove('hht-loc-booting');
+      }
       window.addEventListener('hashchange', applyFromUrl);
       window.addEventListener('popstate', applyFromUrl);
     });
