@@ -3,15 +3,22 @@
   if section_id == blank
     assign section_id = 'locations'
   endif
+  assign is_single = false
+  if section.blocks.size == 1
+    assign is_single = true
+  endif
 -%}
-<section class="section section-offwhite" id="{{ section_id }}">
+<section class="section{% if is_single %} hht-visit{% else %} section-offwhite{% endif %}" id="{{ section_id }}">
   <div class="container container--home">
-    <div class="section-head">
-      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      <h2>{{ section.settings.heading }}</h2>
-      {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
-    </div>
-    <div class="location-cards{% if section.blocks.size == 1 %} location-cards--single{% endif %}">
+    {%- unless is_single -%}
+      <div class="section-head">
+        {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+        <h2>{{ section.settings.heading }}</h2>
+        {%- if section.settings.subheading != blank -%}<p class="section-head__sub">{{ section.settings.subheading }}</p>{%- endif -%}
+      </div>
+    {%- endunless -%}
+
+    <div class="{% if is_single %}hht-visit__wrap{% else %}location-cards{% endif %}">
       {%- for block in section.blocks -%}
         {%- liquid
           assign book_label = block.settings.book_label | default: 'Book Appointment'
@@ -38,44 +45,125 @@
 
           assign maps_href = block.settings.map_url
         -%}
-        <article class="location-card" {{ block.shopify_attributes }}>
-          <div class="location-card__media">
-            {%- if block.settings.image != blank -%}
-              <img src="{{ block.settings.image | image_url: width: 800 }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
-            {%- else -%}
-              <img src="{{ fallback_asset | asset_url }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
-            {%- endif -%}
-          </div>
-          <div class="location-card__body">
-            <div class="location-card__city">{{ block.settings.city }}</div>
-            {%- if block.settings.tagline != blank -%}<p class="location-card__meta">{{ block.settings.tagline }}</p>{%- endif -%}
-            {%- if block.settings.address != blank -%}
-              <p class="location-card__meta">
-                {%- if maps_href != blank -%}
-                  <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
-                {%- else -%}
-                  {{ block.settings.address }}
-                {%- endif -%}
-              </p>
-            {%- endif -%}
-            {%- if block.settings.phone != blank -%}
-              <p class="location-card__meta">{% render 'tel-link', phone: block.settings.phone %}</p>
-            {%- endif -%}
-            {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
-            <div class="location-card__ctas">
-              {%- if block.settings.book_url != blank -%}
-                <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
-              {%- endif -%}
-              {%- if secondary_url != blank and secondary_label != blank -%}
-                <a
-                  href="{{ secondary_url }}"
-                  class="btn btn--pill btn--outline btn--small"
-                  {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
-                >{{ secondary_label }}</a>
+
+        {%- if is_single -%}
+          <article class="hht-visit__panel" {{ block.shopify_attributes }}>
+            <div class="hht-visit__media">
+              {%- if block.settings.image != blank -%}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1200 }}"
+                  srcset="{{ block.settings.image | image_url: width: 800 }} 800w, {{ block.settings.image | image_url: width: 1200 }} 1200w"
+                  sizes="(max-width: 900px) 100vw, 48vw"
+                  alt="Hush Hush Tan {{ block.settings.city | escape }} studio"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <img
+                  src="{{ fallback_asset | asset_url }}"
+                  alt="Hush Hush Tan {{ block.settings.city | escape }} studio"
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                >
               {%- endif -%}
             </div>
-          </div>
-        </article>
+
+            <div class="hht-visit__body">
+              {%- if section.settings.eyebrow != blank -%}
+                <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+              {%- endif -%}
+              {%- if section.settings.heading != blank -%}
+                <h2 class="hht-visit__title">{{ section.settings.heading }}</h2>
+              {%- endif -%}
+              {%- if block.settings.tagline != blank -%}
+                <p class="hht-visit__feature">{{ block.settings.tagline }}</p>
+              {%- elsif section.settings.subheading != blank -%}
+                <p class="hht-visit__feature">{{ section.settings.subheading }}</p>
+              {%- endif -%}
+
+              <dl class="hht-visit__details">
+                {%- if block.settings.address != blank -%}
+                  <div class="hht-visit__row">
+                    <dt>Address</dt>
+                    <dd>
+                      {%- if maps_href != blank -%}
+                        <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
+                      {%- else -%}
+                        {{ block.settings.address }}
+                      {%- endif -%}
+                    </dd>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.phone != blank -%}
+                  <div class="hht-visit__row">
+                    <dt>Phone</dt>
+                    <dd>{% render 'tel-link', phone: block.settings.phone %}</dd>
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.hours != blank -%}
+                  <div class="hht-visit__row">
+                    <dt>Hours</dt>
+                    <dd>{{ block.settings.hours }}</dd>
+                  </div>
+                {%- endif -%}
+              </dl>
+
+              <div class="hht-visit__ctas">
+                {%- if block.settings.book_url != blank -%}
+                  <a href="{{ block.settings.book_url }}" class="btn btn--pill" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
+                {%- endif -%}
+                {%- if secondary_url != blank and secondary_label != blank -%}
+                  <a
+                    href="{{ secondary_url }}"
+                    class="btn btn--pill btn--outline"
+                    {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+                  >{{ secondary_label }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- else -%}
+          <article class="location-card" {{ block.shopify_attributes }}>
+            <div class="location-card__media">
+              {%- if block.settings.image != blank -%}
+                <img src="{{ block.settings.image | image_url: width: 800 }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
+              {%- else -%}
+                <img src="{{ fallback_asset | asset_url }}" alt="Hush Hush Tan {{ block.settings.city | escape }} studio" width="800" height="500" loading="lazy">
+              {%- endif -%}
+            </div>
+            <div class="location-card__body">
+              <div class="location-card__city">{{ block.settings.city }}</div>
+              {%- if block.settings.tagline != blank -%}<p class="location-card__meta">{{ block.settings.tagline }}</p>{%- endif -%}
+              {%- if block.settings.address != blank -%}
+                <p class="location-card__meta">
+                  {%- if maps_href != blank -%}
+                    <a href="{{ maps_href }}" target="_blank" rel="noopener noreferrer">{{ block.settings.address }}</a>
+                  {%- else -%}
+                    {{ block.settings.address }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+              {%- if block.settings.phone != blank -%}
+                <p class="location-card__meta">{% render 'tel-link', phone: block.settings.phone %}</p>
+              {%- endif -%}
+              {%- if block.settings.hours != blank -%}<p class="location-card__meta">{{ block.settings.hours }}</p>{%- endif -%}
+              <div class="location-card__ctas">
+                {%- if block.settings.book_url != blank -%}
+                  <a href="{{ block.settings.book_url }}" class="btn btn--pill btn--small" target="_blank" rel="noopener noreferrer">{{ book_label }}</a>
+                {%- endif -%}
+                {%- if secondary_url != blank and secondary_label != blank -%}
+                  <a
+                    href="{{ secondary_url }}"
+                    class="btn btn--pill btn--outline btn--small"
+                    {% if secondary_url contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}
+                  >{{ secondary_label }}</a>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endif -%}
       {%- endfor -%}
     </div>
   </div>
