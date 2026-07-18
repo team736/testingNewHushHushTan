@@ -1,0 +1,63 @@
+{%- comment -%}
+  Forces Follow the Glow images + single @HushHushTan label.
+  social-feed.liquid updates were not applying on the Git-connected draft theme.
+{%- endcomment -%}
+<script>
+(function () {
+  var profile = {{ 'https://www.instagram.com/hushhushtan/' | json }};
+  var images = [
+    {{ 'hht-ig-post-01.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-02.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-03.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-04.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-05.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-06.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-07.jpg' | asset_url | json }},
+    {{ 'hht-ig-post-08.jpg' | asset_url | json }}
+  ];
+  var links = [
+    'https://www.instagram.com/p/DaODahCijaU/',
+    'https://www.instagram.com/p/DaTcqvWnJDw/',
+    'https://www.instagram.com/p/DNmPsjyMr6u/',
+    'https://www.instagram.com/p/Dala5EfnEuO/',
+    'https://www.instagram.com/p/DZDyuJfpBWz/',
+    'https://www.instagram.com/p/DZsj73qHJep/',
+    'https://www.instagram.com/p/DYxfka4HDdj/',
+    'https://www.instagram.com/p/DYQyHfJpI6T/'
+  ];
+
+  function apply() {
+    document.querySelectorAll('.hht-social').forEach(function (section) {
+      var head = section.querySelector('.section-head');
+      if (head && !head.querySelector('.hht-social__handle')) {
+        var eyebrow = document.createElement('span');
+        eyebrow.className = 'eyebrow';
+        eyebrow.innerHTML = '<a href="' + profile + '" class="hht-social__handle" target="_blank" rel="noopener noreferrer">@HushHushTan</a>';
+        head.insertBefore(eyebrow, head.firstChild);
+      }
+      // Remove duplicate handle lines under the heading
+      head && head.querySelectorAll('.section-head__sub').forEach(function (el) {
+        if (/hushhushtan/i.test(el.textContent || '')) el.remove();
+      });
+
+      var tiles = section.querySelectorAll('.hht-social__tile');
+      tiles.forEach(function (tile, i) {
+        if (!images[i]) return;
+        tile.setAttribute('href', links[i] || profile);
+        var img = tile.querySelector('img');
+        if (img) {
+          img.setAttribute('src', images[i]);
+          img.setAttribute('srcset', '');
+          img.setAttribute('sizes', '');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply);
+  } else {
+    apply();
+  }
+})();
+</script>
