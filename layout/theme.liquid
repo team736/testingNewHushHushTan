@@ -93,8 +93,6 @@
         {% sections 'hht-houston-new-landing' %}
       {%- elsif request.page_type == 'page' and template.suffix == blank -%}
         {%- case page.handle -%}
-          {%- when 'tanning-gift-certificates' -%}
-            {% render 'hht-gift-page' %}
           {%- when 'hush-hush-tan-group-tanning-mimosas-package' -%}
             {% render 'hht-group-page' %}
           {%- when 'mobile-spray-tan' -%}
@@ -119,7 +117,7 @@
 
     {% sections 'group-footer' %}
 
-    <a href="{{ settings.book_now_url | default: settings.book_austin_url | default: 'https://go.booker.com/location/hushhushtan/service-menu' }}" class="mobile-book-cta" aria-label="Book now">
+    <a href="{{ settings.book_now_url | default: settings.book_austin_url | default: '/pages/our-services' }}" class="mobile-book-cta" aria-label="Book now">
       Book&nbsp;Now
     </a>
     {% render 'hht-social-ig-fix' %}

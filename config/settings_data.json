@@ -20,7 +20,7 @@
     "book_austin_url": "https://go.booker.com/location/hushhushtan/service-menu",
     "book_dallas_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
     "book_houston_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
-    "book_now_url": "https://go.booker.com/location/hushhushtan/service-menu",
+    "book_now_url": "/pages/our-services",
     "color_bg": "#FAF8F5",
     "color_cta_dark": "#111111",
     "color_grey": "#F6F6F6",
