@@ -76,7 +76,7 @@
   #hht-gift-{{ sid }} .hht-gift__center { text-align: center; }
   #hht-gift-{{ sid }} .hht-gift__center .hht-gift__lead { margin-left: auto; margin-right: auto; }
 
-  /* Hero — text sets height; image fills and crops to match */
+  /* Hero */
   #hht-gift-{{ sid }} .hht-gift-hero__panel {
     display: grid;
     grid-template-columns: 1.05fr 0.95fr;
@@ -191,20 +191,12 @@
     display: inline-block; font-family: var(--font-eyebrow); font-size: 0.6875rem;
     letter-spacing: 0.14em; text-transform: uppercase; color: var(--gift-accent-dark); margin-bottom: 8px;
   }
-  #hht-gift-{{ sid }} .hht-gift-amount {
-    font-family: var(--font-heading); font-size: clamp(1.6rem, 2.5vw, 2rem);
-    color: var(--gift-ink); margin: 0 0 8px;
-  }
-  #hht-gift-{{ sid }} .hht-gift-card ul {
-    margin: 10px 0 0; padding: 0 0 0 1.1rem; color: var(--gift-body); font-size: 0.92rem;
-  }
-  #hht-gift-{{ sid }} .hht-gift-card li { margin: 0 0 6px; }
   #hht-gift-{{ sid }} .hht-gift-fine {
     margin: 18px auto 0; max-width: 44rem; text-align: center;
     font-size: 0.85rem; color: var(--gift-muted); line-height: 1.45;
   }
 
-  /* Gift Value Ideas — Core Services pricing card style */
+  /* Gift Value Ideas */
   #hht-gift-{{ sid }} .hht-gift-values-card {
     background: #fff;
     border: 1px solid rgba(166, 159, 226, 0.28);
@@ -296,6 +288,10 @@
     text-align: right;
     white-space: nowrap;
   }
+  #hht-gift-{{ sid }} .hht-gift-cityprice { display: none; }
+  #hht-gift-{{ sid }}.show-austin .gift-price-austin,
+  #hht-gift-{{ sid }}.show-dallas .gift-price-dallas,
+  #hht-gift-{{ sid }}.show-houston .gift-price-houston { display: inline; }
   #hht-gift-{{ sid }} .hht-gift-values-row__copy {
     grid-column: 1;
     grid-row: 2;
@@ -431,6 +427,12 @@
   data-url-austin="{{ austin_url | escape }}"
   data-url-dallas="{{ dallas_url | escape }}"
   data-url-houston="{{ houston_url | escape }}"
+  data-plabel-austin="{{ section.settings.purchase_label_austin | default: 'Purchase an Austin Gift Certificate' | escape }}"
+  data-plabel-dallas="{{ section.settings.purchase_label_dallas | default: 'Purchase a Dallas Gift Certificate' | escape }}"
+  data-plabel-houston="{{ section.settings.purchase_label_houston | default: 'Purchase a Houston Gift Certificate' | escape }}"
+  data-slabel-austin="{{ section.settings.studio_label_austin | default: 'Hush Hush Tan Austin' | escape }}"
+  data-slabel-dallas="{{ section.settings.studio_label_dallas | default: 'Hush Hush Tan Dallas' | escape }}"
+  data-slabel-houston="{{ section.settings.studio_label_houston | default: 'Hush Hush Tan Houston' | escape }}"
   aria-label="Gift certificates">
 
   {%- comment -%} ===== HERO ===== {%- endcomment -%}
@@ -441,14 +443,16 @@
           {% if section.settings.hero_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.hero_eyebrow }}</span>{% endif %}
           <h1 class="hht-gift__h1">{{ section.settings.hero_heading }}</h1>
           {% if section.settings.hero_text != blank %}<p class="hht-gift__lead">{{ section.settings.hero_text }}</p>{% endif %}
+          {%- if section.settings.trust_1 != blank or section.settings.trust_2 != blank or section.settings.trust_3 != blank -%}
           <ul class="hht-gift-hero__trust">
-            <li>Personalized gift for their preferred Texas studio</li>
-            <li>Easy online purchase through secure Booker checkout</li>
-            <li>Available for Austin, Dallas and Houston</li>
+            {% if section.settings.trust_1 != blank %}<li>{{ section.settings.trust_1 }}</li>{% endif %}
+            {% if section.settings.trust_2 != blank %}<li>{{ section.settings.trust_2 }}</li>{% endif %}
+            {% if section.settings.trust_3 != blank %}<li>{{ section.settings.trust_3 }}</li>{% endif %}
           </ul>
+          {%- endif -%}
           <div class="hht-gift-hero__ctas">
-            <a href="#gift-purchase" class="btn btn--pill">{{ section.settings.hero_cta1 | default: 'Choose a Location' }}</a>
-            <a href="#gift-values" class="btn btn--pill btn--outline">{{ section.settings.hero_cta2 | default: 'See What It Can Cover' }}</a>
+            {% if section.settings.hero_cta1 != blank %}<a href="{{ section.settings.hero_cta1_url | default: '#gift-purchase' }}" class="btn btn--pill">{{ section.settings.hero_cta1 }}</a>{% endif %}
+            {% if section.settings.hero_cta2 != blank %}<a href="{{ section.settings.hero_cta2_url | default: '#gift-values' }}" class="btn btn--pill btn--outline">{{ section.settings.hero_cta2 }}</a>{% endif %}
           </div>
         </div>
         <div class="hht-gift-hero__media">
@@ -466,9 +470,9 @@
   <div class="hht-gift__section hht-gift__section--warm" id="gift-purchase">
     <div class="hht-gift__wrap">
       <div class="hht-gift-buy">
-        <span class="hht-gift__eyebrow">{{ section.settings.buy_eyebrow | default: 'Choose Their Studio' }}</span>
-        <h2 class="hht-gift__h2">{{ section.settings.buy_heading | default: 'Select a Gift Certificate Location' }}</h2>
-        <p class="hht-gift__lead" style="margin-left:auto;margin-right:auto;">{{ section.settings.buy_text | default: 'Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.' }}</p>
+        {% if section.settings.buy_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.buy_eyebrow }}</span>{% endif %}
+        <h2 class="hht-gift__h2">{{ section.settings.buy_heading }}</h2>
+        {% if section.settings.buy_text != blank %}<p class="hht-gift__lead" style="margin-left:auto;margin-right:auto;">{{ section.settings.buy_text }}</p>{% endif %}
 
         <div class="hht-gift-toggle" role="tablist" aria-label="Gift certificate studio">
           <button type="button" class="hht-gift-toggle__btn" role="tab" data-gift-city="austin" aria-selected="true" aria-controls="hht-gift-live-{{ sid }}">Austin</button>
@@ -478,13 +482,25 @@
         <p id="hht-gift-live-{{ sid }}" class="visually-hidden" aria-live="polite" data-gift-live></p>
 
         <div class="hht-gift-buy__media" aria-hidden="true">
-          <img data-gift-img="austin" src="{{ 'hht-loc-austin-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
-          <img data-gift-img="dallas" src="{{ 'hht-loc-dallas-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
-          <img data-gift-img="houston" src="{{ 'hht-loc-houston-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          {%- if section.settings.city_img_austin != blank -%}
+            <img data-gift-img="austin" src="{{ section.settings.city_img_austin | image_url: width: 840 }}" alt="" width="840" height="525" loading="lazy">
+          {%- else -%}
+            <img data-gift-img="austin" src="{{ 'hht-loc-austin-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.city_img_dallas != blank -%}
+            <img data-gift-img="dallas" src="{{ section.settings.city_img_dallas | image_url: width: 840 }}" alt="" width="840" height="525" loading="lazy">
+          {%- else -%}
+            <img data-gift-img="dallas" src="{{ 'hht-loc-dallas-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          {%- endif -%}
+          {%- if section.settings.city_img_houston != blank -%}
+            <img data-gift-img="houston" src="{{ section.settings.city_img_houston | image_url: width: 840 }}" alt="" width="840" height="525" loading="lazy">
+          {%- else -%}
+            <img data-gift-img="houston" src="{{ 'hht-loc-houston-start.jpg' | asset_url }}" alt="" width="840" height="525" loading="lazy">
+          {%- endif -%}
         </div>
 
-        <p class="hht-gift-buy__studio" data-gift-studio-label>Hush Hush Tan Austin</p>
-        <p class="hht-gift-buy__note">Select the studio where the recipient plans to redeem the gift. Gift certificates are purchased through that studio’s secure Booker checkout.</p>
+        <p class="hht-gift-buy__studio" data-gift-studio-label>{{ section.settings.studio_label_austin | default: 'Hush Hush Tan Austin' }}</p>
+        {% if section.settings.buy_note != blank %}<p class="hht-gift-buy__note">{{ section.settings.buy_note }}</p>{% endif %}
 
         <a
           href="{{ austin_url }}"
@@ -494,219 +510,143 @@
           data-book-dallas="{{ dallas_url | escape }}"
           data-book-houston="{{ houston_url | escape }}"
           target="_blank"
-          rel="noopener noreferrer">Purchase an Austin Gift Certificate</a>
+          rel="noopener noreferrer">{{ section.settings.purchase_label_austin | default: 'Purchase an Austin Gift Certificate' }}</a>
       </div>
     </div>
   </div>
 
-  {%- comment -%} ===== WHY PERFECT ===== {%- endcomment -%}
+  {%- comment -%} ===== WHY PERFECT (blocks: why_card) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--white">
     <div class="hht-gift__wrap hht-gift__center">
-      <span class="hht-gift__eyebrow">A Gift They Will Actually Use</span>
-      <h2 class="hht-gift__h2">More Than a Gift Card. A Confidence Boost.</h2>
-      <p class="hht-gift__lead">A Hush Hush Tan gift certificate gives the recipient the freedom to choose a personalized glow experience that fits their schedule, skin tone and desired result.</p>
+      {% if section.settings.why_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.why_eyebrow }}</span>{% endif %}
+      {% if section.settings.why_heading != blank %}<h2 class="hht-gift__h2">{{ section.settings.why_heading }}</h2>{% endif %}
+      {% if section.settings.why_text != blank %}<p class="hht-gift__lead">{{ section.settings.why_text }}</p>{% endif %}
       <div class="hht-gift-grid hht-gift-grid--4" style="text-align:left;">
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Personalized for them</span>
-          <h3 class="hht-gift__h3">Made for their glow</h3>
-          <p>Every spray tan experience is customized around the client’s skin tone, undertones and desired finish.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Perfect for any occasion</span>
-          <h3 class="hht-gift__h3">Celebrate anything</h3>
-          <p>A thoughtful option for birthdays, bridal celebrations, vacations, graduations and moments worth celebrating.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">Easy to give</span>
-          <h3 class="hht-gift__h3">Purchase online</h3>
-          <p>Complete the purchase online and choose email delivery, print-at-home, or a scheduled send date in Booker checkout.</p>
-        </article>
-        <article class="hht-gift-card">
-          <span class="hht-gift-card__label">They choose</span>
-          <h3 class="hht-gift__h3">Their experience</h3>
-          <p>The recipient can select an eligible service based on the certificate value and the studio’s current redemption terms.</p>
-        </article>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'why_card' -%}
+          <article class="hht-gift-card" {{ block.shopify_attributes }}>
+            {% if block.settings.label != blank %}<span class="hht-gift-card__label">{{ block.settings.label }}</span>{% endif %}
+            {% if block.settings.title != blank %}<h3 class="hht-gift__h3">{{ block.settings.title }}</h3>{% endif %}
+            {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+          </article>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
   </div>
 
-  {%- comment -%} ===== WHAT IT COVERS ===== {%- endcomment -%}
+  {%- comment -%} ===== WHAT IT COVERS (blocks: covers_card) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--lavender">
     <div class="hht-gift__wrap hht-gift__center">
-      <span class="hht-gift__eyebrow">Let Them Choose</span>
-      <h2 class="hht-gift__h2">Let Them Choose Their Glow</h2>
-      <p class="hht-gift__lead">Depending on the selected value and the studio’s redemption rules, a gift certificate may be applied toward eligible Hush Hush Tan services. Please confirm product and package eligibility with the selected studio.</p>
+      {% if section.settings.covers_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.covers_eyebrow }}</span>{% endif %}
+      {% if section.settings.covers_heading != blank %}<h2 class="hht-gift__h2">{{ section.settings.covers_heading }}</h2>{% endif %}
+      {% if section.settings.covers_text != blank %}<p class="hht-gift__lead">{{ section.settings.covers_text }}</p>{% endif %}
       <div class="hht-gift-grid" style="text-align:left;">
-        <article class="hht-gift-card">
-          <h3 class="hht-gift__h3">Custom Glow</h3>
-          <p>A personalized airbrush tan customized to the recipient’s skin tone and desired result.</p>
-        </article>
-        <article class="hht-gift-card">
-          <h3 class="hht-gift__h3">Clear Glow</h3>
-          <p>A clear tanning solution that develops without an immediate cosmetic bronzer.</p>
-        </article>
-        <article class="hht-gift-card">
-          <h3 class="hht-gift__h3">Rapid Glow</h3>
-          <p>A rapid-developing option designed for a shorter rinse window.</p>
-        </article>
-        <article class="hht-gift-card">
-          <h3 class="hht-gift__h3">Partial Tans &amp; Add-Ons</h3>
-          <p>Depending on the gift value, the recipient may select an eligible targeted service or glow-enhancing add-on.</p>
-        </article>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'covers_card' -%}
+          <article class="hht-gift-card" {{ block.shopify_attributes }}>
+            {% if block.settings.title != blank %}<h3 class="hht-gift__h3">{{ block.settings.title }}</h3>{% endif %}
+            {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+          </article>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
       <div class="hht-gift-actions">
-        <a href="{{ services_url }}" class="btn btn--pill btn--outline">Explore Services</a>
-        <a href="{{ products_url }}" class="btn btn--pill btn--outline" style="margin-left:10px;">Explore Products</a>
+        {% if section.settings.services_label != blank %}<a href="{{ services_url }}" class="btn btn--pill btn--outline">{{ section.settings.services_label }}</a>{% endif %}
+        {% if section.settings.products_label != blank %}<a href="{{ products_url }}" class="btn btn--pill btn--outline" style="margin-left:10px;">{{ section.settings.products_label }}</a>{% endif %}
       </div>
-      <p class="hht-gift-fine">Product and membership redemption may vary by studio. Contact the selected location for current terms. Online Shopify checkout redemption is not confirmed.</p>
+      {% if section.settings.covers_fine != blank %}<p class="hht-gift-fine">{{ section.settings.covers_fine }}</p>{% endif %}
     </div>
   </div>
 
-  {%- comment -%} ===== VALUE INSPIRATION (Core Services pricing style + Booker links) ===== {%- endcomment -%}
+  {%- comment -%} ===== GIFT VALUE IDEAS (blocks: value_row) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--white" id="gift-values">
     <div class="hht-gift__wrap">
       <div class="hht-gift-values-card" data-gift-values>
         <div class="hht-gift-values-card__strip">
-          <img
-            class="hht-gift-values-card__icon"
-            src="{{ 'icon-tan-packages-present.png' | asset_url }}"
-            alt=""
-            width="56"
-            height="56"
-            loading="lazy"
-          >
-          <h2 class="hht-gift__h2">Gift Value Ideas</h2>
-          <p class="hht-gift-values-card__sub">What Could Their Gift Cover?</p>
-          <p class="hht-gift__lead">Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.</p>
+          {%- if section.settings.values_icon != blank -%}
+            <img class="hht-gift-values-card__icon" src="{{ section.settings.values_icon | image_url: width: 112 }}" alt="" width="56" height="56" loading="lazy">
+          {%- else -%}
+            <img class="hht-gift-values-card__icon" src="{{ 'icon-tan-packages-present.png' | asset_url }}" alt="" width="56" height="56" loading="lazy">
+          {%- endif -%}
+          {% if section.settings.values_heading != blank %}<h2 class="hht-gift__h2">{{ section.settings.values_heading }}</h2>{% endif %}
+          {% if section.settings.values_sub != blank %}<p class="hht-gift-values-card__sub">{{ section.settings.values_sub }}</p>{% endif %}
+          {% if section.settings.values_text != blank %}<p class="hht-gift__lead">{{ section.settings.values_text }}</p>{% endif %}
         </div>
         <div class="hht-gift-values-card__body">
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">A little glow</h3>
-            </div>
-            <div class="hht-gift-values-row__price" data-gift-amount="little">$25</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">Could be used toward an eligible partial tan or glow-enhancing add-on, based on current listed pricing.</p>
-              <ul class="hht-gift-values-row__list">
-                <li>· Face or upper/lower partials</li>
-                <li>· Selected add-ons</li>
-              </ul>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="https://go.booker.com/location/hushhushtan/detail-summary/4931035?campaign=hush_hush_tan_website_1&amp;source=web_direct" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="https://go.booker.com/location/hushhushtanhouston/detail-summary/4931037" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="https://go.booker.com/location/hushhushtandallas/detail-summary/4931036" target="_blank" rel="noopener noreferrer">Book Now</a>
-          </article>
-
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">The signature experience</h3>
-            </div>
-            <div class="hht-gift-values-row__price" data-gift-amount="custom">$50</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">May cover one Custom Glow appointment at the selected studio, based on current listed pricing.</p>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&amp;source=web_direct" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" target="_blank" rel="noopener noreferrer">Book Now</a>
-          </article>
-
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">Rapid-ready</h3>
-            </div>
-            <div class="hht-gift-values-row__price" data-gift-amount="rapid">$60</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">May cover one Rapid Glow appointment at the selected studio, based on current listed pricing.</p>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&amp;source=web_direct" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" target="_blank" rel="noopener noreferrer">Book Now</a>
-          </article>
-
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">Glow and go</h3>
-            </div>
-            <div class="hht-gift-values-row__price" data-gift-amount="combo">$55</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">Could be used toward one core service plus an eligible add-on, depending on selections and taxes.</p>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&amp;source=web_direct" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" target="_blank" rel="noopener noreferrer">Book Now</a>
-          </article>
-
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">A complete treat</h3>
-            </div>
-            <div class="hht-gift-values-row__price" data-gift-amount="complete">$110</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">A broader gift amount that may cover multiple eligible services over time, subject to studio terms.</p>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&amp;source=web_direct" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="https://go.booker.com/location/hushhushtanhouston/buy/series" target="_blank" rel="noopener noreferrer">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="https://go.booker.com/location/hushhushtandallas/buy/series" target="_blank" rel="noopener noreferrer">Book Now</a>
-          </article>
-
-          <article class="hht-gift-values-row">
-            <div class="hht-gift-values-row__head">
-              <h3 class="hht-gift-values-row__title">Custom amount</h3>
-            </div>
-            <div class="hht-gift-values-row__price">Any</div>
-            <div class="hht-gift-values-row__copy">
-              <p class="hht-gift-values-row__desc">Choose any available amount in the secure Booker checkout when creating the certificate.</p>
-            </div>
-            <a class="hht-gift-book-btn gift-loc-austin" href="{{ austin_url }}" target="_blank" rel="noopener noreferrer" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-houston" href="{{ houston_url }}" target="_blank" rel="noopener noreferrer" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}">Book Now</a>
-            <a class="hht-gift-book-btn gift-loc-dallas" href="{{ dallas_url }}" target="_blank" rel="noopener noreferrer" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}">Book Now</a>
-          </article>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'value_row' -%}
+            <article class="hht-gift-values-row" {{ block.shopify_attributes }}>
+              <div class="hht-gift-values-row__head">
+                <h3 class="hht-gift-values-row__title">{{ block.settings.title }}</h3>
+              </div>
+              <div class="hht-gift-values-row__price">
+                <span class="hht-gift-cityprice gift-price-austin">{{ block.settings.price_austin }}</span>
+                <span class="hht-gift-cityprice gift-price-houston">{{ block.settings.price_houston }}</span>
+                <span class="hht-gift-cityprice gift-price-dallas">{{ block.settings.price_dallas }}</span>
+              </div>
+              <div class="hht-gift-values-row__copy">
+                {% if block.settings.desc != blank %}<p class="hht-gift-values-row__desc">{{ block.settings.desc }}</p>{% endif %}
+                {%- if block.settings.bullets != blank -%}
+                <ul class="hht-gift-values-row__list">
+                  {%- assign gift_items = block.settings.bullets | newline_to_br | split: '<br />' -%}
+                  {%- for item in gift_items -%}
+                    {%- assign item_clean = item | strip -%}
+                    {%- if item_clean != blank -%}<li>&middot; {{ item_clean }}</li>{%- endif -%}
+                  {%- endfor -%}
+                </ul>
+                {%- endif -%}
+              </div>
+              {% if block.settings.link_austin != blank %}<a class="hht-gift-book-btn gift-loc-austin" href="{{ block.settings.link_austin }}" target="_blank" rel="noopener noreferrer">{{ block.settings.button_label | default: 'Book Now' }}</a>{% endif %}
+              {% if block.settings.link_houston != blank %}<a class="hht-gift-book-btn gift-loc-houston" href="{{ block.settings.link_houston }}" target="_blank" rel="noopener noreferrer">{{ block.settings.button_label | default: 'Book Now' }}</a>{% endif %}
+              {% if block.settings.link_dallas != blank %}<a class="hht-gift-book-btn gift-loc-dallas" href="{{ block.settings.link_dallas }}" target="_blank" rel="noopener noreferrer">{{ block.settings.button_label | default: 'Book Now' }}</a>{% endif %}
+            </article>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
-        <p class="hht-gift-values-card__foot">Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms.</p>
+        {% if section.settings.values_foot != blank %}<p class="hht-gift-values-card__foot">{{ section.settings.values_foot }}</p>{% endif %}
       </div>
     </div>
   </div>
 
-  {%- comment -%} ===== OCCASIONS ===== {%- endcomment -%}
+  {%- comment -%} ===== OCCASIONS (blocks: occasion) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--warm">
     <div class="hht-gift__wrap hht-gift__center">
-      <span class="hht-gift__eyebrow">For Every Reason to Celebrate</span>
-      <h2 class="hht-gift__h2">A Thoughtful Gift for Every Occasion</h2>
+      {% if section.settings.occ_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.occ_eyebrow }}</span>{% endif %}
+      {% if section.settings.occ_heading != blank %}<h2 class="hht-gift__h2">{{ section.settings.occ_heading }}</h2>{% endif %}
       <div class="hht-gift-grid hht-gift-grid--3" style="text-align:left;">
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Birthdays</h3><p>Give them a personalized experience they can schedule when it works for them.</p></article>
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Brides &amp; bridal parties</h3><p>A thoughtful gift before engagements, showers, bachelorette celebrations or the wedding day.</p></article>
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Vacations</h3><p>Help them prepare for a trip with a natural-looking, customized glow.</p></article>
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Graduations</h3><p>Celebrate a major accomplishment with an experience that feels personal.</p></article>
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Holidays</h3><p>An easy-to-give experience for someone who would rather receive a moment than another item.</p></article>
-        <article class="hht-gift-card"><h3 class="hht-gift__h3">Just because</h3><p>A confidence-boosting surprise does not need a special date.</p></article>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'occasion' -%}
+          <article class="hht-gift-card" {{ block.shopify_attributes }}>
+            {% if block.settings.title != blank %}<h3 class="hht-gift__h3">{{ block.settings.title }}</h3>{% endif %}
+            {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+          </article>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
     </div>
   </div>
 
-  {%- comment -%} ===== HOW IT WORKS ===== {%- endcomment -%}
+  {%- comment -%} ===== HOW IT WORKS (blocks: step) ===== {%- endcomment -%}
   <div class="hht-gift__section hht-gift__section--white">
     <div class="hht-gift__wrap hht-gift__center">
-      <span class="hht-gift__eyebrow">Simple Steps</span>
-      <h2 class="hht-gift__h2">Giving a Glow Is Simple</h2>
+      {% if section.settings.steps_eyebrow != blank %}<span class="hht-gift__eyebrow">{{ section.settings.steps_eyebrow }}</span>{% endif %}
+      {% if section.settings.steps_heading != blank %}<h2 class="hht-gift__h2">{{ section.settings.steps_heading }}</h2>{% endif %}
       <div class="hht-gift-steps">
-        <article class="hht-gift-step">
-          <span class="hht-gift-step__num">1</span>
-          <h3 class="hht-gift__h3">Choose a location</h3>
-          <p>Select Austin, Dallas or Houston based on where the recipient plans to visit.</p>
-        </article>
-        <article class="hht-gift-step">
-          <span class="hht-gift-step__num">2</span>
-          <h3 class="hht-gift__h3">Create the certificate</h3>
-          <p>Continue to the secure Booker purchase flow and select the available value, message and delivery options.</p>
-        </article>
-        <article class="hht-gift-step">
-          <span class="hht-gift-step__num">3</span>
-          <h3 class="hht-gift__h3">Send the glow</h3>
-          <p>Email it to the recipient, send it to yourself for print-at-home later, or print upon purchase.</p>
-        </article>
+        {%- assign step_i = 0 -%}
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+          {%- assign step_i = step_i | plus: 1 -%}
+          <article class="hht-gift-step" {{ block.shopify_attributes }}>
+            <span class="hht-gift-step__num">{{ step_i }}</span>
+            {% if block.settings.title != blank %}<h3 class="hht-gift__h3">{{ block.settings.title }}</h3>{% endif %}
+            {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+          </article>
+          {%- endif -%}
+        {%- endfor -%}
       </div>
       <div class="hht-gift-actions">
-        <a href="{{ austin_url }}" class="btn btn--pill" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}" target="_blank" rel="noopener noreferrer">Purchase an Austin Gift Certificate</a>
+        <a href="{{ austin_url }}" class="btn btn--pill" data-gift-purchase data-book-austin="{{ austin_url | escape }}" data-book-dallas="{{ dallas_url | escape }}" data-book-houston="{{ houston_url | escape }}" target="_blank" rel="noopener noreferrer">{{ section.settings.purchase_label_austin | default: 'Purchase an Austin Gift Certificate' }}</a>
       </div>
     </div>
   </div>
@@ -723,26 +663,20 @@
       var root = document.getElementById('hht-gift-{{ sid }}');
       if (!root) return;
 
-      var data = window.HHT_GIFT_CERTIFICATES || {};
-      // Prefer liquid-provided URLs so theme editor wins
-      ['austin', 'dallas', 'houston'].forEach(function (city) {
-        var url = root.getAttribute('data-url-' + city);
-        if (!data[city]) data[city] = { key: city, label: city.charAt(0).toUpperCase() + city.slice(1), prices: {} };
-        if (url) data[city].purchaseUrl = url;
-      });
-      if (!data.austin.prices) data.austin.prices = { customGlow: 50, rapidGlow: 60, upperLower: 25, goldGlow: 5 };
-      if (!data.dallas.prices) data.dallas.prices = { customGlow: 55, rapidGlow: 65, upperLower: 30, goldGlow: 5 };
-      if (!data.houston.prices) data.houston.prices = { customGlow: 50, rapidGlow: 60, upperLower: 25, goldGlow: 5 };
-
-      var buttons = root.querySelectorAll('[data-gift-city]');
-      var live = root.querySelector('[data-gift-live]');
-      var studioLabel = root.querySelector('[data-gift-studio-label]');
-      var purchaseLinks = root.querySelectorAll('[data-gift-purchase]');
-
+      var urls = {
+        austin: root.getAttribute('data-url-austin'),
+        dallas: root.getAttribute('data-url-dallas'),
+        houston: root.getAttribute('data-url-houston')
+      };
       var purchaseLabels = {
-        austin: 'Purchase an Austin Gift Certificate',
-        dallas: 'Purchase a Dallas Gift Certificate',
-        houston: 'Purchase a Houston Gift Certificate'
+        austin: root.getAttribute('data-plabel-austin'),
+        dallas: root.getAttribute('data-plabel-dallas'),
+        houston: root.getAttribute('data-plabel-houston')
+      };
+      var studioLabels = {
+        austin: root.getAttribute('data-slabel-austin'),
+        dallas: root.getAttribute('data-slabel-dallas'),
+        houston: root.getAttribute('data-slabel-houston')
       };
       var buyForLabels = {
         austin: 'BUY FOR AUSTIN',
@@ -750,34 +684,21 @@
         houston: 'BUY FOR HOUSTON'
       };
 
-      function money(n) { return '$' + n; }
-
-      function updateValues(city) {
-        var p = (data[city] && data[city].prices) || {};
-        var custom = p.customGlow || 50;
-        var rapid = p.rapidGlow || 60;
-        var little = p.upperLower || 25;
-        var combo = custom + (p.goldGlow || 5);
-        var complete = custom * 2 + (p.goldGlow || 5);
-        var map = { little: little, custom: custom, rapid: rapid, combo: combo, complete: complete };
-        Object.keys(map).forEach(function (key) {
-          root.querySelectorAll('[data-gift-amount="' + key + '"]').forEach(function (el) {
-            el.textContent = money(map[key]);
-          });
-        });
-      }
+      var buttons = root.querySelectorAll('[data-gift-city]');
+      var live = root.querySelector('[data-gift-live]');
+      var studioLabel = root.querySelector('[data-gift-studio-label]');
+      var purchaseLinks = root.querySelectorAll('[data-gift-purchase]');
 
       function activate(city, pushState) {
-        if (!data[city]) city = 'austin';
+        if (!urls[city]) city = 'austin';
         root.classList.remove('show-austin', 'show-dallas', 'show-houston');
         root.classList.add('show-' + city);
         buttons.forEach(function (btn) {
           var on = btn.getAttribute('data-gift-city') === city;
           btn.setAttribute('aria-selected', on ? 'true' : 'false');
         });
-        var entry = data[city];
-        var url = entry.purchaseUrl;
-        if (studioLabel) studioLabel.textContent = entry.locationName || ('Hush Hush Tan ' + entry.label);
+        var url = urls[city];
+        if (studioLabel) studioLabel.textContent = studioLabels[city];
         purchaseLinks.forEach(function (a) {
           var href = a.getAttribute('data-book-' + city) || url;
           a.setAttribute('href', href);
@@ -791,8 +712,7 @@
           if (href) el.setAttribute('href', href);
           if (el.hasAttribute('data-gift-buy-for')) el.textContent = buyForLabels[city];
         });
-        updateValues(city);
-        if (live) live.textContent = entry.label + ' gift certificate selected.';
+        if (live) live.textContent = city.charAt(0).toUpperCase() + city.slice(1) + ' gift certificate selected.';
         try {
           window.dispatchEvent(new CustomEvent('hht:giftlocationchange', { detail: { city: city } }));
         } catch (e) {}
@@ -815,7 +735,7 @@
       function fromUrl() {
         var m = (window.location.search || '').match(/[?&](?:loc|location)=([^&#]+)/i);
         var city = m && m[1] ? decodeURIComponent(m[1]).toLowerCase() : (root.getAttribute('data-default-location') || 'austin');
-        if (!data[city]) city = 'austin';
+        if (!urls[city]) city = 'austin';
         activate(city, false);
       }
 
@@ -831,14 +751,20 @@
 {
   "name": "Gift Certificates",
   "tag": "section",
+  "max_blocks": 30,
   "settings": [
     { "type": "text", "id": "only_on_handle", "label": "Only show on page handle", "info": "Optional. When set (e.g. tanning-gift-certificates), this section renders only on that page." },
     { "type": "header", "content": "Hero" },
     { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "The Perfect Gift, Beautifully Glowing" },
     { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Give the Gift of Confidence" },
     { "type": "textarea", "id": "hero_text", "label": "Body", "default": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience." },
-    { "type": "text", "id": "hero_cta1", "label": "Primary CTA", "default": "Choose a Location" },
-    { "type": "text", "id": "hero_cta2", "label": "Secondary CTA", "default": "See What It Can Cover" },
+    { "type": "text", "id": "trust_1", "label": "Trust bullet 1", "default": "Personalized gift for their preferred Texas studio" },
+    { "type": "text", "id": "trust_2", "label": "Trust bullet 2", "default": "Easy online purchase through secure Booker checkout" },
+    { "type": "text", "id": "trust_3", "label": "Trust bullet 3", "default": "Available for Austin, Dallas and Houston" },
+    { "type": "text", "id": "hero_cta1", "label": "Primary CTA text", "default": "Choose a Location" },
+    { "type": "text", "id": "hero_cta1_url", "label": "Primary CTA link", "default": "#gift-purchase", "info": "Accepts anchors like #gift-purchase or full URLs." },
+    { "type": "text", "id": "hero_cta2", "label": "Secondary CTA text", "default": "See What It Can Cover" },
+    { "type": "text", "id": "hero_cta2_url", "label": "Secondary CTA link", "default": "#gift-values" },
     { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
     { "type": "text", "id": "hero_image_alt", "label": "Hero image alt", "default": "Hush Hush Tan gift glow experience" },
 
@@ -853,12 +779,130 @@
     { "type": "text", "id": "buy_eyebrow", "label": "Purchase eyebrow", "default": "Choose Their Studio" },
     { "type": "text", "id": "buy_heading", "label": "Purchase heading", "default": "Select a Gift Certificate Location" },
     { "type": "textarea", "id": "buy_text", "label": "Purchase text", "default": "Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book." },
+    { "type": "textarea", "id": "buy_note", "label": "Note under studio name", "default": "Select the studio where the recipient plans to redeem the gift. Gift certificates are purchased through that studio's secure Booker checkout." },
+    { "type": "text", "id": "studio_label_austin", "label": "Austin studio label", "default": "Hush Hush Tan Austin" },
+    { "type": "text", "id": "studio_label_dallas", "label": "Dallas studio label", "default": "Hush Hush Tan Dallas" },
+    { "type": "text", "id": "studio_label_houston", "label": "Houston studio label", "default": "Hush Hush Tan Houston" },
+    { "type": "text", "id": "purchase_label_austin", "label": "Austin purchase button text", "default": "Purchase an Austin Gift Certificate" },
+    { "type": "text", "id": "purchase_label_dallas", "label": "Dallas purchase button text", "default": "Purchase a Dallas Gift Certificate" },
+    { "type": "text", "id": "purchase_label_houston", "label": "Houston purchase button text", "default": "Purchase a Houston Gift Certificate" },
     { "type": "url", "id": "austin_url", "label": "Austin Booker gift URL" },
     { "type": "url", "id": "dallas_url", "label": "Dallas Booker gift URL" },
     { "type": "url", "id": "houston_url", "label": "Houston Booker gift URL" },
+    { "type": "image_picker", "id": "city_img_austin", "label": "Austin studio photo" },
+    { "type": "image_picker", "id": "city_img_dallas", "label": "Dallas studio photo" },
+    { "type": "image_picker", "id": "city_img_houston", "label": "Houston studio photo" },
+
+    { "type": "header", "content": "Why It's Perfect section" },
+    { "type": "text", "id": "why_eyebrow", "label": "Eyebrow", "default": "A Gift They Will Actually Use" },
+    { "type": "text", "id": "why_heading", "label": "Heading", "default": "More Than a Gift Card. A Confidence Boost." },
+    { "type": "textarea", "id": "why_text", "label": "Lead text", "default": "A Hush Hush Tan gift certificate gives the recipient the freedom to choose a personalized glow experience that fits their schedule, skin tone and desired result." },
+
+    { "type": "header", "content": "What It Covers section" },
+    { "type": "text", "id": "covers_eyebrow", "label": "Eyebrow", "default": "Let Them Choose" },
+    { "type": "text", "id": "covers_heading", "label": "Heading", "default": "Let Them Choose Their Glow" },
+    { "type": "textarea", "id": "covers_text", "label": "Lead text", "default": "Depending on the selected value and the studio's redemption rules, a gift certificate may be applied toward eligible Hush Hush Tan services. Please confirm product and package eligibility with the selected studio." },
+    { "type": "text", "id": "services_label", "label": "Services button text", "default": "Explore Services" },
     { "type": "url", "id": "services_url", "label": "Explore Services URL" },
-    { "type": "url", "id": "products_url", "label": "Explore Products URL" }
+    { "type": "text", "id": "products_label", "label": "Products button text", "default": "Explore Products" },
+    { "type": "url", "id": "products_url", "label": "Explore Products URL" },
+    { "type": "textarea", "id": "covers_fine", "label": "Fine print", "default": "Product and membership redemption may vary by studio. Contact the selected location for current terms. Online Shopify checkout redemption is not confirmed." },
+
+    { "type": "header", "content": "Gift Value Ideas section" },
+    { "type": "image_picker", "id": "values_icon", "label": "Icon" },
+    { "type": "text", "id": "values_heading", "label": "Heading", "default": "Gift Value Ideas" },
+    { "type": "text", "id": "values_sub", "label": "Subheading (italic)", "default": "What Could Their Gift Cover?" },
+    { "type": "textarea", "id": "values_text", "label": "Lead text", "default": "Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout." },
+    { "type": "textarea", "id": "values_foot", "label": "Footer fine print", "default": "Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms." },
+
+    { "type": "header", "content": "Occasions section" },
+    { "type": "text", "id": "occ_eyebrow", "label": "Eyebrow", "default": "For Every Reason to Celebrate" },
+    { "type": "text", "id": "occ_heading", "label": "Heading", "default": "A Thoughtful Gift for Every Occasion" },
+
+    { "type": "header", "content": "How It Works section" },
+    { "type": "text", "id": "steps_eyebrow", "label": "Eyebrow", "default": "Simple Steps" },
+    { "type": "text", "id": "steps_heading", "label": "Heading", "default": "Giving a Glow Is Simple" }
   ],
-  "presets": [{ "name": "Gift Certificates" }]
+  "blocks": [
+    {
+      "type": "why_card",
+      "name": "Why It's Perfect card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Small label" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    },
+    {
+      "type": "covers_card",
+      "name": "What It Covers card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    },
+    {
+      "type": "value_row",
+      "name": "Gift Value row",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "A little glow" },
+        { "type": "text", "id": "price_austin", "label": "Price shown for Austin", "default": "$25" },
+        { "type": "text", "id": "price_houston", "label": "Price shown for Houston", "default": "$25" },
+        { "type": "text", "id": "price_dallas", "label": "Price shown for Dallas", "default": "$30" },
+        { "type": "textarea", "id": "desc", "label": "Description" },
+        { "type": "textarea", "id": "bullets", "label": "Bullet list (one per line)" },
+        { "type": "text", "id": "button_label", "label": "Button text", "default": "Book Now" },
+        { "type": "url", "id": "link_austin", "label": "Austin button link" },
+        { "type": "url", "id": "link_houston", "label": "Houston button link" },
+        { "type": "url", "id": "link_dallas", "label": "Dallas button link" }
+      ]
+    },
+    {
+      "type": "occasion",
+      "name": "Occasion card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "How It Works step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gift Certificates",
+      "blocks": [
+        { "type": "why_card", "settings": { "label": "Personalized for them", "title": "Made for their glow", "text": "Every spray tan experience is customized around the client's skin tone, undertones and desired finish." } },
+        { "type": "why_card", "settings": { "label": "Perfect for any occasion", "title": "Celebrate anything", "text": "A thoughtful option for birthdays, bridal celebrations, vacations, graduations and moments worth celebrating." } },
+        { "type": "why_card", "settings": { "label": "Easy to give", "title": "Purchase online", "text": "Complete the purchase online and choose email delivery, print-at-home, or a scheduled send date in Booker checkout." } },
+        { "type": "why_card", "settings": { "label": "They choose", "title": "Their experience", "text": "The recipient can select an eligible service based on the certificate value and the studio's current redemption terms." } },
+        { "type": "covers_card", "settings": { "title": "Custom Glow", "text": "A personalized airbrush tan customized to the recipient's skin tone and desired result." } },
+        { "type": "covers_card", "settings": { "title": "Clear Glow", "text": "A clear tanning solution that develops without an immediate cosmetic bronzer." } },
+        { "type": "covers_card", "settings": { "title": "Rapid Glow", "text": "A rapid-developing option designed for a shorter rinse window." } },
+        { "type": "covers_card", "settings": { "title": "Partial Tans & Add-Ons", "text": "Depending on the gift value, the recipient may select an eligible targeted service or glow-enhancing add-on." } },
+        { "type": "value_row", "settings": { "title": "A little glow", "price_austin": "$25", "price_houston": "$25", "price_dallas": "$30", "desc": "Could be used toward an eligible partial tan or glow-enhancing add-on, based on current listed pricing.", "bullets": "Face or upper/lower partials\nSelected add-ons", "link_austin": "https://go.booker.com/location/hushhushtan/detail-summary/4931031?campaign=hush_hush_tan_website_1&source=web_direct", "link_houston": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4931033", "link_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4931032" } },
+        { "type": "value_row", "settings": { "title": "The signature experience", "price_austin": "$50", "price_houston": "$50", "price_dallas": "$55", "desc": "May cover one Custom Glow appointment at the selected studio, based on current listed pricing.", "link_austin": "https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&source=web_direct", "link_houston": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593", "link_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" } },
+        { "type": "value_row", "settings": { "title": "Rapid-ready", "price_austin": "$60", "price_houston": "$60", "price_dallas": "$65", "desc": "May cover one Rapid Glow appointment at the selected studio, based on current listed pricing.", "link_austin": "https://go.booker.com/location/hushhushtan/detail-summary/4930756?campaign=hush_hush_tan_website_1&source=web_direct", "link_houston": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930758", "link_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930757" } },
+        { "type": "value_row", "settings": { "title": "Glow and go", "price_austin": "$55", "price_houston": "$55", "price_dallas": "$60", "desc": "Could be used toward one core service plus an eligible add-on, depending on selections and taxes.", "link_austin": "https://go.booker.com/location/hushhushtan/detail-summary/4930591?campaign=hush_hush_tan_website_1&source=web_direct", "link_houston": "https://go.booker.com/location/hushhushtanhouston/detail-summary/4930593", "link_dallas": "https://go.booker.com/location/hushhushtandallas/detail-summary/4930592" } },
+        { "type": "value_row", "settings": { "title": "A complete treat", "price_austin": "$105", "price_houston": "$105", "price_dallas": "$115", "desc": "A broader gift amount that may cover multiple eligible services over time, subject to studio terms.", "link_austin": "https://go.booker.com/location/hushhushtan/buy/series?campaign=hush_hush_tan_website_1&source=web_direct", "link_houston": "https://go.booker.com/location/hushhushtanhouston/buy/series", "link_dallas": "https://go.booker.com/location/hushhushtandallas/buy/series" } },
+        { "type": "value_row", "settings": { "title": "Custom amount", "price_austin": "Any", "price_houston": "Any", "price_dallas": "Any", "desc": "Choose any available amount in the secure Booker checkout when creating the certificate.", "link_austin": "https://go.booker.com/location/HushHushTan/buy/gift-certificate", "link_houston": "https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate", "link_dallas": "https://go.booker.com/location/hushhushtandallas/buy/gift-certificate" } },
+        { "type": "occasion", "settings": { "title": "Birthdays", "text": "Give them a personalized experience they can schedule when it works for them." } },
+        { "type": "occasion", "settings": { "title": "Brides & bridal parties", "text": "A thoughtful gift before engagements, showers, bachelorette celebrations or the wedding day." } },
+        { "type": "occasion", "settings": { "title": "Vacations", "text": "Help them prepare for a trip with a natural-looking, customized glow." } },
+        { "type": "occasion", "settings": { "title": "Graduations", "text": "Celebrate a major accomplishment with an experience that feels personal." } },
+        { "type": "occasion", "settings": { "title": "Holidays", "text": "An easy-to-give experience for someone who would rather receive a moment than another item." } },
+        { "type": "occasion", "settings": { "title": "Just because", "text": "A confidence-boosting surprise does not need a special date." } },
+        { "type": "step", "settings": { "title": "Choose a location", "text": "Select Austin, Dallas or Houston based on where the recipient plans to visit." } },
+        { "type": "step", "settings": { "title": "Create the certificate", "text": "Continue to the secure Booker purchase flow and select the available value, message and delivery options." } },
+        { "type": "step", "settings": { "title": "Send the glow", "text": "Email it to the recipient, send it to yourself for print-at-home later, or print upon purchase." } }
+      ]
+    }
+  ]
 }
 {% endschema %}
