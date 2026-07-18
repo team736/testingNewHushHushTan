@@ -1,0 +1,395 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "hht-group-page",
+      "blocks": {
+        "city-austin": {
+          "type": "city",
+          "settings": {
+            "name": "Austin",
+            "key": "austin",
+            "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.",
+            "price": "$300",
+            "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct",
+            "book_label": "Book Now"
+          }
+        },
+        "city-dallas": {
+          "type": "city",
+          "settings": {
+            "name": "Dallas",
+            "key": "dallas",
+            "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.",
+            "price": "$325",
+            "book_url": "https://go.booker.com/location/HushHushTanDallas/detail-summary/2672014?campaign=hush_hush_tan_website&source=web_direct",
+            "book_label": "Book Now"
+          }
+        },
+        "city-houston": {
+          "type": "city",
+          "settings": {
+            "name": "Houston",
+            "key": "houston",
+            "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.",
+            "price": "$300",
+            "book_url": "https://go.booker.com/location/HushHushTanHouston/detail-summary/4537755",
+            "book_label": "Book Now"
+          }
+        },
+        "inc-1": {
+          "type": "included",
+          "settings": {
+            "label": "Five Customized Tans",
+            "title": "Built for parties of five+",
+            "text": "The package starts at five guests. Confirm eligible service choices on the Booker booking page for your studio."
+          }
+        },
+        "inc-2": {
+          "type": "included",
+          "settings": {
+            "label": "Private Group Experience",
+            "title": "Share the studio vibe",
+            "text": "Enjoy the appointment together while each guest receives an individually customized application."
+          }
+        },
+        "inc-3": {
+          "type": "included",
+          "settings": {
+            "label": "Bubbles or Mimosas",
+            "title": "Complimentary beverages",
+            "text": "Eligible guests may enjoy complimentary bubbles or mimosas, subject to studio terms and age requirements."
+          }
+        },
+        "inc-4": {
+          "type": "included",
+          "settings": {
+            "label": "Personalized Color",
+            "title": "Matched to each guest",
+            "text": "Each glow is selected around skin tone, undertones, and desired result—not a one-shade-fits-all formula."
+          }
+        },
+        "occ-1": {
+          "type": "occasion",
+          "settings": {
+            "label": "Bridal Parties",
+            "text": "A shared glow before engagement photos, showers, bachelorette weekends, or the wedding day."
+          }
+        },
+        "occ-2": {
+          "type": "occasion",
+          "settings": {
+            "label": "Birthdays",
+            "text": "Celebrate another year with a private experience and customized color for the full group."
+          }
+        },
+        "occ-3": {
+          "type": "occasion",
+          "settings": {
+            "label": "Vacations",
+            "text": "Get glow-ready before a beach trip, getaway, or destination celebration."
+          }
+        },
+        "occ-4": {
+          "type": "occasion",
+          "settings": {
+            "label": "Graduations",
+            "text": "Mark the milestone with a confidence-boosting experience shared with friends."
+          }
+        },
+        "occ-5": {
+          "type": "occasion",
+          "settings": {
+            "label": "Special Events",
+            "text": "Prepare together before galas, reunions, photoshoots, or major celebrations."
+          }
+        },
+        "occ-6": {
+          "type": "occasion",
+          "settings": {
+            "label": "Just Because",
+            "text": "A group experience does not need a formal occasion—sometimes the glow is the plan."
+          }
+        },
+        "step-1": {
+          "type": "step",
+          "settings": {
+            "title": "Choose Your Studio",
+            "text": "Select Austin, Dallas, or Houston above."
+          }
+        },
+        "step-2": {
+          "type": "step",
+          "settings": {
+            "title": "Reserve Your Group",
+            "text": "Continue to the verified Booker page and submit the required group details."
+          }
+        },
+        "step-3": {
+          "type": "step",
+          "settings": {
+            "title": "Arrive Together",
+            "text": "The entire party should arrive at the same time unless your studio confirms otherwise."
+          }
+        },
+        "step-4": {
+          "type": "step",
+          "settings": {
+            "title": "Glow Together",
+            "text": "Each guest receives a personalized application based on the selected package options."
+          }
+        },
+        "gal-1": {
+          "type": "gallery",
+          "settings": {
+            "asset": "hht-moment-group.jpg",
+            "alt": "Guests preparing for a group glow at Hush Hush Tan"
+          }
+        },
+        "gal-2": {
+          "type": "gallery",
+          "settings": {
+            "asset": "hht-reception.jpg",
+            "alt": "Hush Hush Tan studio reception"
+          }
+        },
+        "gal-3": {
+          "type": "gallery",
+          "settings": {
+            "asset": "hht-glow-wall.jpg",
+            "alt": "Hush Hush Tan glow wall in studio"
+          }
+        },
+        "det-1": {
+          "type": "detail",
+          "settings": {
+            "text": "Five-person minimum"
+          }
+        },
+        "det-2": {
+          "type": "detail",
+          "settings": {
+            "text": "Entire party should arrive together"
+          }
+        },
+        "det-3": {
+          "type": "detail",
+          "settings": {
+            "text": "Advance booking recommended"
+          }
+        },
+        "det-4": {
+          "type": "detail",
+          "settings": {
+            "text": "Cancellations typically require 48 hours’ notice—confirm terms on Booker when reserving"
+          }
+        },
+        "det-5": {
+          "type": "detail",
+          "settings": {
+            "text": "Valid identification required for complimentary alcoholic beverages"
+          }
+        },
+        "det-6": {
+          "type": "detail",
+          "settings": {
+            "text": "Additional guest rates shown above; confirm deposit and tax details at checkout"
+          }
+        },
+        "rev-1": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "“Had a great experience at Hush Hush Tan! Very easy to book online, super cute inside — my tan looked perfect for my friend’s wedding.”",
+            "meta": "Google review · Austin"
+          }
+        },
+        "rev-2": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "“Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!”",
+            "meta": "Google review · Dallas"
+          }
+        },
+        "rev-3": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "“Abby and Amanda are truly the best! They do the best custom tan. I just moved to Houston and was elated to see there was a Hush Hush in the Heights.”",
+            "meta": "Google review · Houston"
+          }
+        },
+        "faq-1": {
+          "type": "faq",
+          "settings": {
+            "question": "How many people are required?",
+            "answer": "<p>A minimum of five guests is required for the Group Tanning &amp; Mimosas package.</p>",
+            "open": true
+          }
+        },
+        "faq-2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can we add more than five guests?",
+            "answer": "<p>Yes. Additional guests can typically be added at the per-guest rate shown for your selected studio. Confirm availability when booking.</p>",
+            "open": false
+          }
+        },
+        "faq-3": {
+          "type": "faq",
+          "settings": {
+            "question": "Does every guest receive the same shade?",
+            "answer": "<p>No. Each application is customized for the individual guest’s skin tone, undertones, and desired result.</p>",
+            "open": false
+          }
+        },
+        "faq-4": {
+          "type": "faq",
+          "settings": {
+            "question": "Which tanning services can the group choose?",
+            "answer": "<p>Eligible service choices are listed on the Booker booking page for your studio. Start on <a href=\"/pages/our-services\">Our Services</a> for city pricing context, then book the group experience above.</p>",
+            "open": false
+          }
+        },
+        "faq-5": {
+          "type": "faq",
+          "settings": {
+            "question": "Must everyone arrive together?",
+            "answer": "<p>Yes. The entire party should arrive together so the studio can run the group experience smoothly.</p>",
+            "open": false
+          }
+        },
+        "faq-6": {
+          "type": "faq",
+          "settings": {
+            "question": "Are drinks included?",
+            "answer": "<p>Complimentary bubbles or mimosas are included for eligible guests, subject to studio terms and applicable age and ID requirements.</p>",
+            "open": false
+          }
+        },
+        "faq-7": {
+          "type": "faq",
+          "settings": {
+            "question": "How far in advance should we book?",
+            "answer": "<p>Book as early as possible for weekends and peak celebration seasons. Availability varies by studio and date.</p>",
+            "open": false
+          }
+        },
+        "faq-8": {
+          "type": "faq",
+          "settings": {
+            "question": "What is the cancellation policy?",
+            "answer": "<p>Group appointments commonly require 48 hours’ notice. Always confirm the current cancellation terms shown in Booker when you reserve.</p>",
+            "open": false
+          }
+        },
+        "faq-9": {
+          "type": "faq",
+          "settings": {
+            "question": "Can the package be booked at all three studios?",
+            "answer": "<p>Yes. Group Tanning &amp; Mimosas is available in Austin, Dallas, and Houston via the city selectors above.</p>",
+            "open": false
+          }
+        },
+        "faq-10": {
+          "type": "faq",
+          "settings": {
+            "question": "What should everyone wear after the appointment?",
+            "answer": "<p>Loose, dark clothing is best after your tan. Avoid tight straps and light fabrics while the solution finishes developing. More tips are on our <a href=\"/pages/faqs\">FAQ</a> and <a href=\"/pages/tanning-tips\">Tanning Tips</a> pages.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "city-austin",
+        "city-dallas",
+        "city-houston",
+        "inc-1",
+        "inc-2",
+        "inc-3",
+        "inc-4",
+        "occ-1",
+        "occ-2",
+        "occ-3",
+        "occ-4",
+        "occ-5",
+        "occ-6",
+        "step-1",
+        "step-2",
+        "step-3",
+        "step-4",
+        "gal-1",
+        "gal-2",
+        "gal-3",
+        "det-1",
+        "det-2",
+        "det-3",
+        "det-4",
+        "det-5",
+        "det-6",
+        "rev-1",
+        "rev-2",
+        "rev-3",
+        "faq-1",
+        "faq-2",
+        "faq-3",
+        "faq-4",
+        "faq-5",
+        "faq-6",
+        "faq-7",
+        "faq-8",
+        "faq-9",
+        "faq-10"
+      ],
+      "settings": {
+        "default_city": "austin",
+        "hero_eyebrow": "Group Experiences",
+        "hero_heading": "Celebrate Together. Glow Together.",
+        "hero_lead": "Turn your next celebration into a shared Hush Hush Tan experience. Gather your group, choose your preferred studio, and enjoy customized airbrush tans with complimentary bubbles or mimosas.",
+        "hero_cta1_label": "Choose Your Studio",
+        "hero_cta1_link": "#group-pricing",
+        "hero_cta2_label": "See What’s Included",
+        "hero_cta2_link": "#whats-included",
+        "hero_image_alt": "Group celebrating at a Hush Hush Tan studio",
+        "pricing_title": "Book by Studio",
+        "pricing_sub": "Group Pricing by Location",
+        "pricing_lead": "Select a studio to view package details and book the verified Group Tanning &amp; Mimosas experience.",
+        "included_eyebrow": "What’s Included",
+        "included_heading": "Everything Your Group Needs to Glow",
+        "occasions_eyebrow": "Occasions",
+        "occasions_heading": "Made for Moments Worth Celebrating",
+        "how_eyebrow": "How It Works",
+        "how_heading": "Plan Your Group Glow",
+        "gallery_eyebrow": "In Studio",
+        "gallery_heading": "Real Moments at Hush Hush Tan",
+        "insta_label": "Follow @hushhushtan",
+        "insta_url": "https://www.instagram.com/hushhushtan/",
+        "notice_eyebrow": "Important Details",
+        "notice_heading": "Before You Book",
+        "reviews_eyebrow": "Client Love",
+        "reviews_heading": "What Guests Are Saying",
+        "faq_eyebrow": "FAQ",
+        "faq_heading": "Group Experience Questions",
+        "cta_eyebrow": "Ready to Celebrate?",
+        "cta_heading": "Book Your Group Experience",
+        "cta_lead": "Pick your studio, gather five or more guests, and reserve your private group glow.",
+        "cta1_label": "Choose Your Studio",
+        "cta1_link": "#group-pricing",
+        "cta2_label": "Contact Us",
+        "cta2_link": "/pages/contact"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

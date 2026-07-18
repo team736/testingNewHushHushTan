@@ -1,8 +1,459 @@
-{% render 'hht-group-page' %}
+{%- comment -%} Group Tanning & Mimosas — schema-driven section (customizer editable) {%- endcomment -%}
+{%- liquid
+  assign default_city = section.settings.default_city | default: 'austin'
+-%}
+
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-group-page" data-hht-city-root data-default-city="{{ default_city }}">
+  {%- comment -%} Hero {%- endcomment -%}
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_lead }}</p>
+          <div class="hht-sp__ctas">
+            {%- if section.settings.hero_cta1_label != blank %}
+            <a href="{{ section.settings.hero_cta1_link }}" class="btn">{{ section.settings.hero_cta1_label }}</a>
+            {%- endif -%}
+            {%- if section.settings.hero_cta2_label != blank %}
+            <a href="{{ section.settings.hero_cta2_link }}" class="btn btn--outline">{{ section.settings.hero_cta2_label }}</a>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image %}
+          <img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image_alt }}" width="900" height="1100" loading="eager">
+          {%- else %}
+          <img src="{{ 'hht-moment-group.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt }}" width="900" height="1100" loading="eager">
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} City pricing — Core Services pricing card style {%- endcomment -%}
+  <section class="hht-sp__section hht-sp__section--lavender" id="group-pricing">
+    <div class="hht-sp__wrap">
+      <div class="hht-glow-list">
+        <div class="hht-glow-list__card">
+          <div class="hht-glow-list__card-head">
+            {%- if section.settings.pricing_icon %}
+            <img
+              class="hht-glow-list__icon"
+              src="{{ section.settings.pricing_icon | image_url: width: 112 }}"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+            >
+            {%- else %}
+            <img
+              class="hht-glow-list__icon"
+              src="{{ 'icon-group-experiences-heart.png' | asset_url }}"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+            >
+            {%- endif %}
+            <h2 class="hht-glow-list__card-title">{{ section.settings.pricing_title }}</h2>
+            <p class="hht-glow-list__card-sub">{{ section.settings.pricing_sub }}</p>
+            <p class="hht-glow-list__card-lead">{{ section.settings.pricing_lead }}</p>
+          </div>
+          <div class="hht-glow-list__rows">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'city' %}
+            <article class="hht-glow-list__row" id="group-panel-{{ block.settings.key }}" {{ block.shopify_attributes }}>
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">{{ block.settings.name }}</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">{{ block.settings.desc }}</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ block.settings.book_url }}" target="_blank" rel="noopener noreferrer">{{ block.settings.book_label }}</a>
+              </div>
+              <div class="hht-glow-list__row-price">{{ block.settings.price }}</div>
+            </article>
+              {%- endif -%}
+            {%- endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} What's included {%- endcomment -%}
+  <section class="hht-sp__section" id="whats-included">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.included_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.included_heading }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'included' %}
+        <article class="hht-sp-card" {{ block.shopify_attributes }}>
+          <span class="hht-sp-card__label">{{ block.settings.label }}</span>
+          <h3 class="hht-sp__h3">{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Occasions {%- endcomment -%}
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.occasions_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.occasions_heading }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'occasion' %}
+        <article class="hht-sp-card" {{ block.shopify_attributes }}><span class="hht-sp-card__label">{{ block.settings.label }}</span><p>{{ block.settings.text }}</p></article>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} How it works {%- endcomment -%}
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.how_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.how_heading }}</h2>
+      </div>
+      <div class="hht-sp-steps hht-sp-steps--4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' %}
+        <div class="hht-sp-step" {{ block.shopify_attributes }}><h3 class="hht-sp__h3">{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Gallery {%- endcomment -%}
+  <section class="hht-sp__section hht-sp__section--soft">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.gallery_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.gallery_heading }}</h2>
+      </div>
+      <div class="hht-sp-gallery">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery' %}
+        <figure {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+          <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.alt }}" width="600" height="750" loading="lazy">
+          {%- else -%}
+          <img src="{{ block.settings.asset | asset_url }}" alt="{{ block.settings.alt }}" width="600" height="750" loading="lazy">
+          {%- endif -%}
+        </figure>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+      {%- if section.settings.insta_label != blank %}
+      <p class="hht-sp__center" style="margin-top:22px;">
+        <a class="btn btn--outline" href="{{ section.settings.insta_url }}" target="_blank" rel="noopener noreferrer">{{ section.settings.insta_label }}</a>
+      </p>
+      {%- endif %}
+    </div>
+  </section>
+
+  {%- comment -%} Booking details {%- endcomment -%}
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap" style="max-width:820px;">
+      <div class="hht-sp-notice">
+        <span class="hht-sp__eyebrow">{{ section.settings.notice_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.notice_heading }}</h2>
+        <ul>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'detail' %}
+          <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endif -%}
+          {%- endfor %}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Reviews {%- endcomment -%}
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.reviews_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.reviews_heading }}</h2>
+      </div>
+      <div class="hht-sp-reviews">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'review' %}
+        <article class="hht-sp-review" {{ block.shopify_attributes }}>
+          <div class="hht-sp-review__stars" aria-label="5 out of 5 stars">{{ block.settings.stars }}</div>
+          <p class="hht-sp-review__quote">{{ block.settings.quote }}</p>
+          <p class="hht-sp-review__meta">{{ block.settings.meta }}</p>
+        </article>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} FAQ {%- endcomment -%}
+  <section class="hht-sp__section" id="group-faq">
+    <div class="hht-sp__wrap" style="max-width:900px;">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.faq_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.faq_heading }}</h2>
+      </div>
+      <div class="hht-sp-acc" data-hht-acc>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' %}
+        <div class="hht-sp-acc__item{% if block.settings.open %} is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button type="button" class="hht-sp-acc__trig" aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}">{{ block.settings.question }}<span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+          <div class="hht-sp-acc__panel">{{ block.settings.answer }}</div>
+        </div>
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  {%- comment -%} Final CTA {%- endcomment -%}
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-cta-center">
+        <span class="hht-sp__eyebrow">{{ section.settings.cta_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.cta_heading }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.cta_lead }}</p>
+        <div class="hht-sp__ctas">
+          {%- if section.settings.cta1_label != blank %}
+          <a href="{{ section.settings.cta1_link }}" class="btn">{{ section.settings.cta1_label }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta2_label != blank %}
+          <a href="{{ section.settings.cta2_link }}" class="btn btn--outline">{{ section.settings.cta2_label }}</a>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hht-group-page');
+  if (!root) return;
+
+  try {
+    var params = new URLSearchParams(window.location.search);
+    var loc = (params.get('location') || '').toLowerCase();
+    if (loc) {
+      var panel = document.getElementById('group-panel-' + loc);
+      if (panel) {
+        window.setTimeout(function () {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      }
+    }
+  } catch (e) {}
+
+  root.querySelectorAll('[data-hht-acc]').forEach(function (acc) {
+    acc.querySelectorAll('.hht-sp-acc__trig').forEach(function (trig) {
+      trig.addEventListener('click', function () {
+        var item = trig.closest('.hht-sp-acc__item');
+        var open = item.classList.contains('is-open');
+        acc.querySelectorAll('.hht-sp-acc__item').forEach(function (el) {
+          el.classList.remove('is-open');
+          var b = el.querySelector('.hht-sp-acc__trig');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!open) {
+          item.classList.add('is-open');
+          trig.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
+
 {% schema %}
 {
-  "name": "Group Tanning page",
-  "settings": [],
-  "presets": [{ "name": "Group Tanning page" }]
+  "name": "Group Tanning Page",
+  "settings": [
+    { "type": "header", "content": "General" },
+    { "type": "text", "id": "default_city", "label": "Default city key", "default": "austin", "info": "Used by the ?location= deep link (austin, dallas, houston)." },
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Hero eyebrow", "default": "Group Experiences" },
+    { "type": "text", "id": "hero_heading", "label": "Hero heading", "default": "Celebrate Together. Glow Together." },
+    { "type": "textarea", "id": "hero_lead", "label": "Hero lead", "default": "Turn your next celebration into a shared Hush Hush Tan experience. Gather your group, choose your preferred studio, and enjoy customized airbrush tans with complimentary bubbles or mimosas." },
+    { "type": "text", "id": "hero_cta1_label", "label": "Hero button 1 label", "default": "Choose Your Studio" },
+    { "type": "text", "id": "hero_cta1_link", "label": "Hero button 1 link", "default": "#group-pricing" },
+    { "type": "text", "id": "hero_cta2_label", "label": "Hero button 2 label", "default": "See What’s Included" },
+    { "type": "text", "id": "hero_cta2_link", "label": "Hero button 2 link", "default": "#whats-included" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "If empty, the theme asset hht-moment-group.jpg is used." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Group celebrating at a Hush Hush Tan studio" },
+    { "type": "header", "content": "City pricing card" },
+    { "type": "image_picker", "id": "pricing_icon", "label": "Card icon", "info": "If empty, the theme asset icon-group-experiences-heart.png is used." },
+    { "type": "text", "id": "pricing_title", "label": "Card title", "default": "Book by Studio" },
+    { "type": "text", "id": "pricing_sub", "label": "Card subtitle", "default": "Group Pricing by Location" },
+    { "type": "textarea", "id": "pricing_lead", "label": "Card lead", "default": "Select a studio to view package details and book the verified Group Tanning &amp; Mimosas experience." },
+    { "type": "header", "content": "What’s included" },
+    { "type": "text", "id": "included_eyebrow", "label": "Eyebrow", "default": "What’s Included" },
+    { "type": "text", "id": "included_heading", "label": "Heading", "default": "Everything Your Group Needs to Glow" },
+    { "type": "header", "content": "Occasions" },
+    { "type": "text", "id": "occasions_eyebrow", "label": "Eyebrow", "default": "Occasions" },
+    { "type": "text", "id": "occasions_heading", "label": "Heading", "default": "Made for Moments Worth Celebrating" },
+    { "type": "header", "content": "How it works" },
+    { "type": "text", "id": "how_eyebrow", "label": "Eyebrow", "default": "How It Works" },
+    { "type": "text", "id": "how_heading", "label": "Heading", "default": "Plan Your Group Glow" },
+    { "type": "header", "content": "Gallery" },
+    { "type": "text", "id": "gallery_eyebrow", "label": "Eyebrow", "default": "In Studio" },
+    { "type": "text", "id": "gallery_heading", "label": "Heading", "default": "Real Moments at Hush Hush Tan" },
+    { "type": "text", "id": "insta_label", "label": "Instagram button label", "default": "Follow @hushhushtan" },
+    { "type": "text", "id": "insta_url", "label": "Instagram URL", "default": "https://www.instagram.com/hushhushtan/" },
+    { "type": "header", "content": "Booking details" },
+    { "type": "text", "id": "notice_eyebrow", "label": "Eyebrow", "default": "Important Details" },
+    { "type": "text", "id": "notice_heading", "label": "Heading", "default": "Before You Book" },
+    { "type": "header", "content": "Reviews" },
+    { "type": "text", "id": "reviews_eyebrow", "label": "Eyebrow", "default": "Client Love" },
+    { "type": "text", "id": "reviews_heading", "label": "Heading", "default": "What Guests Are Saying" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Group Experience Questions" },
+    { "type": "header", "content": "Final CTA" },
+    { "type": "text", "id": "cta_eyebrow", "label": "Eyebrow", "default": "Ready to Celebrate?" },
+    { "type": "text", "id": "cta_heading", "label": "Heading", "default": "Book Your Group Experience" },
+    { "type": "textarea", "id": "cta_lead", "label": "Lead", "default": "Pick your studio, gather five or more guests, and reserve your private group glow." },
+    { "type": "text", "id": "cta1_label", "label": "Button 1 label", "default": "Choose Your Studio" },
+    { "type": "text", "id": "cta1_link", "label": "Button 1 link", "default": "#group-pricing" },
+    { "type": "text", "id": "cta2_label", "label": "Button 2 label", "default": "Contact Us" },
+    { "type": "text", "id": "cta2_link", "label": "Button 2 link", "default": "/pages/contact" }
+  ],
+  "blocks": [
+    {
+      "type": "city",
+      "name": "City pricing row",
+      "settings": [
+        { "type": "text", "id": "name", "label": "City name", "default": "Austin" },
+        { "type": "text", "id": "key", "label": "City key", "default": "austin", "info": "Lowercase id used for anchors and the ?location= deep link." },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together." },
+        { "type": "text", "id": "price", "label": "Price", "default": "$300" },
+        { "type": "text", "id": "book_url", "label": "Booker booking URL", "default": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct" },
+        { "type": "text", "id": "book_label", "label": "Button label", "default": "Book Now" }
+      ]
+    },
+    {
+      "type": "included",
+      "name": "What’s included card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Five Customized Tans" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Built for parties of five+" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "The package starts at five guests. Confirm eligible service choices on the Booker booking page for your studio." }
+      ]
+    },
+    {
+      "type": "occasion",
+      "name": "Occasion card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Bridal Parties" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A shared glow before engagement photos, showers, bachelorette weekends, or the wedding day." }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "How it works step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Choose Your Studio" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Select Austin, Dallas, or Houston above." }
+      ]
+    },
+    {
+      "type": "gallery",
+      "name": "Gallery image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "asset", "label": "Fallback asset filename", "default": "hht-moment-group.jpg", "info": "Theme asset used when no image is selected." },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Guests preparing for a group glow at Hush Hush Tan" }
+      ]
+    },
+    {
+      "type": "detail",
+      "name": "Booking detail",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Five-person minimum" }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "stars", "label": "Stars", "default": "★★★★★" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "“Had a great experience at Hush Hush Tan! Very easy to book online, super cute inside — my tan looked perfect for my friend’s wedding.”" },
+        { "type": "text", "id": "meta", "label": "Attribution", "default": "Google review · Austin" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "How many people are required?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>A minimum of five guests is required for the Group Tanning &amp; Mimosas package.</p>" },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Group Tanning Page",
+      "blocks": [
+        { "type": "city", "settings": { "name": "Austin", "key": "austin", "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.", "price": "$300", "book_url": "https://go.booker.com/location/hushhushtan/detail-summary/4228174?campaign=hush_hush_tan_website_1&source=web_direct", "book_label": "Book Now" } },
+        { "type": "city", "settings": { "name": "Dallas", "key": "dallas", "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.", "price": "$325", "book_url": "https://go.booker.com/location/HushHushTanDallas/detail-summary/2672014?campaign=hush_hush_tan_website&source=web_direct", "book_label": "Book Now" } },
+        { "type": "city", "settings": { "name": "Houston", "key": "houston", "desc": "For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.", "price": "$300", "book_url": "https://go.booker.com/location/HushHushTanHouston/detail-summary/4537755", "book_label": "Book Now" } },
+        { "type": "included", "settings": { "label": "Five Customized Tans", "title": "Built for parties of five+", "text": "The package starts at five guests. Confirm eligible service choices on the Booker booking page for your studio." } },
+        { "type": "included", "settings": { "label": "Private Group Experience", "title": "Share the studio vibe", "text": "Enjoy the appointment together while each guest receives an individually customized application." } },
+        { "type": "included", "settings": { "label": "Bubbles or Mimosas", "title": "Complimentary beverages", "text": "Eligible guests may enjoy complimentary bubbles or mimosas, subject to studio terms and age requirements." } },
+        { "type": "included", "settings": { "label": "Personalized Color", "title": "Matched to each guest", "text": "Each glow is selected around skin tone, undertones, and desired result—not a one-shade-fits-all formula." } },
+        { "type": "occasion", "settings": { "label": "Bridal Parties", "text": "A shared glow before engagement photos, showers, bachelorette weekends, or the wedding day." } },
+        { "type": "occasion", "settings": { "label": "Birthdays", "text": "Celebrate another year with a private experience and customized color for the full group." } },
+        { "type": "occasion", "settings": { "label": "Vacations", "text": "Get glow-ready before a beach trip, getaway, or destination celebration." } },
+        { "type": "occasion", "settings": { "label": "Graduations", "text": "Mark the milestone with a confidence-boosting experience shared with friends." } },
+        { "type": "occasion", "settings": { "label": "Special Events", "text": "Prepare together before galas, reunions, photoshoots, or major celebrations." } },
+        { "type": "occasion", "settings": { "label": "Just Because", "text": "A group experience does not need a formal occasion—sometimes the glow is the plan." } },
+        { "type": "step", "settings": { "title": "Choose Your Studio", "text": "Select Austin, Dallas, or Houston above." } },
+        { "type": "step", "settings": { "title": "Reserve Your Group", "text": "Continue to the verified Booker page and submit the required group details." } },
+        { "type": "step", "settings": { "title": "Arrive Together", "text": "The entire party should arrive at the same time unless your studio confirms otherwise." } },
+        { "type": "step", "settings": { "title": "Glow Together", "text": "Each guest receives a personalized application based on the selected package options." } },
+        { "type": "gallery", "settings": { "asset": "hht-moment-group.jpg", "alt": "Guests preparing for a group glow at Hush Hush Tan" } },
+        { "type": "gallery", "settings": { "asset": "hht-reception.jpg", "alt": "Hush Hush Tan studio reception" } },
+        { "type": "gallery", "settings": { "asset": "hht-glow-wall.jpg", "alt": "Hush Hush Tan glow wall in studio" } },
+        { "type": "detail", "settings": { "text": "Five-person minimum" } },
+        { "type": "detail", "settings": { "text": "Entire party should arrive together" } },
+        { "type": "detail", "settings": { "text": "Advance booking recommended" } },
+        { "type": "detail", "settings": { "text": "Cancellations typically require 48 hours’ notice—confirm terms on Booker when reserving" } },
+        { "type": "detail", "settings": { "text": "Valid identification required for complimentary alcoholic beverages" } },
+        { "type": "detail", "settings": { "text": "Additional guest rates shown above; confirm deposit and tax details at checkout" } },
+        { "type": "review", "settings": { "stars": "★★★★★", "quote": "“Had a great experience at Hush Hush Tan! Very easy to book online, super cute inside — my tan looked perfect for my friend’s wedding.”", "meta": "Google review · Austin" } },
+        { "type": "review", "settings": { "stars": "★★★★★", "quote": "“Hush Hush Tan is the best spray service in Dallas! I've come here many times and my tan always comes out great. The staff is so friendly!”", "meta": "Google review · Dallas" } },
+        { "type": "review", "settings": { "stars": "★★★★★", "quote": "“Abby and Amanda are truly the best! They do the best custom tan. I just moved to Houston and was elated to see there was a Hush Hush in the Heights.”", "meta": "Google review · Houston" } },
+        { "type": "faq", "settings": { "question": "How many people are required?", "answer": "<p>A minimum of five guests is required for the Group Tanning &amp; Mimosas package.</p>", "open": true } },
+        { "type": "faq", "settings": { "question": "Can we add more than five guests?", "answer": "<p>Yes. Additional guests can typically be added at the per-guest rate shown for your selected studio. Confirm availability when booking.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Does every guest receive the same shade?", "answer": "<p>No. Each application is customized for the individual guest’s skin tone, undertones, and desired result.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Which tanning services can the group choose?", "answer": "<p>Eligible service choices are listed on the Booker booking page for your studio. Start on <a href=\"/pages/our-services\">Our Services</a> for city pricing context, then book the group experience above.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Must everyone arrive together?", "answer": "<p>Yes. The entire party should arrive together so the studio can run the group experience smoothly.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Are drinks included?", "answer": "<p>Complimentary bubbles or mimosas are included for eligible guests, subject to studio terms and applicable age and ID requirements.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "How far in advance should we book?", "answer": "<p>Book as early as possible for weekends and peak celebration seasons. Availability varies by studio and date.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "What is the cancellation policy?", "answer": "<p>Group appointments commonly require 48 hours’ notice. Always confirm the current cancellation terms shown in Booker when you reserve.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Can the package be booked at all three studios?", "answer": "<p>Yes. Group Tanning &amp; Mimosas is available in Austin, Dallas, and Houston via the city selectors above.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "What should everyone wear after the appointment?", "answer": "<p>Loose, dark clothing is best after your tan. Avoid tight straps and light fabrics while the solution finishes developing. More tips are on our <a href=\"/pages/faqs\">FAQ</a> and <a href=\"/pages/tanning-tips\">Tanning Tips</a> pages.</p>", "open": false } }
+      ]
+    }
+  ]
 }
 {% endschema %}
