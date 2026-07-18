@@ -699,20 +699,33 @@
   flex: 1;
 }
 
+.hht-sp .hht-sp-loccard__address {
+  margin: 0;
+  min-height: 4.6em;
+  line-height: 1.45;
+}
+
+.hht-sp .hht-sp-loccard__phone {
+  margin: 0;
+}
+
 .hht-sp .hht-sp-loccard__actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 8px;
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 12px;
 }
 
 .hht-sp .hht-sp-loccard__actions .btn,
 .hht-sp .hht-sp-loccard__actions .btn--outline,
 .hht-sp .hht-sp-loccard__actions .btn--ghost {
   min-height: 44px;
-  flex: 1 1 auto;
+  width: 100%;
   justify-content: center;
   text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 /* Press strip */
