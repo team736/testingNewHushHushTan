@@ -4419,6 +4419,13 @@ html.hht-filters-lock { overflow: hidden; }
   padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px);
   border-bottom: 1px solid rgba(166, 159, 226, 0.22);
 }
+.hht-glow-list__icon {
+  display: block;
+  width: 56px;
+  height: auto;
+  margin: 0 auto 10px;
+  object-fit: contain;
+}
 .hht-glow-list__card-title {
   margin: 0;
   font-family: var(--font-heading);

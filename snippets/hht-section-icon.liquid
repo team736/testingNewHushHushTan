@@ -1,10 +1,32 @@
 {%- comment -%}
   Renders a services section header icon from image_picker OR theme asset filename.
   Pass: block (section_header block)
+  Auto-maps title_a to pngs_lilac icons when icon_asset is blank (keeps pricing sections consistent).
 {%- endcomment -%}
 {%- liquid
-  assign icon_size = block.settings.icon_size | default: 44
+  assign icon_size = block.settings.icon_size | default: 56
   assign icon_asset = block.settings.icon_asset | strip
+  assign title_key = block.settings.title_a | downcase | strip
+
+  if icon_asset == blank
+    if title_key == 'core'
+      assign icon_asset = 'icon-core-services-sun.png'
+    elsif title_key == 'memberships'
+      assign icon_asset = 'icon-memberships-crown.png'
+    elsif title_key == 'partial'
+      assign icon_asset = 'icon-partial-tans-half-sun.png'
+    elsif title_key == 'add'
+      assign icon_asset = 'icon-add-ons-sparkle.png'
+    elsif title_key == 'tan'
+      assign icon_asset = 'icon-tan-packages-present.png'
+    elsif title_key == 'special'
+      assign icon_asset = 'icon-special-offer-star.png'
+    elsif title_key == 'group'
+      assign icon_asset = 'icon-group-experiences-heart.png'
+    elsif title_key == 'appointment'
+      assign icon_asset = 'HHT_Icons_Clock.png'
+    endif
+  endif
 -%}
 {%- if block.settings.icon != blank -%}
   <img

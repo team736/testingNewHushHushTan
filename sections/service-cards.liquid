@@ -16,6 +16,17 @@
       <div class="hht-glow-list">
         <div class="hht-glow-list__card">
           <div class="hht-glow-list__card-head">
+            {%- assign panel_icon = section.settings.panel_icon_asset | default: 'icon-core-services-sun.png' -%}
+            {%- if panel_icon != blank -%}
+              <img
+                class="hht-glow-list__icon"
+                src="{{ panel_icon | asset_url }}"
+                alt=""
+                width="56"
+                height="56"
+                loading="lazy"
+              >
+            {%- endif -%}
             <h3 class="hht-glow-list__card-title">
               {{ section.settings.panel_title | default: 'Core Services' }}
             </h3>
@@ -95,7 +106,8 @@
       ]
     },
     { "type": "text", "id": "panel_title", "label": "List panel title", "default": "Core Services" },
-    { "type": "text", "id": "panel_subtitle", "label": "List panel subtitle", "default": "First-timer? Start here." }
+    { "type": "text", "id": "panel_subtitle", "label": "List panel subtitle", "default": "First-timer? Start here." },
+    { "type": "text", "id": "panel_icon_asset", "label": "List panel icon asset", "default": "icon-core-services-sun.png", "info": "Theme asset filename from pngs_lilac, e.g. icon-core-services-sun.png" }
   ],
   "blocks": [
     {

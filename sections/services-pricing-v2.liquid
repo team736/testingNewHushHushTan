@@ -167,9 +167,10 @@
   }
   div#hht-services-{{ section.id }} .hht-section-icon {
     object-fit: contain;
-    display: inline-block;
-    margin-bottom: 6px;
+    display: block;
+    margin: 0 auto 10px;
     height: auto;
+    max-width: 72px;
   }
   div#hht-services-{{ section.id }} .hht-section-title {
     font-family: 'Freight Neo Pro', {{ section.settings.heading_font_fallback | default: 'Cormorant Garamond' }}, serif;
@@ -931,7 +932,7 @@
         { "type": "text", "id": "footer", "label": "Footer Note", "info": "Optional small text under the section" },
         { "type": "image_picker", "id": "icon", "label": "Icon (Shopify file)" },
         { "type": "text", "id": "icon_asset", "label": "Icon asset filename", "info": "Theme asset fallback, e.g. icon-core-services-sun.png from pngs_lilac" },
-        { "type": "range", "id": "icon_size", "min": 20, "max": 120, "step": 2, "unit": "px", "label": "Icon Size", "default": 44 },
+        { "type": "range", "id": "icon_size", "min": 20, "max": 120, "step": 2, "unit": "px", "label": "Icon Size", "default": 56 },
         { "type": "checkbox", "id": "pair_next", "label": "Pair with next section (2-column layout)", "default": false, "info": "Turn ON to render this section side-by-side with the next Section Header. Leave OFF for full-width." },
         { "type": "select", "id": "section_style", "label": "Section style", "default": "default",
           "options": [

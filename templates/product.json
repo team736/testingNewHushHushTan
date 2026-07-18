@@ -17,7 +17,7 @@
             "title_b": "Services",
             "note": "First-timer? Start here.",
             "footer": "",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": false,
             "animation": "float",
             "icon_asset": "icon-core-services-sun.png"
@@ -96,7 +96,7 @@
             "title_b": "",
             "note": "Glow more often and save more when you glow all year.",
             "footer": "Rapid Glow is not included as the complimentary tan. Upgrade may be available.",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": false,
             "section_style": "featured",
             "animation": "glow",
@@ -154,7 +154,7 @@
             "title_b": "Packages",
             "note": "",
             "footer": "Rapid Glow is not included in standard package pricing. Upgrade may be available. Packages are for non-members unless the current Booker terms state otherwise.",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": false,
             "animation": "float",
             "icon_asset": "icon-tan-packages-present.png"
@@ -217,7 +217,7 @@
             "title_b": "Ons",
             "note": "Add-ons supplement an eligible primary service.",
             "footer": "",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": false,
             "section_style": "compact",
             "animation": "float",
@@ -297,7 +297,7 @@
             "title_b": "Tans",
             "note": "",
             "footer": "",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": true,
             "section_style": "compact",
             "animation": "float",
@@ -377,7 +377,7 @@
             "title_b": "Offer",
             "note": "",
             "footer": "",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": true,
             "animation": "float",
             "icon_asset": "icon-special-offer-star.png"
@@ -412,7 +412,7 @@
             "title_b": "Experiences",
             "note": "",
             "footer": "Group bookings require advance notice",
-            "icon_size": 44,
+            "icon_size": 56,
             "pair_next": false,
             "animation": "float",
             "icon_asset": "icon-group-experiences-heart.png"
@@ -471,7 +471,7 @@
             "pair_next": false,
             "section_style": "compact",
             "icon_asset": "HHT_Icons_Clock.png",
-            "icon_size": 44
+            "icon_size": 56
           }
         },
         "service_row_ess_boxers": {
