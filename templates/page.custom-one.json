@@ -12,27 +12,188 @@
     "main": {
       "type": "hht-our-story-page",
       "blocks": {
-        "difference_1": { "type": "difference_card", "settings": { "label": "Personalized Color", "text": "Each service is selected around the individual client." } },
-        "difference_2": { "type": "difference_card", "settings": { "label": "Expert Application", "text": "Detailed airbrush application supports an even, controlled finish." } },
-        "difference_3": { "type": "difference_card", "settings": { "label": "Comfortable Experience", "text": "Private appointments and attentive artists help clients feel informed and at ease." } },
-        "value_1": { "type": "value_card", "settings": { "label": "Personalization", "text": "No two skin tones or desired results are identical." } },
-        "value_2": { "type": "value_card", "settings": { "label": "Confidence", "text": "The experience should help clients feel comfortable, prepared, and confident." } },
-        "value_3": { "type": "value_card", "settings": { "label": "Consistency", "text": "From consultation through aftercare, details matter." } },
-        "value_4": { "type": "value_card", "settings": { "label": "Care", "text": "Clients should understand their service, development time, and aftercare before leaving." } },
-        "press_1": { "type": "press_logo", "settings": { "asset_file": "press-vogue.png", "name": "Vogue", "logo_width": 120 } },
-        "press_2": { "type": "press_logo", "settings": { "asset_file": "press-instyle.png", "name": "InStyle", "logo_width": 120 } },
-        "press_3": { "type": "press_logo", "settings": { "asset_file": "press-austin-monthly.png", "name": "Austin Monthly", "logo_width": 140 } },
-        "location_1": { "type": "location_card", "settings": { "asset_file": "hht-location-austin.jpg", "image_alt": "Hush Hush Tan Austin", "label": "Austin", "heading": "Austin", "text": "The original Hush Hush Tan flagship serving central Austin.", "button_label": "Visit Austin", "button_link": "/pages/austin" } },
-        "location_2": { "type": "location_card", "settings": { "asset_file": "hht-location-dallas.jpg", "image_alt": "Hush Hush Tan Dallas", "label": "Dallas", "heading": "Dallas", "text": "A personalized glow experience at The Shops at Highland Park.", "button_label": "Visit Dallas", "button_link": "/pages/dallas" } },
-        "location_3": { "type": "location_card", "settings": { "asset_file": "hht-location-houston.jpg", "image_alt": "Hush Hush Tan Houston", "label": "Houston", "heading": "Houston", "text": "Customized tanning at M-K-T Heights.", "button_label": "Visit Houston", "button_link": "/pages/houston" } },
-        "gallery_1": { "type": "gallery_image", "settings": { "asset_file": "hht-reception.jpg", "image_alt": "Hush Hush Tan reception", "link": "https://www.instagram.com/hushhushtan/" } },
-        "gallery_2": { "type": "gallery_image", "settings": { "asset_file": "hht-product-shelf.jpg", "image_alt": "Hush Hush Tan product display", "link": "https://www.instagram.com/hushhushtan/" } },
-        "gallery_3": { "type": "gallery_image", "settings": { "asset_file": "hht-team-group-02.jpg", "image_alt": "Hush Hush Tan team together", "link": "https://www.instagram.com/hushhushtan/" } },
-        "gallery_4": { "type": "gallery_image", "settings": { "asset_file": "hht-gal-shared-01.jpg", "image_alt": "Hush Hush Tan studio atmosphere", "link": "https://www.instagram.com/hushhushtan/" } },
-        "gallery_5": { "type": "gallery_image", "settings": { "asset_file": "hht-moment-aftercare.jpg", "image_alt": "Aftercare products and glow moment", "link": "https://www.instagram.com/hushhushtan/" } },
-        "gallery_6": { "type": "gallery_image", "settings": { "asset_file": "hht-glow-wall-art.jpg", "image_alt": "Hush Hush Tan studio glow wall art", "link": "https://www.instagram.com/hushhushtan/" } }
+        "difference_card_FM6AMV": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Personalized Color",
+            "text": "Each service is selected around the individual client."
+          }
+        },
+        "difference_card_Y3hYj6": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Expert Application",
+            "text": "Detailed airbrush application supports an even, controlled finish."
+          }
+        },
+        "difference_card_LekV7e": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Comfortable Experience",
+            "text": "Private appointments and attentive artists help clients feel informed and at ease."
+          }
+        },
+        "value_card_MxD4Mm": {
+          "type": "value_card",
+          "settings": {
+            "label": "Personalization",
+            "text": "No two skin tones or desired results are identical."
+          }
+        },
+        "value_card_hDmxbR": {
+          "type": "value_card",
+          "settings": {
+            "label": "Confidence",
+            "text": "The experience should help clients feel comfortable, prepared, and confident."
+          }
+        },
+        "value_card_trGeVU": {
+          "type": "value_card",
+          "settings": {
+            "label": "Consistency",
+            "text": "From consultation through aftercare, details matter."
+          }
+        },
+        "value_card_JKQ4kY": {
+          "type": "value_card",
+          "settings": {
+            "label": "Care",
+            "text": "Clients should understand their service, development time, and aftercare before leaving."
+          }
+        },
+        "press_logo_8gJzc6": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-vogue.png",
+            "name": "Vogue",
+            "logo_width": 120
+          }
+        },
+        "press_logo_egEYe4": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-instyle.png",
+            "name": "InStyle",
+            "logo_width": 120
+          }
+        },
+        "press_logo_HtUdkM": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-austin-monthly.png",
+            "name": "Austin Monthly",
+            "logo_width": 140
+          }
+        },
+        "location_card_9qibJd": {
+          "type": "location_card",
+          "settings": {
+            "image": "shopify://shop_images/014_20230720_hushhushtan_14.jpg",
+            "asset_file": "hht-location-austin.jpg",
+            "image_alt": "Hush Hush Tan Austin",
+            "label": "Austin",
+            "heading": "Austin",
+            "text": "The original Hush Hush Tan flagship serving central Austin.",
+            "button_label": "Visit Austin",
+            "button_link": "/pages/austin"
+          }
+        },
+        "location_card_PdL7R7": {
+          "type": "location_card",
+          "settings": {
+            "image": "shopify://shop_images/13-HushHushTanDallas_12_1.jpg",
+            "asset_file": "hht-location-dallas.jpg",
+            "image_alt": "Hush Hush Tan Dallas",
+            "label": "Dallas",
+            "heading": "Dallas",
+            "text": "A personalized glow experience at The Shops at Highland Park.",
+            "button_label": "Visit Dallas",
+            "button_link": "/pages/dallas"
+          }
+        },
+        "location_card_3FKhLK": {
+          "type": "location_card",
+          "settings": {
+            "image": "shopify://shop_images/Best_Spray_Tans_Austin_Dallas_Houston_Texas.png",
+            "asset_file": "hht-location-houston.jpg",
+            "image_alt": "Hush Hush Tan Houston",
+            "label": "Houston",
+            "heading": "Houston",
+            "text": "Customized tanning at M-K-T Heights.",
+            "button_label": "Visit Houston",
+            "button_link": "/pages/houston"
+          }
+        },
+        "gallery_image_UVRGyC": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-reception.jpg",
+            "image_alt": "Hush Hush Tan reception",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_j46ArU": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-product-shelf.jpg",
+            "image_alt": "Hush Hush Tan product display",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_DFeAPb": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-team-group-02.jpg",
+            "image_alt": "Hush Hush Tan team together",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_HqTyda": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-gal-shared-01.jpg",
+            "image_alt": "Hush Hush Tan studio atmosphere",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_wkz34z": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-moment-aftercare.jpg",
+            "image_alt": "Aftercare products and glow moment",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_QRW4Je": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-glow-wall-art.jpg",
+            "image_alt": "Hush Hush Tan studio glow wall art",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        }
       },
-      "block_order": ["difference_1", "difference_2", "difference_3", "value_1", "value_2", "value_3", "value_4", "press_1", "press_2", "press_3", "location_1", "location_2", "location_3", "gallery_1", "gallery_2", "gallery_3", "gallery_4", "gallery_5", "gallery_6"],
+      "block_order": [
+        "difference_card_FM6AMV",
+        "difference_card_Y3hYj6",
+        "difference_card_LekV7e",
+        "value_card_MxD4Mm",
+        "value_card_hDmxbR",
+        "value_card_trGeVU",
+        "value_card_JKQ4kY",
+        "press_logo_8gJzc6",
+        "press_logo_egEYe4",
+        "press_logo_HtUdkM",
+        "location_card_9qibJd",
+        "location_card_PdL7R7",
+        "location_card_3FKhLK",
+        "gallery_image_UVRGyC",
+        "gallery_image_j46ArU",
+        "gallery_image_DFeAPb",
+        "gallery_image_HqTyda",
+        "gallery_image_wkz34z",
+        "gallery_image_QRW4Je"
+      ],
       "settings": {
         "hero_eyebrow": "Our Story",
         "hero_heading": "A Healthier Glow, Made Personal",
@@ -41,17 +202,20 @@
         "hero_button_1_link": "#founder",
         "hero_button_2_label": "Choose a Location",
         "hero_button_2_link": "/pages/locations",
+        "hero_image": "shopify://shop_images/74d054fb5ba06d-FW507310518.webp",
         "hero_image_alt": "Personalized Hush Hush Tan glow experience",
         "founder_eyebrow": "Founded in Texas",
         "founder_heading": "Created by Izabel Wicker",
         "founder_text_1": "Hush Hush Tan was founded in Austin by Izabel Wicker with a vision for a more personalized approach to sunless tanning. Instead of treating every client the same, the Hush Hush Tan method focuses on skin tone, undertones, desired depth of color, and the occasion behind each appointment.",
         "founder_text_2": "Izabel wanted clients to leave feeling confident in a glow that looked like their own skin — never orange, never one-size-fits-all. That focus on customization shaped both the in-studio experience and the way color is selected for each person.",
         "founder_text_3": "What began as one Texas studio has grown into three locations serving Austin, Dallas, and Houston while maintaining the same attention to detail and welcoming client experience.",
+        "founder_image": "shopify://shop_images/IMG_0945.jpg",
         "founder_image_alt": "Hush Hush Tan team",
         "problem_eyebrow": "The Problem She Set Out to Solve",
         "problem_heading": "Beyond One-Shade-Fits-All",
         "problem_text_1": "Many spray-tan experiences treat every client with the same approach. Izabel built Hush Hush Tan around consultation, color matching, and application that respects undertones and lifestyle — so the result looks natural in daylight and photographs.",
         "problem_text_2": "That philosophy continues in every studio: listen first, customize the formula and depth, then apply with care.",
+        "problem_image": "shopify://shop_images/IMG_0032.jpg",
         "problem_image_alt": "Natural-looking custom spray tan finish",
         "formula_eyebrow": "The Formula Approach",
         "formula_heading": "Color Mixed Around You",
@@ -82,5 +246,7 @@
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
