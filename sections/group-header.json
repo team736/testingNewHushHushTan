@@ -35,7 +35,7 @@
           "type": "child_link",
           "settings": {
             "label": "Austin",
-            "url": "/pages/austin-new",
+            "url": "/pages/austin",
             "open_in_new_tab": false
           }
         },
@@ -43,7 +43,7 @@
           "type": "child_link",
           "settings": {
             "label": "Dallas",
-            "url": "/pages/dallas-new",
+            "url": "/pages/dallas",
             "open_in_new_tab": false
           }
         },
@@ -51,7 +51,7 @@
           "type": "child_link",
           "settings": {
             "label": "Houston",
-            "url": "/pages/houston-new",
+            "url": "/pages/houston",
             "open_in_new_tab": false
           }
         },
@@ -117,7 +117,7 @@
           "type": "child_link",
           "settings": {
             "label": "Our Story",
-            "url": "/pages/about-us",
+            "url": "/pages/our-story",
             "open_in_new_tab": false
           }
         },

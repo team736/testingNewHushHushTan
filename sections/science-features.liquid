@@ -1,7 +1,7 @@
 {%- liquid
   assign learn_url = section.settings.cta_url
   if learn_url == blank
-    assign learn_url = '/pages/about-us'
+    assign learn_url = '/pages/our-story'
   endif
   assign image_fallback = section.settings.image_fallback | default: 'hht-science-shelf.jpg'
 -%}

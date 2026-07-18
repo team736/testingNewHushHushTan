@@ -19,7 +19,7 @@
           "settings": {
             "heading": "Company",
             "menu": "",
-            "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press"
+            "fallback_items": "Our Story|/pages/our-story\nLocations|/pages/locations\nPress|/pages/press"
           }
         },
         "footer_menu_shop": {
@@ -43,7 +43,7 @@
           "settings": {
             "heading": "Locations",
             "menu": "",
-            "fallback_items": "Austin|/pages/austin-new\nDallas|/pages/dallas-new\nHouston|/pages/houston-new"
+            "fallback_items": "Austin|/pages/austin\nDallas|/pages/dallas\nHouston|/pages/houston"
           }
         }
       },

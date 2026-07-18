@@ -39,16 +39,16 @@ handle auto-binds to its matching `templates/page.<handle>.json`.
 | Dallas Studio | dallas | page.dallas | Locations dropdown | `/pages/dallas` (live) | Live address, phone, hours, Booker links |
 | Houston Studio | houston | page.houston | Locations dropdown | `/pages/houston` + `/pages/locations` (live) | 600 N Shepherd Dr address recovered from live locations hub |
 | All Locations | locations | page.locations | Locations parent | `/pages/locations` (live) | All 3 studio cards |
-| Austin Services | austin-services | page.austin-services | Services dropdown | `/pages/austin-services` (live) | Verbatim live pricing |
-| Dallas Services | dallas-services | page.dallas-services | Services dropdown | `/pages/dallas-services` (live) | Higher Dallas pricing + Teeth Whitening |
-| Houston Services | houston-services | page.houston-services | Services dropdown | `/pages/houston-services` (live) | Same pricing as Austin |
-| Spray Tanning | spray-tanning | page.spray-tanning | Services dropdown | `/pages/spray-tanning` (live) | All 3 locations pricing tabs |
+| Austin Services | austin-services | page.austin-services | Services dropdown | `/pages/our-services` (live) | Verbatim live pricing |
+| Dallas Services | dallas-services | page.dallas-services | Services dropdown | `/pages/our-services` (live) | Higher Dallas pricing + Teeth Whitening |
+| Houston Services | houston-services | page.houston-services | Services dropdown | `/pages/our-services` (live) | Same pricing as Austin |
+| Spray Tanning | spray-tanning | page.spray-tanning | Services dropdown | `/pages/our-services` (live) | All 3 locations pricing tabs |
 | Group Tanning & Mimosas | hush-hush-tan-group-tanning-mimosas-package | page.hush-hush-tan-group-tanning-mimosas-package | Services dropdown | live | 5-person min, 48h cancellation |
 | Mobile Tanning | mobile-tanning-services | page.mobile-tanning-services | Services dropdown | `/pages/mobile-tanning-services` (live) | Austin only, $75/person |
 | Mobile Tanning (alt) | mobile-spray-tan | page.mobile-spray-tan | optional | live cross-link | Duplicate handle for backwards-compatibility |
 | Gift Certificates | tanning-gift-certificates | page.tanning-gift-certificates | About / Shop | `/pages/tanning-gift-certificates` (live) | 3 location-specific Booker gift URLs |
-| Memberships & Packages | memberships | page.memberships | Services / Shop | `/pages/memberships` (live) | Uses pricing-tabs section |
-| About / Our Story | about-us | page.about-us | About dropdown | `/pages/about-us` (live) | Izabel Wicker founder story |
+| Memberships & Packages | memberships | page.memberships | Services / Shop | `/pages/our-services` (live) | Uses pricing-tabs section |
+| About / Our Story | about-us | page.about-us | About dropdown | `/pages/our-story` (live) | Izabel Wicker founder story |
 | Contact | contact | page.contact | About dropdown | `/pages/contact` (live) | Austin/Dallas/Houston contact cards + form |
 | Press | press | page.press | About dropdown | `/pages/press` (live) | 10 real press features with external links |
 | FAQ | faqs | page.faqs | About dropdown | `/pages/faqs` (live) | 12 live Q&A grouped in 5 categories |
@@ -76,11 +76,11 @@ text into the Shopify Admin policy editor.
   - Austin → `/pages/austin`
   - Dallas → `/pages/dallas`
   - Houston → `/pages/houston`
-- **Services** → `/pages/spray-tanning`
-  - Austin Services → `/pages/austin-services`
-  - Dallas Services → `/pages/dallas-services`
-  - Houston Services → `/pages/houston-services`
-  - Spray Tanning → `/pages/spray-tanning`
+- **Services** → `/pages/our-services`
+  - Austin Services → `/pages/our-services`
+  - Dallas Services → `/pages/our-services`
+  - Houston Services → `/pages/our-services`
+  - Spray Tanning → `/pages/our-services`
   - Group Tanning & Mimosas → `/pages/hush-hush-tan-group-tanning-mimosas-package`
   - Mobile Tanning (Austin) → `/pages/mobile-tanning-services`
 - **Products** → `/collections/tanning-products`
@@ -88,9 +88,9 @@ text into the Shopify Admin policy editor.
   - Austin → `https://go.booker.com/location/HushHushTan/buy/gift-certificate`
   - Dallas → `https://go.booker.com/location/hushhushtandallas/buy/gift-certificate`
   - Houston → `https://go.booker.com/location/HushHushTanHouston/buy/gift-certificate`
-- **About** → `/pages/about-us`
+- **About** → `/pages/our-story`
   - Contact → `/pages/contact`
-  - Our Story → `/pages/about-us`
+  - Our Story → `/pages/our-story`
   - Press → `/pages/press`
   - FAQ → `/pages/faqs`
   - Careers → `https://hushhushtan.com/a/careers/`
@@ -98,7 +98,7 @@ text into the Shopify Admin policy editor.
 
 ### Footer Menu
 
-- Our Story → `/pages/about-us`
+- Our Story → `/pages/our-story`
 - Locations → `/pages/locations`
 - Careers → `https://hushhushtan.com/a/careers/`
 - Press → `/pages/press`
@@ -127,7 +127,7 @@ text into the Shopify Admin policy editor.
 | Book Now | Homepage hero | `#locations` | Internal anchor | ✅ |
 | Choose Your Location | Homepage hero | `#locations` | Internal anchor | ✅ |
 | View Memberships | Homepage hero slide 3 | `#memberships` | Internal anchor | ✅ |
-| View Services | Various | `#services` / `/pages/spray-tanning` | Internal | ✅ |
+| View Services | Various | `#services` / `/pages/our-services` | Internal | ✅ |
 | Book Austin | Austin page / contact | `https://go.booker.com/location/hushhushtan/service-menu` | External Booker | ✅ |
 | Book Dallas | Dallas page / contact | `https://go.booker.com/location/hushhushtandallas/service-menu` | External Booker | ✅ |
 | Book Houston | Houston page / contact | `https://go.booker.com/location/hushhushtanhouston/service-menu` | External Booker | ✅ |
@@ -150,7 +150,7 @@ text into the Shopify Admin policy editor.
 | Header → Locations | Header nav | `#locations` (homepage anchor) | Internal | ✅ |
 | Header → Services | Header nav | `#services` (homepage anchor) | Internal | ✅ |
 | Header → Products | Header nav | `/collections/tanning-products` | Internal | ✅ |
-| Header → About | Header nav | `/pages/about-us` | Internal | ✅ |
+| Header → About | Header nav | `/pages/our-story` | Internal | ✅ |
 | Header → Search | Header icon | `routes.search_url` | Shopify route | ✅ |
 | Header → Account | Header icon | `routes.account_url` | Shopify route | ✅ |
 | Header → Cart | Header icon | `routes.cart_url` + cart_count badge | Shopify route | ✅ |
@@ -218,7 +218,7 @@ text into the Shopify Admin policy editor.
 | Orders email | live shipping policy | ✅ `orders@hushhushtan.com` |
 | 12 live FAQ Q&As | `/pages/faqs` | ✅ Grouped: General / Before / After / Safety / Memberships |
 | 10 real press URLs | `/pages/press` | ✅ All external article links verified |
-| Founder name | `/pages/about-us` | ✅ Izabel Wicker |
+| Founder name | `/pages/our-story` | ✅ Izabel Wicker |
 | Brand tagline | live | ✅ "Everyone will notice. No one will know." |
 | No AI-generated images | repo | ✅ Only existing `theme/assets/*.png\|.jpg` referenced |
 | No fake pricing | code | ✅ All prices verified against live services pages |
@@ -338,8 +338,8 @@ All buttons share font, height, radius, transition, focus.
 
 - Every active page handle on the live site has a matching template
   in the repo and renders the homepage card aesthetic.
-- All pricing numbers verified against `/pages/austin-services`,
-  `/pages/dallas-services`, `/pages/houston-services`.
+- All pricing numbers verified against `/pages/our-services`,
+  `/pages/our-services`, `/pages/our-services`.
 - All Booker URLs spot-checked against the live site (Austin =
   `hushhushtan`, Dallas = `hushhushtandallas`, Houston =
   `hushhushtanhouston`).
@@ -397,22 +397,22 @@ For each non-homepage page, confirm:
 | /pages/dallas | ✅ Hero · location card · 3 service cards · 3 FAQ · final CTA |
 | /pages/houston | ✅ Hero · location card · 3 service cards · 3 FAQ · final CTA |
 | /pages/locations | ✅ Hero · 3 location cards · final CTA |
-| /pages/austin-services | ✅ Hero · pricing tabs · final CTA |
-| /pages/dallas-services | ✅ Hero · pricing tabs (Dallas pricing) · final CTA |
-| /pages/houston-services | ✅ Hero · pricing tabs · final CTA |
-| /pages/spray-tanning | ✅ Hero · 3-location pricing · final CTA |
+| /pages/our-services | ✅ Hero · pricing tabs · final CTA |
+| /pages/our-services | ✅ Hero · pricing tabs (Dallas pricing) · final CTA |
+| /pages/our-services | ✅ Hero · pricing tabs · final CTA |
+| /pages/our-services | ✅ Hero · 3-location pricing · final CTA |
 | /pages/hush-hush-tan-group-tanning-mimosas-package | ✅ Hero · IWT · icon row · 3-loc pricing · FAQ · final CTA |
 | /pages/mobile-spray-tan | ✅ Hero · IWT · icon row · Austin pricing · final CTA |
 | /pages/mobile-tanning-services | ✅ duplicate of above |
 | /pages/tanning-gift-certificates | ✅ Hero · 3 gift-cert cards · final CTA |
-| /pages/about-us | ✅ Hero · 2 IWT cards · icon row · press grid · final CTA |
+| /pages/our-story | ✅ Hero · 2 IWT cards · icon row · press grid · final CTA |
 | /pages/contact | ✅ Hero · 3 contact-info cards · contact form · final CTA |
 | /pages/press | ✅ Hero · marquee with 10 publications · final CTA |
 | /pages/faqs | ✅ Hero · 12 Q&A in 5 groups · final CTA |
 | /pages/careers | ✅ Hero · icon row · final CTA → careers portal |
 | /pages/shipping | ✅ Hero · page body · final CTA |
 | /pages/sitemap | ✅ Hero · page body with grouped links |
-| /pages/memberships | ✅ Rich-text intro · pricing tabs (3 locations) · final CTA |
+| /pages/our-services | ✅ Rich-text intro · pricing tabs (3 locations) · final CTA |
 | /collections/tanning-products | ✅ Hero card header · sidebar facets · product grid |
 | /products/<handle> | ✅ Gallery · serif title · pill variant pickers · pill quantity · pill Add to Cart · dynamic checkout |
 | /cart | ✅ Native Shopify cart with theme styling |

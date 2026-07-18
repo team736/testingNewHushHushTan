@@ -20,7 +20,7 @@ Assign to the header section. Suggested structure:
 | Top level | Children |
 |-----------|----------|
 | Locations | Austin `/pages/austin`, Dallas `/pages/dallas`, Houston `/pages/houston` |
-| Services & Pricing | Austin `/pages/austin-services`, Dallas `/pages/dallas-services`, Houston `/pages/houston-services` |
+| Services & Pricing | Austin `/pages/our-services`, Dallas `/pages/our-services`, Houston `/pages/our-services` |
 | Products | `/collections/tanning-products` |
 | Parties & Events | Group Tanning `/pages/hush-hush-tan-group-tanning-mimosas-package`, Mobile `/pages/mobile-spray-tan` |
 | Gift Certificates | Austin, Dallas, Houston (external SecureBooker/Booker URLs) |
@@ -105,7 +105,7 @@ Policy pages use Shopify **Settings → Policies**. Blog uses **Online Store →
 
 ## 6. Pricing (Memberships & Packages)
 
-**Page:** `/pages/memberships` (template `memberships`)
+**Page:** `/pages/our-services` (template `memberships`)
 
 **Customize → open Memberships page → Pricing tabs**
 
