@@ -1,9 +1,302 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "hht-our-story-page",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "hero_eyebrow": "Our Story",
+        "hero_heading": "A Healthier Glow, Made Personal",
+        "hero_text": "Hush Hush Tan was created around a simple belief: a spray tan should complement the person wearing it. From our Austin beginnings to studios in Dallas and Houston, every Hush Hush Tan experience is built around personalized color, attentive service, and natural-looking results.",
+        "hero_button_1_label": "Discover Our Story",
+        "hero_button_1_link": "#founder",
+        "hero_button_2_label": "Choose a Location",
+        "hero_button_2_link": "",
+        "hero_image_alt": "Personalized Hush Hush Tan glow experience",
+        "founder_eyebrow": "Founded in Texas",
+        "founder_heading": "Created by Izabel Wicker",
+        "founder_text_1": "Hush Hush Tan was founded in Austin by Izabel Wicker with a vision for a more personalized approach to sunless tanning. Instead of treating every client the same, the Hush Hush Tan method focuses on skin tone, undertones, desired depth of color, and the occasion behind each appointment.",
+        "founder_text_2": "Izabel wanted clients to leave feeling confident in a glow that looked like their own skin — never orange, never one-size-fits-all. That focus on customization shaped both the in-studio experience and the way color is selected for each person.",
+        "founder_text_3": "What began as one Texas studio has grown into three locations serving Austin, Dallas, and Houston while maintaining the same attention to detail and welcoming client experience.",
+        "founder_image_alt": "Hush Hush Tan team",
+        "problem_eyebrow": "The Problem She Set Out to Solve",
+        "problem_heading": "Beyond One-Shade-Fits-All",
+        "problem_text_1": "Many spray-tan experiences treat every client with the same approach. Izabel built Hush Hush Tan around consultation, color matching, and application that respects undertones and lifestyle — so the result looks natural in daylight and photographs.",
+        "problem_text_2": "That philosophy continues in every studio: listen first, customize the formula and depth, then apply with care.",
+        "problem_image_alt": "Natural-looking custom spray tan finish",
+        "formula_eyebrow": "The Formula Approach",
+        "formula_heading": "Color Mixed Around You",
+        "formula_text": "Hush Hush Tan artists select and adjust color around the individual — skin tone, undertones, and the look you want for your occasion. The goal is a believable, personalized finish rather than a single default shade.",
+        "difference_eyebrow": "The Hush Hush Difference",
+        "difference_heading": "Mixed for Your Undertones",
+        "difference_text": "Every appointment begins with a conversation. The artist considers the client’s complexion, undertones, schedule, and desired result before selecting or mixing the appropriate color. The goal is not a one-shade-fits-all tan, but a glow that feels believable and individual.",
+        "values_eyebrow": "Values",
+        "values_heading": "What Guides Every Glow",
+        "press_eyebrow": "Recognized Beyond Texas",
+        "press_heading": "A Local Brand with National Recognition",
+        "press_text": "Hush Hush Tan’s personalized approach has been recognized by leading fashion, lifestyle, and Texas publications.",
+        "press_button_label": "Read Press",
+        "press_button_link": "",
+        "studios_eyebrow": "Studios",
+        "studios_heading": "Three Texas Studios. One Personalized Experience.",
+        "gallery_eyebrow": "Gallery",
+        "gallery_heading": "Behind the Glow",
+        "gallery_button_label": "Follow @hushhushtan",
+        "gallery_button_link": "",
+        "final_eyebrow": "Come Glow with Us",
+        "final_heading": "Experience Hush Hush Tan for Yourself",
+        "final_text": "Choose your nearest Texas studio and book a personalized airbrush-tanning experience.",
+        "final_button_1_label": "Choose a Location",
+        "final_button_1_link": "",
+        "final_button_2_label": "Explore Services",
+        "final_button_2_link": ""
+      }
+    },
+    "hht_our_story_page_Akdftz": {
+      "type": "hht-our-story-page",
+      "blocks": {
+        "difference_card_FM6AMV": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Personalized Color",
+            "text": "Each service is selected around the individual client."
+          }
+        },
+        "difference_card_Y3hYj6": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Expert Application",
+            "text": "Detailed airbrush application supports an even, controlled finish."
+          }
+        },
+        "difference_card_LekV7e": {
+          "type": "difference_card",
+          "settings": {
+            "label": "Comfortable Experience",
+            "text": "Private appointments and attentive artists help clients feel informed and at ease."
+          }
+        },
+        "value_card_MxD4Mm": {
+          "type": "value_card",
+          "settings": {
+            "label": "Personalization",
+            "text": "No two skin tones or desired results are identical."
+          }
+        },
+        "value_card_hDmxbR": {
+          "type": "value_card",
+          "settings": {
+            "label": "Confidence",
+            "text": "The experience should help clients feel comfortable, prepared, and confident."
+          }
+        },
+        "value_card_trGeVU": {
+          "type": "value_card",
+          "settings": {
+            "label": "Consistency",
+            "text": "From consultation through aftercare, details matter."
+          }
+        },
+        "value_card_JKQ4kY": {
+          "type": "value_card",
+          "settings": {
+            "label": "Care",
+            "text": "Clients should understand their service, development time, and aftercare before leaving."
+          }
+        },
+        "press_logo_8gJzc6": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-vogue.png",
+            "name": "Vogue",
+            "logo_width": 120
+          }
+        },
+        "press_logo_egEYe4": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-instyle.png",
+            "name": "InStyle",
+            "logo_width": 120
+          }
+        },
+        "press_logo_HtUdkM": {
+          "type": "press_logo",
+          "settings": {
+            "asset_file": "press-austin-monthly.png",
+            "name": "Austin Monthly",
+            "logo_width": 140
+          }
+        },
+        "location_card_9qibJd": {
+          "type": "location_card",
+          "settings": {
+            "asset_file": "hht-location-austin.jpg",
+            "image_alt": "Hush Hush Tan Austin",
+            "label": "Austin",
+            "heading": "Austin",
+            "text": "The original Hush Hush Tan flagship serving central Austin.",
+            "button_label": "Visit Austin",
+            "button_link": "/pages/austin"
+          }
+        },
+        "location_card_PdL7R7": {
+          "type": "location_card",
+          "settings": {
+            "asset_file": "hht-location-dallas.jpg",
+            "image_alt": "Hush Hush Tan Dallas",
+            "label": "Dallas",
+            "heading": "Dallas",
+            "text": "A personalized glow experience at The Shops at Highland Park.",
+            "button_label": "Visit Dallas",
+            "button_link": "/pages/dallas"
+          }
+        },
+        "location_card_3FKhLK": {
+          "type": "location_card",
+          "settings": {
+            "asset_file": "hht-location-houston.jpg",
+            "image_alt": "Hush Hush Tan Houston",
+            "label": "Houston",
+            "heading": "Houston",
+            "text": "Customized tanning at M-K-T Heights.",
+            "button_label": "Visit Houston",
+            "button_link": "/pages/houston"
+          }
+        },
+        "gallery_image_UVRGyC": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-reception.jpg",
+            "image_alt": "Hush Hush Tan reception",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_j46ArU": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-product-shelf.jpg",
+            "image_alt": "Hush Hush Tan product display",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_DFeAPb": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-team-group-02.jpg",
+            "image_alt": "Hush Hush Tan team together",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_HqTyda": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-gal-shared-01.jpg",
+            "image_alt": "Hush Hush Tan studio atmosphere",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_wkz34z": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-moment-aftercare.jpg",
+            "image_alt": "Aftercare products and glow moment",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        },
+        "gallery_image_QRW4Je": {
+          "type": "gallery_image",
+          "settings": {
+            "asset_file": "hht-glow-wall-art.jpg",
+            "image_alt": "Hush Hush Tan studio glow wall art",
+            "link": "https://www.instagram.com/hushhushtan/"
+          }
+        }
+      },
+      "block_order": [
+        "difference_card_FM6AMV",
+        "difference_card_Y3hYj6",
+        "difference_card_LekV7e",
+        "value_card_MxD4Mm",
+        "value_card_hDmxbR",
+        "value_card_trGeVU",
+        "value_card_JKQ4kY",
+        "press_logo_8gJzc6",
+        "press_logo_egEYe4",
+        "press_logo_HtUdkM",
+        "location_card_9qibJd",
+        "location_card_PdL7R7",
+        "location_card_3FKhLK",
+        "gallery_image_UVRGyC",
+        "gallery_image_j46ArU",
+        "gallery_image_DFeAPb",
+        "gallery_image_HqTyda",
+        "gallery_image_wkz34z",
+        "gallery_image_QRW4Je"
+      ],
+      "name": "Our Story Page",
+      "settings": {
+        "hero_eyebrow": "Our Story",
+        "hero_heading": "A Healthier Glow, Made Personal",
+        "hero_text": "Hush Hush Tan was created around a simple belief: a spray tan should complement the person wearing it. From our Austin beginnings to studios in Dallas and Houston, every Hush Hush Tan experience is built around personalized color, attentive service, and natural-looking results.",
+        "hero_button_1_label": "Discover Our Story",
+        "hero_button_1_link": "#founder",
+        "hero_button_2_label": "Choose a Location",
+        "hero_button_2_link": "/pages/locations",
+        "hero_image": "shopify://shop_images/74d054fb5ba06d-FW507310518.webp",
+        "hero_image_alt": "Personalized Hush Hush Tan glow experience",
+        "founder_eyebrow": "Founded in Texas",
+        "founder_heading": "Created by Izabel Wicker",
+        "founder_text_1": "Hush Hush Tan was founded in Austin by Izabel Wicker with a vision for a more personalized approach to sunless tanning. Instead of treating every client the same, the Hush Hush Tan method focuses on skin tone, undertones, desired depth of color, and the occasion behind each appointment.",
+        "founder_text_2": "Izabel wanted clients to leave feeling confident in a glow that looked like their own skin — never orange, never one-size-fits-all. That focus on customization shaped both the in-studio experience and the way color is selected for each person.",
+        "founder_text_3": "What began as one Texas studio has grown into three locations serving Austin, Dallas, and Houston while maintaining the same attention to detail and welcoming client experience.",
+        "founder_image": "shopify://shop_images/IMG_0945.jpg",
+        "founder_image_alt": "Hush Hush Tan team",
+        "problem_eyebrow": "The Problem She Set Out to Solve",
+        "problem_heading": "Beyond One-Shade-Fits-All",
+        "problem_text_1": "Many spray-tan experiences treat every client with the same approach. Izabel built Hush Hush Tan around consultation, color matching, and application that respects undertones and lifestyle — so the result looks natural in daylight and photographs.",
+        "problem_text_2": "That philosophy continues in every studio: listen first, customize the formula and depth, then apply with care.",
+        "problem_image": "shopify://shop_images/IMG_0032.jpg",
+        "problem_image_alt": "Natural-looking custom spray tan finish",
+        "formula_eyebrow": "The Formula Approach",
+        "formula_heading": "Color Mixed Around You",
+        "formula_text": "Hush Hush Tan artists select and adjust color around the individual — skin tone, undertones, and the look you want for your occasion. The goal is a believable, personalized finish rather than a single default shade.",
+        "difference_eyebrow": "The Hush Hush Difference",
+        "difference_heading": "Mixed for Your Undertones",
+        "difference_text": "Every appointment begins with a conversation. The artist considers the client’s complexion, undertones, schedule, and desired result before selecting or mixing the appropriate color. The goal is not a one-shade-fits-all tan, but a glow that feels believable and individual.",
+        "values_eyebrow": "Values",
+        "values_heading": "What Guides Every Glow",
+        "press_eyebrow": "Recognized Beyond Texas",
+        "press_heading": "A Local Brand with National Recognition",
+        "press_text": "Hush Hush Tan’s personalized approach has been recognized by leading fashion, lifestyle, and Texas publications.",
+        "press_button_label": "Read Press",
+        "press_button_link": "/pages/press",
+        "studios_eyebrow": "Studios",
+        "studios_heading": "Three Texas Studios. One Personalized Experience.",
+        "gallery_eyebrow": "Gallery",
+        "gallery_heading": "Behind the Glow",
+        "gallery_button_label": "Follow @hushhushtan",
+        "gallery_button_link": "https://www.instagram.com/hushhushtan/",
+        "final_eyebrow": "Come Glow with Us",
+        "final_heading": "Experience Hush Hush Tan for Yourself",
+        "final_text": "Choose your nearest Texas studio and book a personalized airbrush-tanning experience.",
+        "final_button_1_label": "Choose a Location",
+        "final_button_1_link": "/pages/locations",
+        "final_button_2_label": "Explore Services",
+        "final_button_2_link": "/pages/our-services"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "hht_our_story_page_Akdftz"
+  ]
 }
