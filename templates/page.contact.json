@@ -1,8 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "hht-contact-page",
-      "settings": {}
+      "blocks": {
+        "austin": {
+          "type": "location",
+          "settings": {
+            "label": "Austin",
+            "title": "Hush Hush Tan Austin",
+            "image_asset": "hht-location-austin.jpg",
+            "image_alt": "Hush Hush Tan Austin studio",
+            "address": "1211 West 6th St.<br>Suite #400<br>Austin, TX 78703",
+            "phone_label": "(512) 482-8339",
+            "phone": "+15124828339",
+            "email": "",
+            "hours": "",
+            "book_label": "Book Austin",
+            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "call_label": "Call Austin",
+            "view_label": "View Location",
+            "view_url": "/pages/austin",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703"
+          }
+        },
+        "dallas": {
+          "type": "location",
+          "settings": {
+            "label": "Dallas",
+            "title": "Hush Hush Tan Dallas",
+            "image_asset": "hht-location-dallas.jpg",
+            "image_alt": "Hush Hush Tan Dallas studio",
+            "address": "4254 Oak Lawn Avenue<br>Dallas, TX 75219",
+            "phone_label": "(469) 868-6228",
+            "phone": "+14698686228",
+            "email": "",
+            "hours": "",
+            "book_label": "Book Dallas",
+            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+            "call_label": "Call Dallas",
+            "view_label": "View Location",
+            "view_url": "/pages/dallas",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219"
+          }
+        },
+        "houston": {
+          "type": "location",
+          "settings": {
+            "label": "Houston",
+            "title": "Hush Hush Tan Houston",
+            "image_asset": "hht-location-houston.jpg",
+            "image_alt": "Hush Hush Tan Houston studio",
+            "address": "600 N Shepherd Dr.<br>Suite 128<br>Houston, TX 77007",
+            "phone_label": "(713) 485-0633",
+            "phone": "+17134850633",
+            "email": "",
+            "hours": "",
+            "book_label": "Book Houston",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+            "call_label": "Call Houston",
+            "view_label": "View Location",
+            "view_url": "/pages/houston",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007"
+          }
+        }
+      },
+      "block_order": ["austin", "dallas", "houston"],
+      "settings": {
+        "hero_eyebrow": "Contact",
+        "hero_heading": "Need Assistance? We’re Here to Help.",
+        "hero_lead": "Call your nearest studio or send our team a message. For general support, email <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a>. For marketing and partnership inquiries, contact <a href=\"mailto:marketing@hushhushtan.com\">marketing@hushhushtan.com</a>.",
+        "hero_cta1_label": "Choose Your Studio",
+        "hero_cta1_link": "#studios",
+        "hero_cta2_label": "Send a Message",
+        "hero_cta2_link": "#contact-form",
+        "hero_image_alt": "Hush Hush Tan team at the studio glow wall",
+        "help_eyebrow": "How Can We Help?",
+        "help_heading": "Choose the Right Path",
+        "card1_label": "Appointments & Services",
+        "card1_title": "Book or ask about services",
+        "card1_text": "Choose a studio for booking questions, service availability, or appointment support.",
+        "card1_button_label": "View Studios",
+        "card1_button_link": "#studios",
+        "card2_label": "General Support",
+        "card2_title": "Questions & help",
+        "card2_text": "Email <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a> or use the message form below.",
+        "card3_label": "Marketing & Partnerships",
+        "card3_title": "Press & collabs",
+        "card3_text": "Contact <a href=\"mailto:marketing@hushhushtan.com\">marketing@hushhushtan.com</a> for editorial and brand opportunities.",
+        "studios_eyebrow": "Studios",
+        "studios_heading": "Our Texas Locations",
+        "form_eyebrow": "Message",
+        "form_heading": "Send Us a Message",
+        "form_lead": "Our team will respond within one business day.",
+        "form_success": "Thanks — we’ll be in touch shortly.",
+        "form_submit_label": "Submit Message",
+        "mkt_eyebrow": "Work with Hush Hush Tan",
+        "mkt_heading": "Marketing & Partnerships",
+        "mkt_lead": "For editorial opportunities, brand partnerships, press requests, and collaborations, contact the Hush Hush Tan marketing team.",
+        "mkt_cta1_label": "Email Marketing Team",
+        "mkt_cta1_link": "mailto:marketing@hushhushtan.com",
+        "mkt_cta2_label": "Read Press",
+        "mkt_cta2_link": "/pages/press",
+        "mkt_image_alt": "Hush Hush Tan team at the studio glow wall",
+        "faq_eyebrow": "Quick Answers",
+        "faq_heading": "Looking for a Quick Answer?",
+        "faq_lead": "Visit the Frequently Asked Questions page for preparation, aftercare, membership, and spray-tanning information.",
+        "faq_cta1_label": "Read the FAQs",
+        "faq_cta1_link": "/pages/faqs",
+        "faq_cta2_label": "Choose a Location",
+        "faq_cta2_link": "/pages/locations"
+      }
     }
   },
   "order": ["main"]
