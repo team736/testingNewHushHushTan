@@ -54,17 +54,33 @@
     <script src="{{ 'theme.js' | asset_url }}" defer></script>
     <script>document.documentElement.classList.remove('no-js');</script>
   </head>
-  <body class="template-{{ template | replace: '.', '-' | handle }}{% if template.suffix == 'austin' or template.suffix == 'dallas' or template.suffix == 'houston' %} hht-location-landing{% endif %}">
+  {%- liquid
+    assign hht_location_landing = false
+    if template.suffix == 'austin' or template.suffix == 'dallas' or template.suffix == 'houston' or template.suffix == 'austin-new' or template.suffix == 'dallas-new' or template.suffix == 'houston-new'
+      assign hht_location_landing = true
+    endif
+    if page.handle == 'austin-new' or page.handle == 'dallas-new' or page.handle == 'houston-new' or page.handle == 'austin' or page.handle == 'dallas' or page.handle == 'houston'
+      assign hht_location_landing = true
+    endif
+  -%}
+  <body class="template-{{ template | replace: '.', '-' | handle }}{% if hht_location_landing %} hht-location-landing{% endif %}">
     <a class="skip-link visually-hidden" href="#MainContent">Skip to content</a>
 
     {% sections 'group-header' %}
 
     <main id="MainContent" role="main">
       {%- comment -%}
-        Pages stuck on Default template in Admin: render redesigned stacks via snippets.
+        Pages stuck on Default template in Admin: render redesigned stacks via snippets / section groups.
+        Location *-new handles stay on Default while Vantage is live, so draft Final Theme needs this fallback.
       {%- endcomment -%}
       {%- if request.page_type == 'page' and template.suffix == blank -%}
         {%- case page.handle -%}
+          {%- when 'austin-new' -%}
+            {% sections 'hht-austin-new-landing' %}
+          {%- when 'dallas-new' -%}
+            {% sections 'hht-dallas-new-landing' %}
+          {%- when 'houston-new' -%}
+            {% sections 'hht-houston-new-landing' %}
           {%- when 'tanning-gift-certificates' -%}
             {% render 'hht-gift-page' %}
           {%- when 'hush-hush-tan-group-tanning-mimosas-package' -%}
