@@ -69,18 +69,30 @@
     {% sections 'group-header' %}
 
     <main id="MainContent" role="main">
-      {%- comment -%}
-        Pages stuck on Default template in Admin: render redesigned stacks via snippets / section groups.
-        Location *-new handles stay on Default while Vantage is live, so draft Final Theme needs this fallback.
-      {%- endcomment -%}
-      {%- if request.page_type == 'page' and template.suffix == blank -%}
+      {%- liquid
+        comment
+          Location pages (/pages/austin, austin-new, etc.) often stay on Default or an old
+          Vantage template while Final Theme is draft — always render the redesigned stacks.
+        endcomment
+        assign hht_loc = blank
+        if request.page_type == 'page'
+          if page.handle == 'austin' or page.handle == 'austin-new'
+            assign hht_loc = 'austin'
+          elsif page.handle == 'dallas' or page.handle == 'dallas-new'
+            assign hht_loc = 'dallas'
+          elsif page.handle == 'houston' or page.handle == 'houston-new'
+            assign hht_loc = 'houston'
+          endif
+        endif
+      -%}
+      {%- if hht_loc == 'austin' -%}
+        {% sections 'hht-austin-new-landing' %}
+      {%- elsif hht_loc == 'dallas' -%}
+        {% sections 'hht-dallas-new-landing' %}
+      {%- elsif hht_loc == 'houston' -%}
+        {% sections 'hht-houston-new-landing' %}
+      {%- elsif request.page_type == 'page' and template.suffix == blank -%}
         {%- case page.handle -%}
-          {%- when 'austin-new' -%}
-            {% sections 'hht-austin-new-landing' %}
-          {%- when 'dallas-new' -%}
-            {% sections 'hht-dallas-new-landing' %}
-          {%- when 'houston-new' -%}
-            {% sections 'hht-houston-new-landing' %}
           {%- when 'tanning-gift-certificates' -%}
             {% render 'hht-gift-page' %}
           {%- when 'hush-hush-tan-group-tanning-mimosas-package' -%}
