@@ -195,7 +195,7 @@
         "show_cart": true
       }
     },
-    "gift_certificates_HiGXwh": {
+    "gift_certificates_LYPj6E": {
       "type": "gift-certificates",
       "name": "Gift Certificates",
       "settings": {
@@ -205,7 +205,6 @@
         "hero_text": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience.",
         "hero_cta1": "Choose a Location",
         "hero_cta2": "See What It Can Cover",
-        "hero_image": "shopify://shop_images/74d054fb5ba06d-FW507310518.webp",
         "hero_image_alt": "Hush Hush Tan gift glow experience",
         "default_location": "austin",
         "buy_eyebrow": "Choose Their Studio",
@@ -222,6 +221,6 @@
   "order": [
     "announcement",
     "header_RqXJyL",
-    "gift_certificates_HiGXwh"
+    "gift_certificates_LYPj6E"
   ]
 }
