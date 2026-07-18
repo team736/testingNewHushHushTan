@@ -12,44 +12,260 @@
     "main": {
       "type": "hht-tanning-tips-page",
       "blocks": {
-        "prep_1": { "type": "prep_card", "settings": { "title": "Exfoliate", "text": "Gently exfoliate about 24 hours before your appointment, focusing on dry areas like elbows, knees, ankles, and feet." } },
-        "prep_2": { "type": "prep_card", "settings": { "title": "Shave or wax", "text": "Shave or wax at least 24 hours prior so pores can settle before application." } },
-        "prep_3": { "type": "prep_card", "settings": { "title": "Skip lotions & oils", "text": "After showering, avoid moisturizer, body oil, makeup, deodorant, and perfume unless the studio gives different instructions." } },
-        "prep_4": { "type": "prep_card", "settings": { "title": "Arrive clean & bare", "text": "Come with clean, dry skin. Remove jewelry when possible and wear loose, dark clothing for after your session." } },
-        "prep_5": { "type": "prep_card", "settings": { "title": "Hydrate dry skin", "text": "In the days leading up, keep skin moisturized so it is healthy and even — then skip products the day of your tan." } },
-        "prep_6": { "type": "prep_card", "settings": { "title": "Plan your timing", "text": "Allow development time after your appointment before swimming, heavy workouts, or events." } },
-        "day_1": { "type": "day_item", "settings": { "text": "Arrive a few minutes early so check-in is relaxed." } },
-        "day_2": { "type": "day_item", "settings": { "text": "Skip deodorant, perfume, lotion, and makeup on areas being sprayed." } },
-        "day_3": { "type": "day_item", "settings": { "text": "Tell your artist about dry patches, previous tans, or sensitivity concerns." } },
-        "day_4": { "type": "day_item", "settings": { "text": "Ask about rinse timing for your specific service (Custom Glow vs Rapid)." } },
-        "after_1": { "type": "after_card", "settings": { "title": "Loose clothing", "text": "Choose loose, dark pieces. Avoid tight straps and light fabrics while the solution finishes developing." } },
-        "after_2": { "type": "after_card", "settings": { "title": "Avoid water & sweat", "text": "Skip showers, swimming, heavy workouts, and activities that cause heavy sweating until after your first rinse." } },
-        "after_3": { "type": "after_card", "settings": { "title": "First rinse timing", "text": "Rinse according to your service guidance — typically about 2–4 hours for Rapid and longer for Custom Glow. Follow the timing your artist confirms." } },
-        "maintain_1": { "type": "maintain_card", "settings": { "title": "Moisturize daily", "text": "Use an oil-free moisturizer to support even fading and comfortable skin." } },
-        "maintain_2": { "type": "maintain_card", "settings": { "title": "Gentle showers", "text": "Prefer shorter, lukewarm showers. Avoid long hot baths when possible." } },
-        "maintain_3": { "type": "maintain_card", "settings": { "title": "Skip harsh exfoliation", "text": "Avoid scrubbing, loofahs, and strong acids until the tan has faded." } },
-        "maintain_4": { "type": "maintain_card", "settings": { "title": "Chlorine & hot tubs", "text": "Pools, hot tubs, and chlorinated water can lighten the tan more quickly." } },
-        "maintain_5": { "type": "maintain_card", "settings": { "title": "Even fading", "text": "Consistent moisturizing and gentle cleansing help the color fade more evenly." } },
-        "maintain_6": { "type": "maintain_card", "settings": { "title": "Extend the glow", "text": "Book a follow-up or use approved aftercare products from our studio to refresh between visits." } },
-        "faq_1": { "type": "faq_item", "settings": { "question": "How long does a spray tan last?", "answer": "Most clients enjoy their glow for several days to about a week, depending on skin type, aftercare, and activity level. Moisturizing and gentle showers help it last longer.", "open": true } },
-        "faq_2": { "type": "faq_item", "settings": { "question": "When can I shower?", "answer": "Follow the rinse window for your service. Rapid options typically rinse sooner; Custom Glow usually develops longer. Your artist will confirm the timing for your appointment.", "open": false } },
-        "faq_3": { "type": "faq_item", "settings": { "question": "Can I work out afterward?", "answer": "Wait until after your first rinse. Sweat during development can affect the finish.", "open": false } },
-        "faq_4": { "type": "faq_item", "settings": { "question": "Can I swim?", "answer": "Avoid swimming until after development and your first rinse. Chlorine can also fade color more quickly afterward.", "open": false } },
-        "faq_5": { "type": "faq_item", "settings": { "question": "Can I shave after my tan?", "answer": "Wait until after your first rinse, then shave gently. Avoid waxing while the tan is fresh when possible.", "open": false } },
-        "faq_6": { "type": "faq_item", "settings": { "question": "What should I wear?", "answer": "Loose, dark clothing is best after your session. Tight straps and light fabrics can leave marks while the solution develops.", "open": false } },
-        "cta_1": { "type": "cta_button", "settings": { "label": "Book Now", "link": "https://go.booker.com/location/hushhushtan/service-menu", "style": "solid", "new_tab": true } },
-        "cta_2": { "type": "cta_button", "settings": { "label": "Shop Products", "link": "/collections/tanning-products", "style": "outline", "new_tab": false } },
-        "cta_3": { "type": "cta_button", "settings": { "label": "Austin", "link": "/pages/austin", "style": "outline", "new_tab": false } },
-        "cta_4": { "type": "cta_button", "settings": { "label": "Dallas", "link": "/pages/dallas", "style": "outline", "new_tab": false } },
-        "cta_5": { "type": "cta_button", "settings": { "label": "Houston", "link": "/pages/houston", "style": "outline", "new_tab": false } }
+        "prep_1": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Exfoliate",
+            "text": "Gently exfoliate about 24 hours before your appointment, focusing on dry areas like elbows, knees, ankles, and feet."
+          }
+        },
+        "prep_2": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Shave or wax",
+            "text": "Shave or wax at least 24 hours prior so pores can settle before application."
+          }
+        },
+        "prep_3": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Skip lotions & oils",
+            "text": "After showering, avoid moisturizer, body oil, makeup, deodorant, and perfume unless the studio gives different instructions."
+          }
+        },
+        "prep_4": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Arrive clean & bare",
+            "text": "Come with clean, dry skin. Remove jewelry when possible and wear loose, dark clothing for after your session."
+          }
+        },
+        "prep_5": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Hydrate dry skin",
+            "text": "In the days leading up, keep skin moisturized so it is healthy and even — then skip products the day of your tan."
+          }
+        },
+        "prep_6": {
+          "type": "prep_card",
+          "settings": {
+            "title": "Plan your timing",
+            "text": "Allow development time after your appointment before swimming, heavy workouts, or events."
+          }
+        },
+        "day_1": {
+          "type": "day_item",
+          "settings": {
+            "text": "Arrive a few minutes early so check-in is relaxed."
+          }
+        },
+        "day_2": {
+          "type": "day_item",
+          "settings": {
+            "text": "Skip deodorant, perfume, lotion, and makeup on areas being sprayed."
+          }
+        },
+        "day_3": {
+          "type": "day_item",
+          "settings": {
+            "text": "Tell your artist about dry patches, previous tans, or sensitivity concerns."
+          }
+        },
+        "day_4": {
+          "type": "day_item",
+          "settings": {
+            "text": "Ask about rinse timing for your specific service (Custom Glow vs Rapid)."
+          }
+        },
+        "after_1": {
+          "type": "after_card",
+          "settings": {
+            "title": "Loose clothing",
+            "text": "Choose loose, dark pieces. Avoid tight straps and light fabrics while the solution finishes developing."
+          }
+        },
+        "after_2": {
+          "type": "after_card",
+          "settings": {
+            "title": "Avoid water & sweat",
+            "text": "Skip showers, swimming, heavy workouts, and activities that cause heavy sweating until after your first rinse."
+          }
+        },
+        "after_3": {
+          "type": "after_card",
+          "settings": {
+            "title": "First rinse timing",
+            "text": "Rinse according to your service guidance — typically about 2–4 hours for Rapid and longer for Custom Glow. Follow the timing your artist confirms."
+          }
+        },
+        "maintain_1": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Moisturize daily",
+            "text": "Use an oil-free moisturizer to support even fading and comfortable skin."
+          }
+        },
+        "maintain_2": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Gentle showers",
+            "text": "Prefer shorter, lukewarm showers. Avoid long hot baths when possible."
+          }
+        },
+        "maintain_3": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Skip harsh exfoliation",
+            "text": "Avoid scrubbing, loofahs, and strong acids until the tan has faded."
+          }
+        },
+        "maintain_4": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Chlorine & hot tubs",
+            "text": "Pools, hot tubs, and chlorinated water can lighten the tan more quickly."
+          }
+        },
+        "maintain_5": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Even fading",
+            "text": "Consistent moisturizing and gentle cleansing help the color fade more evenly."
+          }
+        },
+        "maintain_6": {
+          "type": "maintain_card",
+          "settings": {
+            "title": "Extend the glow",
+            "text": "Book a follow-up or use approved aftercare products from our studio to refresh between visits."
+          }
+        },
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does a spray tan last?",
+            "answer": "Most clients enjoy their glow for several days to about a week, depending on skin type, aftercare, and activity level. Moisturizing and gentle showers help it last longer.",
+            "open": true
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "When can I shower?",
+            "answer": "Follow the rinse window for your service. Rapid options typically rinse sooner; Custom Glow usually develops longer. Your artist will confirm the timing for your appointment.",
+            "open": false
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I work out afterward?",
+            "answer": "Wait until after your first rinse. Sweat during development can affect the finish.",
+            "open": false
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I swim?",
+            "answer": "Avoid swimming until after development and your first rinse. Chlorine can also fade color more quickly afterward.",
+            "open": false
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I shave after my tan?",
+            "answer": "Wait until after your first rinse, then shave gently. Avoid waxing while the tan is fresh when possible.",
+            "open": false
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What should I wear?",
+            "answer": "Loose, dark clothing is best after your session. Tight straps and light fabrics can leave marks while the solution develops.",
+            "open": false
+          }
+        },
+        "cta_1": {
+          "type": "cta_button",
+          "settings": {
+            "label": "Book Now",
+            "link": "https://go.booker.com/location/hushhushtan/service-menu",
+            "style": "solid",
+            "new_tab": true
+          }
+        },
+        "cta_2": {
+          "type": "cta_button",
+          "settings": {
+            "label": "Shop Products",
+            "link": "/collections/tanning-products",
+            "style": "outline",
+            "new_tab": false
+          }
+        },
+        "cta_3": {
+          "type": "cta_button",
+          "settings": {
+            "label": "Austin",
+            "link": "/pages/austin",
+            "style": "outline",
+            "new_tab": false
+          }
+        },
+        "cta_4": {
+          "type": "cta_button",
+          "settings": {
+            "label": "Dallas",
+            "link": "/pages/dallas",
+            "style": "outline",
+            "new_tab": false
+          }
+        },
+        "cta_5": {
+          "type": "cta_button",
+          "settings": {
+            "label": "Houston",
+            "link": "/pages/houston",
+            "style": "outline",
+            "new_tab": false
+          }
+        }
       },
       "block_order": [
-        "prep_1", "prep_2", "prep_3", "prep_4", "prep_5", "prep_6",
-        "day_1", "day_2", "day_3", "day_4",
-        "after_1", "after_2", "after_3",
-        "maintain_1", "maintain_2", "maintain_3", "maintain_4", "maintain_5", "maintain_6",
-        "faq_1", "faq_2", "faq_3", "faq_4", "faq_5", "faq_6",
-        "cta_1", "cta_2", "cta_3", "cta_4", "cta_5"
+        "prep_1",
+        "prep_2",
+        "prep_3",
+        "prep_4",
+        "prep_5",
+        "prep_6",
+        "day_1",
+        "day_2",
+        "day_3",
+        "day_4",
+        "after_1",
+        "after_2",
+        "after_3",
+        "maintain_1",
+        "maintain_2",
+        "maintain_3",
+        "maintain_4",
+        "maintain_5",
+        "maintain_6",
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "cta_1",
+        "cta_2",
+        "cta_3",
+        "cta_4",
+        "cta_5"
       ],
       "settings": {
         "hero_eyebrow": "Glow Guide",
@@ -61,16 +277,21 @@
         "hero_btn2_label": "View Services",
         "hero_btn2_link": "/pages/our-services",
         "hero_btn2_new_tab": false,
+        "hero_image": "shopify://shop_images/DSC1632-Enhanced-NR.jpg",
         "hero_image_alt": "Spray tan preparation at Hush Hush Tan",
+        "before_icon": "shopify://shop_images/icon-core-services-sun.png",
         "before_eyebrow": "Before Your Appointment",
         "before_heading": "Prep for a Smooth, Even Finish",
         "before_lead": "Clean, dry, exfoliated skin helps the solution develop evenly. Complete workouts, hair appointments, and spa treatments before you arrive whenever possible.",
+        "day_icon": "shopify://shop_images/HHT_Icons_Clock.png",
         "day_eyebrow": "Appointment Day",
         "day_heading": "What to Expect",
         "day_lead": "Your artist will discuss your skin tone, undertones, occasion, and desired depth of color. Wear or bring loose, dark clothing and avoid products on the skin that can create barriers.",
         "day_image_alt": "Custom airbrush tan consultation",
+        "after_icon": "shopify://shop_images/icon-add-ons-sparkle.png",
         "after_eyebrow": "Immediately After",
         "after_heading": "Protect the Developing Tan",
+        "maintain_icon": "shopify://shop_images/icon-group-experiences-heart.png",
         "maintain_eyebrow": "Maintaining the Tan",
         "maintain_heading": "Help Your Glow Last Longer",
         "faq_eyebrow": "Common Questions",
@@ -83,5 +304,7 @@
       }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }
