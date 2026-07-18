@@ -1,0 +1,377 @@
+{%- comment -%} Tanning Tips — prep & aftercare guide (schema-driven section version of snippets/hht-tanning-tips-page.liquid) {%- endcomment -%}
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-tips-{{ section.id }}">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow | default: 'Glow Guide' | escape }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading | default: 'Tanning Tips for a Longer, Even Glow' | escape }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_lead | default: 'Preparation and aftercare make a meaningful difference in how your custom spray tan looks and lasts. Use this guide before your visit, on appointment day, and while your glow develops.' | escape }}</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="{{ section.settings.hero_btn1_link | default: 'https://go.booker.com/location/hushhushtan/service-menu' }}"{% if section.settings.hero_btn1_new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.hero_btn1_label | default: 'Book Now' | escape }}</a>
+            <a class="btn btn--outline" href="{{ section.settings.hero_btn2_link | default: '/pages/our-services' }}"{% if section.settings.hero_btn2_new_tab %} target="_blank" rel="noopener noreferrer"{% endif %}>{{ section.settings.hero_btn2_label | default: 'View Services' | escape }}</a>
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image_alt | default: 'Spray tan preparation at Hush Hush Tan' | escape }}" width="900" height="1100" loading="eager">
+          {%- else -%}
+            <img src="{{ 'hht-moment-prep.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | default: 'Spray tan preparation at Hush Hush Tan' | escape }}" width="900" height="1100" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm" id="before">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        {%- if section.settings.before_icon -%}
+          <img src="{{ section.settings.before_icon | image_url: width: 88 }}" alt="" width="44" height="44" loading="lazy" class="hht-tips-icon">
+        {%- else -%}
+          <img src="{{ 'icon-core-services-sun.png' | asset_url }}" alt="" width="44" height="44" loading="lazy" class="hht-tips-icon">
+        {%- endif -%}
+        <span class="hht-sp__eyebrow">{{ section.settings.before_eyebrow | default: 'Before Your Appointment' | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.before_heading | default: 'Prep for a Smooth, Even Finish' | escape }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.before_lead | default: 'Clean, dry, exfoliated skin helps the solution develop evenly. Complete workouts, hair appointments, and spa treatments before you arrive whenever possible.' | escape }}</p>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'prep_card' -%}
+            <article class="hht-sp-card" {{ block.shopify_attributes }}>
+              <h3 class="hht-sp__h3">{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section" id="day-of">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split">
+        <div>
+          {%- if section.settings.day_icon -%}
+            <img src="{{ section.settings.day_icon | image_url: width: 96 }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon hht-tips-icon--left">
+          {%- else -%}
+            <img src="{{ 'HHT_Icons_Clock.png' | asset_url }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon hht-tips-icon--left">
+          {%- endif -%}
+          <span class="hht-sp__eyebrow">{{ section.settings.day_eyebrow | default: 'Appointment Day' | escape }}</span>
+          <h2 class="hht-sp__h2">{{ section.settings.day_heading | default: 'What to Expect' | escape }}</h2>
+          <p class="hht-sp__lead">{{ section.settings.day_lead | default: 'Your artist will discuss your skin tone, undertones, occasion, and desired depth of color. Wear or bring loose, dark clothing and avoid products on the skin that can create barriers.' | escape }}</p>
+          <ul class="hht-sp-list">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'day_item' -%}
+                <li {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+        <div class="hht-sp-split__media">
+          {%- if section.settings.day_image -%}
+            <img src="{{ section.settings.day_image | image_url: width: 800 }}" alt="{{ section.settings.day_image_alt | default: 'Custom airbrush tan consultation' | escape }}" width="800" height="1000" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ section.settings.day_image_alt | default: 'Custom airbrush tan consultation' | escape }}" width="800" height="1000" loading="lazy">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="after">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        {%- if section.settings.after_icon -%}
+          <img src="{{ section.settings.after_icon | image_url: width: 96 }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon">
+        {%- else -%}
+          <img src="{{ 'HHT_Icons_Shower.png' | asset_url }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon">
+        {%- endif -%}
+        <span class="hht-sp__eyebrow">{{ section.settings.after_eyebrow | default: 'Immediately After' | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.after_heading | default: 'Protect the Developing Tan' | escape }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'after_card' -%}
+            <article class="hht-sp-card" {{ block.shopify_attributes }}>
+              <h3 class="hht-sp__h3">{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section" id="maintain">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        {%- if section.settings.maintain_icon -%}
+          <img src="{{ section.settings.maintain_icon | image_url: width: 96 }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon">
+        {%- else -%}
+          <img src="{{ 'HHT_Icons_Water.png' | asset_url }}" alt="" width="48" height="48" loading="lazy" class="hht-tips-icon">
+        {%- endif -%}
+        <span class="hht-sp__eyebrow">{{ section.settings.maintain_eyebrow | default: 'Maintaining the Tan' | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.maintain_heading | default: 'Help Your Glow Last Longer' | escape }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'maintain_card' -%}
+            <article class="hht-sp-card" {{ block.shopify_attributes }}>
+              <h3 class="hht-sp__h3">{{ block.settings.title | escape }}</h3>
+              <p>{{ block.settings.text | escape }}</p>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm" id="faq">
+    <div class="hht-sp__wrap" style="max-width:900px;">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.faq_eyebrow | default: 'Common Questions' | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.faq_heading | default: 'Quick Answers' | escape }}</h2>
+      </div>
+      <div class="hht-sp-acc" data-hht-acc>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq_item' -%}
+            <div class="hht-sp-acc__item{% if block.settings.open %} is-open{% endif %}" {{ block.shopify_attributes }}>
+              <button type="button" class="hht-sp-acc__trig" aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}">{{ block.settings.question | escape }}<span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+              <div class="hht-sp-acc__panel"><p>{{ block.settings.answer | escape }}</p></div>
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="hht-sp__center" style="margin-top: 2rem;">
+        <a class="btn btn--outline" href="{{ section.settings.faq_link_url | default: '/pages/faqs' }}">{{ section.settings.faq_link_label | default: 'Read All FAQs' | escape }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-cta-center">
+        <span class="hht-sp__eyebrow">{{ section.settings.cta_eyebrow | default: 'Book Your Glow' | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.cta_heading | default: 'Ready for Your Next Glow?' | escape }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.cta_lead | default: 'Book a Custom Glow at Austin, Dallas, or Houston — or shop aftercare products to maintain your color.' | escape }}</p>
+        <div class="hht-sp__ctas">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'cta_button' -%}
+              <a class="btn{% if block.settings.style == 'outline' %} btn--outline{% endif %}" href="{{ block.settings.link }}"{% if block.settings.new_tab %} target="_blank" rel="noopener noreferrer"{% endif %} {{ block.shopify_attributes }}>{{ block.settings.label | escape }}</a>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  #hht-tips-{{ section.id }} .hht-tips-icon {
+    display: block;
+    margin: 0 auto 12px;
+    width: 48px;
+    height: auto;
+  }
+  #hht-tips-{{ section.id }} .hht-tips-icon--left { margin-left: 0; }
+  #hht-tips-{{ section.id }} .hht-sp-list {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--sp-body);
+    line-height: 1.6;
+  }
+  #hht-tips-{{ section.id }} .hht-sp-list li {
+    position: relative;
+    margin: 0 0 10px;
+    padding-left: 1.15rem;
+  }
+  #hht-tips-{{ section.id }} .hht-sp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sp-accent);
+  }
+  #hht-tips-{{ section.id }} .hht-sp-card {
+    border-radius: 22px;
+    border-color: rgba(166, 159, 226, 0.28);
+    box-shadow: 0 14px 34px -28px rgba(143, 131, 214, 0.35);
+  }
+  #hht-tips-{{ section.id }} .hht-sp-card .hht-sp__h3 {
+    margin-bottom: 10px;
+  }
+  #hht-tips-{{ section.id }} .hht-sp-card p {
+    color: var(--sp-body);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('hht-tips-{{ section.id }}');
+  if (!root) return;
+  root.querySelectorAll('[data-hht-acc]').forEach(function (acc) {
+    acc.querySelectorAll('.hht-sp-acc__trig').forEach(function (trig) {
+      trig.addEventListener('click', function () {
+        var item = trig.closest('.hht-sp-acc__item');
+        var open = item.classList.contains('is-open');
+        acc.querySelectorAll('.hht-sp-acc__item').forEach(function (el) {
+          el.classList.remove('is-open');
+          var b = el.querySelector('.hht-sp-acc__trig');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!open) {
+          item.classList.add('is-open');
+          trig.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Tanning Tips Page",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Glow Guide" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Tanning Tips for a Longer, Even Glow" },
+    { "type": "textarea", "id": "hero_lead", "label": "Lead paragraph", "default": "Preparation and aftercare make a meaningful difference in how your custom spray tan looks and lasts. Use this guide before your visit, on appointment day, and while your glow develops." },
+    { "type": "text", "id": "hero_btn1_label", "label": "Button 1 label", "default": "Book Now" },
+    { "type": "url", "id": "hero_btn1_link", "label": "Button 1 link", "info": "Defaults to the Booker service menu when empty." },
+    { "type": "checkbox", "id": "hero_btn1_new_tab", "label": "Open button 1 in new tab", "default": true },
+    { "type": "text", "id": "hero_btn2_label", "label": "Button 2 label", "default": "View Services" },
+    { "type": "url", "id": "hero_btn2_link", "label": "Button 2 link", "info": "Defaults to /pages/our-services when empty." },
+    { "type": "checkbox", "id": "hero_btn2_new_tab", "label": "Open button 2 in new tab", "default": false },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "Falls back to theme asset hht-moment-prep.jpg when empty." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Spray tan preparation at Hush Hush Tan" },
+    { "type": "header", "content": "Before Your Appointment" },
+    { "type": "image_picker", "id": "before_icon", "label": "Icon", "info": "Falls back to theme asset icon-core-services-sun.png when empty." },
+    { "type": "text", "id": "before_eyebrow", "label": "Eyebrow", "default": "Before Your Appointment" },
+    { "type": "text", "id": "before_heading", "label": "Heading", "default": "Prep for a Smooth, Even Finish" },
+    { "type": "textarea", "id": "before_lead", "label": "Lead paragraph", "default": "Clean, dry, exfoliated skin helps the solution develop evenly. Complete workouts, hair appointments, and spa treatments before you arrive whenever possible." },
+    { "type": "header", "content": "Appointment Day" },
+    { "type": "image_picker", "id": "day_icon", "label": "Icon", "info": "Falls back to theme asset HHT_Icons_Clock.png when empty." },
+    { "type": "text", "id": "day_eyebrow", "label": "Eyebrow", "default": "Appointment Day" },
+    { "type": "text", "id": "day_heading", "label": "Heading", "default": "What to Expect" },
+    { "type": "textarea", "id": "day_lead", "label": "Lead paragraph", "default": "Your artist will discuss your skin tone, undertones, occasion, and desired depth of color. Wear or bring loose, dark clothing and avoid products on the skin that can create barriers." },
+    { "type": "image_picker", "id": "day_image", "label": "Side image", "info": "Falls back to theme asset hht-glow-editorial.jpg when empty." },
+    { "type": "text", "id": "day_image_alt", "label": "Side image alt text", "default": "Custom airbrush tan consultation" },
+    { "type": "header", "content": "Immediately After" },
+    { "type": "image_picker", "id": "after_icon", "label": "Icon", "info": "Falls back to theme asset HHT_Icons_Shower.png when empty." },
+    { "type": "text", "id": "after_eyebrow", "label": "Eyebrow", "default": "Immediately After" },
+    { "type": "text", "id": "after_heading", "label": "Heading", "default": "Protect the Developing Tan" },
+    { "type": "header", "content": "Maintaining the Tan" },
+    { "type": "image_picker", "id": "maintain_icon", "label": "Icon", "info": "Falls back to theme asset HHT_Icons_Water.png when empty." },
+    { "type": "text", "id": "maintain_eyebrow", "label": "Eyebrow", "default": "Maintaining the Tan" },
+    { "type": "text", "id": "maintain_heading", "label": "Heading", "default": "Help Your Glow Last Longer" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "Common Questions" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Quick Answers" },
+    { "type": "text", "id": "faq_link_label", "label": "Footer link label", "default": "Read All FAQs" },
+    { "type": "url", "id": "faq_link_url", "label": "Footer link", "info": "Defaults to /pages/faqs when empty." },
+    { "type": "header", "content": "Closing Call to Action" },
+    { "type": "text", "id": "cta_eyebrow", "label": "Eyebrow", "default": "Book Your Glow" },
+    { "type": "text", "id": "cta_heading", "label": "Heading", "default": "Ready for Your Next Glow?" },
+    { "type": "textarea", "id": "cta_lead", "label": "Lead paragraph", "default": "Book a Custom Glow at Austin, Dallas, or Houston — or shop aftercare products to maintain your color." }
+  ],
+  "blocks": [
+    {
+      "type": "prep_card",
+      "name": "Prep Tip Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Tip title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Tip text." }
+      ]
+    },
+    {
+      "type": "day_item",
+      "name": "Appointment Day List Item",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text", "default": "List item text." }
+      ]
+    },
+    {
+      "type": "after_card",
+      "name": "Aftercare Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Tip title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Tip text." }
+      ]
+    },
+    {
+      "type": "maintain_card",
+      "name": "Maintenance Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Tip title" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Tip text." }
+      ]
+    },
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Answer." },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    },
+    {
+      "type": "cta_button",
+      "name": "CTA Button",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Button" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "select", "id": "style", "label": "Style", "options": [ { "value": "solid", "label": "Solid" }, { "value": "outline", "label": "Outline" } ], "default": "solid" },
+        { "type": "checkbox", "id": "new_tab", "label": "Open in new tab", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tanning Tips Page",
+      "blocks": [
+        { "type": "prep_card", "settings": { "title": "Exfoliate", "text": "Gently exfoliate about 24 hours before your appointment, focusing on dry areas like elbows, knees, ankles, and feet." } },
+        { "type": "prep_card", "settings": { "title": "Shave or wax", "text": "Shave or wax at least 24 hours prior so pores can settle before application." } },
+        { "type": "prep_card", "settings": { "title": "Skip lotions & oils", "text": "After showering, avoid moisturizer, body oil, makeup, deodorant, and perfume unless the studio gives different instructions." } },
+        { "type": "prep_card", "settings": { "title": "Arrive clean & bare", "text": "Come with clean, dry skin. Remove jewelry when possible and wear loose, dark clothing for after your session." } },
+        { "type": "prep_card", "settings": { "title": "Hydrate dry skin", "text": "In the days leading up, keep skin moisturized so it is healthy and even — then skip products the day of your tan." } },
+        { "type": "prep_card", "settings": { "title": "Plan your timing", "text": "Allow development time after your appointment before swimming, heavy workouts, or events." } },
+        { "type": "day_item", "settings": { "text": "Arrive a few minutes early so check-in is relaxed." } },
+        { "type": "day_item", "settings": { "text": "Skip deodorant, perfume, lotion, and makeup on areas being sprayed." } },
+        { "type": "day_item", "settings": { "text": "Tell your artist about dry patches, previous tans, or sensitivity concerns." } },
+        { "type": "day_item", "settings": { "text": "Ask about rinse timing for your specific service (Custom Glow vs Rapid)." } },
+        { "type": "after_card", "settings": { "title": "Loose clothing", "text": "Choose loose, dark pieces. Avoid tight straps and light fabrics while the solution finishes developing." } },
+        { "type": "after_card", "settings": { "title": "Avoid water & sweat", "text": "Skip showers, swimming, heavy workouts, and activities that cause heavy sweating until after your first rinse." } },
+        { "type": "after_card", "settings": { "title": "First rinse timing", "text": "Rinse according to your service guidance — typically about 2–4 hours for Rapid and longer for Custom Glow. Follow the timing your artist confirms." } },
+        { "type": "maintain_card", "settings": { "title": "Moisturize daily", "text": "Use an oil-free moisturizer to support even fading and comfortable skin." } },
+        { "type": "maintain_card", "settings": { "title": "Gentle showers", "text": "Prefer shorter, lukewarm showers. Avoid long hot baths when possible." } },
+        { "type": "maintain_card", "settings": { "title": "Skip harsh exfoliation", "text": "Avoid scrubbing, loofahs, and strong acids until the tan has faded." } },
+        { "type": "maintain_card", "settings": { "title": "Chlorine & hot tubs", "text": "Pools, hot tubs, and chlorinated water can lighten the tan more quickly." } },
+        { "type": "maintain_card", "settings": { "title": "Even fading", "text": "Consistent moisturizing and gentle cleansing help the color fade more evenly." } },
+        { "type": "maintain_card", "settings": { "title": "Extend the glow", "text": "Book a follow-up or use approved aftercare products from our studio to refresh between visits." } },
+        { "type": "faq_item", "settings": { "question": "How long does a spray tan last?", "answer": "Most clients enjoy their glow for several days to about a week, depending on skin type, aftercare, and activity level. Moisturizing and gentle showers help it last longer.", "open": true } },
+        { "type": "faq_item", "settings": { "question": "When can I shower?", "answer": "Follow the rinse window for your service. Rapid options typically rinse sooner; Custom Glow usually develops longer. Your artist will confirm the timing for your appointment.", "open": false } },
+        { "type": "faq_item", "settings": { "question": "Can I work out afterward?", "answer": "Wait until after your first rinse. Sweat during development can affect the finish.", "open": false } },
+        { "type": "faq_item", "settings": { "question": "Can I swim?", "answer": "Avoid swimming until after development and your first rinse. Chlorine can also fade color more quickly afterward.", "open": false } },
+        { "type": "faq_item", "settings": { "question": "Can I shave after my tan?", "answer": "Wait until after your first rinse, then shave gently. Avoid waxing while the tan is fresh when possible.", "open": false } },
+        { "type": "faq_item", "settings": { "question": "What should I wear?", "answer": "Loose, dark clothing is best after your session. Tight straps and light fabrics can leave marks while the solution develops.", "open": false } },
+        { "type": "cta_button", "settings": { "label": "Book Now", "link": "https://go.booker.com/location/hushhushtan/service-menu", "style": "solid", "new_tab": true } },
+        { "type": "cta_button", "settings": { "label": "Shop Products", "link": "/collections/tanning-products", "style": "outline", "new_tab": false } },
+        { "type": "cta_button", "settings": { "label": "Austin", "link": "/pages/austin", "style": "outline", "new_tab": false } },
+        { "type": "cta_button", "settings": { "label": "Dallas", "link": "/pages/dallas", "style": "outline", "new_tab": false } },
+        { "type": "cta_button", "settings": { "label": "Houston", "link": "/pages/houston", "style": "outline", "new_tab": false } }
+      ]
+    }
+  ]
+}
+{% endschema %}
