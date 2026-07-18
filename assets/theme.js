@@ -91,10 +91,26 @@
   });
 
   document.querySelectorAll('[data-nav-item]').forEach(function (item) {
+    var trigger = item.querySelector('[data-nav-trigger]');
+
+    item.addEventListener('mouseenter', function () {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        closeAllNavDropdowns(item);
+        item.classList.add('is-open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    item.addEventListener('mouseleave', function () {
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        item.classList.remove('is-open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
     item.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
       item.classList.remove('is-open');
-      var trigger = item.querySelector('[data-nav-trigger]');
       if (trigger) {
         trigger.setAttribute('aria-expanded', 'false');
         trigger.focus();

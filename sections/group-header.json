@@ -22,7 +22,7 @@
     "header_RqXJyL": {
       "type": "header",
       "blocks": {
-        "parent_menu_XVd4wV": {
+        "parent_menu_locations": {
           "type": "parent_menu",
           "name": "Locations",
           "settings": {
@@ -31,7 +31,7 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_QgKVj4": {
+        "child_link_austin": {
           "type": "child_link",
           "settings": {
             "label": "Austin",
@@ -39,7 +39,7 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_JAk3hV": {
+        "child_link_dallas": {
           "type": "child_link",
           "settings": {
             "label": "Dallas",
@@ -47,7 +47,7 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_mXwR6L": {
+        "child_link_houston": {
           "type": "child_link",
           "settings": {
             "label": "Houston",
@@ -60,7 +60,7 @@
           "name": "Our Services",
           "settings": {
             "label": "Our Services",
-            "url": "",
+            "url": "/pages/our-services",
             "open_in_new_tab": false
           }
         },
@@ -72,18 +72,10 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_svc_products": {
-          "type": "child_link",
-          "settings": {
-            "label": "Products",
-            "url": "/collections/tanning-products",
-            "open_in_new_tab": false
-          }
-        },
         "child_link_svc_mimosas": {
           "type": "child_link",
           "settings": {
-            "label": "Tanning & Mimosas",
+            "label": "Group Tanning & Mimosas",
             "url": "/pages/hush-hush-tan-group-tanning-mimosas-package",
             "open_in_new_tab": false
           }
@@ -96,31 +88,32 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_svc_gifts": {
-          "type": "child_link",
+        "top_link_products": {
+          "type": "top_link",
+          "settings": {
+            "label": "Products",
+            "url": "/collections/tanning-products",
+            "open_in_new_tab": false
+          }
+        },
+        "top_link_gifts": {
+          "type": "top_link",
           "settings": {
             "label": "Gift Certificates",
             "url": "/pages/tanning-gift-certificates",
             "open_in_new_tab": false
           }
         },
-        "top_link_cd34Td": {
-          "type": "top_link",
-          "settings": {
-            "label": "FAQs",
-            "url": "/pages/faqs",
-            "open_in_new_tab": false
-          }
-        },
-        "parent_menu_eafMwF": {
+        "parent_menu_about": {
           "type": "parent_menu",
+          "name": "About",
           "settings": {
             "label": "About",
             "url": "",
             "open_in_new_tab": false
           }
         },
-        "child_link_YkzDbf": {
+        "child_link_story": {
           "type": "child_link",
           "settings": {
             "label": "Our Story",
@@ -128,15 +121,7 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_7axdPC": {
-          "type": "child_link",
-          "settings": {
-            "label": "Contact",
-            "url": "/pages/contact",
-            "open_in_new_tab": false
-          }
-        },
-        "child_link_7rJVp3": {
+        "child_link_press": {
           "type": "child_link",
           "settings": {
             "label": "Press",
@@ -144,41 +129,48 @@
             "open_in_new_tab": false
           }
         },
-        "child_link_WXBnWp": {
+        "child_link_faq": {
           "type": "child_link",
           "settings": {
-            "label": "Careers",
-            "url": "https://hushhushtan.com/a/careers/",
-            "open_in_new_tab": true
+            "label": "FAQ",
+            "url": "/pages/faqs",
+            "open_in_new_tab": false
           }
         },
-        "child_link_WA7MLA": {
+        "child_link_tips": {
           "type": "child_link",
           "settings": {
             "label": "Tanning Tips",
             "url": "/pages/tanning-tips",
             "open_in_new_tab": false
           }
+        },
+        "child_link_contact": {
+          "type": "child_link",
+          "settings": {
+            "label": "Contact",
+            "url": "/pages/contact",
+            "open_in_new_tab": false
+          }
         }
       },
       "block_order": [
-        "parent_menu_XVd4wV",
-        "child_link_QgKVj4",
-        "child_link_JAk3hV",
-        "child_link_mXwR6L",
+        "parent_menu_locations",
+        "child_link_austin",
+        "child_link_dallas",
+        "child_link_houston",
         "parent_menu_services",
         "child_link_svc_main",
-        "child_link_svc_products",
         "child_link_svc_mimosas",
         "child_link_svc_mobile",
-        "child_link_svc_gifts",
-        "top_link_cd34Td",
-        "parent_menu_eafMwF",
-        "child_link_YkzDbf",
-        "child_link_7axdPC",
-        "child_link_7rJVp3",
-        "child_link_WXBnWp",
-        "child_link_WA7MLA"
+        "top_link_products",
+        "top_link_gifts",
+        "parent_menu_about",
+        "child_link_story",
+        "child_link_press",
+        "child_link_faq",
+        "child_link_tips",
+        "child_link_contact"
       ],
       "name": "Header",
       "settings": {
@@ -193,7 +185,7 @@
         "book_btn_size": 13,
         "book_btn_padding": 14,
         "header_bg": "#eae3f7",
-        "nav_text_color": "#eae3f7",
+        "nav_text_color": "#2C1A4D",
         "nav_hover_color": "#7b5ea7",
         "book_btn_bg": "#7b5ea7",
         "book_btn_text": "#ffffff",

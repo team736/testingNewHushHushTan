@@ -19,7 +19,7 @@
           "settings": {
             "heading": "Company",
             "menu": "",
-            "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press\nCareers|https://hushhushtan.com/a/careers/"
+            "fallback_items": "Our Story|/pages/about-us\nLocations|/pages/locations\nPress|/pages/press"
           }
         },
         "footer_menu_shop": {

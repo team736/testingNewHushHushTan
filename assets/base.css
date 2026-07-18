@@ -496,6 +496,8 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   width: 100%;
   background: #A69FE2;
   position: relative;
+  overflow: visible;
+  z-index: 80;
 }
 .site-header__utilities {
   position: absolute;
@@ -592,16 +594,21 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   flex-wrap: wrap;
   gap: clamp(18px, 2.8vw, 42px);
   width: 100%;
+  overflow: visible;
+  position: relative;
+  z-index: 90;
 }
 .site-header__item {
   position: relative;
   flex-shrink: 0;
+  /* Keep trigger + dropdown in one continuous hover hit area */
+  padding-bottom: 0;
 }
 .site-header__link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 6px 0;
+  padding: 10px 0;
   border: 0;
   background: transparent;
   font-family: var(--font-body);
@@ -643,21 +650,34 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   transform: rotate(-135deg);
   top: 3px;
 }
+/*
+  Dropdown: no physical gap under the trigger.
+  Visual spacing comes from padding-top on the dropdown itself so the
+  pointer can travel into the menu without leaving the parent hover area.
+*/
 .site-header__dropdown {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%) translateY(6px);
+  transform: translateX(-50%);
   min-width: 240px;
+  padding: 8px 0 0;
+  margin: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s var(--ease), visibility 0.18s var(--ease);
+  z-index: 200;
+}
+.site-header__dropdown-panel {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 14px 40px rgba(21, 21, 21, 0.12);
   padding: 8px 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s var(--ease);
-  z-index: 100;
+  overflow: hidden;
 }
 .site-header__item.is-open > .site-header__dropdown,
 .site-header__item:hover > .site-header__dropdown,
@@ -665,7 +685,6 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateX(-50%) translateY(0);
 }
 .site-header__dropdown a {
   display: block;

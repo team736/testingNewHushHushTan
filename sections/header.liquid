@@ -134,25 +134,28 @@
         {%- for block in section.blocks -%}
           {%- if block.type == 'parent_menu' -%}
             {%- assign this_idx = forloop.index0 -%}
+            {%- assign dropdown_id = 'HeaderDropdown-' | append: section.id | append: '-' | append: this_idx -%}
             <div class="site-header__item has-submenu" data-nav-item {{ block.shopify_attributes }}>
               {%- if block.settings.url != blank -%}
-                <a href="{{ block.settings.url }}" class="site-header__link" aria-haspopup="true" aria-expanded="false" data-nav-trigger{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>
+                <a href="{{ block.settings.url }}" class="site-header__link" aria-haspopup="true" aria-expanded="false" aria-controls="{{ dropdown_id }}" data-nav-trigger{% if block.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>
                   {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
                 </a>
               {%- else -%}
-                <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" data-nav-trigger>
+                <button type="button" class="site-header__link" aria-expanded="false" aria-haspopup="true" aria-controls="{{ dropdown_id }}" data-nav-trigger>
                   {{ block.settings.label }} <span class="site-header__chevron" aria-hidden="true"></span>
                 </button>
               {%- endif -%}
-              <div class="site-header__dropdown" role="menu">
-                {%- for child in section.blocks -%}
-                  {%- if child.type == 'child_link' -%}
-                    {%- assign child_parent = parent_idx_arr[forloop.index0] | plus: 0 -%}
-                    {%- if child_parent == this_idx -%}
-                      <a href="{{ child.settings.url | default: '#' }}" role="menuitem" {{ child.shopify_attributes }}{% if child.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ child.settings.label }}</a>
+              <div class="site-header__dropdown" id="{{ dropdown_id }}" role="menu">
+                <div class="site-header__dropdown-panel">
+                  {%- for child in section.blocks -%}
+                    {%- if child.type == 'child_link' -%}
+                      {%- assign child_parent = parent_idx_arr[forloop.index0] | plus: 0 -%}
+                      {%- if child_parent == this_idx -%}
+                        <a href="{{ child.settings.url | default: '#' }}" role="menuitem" {{ child.shopify_attributes }}{% if child.settings.open_in_new_tab %} target="_blank" rel="noopener"{% endif %}>{{ child.settings.label }}</a>
+                      {%- endif -%}
                     {%- endif -%}
-                  {%- endif -%}
-                {%- endfor -%}
+                  {%- endfor -%}
+                </div>
               </div>
             </div>
           {%- elsif block.type == 'top_link' -%}
@@ -302,19 +305,18 @@
 
       { "type": "parent_menu", "settings": { "label": "Our Services", "url": "/pages/our-services" } },
       { "type": "child_link",  "settings": { "label": "Our Services", "url": "/pages/our-services" } },
-      { "type": "child_link",  "settings": { "label": "Products", "url": "/collections/tanning-products" } },
-      { "type": "child_link",  "settings": { "label": "Tanning & Mimosas", "url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
+      { "type": "child_link",  "settings": { "label": "Group Tanning & Mimosas", "url": "/pages/hush-hush-tan-group-tanning-mimosas-package" } },
       { "type": "child_link",  "settings": { "label": "Austin Mobile Tanning", "url": "/pages/mobile-spray-tan" } },
-      { "type": "child_link",  "settings": { "label": "Gift Certificates", "url": "/pages/tanning-gift-certificates" } },
 
-      { "type": "top_link",    "settings": { "label": "FAQs", "url": "/pages/faqs" } },
+      { "type": "top_link",    "settings": { "label": "Products", "url": "/collections/tanning-products" } },
+      { "type": "top_link",    "settings": { "label": "Gift Certificates", "url": "/pages/tanning-gift-certificates" } },
 
       { "type": "parent_menu", "settings": { "label": "About" } },
       { "type": "child_link",  "settings": { "label": "Our Story",    "url": "/pages/about-us" } },
-      { "type": "child_link",  "settings": { "label": "Contact",      "url": "/pages/contact" } },
       { "type": "child_link",  "settings": { "label": "Press",        "url": "/pages/press" } },
-      { "type": "child_link",  "settings": { "label": "Careers",      "url": "https://hushhushtan.com/a/careers/", "open_in_new_tab": true } },
-      { "type": "child_link",  "settings": { "label": "Tanning Tips", "url": "/pages/tanning-tips" } }
+      { "type": "child_link",  "settings": { "label": "FAQ",          "url": "/pages/faqs" } },
+      { "type": "child_link",  "settings": { "label": "Tanning Tips", "url": "/pages/tanning-tips" } },
+      { "type": "child_link",  "settings": { "label": "Contact",      "url": "/pages/contact" } }
     ]
   }]
 }
