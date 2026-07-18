@@ -4441,8 +4441,36 @@ html.hht-filters-lock { overflow: hidden; }
   font-size: 1rem;
   color: #6F6A70;
 }
+.hht-glow-list__card-lead {
+  margin: 12px auto 0;
+  max-width: 40rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #5F5F68;
+}
+.hht-glow-list__bullets {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+  display: grid;
+  gap: 4px;
+}
+.hht-glow-list__bullets li {
+  margin: 0;
+  color: #5F5F68;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
 .hht-glow-list__rows {
   padding: 4px clamp(20px, 3vw, 36px) 10px;
+}
+.hht-glow-list__foot {
+  margin: 0;
+  padding: 8px clamp(20px, 3vw, 36px) 26px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6F6A70;
+  line-height: 1.45;
 }
 .hht-glow-list__row {
   display: grid;

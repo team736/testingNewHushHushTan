@@ -29,58 +29,57 @@
     </div>
   </section>
 
-  {%- comment -%} City pricing — aligned with Our Services central matrix {%- endcomment -%}
+  {%- comment -%} City pricing — Core Services pricing card style {%- endcomment -%}
   <section class="hht-sp__section hht-sp__section--lavender" id="group-pricing">
     <div class="hht-sp__wrap">
-      <div class="hht-sp__center">
-        <span class="hht-sp__eyebrow">Book by Studio</span>
-        <h2 class="hht-sp__h2">Group Pricing by Location</h2>
-        <p class="hht-sp__lead">Select a studio to view package details and book the verified Group Tanning &amp; Mimosas experience.</p>
-      </div>
-
-      <div class="hht-sp-city" role="tablist" aria-label="Choose a studio">
-        <button type="button" class="hht-sp-city__btn" role="tab" data-city="austin" aria-selected="{% if default_city == 'austin' %}true{% else %}false{% endif %}" id="group-tab-austin" aria-controls="group-panel-austin">Austin</button>
-        <button type="button" class="hht-sp-city__btn" role="tab" data-city="dallas" aria-selected="{% if default_city == 'dallas' %}true{% else %}false{% endif %}" id="group-tab-dallas" aria-controls="group-panel-dallas">Dallas</button>
-        <button type="button" class="hht-sp-city__btn" role="tab" data-city="houston" aria-selected="{% if default_city == 'houston' %}true{% else %}false{% endif %}" id="group-tab-houston" aria-controls="group-panel-houston">Houston</button>
-      </div>
-
-      <div class="hht-sp-city__panel hht-sp-price" role="tabpanel" id="group-panel-austin" data-city-panel="austin"{% unless default_city == 'austin' %} hidden{% endunless %} aria-labelledby="group-tab-austin">
-        <span class="hht-sp__eyebrow">Austin</span>
-        <p class="hht-sp-price__amount">$300</p>
-        <p class="hht-sp-price__sub">For five guests · +$60 each additional guest</p>
-        <ul class="hht-sp-price__list">
-          <li>Five customized airbrush tans included</li>
-          <li>Studio experience for your group</li>
-          <li>Complimentary bubbles or mimosas (21+ with valid ID)</li>
-          <li>Entire party should arrive together</li>
-        </ul>
-        <a class="btn" href="{{ austin_book }}" target="_blank" rel="noopener noreferrer">Book Austin Group Experience</a>
-      </div>
-
-      <div class="hht-sp-city__panel hht-sp-price" role="tabpanel" id="group-panel-dallas" data-city-panel="dallas"{% unless default_city == 'dallas' %} hidden{% endunless %} aria-labelledby="group-tab-dallas">
-        <span class="hht-sp__eyebrow">Dallas</span>
-        <p class="hht-sp-price__amount">$325</p>
-        <p class="hht-sp-price__sub">For five guests · +$60 each additional guest</p>
-        <ul class="hht-sp-price__list">
-          <li>Five customized airbrush tans included</li>
-          <li>Studio experience for your group</li>
-          <li>Complimentary bubbles or mimosas (21+ with valid ID)</li>
-          <li>Entire party should arrive together</li>
-        </ul>
-        <a class="btn" href="{{ dallas_book }}" target="_blank" rel="noopener noreferrer">Book Dallas Group Experience</a>
-      </div>
-
-      <div class="hht-sp-city__panel hht-sp-price" role="tabpanel" id="group-panel-houston" data-city-panel="houston"{% unless default_city == 'houston' %} hidden{% endunless %} aria-labelledby="group-tab-houston">
-        <span class="hht-sp__eyebrow">Houston</span>
-        <p class="hht-sp-price__amount">$300</p>
-        <p class="hht-sp-price__sub">For five guests · +$60 each additional guest</p>
-        <ul class="hht-sp-price__list">
-          <li>Five customized airbrush tans included</li>
-          <li>Studio experience for your group</li>
-          <li>Complimentary bubbles or mimosas (21+ with valid ID)</li>
-          <li>Entire party should arrive together</li>
-        </ul>
-        <a class="btn" href="{{ houston_book }}" target="_blank" rel="noopener noreferrer">Book Houston Group Experience</a>
+      <div class="hht-glow-list">
+        <div class="hht-glow-list__card">
+          <div class="hht-glow-list__card-head">
+            <img
+              class="hht-glow-list__icon"
+              src="{{ 'icon-group-experiences-heart.png' | asset_url }}"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+            >
+            <h2 class="hht-glow-list__card-title">Book by Studio</h2>
+            <p class="hht-glow-list__card-sub">Group Pricing by Location</p>
+            <p class="hht-glow-list__card-lead">Select a studio to view package details and book the verified Group Tanning &amp; Mimosas experience.</p>
+          </div>
+          <div class="hht-glow-list__rows">
+            <article class="hht-glow-list__row" id="group-panel-austin">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Austin</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ austin_book }}" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+              <div class="hht-glow-list__row-price">$300</div>
+            </article>
+            <article class="hht-glow-list__row" id="group-panel-dallas">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Dallas</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ dallas_book }}" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+              <div class="hht-glow-list__row-price">$325</div>
+            </article>
+            <article class="hht-glow-list__row" id="group-panel-houston">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Houston</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">For five guests · +$60 each additional guest. Five customized airbrush tans, studio experience, and complimentary bubbles or mimosas (21+ with valid ID). Entire party should arrive together.</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ houston_book }}" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+              <div class="hht-glow-list__row-price">$300</div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -287,36 +286,16 @@
   var root = document.getElementById('hht-group-page');
   if (!root) return;
 
-  function activateCity(city, updateUrl) {
-    root.querySelectorAll('[data-city]').forEach(function (btn) {
-      var on = btn.getAttribute('data-city') === city;
-      btn.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    root.querySelectorAll('[data-city-panel]').forEach(function (panel) {
-      var on = panel.getAttribute('data-city-panel') === city;
-      if (on) panel.removeAttribute('hidden');
-      else panel.setAttribute('hidden', '');
-    });
-    if (updateUrl && window.history && window.history.replaceState) {
-      try {
-        var url = new URL(window.location.href);
-        url.searchParams.set('location', city);
-        window.history.replaceState({}, '', url.toString());
-      } catch (e) {}
-    }
-  }
-
-  root.querySelectorAll('[data-city]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      activateCity(btn.getAttribute('data-city'), true);
-    });
-  });
-
   try {
     var params = new URLSearchParams(window.location.search);
     var loc = (params.get('location') || '').toLowerCase();
     if (loc === 'austin' || loc === 'dallas' || loc === 'houston') {
-      activateCity(loc, false);
+      var panel = document.getElementById('group-panel-' + loc);
+      if (panel) {
+        window.setTimeout(function () {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 80);
+      }
     }
   } catch (e) {}
 

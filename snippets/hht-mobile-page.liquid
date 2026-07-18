@@ -27,22 +27,54 @@
 
   <section class="hht-sp__section hht-sp__section--lavender" id="mobile-pricing">
     <div class="hht-sp__wrap">
-      <div class="hht-sp__center">
-        <span class="hht-sp__eyebrow">Austin Mobile</span>
-        <h2 class="hht-sp__h2">A Private Group Glow, Wherever You Are</h2>
-        <p class="hht-sp__lead">A Hush Hush Tan specialist travels to your Austin-area location and provides individually customized tans for your group. Mobile appointments are designed for parties of five or more and require advance coordination.</p>
-      </div>
-      <div class="hht-sp-price">
-        <span class="hht-sp__eyebrow">Pricing</span>
-        <p class="hht-sp-price__amount">$75 <span style="font-size:0.45em;font-family:var(--font-body);font-weight:500;letter-spacing:0.04em;">per person</span></p>
-        <p class="hht-sp-price__sub">Five-person minimum · Austin service area only</p>
-        <ul class="hht-sp-price__list">
-          <li>$75 per person (not per hour)</li>
-          <li>$15 travel fee for locations more than 10 miles from the Austin studio</li>
-          <li>$30 hotel travel fee where applicable</li>
-          <li>Include address and party size in the booking notes</li>
-        </ul>
-        <a class="btn" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">Book Mobile Tanning</a>
+      <div class="hht-glow-list">
+        <div class="hht-glow-list__card">
+          <div class="hht-glow-list__card-head">
+            <img
+              class="hht-glow-list__icon"
+              src="{{ 'icon-group-experiences-heart.png' | asset_url }}"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+            >
+            <h2 class="hht-glow-list__card-title">Austin Mobile</h2>
+            <p class="hht-glow-list__card-sub">A Private Group Glow, Wherever You Are</p>
+            <p class="hht-glow-list__card-lead">A Hush Hush Tan specialist travels to your Austin-area location and provides individually customized tans for your group. Mobile appointments are designed for parties of five or more and require advance coordination.</p>
+          </div>
+          <div class="hht-glow-list__rows">
+            <article class="hht-glow-list__row">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Mobile Group Tan</h3>
+                  <span class="hht-glow-list__badge">5+ Guests</span>
+                </div>
+                <p class="hht-glow-list__row-desc">$75 per person (not per hour). Five-person minimum · Austin service area only. Include address and party size in the booking notes.</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+              <div class="hht-glow-list__row-price">$75</div>
+            </article>
+            <article class="hht-glow-list__row">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Travel Fee</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">Applies for locations more than 10 miles from the Austin studio.</p>
+              </div>
+              <div class="hht-glow-list__row-price">$15</div>
+            </article>
+            <article class="hht-glow-list__row">
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">Hotel Travel Fee</h3>
+                </div>
+                <p class="hht-glow-list__row-desc">Hotel travel fee where applicable.</p>
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">Book Now</a>
+              </div>
+              <div class="hht-glow-list__row-price">$30</div>
+            </article>
+          </div>
+        </div>
       </div>
     </div>
   </section>

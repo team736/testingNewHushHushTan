@@ -190,35 +190,49 @@
   /* Gift Value Ideas — Core Services pricing card style */
   #hht-gift-{{ sid }} .hht-gift-values-card {
     background: #fff;
-    border: 1px solid #E7E3F5;
-    border-radius: 22px;
+    border: 1px solid rgba(166, 159, 226, 0.28);
+    border-radius: 28px;
     overflow: hidden;
     margin-top: 8px;
-    box-shadow: 0 16px 44px rgba(85, 74, 140, 0.04);
+    box-shadow: 0 18px 48px -28px rgba(143, 131, 214, 0.28);
     text-align: left;
   }
   #hht-gift-{{ sid }} .hht-gift-values-card__strip {
-    background: #F4F2FF;
-    padding: 28px 30px 22px;
+    background: #F4F1FF;
+    padding: clamp(24px, 3vw, 36px) clamp(20px, 3vw, 32px);
     text-align: center;
-    border-bottom: 1px solid rgba(231, 227, 245, 0.55);
+    border-bottom: 1px solid rgba(166, 159, 226, 0.22);
   }
-  #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__eyebrow {
+  #hht-gift-{{ sid }} .hht-gift-values-card__icon {
     display: block;
-    margin: 0 0 10px;
+    width: 56px;
+    height: auto;
+    margin: 0 auto 10px;
+    object-fit: contain;
   }
   #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__h2 {
-    margin: 0 0 8px;
-    font-style: italic;
+    margin: 0;
+    font-style: normal;
     font-weight: 500;
-    font-size: clamp(1.7rem, 2.6vw, 2.1rem);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    line-height: 1.1;
+    color: #111;
+  }
+  #hht-gift-{{ sid }} .hht-gift-values-card__sub {
+    margin: 8px 0 0;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: #6F6A70;
   }
   #hht-gift-{{ sid }} .hht-gift-values-card__strip .hht-gift__lead {
-    margin: 0 auto;
-    max-width: 46rem;
-    font-style: italic;
-    opacity: 0.85;
-    color: var(--gift-ink);
+    margin: 12px auto 0;
+    max-width: 40rem;
+    font-style: normal;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    opacity: 1;
+    color: #5F5F68;
   }
   #hht-gift-{{ sid }} .hht-gift-values-card__body {
     display: flex;
@@ -533,8 +547,16 @@
     <div class="hht-gift__wrap">
       <div class="hht-gift-values-card" data-gift-values>
         <div class="hht-gift-values-card__strip">
-          <span class="hht-gift__eyebrow">Gift Value Ideas</span>
-          <h2 class="hht-gift__h2">What Could Their Gift Cover?</h2>
+          <img
+            class="hht-gift-values-card__icon"
+            src="{{ 'icon-tan-packages-present.png' | asset_url }}"
+            alt=""
+            width="56"
+            height="56"
+            loading="lazy"
+          >
+          <h2 class="hht-gift__h2">Gift Value Ideas</h2>
+          <p class="hht-gift-values-card__sub">What Could Their Gift Cover?</p>
           <p class="hht-gift__lead">Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.</p>
         </div>
         <div class="hht-gift-values-card__body">
