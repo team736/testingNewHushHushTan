@@ -49,6 +49,14 @@
           img.setAttribute('src', images[i]);
           img.setAttribute('srcset', '');
           img.setAttribute('sizes', '');
+          img.setAttribute('width', '480');
+          img.setAttribute('height', '600');
+          img.style.position = 'absolute';
+          img.style.inset = '0';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          img.style.objectPosition = 'center';
         }
       });
     });

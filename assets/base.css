@@ -6973,18 +6973,24 @@ html.hht-filters-lock { overflow: hidden; }
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(10px, 1.2vw, 16px);
+  align-items: stretch;
 }
 .hht-social__tile {
   position: relative;
+  width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: var(--radius);
   display: block;
   background: var(--soft, #F4F1FF);
+  min-height: 0;
 }
 .hht-social__tile img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
   object-position: center;
   display: block;
@@ -6994,6 +7000,7 @@ html.hht-filters-lock { overflow: hidden; }
 .hht-social__icon {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   color: #fff; opacity: 0; background: rgba(143,131,214,.35); transition: opacity .3s var(--ease);
+  z-index: 1;
 }
 .hht-social__tile:hover .hht-social__icon { opacity: 1; }
 .hht-social__cta { text-align: center; margin-top: var(--cta-gap); }
