@@ -1,0 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "page-hero",
+      "settings": {
+        "eyebrow": "Press",
+        "title": "Hush Hush Tan, in the",
+        "title_accent": "News.",
+        "subtitle": "Featured in Vogue, InStyle, D Magazine, Paper City, Voyage Houston, Community Impact, and more.",
+        "cta_primary_text": "Contact Press",
+        "cta_primary_url": "mailto:marketing@hushhushtan.com"
+      }
+    },
+    "press": {
+      "type": "press-grid",
+      "settings": { "heading": "Featured In" },
+      "blocks": {
+        "p01": { "type": "logo", "settings": { "name": "Vogue", "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty" } },
+        "p02": { "type": "logo", "settings": { "name": "InStyle", "link": "https://hushhushtan.com/pages/press" } },
+        "p03": { "type": "logo", "settings": { "name": "D Magazine", "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/" } },
+        "p04": { "type": "logo", "settings": { "name": "Paper City", "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/" } },
+        "p05": { "type": "logo", "settings": { "name": "Voyage Houston", "link": "https://voyagehouston.com/interview/meet-izabel-wicker-of-hush-hush-tan/" } },
+        "p06": { "type": "logo", "settings": { "name": "Community Impact", "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/" } },
+        "p07": { "type": "logo", "settings": { "name": "The Leader News", "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html" } },
+        "p08": { "type": "logo", "settings": { "name": "Park Cities People", "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/" } },
+        "p09": { "type": "logo", "settings": { "name": "Texas Lifestyle", "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/" } },
+        "p10": { "type": "logo", "settings": { "name": "Austin Beauty Guide", "link": "http://austinbeautyguide.com/blog/detail.php?id=64" } }
+      },
+      "block_order": ["p01","p02","p03","p04","p05","p06","p07","p08","p09","p10"]
+    },
+    "final": { "type": "final-cta", "settings": { "heading": "Press inquiries", "cta1_text": "Email Marketing Team", "cta1_url": "mailto:marketing@hushhushtan.com", "cta2_text": "Our Story", "cta2_url": "/pages/our-story" } }
+  },
+  "order": ["hero","press","final"]
+}

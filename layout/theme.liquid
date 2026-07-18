@@ -73,6 +73,8 @@
         comment
           Location pages (/pages/austin, austin-new, etc.) often stay on Default or an old
           Vantage template while Final Theme is draft — always render the redesigned stacks.
+          All other pages render their assigned JSON templates via content_for_layout so
+          every page stays editable in the theme customizer. Do NOT hardcode page renders here.
         endcomment
         assign hht_loc = blank
         if request.page_type == 'page'
@@ -91,25 +93,6 @@
         {% sections 'hht-dallas-new-landing' %}
       {%- elsif hht_loc == 'houston' -%}
         {% sections 'hht-houston-new-landing' %}
-      {%- elsif request.page_type == 'page' and template.suffix == blank -%}
-        {%- case page.handle -%}
-          {%- when 'hush-hush-tan-group-tanning-mimosas-package' -%}
-            {% render 'hht-group-page' %}
-          {%- when 'mobile-spray-tan' -%}
-            {% render 'hht-mobile-page' %}
-          {%- when 'faqs' -%}
-            {% render 'hht-faqs-page' %}
-          {%- when 'our-story' -%}
-            {% render 'hht-our-story-page' %}
-          {%- when 'tanning-tips' -%}
-            {% render 'hht-tanning-tips-page' %}
-          {%- when 'contact' -%}
-            {% render 'hht-contact-page' %}
-          {%- else -%}
-            {{ content_for_layout }}
-        {%- endcase -%}
-      {%- elsif request.page_type == 'page' and page.handle == 'contact' -%}
-        {% render 'hht-contact-page' %}
       {%- else -%}
         {{ content_for_layout }}
       {%- endif -%}
