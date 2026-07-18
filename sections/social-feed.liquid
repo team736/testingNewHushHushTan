@@ -1,3 +1,4 @@
+{%- comment -%} ig-feed-v2 {%- endcomment -%}
 {%- liquid
   assign fallbacks = 'hht-ig-post-01.jpg,hht-ig-post-02.jpg,hht-ig-post-03.jpg,hht-ig-post-04.jpg,hht-ig-post-05.jpg,hht-ig-post-06.jpg,hht-ig-post-07.jpg,hht-ig-post-08.jpg' | split: ','
   assign profile_url = section.settings.profile_url | default: 'https://www.instagram.com/hushhushtan/'
@@ -17,9 +18,9 @@
     <div class="hht-social__grid">
       {%- for block in section.blocks -%}
         {%- liquid
-          assign fb = block.settings.image_fallback | strip
-          if fb == blank
-            assign fb = fallbacks[forloop.index0] | default: 'hht-ig-post-01.jpg'
+          assign fb = fallbacks[forloop.index0] | default: 'hht-ig-post-01.jpg'
+          if block.settings.image_fallback != blank and block.settings.image_fallback contains 'hht-ig-post'
+            assign fb = block.settings.image_fallback | strip
           endif
           assign link = block.settings.link | default: profile_url
           assign alt = block.settings.alt | default: 'Hush Hush Tan on Instagram'
