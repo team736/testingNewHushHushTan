@@ -6925,6 +6925,15 @@ html.hht-filters-lock { overflow: hidden; }
 .hht-results__cta { text-align: center; margin-top: var(--cta-gap); }
 
 /* --- Social feed --- */
+.hht-social__handle {
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--font-eyebrow);
+  letter-spacing: .06em;
+}
+.hht-social__handle:hover {
+  color: var(--primary-dark);
+}
 .hht-social__heading-link {
   color: inherit;
   text-decoration: none;
