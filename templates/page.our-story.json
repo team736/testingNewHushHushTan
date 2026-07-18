@@ -139,6 +139,7 @@
         "location_card_9qibJd": {
           "type": "location_card",
           "settings": {
+            "image": "shopify://shop_images/014_20230720_hushhushtan_14.jpg",
             "asset_file": "hht-location-austin.jpg",
             "image_alt": "Hush Hush Tan Austin",
             "label": "Austin",
@@ -151,6 +152,7 @@
         "location_card_PdL7R7": {
           "type": "location_card",
           "settings": {
+            "image": "shopify://shop_images/13-HushHushTanDallas_12_1.jpg",
             "asset_file": "hht-location-dallas.jpg",
             "image_alt": "Hush Hush Tan Dallas",
             "label": "Dallas",
@@ -163,6 +165,7 @@
         "location_card_3FKhLK": {
           "type": "location_card",
           "settings": {
+            "image": "shopify://shop_images/Best_Spray_Tans_Austin_Dallas_Houston_Texas.png",
             "asset_file": "hht-location-houston.jpg",
             "image_alt": "Hush Hush Tan Houston",
             "label": "Houston",
