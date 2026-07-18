@@ -1,5 +1,5 @@
 {%- liquid
-  assign fallbacks = 'hht-moment-group.jpg,hht-moment-prep.jpg,hht-glow-editorial.jpg,hht-moment-aftercare.jpg,hht-reception.jpg,hht-glow-wall-art.jpg' | split: ','
+  assign fallbacks = 'hht-moment-group.jpg,hht-moment-prep.jpg,hht-glow-editorial.jpg,hht-moment-aftercare.jpg,hht-reception.jpg,hht-glow-wall-art.jpg,hht-gal-austin-01.jpg,hht-gal-dallas-01.jpg,hht-gal-houston-01.jpg,hht-gal-shared-01.jpg,hht-gal-austin-02.jpg,hht-gal-dallas-02.jpg' | split: ','
   assign profile_url = section.settings.profile_url | default: 'https://www.instagram.com/hushhushtan/'
 -%}
 
@@ -24,9 +24,9 @@
         -%}
         <a class="hht-social__tile" href="{{ link }}" target="_blank" rel="noopener noreferrer" {{ block.shopify_attributes }} aria-label="View Hush Hush Tan on Instagram">
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ alt | escape }}" width="500" height="500" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
           {%- else -%}
-            <img src="{{ fb | asset_url }}" alt="{{ alt | escape }}" width="500" height="500" loading="lazy">
+            <img src="{{ fb | asset_url }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
           {%- endif -%}
           <span class="hht-social__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
@@ -65,12 +65,13 @@
       ]
     }
   ],
-  "max_blocks": 8,
+  "max_blocks": 12,
   "presets": [{
     "name": "Social media feed",
     "blocks": [
       { "type": "post" }, { "type": "post" }, { "type": "post" },
-      { "type": "post" }, { "type": "post" }, { "type": "post" }
+      { "type": "post" }, { "type": "post" }, { "type": "post" },
+      { "type": "post" }, { "type": "post" }
     ]
   }]
 }

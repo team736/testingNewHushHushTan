@@ -2081,7 +2081,7 @@ small, .small { font-size: var(--type-body-sm); color: var(--body-text); line-he
 .location-card__body { padding: var(--card-padding); display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .location-card__city { font-family: var(--font-heading); font-size: clamp(1.25rem, 1.8vw, 1.625rem); line-height: var(--lh-h3); letter-spacing: 0; margin-bottom: 4px; color: #111111; }
 .location-card__meta { color: var(--body-text); font-family: var(--font-body); font-size: var(--type-body-sm); line-height: 1.55; letter-spacing: 0; margin: 0; }
-.location-card__ctas { display: flex; gap: clamp(12px, 1.5vw, 16px); margin-top: auto; padding-top: clamp(16px, 2vw, 20px); border-top: 1px solid var(--hht-border-soft); flex-wrap: wrap; }
+/* Location CTA layout is defined with the refined location-card block below */
 @media (max-width: 1000px) { .location-cards { grid-template-columns: 1fr; } }
 
 /* ============ FAQ accordion ============ */
@@ -4252,12 +4252,74 @@ html.hht-filters-lock { overflow: hidden; }
   font-family: var(--font-body);
 }
 .location-card__ctas {
-  display: flex; gap: 8px; flex-wrap: wrap;
-  margin-top: auto; padding-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: nowrap;
+  margin-top: auto;
+  padding-top: 20px;
   border-top: 1px solid rgba(166, 159, 226, 0.22);
 }
-.location-card__ctas .btn { min-width: 0; flex: 1; }
-@media (max-width: 1000px) { .location-cards { grid-template-columns: 1fr; } }
+/* Fit "Book Appointment" / "View Pricing" without clipping or awkward wrap */
+.location-card__ctas .btn,
+.location-card__ctas .btn--small {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+  padding-left: clamp(14px, 1.6vw, 22px);
+  padding-right: clamp(14px, 1.6vw, 22px);
+  font-size: clamp(0.625rem, 0.7vw, 0.72rem);
+  letter-spacing: 0.1em;
+  min-height: 44px;
+  box-sizing: border-box;
+}
+/* Desktop 3-col cards: stack CTAs so labels fit cleanly */
+@media (min-width: 1001px) {
+  .location-card__ctas {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+  .location-card__ctas .btn,
+  .location-card__ctas .btn--small {
+    flex: 0 0 auto;
+    width: 100%;
+    align-self: stretch;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+  }
+}
+@media (max-width: 1000px) {
+  .location-cards { grid-template-columns: 1fr; }
+  .location-card__ctas {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .location-card__ctas .btn,
+  .location-card__ctas .btn--small {
+    flex: 1 1 0;
+    width: auto;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 420px) {
+  .location-card__ctas {
+    flex-direction: column;
+  }
+  .location-card__ctas .btn,
+  .location-card__ctas .btn--small {
+    width: 100%;
+    flex: 1 1 auto;
+  }
+}
 
 /* ---- Service cards (used on Austin/Dallas/Houston etc.) ---- */
 .service-cards {
@@ -6109,7 +6171,17 @@ html.hht-filters-lock { overflow: hidden; }
   flex: 1;
 }
 .template-index .location-card__ctas .btn {
-  min-height: 44px;
+  min-height: 44px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding-left: clamp(12px, 1.4vw, 20px) !important;
+  padding-right: clamp(12px, 1.4vw, 20px) !important;
+  font-size: clamp(0.625rem, 0.68vw, 0.7rem) !important;
+  letter-spacing: 0.1em !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
 }
 .template-index .hht-spv2__ctitle {
   font-family: var(--font-heading);
@@ -6847,9 +6919,27 @@ html.hht-filters-lock { overflow: hidden; }
 
 /* --- Social feed --- */
 .hht-social__handle { color: var(--primary-dark); font-family: var(--font-eyebrow); letter-spacing: .06em; }
-.hht-social__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(8px, 1vw, 14px); }
-.hht-social__tile { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border-radius: var(--radius); display: block; }
-.hht-social__tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s var(--ease); }
+.hht-social__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(10px, 1.2vw, 16px);
+}
+.hht-social__tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--radius);
+  display: block;
+  background: var(--soft, #F4F1FF);
+}
+.hht-social__tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .4s var(--ease);
+}
 .hht-social__tile:hover img { transform: scale(1.05); }
 .hht-social__icon {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
@@ -6886,8 +6976,7 @@ html.hht-filters-lock { overflow: hidden; }
   .hht-reviews--compact .hht-reviews__card:last-child:nth-child(odd) { grid-column: 1 / -1; }
   .hht-results__grid { grid-template-columns: 1fr 1fr; }
   .hht-results__card:last-child:nth-child(odd) { grid-column: 1 / -1; }
-  .hht-social__grid { grid-template-columns: repeat(3, 1fr); }
-  .hht-starthere__panel { grid-template-columns: 1fr; }
+  .hht-social__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .hht-starthere__media { min-height: 300px; max-height: 420px; }
 }
 
@@ -6896,8 +6985,7 @@ html.hht-filters-lock { overflow: hidden; }
   .hht-reviews__card { flex-basis: 78vw; }
   .hht-reviews--compact .hht-reviews__grid { grid-template-columns: 1fr; }
   .hht-results__grid { grid-template-columns: 1fr; }
-  .hht-social__grid { grid-template-columns: repeat(3, 1fr); }
-  .hht-results__stats { gap: 20px 32px; }
+  .hht-social__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .hht-starthere__body { padding: 28px 22px 32px; }
   .hht-sticky-book { left: 16px; right: 16px; bottom: 14px; }
   .hht-sticky-book__btn { width: 100%; justify-content: center; }
