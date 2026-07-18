@@ -1,0 +1,86 @@
+{%- comment -%} ig-feed-v2 {%- endcomment -%}
+{%- liquid
+  assign fallbacks = 'hht-ig-post-01.jpg,hht-ig-post-02.jpg,hht-ig-post-03.jpg,hht-ig-post-04.jpg,hht-ig-post-05.jpg,hht-ig-post-06.jpg,hht-ig-post-07.jpg,hht-ig-post-08.jpg' | split: ','
+  assign profile_url = section.settings.profile_url | default: 'https://www.instagram.com/hushhushtan/'
+-%}
+
+<section class="section section-compact hht-social" aria-label="{{ section.settings.heading | default: 'Follow the Glow' | escape }}">
+  <div class="container container--home">
+    <div class="section-head">
+      <span class="eyebrow">
+        <a href="{{ profile_url }}" class="hht-social__handle" target="_blank" rel="noopener noreferrer">@HushHushTan</a>
+      </span>
+      {%- if section.settings.heading != blank -%}
+        <h2>{{ section.settings.heading }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="hht-social__grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign fb = fallbacks[forloop.index0] | default: 'hht-ig-post-01.jpg'
+          if block.settings.image_fallback != blank and block.settings.image_fallback contains 'hht-ig-post'
+            assign fb = block.settings.image_fallback | strip
+          endif
+          assign link = block.settings.link | default: profile_url
+          assign alt = block.settings.alt | default: 'Hush Hush Tan on Instagram'
+        -%}
+        <a class="hht-social__tile" href="{{ link }}" target="_blank" rel="noopener noreferrer" {{ block.shopify_attributes }} aria-label="{{ alt | escape }}">
+          {%- comment -%}
+            Always prefer theme asset fallbacks so Theme Editor image_picker values
+            cannot keep showing the old studio photos.
+          {%- endcomment -%}
+          <img src="{{ fb | asset_url }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
+          <span class="hht-social__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+          </span>
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_text != blank and profile_url != blank -%}
+      <div class="hht-social__cta">
+        <a href="{{ profile_url }}" class="btn btn--pill btn--outline" target="_blank" rel="noopener noreferrer">{{ section.settings.cta_text }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Social feed Instagram",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "@HushHushTan" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Follow the Glow" },
+    { "type": "url", "id": "profile_url", "label": "Instagram profile URL", "default": "https://www.instagram.com/hushhushtan/" },
+    { "type": "text", "id": "cta_text", "label": "Button text", "default": "Follow Us on Instagram" },
+    { "type": "text", "id": "handle", "label": "Handle (unused)", "info": "Deprecated — @HushHushTan is shown from the eyebrow." }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Post",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (unused — asset fallback is forced)" },
+        { "type": "text", "id": "image_fallback", "label": "Image asset filename", "info": "Theme asset, e.g. hht-ig-post-01.jpg" },
+        { "type": "text", "id": "alt", "label": "Alt text" },
+        { "type": "url", "id": "link", "label": "Post link" }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [{
+    "name": "Social feed Instagram",
+    "blocks": [
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-01.jpg", "link": "https://www.instagram.com/p/DaODahCijaU/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-02.jpg", "link": "https://www.instagram.com/p/DaTcqvWnJDw/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-03.jpg", "link": "https://www.instagram.com/p/DNmPsjyMr6u/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-04.jpg", "link": "https://www.instagram.com/p/Dala5EfnEuO/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-05.jpg", "link": "https://www.instagram.com/p/DZDyuJfpBWz/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-06.jpg", "link": "https://www.instagram.com/p/DZsj73qHJep/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-07.jpg", "link": "https://www.instagram.com/p/DYxfka4HDdj/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-08.jpg", "link": "https://www.instagram.com/p/DYQyHfJpI6T/" } }
+    ]
+  }]
+}
+{% endschema %}

@@ -509,7 +509,7 @@
       }
     },
     "social": {
-      "type": "social-feed",
+      "type": "social-feed-ig",
       "blocks": {
         "s1": {
           "type": "post",
