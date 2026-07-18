@@ -197,24 +197,109 @@
     },
     "gift_certificates_LYPj6E": {
       "type": "gift-certificates",
+      "blocks": {
+        "value_row_jEcHcf": {
+          "type": "value_row",
+          "settings": {
+            "title": "A little glow",
+            "price_austin": "$25",
+            "price_houston": "$25",
+            "price_dallas": "$30",
+            "desc": "",
+            "bullets": "",
+            "button_label": "Book Now",
+            "link_austin": "",
+            "link_houston": "",
+            "link_dallas": ""
+          }
+        },
+        "value_row_eBPbTx": {
+          "type": "value_row",
+          "settings": {
+            "title": "A little glow",
+            "price_austin": "$25",
+            "price_houston": "$25",
+            "price_dallas": "$30",
+            "desc": "",
+            "bullets": "",
+            "button_label": "Book Now",
+            "link_austin": "",
+            "link_houston": "",
+            "link_dallas": ""
+          }
+        },
+        "value_row_ki4CJK": {
+          "type": "value_row",
+          "settings": {
+            "title": "A little glow",
+            "price_austin": "$25",
+            "price_houston": "$25",
+            "price_dallas": "$30",
+            "desc": "",
+            "bullets": "",
+            "button_label": "Book Now",
+            "link_austin": "",
+            "link_houston": "",
+            "link_dallas": ""
+          }
+        }
+      },
+      "block_order": [
+        "value_row_jEcHcf",
+        "value_row_eBPbTx",
+        "value_row_ki4CJK"
+      ],
       "name": "Gift Certificates",
       "settings": {
         "only_on_handle": "",
         "hero_eyebrow": "The Perfect Gift, Beautifully Glowing",
         "hero_heading": "Give the Gift of Confidence",
         "hero_text": "Celebrate someone special with a personalized Hush Hush Tan experience. Choose their preferred Texas studio and send a gift certificate they can use toward an eligible glow experience.",
+        "trust_1": "Personalized gift for their preferred Texas studio",
+        "trust_2": "Easy online purchase through secure Booker checkout",
+        "trust_3": "Available for Austin, Dallas and Houston",
         "hero_cta1": "Choose a Location",
+        "hero_cta1_url": "#gift-purchase",
         "hero_cta2": "See What It Can Cover",
+        "hero_cta2_url": "#gift-values",
+        "hero_image": "shopify://shop_images/P1046018-Enhanced-NR.jpg",
         "hero_image_alt": "Hush Hush Tan gift glow experience",
         "default_location": "austin",
         "buy_eyebrow": "Choose Their Studio",
         "buy_heading": "Select a Gift Certificate Location",
         "buy_text": "Gift certificates are purchased for a specific Hush Hush Tan studio. Choose the location where the recipient plans to book.",
+        "buy_note": "Select the studio where the recipient plans to redeem the gift. Gift certificates are purchased through that studio's secure Booker checkout.",
+        "studio_label_austin": "Hush Hush Tan Austin",
+        "studio_label_dallas": "Hush Hush Tan Dallas",
+        "studio_label_houston": "Hush Hush Tan Houston",
+        "purchase_label_austin": "Purchase an Austin Gift Certificate",
+        "purchase_label_dallas": "Purchase a Dallas Gift Certificate",
+        "purchase_label_houston": "Purchase a Houston Gift Certificate",
         "austin_url": "",
         "dallas_url": "",
         "houston_url": "",
+        "city_img_austin": "shopify://shop_images/004_20230720_hushhushtan_04.jpg",
+        "city_img_dallas": "shopify://shop_images/13-HushHushTanDallas_12_1.jpg",
+        "city_img_houston": "shopify://shop_images/04-HushHushTanHouston03_1.jpg",
+        "why_eyebrow": "A Gift They Will Actually Use",
+        "why_heading": "More Than a Gift Card. A Confidence Boost.",
+        "why_text": "A Hush Hush Tan gift certificate gives the recipient the freedom to choose a personalized glow experience that fits their schedule, skin tone and desired result.",
+        "covers_eyebrow": "Let Them Choose",
+        "covers_heading": "Let Them Choose Their Glow",
+        "covers_text": "Depending on the selected value and the studio's redemption rules, a gift certificate may be applied toward eligible Hush Hush Tan services. Please confirm product and package eligibility with the selected studio.",
+        "services_label": "Explore Services",
         "services_url": "",
-        "products_url": ""
+        "products_label": "Explore Products",
+        "products_url": "",
+        "covers_fine": "Product and membership redemption may vary by studio. Contact the selected location for current terms. Online Shopify checkout redemption is not confirmed.",
+        "values_heading": "Gift Value Ideas",
+        "values_sub": "What Could Their Gift Cover?",
+        "values_text": "Not sure how much to give? Use these examples as a guide based on current listed studio pricing, then choose any available amount in the secure Booker checkout.",
+        "values_foot": "Examples reflect current listed Services pricing for the selected city and are inspiration only. Final redemption depends on selected services and applicable taxes or studio terms.",
+        "occ_eyebrow": "For Every Reason to Celebrate",
+        "occ_heading": "A Thoughtful Gift for Every Occasion",
+        "steps_eyebrow": "Simple Steps",
+        "steps_heading": "Giving a Glow Is Simple"
       }
     }
   },
