@@ -23,9 +23,9 @@
             "title_line3": "Confidence.",
             "subtitle": "Our custom airbrush tans enhance your skin tone in a clean, luxury studio where you'll always feel your best.",
             "cta_primary_text": "Book Now",
-            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_primary_url": "/pages/our-services",
             "cta_secondary_text": "Book Custom glow",
-            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_secondary_url": "/pages/our-services",
             "show_pills": true
           }
         },
@@ -40,9 +40,9 @@
             "title_line3": "No one will know.",
             "subtitle": "A personalized airbrush tan designed to match your skin tone and leave you with a natural, flawless glow.",
             "cta_primary_text": "Book Now",
-            "cta_primary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_primary_url": "/pages/our-services",
             "cta_secondary_text": "Book Your Glow",
-            "cta_secondary_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "cta_secondary_url": "/pages/our-services",
             "show_pills": true
           }
         }
@@ -95,7 +95,7 @@
         "r5": {
           "type": "review",
           "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
             "author": "Meaghan Estes",
             "location": "Dallas, TX"
           }
@@ -103,7 +103,7 @@
         "r6": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
             "author": "Ashley Post",
             "location": "Houston, TX"
           }
@@ -119,7 +119,7 @@
         "r8": {
           "type": "review",
           "settings": {
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
             "author": "Calla Taylor",
             "location": "Dallas, TX"
           }
@@ -175,7 +175,7 @@
         "only_on_handle": "",
         "eyebrow": "Loved By Texas",
         "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews \u2014 the most-loved custom spray tan in Austin, Dallas & Houston.",
+        "subheading": "Real glows, real reviews — the most-loved custom spray tan in Austin, Dallas & Houston.",
         "layout": "full",
         "speed": 50,
         "cta_text": "Read Our Reviews",
@@ -316,7 +316,7 @@
         "b2": {
           "type": "point",
           "settings": {
-            "text": "Natural, streak-free finish \u2014 never orange"
+            "text": "Natural, streak-free finish — never orange"
           }
         },
         "b3": {
@@ -334,13 +334,13 @@
       "settings": {
         "eyebrow": "First Time?",
         "heading": "New to HHT? Start Here",
-        "feature": "The Custom Glow \u2014 our signature first-time experience.",
-        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish \u2014 no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
+        "feature": "The Custom Glow — our signature first-time experience.",
+        "text": "New to spray tanning? The Custom Glow is the perfect place to begin. Your artist hand-mixes a shade to match your skin tone and undertones for a natural, streak-free finish — no orange, no guesswork. Just tell us your occasion and we'll take care of the rest.",
         "image": "shopify://shop_images/02-HushHushTanDallas_01.jpg",
         "image_fallback": "hht-glow-editorial.jpg",
         "image_alt": "Hush Hush Tan Custom Glow",
         "cta_text": "Book Now",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+        "cta_url": "/pages/our-services"
       }
     },
     "locations": {
@@ -355,7 +355,7 @@
             "image_fallback": "",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "book_label": "Book Appointment",
             "map_url": "",
@@ -372,7 +372,7 @@
             "image_fallback": "",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10\u20135 \u00b7 Tue\u2013Fri 9\u20139 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
             "book_label": "Book Appointment",
             "map_url": "",
@@ -389,7 +389,7 @@
             "image_fallback": "",
             "address": "600 N Shepherd Dr, Ste. 128, Houston, TX 77007",
             "phone": "713-485-0633",
-            "hours": "Mon 10\u20135 \u00b7 Tue, Fri 9\u20139 \u00b7 Wed\u2013Thu 9\u201310 \u00b7 Sat\u2013Sun 10\u20135",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
             "book_label": "Book Appointment",
             "map_url": "",
@@ -418,7 +418,7 @@
           "settings": {
             "before_image": "shopify://shop_images/IMG_1109.jpg",
             "after_image": "shopify://shop_images/IMG_1111.jpg",
-            "caption": "Custom Glow \u2014 color-matched finish"
+            "caption": "Custom Glow — color-matched finish"
           }
         },
         "ba2": {
@@ -446,7 +446,7 @@
       "settings": {
         "eyebrow": "Real Client Results",
         "heading": "15 Years of Flawless Glows",
-        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning \u2014 perfecting the art of the natural, streak-free glow, one client at a time.",
+        "subheading": "For 15 years, Hush Hush Tan has been Texas' trusted name in custom airbrush tanning — perfecting the art of the natural, streak-free glow, one client at a time.",
         "show_stats": true,
         "stat_1_num": "15 Years",
         "stat_1_label": "Perfecting the glow",
@@ -455,7 +455,7 @@
         "stat_3_num": "3 Studios",
         "stat_3_label": "Across Texas",
         "cta_text": "Book Your Glow",
-        "cta_url": "https://go.booker.com/location/hushhushtan/service-menu"
+        "cta_url": "/pages/our-services"
       }
     },
     "glow_moments_faq_gkPY4D": {
@@ -486,7 +486,7 @@
           "type": "qa",
           "settings": {
             "question": "What do I wear for my session?",
-            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs \u2014 disposable boxers are available for $3/pair.</p>"
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
           }
         },
         "qa_RYBLhG": {
@@ -525,7 +525,7 @@
         "prep_after_label": "After Your Tan",
         "prep_after_items": "Rinse after 2-4 (Rapid) or 8 (Custom Glow) hours.\nMoisturize daily with oil-free products.",
         "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs \u2192",
+        "faq_btn_label": "Read All FAQs →",
         "faqs_url": "",
         "book_btn_label": "Book Your Glow",
         "book_url": "",
@@ -533,69 +533,53 @@
       }
     },
     "social": {
-      "type": "social-feed-ig",
+      "type": "social-feed",
       "blocks": {
         "s1": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-01.jpg",
-            "alt": "Hush Hush Tan wellness glow",
             "link": "https://www.instagram.com/p/DaODahCijaU/"
           }
         },
         "s2": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-02.jpg",
-            "alt": "Hush Hush Tan Empire State glow",
             "link": "https://www.instagram.com/p/DaTcqvWnJDw/"
           }
         },
         "s3": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-03.jpg",
-            "alt": "Hush Hush Tan bridal glow",
             "link": "https://www.instagram.com/p/DNmPsjyMr6u/"
           }
         },
         "s4": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-04.jpg",
-            "alt": "Hush Hush Tan team",
             "link": "https://www.instagram.com/p/Dala5EfnEuO/"
           }
         },
         "s5": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-05.jpg",
-            "alt": "Hush Hush Tan wellness event",
-            "link": "https://www.instagram.com/p/DZL3MKTJd85/"
+            "link": "https://www.instagram.com/p/DZDyuJfpBWz/"
           }
         },
         "s6": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-06.jpg",
-            "alt": "Hush Hush Tan client glow",
             "link": "https://www.instagram.com/p/DZsj73qHJep/"
           }
         },
         "s7": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-07.jpg",
-            "alt": "Hush Hush Tan Glow and Sculpt",
             "link": "https://www.instagram.com/p/DYxfka4HDdj/"
           }
         },
         "s8": {
           "type": "post",
           "settings": {
-            "image_fallback": "hht-ig-post-08.jpg",
-            "alt": "Hush Hush Tan brand ambassador",
             "link": "https://www.instagram.com/p/DYQyHfJpI6T/"
           }
         }
@@ -635,7 +619,7 @@
       "settings": {
         "enabled": true,
         "text": "Book Now",
-        "url": "https://go.booker.com/location/hushhushtan/service-menu",
+        "url": "/pages/our-services",
         "scroll_threshold": 500
       }
     }
