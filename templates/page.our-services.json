@@ -403,9 +403,9 @@
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
-            "price_loc1": "25",
-            "price_loc2": "25",
-            "price_loc3": "25",
+            "price_loc1": "75",
+            "price_loc2": "75",
+            "price_loc3": "80",
             "price_sub": "",
             "description": "Custom fabulous double dip! Sprayed twice for a rich, dark tan.",
             "benefits": "",
@@ -556,7 +556,10 @@
             "price_loc1": "300",
             "price_loc2": "300",
             "price_loc3": "325",
-            "price_sub": "+$60 per add'l guest",
+            "price_sub": "",
+            "price_sub_loc1": "+$50 per add'l guest",
+            "price_sub_loc2": "+$50 per add'l guest",
+            "price_sub_loc3": "+$55 per add'l guest",
             "description": "",
             "benefits": "Includes five Custom Glow tans, Studio access for the group, Complimentary champagne or mimosas",
             "target_location": "all",
@@ -778,7 +781,7 @@
           "type": "qa",
           "settings": {
             "question": "Are prices different at each location?",
-            "answer": "<p>Yes. Austin and Houston follow one pricing structure, while Dallas prices differ on core services, memberships, partials, packages, and Birthday Glow. Use the city selector on this page to view accurate pricing for your studio.</p>"
+            "answer": "<p>Yes. Austin and Houston follow one pricing structure, while Dallas prices differ on core services, memberships, partials, packages, add-ons, group experiences, and Birthday Glow. Use the city selector on this page to view accurate pricing for your studio.</p>"
           }
         },
         "qa_svc_05": {
