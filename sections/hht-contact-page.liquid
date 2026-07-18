@@ -1,8 +1,377 @@
-{% render 'hht-contact-page' %}
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-contact-page">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow | escape }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading | escape }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_lead }}</p>
+          <div class="hht-sp__ctas">
+            {%- if section.settings.hero_cta1_label != blank -%}
+              <a class="btn" href="{{ section.settings.hero_cta1_link }}">{{ section.settings.hero_cta1_label | escape }}</a>
+            {%- endif -%}
+            {%- if section.settings.hero_cta2_label != blank -%}
+              <a class="btn btn--outline" href="{{ section.settings.hero_cta2_link }}">{{ section.settings.hero_cta2_label | escape }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 1280 }}" alt="{{ section.settings.hero_image_alt | escape }}" width="640" height="427" loading="eager">
+          {%- else -%}
+            <img src="{{ 'hht-contact-team.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | escape }}" width="640" height="427" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.help_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.help_heading | escape }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">{{ section.settings.card1_label | escape }}</span>
+          <h3 class="hht-sp__h3">{{ section.settings.card1_title | escape }}</h3>
+          <p>{{ section.settings.card1_text | escape }}</p>
+          {%- if section.settings.card1_button_label != blank -%}
+            <p style="margin-top:14px;"><a class="btn btn--outline" href="{{ section.settings.card1_button_link }}">{{ section.settings.card1_button_label | escape }}</a></p>
+          {%- endif -%}
+        </article>
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">{{ section.settings.card2_label | escape }}</span>
+          <h3 class="hht-sp__h3">{{ section.settings.card2_title | escape }}</h3>
+          <p>{{ section.settings.card2_text }}</p>
+        </article>
+        <article class="hht-sp-card">
+          <span class="hht-sp-card__label">{{ section.settings.card3_label | escape }}</span>
+          <h3 class="hht-sp__h3">{{ section.settings.card3_title | escape }}</h3>
+          <p>{{ section.settings.card3_text }}</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section" id="studios">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.studios_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.studios_heading | escape }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'location' -%}
+            <article class="hht-sp-loccard" {{ block.shopify_attributes }}>
+              <div class="hht-sp-loccard__img">
+                {%- if block.settings.image -%}
+                  <img src="{{ block.settings.image | image_url: width: 1280 }}" alt="{{ block.settings.image_alt | escape }}" width="640" height="400" loading="lazy">
+                {%- elsif block.settings.image_asset != blank -%}
+                  <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.image_alt | escape }}" width="640" height="400" loading="lazy">
+                {%- endif -%}
+              </div>
+              <div class="hht-sp-loccard__body">
+                <span class="hht-sp-card__label">{{ block.settings.label | escape }}</span>
+                <h3 class="hht-sp__h3">{{ block.settings.title | escape }}</h3>
+                {%- if block.settings.address != blank -%}
+                  <p class="hht-sp-loccard__address">{{ block.settings.address }}</p>
+                {%- endif -%}
+                {%- if block.settings.phone != blank -%}
+                  <p class="hht-sp-loccard__phone">Phone: <a href="tel:{{ block.settings.phone }}">{{ block.settings.phone_label | escape }}</a></p>
+                {%- endif -%}
+                {%- if block.settings.email != blank -%}
+                  <p class="hht-sp-loccard__email">Email: <a href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a></p>
+                {%- endif -%}
+                {%- if block.settings.hours != blank -%}
+                  <p class="hht-sp-loccard__hours">{{ block.settings.hours }}</p>
+                {%- endif -%}
+                <div class="hht-sp-loccard__actions">
+                  {%- if block.settings.book_url != blank -%}
+                    <a class="btn" href="{{ block.settings.book_url }}" target="_blank" rel="noopener noreferrer">{{ block.settings.book_label | escape }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.phone != blank -%}
+                    <a class="btn btn--outline" href="tel:{{ block.settings.phone }}">{{ block.settings.call_label | escape }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.view_url != blank -%}
+                    <a class="btn btn--outline" href="{{ block.settings.view_url }}">{{ block.settings.view_label | escape }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.directions_url != blank -%}
+                    <a class="btn btn--outline" href="{{ block.settings.directions_url }}" target="_blank" rel="noopener noreferrer">{{ block.settings.directions_label | escape }}</a>
+                  {%- endif -%}
+                </div>
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="contact-form">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.form_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.form_heading | escape }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.form_lead | escape }}</p>
+      </div>
+      <div class="hht-sp-form">
+        {%- form 'contact', class: 'hht-contact-form' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="note note--ok" role="status">{{ section.settings.form_success | escape }}</div>
+          {%- endif -%}
+          {%- if form.errors -%}
+            <div class="note note--err" role="alert">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+
+          <input type="hidden" name="contact[tags]" value="website-contact">
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="ContactName">Name</label>
+              <input id="ContactName" type="text" name="contact[name]" autocomplete="name" required value="{% if form.name %}{{ form.name }}{% endif %}">
+            </div>
+            <div class="field">
+              <label for="ContactEmail">Email</label>
+              <input id="ContactEmail" type="email" name="contact[email]" autocomplete="email" required value="{% if form.email %}{{ form.email }}{% endif %}">
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label for="ContactPhone">Phone <span style="text-transform:none;letter-spacing:0;font-family:var(--font-body);color:var(--sp-muted);">(optional)</span></label>
+              <input id="ContactPhone" type="tel" name="contact[phone]" autocomplete="tel" value="{% if form.phone %}{{ form.phone }}{% endif %}">
+            </div>
+            <div class="field">
+              <label for="ContactLocation">Preferred location</label>
+              <select id="ContactLocation" name="contact[location]" required>
+                <option value="">Select…</option>
+                <option value="Austin">Austin</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Houston">Houston</option>
+                <option value="Not location-specific">Not location-specific</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="ContactInquiry">Inquiry type</label>
+            <select id="ContactInquiry" name="contact[inquiry_type]" required>
+              <option value="">Select…</option>
+              <option value="Appointment or service question">Appointment or service question</option>
+              <option value="Membership or package question">Membership or package question</option>
+              <option value="Gift certificate question">Gift certificate question</option>
+              <option value="Product question">Product question</option>
+              <option value="Existing booking support">Existing booking support</option>
+              <option value="Marketing or partnership">Marketing or partnership</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ContactBody">Message</label>
+            <textarea id="ContactBody" name="contact[body]" required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+          </div>
+
+          <button type="submit" class="btn" style="width:100%;">{{ section.settings.form_submit_label | escape }}</button>
+        {%- endform -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split hht-sp-split--media-emphasis">
+        <div>
+          <span class="hht-sp__eyebrow">{{ section.settings.mkt_eyebrow | escape }}</span>
+          <h2 class="hht-sp__h2">{{ section.settings.mkt_heading | escape }}</h2>
+          <p class="hht-sp__lead">{{ section.settings.mkt_lead | escape }}</p>
+          <div class="hht-sp__ctas">
+            {%- if section.settings.mkt_cta1_label != blank -%}
+              <a class="btn" href="{{ section.settings.mkt_cta1_link }}">{{ section.settings.mkt_cta1_label | escape }}</a>
+            {%- endif -%}
+            {%- if section.settings.mkt_cta2_label != blank -%}
+              <a class="btn btn--outline" href="{{ section.settings.mkt_cta2_link }}">{{ section.settings.mkt_cta2_label | escape }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="hht-sp-split__media">
+          {%- if section.settings.mkt_image -%}
+            <img src="{{ section.settings.mkt_image | image_url: width: 1280 }}" alt="{{ section.settings.mkt_image_alt | escape }}" width="640" height="427" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'hht-partnerships-team.jpg' | asset_url }}" alt="{{ section.settings.mkt_image_alt | escape }}" width="640" height="427" loading="lazy">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-cta-center" style="padding-top:0;padding-bottom:0;">
+        <span class="hht-sp__eyebrow">{{ section.settings.faq_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.faq_heading | escape }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.faq_lead | escape }}</p>
+        <div class="hht-sp__ctas">
+          {%- if section.settings.faq_cta1_label != blank -%}
+            <a class="btn" href="{{ section.settings.faq_cta1_link }}">{{ section.settings.faq_cta1_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.faq_cta2_label != blank -%}
+            <a class="btn btn--outline" href="{{ section.settings.faq_cta2_link }}">{{ section.settings.faq_cta2_label | escape }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
 {% schema %}
 {
-  "name": "Contact page",
-  "settings": [],
-  "presets": [{ "name": "Contact page" }]
+  "name": "Contact Page",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Contact" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Need Assistance? We’re Here to Help." },
+    { "type": "html", "id": "hero_lead", "label": "Lead text (HTML)", "default": "Call your nearest studio or send our team a message. For general support, email <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a>. For marketing and partnership inquiries, contact <a href=\"mailto:marketing@hushhushtan.com\">marketing@hushhushtan.com</a>." },
+    { "type": "text", "id": "hero_cta1_label", "label": "Primary button label", "default": "Choose Your Studio" },
+    { "type": "text", "id": "hero_cta1_link", "label": "Primary button link", "default": "#studios" },
+    { "type": "text", "id": "hero_cta2_label", "label": "Secondary button label", "default": "Send a Message" },
+    { "type": "text", "id": "hero_cta2_link", "label": "Secondary button link", "default": "#contact-form" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "Falls back to the built-in team photo (hht-contact-team.jpg) when empty." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Hush Hush Tan team at the studio glow wall" },
+    { "type": "header", "content": "Help paths" },
+    { "type": "text", "id": "help_eyebrow", "label": "Eyebrow", "default": "How Can We Help?" },
+    { "type": "text", "id": "help_heading", "label": "Heading", "default": "Choose the Right Path" },
+    { "type": "text", "id": "card1_label", "label": "Card 1 label", "default": "Appointments & Services" },
+    { "type": "text", "id": "card1_title", "label": "Card 1 title", "default": "Book or ask about services" },
+    { "type": "textarea", "id": "card1_text", "label": "Card 1 text", "default": "Choose a studio for booking questions, service availability, or appointment support." },
+    { "type": "text", "id": "card1_button_label", "label": "Card 1 button label", "default": "View Studios" },
+    { "type": "text", "id": "card1_button_link", "label": "Card 1 button link", "default": "#studios" },
+    { "type": "text", "id": "card2_label", "label": "Card 2 label", "default": "General Support" },
+    { "type": "text", "id": "card2_title", "label": "Card 2 title", "default": "Questions & help" },
+    { "type": "html", "id": "card2_text", "label": "Card 2 text (HTML)", "default": "Email <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a> or use the message form below." },
+    { "type": "text", "id": "card3_label", "label": "Card 3 label", "default": "Marketing & Partnerships" },
+    { "type": "text", "id": "card3_title", "label": "Card 3 title", "default": "Press & collabs" },
+    { "type": "html", "id": "card3_text", "label": "Card 3 text (HTML)", "default": "Contact <a href=\"mailto:marketing@hushhushtan.com\">marketing@hushhushtan.com</a> for editorial and brand opportunities." },
+    { "type": "header", "content": "Studios" },
+    { "type": "text", "id": "studios_eyebrow", "label": "Eyebrow", "default": "Studios" },
+    { "type": "text", "id": "studios_heading", "label": "Heading", "default": "Our Texas Locations" },
+    { "type": "header", "content": "Contact form" },
+    { "type": "text", "id": "form_eyebrow", "label": "Eyebrow", "default": "Message" },
+    { "type": "text", "id": "form_heading", "label": "Heading", "default": "Send Us a Message" },
+    { "type": "text", "id": "form_lead", "label": "Lead text", "default": "Our team will respond within one business day." },
+    { "type": "text", "id": "form_success", "label": "Success message", "default": "Thanks — we’ll be in touch shortly." },
+    { "type": "text", "id": "form_submit_label", "label": "Submit button label", "default": "Submit Message" },
+    { "type": "header", "content": "Marketing and partnerships" },
+    { "type": "text", "id": "mkt_eyebrow", "label": "Eyebrow", "default": "Work with Hush Hush Tan" },
+    { "type": "text", "id": "mkt_heading", "label": "Heading", "default": "Marketing & Partnerships" },
+    { "type": "textarea", "id": "mkt_lead", "label": "Lead text", "default": "For editorial opportunities, brand partnerships, press requests, and collaborations, contact the Hush Hush Tan marketing team." },
+    { "type": "text", "id": "mkt_cta1_label", "label": "Primary button label", "default": "Email Marketing Team" },
+    { "type": "text", "id": "mkt_cta1_link", "label": "Primary button link", "default": "mailto:marketing@hushhushtan.com" },
+    { "type": "text", "id": "mkt_cta2_label", "label": "Secondary button label", "default": "Read Press" },
+    { "type": "text", "id": "mkt_cta2_link", "label": "Secondary button link", "default": "/pages/press" },
+    { "type": "image_picker", "id": "mkt_image", "label": "Image", "info": "Falls back to the built-in team photo (hht-partnerships-team.jpg) when empty." },
+    { "type": "text", "id": "mkt_image_alt", "label": "Image alt text", "default": "Hush Hush Tan team at the studio glow wall" },
+    { "type": "header", "content": "FAQ callout" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "Quick Answers" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Looking for a Quick Answer?" },
+    { "type": "textarea", "id": "faq_lead", "label": "Lead text", "default": "Visit the Frequently Asked Questions page for preparation, aftercare, membership, and spray-tanning information." },
+    { "type": "text", "id": "faq_cta1_label", "label": "Primary button label", "default": "Read the FAQs" },
+    { "type": "text", "id": "faq_cta1_link", "label": "Primary button link", "default": "/pages/faqs" },
+    { "type": "text", "id": "faq_cta2_label", "label": "Secondary button label", "default": "Choose a Location" },
+    { "type": "text", "id": "faq_cta2_link", "label": "Secondary button link", "default": "/pages/locations" }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Location",
+      "settings": [
+        { "type": "text", "id": "label", "label": "City label" },
+        { "type": "text", "id": "title", "label": "Studio name" },
+        { "type": "image_picker", "id": "image", "label": "Studio image" },
+        { "type": "text", "id": "image_asset", "label": "Fallback image asset filename", "info": "Theme asset used when no image is selected, e.g. hht-location-austin.jpg" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text" },
+        { "type": "html", "id": "address", "label": "Address (HTML, use <br> for line breaks)" },
+        { "type": "text", "id": "phone_label", "label": "Phone (display)" },
+        { "type": "text", "id": "phone", "label": "Phone (tel link)", "info": "E.g. +15124828339" },
+        { "type": "text", "id": "email", "label": "Email (optional)" },
+        { "type": "html", "id": "hours", "label": "Hours (optional, HTML)" },
+        { "type": "text", "id": "book_label", "label": "Booking button label" },
+        { "type": "text", "id": "book_url", "label": "Booking button URL" },
+        { "type": "text", "id": "call_label", "label": "Call button label" },
+        { "type": "text", "id": "view_label", "label": "View location button label", "default": "View Location" },
+        { "type": "text", "id": "view_url", "label": "View location URL" },
+        { "type": "text", "id": "directions_label", "label": "Directions button label", "default": "Get Directions" },
+        { "type": "text", "id": "directions_url", "label": "Directions URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Page",
+      "blocks": [
+        {
+          "type": "location",
+          "settings": {
+            "label": "Austin",
+            "title": "Hush Hush Tan Austin",
+            "image_asset": "hht-location-austin.jpg",
+            "image_alt": "Hush Hush Tan Austin studio",
+            "address": "1211 West 6th St.<br>Suite #400<br>Austin, TX 78703",
+            "phone_label": "(512) 482-8339",
+            "phone": "+15124828339",
+            "book_label": "Book Austin",
+            "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
+            "call_label": "Call Austin",
+            "view_label": "View Location",
+            "view_url": "/pages/austin",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=1211+West+6th+St+Suite+400+Austin+TX+78703"
+          }
+        },
+        {
+          "type": "location",
+          "settings": {
+            "label": "Dallas",
+            "title": "Hush Hush Tan Dallas",
+            "image_asset": "hht-location-dallas.jpg",
+            "image_alt": "Hush Hush Tan Dallas studio",
+            "address": "4254 Oak Lawn Avenue<br>Dallas, TX 75219",
+            "phone_label": "(469) 868-6228",
+            "phone": "+14698686228",
+            "book_label": "Book Dallas",
+            "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
+            "call_label": "Call Dallas",
+            "view_label": "View Location",
+            "view_url": "/pages/dallas",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=4254+Oak+Lawn+Avenue+Dallas+TX+75219"
+          }
+        },
+        {
+          "type": "location",
+          "settings": {
+            "label": "Houston",
+            "title": "Hush Hush Tan Houston",
+            "image_asset": "hht-location-houston.jpg",
+            "image_alt": "Hush Hush Tan Houston studio",
+            "address": "600 N Shepherd Dr.<br>Suite 128<br>Houston, TX 77007",
+            "phone_label": "(713) 485-0633",
+            "phone": "+17134850633",
+            "book_label": "Book Houston",
+            "book_url": "https://go.booker.com/location/hushhushtanhouston/service-menu",
+            "call_label": "Call Houston",
+            "view_label": "View Location",
+            "view_url": "/pages/houston",
+            "directions_label": "Get Directions",
+            "directions_url": "https://www.google.com/maps/search/?api=1&query=600+N+Shepherd+Dr+Ste+128+Houston+TX+77007"
+          }
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
