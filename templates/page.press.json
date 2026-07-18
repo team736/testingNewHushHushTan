@@ -11,6 +11,7 @@
   "sections": {
     "hero": {
       "type": "page-hero",
+      "disabled": true,
       "settings": {
         "eyebrow": "Press",
         "title": "Hush Hush Tan, in the",
@@ -22,115 +23,126 @@
         "cta_secondary_url": ""
       }
     },
-    "press": {
+    "press_grid_TnB8qL": {
       "type": "press-grid",
       "blocks": {
-        "p01": {
+        "logo_Mj3UwT": {
+          "type": "logo",
+          "settings": {
+            "name": "",
+            "image": "shopify://shop_images/CI-Logo-2022-Website-White-1.svg",
+            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
+            "size": "md",
+            "invert_color": true
+          }
+        },
+        "logo_JDkN6w": {
           "type": "logo",
           "settings": {
             "name": "Vogue",
+            "image": "shopify://shop_images/VOGUE_LOGO.svg",
             "link": "https://www.vogue.com/article/best-spray-tan-salons-la-new-york-summer-beauty",
             "size": "md",
             "invert_color": false
           }
         },
-        "p02": {
+        "logo_8qiH3U": {
           "type": "logo",
           "settings": {
             "name": "InStyle",
+            "image": "shopify://shop_images/download-1.jpg",
+            "link": "",
+            "size": "md",
+            "invert_color": false
+          }
+        },
+        "logo_MiyCYd": {
+          "type": "logo",
+          "settings": {
+            "name": "D Magazine",
+            "image": "shopify://shop_images/featured-in-d-magazine.png",
+            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_knRRbY": {
+          "type": "logo",
+          "settings": {
+            "name": "PaperCity",
+            "image": "shopify://shop_images/papercity-magazine-black.webp",
+            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
+            "size": "lg",
+            "invert_color": false
+          }
+        },
+        "logo_gTJBEt": {
+          "type": "logo",
+          "settings": {
+            "name": "Austin Monthly",
+            "image": "shopify://shop_images/form_logo.jpg",
             "link": "https://hushhushtan.com/pages/press",
             "size": "md",
             "invert_color": false
           }
         },
-        "p03": {
+        "logo_PEE4jy": {
           "type": "logo",
           "settings": {
-            "name": "D Magazine",
-            "link": "https://www.dmagazine.com/health-fitness/2018/08/hush-hush-tan-dallas/",
-            "size": "md",
+            "name": "Texas Lifestyle Magazine",
+            "image": "shopify://shop_images/TLM_10Years_Color-1-1.svg",
+            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
+            "size": "xl",
             "invert_color": false
           }
         },
-        "p04": {
-          "type": "logo",
-          "settings": {
-            "name": "Paper City",
-            "link": "https://www.papercitymag.com/fashion/austin-hush-hush-tan-opens-dallas-tanning-salon-vogue-approved/",
-            "size": "md",
-            "invert_color": false
-          }
-        },
-        "p05": {
-          "type": "logo",
-          "settings": {
-            "name": "Voyage Houston",
-            "link": "https://voyagehouston.com/interview/meet-izabel-wicker-of-hush-hush-tan/",
-            "size": "md",
-            "invert_color": false
-          }
-        },
-        "p06": {
-          "type": "logo",
-          "settings": {
-            "name": "Community Impact",
-            "link": "https://communityimpact.com/houston/heights-river-oaks-montrose/business/2023/12/06/updated-spray-tan-salon-hush-hush-tan-coming-soon-to-m-k-t-in-the-heights/",
-            "size": "md",
-            "invert_color": false
-          }
-        },
-        "p07": {
-          "type": "logo",
-          "settings": {
-            "name": "The Leader News",
-            "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
-            "size": "md",
-            "invert_color": false
-          }
-        },
-        "p08": {
+        "logo_N3YXNk": {
           "type": "logo",
           "settings": {
             "name": "Park Cities People",
+            "image": "shopify://shop_images/cropped-PN-LogoBlue.png",
             "link": "https://www.parkcitiespeople.com/business/austin-based-premier-sunless-tanning-salon-to-open-in-the-shops-of-highland-park/",
-            "size": "md",
+            "size": "lg",
             "invert_color": false
           }
         },
-        "p09": {
+        "logo_GtVP9q": {
           "type": "logo",
           "settings": {
-            "name": "Texas Lifestyle",
-            "link": "https://texaslifestylemag.com/lifestyle/the-21-greatest-gifts-for-mom/",
-            "size": "md",
+            "name": "The Leader",
+            "image": "shopify://shop_images/bd5862c8-e80f-45c3-9dfd-ae884f3263a9-1.webp",
+            "link": "https://www.theleadernews.com/business/hush-hush-tan-debuts-upscale-all-natural-tanning-experience-in-the-heights-in-early-2024/article_bbe41048-990a-11ee-859d-4b1ce6de42cc.html",
+            "size": "lg",
             "invert_color": false
           }
         },
-        "p10": {
+        "logo_YjY7LG": {
           "type": "logo",
           "settings": {
-            "name": "Austin Beauty Guide",
-            "link": "http://austinbeautyguide.com/blog/detail.php?id=64",
+            "name": "",
+            "image": "shopify://shop_images/huston3.png",
+            "link": "https://voyagehouston.com/interview/meet-izabel-wicker-of-hush-hush-tan/",
             "size": "md",
-            "invert_color": false
+            "invert_color": true
           }
         }
       },
       "block_order": [
-        "p01",
-        "p02",
-        "p03",
-        "p04",
-        "p05",
-        "p06",
-        "p07",
-        "p08",
-        "p09",
-        "p10"
+        "logo_Mj3UwT",
+        "logo_JDkN6w",
+        "logo_8qiH3U",
+        "logo_MiyCYd",
+        "logo_knRRbY",
+        "logo_gTJBEt",
+        "logo_PEE4jy",
+        "logo_N3YXNk",
+        "logo_GtVP9q",
+        "logo_YjY7LG"
       ],
+      "name": "Press grid",
       "settings": {
         "eyebrow": "Featured In",
-        "heading": "Featured In"
+        "heading": "Trusted by Texas. Recognized nationally."
       }
     },
     "final": {
@@ -152,7 +164,7 @@
   },
   "order": [
     "hero",
-    "press",
+    "press_grid_TnB8qL",
     "final"
   ]
 }
