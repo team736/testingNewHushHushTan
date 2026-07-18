@@ -1,0 +1,29 @@
+{%- comment -%}
+  Renders a services section header icon from image_picker OR theme asset filename.
+  Pass: block (section_header block)
+{%- endcomment -%}
+{%- liquid
+  assign icon_size = block.settings.icon_size | default: 44
+  assign icon_asset = block.settings.icon_asset | strip
+-%}
+{%- if block.settings.icon != blank -%}
+  <img
+    src="{{ block.settings.icon | image_url: width: 240 }}"
+    class="hht-section-icon"
+    style="width: {{ icon_size }}px; height: auto;"
+    width="{{ icon_size }}"
+    height="{{ icon_size }}"
+    alt=""
+    loading="lazy"
+  >
+{%- elsif icon_asset != blank -%}
+  <img
+    src="{{ icon_asset | asset_url }}"
+    class="hht-section-icon"
+    style="width: {{ icon_size }}px; height: auto;"
+    width="{{ icon_size }}"
+    height="{{ icon_size }}"
+    alt=""
+    loading="lazy"
+  >
+{%- endif -%}

@@ -7,3 +7,11 @@
 loveable-src/
 theme/
 *.zip
+
+# Local asset library (reference only — not theme runtime)
+assets/hht/images/
+assets/hht/_backups/
+assets/hht/_zip_extract_tmp/
+assets/hht/_cdn_download_log.json
+assets/hht/_admin_*.json
+assets/hht/pngs_lilac/

@@ -14,7 +14,7 @@
       "settings": {
         "eyebrow": "Loved By Texas",
         "heading": "3,000+ Five-Star Google Reviews",
-        "subheading": "Real glows, real reviews — book with confidence.",
+        "subheading": "Real glows, real reviews \u2014 book with confidence.",
         "cta_text": "Read Our Reviews",
         "cta_url": "/pages/locations",
         "speed": 50,
@@ -56,7 +56,7 @@
         "r5": {
           "type": "review",
           "settings": {
-            "quote": "Came in today for the first time after doing sprays elsewhere — Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
+            "quote": "Came in today for the first time after doing sprays elsewhere \u2014 Ashly and Jacinda were incredibly helpful and knowledgeable and I'll definitely return. Highly recommend!",
             "author": "Meaghan Estes",
             "location": "Dallas, TX"
           }
@@ -64,7 +64,7 @@
         "r6": {
           "type": "review",
           "settings": {
-            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids — THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
+            "quote": "Phew that was fast! If you are looking for a quick in between pilates and going to pick up your kids \u2014 THIS IS THE PLACE! Grace was so kind! Also it's very affordable compared to what is out there.",
             "author": "Ashley Post",
             "location": "Houston, TX"
           }
@@ -80,7 +80,7 @@
         "r8": {
           "type": "review",
           "settings": {
-            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside — my tan looked perfect for my friends wedding.",
+            "quote": "Had a great experience at Hush Hush Tan! Ashly helped me at the front & Jacinda sprayed me :) Very easy to book online, super cute inside \u2014 my tan looked perfect for my friends wedding.",
             "author": "Calla Taylor",
             "location": "Dallas, TX"
           }
@@ -145,7 +145,8 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-core-services-sun.png"
           }
         },
         "service_row_tkaykr": {
@@ -153,7 +154,7 @@
           "settings": {
             "title": "Custom Glow",
             "badge": "MOST POPULAR",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -175,7 +176,7 @@
           "settings": {
             "title": "Clear Glow",
             "badge": "FIRST-TIMER FAVORITE",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -197,7 +198,7 @@
           "settings": {
             "title": "Rapid Glow",
             "badge": "FAST RESULTS",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -224,7 +225,8 @@
             "icon_size": 44,
             "pair_next": false,
             "section_style": "featured",
-            "animation": "glow"
+            "animation": "glow",
+            "icon_asset": "icon-memberships-crown.png"
           }
         },
         "service_row_cbwDeR": {
@@ -232,7 +234,7 @@
           "settings": {
             "title": "Glow Pass",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -254,7 +256,7 @@
           "settings": {
             "title": "Glow Club",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -280,7 +282,8 @@
             "footer": "Rapid Glow is not included in standard package pricing. Upgrade may be available. Packages are for non-members unless the current Booker terms state otherwise.",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-tan-packages-present.png"
           }
         },
         "service_row_xJ7nwW": {
@@ -288,7 +291,7 @@
           "settings": {
             "title": "6-Pack",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -313,7 +316,7 @@
           "settings": {
             "title": "10-Pack",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -343,7 +346,8 @@
             "icon_size": 44,
             "pair_next": false,
             "section_style": "compact",
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-add-ons-sparkle.png"
           }
         },
         "service_row_Vy9CXd": {
@@ -351,7 +355,7 @@
           "settings": {
             "title": "Gold Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -373,7 +377,7 @@
           "settings": {
             "title": "Bye Bye Tan Line",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -395,7 +399,7 @@
           "settings": {
             "title": "Brazilian Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "+$",
@@ -422,7 +426,8 @@
             "icon_size": 44,
             "pair_next": true,
             "section_style": "compact",
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-partial-tans-half-sun.png"
           }
         },
         "service_row_7UpGxr": {
@@ -430,7 +435,7 @@
           "settings": {
             "title": "Face",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -452,7 +457,7 @@
           "settings": {
             "title": "Upper / Lower only",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -474,7 +479,7 @@
           "settings": {
             "title": "Partial Upper / Lower",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -500,7 +505,8 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": true,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-special-offer-star.png"
           }
         },
         "service_row_i9eBaz": {
@@ -508,7 +514,7 @@
           "settings": {
             "title": "Birthday Glow",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -534,7 +540,8 @@
             "footer": "Group bookings require advance notice",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-group-experiences-heart.png"
           }
         },
         "service_row_3wafPF": {
@@ -542,7 +549,7 @@
           "settings": {
             "title": "Tanning & Mimosas",
             "badge": "",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "$",
@@ -564,7 +571,7 @@
           "settings": {
             "title": "Austin Mobile Tanning",
             "badge": "AUSTIN ONLY",
-            "badge_icon": "✨",
+            "badge_icon": "\u2728",
             "badge_bg": "",
             "badge_text_color": "",
             "price_prefix": "",
@@ -588,7 +595,9 @@
             "title_b": "Essentials",
             "note": "Accessories available for purchase in studio. Complimentary gear is provided with your appointment.",
             "pair_next": false,
-            "section_style": "compact"
+            "section_style": "compact",
+            "icon_asset": "HHT_Icons_Clock.png",
+            "icon_size": 44
           }
         },
         "service_row_ess_boxers": {
@@ -755,7 +764,7 @@
           "type": "qa",
           "settings": {
             "question": "What is the difference between Custom Glow and Clear Glow?",
-            "answer": "<p>Custom Glow is mixed for your individual skin tone, undertones, and desired result. Clear Glow is a clear solution designed for a natural-looking finish without an immediate cosmetic bronzer—popular with first-timers who prefer a subtler rinse-day look.</p>"
+            "answer": "<p>Custom Glow is mixed for your individual skin tone, undertones, and desired result. Clear Glow is a clear solution designed for a natural-looking finish without an immediate cosmetic bronzer\u2014popular with first-timers who prefer a subtler rinse-day look.</p>"
           }
         },
         "qa_svc_03": {
@@ -783,7 +792,7 @@
           "type": "qa",
           "settings": {
             "question": "Can Rapid Glow be used with a membership or package?",
-            "answer": "<p>Rapid Glow is not included as the complimentary Glow Club tan or in standard package pricing. An upgrade may be available—ask your studio when booking.</p>"
+            "answer": "<p>Rapid Glow is not included as the complimentary Glow Club tan or in standard package pricing. An upgrade may be available\u2014ask your studio when booking.</p>"
           }
         },
         "qa_svc_07": {
@@ -804,7 +813,7 @@
           "type": "qa",
           "settings": {
             "question": "How many guests are included with Tanning & Mimosas?",
-            "answer": "<p>Tanning & Mimosas includes five Custom Glow tans, studio access for the group, and complimentary champagne or mimosas. Additional guests can be added where available—see the group price on this page for your city.</p>"
+            "answer": "<p>Tanning & Mimosas includes five Custom Glow tans, studio access for the group, and complimentary champagne or mimosas. Additional guests can be added where available\u2014see the group price on this page for your city.</p>"
           }
         },
         "qa_svc_10": {
@@ -834,7 +843,7 @@
         "faq_heading": "Frequently Asked Questions",
         "faq_subheading": "Clear answers for first-timers, members, and group hosts.",
         "cta_label": "Still have questions?",
-        "faq_btn_label": "Read All FAQs →",
+        "faq_btn_label": "Read All FAQs \u2192",
         "faqs_url": "/pages/faqs",
         "book_btn_label": "Book Your Glow",
         "book_url": "/pages/our-services"

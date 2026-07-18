@@ -145,7 +145,8 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-core-services-sun.png"
           }
         },
         "service_row_tkaykr": {
@@ -224,7 +225,8 @@
             "icon_size": 44,
             "pair_next": false,
             "section_style": "featured",
-            "animation": "glow"
+            "animation": "glow",
+            "icon_asset": "icon-memberships-crown.png"
           }
         },
         "service_row_cbwDeR": {
@@ -280,7 +282,8 @@
             "footer": "Please note: Rapid Glow is not included in the package pricing. Upgrade available upon request. Packages available for non-members only.",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-tan-packages-present.png"
           }
         },
         "service_row_xJ7nwW": {
@@ -337,7 +340,8 @@
             "icon_size": 44,
             "pair_next": false,
             "section_style": "compact",
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-add-ons-sparkle.png"
           }
         },
         "service_row_Vy9CXd": {
@@ -416,7 +420,8 @@
             "icon_size": 44,
             "pair_next": true,
             "section_style": "compact",
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-partial-tans-half-sun.png"
           }
         },
         "service_row_7UpGxr": {
@@ -494,7 +499,8 @@
             "footer": "",
             "icon_size": 44,
             "pair_next": true,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-special-offer-star.png"
           }
         },
         "service_row_i9eBaz": {
@@ -528,7 +534,8 @@
             "footer": "Group bookings require advance notice",
             "icon_size": 44,
             "pair_next": false,
-            "animation": "float"
+            "animation": "float",
+            "icon_asset": "icon-group-experiences-heart.png"
           }
         },
         "service_row_3wafPF": {

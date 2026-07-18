@@ -172,8 +172,14 @@
     root.querySelectorAll('[data-gallery-thumb]').forEach(function (thumb) {
       thumb.addEventListener('click', function () {
         var src = thumb.getAttribute('data-src');
+        var srcset = thumb.getAttribute('data-srcset');
         if (main && src) {
-          main.querySelector('img').src = src;
+          var img = main.querySelector('img');
+          if (img) {
+            img.src = src;
+            if (srcset) img.setAttribute('srcset', srcset);
+            else img.removeAttribute('srcset');
+          }
           root.querySelectorAll('[data-gallery-thumb]').forEach(function (t) { t.removeAttribute('aria-current'); });
           thumb.setAttribute('aria-current', 'true');
         }

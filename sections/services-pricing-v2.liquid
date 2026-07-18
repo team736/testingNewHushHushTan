@@ -517,9 +517,7 @@
           {%- comment -%} CARD 1 (this section) {%- endcomment -%}
           <div class="hht-section-card hht-section-card--{{ section_block.settings.section_style | default: 'default' }} hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
             <div class="hht-section-strip">
-              {% if section_block.settings.icon != blank %}
-                <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
-              {% endif %}
+              {% render 'hht-section-icon', block: section_block %}
               <h2 class="hht-section-title">
                 {% if section_block.settings.title_a != blank %}<span class="roman">{{ section_block.settings.title_a }}</span>{% endif %}
                 {% if section_block.settings.title_b != blank %} {{ section_block.settings.title_b }}{% endif %}
@@ -577,9 +575,7 @@
           {%- comment -%} CARD 2 (the paired section) {%- endcomment -%}
           <div class="hht-section-card hht-section-card--{{ next_section_block.settings.section_style | default: 'default' }} hht-anim-{{ next_section_block.settings.animation | default: 'float' }}" {{ next_section_block.shopify_attributes }}>
             <div class="hht-section-strip">
-              {% if next_section_block.settings.icon != blank %}
-                <img src="{{ next_section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ next_section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
-              {% endif %}
+              {% render 'hht-section-icon', block: next_section_block %}
               <h2 class="hht-section-title">
                 {% if next_section_block.settings.title_a != blank %}<span class="roman">{{ next_section_block.settings.title_a }}</span>{% endif %}
                 {% if next_section_block.settings.title_b != blank %} {{ next_section_block.settings.title_b }}{% endif %}
@@ -639,9 +635,7 @@
         {%- comment -%} FULL-WIDTH single section {%- endcomment -%}
         <div class="hht-section-card hht-section-card--{{ section_block.settings.section_style | default: 'default' }} hht-anim-{{ section_block.settings.animation | default: 'float' }}" {{ section_block.shopify_attributes }}>
           <div class="hht-section-strip">
-            {% if section_block.settings.icon != blank %}
-              <img src="{{ section_block.settings.icon | image_url: width: 240 }}" class="hht-section-icon" style="width: {{ section_block.settings.icon_size | default: 44 }}px;" alt="" loading="lazy">
-            {% endif %}
+            {% render 'hht-section-icon', block: section_block %}
             <h2 class="hht-section-title">
               {% if section_block.settings.title_a != blank %}<span class="roman">{{ section_block.settings.title_a }}</span>{% endif %}
               {% if section_block.settings.title_b != blank %} {{ section_block.settings.title_b }}{% endif %}
@@ -935,7 +929,8 @@
         { "type": "text", "id": "title_b", "label": "Title Part 2 (italic)", "default": "Services", "info": "Second word, italic" },
         { "type": "text", "id": "note", "label": "Subtitle Note", "info": "Optional, e.g. 'First-timer? Start here.'" },
         { "type": "text", "id": "footer", "label": "Footer Note", "info": "Optional small text under the section" },
-        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "image_picker", "id": "icon", "label": "Icon (Shopify file)" },
+        { "type": "text", "id": "icon_asset", "label": "Icon asset filename", "info": "Theme asset fallback, e.g. icon-core-services-sun.png from pngs_lilac" },
         { "type": "range", "id": "icon_size", "min": 20, "max": 120, "step": 2, "unit": "px", "label": "Icon Size", "default": 44 },
         { "type": "checkbox", "id": "pair_next", "label": "Pair with next section (2-column layout)", "default": false, "info": "Turn ON to render this section side-by-side with the next Section Header. Leave OFF for full-width." },
         { "type": "select", "id": "section_style", "label": "Section style", "default": "default",
