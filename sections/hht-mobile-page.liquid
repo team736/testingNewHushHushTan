@@ -1,8 +1,407 @@
-{% render 'hht-mobile-page' %}
+{%- comment -%} Austin Mobile Tanning — full page (schema-driven, fully editable in the customizer) {%- endcomment -%}
+{%- liquid
+  assign mobile_book = section.settings.booking_url
+-%}
+
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-mobile-page">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_lead }}</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">{{ section.settings.hero_cta1_label }}</a>
+            <a class="btn btn--outline" href="{{ section.settings.hero_cta2_link }}">{{ section.settings.hero_cta2_label }}</a>
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image_alt }}" width="900" height="1100" loading="eager">
+          {%- else -%}
+            <img src="{{ section.settings.hero_image_asset | asset_url }}" alt="{{ section.settings.hero_image_alt }}" width="900" height="1100" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="mobile-pricing">
+    <div class="hht-sp__wrap">
+      <div class="hht-glow-list">
+        <div class="hht-glow-list__card">
+          <div class="hht-glow-list__card-head">
+            {%- if section.settings.pricing_icon -%}
+              <img class="hht-glow-list__icon" src="{{ section.settings.pricing_icon | image_url: width: 112 }}" alt="" width="56" height="56" loading="lazy">
+            {%- else -%}
+              <img class="hht-glow-list__icon" src="{{ section.settings.pricing_icon_asset | asset_url }}" alt="" width="56" height="56" loading="lazy">
+            {%- endif -%}
+            <h2 class="hht-glow-list__card-title">{{ section.settings.pricing_title }}</h2>
+            <p class="hht-glow-list__card-sub">{{ section.settings.pricing_sub }}</p>
+            <p class="hht-glow-list__card-lead">{{ section.settings.pricing_lead }}</p>
+          </div>
+          <div class="hht-glow-list__rows">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'pricing_row' -%}
+            <article class="hht-glow-list__row" {{ block.shopify_attributes }}>
+              <div class="hht-glow-list__row-main">
+                <div class="hht-glow-list__row-head">
+                  <h3 class="hht-glow-list__row-title">{{ block.settings.title }}</h3>
+                  {%- if block.settings.badge != blank -%}<span class="hht-glow-list__badge">{{ block.settings.badge }}</span>{%- endif -%}
+                </div>
+                <p class="hht-glow-list__row-desc">{{ block.settings.desc }}</p>
+                {%- if block.settings.show_button -%}
+                <a class="btn btn--lavender btn--pill btn--small hht-glow-list__book" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">{{ block.settings.button_label }}</a>
+                {%- endif -%}
+              </div>
+              <div class="hht-glow-list__row-price">{{ block.settings.price }}</div>
+            </article>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.why_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.why_heading }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'why_card' -%}
+        <article class="hht-sp-card" {{ block.shopify_attributes }}><span class="hht-sp-card__label">{{ block.settings.label }}</span><p>{{ block.settings.text }}</p></article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.occ_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.occ_heading }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'occasion_card' -%}
+        <article class="hht-sp-card" {{ block.shopify_attributes }}><span class="hht-sp-card__label">{{ block.settings.label }}</span><p>{{ block.settings.text }}</p></article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.steps_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.steps_heading }}</h2>
+      </div>
+      {%- assign hht_step_count = section.blocks | where: 'type', 'step' | size -%}
+      <div class="hht-sp-steps hht-sp-steps--{{ hht_step_count }}">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'step' -%}
+        <div class="hht-sp-step" {{ block.shopify_attributes }}><h3 class="hht-sp__h3">{{ block.settings.title }}</h3><p>{{ block.settings.text }}</p></div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--soft">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split">
+        <div>
+          <span class="hht-sp__eyebrow">{{ section.settings.area_eyebrow }}</span>
+          <h2 class="hht-sp__h2">{{ section.settings.area_heading }}</h2>
+          <p class="hht-sp__lead">{{ section.settings.area_lead }}</p>
+          <div class="hht-sp__ctas">
+            <a class="btn btn--outline" href="{{ section.settings.area_cta1_link }}">{{ section.settings.area_cta1_label }}</a>
+            <a class="btn" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">{{ section.settings.area_cta2_label }}</a>
+          </div>
+        </div>
+        <div class="hht-sp-split__media">
+          {%- if section.settings.area_image -%}
+            <img src="{{ section.settings.area_image | image_url: width: 800 }}" alt="{{ section.settings.area_image_alt }}" width="800" height="600" loading="lazy">
+          {%- else -%}
+            <img src="{{ section.settings.area_image_asset | asset_url }}" alt="{{ section.settings.area_image_alt }}" width="800" height="600" loading="lazy">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap" style="max-width:820px;">
+      <div class="hht-sp-notice">
+        <span class="hht-sp__eyebrow">{{ section.settings.notice_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.notice_heading }}</h2>
+        <ul>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'info_item' -%}
+          <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        <p style="margin:16px 0 0;color:var(--sp-muted);">{{ section.settings.notice_footer }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.gallery_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.gallery_heading }}</h2>
+      </div>
+      <div class="hht-sp-gallery">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery_image' -%}
+        <figure {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.alt }}" width="600" height="750" loading="lazy">
+          {%- else -%}
+            <img src="{{ block.settings.image_asset | asset_url }}" alt="{{ block.settings.alt }}" width="600" height="750" loading="lazy">
+          {%- endif -%}
+        </figure>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section" id="mobile-faq">
+    <div class="hht-sp__wrap" style="max-width:900px;">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.faq_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.faq_heading }}</h2>
+      </div>
+      <div class="hht-sp-acc" data-hht-acc>
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq' -%}
+        <div class="hht-sp-acc__item{% if block.settings.open %} is-open{% endif %}" {{ block.shopify_attributes }}>
+          <button type="button" class="hht-sp-acc__trig" aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}">{{ block.settings.question }}<span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+          <div class="hht-sp-acc__panel">{{ block.settings.answer }}</div>
+        </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-cta-center">
+        <span class="hht-sp__eyebrow">{{ section.settings.cta_eyebrow }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.cta_heading }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.cta_lead }}</p>
+        <div class="hht-sp__ctas">
+          <a class="btn" href="{{ mobile_book }}" target="_blank" rel="noopener noreferrer">{{ section.settings.cta1_label }}</a>
+          <a class="btn btn--outline" href="{{ section.settings.cta2_link }}">{{ section.settings.cta2_label }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hht-mobile-page');
+  if (!root) return;
+  root.querySelectorAll('[data-hht-acc]').forEach(function (acc) {
+    acc.querySelectorAll('.hht-sp-acc__trig').forEach(function (trig) {
+      trig.addEventListener('click', function () {
+        var item = trig.closest('.hht-sp-acc__item');
+        var open = item.classList.contains('is-open');
+        acc.querySelectorAll('.hht-sp-acc__item').forEach(function (el) {
+          el.classList.remove('is-open');
+          var b = el.querySelector('.hht-sp-acc__trig');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!open) {
+          item.classList.add('is-open');
+          trig.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
+
 {% schema %}
 {
-  "name": "Mobile Tanning page",
-  "settings": [],
-  "presets": [{ "name": "Mobile Tanning page" }]
+  "name": "Mobile Tanning Page",
+  "max_blocks": 50,
+  "settings": [
+    { "type": "header", "content": "General" },
+    { "type": "text", "id": "booking_url", "label": "Booking link (Booker URL)", "default": "https://go.booker.com/location/hushhushtan/detail-summary/4253915?campaign=hush_hush_tan_website_1&source=web_direct" },
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Austin-Only Mobile Service" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "The Glow Comes to You" },
+    { "type": "textarea", "id": "hero_lead", "label": "Lead text", "default": "Bring the Hush Hush Tan experience to your home, hotel, or event location. Our Austin mobile tanning service is designed for groups of five or more who want personalized airbrush tans without visiting the studio." },
+    { "type": "text", "id": "hero_cta1_label", "label": "Primary button label", "default": "Book Mobile Tanning", "info": "Links to the booking URL above." },
+    { "type": "text", "id": "hero_cta2_label", "label": "Secondary button label", "default": "View Pricing & Details" },
+    { "type": "text", "id": "hero_cta2_link", "label": "Secondary button link", "default": "#mobile-pricing" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image" },
+    { "type": "text", "id": "hero_image_asset", "label": "Hero image asset filename (fallback)", "default": "hht-loc-austin-hero.jpg", "info": "Theme asset used when no image is selected above." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Hush Hush Tan Austin studio exterior and surrounding area" },
+    { "type": "header", "content": "Pricing card" },
+    { "type": "image_picker", "id": "pricing_icon", "label": "Card icon" },
+    { "type": "text", "id": "pricing_icon_asset", "label": "Card icon asset filename (fallback)", "default": "icon-group-experiences-heart.png", "info": "Theme asset used when no icon is selected above." },
+    { "type": "text", "id": "pricing_title", "label": "Card title", "default": "Austin Mobile" },
+    { "type": "text", "id": "pricing_sub", "label": "Card subtitle", "default": "A Private Group Glow, Wherever You Are" },
+    { "type": "textarea", "id": "pricing_lead", "label": "Card lead text", "default": "A Hush Hush Tan specialist travels to your Austin-area location and provides individually customized tans for your group. Mobile appointments are designed for parties of five or more and require advance coordination." },
+    { "type": "header", "content": "Why Mobile" },
+    { "type": "text", "id": "why_eyebrow", "label": "Eyebrow", "default": "Why Mobile" },
+    { "type": "text", "id": "why_heading", "label": "Heading", "default": "Why Book Mobile Tanning" },
+    { "type": "header", "content": "Occasions" },
+    { "type": "text", "id": "occ_eyebrow", "label": "Eyebrow", "default": "Occasions" },
+    { "type": "text", "id": "occ_heading", "label": "Heading", "default": "Ideal for Celebrations and Prep" },
+    { "type": "header", "content": "How It Works" },
+    { "type": "text", "id": "steps_eyebrow", "label": "Eyebrow", "default": "How It Works" },
+    { "type": "text", "id": "steps_heading", "label": "Heading", "default": "Five Steps to Mobile Glow" },
+    { "type": "header", "content": "Service Area" },
+    { "type": "text", "id": "area_eyebrow", "label": "Eyebrow", "default": "Service Area" },
+    { "type": "text", "id": "area_heading", "label": "Heading", "default": "Austin and Surrounding Areas" },
+    { "type": "textarea", "id": "area_lead", "label": "Lead text", "default": "Mobile tanning is currently offered through the Austin studio only. A travel fee applies for eligible locations more than ten miles from the studio, and a separate hotel travel fee may apply." },
+    { "type": "text", "id": "area_cta1_label", "label": "Outline button label", "default": "View Austin Location" },
+    { "type": "text", "id": "area_cta1_link", "label": "Outline button link", "default": "/pages/austin" },
+    { "type": "text", "id": "area_cta2_label", "label": "Booking button label", "default": "Book Mobile Tanning", "info": "Links to the booking URL above." },
+    { "type": "image_picker", "id": "area_image", "label": "Image" },
+    { "type": "text", "id": "area_image_asset", "label": "Image asset filename (fallback)", "default": "hht-location-austin.jpg", "info": "Theme asset used when no image is selected above." },
+    { "type": "text", "id": "area_image_alt", "label": "Image alt text", "default": "Hush Hush Tan Austin studio" },
+    { "type": "header", "content": "What to Provide" },
+    { "type": "text", "id": "notice_eyebrow", "label": "Eyebrow", "default": "What to Provide" },
+    { "type": "text", "id": "notice_heading", "label": "Heading", "default": "Details That Help Your Booking" },
+    { "type": "textarea", "id": "notice_footer", "label": "Footer note", "default": "We only list setup requirements confirmed by the team—follow the instructions shared after booking." },
+    { "type": "header", "content": "Gallery" },
+    { "type": "text", "id": "gallery_eyebrow", "label": "Eyebrow", "default": "Gallery" },
+    { "type": "text", "id": "gallery_heading", "label": "Heading", "default": "The Austin Glow Experience" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_eyebrow", "label": "Eyebrow", "default": "FAQ" },
+    { "type": "text", "id": "faq_heading", "label": "Heading", "default": "Mobile Tanning Questions" },
+    { "type": "header", "content": "Final call to action" },
+    { "type": "text", "id": "cta_eyebrow", "label": "Eyebrow", "default": "Austin Mobile Only" },
+    { "type": "text", "id": "cta_heading", "label": "Heading", "default": "Bring Hush Hush Tan to Your Location" },
+    { "type": "textarea", "id": "cta_lead", "label": "Lead text", "default": "Ready for five or more guests in the Austin area? Reserve mobile tanning through Booker." },
+    { "type": "text", "id": "cta1_label", "label": "Booking button label", "default": "Book Mobile Tanning", "info": "Links to the booking URL above." },
+    { "type": "text", "id": "cta2_label", "label": "Outline button label", "default": "Contact Us" },
+    { "type": "text", "id": "cta2_link", "label": "Outline button link", "default": "/pages/contact" }
+  ],
+  "blocks": [
+    {
+      "type": "pricing_row",
+      "name": "Pricing row",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Mobile Group Tan" },
+        { "type": "text", "id": "badge", "label": "Badge (optional)" },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "$75 per person (not per hour). Five-person minimum · Austin service area only. Include address and party size in the booking notes." },
+        { "type": "text", "id": "price", "label": "Price", "default": "$75" },
+        { "type": "checkbox", "id": "show_button", "label": "Show booking button", "default": true },
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Book Now" }
+      ]
+    },
+    {
+      "type": "why_card",
+      "name": "Why Mobile card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Convenient Location" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Host the appointment at an eligible home, hotel, or event location." }
+      ]
+    },
+    {
+      "type": "occasion_card",
+      "name": "Occasion card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Bridal Parties" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Glow together before the big day without studio logistics." }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Gather Your Group" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "A minimum of five people is required." }
+      ]
+    },
+    {
+      "type": "info_item",
+      "name": "Booking detail item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Exact service address and any gate or building access notes" }
+      ]
+    },
+    {
+      "type": "gallery_image",
+      "name": "Gallery image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_asset", "label": "Image asset filename (fallback)", "default": "hht-moment-prep.jpg", "info": "Theme asset used when no image is selected above." },
+        { "type": "text", "id": "alt", "label": "Alt text", "default": "Preparing for a Hush Hush Tan application" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Is mobile tanning available outside Austin?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>No. Mobile tanning is currently offered through the Austin studio only—not Dallas or Houston.</p>" },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mobile Tanning Page",
+      "blocks": [
+        { "type": "pricing_row", "settings": { "title": "Mobile Group Tan", "badge": "5+ Guests", "desc": "$75 per person (not per hour). Five-person minimum · Austin service area only. Include address and party size in the booking notes.", "price": "$75", "show_button": true, "button_label": "Book Now" } },
+        { "type": "pricing_row", "settings": { "title": "Travel Fee", "badge": "", "desc": "Applies for locations more than 10 miles from the Austin studio.", "price": "$15", "show_button": false, "button_label": "Book Now" } },
+        { "type": "pricing_row", "settings": { "title": "Hotel Travel Fee", "badge": "", "desc": "Hotel travel fee where applicable.", "price": "$30", "show_button": true, "button_label": "Book Now" } },
+        { "type": "why_card", "settings": { "label": "Convenient Location", "text": "Host the appointment at an eligible home, hotel, or event location." } },
+        { "type": "why_card", "settings": { "label": "Personalized for Every Guest", "text": "Each application can be tailored to the individual guest’s skin tone and desired result." } },
+        { "type": "why_card", "settings": { "label": "Ideal for Groups", "text": "A convenient option for bridal parties, celebrations, trips, and event preparation." } },
+        { "type": "why_card", "settings": { "label": "Professional Experience", "text": "Receive the same personalized Hush Hush Tan approach outside the studio." } },
+        { "type": "occasion_card", "settings": { "label": "Bridal Parties", "text": "Glow together before the big day without studio logistics." } },
+        { "type": "occasion_card", "settings": { "label": "Bachelorette Weekends", "text": "Keep the itinerary flexible while everyone gets customized color." } },
+        { "type": "occasion_card", "settings": { "label": "Birthdays", "text": "Turn a gathering into a shared Hush Hush experience." } },
+        { "type": "occasion_card", "settings": { "label": "Hotel Stays", "text": "Ideal when guests are already settled in one place." } },
+        { "type": "occasion_card", "settings": { "label": "Vacations", "text": "Prep before travel when timing is tight." } },
+        { "type": "occasion_card", "settings": { "label": "Photoshoots", "text": "Coordinate color before on-camera moments." } },
+        { "type": "occasion_card", "settings": { "label": "Private Events", "text": "Convenient for corporate or private gatherings with five or more guests." } },
+        { "type": "occasion_card", "settings": { "label": "Special Occasions", "text": "Any event where getting to the studio is harder than hosting on-site." } },
+        { "type": "step", "settings": { "title": "Gather Your Group", "text": "A minimum of five people is required." } },
+        { "type": "step", "settings": { "title": "Submit the Details", "text": "Include the service address, party size, and relevant access information in the booking notes." } },
+        { "type": "step", "settings": { "title": "Confirm Travel Charges", "text": "Travel and hotel fees may apply based on the booking location." } },
+        { "type": "step", "settings": { "title": "Prepare the Space", "text": "Follow the confirmed setup instructions provided by the Hush Hush Tan team." } },
+        { "type": "step", "settings": { "title": "Get Glowing", "text": "Each guest receives their scheduled personalized application." } },
+        { "type": "info_item", "settings": { "text": "Exact service address and any gate or building access notes" } },
+        { "type": "info_item", "settings": { "text": "Confirmed party size (minimum five)" } },
+        { "type": "info_item", "settings": { "text": "Preferred timing and any parking guidance" } },
+        { "type": "info_item", "settings": { "text": "Whether the location is a home, hotel, or event venue" } },
+        { "type": "gallery_image", "settings": { "image_asset": "hht-moment-prep.jpg", "alt": "Preparing for a Hush Hush Tan application" } },
+        { "type": "gallery_image", "settings": { "image_asset": "hht-moment-group.jpg", "alt": "Guests celebrating a group glow experience" } },
+        { "type": "gallery_image", "settings": { "image_asset": "hht-gal-austin-01.jpg", "alt": "Hush Hush Tan Austin studio interior" } },
+        { "type": "faq", "settings": { "question": "Is mobile tanning available outside Austin?", "answer": "<p>No. Mobile tanning is currently offered through the Austin studio only—not Dallas or Houston.</p>", "open": true } },
+        { "type": "faq", "settings": { "question": "How many guests are required?", "answer": "<p>A minimum of five guests is required.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "How much does the service cost?", "answer": "<p>Mobile tanning is $75 per person with a five-person minimum. Travel and hotel fees may apply.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "When does the travel fee apply?", "answer": "<p>A $15 travel fee applies for eligible locations more than 10 miles from the Austin studio.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Is there a hotel travel fee?", "answer": "<p>Yes. A $30 hotel travel fee may apply where applicable.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "What information should I include when booking?", "answer": "<p>Include the service address, party size, and any access notes in the request notes box on Booker.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "How far in advance should I reserve?", "answer": "<p>Book as early as possible—especially for weekends and peak seasons. Availability depends on artist schedule and location.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "Does every guest receive a personalized shade?", "answer": "<p>Yes. Each guest can receive a personalized application based on skin tone and desired result.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "How should guests prepare?", "answer": "<p>Shower, shave, and exfoliate beforehand. Arrive with clean, dry skin and avoid lotions, deodorant, and perfume unless otherwise instructed. See our <a href=\"/pages/faqs\">FAQ</a> for full prep guidance.</p>", "open": false } },
+        { "type": "faq", "settings": { "question": "What should guests wear afterward?", "answer": "<p>Loose, dark clothing is best while the tan develops. Avoid tight straps and light fabrics.</p>", "open": false } }
+      ]
+    }
+  ]
 }
 {% endschema %}
