@@ -1,0 +1,80 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "hht-faqs-page",
+      "blocks": {
+        "cat_before": { "type": "category", "settings": { "title": "Before Your Appointment", "anchor": "faq-before" } },
+        "qa_prepare": { "type": "qa", "settings": { "question": "How should I prepare for my airbrush-tanning session?", "answer": "<p>Shower, shave, and exfoliate before your appointment. Complete workouts, hair appointments, and spa treatments beforehand. After showering, avoid applying moisturizer, makeup, deodorant, perfume, or body oils unless the studio has given different instructions. Arrive with clean, dry skin and bring loose, dark clothing to wear afterward. More tips live on our <a href=\"/pages/tanning-tips\">Tanning Tips</a> page.</p>", "open": true } },
+        "qa_duration": { "type": "qa", "settings": { "question": "How long does the appointment take?", "answer": "<p>The spray application itself typically takes only several minutes. Allow additional time for consultation, changing, and drying. Appointment duration may vary by service and client. Browse current services on <a href=\"/pages/our-services\">Our Services</a>.</p>", "open": false } },
+        "cat_after": { "type": "category", "settings": { "title": "After Your Appointment", "anchor": "faq-after" } },
+        "qa_expect": { "type": "qa", "settings": { "question": "What should I expect after my appointment?", "answer": "<p>Your skin may feel slightly damp immediately after the application. Stay dry and avoid unnecessary skin contact while the solution develops. Your color will gradually deepen during the development period. Follow the rinse timing provided by your artist because the timing may differ by service.</p>", "open": false } },
+        "qa_care": { "type": "qa", "settings": { "question": "How do I care for my spray tan?", "answer": "<p>Remain dry until your recommended rinse time and avoid sweating, swimming, or getting wet. After rinsing, take short, warm showers and use a gentle, tan-friendly cleanser. Pat the skin dry rather than rubbing and moisturize regularly. Avoid aggressive exfoliation, long hot baths, pools, and hot tubs when possible because they may cause faster fading. Shop aftercare on <a href=\"/collections/tanning-products\">Tanning Products</a>.</p>", "open": false } },
+        "cat_results": { "type": "category", "settings": { "title": "Results & Aftercare", "anchor": "faq-results" } },
+        "qa_tan_last": { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>A professionally applied airbrush tan commonly lasts approximately seven to ten days. Results vary based on skin preparation, aftercare, shower temperature, exfoliation, swimming, and general skincare. Short, warm showers and regular moisturizing with tan-friendly products can help support a more even, longer-lasting fade.</p>", "open": false } },
+        "qa_how_it_works": { "type": "qa", "settings": { "question": "How does spray tanning work?", "answer": "<p>Most sunless-tanning solutions use dihydroxyacetone, commonly called DHA. DHA reacts with amino acids in the outermost layer of the skin to create temporary color. The result gradually fades as the skin naturally exfoliates.</p>", "open": false } },
+        "cat_safety": { "type": "category", "settings": { "title": "Process & Safety", "anchor": "faq-safety" } },
+        "qa_safety": { "type": "qa", "settings": { "question": "What should I know about spray-tan safety?", "answer": "<p>Sunless tanning provides color without using ultraviolet tanning beds or sunbathing. DHA is permitted for external application in sunless-tanning products. During spray application, follow the studio’s protection instructions and avoid inhaling or ingesting the mist or exposing the eyes, lips, and mucous membranes. Anyone who is pregnant, nursing, highly sensitive, or concerned about a medical condition should consult a qualified healthcare professional before booking.</p>", "open": false } },
+        "qa_hair": { "type": "qa", "settings": { "question": "Will the solution stain my hair?", "answer": "<p>Most clients do not notice a lasting effect on their hair. Very light blonde, gray, white, or platinum hair may temporarily pick up some cosmetic bronzer, but it should wash out during the first shower. Complimentary hair caps may be available.</p>", "open": false } },
+        "cat_clothing": { "type": "category", "settings": { "title": "Clothing & Accessories", "anchor": "faq-clothing" } },
+        "qa_wear": { "type": "qa", "settings": { "question": "What should I wear during my airbrush-tanning session?", "answer": "<p>Clients must wear an appropriate bottom covering during the appointment. Complimentary disposable options may be available, and additional garments may be available for purchase in the studio. Men are required to wear boxers, briefs, or another appropriate bottom covering. Contact your <a href=\"/pages/contact\">selected studio</a> if you have questions about available options.</p>", "open": false } },
+        "cat_memberships": { "type": "category", "settings": { "title": "Memberships", "anchor": "faq-memberships" } },
+        "qa_freeze": { "type": "qa", "settings": { "question": "Can my membership be frozen?", "answer": "<p>Current memberships may be frozen for a $10 monthly fee. Contact <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a> to confirm the current policy and request a freeze. Compare membership options on <a href=\"/pages/our-services\">Our Services</a>.</p>", "open": false } },
+        "qa_cancel": { "type": "qa", "settings": { "question": "How do I cancel my membership?", "answer": "<p>A 30-day written notice is currently required by email. Send cancellation requests to <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a>. A membership freeze may also be available for a $10 monthly fee—confirm against your membership agreement.</p>", "open": false } },
+        "qa_rollover": { "type": "qa", "settings": { "question": "Do unused membership tans roll over?", "answer": "<p>No. Unused membership tans currently do not roll over to the following month. Confirm details against your current membership terms if needed.</p>", "open": false } }
+      },
+      "block_order": [
+        "cat_before",
+        "qa_prepare",
+        "qa_duration",
+        "cat_after",
+        "qa_expect",
+        "qa_care",
+        "cat_results",
+        "qa_tan_last",
+        "qa_how_it_works",
+        "cat_safety",
+        "qa_safety",
+        "qa_hair",
+        "cat_clothing",
+        "qa_wear",
+        "cat_memberships",
+        "qa_freeze",
+        "qa_cancel",
+        "qa_rollover"
+      ],
+      "settings": {
+        "hero_eyebrow": "Help Center",
+        "hero_heading": "Frequently Asked Questions",
+        "hero_lead": "Find answers about preparation, appointment timing, aftercare, tanning results, memberships, and studio policies.",
+        "hero_btn1_label": "Search Questions",
+        "hero_btn1_link": "#faq-search",
+        "hero_btn2_label": "Contact Us",
+        "hero_btn2_link": "/pages/contact",
+        "hero_image_alt": "Hush Hush Tan studio glow wall",
+        "browse_eyebrow": "Browse",
+        "browse_heading": "Search or Jump to a Topic",
+        "search_label": "Search FAQs",
+        "search_placeholder": "Search questions…",
+        "clear_label": "Clear",
+        "empty_message": "No questions match your search. Try another keyword or <a href=\"/pages/contact\">contact us</a>.",
+        "cta_eyebrow": "Still Have Questions?",
+        "cta_heading": "Our Team Is Ready to Help",
+        "cta_lead": "Contact your preferred Hush Hush Tan studio or send our support team a message.",
+        "cta_btn1_label": "Contact Us",
+        "cta_btn1_link": "/pages/contact",
+        "cta_btn2_label": "Book a Service",
+        "cta_btn2_link": "/pages/locations"
+      }
+    }
+  },
+  "order": ["main"]
+}

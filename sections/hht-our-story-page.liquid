@@ -1,8 +1,335 @@
-{% render 'hht-our-story-page' %}
+{%- comment -%} Our Story — brand story page (schema-driven, editable in the theme editor) {%- endcomment -%}
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-story-page" data-section-id="{{ section.id }}">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow | default: 'Our Story' }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading | default: 'A Healthier Glow, Made Personal' }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_text | default: 'Hush Hush Tan was created around a simple belief: a spray tan should complement the person wearing it. From our Austin beginnings to studios in Dallas and Houston, every Hush Hush Tan experience is built around personalized color, attentive service, and natural-looking results.' }}</p>
+          <div class="hht-sp__ctas">
+            <a class="btn" href="{{ section.settings.hero_button_1_link | default: '#founder' }}">{{ section.settings.hero_button_1_label | default: 'Discover Our Story' }}</a>
+            <a class="btn btn--outline" href="{{ section.settings.hero_button_2_link | default: '/pages/locations' }}">{{ section.settings.hero_button_2_label | default: 'Choose a Location' }}</a>
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image -%}
+            <img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image_alt | default: 'Personalized Hush Hush Tan glow experience' }}" width="900" height="1100" loading="eager">
+          {%- else -%}
+            <img src="{{ 'hht-glow-editorial.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | default: 'Personalized Hush Hush Tan glow experience' }}" width="900" height="1100" loading="eager">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm" id="founder">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split">
+        <div class="hht-sp-split__media">
+          {%- if section.settings.founder_image -%}
+            <img src="{{ section.settings.founder_image | image_url: width: 800 }}" alt="{{ section.settings.founder_image_alt | default: 'Hush Hush Tan team' }}" width="800" height="1000" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'hht-team-group-01.jpg' | asset_url }}" alt="{{ section.settings.founder_image_alt | default: 'Hush Hush Tan team' }}" width="800" height="1000" loading="lazy">
+          {%- endif -%}
+        </div>
+        <div>
+          <span class="hht-sp__eyebrow">{{ section.settings.founder_eyebrow | default: 'Founded in Texas' }}</span>
+          <h2 class="hht-sp__h2">{{ section.settings.founder_heading | default: 'Created by Izabel Wicker' }}</h2>
+          <p class="hht-sp__lead">{{ section.settings.founder_text_1 | default: 'Hush Hush Tan was founded in Austin by Izabel Wicker with a vision for a more personalized approach to sunless tanning. Instead of treating every client the same, the Hush Hush Tan method focuses on skin tone, undertones, desired depth of color, and the occasion behind each appointment.' }}</p>
+          <p class="hht-sp__lead">{{ section.settings.founder_text_2 | default: 'Izabel wanted clients to leave feeling confident in a glow that looked like their own skin — never orange, never one-size-fits-all. That focus on customization shaped both the in-studio experience and the way color is selected for each person.' }}</p>
+          <p class="hht-sp__lead">{{ section.settings.founder_text_3 | default: 'What began as one Texas studio has grown into three locations serving Austin, Dallas, and Houston while maintaining the same attention to detail and welcoming client experience.' }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-split">
+        <div>
+          <span class="hht-sp__eyebrow">{{ section.settings.problem_eyebrow | default: 'The Problem She Set Out to Solve' }}</span>
+          <h2 class="hht-sp__h2">{{ section.settings.problem_heading | default: 'Beyond One-Shade-Fits-All' }}</h2>
+          <p class="hht-sp__lead">{{ section.settings.problem_text_1 | default: 'Many spray-tan experiences treat every client with the same approach. Izabel built Hush Hush Tan around consultation, color matching, and application that respects undertones and lifestyle — so the result looks natural in daylight and photographs.' }}</p>
+          <p class="hht-sp__lead">{{ section.settings.problem_text_2 | default: 'That philosophy continues in every studio: listen first, customize the formula and depth, then apply with care.' }}</p>
+        </div>
+        <div class="hht-sp-split__media">
+          {%- if section.settings.problem_image -%}
+            <img src="{{ section.settings.problem_image | image_url: width: 800 }}" alt="{{ section.settings.problem_image_alt | default: 'Natural-looking custom spray tan finish' }}" width="800" height="1000" loading="lazy">
+          {%- else -%}
+            <img src="{{ 'hht-moment-aftercare.jpg' | asset_url }}" alt="{{ section.settings.problem_image_alt | default: 'Natural-looking custom spray tan finish' }}" width="800" height="1000" loading="lazy">
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.formula_eyebrow | default: 'The Formula Approach' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.formula_heading | default: 'Color Mixed Around You' }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.formula_text | default: 'Hush Hush Tan artists select and adjust color around the individual — skin tone, undertones, and the look you want for your occasion. The goal is a believable, personalized finish rather than a single default shade.' }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.difference_eyebrow | default: 'The Hush Hush Difference' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.difference_heading | default: 'Mixed for Your Undertones' }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.difference_text | default: 'Every appointment begins with a conversation. The artist considers the client’s complexion, undertones, schedule, and desired result before selecting or mixing the appropriate color. The goal is not a one-shade-fits-all tan, but a glow that feels believable and individual.' }}</p>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'difference_card' -%}
+            <article class="hht-sp-card" {{ block.shopify_attributes }}><span class="hht-sp-card__label">{{ block.settings.label }}</span><p>{{ block.settings.text }}</p></article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.values_eyebrow | default: 'Values' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.values_heading | default: 'What Guides Every Glow' }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'value_card' -%}
+            <article class="hht-sp-card" {{ block.shopify_attributes }}><span class="hht-sp-card__label">{{ block.settings.label }}</span><p>{{ block.settings.text }}</p></article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.press_eyebrow | default: 'Recognized Beyond Texas' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.press_heading | default: 'A Local Brand with National Recognition' }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.press_text | default: 'Hush Hush Tan’s personalized approach has been recognized by leading fashion, lifestyle, and Texas publications.' }}</p>
+      </div>
+      <div class="hht-sp-press">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'press_logo' -%}
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 300 }}" alt="{{ block.settings.name }}" width="{{ block.settings.logo_width | default: 120 }}" height="40" loading="lazy" {{ block.shopify_attributes }}>
+            {%- else -%}
+              <img src="{{ block.settings.asset_file | asset_url }}" alt="{{ block.settings.name }}" width="{{ block.settings.logo_width | default: 120 }}" height="40" loading="lazy" {{ block.shopify_attributes }}>
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <p class="hht-sp__center" style="margin-top:28px;">
+        <a class="btn btn--outline" href="{{ section.settings.press_button_link | default: '/pages/press' }}">{{ section.settings.press_button_label | default: 'Read Press' }}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--warm">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.studios_eyebrow | default: 'Studios' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.studios_heading | default: 'Three Texas Studios. One Personalized Experience.' }}</h2>
+      </div>
+      <div class="hht-sp-grid hht-sp-grid--3">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'location_card' -%}
+        <article class="hht-sp-loccard" {{ block.shopify_attributes }}>
+          <div class="hht-sp-loccard__img">
+            {%- if block.settings.image -%}
+              <img src="{{ block.settings.image | image_url: width: 640 }}" alt="{{ block.settings.image_alt }}" width="640" height="400" loading="lazy">
+            {%- else -%}
+              <img src="{{ block.settings.asset_file | asset_url }}" alt="{{ block.settings.image_alt }}" width="640" height="400" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div class="hht-sp-loccard__body">
+            <span class="hht-sp-card__label">{{ block.settings.label }}</span>
+            <h3 class="hht-sp__h3">{{ block.settings.heading }}</h3>
+            <p>{{ block.settings.text }}</p>
+            <div class="hht-sp-loccard__actions">
+              <a class="btn" href="{{ block.settings.button_link }}">{{ block.settings.button_label }}</a>
+            </div>
+          </div>
+        </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp__center">
+        <span class="hht-sp__eyebrow">{{ section.settings.gallery_eyebrow | default: 'Gallery' }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.gallery_heading | default: 'Behind the Glow' }}</h2>
+      </div>
+      <div class="hht-sp-gallery">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'gallery_image' -%}
+        <a href="{{ block.settings.link | default: 'https://www.instagram.com/hushhushtan/' }}" target="_blank" rel="noopener noreferrer" {{ block.shopify_attributes }}>
+          {%- if block.settings.image -%}
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.image_alt }}" width="600" height="750" loading="lazy">
+          {%- else -%}
+            <img src="{{ block.settings.asset_file | asset_url }}" alt="{{ block.settings.image_alt }}" width="600" height="750" loading="lazy">
+          {%- endif -%}
+        </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <p class="hht-sp__center" style="margin-top:22px;">
+        <a class="btn btn--outline" href="{{ section.settings.gallery_button_link | default: 'https://www.instagram.com/hushhushtan/' }}" target="_blank" rel="noopener noreferrer">{{ section.settings.gallery_button_label | default: 'Follow @hushhushtan' }}</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap hht-sp-final hht-sp__center">
+      <span class="hht-sp__eyebrow">{{ section.settings.final_eyebrow | default: 'Come Glow with Us' }}</span>
+      <h2 class="hht-sp__h2">{{ section.settings.final_heading | default: 'Experience Hush Hush Tan for Yourself' }}</h2>
+      <p class="hht-sp__lead">{{ section.settings.final_text | default: 'Choose your nearest Texas studio and book a personalized airbrush-tanning experience.' }}</p>
+      <div class="hht-sp__ctas">
+        <a class="btn" href="{{ section.settings.final_button_1_link | default: '/pages/locations' }}">{{ section.settings.final_button_1_label | default: 'Choose a Location' }}</a>
+        <a class="btn btn--outline" href="{{ section.settings.final_button_2_link | default: '/pages/our-services' }}">{{ section.settings.final_button_2_label | default: 'Explore Services' }}</a>
+      </div>
+    </div>
+  </section>
+</div>
+
 {% schema %}
 {
-  "name": "Our Story page",
-  "settings": [],
-  "presets": [{ "name": "Our Story page" }]
+  "name": "Our Story Page",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Our Story" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "A Healthier Glow, Made Personal" },
+    { "type": "textarea", "id": "hero_text", "label": "Text", "default": "Hush Hush Tan was created around a simple belief: a spray tan should complement the person wearing it. From our Austin beginnings to studios in Dallas and Houston, every Hush Hush Tan experience is built around personalized color, attentive service, and natural-looking results." },
+    { "type": "text", "id": "hero_button_1_label", "label": "Button 1 label", "default": "Discover Our Story" },
+    { "type": "text", "id": "hero_button_1_link", "label": "Button 1 link", "info": "Accepts an anchor (for example #founder) or a URL.", "default": "#founder" },
+    { "type": "text", "id": "hero_button_2_label", "label": "Button 2 label", "default": "Choose a Location" },
+    { "type": "url", "id": "hero_button_2_link", "label": "Button 2 link" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "Falls back to the hht-glow-editorial.jpg theme asset when empty." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Personalized Hush Hush Tan glow experience" },
+    { "type": "header", "content": "Founder" },
+    { "type": "text", "id": "founder_eyebrow", "label": "Eyebrow", "default": "Founded in Texas" },
+    { "type": "text", "id": "founder_heading", "label": "Heading", "default": "Created by Izabel Wicker" },
+    { "type": "textarea", "id": "founder_text_1", "label": "Paragraph 1", "default": "Hush Hush Tan was founded in Austin by Izabel Wicker with a vision for a more personalized approach to sunless tanning. Instead of treating every client the same, the Hush Hush Tan method focuses on skin tone, undertones, desired depth of color, and the occasion behind each appointment." },
+    { "type": "textarea", "id": "founder_text_2", "label": "Paragraph 2", "default": "Izabel wanted clients to leave feeling confident in a glow that looked like their own skin — never orange, never one-size-fits-all. That focus on customization shaped both the in-studio experience and the way color is selected for each person." },
+    { "type": "textarea", "id": "founder_text_3", "label": "Paragraph 3", "default": "What began as one Texas studio has grown into three locations serving Austin, Dallas, and Houston while maintaining the same attention to detail and welcoming client experience." },
+    { "type": "image_picker", "id": "founder_image", "label": "Image", "info": "Falls back to the hht-team-group-01.jpg theme asset when empty." },
+    { "type": "text", "id": "founder_image_alt", "label": "Image alt text", "default": "Hush Hush Tan team" },
+    { "type": "header", "content": "Problem" },
+    { "type": "text", "id": "problem_eyebrow", "label": "Eyebrow", "default": "The Problem She Set Out to Solve" },
+    { "type": "text", "id": "problem_heading", "label": "Heading", "default": "Beyond One-Shade-Fits-All" },
+    { "type": "textarea", "id": "problem_text_1", "label": "Paragraph 1", "default": "Many spray-tan experiences treat every client with the same approach. Izabel built Hush Hush Tan around consultation, color matching, and application that respects undertones and lifestyle — so the result looks natural in daylight and photographs." },
+    { "type": "textarea", "id": "problem_text_2", "label": "Paragraph 2", "default": "That philosophy continues in every studio: listen first, customize the formula and depth, then apply with care." },
+    { "type": "image_picker", "id": "problem_image", "label": "Image", "info": "Falls back to the hht-moment-aftercare.jpg theme asset when empty." },
+    { "type": "text", "id": "problem_image_alt", "label": "Image alt text", "default": "Natural-looking custom spray tan finish" },
+    { "type": "header", "content": "Formula approach" },
+    { "type": "text", "id": "formula_eyebrow", "label": "Eyebrow", "default": "The Formula Approach" },
+    { "type": "text", "id": "formula_heading", "label": "Heading", "default": "Color Mixed Around You" },
+    { "type": "textarea", "id": "formula_text", "label": "Text", "default": "Hush Hush Tan artists select and adjust color around the individual — skin tone, undertones, and the look you want for your occasion. The goal is a believable, personalized finish rather than a single default shade." },
+    { "type": "header", "content": "Difference", "info": "Cards in this area are Difference card blocks." },
+    { "type": "text", "id": "difference_eyebrow", "label": "Eyebrow", "default": "The Hush Hush Difference" },
+    { "type": "text", "id": "difference_heading", "label": "Heading", "default": "Mixed for Your Undertones" },
+    { "type": "textarea", "id": "difference_text", "label": "Text", "default": "Every appointment begins with a conversation. The artist considers the client’s complexion, undertones, schedule, and desired result before selecting or mixing the appropriate color. The goal is not a one-shade-fits-all tan, but a glow that feels believable and individual." },
+    { "type": "header", "content": "Values", "info": "Cards in this area are Value card blocks." },
+    { "type": "text", "id": "values_eyebrow", "label": "Eyebrow", "default": "Values" },
+    { "type": "text", "id": "values_heading", "label": "Heading", "default": "What Guides Every Glow" },
+    { "type": "header", "content": "Press", "info": "Logos are Press logo blocks." },
+    { "type": "text", "id": "press_eyebrow", "label": "Eyebrow", "default": "Recognized Beyond Texas" },
+    { "type": "text", "id": "press_heading", "label": "Heading", "default": "A Local Brand with National Recognition" },
+    { "type": "textarea", "id": "press_text", "label": "Text", "default": "Hush Hush Tan’s personalized approach has been recognized by leading fashion, lifestyle, and Texas publications." },
+    { "type": "text", "id": "press_button_label", "label": "Button label", "default": "Read Press" },
+    { "type": "url", "id": "press_button_link", "label": "Button link" },
+    { "type": "header", "content": "Studios", "info": "Studio cards are Location card blocks." },
+    { "type": "text", "id": "studios_eyebrow", "label": "Eyebrow", "default": "Studios" },
+    { "type": "text", "id": "studios_heading", "label": "Heading", "default": "Three Texas Studios. One Personalized Experience." },
+    { "type": "header", "content": "Gallery", "info": "Images are Gallery image blocks." },
+    { "type": "text", "id": "gallery_eyebrow", "label": "Eyebrow", "default": "Gallery" },
+    { "type": "text", "id": "gallery_heading", "label": "Heading", "default": "Behind the Glow" },
+    { "type": "text", "id": "gallery_button_label", "label": "Button label", "default": "Follow @hushhushtan" },
+    { "type": "url", "id": "gallery_button_link", "label": "Button link" },
+    { "type": "header", "content": "Final call to action" },
+    { "type": "text", "id": "final_eyebrow", "label": "Eyebrow", "default": "Come Glow with Us" },
+    { "type": "text", "id": "final_heading", "label": "Heading", "default": "Experience Hush Hush Tan for Yourself" },
+    { "type": "textarea", "id": "final_text", "label": "Text", "default": "Choose your nearest Texas studio and book a personalized airbrush-tanning experience." },
+    { "type": "text", "id": "final_button_1_label", "label": "Button 1 label", "default": "Choose a Location" },
+    { "type": "url", "id": "final_button_1_link", "label": "Button 1 link" },
+    { "type": "text", "id": "final_button_2_label", "label": "Button 2 label", "default": "Explore Services" },
+    { "type": "url", "id": "final_button_2_link", "label": "Button 2 link" }
+  ],
+  "blocks": [
+    { "type": "difference_card", "name": "Difference card", "settings": [
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] },
+    { "type": "value_card", "name": "Value card", "settings": [
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "textarea", "id": "text", "label": "Text" }
+    ] },
+    { "type": "press_logo", "name": "Press logo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Logo image" },
+      { "type": "text", "id": "asset_file", "label": "Fallback asset filename", "info": "Theme asset used when no logo image is selected." },
+      { "type": "text", "id": "name", "label": "Publication name (alt text)" },
+      { "type": "number", "id": "logo_width", "label": "Logo width (px)", "default": 120 }
+    ] },
+    { "type": "location_card", "name": "Location card", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "asset_file", "label": "Fallback asset filename", "info": "Theme asset used when no image is selected." },
+      { "type": "text", "id": "image_alt", "label": "Image alt text" },
+      { "type": "text", "id": "label", "label": "Label" },
+      { "type": "text", "id": "heading", "label": "Heading" },
+      { "type": "textarea", "id": "text", "label": "Text" },
+      { "type": "text", "id": "button_label", "label": "Button label" },
+      { "type": "url", "id": "button_link", "label": "Button link" }
+    ] },
+    { "type": "gallery_image", "name": "Gallery image", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "asset_file", "label": "Fallback asset filename", "info": "Theme asset used when no image is selected." },
+      { "type": "text", "id": "image_alt", "label": "Image alt text" },
+      { "type": "url", "id": "link", "label": "Link" }
+    ] }
+  ],
+  "presets": [
+    {
+      "name": "Our Story Page",
+      "settings": {
+        "hero_button_2_link": "/pages/locations",
+        "press_button_link": "/pages/press",
+        "gallery_button_link": "https://www.instagram.com/hushhushtan/",
+        "final_button_1_link": "/pages/locations",
+        "final_button_2_link": "/pages/our-services"
+      },
+      "blocks": [
+        { "type": "difference_card", "settings": { "label": "Personalized Color", "text": "Each service is selected around the individual client." } },
+        { "type": "difference_card", "settings": { "label": "Expert Application", "text": "Detailed airbrush application supports an even, controlled finish." } },
+        { "type": "difference_card", "settings": { "label": "Comfortable Experience", "text": "Private appointments and attentive artists help clients feel informed and at ease." } },
+        { "type": "value_card", "settings": { "label": "Personalization", "text": "No two skin tones or desired results are identical." } },
+        { "type": "value_card", "settings": { "label": "Confidence", "text": "The experience should help clients feel comfortable, prepared, and confident." } },
+        { "type": "value_card", "settings": { "label": "Consistency", "text": "From consultation through aftercare, details matter." } },
+        { "type": "value_card", "settings": { "label": "Care", "text": "Clients should understand their service, development time, and aftercare before leaving." } },
+        { "type": "press_logo", "settings": { "asset_file": "press-vogue.png", "name": "Vogue", "logo_width": 120 } },
+        { "type": "press_logo", "settings": { "asset_file": "press-instyle.png", "name": "InStyle", "logo_width": 120 } },
+        { "type": "press_logo", "settings": { "asset_file": "press-austin-monthly.png", "name": "Austin Monthly", "logo_width": 140 } },
+        { "type": "location_card", "settings": { "asset_file": "hht-location-austin.jpg", "image_alt": "Hush Hush Tan Austin", "label": "Austin", "heading": "Austin", "text": "The original Hush Hush Tan flagship serving central Austin.", "button_label": "Visit Austin", "button_link": "/pages/austin" } },
+        { "type": "location_card", "settings": { "asset_file": "hht-location-dallas.jpg", "image_alt": "Hush Hush Tan Dallas", "label": "Dallas", "heading": "Dallas", "text": "A personalized glow experience at The Shops at Highland Park.", "button_label": "Visit Dallas", "button_link": "/pages/dallas" } },
+        { "type": "location_card", "settings": { "asset_file": "hht-location-houston.jpg", "image_alt": "Hush Hush Tan Houston", "label": "Houston", "heading": "Houston", "text": "Customized tanning at M-K-T Heights.", "button_label": "Visit Houston", "button_link": "/pages/houston" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-reception.jpg", "image_alt": "Hush Hush Tan reception", "link": "https://www.instagram.com/hushhushtan/" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-product-shelf.jpg", "image_alt": "Hush Hush Tan product display", "link": "https://www.instagram.com/hushhushtan/" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-team-group-02.jpg", "image_alt": "Hush Hush Tan team together", "link": "https://www.instagram.com/hushhushtan/" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-gal-shared-01.jpg", "image_alt": "Hush Hush Tan studio atmosphere", "link": "https://www.instagram.com/hushhushtan/" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-moment-aftercare.jpg", "image_alt": "Aftercare products and glow moment", "link": "https://www.instagram.com/hushhushtan/" } },
+        { "type": "gallery_image", "settings": { "asset_file": "hht-glow-wall-art.jpg", "image_alt": "Hush Hush Tan studio glow wall art", "link": "https://www.instagram.com/hushhushtan/" } }
+      ]
+    }
+  ]
 }
 {% endschema %}

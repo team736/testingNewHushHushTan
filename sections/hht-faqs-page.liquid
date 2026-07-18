@@ -1,8 +1,254 @@
-{% render 'hht-faqs-page' %}
+{%- comment -%} FAQs page — searchable categorized accordion (editable in the theme customizer) {%- endcomment -%}
+{{ 'hht-supporting.css' | asset_url | stylesheet_tag }}
+
+<div class="hht-sp" id="hht-faqs-page">
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-hero__panel">
+        <div class="hht-sp-hero__body">
+          <span class="hht-sp__eyebrow">{{ section.settings.hero_eyebrow | escape }}</span>
+          <h1 class="hht-sp__h1">{{ section.settings.hero_heading | escape }}</h1>
+          <p class="hht-sp__lead">{{ section.settings.hero_lead | escape }}</p>
+          <div class="hht-sp__ctas">
+            {%- if section.settings.hero_btn1_label != blank %}
+            <a class="btn" href="{{ section.settings.hero_btn1_link }}">{{ section.settings.hero_btn1_label | escape }}</a>
+            {%- endif -%}
+            {%- if section.settings.hero_btn2_label != blank %}
+            <a class="btn btn--outline" href="{{ section.settings.hero_btn2_link }}">{{ section.settings.hero_btn2_label | escape }}</a>
+            {%- endif %}
+          </div>
+        </div>
+        <div class="hht-sp-hero__media">
+          {%- if section.settings.hero_image != blank %}
+          <img src="{{ section.settings.hero_image | image_url: width: 900 }}" alt="{{ section.settings.hero_image_alt | escape }}" width="900" height="1100" loading="eager">
+          {%- else %}
+          <img src="{{ 'hht-glow-wall-2.jpg' | asset_url }}" alt="{{ section.settings.hero_image_alt | escape }}" width="900" height="1100" loading="eager">
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender" id="faq-search">
+    <div class="hht-sp__wrap hht-sp-faqbrowse">
+      <header class="hht-sp-faqbrowse__head">
+        <span class="hht-sp__eyebrow">{{ section.settings.browse_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.browse_heading | escape }}</h2>
+      </header>
+
+      <div class="hht-sp-faqsearch">
+        <label class="hht-sp-faqsearch__label" for="FaqSearchInput">{{ section.settings.search_label | escape }}</label>
+        <div class="hht-sp-faqsearch__field">
+          <input id="FaqSearchInput" type="search" placeholder="{{ section.settings.search_placeholder | escape }}" autocomplete="off" aria-controls="faq-results-region">
+          <button type="button" class="hht-sp-faqsearch__clear" id="FaqSearchClear" hidden>{{ section.settings.clear_label | escape }}</button>
+        </div>
+      </div>
+
+      <nav class="hht-sp-faqcats" aria-label="FAQ categories">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'category' %}
+        <a href="#{{ block.settings.anchor | escape }}">{{ block.settings.title | escape }}</a>
+          {%- endif -%}
+        {%- endfor %}
+      </nav>
+
+      <p class="hht-sp-empty" id="FaqEmpty" role="status">{{ section.settings.empty_message }}</p>
+    </div>
+  </section>
+
+  <section class="hht-sp__section">
+    <div class="hht-sp__wrap" style="max-width:920px;" data-faq-root>
+      {%- assign cat_open = false -%}
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'category' -%}
+          {%- if cat_open %}
+        </div>
+      </div>
+          {%- endif %}
+      <div class="hht-sp-faqcat" id="{{ block.settings.anchor | escape }}" data-faq-cat {{ block.shopify_attributes }}>
+        <h2 class="hht-sp__h2">{{ block.settings.title | escape }}</h2>
+        <div class="hht-sp-acc" data-hht-acc>
+          {%- assign cat_open = true -%}
+        {%- elsif block.type == 'qa' -%}
+          {%- unless cat_open %}
+      <div class="hht-sp-faqcat" data-faq-cat>
+        <div class="hht-sp-acc" data-hht-acc>
+            {%- assign cat_open = true -%}
+          {%- endunless %}
+          <div class="hht-sp-acc__item{% if block.settings.open %} is-open{% endif %}" data-faq-item {{ block.shopify_attributes }}>
+            <button type="button" class="hht-sp-acc__trig" aria-expanded="{% if block.settings.open %}true{% else %}false{% endif %}"><span data-faq-q>{{ block.settings.question | escape }}</span><span class="hht-sp-acc__icon" aria-hidden="true"></span></button>
+            <div class="hht-sp-acc__panel" data-faq-a>{{ block.settings.answer }}</div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if cat_open %}
+        </div>
+      </div>
+      {%- endif %}
+    </div>
+  </section>
+
+  <section class="hht-sp__section hht-sp__section--lavender">
+    <div class="hht-sp__wrap">
+      <div class="hht-sp-cta-center">
+        <span class="hht-sp__eyebrow">{{ section.settings.cta_eyebrow | escape }}</span>
+        <h2 class="hht-sp__h2">{{ section.settings.cta_heading | escape }}</h2>
+        <p class="hht-sp__lead">{{ section.settings.cta_lead | escape }}</p>
+        <div class="hht-sp__ctas">
+          {%- if section.settings.cta_btn1_label != blank %}
+          <a class="btn" href="{{ section.settings.cta_btn1_link }}">{{ section.settings.cta_btn1_label | escape }}</a>
+          {%- endif -%}
+          {%- if section.settings.cta_btn2_label != blank %}
+          <a class="btn btn--outline" href="{{ section.settings.cta_btn2_link }}">{{ section.settings.cta_btn2_label | escape }}</a>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('hht-faqs-page');
+  if (!root) return;
+
+  root.querySelectorAll('[data-hht-acc]').forEach(function (acc) {
+    acc.querySelectorAll('.hht-sp-acc__trig').forEach(function (trig) {
+      trig.addEventListener('click', function () {
+        var item = trig.closest('.hht-sp-acc__item');
+        var open = item.classList.contains('is-open');
+        acc.querySelectorAll('.hht-sp-acc__item').forEach(function (el) {
+          el.classList.remove('is-open');
+          var b = el.querySelector('.hht-sp-acc__trig');
+          if (b) b.setAttribute('aria-expanded', 'false');
+        });
+        if (!open) {
+          item.classList.add('is-open');
+          trig.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+
+  var input = document.getElementById('FaqSearchInput');
+  var clearBtn = document.getElementById('FaqSearchClear');
+  var empty = document.getElementById('FaqEmpty');
+  var items = root.querySelectorAll('[data-faq-item]');
+  var cats = root.querySelectorAll('[data-faq-cat]');
+
+  function runSearch() {
+    var q = (input.value || '').trim().toLowerCase();
+    clearBtn.hidden = !q;
+    var visible = 0;
+    items.forEach(function (item) {
+      var text = ((item.querySelector('[data-faq-q]') || {}).textContent || '') + ' ' + ((item.querySelector('[data-faq-a]') || {}).textContent || '');
+      var match = !q || text.toLowerCase().indexOf(q) !== -1;
+      item.style.display = match ? '' : 'none';
+      if (match) visible += 1;
+    });
+    cats.forEach(function (cat) {
+      var any = false;
+      cat.querySelectorAll('[data-faq-item]').forEach(function (item) {
+        if (item.style.display !== 'none') any = true;
+      });
+      cat.style.display = any ? '' : 'none';
+    });
+    if (empty) empty.classList.toggle('is-visible', q && visible === 0);
+  }
+
+  if (input) {
+    input.addEventListener('input', runSearch);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        input.value = '';
+        runSearch();
+        input.blur();
+      }
+    });
+  }
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      runSearch();
+      input.focus();
+    });
+  }
+})();
+</script>
+
 {% schema %}
 {
-  "name": "FAQs page",
-  "settings": [],
-  "presets": [{ "name": "FAQs page" }]
+  "name": "FAQs Page",
+  "settings": [
+    { "type": "header", "content": "Hero" },
+    { "type": "text", "id": "hero_eyebrow", "label": "Eyebrow", "default": "Help Center" },
+    { "type": "text", "id": "hero_heading", "label": "Heading", "default": "Frequently Asked Questions" },
+    { "type": "textarea", "id": "hero_lead", "label": "Lead paragraph", "default": "Find answers about preparation, appointment timing, aftercare, tanning results, memberships, and studio policies." },
+    { "type": "text", "id": "hero_btn1_label", "label": "Primary button label", "default": "Search Questions" },
+    { "type": "text", "id": "hero_btn1_link", "label": "Primary button link", "default": "#faq-search" },
+    { "type": "text", "id": "hero_btn2_label", "label": "Secondary button label", "default": "Contact Us" },
+    { "type": "text", "id": "hero_btn2_link", "label": "Secondary button link", "default": "/pages/contact" },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero image", "info": "If no image is selected, the built-in studio glow wall photo is used." },
+    { "type": "text", "id": "hero_image_alt", "label": "Hero image alt text", "default": "Hush Hush Tan studio glow wall" },
+    { "type": "header", "content": "Search and browse" },
+    { "type": "text", "id": "browse_eyebrow", "label": "Eyebrow", "default": "Browse" },
+    { "type": "text", "id": "browse_heading", "label": "Heading", "default": "Search or Jump to a Topic" },
+    { "type": "text", "id": "search_label", "label": "Search field label", "default": "Search FAQs" },
+    { "type": "text", "id": "search_placeholder", "label": "Search placeholder", "default": "Search questions…" },
+    { "type": "text", "id": "clear_label", "label": "Clear button label", "default": "Clear" },
+    { "type": "html", "id": "empty_message", "label": "No-results message", "default": "No questions match your search. Try another keyword or <a href=\"/pages/contact\">contact us</a>." },
+    { "type": "header", "content": "Bottom call to action" },
+    { "type": "text", "id": "cta_eyebrow", "label": "Eyebrow", "default": "Still Have Questions?" },
+    { "type": "text", "id": "cta_heading", "label": "Heading", "default": "Our Team Is Ready to Help" },
+    { "type": "textarea", "id": "cta_lead", "label": "Lead paragraph", "default": "Contact your preferred Hush Hush Tan studio or send our support team a message." },
+    { "type": "text", "id": "cta_btn1_label", "label": "Primary button label", "default": "Contact Us" },
+    { "type": "text", "id": "cta_btn1_link", "label": "Primary button link", "default": "/pages/contact" },
+    { "type": "text", "id": "cta_btn2_label", "label": "Secondary button label", "default": "Book a Service" },
+    { "type": "text", "id": "cta_btn2_link", "label": "Secondary button link", "default": "/pages/locations" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category header",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Category title", "default": "Category name" },
+        { "type": "text", "id": "anchor", "label": "Anchor ID", "default": "faq-topic", "info": "Unique ID used by the topic navigation jump links. Use lowercase letters and hyphens only." }
+      ]
+    },
+    {
+      "type": "qa",
+      "name": "Question & answer",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Question" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer</p>" },
+        { "type": "checkbox", "id": "open", "label": "Open by default", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQs Page",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Before Your Appointment", "anchor": "faq-before" } },
+        { "type": "qa", "settings": { "question": "How should I prepare for my airbrush-tanning session?", "answer": "<p>Shower, shave, and exfoliate before your appointment. Complete workouts, hair appointments, and spa treatments beforehand. After showering, avoid applying moisturizer, makeup, deodorant, perfume, or body oils unless the studio has given different instructions. Arrive with clean, dry skin and bring loose, dark clothing to wear afterward. More tips live on our <a href=\"/pages/tanning-tips\">Tanning Tips</a> page.</p>", "open": true } },
+        { "type": "qa", "settings": { "question": "How long does the appointment take?", "answer": "<p>The spray application itself typically takes only several minutes. Allow additional time for consultation, changing, and drying. Appointment duration may vary by service and client. Browse current services on <a href=\"/pages/our-services\">Our Services</a>.</p>" } },
+        { "type": "category", "settings": { "title": "After Your Appointment", "anchor": "faq-after" } },
+        { "type": "qa", "settings": { "question": "What should I expect after my appointment?", "answer": "<p>Your skin may feel slightly damp immediately after the application. Stay dry and avoid unnecessary skin contact while the solution develops. Your color will gradually deepen during the development period. Follow the rinse timing provided by your artist because the timing may differ by service.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I care for my spray tan?", "answer": "<p>Remain dry until your recommended rinse time and avoid sweating, swimming, or getting wet. After rinsing, take short, warm showers and use a gentle, tan-friendly cleanser. Pat the skin dry rather than rubbing and moisturize regularly. Avoid aggressive exfoliation, long hot baths, pools, and hot tubs when possible because they may cause faster fading. Shop aftercare on <a href=\"/collections/tanning-products\">Tanning Products</a>.</p>" } },
+        { "type": "category", "settings": { "title": "Results & Aftercare", "anchor": "faq-results" } },
+        { "type": "qa", "settings": { "question": "How long will my tan last?", "answer": "<p>A professionally applied airbrush tan commonly lasts approximately seven to ten days. Results vary based on skin preparation, aftercare, shower temperature, exfoliation, swimming, and general skincare. Short, warm showers and regular moisturizing with tan-friendly products can help support a more even, longer-lasting fade.</p>" } },
+        { "type": "qa", "settings": { "question": "How does spray tanning work?", "answer": "<p>Most sunless-tanning solutions use dihydroxyacetone, commonly called DHA. DHA reacts with amino acids in the outermost layer of the skin to create temporary color. The result gradually fades as the skin naturally exfoliates.</p>" } },
+        { "type": "category", "settings": { "title": "Process & Safety", "anchor": "faq-safety" } },
+        { "type": "qa", "settings": { "question": "What should I know about spray-tan safety?", "answer": "<p>Sunless tanning provides color without using ultraviolet tanning beds or sunbathing. DHA is permitted for external application in sunless-tanning products. During spray application, follow the studio’s protection instructions and avoid inhaling or ingesting the mist or exposing the eyes, lips, and mucous membranes. Anyone who is pregnant, nursing, highly sensitive, or concerned about a medical condition should consult a qualified healthcare professional before booking.</p>" } },
+        { "type": "qa", "settings": { "question": "Will the solution stain my hair?", "answer": "<p>Most clients do not notice a lasting effect on their hair. Very light blonde, gray, white, or platinum hair may temporarily pick up some cosmetic bronzer, but it should wash out during the first shower. Complimentary hair caps may be available.</p>" } },
+        { "type": "category", "settings": { "title": "Clothing & Accessories", "anchor": "faq-clothing" } },
+        { "type": "qa", "settings": { "question": "What should I wear during my airbrush-tanning session?", "answer": "<p>Clients must wear an appropriate bottom covering during the appointment. Complimentary disposable options may be available, and additional garments may be available for purchase in the studio. Men are required to wear boxers, briefs, or another appropriate bottom covering. Contact your <a href=\"/pages/contact\">selected studio</a> if you have questions about available options.</p>" } },
+        { "type": "category", "settings": { "title": "Memberships", "anchor": "faq-memberships" } },
+        { "type": "qa", "settings": { "question": "Can my membership be frozen?", "answer": "<p>Current memberships may be frozen for a $10 monthly fee. Contact <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a> to confirm the current policy and request a freeze. Compare membership options on <a href=\"/pages/our-services\">Our Services</a>.</p>" } },
+        { "type": "qa", "settings": { "question": "How do I cancel my membership?", "answer": "<p>A 30-day written notice is currently required by email. Send cancellation requests to <a href=\"mailto:contact@hushhushtan.com\">contact@hushhushtan.com</a>. A membership freeze may also be available for a $10 monthly fee—confirm against your membership agreement.</p>" } },
+        { "type": "qa", "settings": { "question": "Do unused membership tans roll over?", "answer": "<p>No. Unused membership tans currently do not roll over to the following month. Confirm details against your current membership terms if needed.</p>" } }
+      ]
+    }
+  ]
 }
 {% endschema %}
