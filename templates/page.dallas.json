@@ -517,57 +517,87 @@
     "social": {
       "type": "social-feed",
       "blocks": {
-        "p1": {
+        "s1": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-01.jpg",
+            "alt": "Hush Hush Tan wellness glow",
+            "link": "https://www.instagram.com/p/DaODahCijaU/"
           }
         },
-        "p2": {
+        "s2": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-02.jpg",
+            "alt": "Hush Hush Tan Empire State glow",
+            "link": "https://www.instagram.com/p/DaTcqvWnJDw/"
           }
         },
-        "p3": {
+        "s3": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-03.jpg",
+            "alt": "Hush Hush Tan bridal glow",
+            "link": "https://www.instagram.com/p/DNmPsjyMr6u/"
           }
         },
-        "p4": {
+        "s4": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-04.jpg",
+            "alt": "Hush Hush Tan team",
+            "link": "https://www.instagram.com/p/Dala5EfnEuO/"
           }
         },
-        "p5": {
+        "s5": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-05.jpg",
+            "alt": "Hush Hush Tan wellness event",
+            "link": "https://www.instagram.com/p/DZDyuJfpBWz/"
           }
         },
-        "p6": {
+        "s6": {
           "type": "post",
           "settings": {
-            "link": "https://www.instagram.com/hushhushtan/"
+            "image_fallback": "hht-ig-post-06.jpg",
+            "alt": "Hush Hush Tan client glow",
+            "link": "https://www.instagram.com/p/DZsj73qHJep/"
+          }
+        },
+        "s7": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "hht-ig-post-07.jpg",
+            "alt": "Hush Hush Tan Glow and Sculpt",
+            "link": "https://www.instagram.com/p/DYxfka4HDdj/"
+          }
+        },
+        "s8": {
+          "type": "post",
+          "settings": {
+            "image_fallback": "hht-ig-post-08.jpg",
+            "alt": "Hush Hush Tan brand ambassador",
+            "link": "https://www.instagram.com/p/DYQyHfJpI6T/"
           }
         }
       },
       "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4",
-        "p5",
-        "p6"
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8"
       ],
       "settings": {
-        "eyebrow": "@HushHushTan",
+        "eyebrow": "",
         "heading": "Follow the Glow",
-        "handle": "@hushhushtan",
+        "handle": "",
         "profile_url": "https://www.instagram.com/hushhushtan/",
-        "cta_text": "FOLLOW ON INSTAGRAM"
+        "cta_text": "Follow Us on Instagram"
       }
     },
     "final": {

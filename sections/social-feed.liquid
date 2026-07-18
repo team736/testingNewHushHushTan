@@ -1,30 +1,28 @@
 {%- liquid
-  assign fallbacks = 'hht-moment-group.jpg,hht-moment-prep.jpg,hht-glow-editorial.jpg,hht-moment-aftercare.jpg,hht-reception.jpg,hht-glow-wall-art.jpg,hht-gal-austin-01.jpg,hht-gal-dallas-01.jpg,hht-gal-houston-01.jpg,hht-gal-shared-01.jpg,hht-gal-austin-02.jpg,hht-gal-dallas-02.jpg' | split: ','
+  assign fallbacks = 'hht-ig-post-01.jpg,hht-ig-post-02.jpg,hht-ig-post-03.jpg,hht-ig-post-04.jpg,hht-ig-post-05.jpg,hht-ig-post-06.jpg,hht-ig-post-07.jpg,hht-ig-post-08.jpg' | split: ','
   assign profile_url = section.settings.profile_url | default: 'https://www.instagram.com/hushhushtan/'
 -%}
 
-<section class="section section-compact hht-social" aria-label="{{ section.settings.heading | escape }}">
+<section class="section section-compact hht-social" aria-label="{{ section.settings.heading | default: 'Follow the Glow' | escape }}">
   <div class="container container--home">
     <div class="section-head">
-      {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
-      {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
-      {%- if section.settings.handle != blank -%}
-        <p class="section-head__sub">
-          <a href="{{ profile_url }}" class="hht-social__handle" target="_blank" rel="noopener noreferrer" aria-label="View Hush Hush Tan on Instagram">{{ section.settings.handle }}</a>
-        </p>
+      {%- if section.settings.heading != blank -%}
+        <h2 class="mb-0">
+          <a href="{{ profile_url }}" class="hht-social__heading-link" target="_blank" rel="noopener noreferrer">{{ section.settings.heading }}</a>
+        </h2>
       {%- endif -%}
     </div>
 
     <div class="hht-social__grid">
       {%- for block in section.blocks -%}
         {%- liquid
-          assign fb = block.settings.image_fallback | default: fallbacks[forloop.index0] | default: 'hht-glow-wall.jpg'
+          assign fb = block.settings.image_fallback | default: fallbacks[forloop.index0] | default: 'hht-ig-post-01.jpg'
           assign link = block.settings.link | default: profile_url
-          assign alt = block.settings.alt | default: 'Hush Hush Tan studio moment'
+          assign alt = block.settings.alt | default: 'Hush Hush Tan on Instagram'
         -%}
-        <a class="hht-social__tile" href="{{ link }}" target="_blank" rel="noopener noreferrer" {{ block.shopify_attributes }} aria-label="View Hush Hush Tan on Instagram">
+        <a class="hht-social__tile" href="{{ link }}" target="_blank" rel="noopener noreferrer" {{ block.shopify_attributes }} aria-label="{{ alt | escape }}">
           {%- if block.settings.image != blank -%}
-            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
+            <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
           {%- else -%}
             <img src="{{ fb | asset_url }}" alt="{{ alt | escape }}" width="480" height="600" loading="lazy">
           {%- endif -%}
@@ -37,7 +35,7 @@
 
     {%- if section.settings.cta_text != blank and profile_url != blank -%}
       <div class="hht-social__cta">
-        <a href="{{ profile_url }}" class="btn btn--pill btn--outline" target="_blank" rel="noopener noreferrer" aria-label="View Hush Hush Tan on Instagram">{{ section.settings.cta_text }}</a>
+        <a href="{{ profile_url }}" class="btn btn--pill btn--outline" target="_blank" rel="noopener noreferrer">{{ section.settings.cta_text }}</a>
       </div>
     {%- endif -%}
   </div>
@@ -47,11 +45,11 @@
 {
   "name": "Social media feed",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "@HushHushTan" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Follow The Glow" },
-    { "type": "text", "id": "handle", "label": "Handle text", "default": "@hushhushtan" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Follow the Glow" },
     { "type": "url", "id": "profile_url", "label": "Instagram profile URL", "default": "https://www.instagram.com/hushhushtan/" },
-    { "type": "text", "id": "cta_text", "label": "Button text", "default": "Follow Us on Instagram" }
+    { "type": "text", "id": "cta_text", "label": "Button text", "default": "Follow Us on Instagram" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow (unused)", "info": "Left for older templates; not displayed." },
+    { "type": "text", "id": "handle", "label": "Handle (unused)", "info": "Left for older templates; not displayed." }
   ],
   "blocks": [
     {
@@ -69,9 +67,14 @@
   "presets": [{
     "name": "Social media feed",
     "blocks": [
-      { "type": "post" }, { "type": "post" }, { "type": "post" },
-      { "type": "post" }, { "type": "post" }, { "type": "post" },
-      { "type": "post" }, { "type": "post" }
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-01.jpg", "link": "https://www.instagram.com/p/DaODahCijaU/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-02.jpg", "link": "https://www.instagram.com/p/DaTcqvWnJDw/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-03.jpg", "link": "https://www.instagram.com/p/DNmPsjyMr6u/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-04.jpg", "link": "https://www.instagram.com/p/Dala5EfnEuO/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-05.jpg", "link": "https://www.instagram.com/p/DZDyuJfpBWz/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-06.jpg", "link": "https://www.instagram.com/p/DZsj73qHJep/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-07.jpg", "link": "https://www.instagram.com/p/DYxfka4HDdj/" } },
+      { "type": "post", "settings": { "image_fallback": "hht-ig-post-08.jpg", "link": "https://www.instagram.com/p/DYQyHfJpI6T/" } }
     ]
   }]
 }
