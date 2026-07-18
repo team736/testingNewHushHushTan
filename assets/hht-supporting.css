@@ -98,11 +98,12 @@
   justify-content: center;
 }
 
-/* Hero panel */
+/* Hero panel — text column sets height; image fills and crops to match */
 .hht-sp .hht-sp-hero__panel {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 0;
+  align-items: stretch;
   background: #fff;
   border: 1px solid var(--sp-border);
   border-radius: 28px;
@@ -118,16 +119,20 @@
 }
 
 .hht-sp .hht-sp-hero__media {
-  min-height: 320px;
+  position: relative;
+  min-height: 0;
   background: var(--sp-lavender);
+  overflow: hidden;
 }
 
 .hht-sp .hht-sp-hero__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
-  min-height: 320px;
 }
 
 /* City tabs */
@@ -726,27 +731,31 @@
   opacity: 0.85;
 }
 
-/* Split editorial */
+/* Split editorial — text sets height; image fills beside it */
 .hht-sp .hht-sp-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(20px, 4vw, 48px);
-  align-items: center;
+  align-items: stretch;
 }
 
 .hht-sp .hht-sp-split__media {
+  position: relative;
   border-radius: 22px;
   overflow: hidden;
-  min-height: 280px;
+  min-height: 0;
   background: var(--sp-lavender);
+  align-self: stretch;
 }
 
 .hht-sp .hht-sp-split__media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
-  min-height: 280px;
 }
 
 /* Final CTA — simple centered block (avoids flex width quirks) */
@@ -854,13 +863,21 @@
     grid-template-columns: 1fr;
   }
 
-  .hht-sp .hht-sp-hero__media { order: -1; }
-  .hht-sp .hht-sp-hero__media img { min-height: 240px; }
+  .hht-sp .hht-sp-hero__media {
+    order: -1;
+    aspect-ratio: 16 / 10;
+    min-height: 200px;
+  }
 
   .hht-sp .hht-sp-grid--3,
   .hht-sp .hht-sp-reviews,
   .hht-sp .hht-sp-split {
     grid-template-columns: 1fr;
+  }
+
+  .hht-sp .hht-sp-split__media {
+    aspect-ratio: 16 / 10;
+    min-height: 200px;
   }
 
   .hht-sp .hht-sp-gallery {
