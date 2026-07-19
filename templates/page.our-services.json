@@ -243,7 +243,7 @@
             "price_loc3": "39",
             "price_sub": "per month",
             "description": "",
-            "benefits": "35% off all tans, 15% off all products, Cancel anytime",
+            "benefits": "35% off all tans, 15% off all products, Cancel with 30-day notice",
             "target_location": "all",
             "button_text": "Join Now",
             "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145917?campaign=hush_hush_tan_website_1&source=web_direct",
@@ -265,7 +265,7 @@
             "price_loc3": "50",
             "price_sub": "per month",
             "description": "",
-            "benefits": "One complimentary tan per month, 25% off additional tans, 15% off all products, Cancel anytime",
+            "benefits": "One complimentary tan per month, 25% off additional tans, 15% off all products, Cancel with 30-day notice",
             "target_location": "all",
             "button_text": "Join Now",
             "link_loc1": "https://go.booker.com/location/hushhushtan/buy/membership/145919?campaign=hush_hush_tan_website_1&source=web_direct",
@@ -634,9 +634,9 @@
           "settings": {
             "title": "C-String Undies",
             "price_prefix": "",
-            "price_loc1": "$2 per pair",
-            "price_loc2": "$2 per pair",
-            "price_loc3": "$2 per pair",
+            "price_loc1": "$6 per pair",
+            "price_loc2": "$6 per pair",
+            "price_loc3": "$6 per pair",
             "description": "Available for purchase in studio.",
             "button_text": "",
             "target_location": "all"
@@ -788,7 +788,7 @@
           "type": "qa",
           "settings": {
             "question": "How do Glow Pass and Glow Club work?",
-            "answer": "<p>Glow Pass includes discounts on tans and products with cancel-anytime flexibility. Glow Club includes one complimentary tan per month plus additional discounts. See membership details above for the benefits at your selected studio.</p>"
+            "answer": "<p>Glow Pass includes discounts on tans and products. Glow Club includes one complimentary tan per month plus additional discounts. See membership details above for the benefits at your selected studio.</p>"
           }
         },
         "qa_svc_06": {
