@@ -355,7 +355,7 @@
             "image_fallback": "",
             "address": "1211 West 6th St, Suite #400, Austin, TX 78703",
             "phone": "512-482-8339",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtan/service-menu",
             "book_label": "Book Appointment",
             "map_url": "",
@@ -372,7 +372,7 @@
             "image_fallback": "",
             "address": "4254 Oak Lawn Avenue, Dallas, TX 75219",
             "phone": "469-868-6228",
-            "hours": "Mon 10–5 · Tue–Fri 9–9 · Sat–Sun 10–5",
+            "hours": "Mon 10–5 · Tue, Fri 9–9 · Wed–Thu 9–10 · Sat–Sun 10–5",
             "book_url": "https://go.booker.com/location/hushhushtandallas/service-menu",
             "book_label": "Book Appointment",
             "map_url": "",
@@ -486,7 +486,7 @@
           "type": "qa",
           "settings": {
             "question": "What do I wear for my session?",
-            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($2/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
+            "answer": "<p>For women, a bottom covering is required. We offer complimentary disposable undies, plus C-string no-show undies for sale ($6/pair). For men, we require a bottom covering such as boxers or briefs — disposable boxers are available for $3/pair.</p>"
           }
         },
         "qa_RYBLhG": {
